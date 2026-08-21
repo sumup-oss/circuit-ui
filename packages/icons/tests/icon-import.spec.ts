@@ -19,9 +19,10 @@ import {
   DEFAULT_FIGMA_FILE_KEY,
   DEFAULT_FIGMA_NODE_ID,
   DEFAULT_FIGMA_URL,
+  type ManifestIcon,
   type SyncCandidate,
   buildChangeset,
-  buildLock,
+  applyCurrentColor,
   classifyCandidate,
   iconFileName,
   inferCategory,
@@ -31,7 +32,6 @@ import {
   parseSizeFromName,
   resolvePublishedIcon,
   selectSyncTargets,
-  sortManifestIcons,
   toComponentName,
   toSnakeName,
   upsertManifestIcon,
@@ -91,6 +91,14 @@ describe('lintImportedSvg', () => {
     expect(lintImportedSvg(good, { size: '24' })).toEqual([]);
   });
 
+  it('rewrites hardcoded ink to currentColor and leaves white alone', () => {
+    const ink = `<svg width="24" height="24" viewBox="0 0 24 24"><path fill="#1E1C1C" d="M0 0h24v24H0z"/><path fill="#fff" d="M8 8h8v8H8z"/></svg>`;
+    const converted = applyCurrentColor(ink);
+    expect(converted).toContain('fill="currentColor"');
+    expect(converted).toContain('fill="#fff"');
+    expect(lintImportedSvg(converted, { size: '24' })).toEqual([]);
+  });
+
   it('rejects clip-path and off-size viewBoxes', () => {
     const bad = `<svg width="32" height="25" viewBox="0 0 32 25"><g clip-path="url(#clip0)"><path fill="#007858" d="M0 0h32v25H0z"/></g></svg>`;
     const issues = lintImportedSvg(bad, { size: '32' });
@@ -108,15 +116,61 @@ describe('lintImportedSvg', () => {
 });
 
 describe('manifest helpers', () => {
-  it('sorts by category, name, then size descending', () => {
-    const sorted = sortManifestIcons([
-      { name: 'add', category: 'Action', size: '16' },
-      { name: 'add', category: 'Action', size: '24' },
-      { name: 'visa', category: 'Card scheme', size: '32' },
+  it('inserts a new size next to its siblings', () => {
+    const next = upsertManifestIcon(
+      [
+        { name: 'arrow_down', category: 'Navigation', size: '24' },
+        { name: 'arrow_left', category: 'Navigation', size: '24' },
+      ],
+      { name: 'arrow_down', category: 'Navigation', size: '16' },
+    );
+    expect(next.map((icon) => `${icon.name}:${icon.size}`)).toEqual([
+      'arrow_down:24',
+      'arrow_down:16',
+      'arrow_left:24',
     ]);
-    expect(
-      sorted.map((icon) => `${icon.category}:${icon.name}:${icon.size}`),
-    ).toEqual(['Action:add:24', 'Action:add:16', 'Card scheme:visa:32']);
+  });
+
+  it('keeps the existing order of unrelated entries', () => {
+    const icons: ManifestIcon[] = [
+      { name: 'zoom', category: 'Miscellaneous', size: '24' },
+      { name: 'checkmark', category: 'Filled', size: '24' },
+      { name: 'alert', category: 'Miscellaneous', size: '24' },
+    ];
+    const next = upsertManifestIcon(icons, {
+      name: 'bell',
+      category: 'Miscellaneous',
+      size: '24',
+    });
+    expect(next.map((icon) => icon.name)).toEqual([
+      'zoom',
+      'checkmark',
+      'alert',
+      'bell',
+    ]);
+  });
+
+  it('does not place an icon next to a same-named icon in another category', () => {
+    const next = upsertManifestIcon(
+      [
+        { name: 'visa', category: 'Card scheme', size: '24' },
+        { name: 'ideal', category: 'Payment method', size: '24' },
+      ],
+      { name: 'visa', category: 'Payment method', size: '24' },
+    );
+    expect(next.map((icon) => `${icon.category}:${icon.name}`)).toEqual([
+      'Card scheme:visa',
+      'Payment method:ideal',
+      'Payment method:visa',
+    ]);
+  });
+
+  it('appends an icon whose category is not in the manifest yet', () => {
+    const next = upsertManifestIcon(
+      [{ name: 'add', category: 'Action', size: '24' }],
+      { name: 'wheat', category: 'Allergen', size: '24' },
+    );
+    expect(next.map((icon) => icon.name)).toEqual(['add', 'wheat']);
   });
 
   it('upserts without dropping existing metadata', () => {
@@ -127,13 +181,16 @@ describe('manifest helpers', () => {
           category: 'Action',
           size: '24',
           deprecation: 'Use Plus',
+          keywords: ['plus'],
         },
       ],
-      { name: 'add', category: 'Navigation', size: '24' },
+      { name: 'add', category: 'Action', size: '24' },
     );
+    expect(next).toHaveLength(1);
     expect(next[0]).toMatchObject({
-      category: 'Navigation',
+      category: 'Action',
       deprecation: 'Use Plus',
+      keywords: ['plus'],
     });
   });
 });
@@ -142,12 +199,10 @@ describe('library sync', () => {
   const candidate = (
     name: string,
     size: '16' | '24' | '32',
-    updatedAt?: string,
   ): SyncCandidate => ({
     nodeId: `1:${name.length}${size}`,
     name,
     size,
-    updatedAt,
     category: 'Action',
   });
 
@@ -159,35 +214,12 @@ describe('library sync', () => {
     ).toBe('new');
   });
 
-  it('does not re-import existing icons that are absent from the lock file', () => {
+  it('treats an SVG that is already on disk as existing', () => {
     expect(
-      classifyCandidate(candidate('add', '24', '2026-01-01T00:00:00Z'), {
+      classifyCandidate(candidate('add', '24'), {
         existing: new Set(['add_24.svg']),
       }),
-    ).toBe('unchanged');
-  });
-
-  it('detects an icon edited in Figma since the last import', () => {
-    const options = {
-      existing: new Set(['add_24.svg']),
-      lock: {
-        fileKey: DEFAULT_FIGMA_FILE_KEY,
-        icons: { add_24: { nodeId: '1:1', updatedAt: '2026-01-01T00:00:00Z' } },
-      },
-    };
-
-    expect(
-      classifyCandidate(
-        candidate('add', '24', '2026-01-01T00:00:00Z'),
-        options,
-      ),
-    ).toBe('unchanged');
-    expect(
-      classifyCandidate(
-        candidate('add', '24', '2026-06-01T00:00:00Z'),
-        options,
-      ),
-    ).toBe('changed');
+    ).toBe('existing');
   });
 
   it('skips icons that were deprecated in the manifest', () => {
@@ -201,16 +233,12 @@ describe('library sync', () => {
 
   it('selects only new icons by default and honours the limit', () => {
     const candidates = [
-      candidate('add', '24', '2026-06-01T00:00:00Z'),
+      candidate('add', '24'),
       candidate('sparkles', '24'),
       candidate('wallet', '16'),
     ];
     const options = {
       existing: new Set(['add_24.svg']),
-      lock: {
-        fileKey: DEFAULT_FIGMA_FILE_KEY,
-        icons: { add_24: { nodeId: '1:1', updatedAt: '2026-01-01T00:00:00Z' } },
-      },
     };
 
     const newOnly = selectSyncTargets(candidates, {
@@ -221,30 +249,15 @@ describe('library sync', () => {
       'sparkles',
       'wallet',
     ]);
-    expect(newOnly.counts).toMatchObject({ new: 2, changed: 1 });
+    expect(newOnly.counts).toMatchObject({ new: 2, existing: 1 });
 
-    const withChanged = selectSyncTargets(candidates, {
+    const all = selectSyncTargets(candidates, {
       ...options,
-      include: 'changed',
+      include: 'all',
       limit: 2,
     });
-    expect(withChanged.targets).toHaveLength(2);
-    expect(withChanged.truncated).toBe(true);
-  });
-
-  it('seeds the lock file from icons that exist on disk', () => {
-    const lock = buildLock(
-      DEFAULT_FIGMA_FILE_KEY,
-      [
-        candidate('add', '24', '2026-01-01T00:00:00Z'),
-        candidate('sparkles', '24', '2026-02-01T00:00:00Z'),
-      ],
-      new Set(['add_24.svg']),
-    );
-
-    expect(lock.fileKey).toBe(DEFAULT_FIGMA_FILE_KEY);
-    expect(Object.keys(lock.icons)).toEqual(['add_24']);
-    expect(lock.icons.add_24.updatedAt).toBe('2026-01-01T00:00:00Z');
+    expect(all.targets).toHaveLength(2);
+    expect(all.truncated).toBe(true);
   });
 });
 
@@ -290,5 +303,28 @@ describe('misc', () => {
   it('infers a known category', () => {
     expect(inferCategory('action')).toBe('Action');
     expect(inferCategory('Unknown')).toBeUndefined();
+  });
+
+  it('infers a category from loose Figma frame names', () => {
+    expect(inferCategory('Card schemes')).toBe('Card scheme');
+    expect(inferCategory('Product & feature')).toBe('Product and feature');
+    expect(inferCategory('Social  Media')).toBe('Social media');
+  });
+
+  it('infers a category from a nested frame name', () => {
+    expect(inferCategory('Icons / Country flags')).toBe('Country flag');
+  });
+
+  it('prefers the closest ancestor', () => {
+    expect(inferCategory('Navigation', 'Icons', 'Action')).toBe('Navigation');
+  });
+
+  it('skips ancestors that name no category', () => {
+    expect(inferCategory('24px', 'Deprecated', 'Security')).toBe('Security');
+  });
+
+  it('does not confuse country flags with flags', () => {
+    expect(inferCategory('Country flag')).toBe('Country flag');
+    expect(inferCategory('Flags')).toBe('Flag');
   });
 });

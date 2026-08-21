@@ -25,26 +25,24 @@ import { CATEGORIES, ICON_DIR } from '../constants.js';
 import manifest from '../manifest.json' with { type: 'json' };
 
 import {
+  COLOR_PRESERVING_CATEGORIES,
   DEFAULT_FIGMA_FILE_KEY,
   DEFAULT_FIGMA_NODE_ID,
   DEFAULT_FIGMA_URL,
   ICON_SIZES,
   type IconChangeset,
-  type IconLock,
   type IconSize,
   type ImportedIcon,
-  LOCK_FILE_NAME,
   type ManifestIcon,
   type SyncCandidate,
+  applyCurrentColor,
   buildChangeset,
-  buildLock,
   buildPullRequestBody,
-  emptyLock,
   iconFileName,
+  iconKey,
   inferCategory,
   isOnPixelGrid,
   lintImportedSvg,
-  lockKey,
   parseFigmaUrl,
   parseSizeFromName,
   resolvePublishedIcon,
@@ -61,12 +59,12 @@ const REPO_ROOT = path.resolve(
   '../../..',
 );
 const SVGO_BIN = path.join(REPO_ROOT, 'node_modules/svgo/bin/svgo.js');
+const BIOME_BIN = path.join(REPO_ROOT, 'node_modules/.bin/biome');
 const SVGO_CONFIG = path.join(REPO_ROOT, 'svgo.config.js');
 const CHANGESET_DIR = path.join(REPO_ROOT, '.changeset');
 const IMPORT_GIT_PATHS = [
   'packages/icons/web/v2',
   'packages/icons/manifest.json',
-  `packages/icons/${LOCK_FILE_NAME}`,
 ];
 
 type CliOptions = {
@@ -85,19 +83,6 @@ type CliOptions = {
   pr: boolean;
   force: boolean;
   help: boolean;
-};
-
-type FigmaContainingFrame = {
-  name?: string;
-  pageName?: string;
-  containingStateGroup?: { name?: string; nodeId?: string };
-};
-
-type FigmaPublishedComponent = {
-  node_id: string;
-  name: string;
-  updated_at?: string;
-  containing_frame?: FigmaContainingFrame;
 };
 
 type FigmaNode = {
@@ -119,7 +104,7 @@ type ImportTarget = {
 
 const USAGE = `Import icons from Circuit UI Foundation into packages/icons/web/v2.
 
-Requires FIGMA_ACCESS_TOKEN with access to:
+Requires FIGMA_ACCESS_TOKEN with the file_content:read scope and access to:
   ${DEFAULT_FIGMA_URL}
 
 Usage:
@@ -132,7 +117,7 @@ Options:
   --url             Override the icon library node (defaults to Circuit UI Foundation icons)
   --name            Repo icon name, e.g. add_items
   --sync            Diff that Figma node against the repo and import only what is missing
-  --include         With --sync: new (default), changed (new + edited), or all
+  --include         With --sync: new (default) or all (re-import existing SVGs too)
   --limit           With --sync: import at most N icons in this run
   --list            With --sync: print the diff without exporting anything
   --sizes           Comma-separated sizes (16,24,32). Default: every matching size
@@ -146,8 +131,6 @@ Options:
   -h, --help        Show this help
 
 --sync only looks at the icons node in Circuit UI Foundation, not the rest of that file.
-It tracks the last imported Figma revision in packages/icons/${LOCK_FILE_NAME}.
-The first run only seeds that file; later runs can detect edited icons via --include changed.
 `;
 
 function getAccessToken(): string {
@@ -169,16 +152,6 @@ async function figmaGet<T>(token: string, resourcePath: string): Promise<T> {
     throw new Error(`Figma API ${response.status} ${resourcePath}: ${body}`);
   }
   return JSON.parse(body) as T;
-}
-
-function asComponentList(value: unknown): FigmaPublishedComponent[] {
-  if (Array.isArray(value)) {
-    return value as FigmaPublishedComponent[];
-  }
-  if (value && typeof value === 'object') {
-    return Object.values(value) as FigmaPublishedComponent[];
-  }
-  return [];
 }
 
 function parseSizes(raw?: string): IconSize[] | undefined {
@@ -233,20 +206,32 @@ function sizeFromNode(node: FigmaNode): IconSize | undefined {
   return undefined;
 }
 
+type ExportNode = {
+  node: FigmaNode;
+  componentSetName?: string;
+  /** Enclosing section/frame names, closest ancestor first. */
+  ancestors: string[];
+};
+
 function collectExportNodes(
   node: FigmaNode,
   componentSetName?: string,
-): Array<{ node: FigmaNode; componentSetName?: string }> {
+  ancestors: string[] = [],
+): ExportNode[] {
   if (node.type === 'COMPONENT_SET') {
     return (node.children ?? [])
       .filter((child) => child.type === 'COMPONENT')
-      .map((child) => ({ node: child, componentSetName: node.name }));
+      .map((child) => ({
+        node: child,
+        componentSetName: node.name,
+        ancestors,
+      }));
   }
   if (node.type === 'COMPONENT' || node.type === 'INSTANCE') {
-    return [{ node, componentSetName }];
+    return [{ node, componentSetName, ancestors }];
   }
   return (node.children ?? []).flatMap((child) =>
-    collectExportNodes(child, componentSetName),
+    collectExportNodes(child, componentSetName, [node.name, ...ancestors]),
   );
 }
 
@@ -264,6 +249,9 @@ async function fetchNodes(
 ): Promise<Map<string, FigmaNode>> {
   const nodes = new Map<string, FigmaNode>();
 
+  // The batches are requested one after the other to stay well within Figma's
+  // rate limit; a library sync can span hundreds of nodes.
+  /* eslint-disable no-await-in-loop */
   for (let index = 0; index < nodeIds.length; index += IMAGE_BATCH_SIZE) {
     const batch = nodeIds.slice(index, index + IMAGE_BATCH_SIZE);
     const data = await figmaGet<{
@@ -279,6 +267,7 @@ async function fetchNodes(
       }
     }
   }
+  /* eslint-enable no-await-in-loop */
 
   return nodes;
 }
@@ -290,6 +279,9 @@ async function fetchSvgMap(
 ): Promise<Map<string, string>> {
   const svgs = new Map<string, string>();
 
+  // Sequential for the same reason as fetchNodes: the export endpoint and the
+  // S3 downloads are rate limited per file.
+  /* eslint-disable no-await-in-loop */
   for (let index = 0; index < nodeIds.length; index += IMAGE_BATCH_SIZE) {
     const batch = nodeIds.slice(index, index + IMAGE_BATCH_SIZE);
     const data = await figmaGet<{
@@ -317,11 +309,16 @@ async function fetchSvgMap(
       svgs.set(id, await response.text());
     }
   }
+  /* eslint-enable no-await-in-loop */
 
   return svgs;
 }
 
-async function optimizeSvg(svg: string, fileName: string): Promise<string> {
+async function optimizeSvg(
+  svg: string,
+  fileName: string,
+  category?: (typeof CATEGORIES)[number],
+): Promise<string> {
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'circuit-icon-import-'));
   const filePath = path.join(dir, fileName);
   await fs.writeFile(filePath, svg);
@@ -332,17 +329,11 @@ async function optimizeSvg(svg: string, fileName: string): Promise<string> {
     '--pretty',
     filePath,
   ]);
-  return fs.readFile(filePath, 'utf8');
-}
-
-async function loadPublishedComponents(
-  token: string,
-  fileKey: string,
-): Promise<FigmaPublishedComponent[]> {
-  const data = await figmaGet<{
-    meta: { components: unknown };
-  }>(token, `/files/${fileKey}/components`);
-  return asComponentList(data.meta.components);
+  const optimized = await fs.readFile(filePath, 'utf8');
+  if (category && COLOR_PRESERVING_CATEGORIES.has(category)) {
+    return optimized;
+  }
+  return applyCurrentColor(optimized);
 }
 
 function targetsFromNode(
@@ -354,7 +345,7 @@ function targetsFromNode(
   },
 ): ImportTarget[] {
   return collectExportNodes(node).flatMap(
-    ({ node: exportNode, componentSetName }) => {
+    ({ node: exportNode, componentSetName, ancestors }) => {
       const resolved = resolvePublishedIcon({
         name: exportNode.name,
         componentSetName,
@@ -375,7 +366,7 @@ function targetsFromNode(
           nodeId: exportNode.id,
           name: options.name ?? resolved.name,
           size: typedSize,
-          category: options.category,
+          category: options.category ?? inferCategory(...ancestors),
           x: exportNode.absoluteBoundingBox?.x,
           y: exportNode.absoluteBoundingBox?.y,
         } satisfies ImportTarget,
@@ -394,15 +385,17 @@ function candidatesFromNode(
 ): SyncCandidate[] {
   const unique = new Map<string, SyncCandidate>();
 
-  for (const target of targetsFromNode(node, {
-    sizes: options.sizes,
-    category: options.category,
-  })) {
-    unique.set(lockKey(target.name, target.size), {
+  for (const target of targetsFromNode(node, { sizes: options.sizes })) {
+    unique.set(iconKey(target.name, target.size), {
       nodeId: target.nodeId,
       name: target.name,
       size: target.size,
-      category: target.category ?? options.manifestCategories.get(target.name),
+      // Keep the category of icons the repo already knows, so re-importing an
+      // icon never moves it between categories.
+      category:
+        options.category ??
+        options.manifestCategories.get(target.name) ??
+        target.category,
     });
   }
 
@@ -422,28 +415,6 @@ async function loadLibraryRoot(
   return node;
 }
 
-async function withPublishedTimestamps(
-  token: string,
-  fileKey: string,
-  candidates: SyncCandidate[],
-): Promise<SyncCandidate[]> {
-  try {
-    const published = await loadPublishedComponents(token, fileKey);
-    const updatedAt = new Map(
-      published.map((component) => [
-        component.node_id.replace(/-/g, ':'),
-        component.updated_at,
-      ]),
-    );
-    return candidates.map((candidate) => ({
-      ...candidate,
-      updatedAt: updatedAt.get(candidate.nodeId) ?? candidate.updatedAt,
-    }));
-  } catch {
-    return candidates;
-  }
-}
-
 function manifestCategoriesByName(
   icons: ManifestIcon[],
 ): Map<string, (typeof CATEGORIES)[number]> {
@@ -460,7 +431,7 @@ function deprecatedKeys(icons: ManifestIcon[]): Set<string> {
   return new Set(
     icons
       .filter((icon) => icon.deprecation)
-      .map((icon) => lockKey(icon.name, icon.size)),
+      .map((icon) => iconKey(icon.name, icon.size)),
   );
 }
 
@@ -469,28 +440,12 @@ async function readExistingIcons(): Promise<Set<string>> {
   return new Set(files.filter((file) => file.endsWith('.svg')));
 }
 
-async function readLock(fileKey: string): Promise<IconLock> {
-  try {
-    const raw = await fs.readFile(lockPath(), 'utf8');
-    const parsed = JSON.parse(raw) as IconLock;
-    return parsed.fileKey === fileKey ? parsed : emptyLock(fileKey);
-  } catch {
-    return emptyLock(fileKey);
-  }
-}
-
-function lockPath(): string {
-  return path.join(ICON_DIR, '../..', LOCK_FILE_NAME);
-}
-
-async function writeLock(lock: IconLock): Promise<void> {
-  await fs.writeFile(lockPath(), `${JSON.stringify(lock, null, 2)}\n`);
-}
-
 async function writeManifest(icons: ManifestIcon[]): Promise<void> {
   const manifestPath = path.join(ICON_DIR, '../../manifest.json');
-  const next = `${JSON.stringify({ icons }, null, 2)}\n`;
-  await fs.writeFile(manifestPath, next);
+  await fs.writeFile(manifestPath, `${JSON.stringify({ icons }, null, 2)}\n`);
+  // JSON.stringify expands every array, so hand the file to Biome to restore
+  // the committed formatting and keep the import diff to the new icons.
+  await execFileAsync(BIOME_BIN, ['format', '--write', manifestPath]);
 }
 
 async function writeChangeset(icons: ImportedIcon[]): Promise<{
@@ -517,7 +472,7 @@ async function runGit(args: string[]): Promise<string> {
     return stdout.trim();
   } catch (error) {
     const err = error as { stderr?: string; message: string };
-    throw new Error(err.stderr?.trim() || err.message, { cause: error });
+    throw new Error(err.stderr?.trim() || err.message);
   }
 }
 
@@ -594,18 +549,15 @@ async function openPullRequest(changeset?: IconChangeset): Promise<void> {
     throw new Error(
       err.stderr?.trim() ||
         'Failed to open a pull request. Install the GitHub CLI (`gh`) and authenticate with `gh auth login`.',
-      { cause: error },
     );
   }
 }
 
-function parseInclude(raw: string): 'new' | 'changed' | 'all' {
-  if (raw === 'new' || raw === 'changed' || raw === 'all') {
+function parseInclude(raw: string): 'new' | 'all' {
+  if (raw === 'new' || raw === 'all') {
     return raw;
   }
-  throw new Error(
-    `Unknown --include value "${raw}". Use new, changed, or all.`,
-  );
+  throw new Error(`Unknown --include value "${raw}". Use new or all.`);
 }
 
 function parseLimit(raw?: string): number | undefined {
@@ -674,7 +626,7 @@ async function prepareIcon(
   options: CliOptions,
 ): Promise<ImportOutcome> {
   const fileName = iconFileName(target.name, target.size);
-  const optimized = await optimizeSvg(rawSvg, fileName);
+  const optimized = await optimizeSvg(rawSvg, fileName, target.category);
   const blockingCodes = options.force
     ? new Set(['size', 'viewBox', 'xml'])
     : undefined;
@@ -739,44 +691,56 @@ export async function runImport(options: CliOptions): Promise<void> {
   const requestedName = options.name ? toSnakeName(options.name) : undefined;
 
   let icons = manifest.icons as ManifestIcon[];
-  let targets: ImportTarget[] = [];
-  let candidates: SyncCandidate[] = [];
-  let lock: IconLock | undefined;
-  let existing = await readExistingIcons();
+  let targets: ImportTarget[];
+  const existing = await readExistingIcons();
 
   if (options.sync) {
-    lock = await readLock(fileKey);
     const root = await loadLibraryRoot(token, fileKey, libraryNodeId);
-    candidates = await withPublishedTimestamps(
-      token,
-      fileKey,
-      candidatesFromNode(root, {
-        sizes,
-        category,
-        manifestCategories: manifestCategoriesByName(icons),
-      }),
-    );
+    const candidates = candidatesFromNode(root, {
+      sizes,
+      category,
+      manifestCategories: manifestCategoriesByName(icons),
+    });
+
+    // Without --list, a limit caps successful imports rather than attempts, so
+    // request extra candidates to absorb the ones Figma exports badly.
+    let selectionLimit = limit;
+    if (!options.list && limit !== undefined) {
+      selectionLimit = Math.max(limit * 20, 20);
+    }
 
     const selection = selectSyncTargets(candidates, {
       existing,
-      lock,
       deprecated: deprecatedKeys(icons),
       include,
-      limit,
+      limit: selectionLimit,
     });
 
     process.stdout.write(
-      `Published icon variants: ${candidates.length} (new ${selection.counts.new}, changed ${selection.counts.changed}, unchanged ${selection.counts.unchanged}, deprecated ${selection.counts.deprecated})\n`,
+      `Published icon variants: ${candidates.length} (new ${selection.counts.new}, existing ${selection.counts.existing}, deprecated ${selection.counts.deprecated})\n`,
     );
 
     if (selection.truncated) {
-      process.stdout.write(`Limited to ${limit} icon(s) this run.\n`);
+      process.stdout.write(
+        options.list
+          ? `Limited to ${limit} icon(s) this run.\n`
+          : `Trying up to ${selection.targets.length} candidate(s) until ${limit} import(s) succeed.\n`,
+      );
+    }
+
+    const uncategorized = selection.targets.filter(
+      (target) => !target.category,
+    );
+    if (uncategorized.length > 0) {
+      process.stdout.write(
+        `${uncategorized.length} icon(s) have no category in Figma or manifest.json and will be skipped. Pass --category to place them.\n`,
+      );
     }
 
     if (options.list) {
       for (const target of selection.targets) {
         process.stdout.write(
-          `${target.decision.padEnd(8)} ${iconFileName(target.name, target.size)} ← ${target.nodeId}\n`,
+          `${target.decision.padEnd(8)} ${iconFileName(target.name, target.size).padEnd(32)} ${target.category ?? 'no category'} ← ${target.nodeId}\n`,
         );
       }
       if (selection.targets.length === 0) {
@@ -824,7 +788,14 @@ export async function runImport(options: CliOptions): Promise<void> {
   const imported: ImportedIcon[] = [];
   const failures: string[] = [];
 
+  // Imports run one at a time so the loop can stop as soon as --limit icons
+  // have succeeded, skipping the ones Figma exported badly.
+  /* eslint-disable no-await-in-loop, no-continue */
   for (const target of targets) {
+    if (limit && imported.length >= limit) {
+      break;
+    }
+
     const rawSvg = svgs.get(target.nodeId);
     if (!rawSvg) {
       throw new Error(`Missing SVG for ${target.nodeId}.`);
@@ -866,23 +837,19 @@ export async function runImport(options: CliOptions): Promise<void> {
       existing.add(outcome.fileName);
       if (!options.skipManifest && outcome.category) {
         icons = upsertManifestIcon(icons, {
+          // Key order matches the entries already in manifest.json.
           name: outcome.name,
-          size: outcome.size,
           category: outcome.category,
+          size: outcome.size,
         });
       }
     }
   }
+  /* eslint-enable no-await-in-loop, no-continue */
 
   if (!options.dryRun && !options.skipManifest && written.length > 0) {
     await writeManifest(icons);
     process.stdout.write(`Updated manifest.json (${written.length} icon(s))\n`);
-  }
-
-  if (options.sync && !options.dryRun) {
-    existing = await readExistingIcons();
-    await writeLock(buildLock(fileKey, candidates, existing, lock));
-    process.stdout.write(`Updated ${LOCK_FILE_NAME}\n`);
   }
 
   let changeset: IconChangeset | undefined;

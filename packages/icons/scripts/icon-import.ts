@@ -26,6 +26,29 @@ export const COLOR_PRESERVING_CATEGORIES = new Set<(typeof CATEGORIES)[number]>(
   ['Brand', 'Card scheme', 'Payment method', 'Country flag', 'Flag'],
 );
 
+function isWhiteColor(color: string): boolean {
+  const value = color.toLowerCase().replace(/\s/g, '');
+  return (
+    value === '#fff' ||
+    value === '#ffffff' ||
+    value === '#ffffffff' ||
+    value === 'rgb(255,255,255)' ||
+    value === 'rgba(255,255,255,1)'
+  );
+}
+
+/**
+ * Rewrites hardcoded fill/stroke colors to currentColor so the icon can be
+ * themed in CSS. White is left alone — it is used for holes and knockouts.
+ */
+export function applyCurrentColor(svg: string): string {
+  return svg.replace(
+    /\b(fill|stroke)="(#[0-9a-fA-F]{3,8}|rgb[a]?\([^)]+\))"/g,
+    (full, attr: string, color: string) =>
+      isWhiteColor(color) ? full : `${attr}="currentColor"`,
+  );
+}
+
 export type ManifestIcon = {
   name: string;
   category: (typeof CATEGORIES)[number];
@@ -52,8 +75,8 @@ export function parseFigmaUrl(url: string): FigmaFileRef {
   let parsed: URL;
   try {
     parsed = new URL(url);
-  } catch (error) {
-    throw new Error(`Invalid Figma URL: ${url}`, { cause: error });
+  } catch {
+    throw new Error(`Invalid Figma URL: ${url}`);
   }
 
   const parts = parsed.pathname.split('/').filter(Boolean);
@@ -220,14 +243,12 @@ export function lintImportedSvg(
       ),
     ].map((match) => match[1].toLowerCase());
 
-    const unexpected = colorAttrs.filter(
-      (value) => value !== '#fff' && value !== '#ffffff' && value !== '#0f131a',
-    );
+    const unexpected = colorAttrs.filter((value) => !isWhiteColor(value));
 
     if (unexpected.length > 0) {
       issues.push({
         code: 'color',
-        message: `Found hardcoded fill/stroke (${unexpected.slice(0, 3).join(', ')}). Monochrome icons should use currentColor (SVGO converts #0F131A). Brand logos are exempt — pass --category Brand (or Card scheme / Payment method).`,
+        message: `Found hardcoded fill/stroke (${unexpected.slice(0, 3).join(', ')}). Monochrome icons should use currentColor. Brand logos are exempt — pass --category Brand (or Card scheme / Payment method).`,
       });
     }
   }
@@ -235,57 +256,145 @@ export function lintImportedSvg(
   return issues;
 }
 
+/** Figma frames spell categories loosely: "Card schemes", "Product & feature". */
+function normalizeCategory(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+/** Drops a plural "s" from the last word, so "card schemes" matches "Card scheme". */
+function singularizeCategory(value: string): string {
+  return value.replace(/(\w+?)s$/, '$1');
+}
+
+const CATEGORIES_BY_LABEL = new Map<string, (typeof CATEGORIES)[number]>(
+  CATEGORIES.flatMap((category) => {
+    const normalized = normalizeCategory(category);
+    return [
+      [normalized, category] as const,
+      [singularizeCategory(normalized), category] as const,
+    ];
+  }),
+);
+
+function matchCategory(value: string): (typeof CATEGORIES)[number] | undefined {
+  const normalized = normalizeCategory(value);
+  return (
+    CATEGORIES_BY_LABEL.get(normalized) ??
+    CATEGORIES_BY_LABEL.get(singularizeCategory(normalized))
+  );
+}
+
+/**
+ * Resolves the first candidate that names a manifest category. Candidates are
+ * checked in order, so pass the closest Figma ancestor first. Names like
+ * "Icons / Country flags" are also matched segment by segment.
+ */
 export function inferCategory(
   ...candidates: Array<string | undefined>
 ): (typeof CATEGORIES)[number] | undefined {
-  for (const candidate of candidates) {
-    if (!candidate) {
-      continue;
-    }
-    const match = CATEGORIES.find(
-      (category) => category.toLowerCase() === candidate.toLowerCase(),
-    );
+  const defined = candidates.filter((candidate): candidate is string =>
+    Boolean(candidate),
+  );
+
+  for (const candidate of defined) {
+    const match = matchCategory(candidate);
     if (match) {
       return match;
     }
   }
+
+  for (const candidate of defined) {
+    for (const segment of candidate.split(/[/|>·–—]/)) {
+      const match = matchCategory(segment);
+      if (match) {
+        return match;
+      }
+    }
+  }
+
   return undefined;
 }
 
-export function sortManifestIcons(icons: ManifestIcon[]): ManifestIcon[] {
-  return [...icons].sort((a, b) => {
-    const category = a.category.localeCompare(b.category);
-    if (category !== 0) {
-      return category;
+function indexesWhere(
+  icons: ManifestIcon[],
+  predicate: (icon: ManifestIcon) => boolean,
+): number[] {
+  return icons.reduce<number[]>((indexes, icon, index) => {
+    if (predicate(icon)) {
+      indexes.push(index);
     }
-    const name = a.name.localeCompare(b.name);
-    if (name !== 0) {
-      return name;
-    }
-    return Number(b.size) - Number(a.size);
-  });
+    return indexes;
+  }, []);
 }
 
+/**
+ * Finds where a new icon belongs, anchored on the entries around it rather than
+ * on a global sort. manifest.json is not fully sorted: `Filled` variants sit
+ * next to the icon they mirror, and a name like `visa` appears under both
+ * `Card scheme` and `Payment method`, so re-sorting the file would scramble it.
+ */
+function manifestInsertIndex(
+  icons: ManifestIcon[],
+  entry: ManifestIcon,
+): number {
+  const siblings = indexesWhere(
+    icons,
+    (icon) => icon.name === entry.name && icon.category === entry.category,
+  );
+
+  if (siblings.length > 0) {
+    const larger = siblings.filter(
+      (index) => Number(icons[index].size) > Number(entry.size),
+    );
+    return larger.length > 0 ? Math.max(...larger) + 1 : Math.min(...siblings);
+  }
+
+  const sameCategory = indexesWhere(
+    icons,
+    (icon) => icon.category === entry.category,
+  );
+
+  if (sameCategory.length > 0) {
+    const earlier = sameCategory.filter(
+      (index) => icons[index].name.localeCompare(entry.name) < 0,
+    );
+    return earlier.length > 0
+      ? Math.max(...earlier) + 1
+      : Math.min(...sameCategory);
+  }
+
+  return icons.length;
+}
+
+/**
+ * Inserts an icon next to its siblings, or updates it in place. Existing entries
+ * keep their order so that an import diff only shows the new icons.
+ */
 export function upsertManifestIcon(
   icons: ManifestIcon[],
   entry: ManifestIcon,
 ): ManifestIcon[] {
-  const existing = icons.find(
-    (icon) => icon.name === entry.name && icon.size === entry.size,
+  // Entries are identified by category as well as name and size, because names
+  // such as `visa` exist under both `Card scheme` and `Payment method`.
+  const index = icons.findIndex(
+    (icon) =>
+      icon.name === entry.name &&
+      icon.size === entry.size &&
+      icon.category === entry.category,
   );
-  const merged: ManifestIcon = existing
-    ? {
-        ...existing,
-        category: entry.category,
-      }
-    : entry;
 
-  return sortManifestIcons([
-    ...icons.filter(
-      (icon) => !(icon.name === entry.name && icon.size === entry.size),
-    ),
-    merged,
-  ]);
+  if (index !== -1) {
+    const next = [...icons];
+    next[index] = { ...icons[index], ...entry };
+    return next;
+  }
+
+  const insertAt = manifestInsertIndex(icons, entry);
+  return [...icons.slice(0, insertAt), entry, ...icons.slice(insertAt)];
 }
 
 export function resolvePublishedIcon(component: {
@@ -299,27 +408,14 @@ export function resolvePublishedIcon(component: {
   };
 }
 
-export const LOCK_FILE_NAME = 'figma-lock.json';
-
-export type LockEntry = {
-  nodeId: string;
-  updatedAt?: string;
-};
-
-export type IconLock = {
-  fileKey: string;
-  icons: Record<string, LockEntry>;
-};
-
 export type SyncCandidate = {
   nodeId: string;
   name: string;
   size: IconSize;
   category?: (typeof CATEGORIES)[number];
-  updatedAt?: string;
 };
 
-export type SyncDecision = 'new' | 'changed' | 'unchanged' | 'deprecated';
+export type SyncDecision = 'new' | 'existing' | 'deprecated';
 
 export type SyncSelection = {
   targets: Array<SyncCandidate & { decision: SyncDecision }>;
@@ -327,29 +423,23 @@ export type SyncSelection = {
   truncated: boolean;
 };
 
-export function lockKey(name: string, size: string): string {
+export function iconKey(name: string, size: string): string {
   return `${name}_${size}`;
 }
 
-export function emptyLock(fileKey: string): IconLock {
-  return { fileKey, icons: {} };
-}
-
 /**
- * A candidate is "new" when no SVG exists yet, and "changed" when Figma reports
- * a newer `updated_at` than the last import recorded in the lock file. Icons
- * that exist on disk but aren't in the lock file are treated as unchanged so
- * that the first sync seeds the lock instead of re-importing the whole library.
+ * A candidate is "new" when no SVG exists yet. Existing files are left alone
+ * unless `--include all` is passed. Deprecated manifest entries are never
+ * re-imported.
  */
 export function classifyCandidate(
   candidate: SyncCandidate,
   options: {
     existing: ReadonlySet<string>;
-    lock?: IconLock;
     deprecated?: ReadonlySet<string>;
   },
 ): SyncDecision {
-  const key = lockKey(candidate.name, candidate.size);
+  const key = iconKey(candidate.name, candidate.size);
 
   if (options.deprecated?.has(key)) {
     return 'deprecated';
@@ -359,27 +449,15 @@ export function classifyCandidate(
     return 'new';
   }
 
-  const entry = options.lock?.icons[key];
-
-  if (entry && candidate.updatedAt && entry.updatedAt !== candidate.updatedAt) {
-    return 'changed';
-  }
-
-  return 'unchanged';
+  return 'existing';
 }
 
-function isIncluded(
-  decision: SyncDecision,
-  include: 'new' | 'changed' | 'all',
-): boolean {
+function isIncluded(decision: SyncDecision, include: 'new' | 'all'): boolean {
   if (decision === 'deprecated') {
     return false;
   }
   if (include === 'all') {
     return true;
-  }
-  if (include === 'changed') {
-    return decision === 'new' || decision === 'changed';
   }
   return decision === 'new';
 }
@@ -388,16 +466,14 @@ export function selectSyncTargets(
   candidates: SyncCandidate[],
   options: {
     existing: ReadonlySet<string>;
-    lock?: IconLock;
     deprecated?: ReadonlySet<string>;
-    include: 'new' | 'changed' | 'all';
+    include: 'new' | 'all';
     limit?: number;
   },
 ): SyncSelection {
   const counts: Record<SyncDecision, number> = {
     new: 0,
-    changed: 0,
-    unchanged: 0,
+    existing: 0,
     deprecated: 0,
   };
   const matched: Array<SyncCandidate & { decision: SyncDecision }> = [];
@@ -456,7 +532,7 @@ function formatSizeList(sizes: string[]): string {
   if (unique.length === 2) {
     return `sizes ${unique[0]} and ${unique[1]}`;
   }
-  return `sizes ${unique.slice(0, -1).join(', ')}, and ${unique.at(-1)}`;
+  return `sizes ${unique.slice(0, -1).join(', ')}, and ${unique[unique.length - 1]}`;
 }
 
 function formatIconGroup(verb: string, icons: ImportedIcon[]): string {
@@ -530,36 +606,4 @@ Imported from the SumUp Figma iconography library.
 - [ ] Icons render correctly on the Storybook Icons page
 - [ ] Chromatic shows the expected visual diff
 `;
-}
-
-/**
- * Records the Figma revision of every candidate that has a file on disk, so a
- * later run can tell an edited icon from an untouched one.
- */
-export function buildLock(
-  fileKey: string,
-  candidates: SyncCandidate[],
-  existing: ReadonlySet<string>,
-  previous?: IconLock,
-): IconLock {
-  const icons: Record<string, LockEntry> = {};
-  const carryOver = previous?.fileKey === fileKey ? previous.icons : {};
-
-  for (const candidate of candidates) {
-    if (!existing.has(iconFileName(candidate.name, candidate.size))) {
-      continue;
-    }
-    const key = lockKey(candidate.name, candidate.size);
-    icons[key] = {
-      nodeId: candidate.nodeId,
-      updatedAt: candidate.updatedAt ?? carryOver[key]?.updatedAt,
-    };
-  }
-
-  return {
-    fileKey,
-    icons: Object.fromEntries(
-      Object.entries(icons).sort(([a], [b]) => a.localeCompare(b)),
-    ),
-  };
 }

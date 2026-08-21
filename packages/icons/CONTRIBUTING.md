@@ -10,7 +10,7 @@ This page outlines the process of contributing an icon to the `@sumup-oss/icons`
 
 If you have access to the [Circuit UI Foundation icons](https://www.figma.com/design/OgPQeoNZ2QoY7hZvy0ybk2/Circuit-UI-Foundation?node-id=5700-12762) in Figma (internal link), you can skip the copy-paste steps below.
 
-1. Create a Figma personal access token with file access and export it as `FIGMA_ACCESS_TOKEN`.
+1. Create a Figma personal access token with the `file_content:read` scope and export it as `FIGMA_ACCESS_TOKEN`.
 2. Import from that library (the script defaults to this file and node):
 
 ```sh
@@ -36,11 +36,11 @@ npm run import:figma -- --sync --list
 # Import every icon that has no SVG yet
 npm run import:figma -- --sync
 
-# Also re-import icons that were edited in Figma since the last sync
-npm run import:figma -- --sync --include changed --limit 20
+# Re-import existing SVGs as well (for example after a Figma edit)
+npm run import:figma -- --sync --include all --limit 20
 ```
 
-The last imported Figma revision of each icon is tracked in `packages/icons/figma-lock.json`, which is committed alongside the SVGs. The first `--sync` run only seeds that file, so `--include changed` reports edits from then on. Icons that are deprecated in the manifest are never re-imported, and a single bad export is reported at the end of the run instead of aborting the rest.
+Each icon needs a manifest category. Icons already in `manifest.json` keep theirs; new icons take the category from the enclosing Figma frame or section, so a frame named `Card schemes` maps to the `Card scheme` category. Icons whose category cannot be resolved are listed by `--list` as `no category` and skipped, unless you group them into one run with `--category`. Icons that are deprecated in the manifest are never re-imported, and a single bad export is reported at the end of the run instead of aborting the rest.
 
 A successful import writes a Changeset for `@sumup-oss/icons` (minor for new icons, patch for updates). Pass `--pr` to commit, push, and open a GitHub pull request (`gh` must be authenticated):
 
