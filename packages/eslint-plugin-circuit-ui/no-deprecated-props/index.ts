@@ -21,18 +21,49 @@ const createRule = ESLintUtils.RuleCreator<RuleDocs>(
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
 
-type Config = {
+type PropConfig = {
   components: string[];
   props: [string];
   alternative: string;
 };
 
-const mappings: Config[] = [
+// TODO: When a deprecated prop is removed from a component in a major version,
+// remove the corresponding entry here
+const propMappings: PropConfig[] = [
   {
     components: ['Body'],
     props: ['variant'],
     alternative:
       'Use the new `color` prop instead of the `alert`, `confirm` and `subtle` variants. Use the new `weight` prop instead of the `highlight` variant. Use custom CSS for the `quote` variant.',
+  },
+  {
+    components: ['Toggle'],
+    props: ['checkedLabel'],
+    alternative: 'This prop is no longer needed and can be removed.',
+  },
+  {
+    components: ['Toggle'],
+    props: ['uncheckedLabel'],
+    alternative: 'This prop is no longer needed and can be removed.',
+  },
+];
+
+type ValueConfig = {
+  components: string[];
+  prop: string;
+  values: string[];
+  alternative: string;
+};
+
+// TODO: When a deprecated value is removed from a component in a major version,
+// remove the corresponding entry here
+const valueMappings: ValueConfig[] = [
+  {
+    components: ['Body', 'Numeral'],
+    prop: 'decoration',
+    values: ['italic'],
+    alternative:
+      'Since the brand refresh, italic text is no longer supported. The `italic` decoration will be removed in the next major version.',
   },
 ];
 
@@ -48,15 +79,32 @@ export const noDeprecatedProps = createRule({
     messages: {
       deprecated:
         "The {{component}}'s `{{prop}}` prop has been deprecated. {{alternative}}",
+      deprecatedValue:
+        'The {{component}}\'s `{{prop}}` prop value "{{value}}" has been deprecated. {{alternative}}',
     },
   },
   defaultOptions: [],
   create(context) {
-    return mappings.reduce((visitors, config) => {
+    const visitors: TSESLint.RuleListener = {};
+
+    const addVisitor = (
+      component: string,
+      handler: (node: TSESTree.JSXElement) => void,
+    ) => {
+      const key = `JSXElement[openingElement.name.name="${component}"]`;
+      const existing = visitors[key] as
+        | ((node: TSESTree.JSXElement) => void)
+        | undefined;
+
+      visitors[key] = (node: TSESTree.JSXElement) => {
+        existing?.(node);
+        handler(node);
+      };
+    };
+
+    propMappings.forEach((config) => {
       config.components.forEach((component) => {
-        visitors[`JSXElement[openingElement.name.name="${component}"]`] = (
-          node: TSESTree.JSXElement,
-        ) => {
+        addVisitor(component, (node) => {
           const { props, alternative } = config;
 
           node.openingElement.attributes.forEach((attribute) => {
@@ -79,9 +127,58 @@ export const noDeprecatedProps = createRule({
               data: { component, prop, alternative },
             });
           });
-        };
+        });
       });
-      return visitors;
-    }, {} as TSESLint.RuleListener);
+    });
+
+    valueMappings.forEach((config) => {
+      config.components.forEach((component) => {
+        addVisitor(component, (node) => {
+          node.openingElement.attributes.forEach((attribute) => {
+            if (
+              attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
+              attribute.name.type !== TSESTree.AST_NODE_TYPES.JSXIdentifier ||
+              attribute.name.name !== config.prop
+            ) {
+              return;
+            }
+
+            let value: string | null = null;
+
+            if (
+              attribute.value?.type === TSESTree.AST_NODE_TYPES.Literal &&
+              typeof attribute.value.value === 'string'
+            ) {
+              value = attribute.value.value;
+            } else if (
+              attribute.value?.type ===
+                TSESTree.AST_NODE_TYPES.JSXExpressionContainer &&
+              attribute.value.expression.type ===
+                TSESTree.AST_NODE_TYPES.Literal &&
+              typeof attribute.value.expression.value === 'string'
+            ) {
+              value = attribute.value.expression.value;
+            }
+
+            if (value === null || !config.values.includes(value)) {
+              return;
+            }
+
+            context.report({
+              node: attribute,
+              messageId: 'deprecatedValue',
+              data: {
+                component,
+                prop: config.prop,
+                value,
+                alternative: config.alternative,
+              },
+            });
+          });
+        });
+      });
+    });
+
+    return visitors;
   },
 });
