@@ -28,6 +28,7 @@ import { clsx } from '../../../../styles/clsx.js';
 import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import classes from './Tab.module.css';
+import { AccessibilityError } from '../../../../util/errors.js';
 
 type LinkElProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonElProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -50,6 +51,15 @@ export type TabProps = LinkElProps &
     trailingComponent?: ComponentType<TierIndicatorProps>;
   };
 
+function hasMissingAccessibilityProps(props: Partial<TabProps>) {
+  return !(
+    props.id &&
+    props['aria-controls'] &&
+    props.onClick &&
+    props.onKeyDown
+  );
+}
+
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
 
 /**
@@ -70,6 +80,21 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
     const components = useComponents();
     const Link = components.Link as EmotionAsPropType;
     const Element = props.href ? Link : 'button';
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      as === 'tab' &&
+      hasMissingAccessibilityProps(props)
+    ) {
+      // biome-ignore lint/suspicious/noConsole: Logging an accessibility warning is intentional.
+      console.warn(
+        new AccessibilityError(
+          'Tab',
+          'Missing some accessibility props which will become required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently',
+        ),
+      );
+    }
 
     const content = TrailingComponent ? (
       <span className={classes.content}>
