@@ -7,6 +7,10 @@ on:
     branches-ignore:
       - "changeset-release/**"
       - "changesets-ghcommit-temp/**"
+      - "main"
+      - "next"
+      - "canary"
+      - "release/**"
   schedule:
     - cron: "0 3 * * 1"
   workflow_dispatch:
