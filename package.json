@@ -79,7 +79,7 @@
     "stylelint-config-standard": "^40.0.0",
     "stylelint-no-unsupported-browser-features": "^8.1.1",
     "svgo": "^4.0.2",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "vite": "^7.3.5",
     "vite-plugin-svgr": "^5.2.0",
     "vitest": "^4.1.5",
