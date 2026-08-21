@@ -15,7 +15,7 @@
   white-space: nowrap;
   appearance: none;
   cursor: pointer;
-  outline: none;
+  outline-color: transparent;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   box-shadow: none;

@@ -6,7 +6,7 @@
   margin-bottom: var(--cui-spacings-bit);
   cursor: pointer;
   border-radius: var(--cui-border-radius-byte);
-  transition: all var(--cui-transitions-default);
+  transition: background-color var(--cui-transitions-default);
 }
 
 .align-center {
@@ -23,8 +23,10 @@
 
 .base:focus,
 .base.focused {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--cui-border-accent);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
 }
 
 .selected {

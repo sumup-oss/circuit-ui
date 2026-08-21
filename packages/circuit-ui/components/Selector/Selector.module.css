@@ -1,12 +1,12 @@
 .base:focus + .label::before {
-  outline: 0;
-  box-shadow:
-    0 0 0 2px var(--cui-bg-normal),
-    0 0 0 4px var(--cui-border-focus);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
 }
 
 .base:focus:not(:focus-visible) + .label::before {
-  box-shadow: none;
+  outline-color: transparent;
 }
 
 /* Checked */

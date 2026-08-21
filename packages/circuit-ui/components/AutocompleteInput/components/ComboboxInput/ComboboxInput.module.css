@@ -17,7 +17,7 @@
   padding: 0 var(--cui-spacings-tera) 0 0;
   margin: 0;
   appearance: none;
-  outline: 0;
+  outline-color: transparent;
   background-color: transparent;
   border: none;
   box-shadow: none;
