@@ -13,11 +13,7 @@ Visual primitives such as typography, color, and spacing for [Circuit UI Web](ht
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With npm
 npm install @sumup-oss/design-tokens
-
-# With yarn v1
-yarn add @sumup-oss/design-tokens
 ```
 
 ## Usage

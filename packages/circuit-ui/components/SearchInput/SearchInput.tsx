@@ -27,7 +27,7 @@ import {
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 import type { ClickEvent } from '../../types/events.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import type { Locale } from '../../util/i18n.js';
 
 import classes from './SearchInput.module.css';
@@ -57,8 +57,15 @@ export type SearchInputProps = InputProps & {
  */
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   (props, ref) => {
-    const { value, onClear, clearLabel, inputClassName, locale, ...rest } =
-      useI18n(props, translations);
+    const {
+      value,
+      onClear,
+      clearLabel,
+      inputClassName,
+      locale,
+      formattingLocale,
+      ...rest
+    } = useTranslations(props, translations);
     const localRef = useRef<HTMLInputElement>(null);
 
     if (

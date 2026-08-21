@@ -22,27 +22,18 @@ Each template includes Circuit UI and SumUp's [Foundry](https://github.com/sumup
 Already have a project? You can install Circuit UI via `npm` or `yarn`. In your current project directory, run the following command:
 
 ```sh
-# With npm:
 npm install @sumup-oss/circuit-ui
-
-# With yarn v1
-yarn add @sumup-oss/circuit-ui
 ```
 
 Circuit UI relies on some mandatory peer dependencies, namely [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens), [@sumup-oss/icons](https://www.npmjs.com/package/@sumup-oss/icons), [@sumup-oss/intl](https://www.npmjs.com/package/@sumup-oss/intl), [React](https://reactjs.org/), and [temporal-polyfill](https://www.npmjs.com/package/temporal-polyfill). You should install them with the following command:
 
 ```sh
-# With npm:
 npm install --save @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl react react-dom temporal-polyfill
-# With yarn v1
-yarn add @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl react react-dom temporal-polyfill
 ```
 
 We also recommend installing and configuring [`@sumup-oss/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) and [`@sumup-oss/stylelint-plugin-circuit-ui`](Packages/stylelint-plugin-circuit-ui/Docs). The plugins will lint [Circuit UI custom properties](Features/Theme/Docs) and include codemods for Circuit UI breaking changes.
 
 ### Importing the styles
-
-### Configuring the theme
 
 SumUp's default theme is part of the [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens) package. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
 
@@ -57,13 +48,10 @@ import '@sumup-oss/circuit-ui/styles.css';
 
 ### Configuring the viewport
 
-Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>):
+Make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>):
 
 ```tsx
-// /app/layout.tsx or /pages/_app.tsx for Next.js
-import '@sumup-oss/design-tokens/fonts.css';
-import '@sumup-oss/design-tokens/light.css';
-import '@sumup-oss/circuit-ui/styles.css';
+// /app/layout.tsx or /pages/_document.tsx for Next.js
 import Head from 'next/head';
 
 export default function App() {
@@ -81,9 +69,30 @@ export default function App() {
             'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)',
         }}
       >
-        {/* Your app */}
+        {/* children */}
       </body>
     </>
+  );
+}
+```
+
+### Adding context providers
+
+Wrap your application in the `I18nProvider` to configure the locale that the design system components should use for [internationalization](Introduction/Internationalization/Docs). Optionally add the relevant context providers if you're planning on using any [modal](Components/Modal/Docs) or [toast](Notification/NotificationToast/Docs) components.
+
+```tsx
+// /app/layout.tsx or /pages/_app.tsx for Next.js
+import { I18nProvider, ToastProvider, ModalProvider } from '@sumup-oss/circuit-ui';
+
+export default function App() {
+  return (
+    <I18nProvider>
+      <ToastProvider>
+        <ModalProvider>
+          {/* children */}
+        </ModalProvider>
+      </ToastProvider>
+    </I18nProvider>
   );
 }
 ```

@@ -73,7 +73,7 @@ export const Relative = (args: TimestampProps) => (
             {...args}
             key={datetime.toString()}
             datetime={datetime.toString()}
-            locale={locale}
+            formattingLocale={locale}
           />
         ))}
       </Stack>

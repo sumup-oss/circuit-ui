@@ -36,7 +36,7 @@ import { clsx } from '../../styles/clsx.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import { useSwipe } from '../../hooks/useSwipe/index.js';
 
 import classes from './Dialog.module.css';
@@ -135,9 +135,10 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       animationDuration = 0,
       onCloseStart,
       locale,
+      formattingLocale,
       style,
       ...rest
-    } = useI18n(props, translations);
+    } = useTranslations(props, translations);
     const dialogRef = useRef<HTMLDialogElement>(null);
     const openRef = useLatest<boolean>(open);
     const isModalRef = useLatest<boolean>(isModal);
