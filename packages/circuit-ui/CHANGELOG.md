@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.18.0
+
+### Minor Changes
+
+- [#3846](https://github.com/sumup-oss/circuit-ui/pull/3846) [`529c50b`](https://github.com/sumup-oss/circuit-ui/commit/529c50bb9b08a57b7c216431d14b319ad08a8f75) Thanks [@sirineJ](https://github.com/sirineJ)! - Added development-time console warnings for missing accessibility props in the Tab and TabList components. These props will become mandatory in a future major version. [Read about the accessibility recommendations.](https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently)
+
 ## 11.17.0
 
 ### Minor Changes
