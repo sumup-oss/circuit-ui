@@ -495,7 +495,7 @@
       "size": "24"
     },
     {
-      "name": "user_switch",
+      "name": "switch_account",
       "category": "Action",
       "size": "24"
     },
