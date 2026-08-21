@@ -18,6 +18,8 @@ import { createRef } from 'react';
 
 import { render, axe, screen, userEvent } from '../../../../util/test-utils.js';
 
+import type { InputProps } from '../../../Input/index.js';
+
 import { ComboboxInput, type ComboboxInputProps } from './ComboboxInput.js';
 
 declare const process: {
@@ -45,6 +47,21 @@ describe('ComboboxInput', () => {
     const { container } = render(<ComboboxInput ref={ref} {...defaultProps} />);
     const input = container.querySelector('input');
     expect(ref.current).toBe(input);
+  });
+
+  it('should render a prefix', () => {
+    const Prefix: NonNullable<InputProps['renderPrefix']> = ({
+      value,
+      className,
+    }) => <span className={className}>{value}</span>;
+    render(
+      <ComboboxInput
+        {...defaultProps}
+        prefixValue="CA"
+        renderPrefix={Prefix}
+      />,
+    );
+    expect(screen.getByText('CA')).toBeVisible();
   });
 
   it('should render an invalid input', () => {
