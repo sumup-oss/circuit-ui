@@ -43,6 +43,28 @@ describe('List', () => {
     expect(ref.current).toBe(list);
   });
 
+  const deprecatedSizes = [
+    ['one', 'm'],
+    ['two', 's'],
+  ] as const;
+  it.each(
+    deprecatedSizes,
+  )('[Deprecated sizes] should throw an error when legacy "%s" value is passed to the size prop', (size, alternative) => {
+    // eslint-disable-next-line circuit-ui/no-deprecated-props
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      render(
+        <List size={size}>
+          {' '}
+          <li>List</li>
+        </List>,
+      ),
+    ).toThrow(
+      `[List] The "${size}" size has been deprecated. Use the "${alternative}" size instead.`,
+    );
+    process.env.NODE_ENV = 'test';
+  });
+
   it('should meet accessibility guidelines', async () => {
     const { container } = render(
       <List>
