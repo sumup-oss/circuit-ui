@@ -208,11 +208,7 @@ export function Toggletip(props: ToggletipProps) {
         data-side={side}
         aria-labelledby={headline ? headlineId : bodyId}
         aria-describedby={headline ? bodyId : undefined}
-        className={clsx(
-          classes.base,
-          sharedClasses.elevatedSurface,
-          className,
-        )}
+        className={clsx(classes.base, sharedClasses.elevatedSurface, className)}
         closeButtonLabel={closeButtonLabel}
         style={{ ...style, ...dialogStyles }}
       >
