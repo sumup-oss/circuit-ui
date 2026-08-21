@@ -41,6 +41,7 @@ import { useSwipe } from '../../hooks/useSwipe/index.js';
 
 import classes from './Dialog.module.css';
 import { translations } from './translations/index.js';
+import { sharedClasses } from '../../styles/shared.js';
 
 type DataAttribute = `data-${string}`;
 
@@ -440,7 +441,12 @@ export function Dialog(props: DialogProps) {
       {/* biome-ignore lint/a11y/useKeyWithClickEvents: The click event captures outside clicks */}
       <dialog
         onClick={onDialogClick}
-        className={clsx(classes.base, isModal && classes.modal, className)}
+        className={clsx(
+          classes.base,
+          isModal && sharedClasses.elevatedSurface,
+          isModal && classes.modal,
+          className,
+        )}
         ref={applyMultipleRefs(ref, dialogRef)}
         style={{
           ...style,

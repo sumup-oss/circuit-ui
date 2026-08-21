@@ -30,4 +30,5 @@ export const sharedClasses = {
   animationSlideRightOut: _classes['animation-slide-right-out'],
   animationSlideLeftIn: _classes['animation-slide-left-in'],
   animationSlideLeftOut: _classes['animation-slide-left-out'],
+  elevatedSurface: _classes['elevated-surface'],
 };

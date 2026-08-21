@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - "templates/**"
+    branches-ignore:
+      - "changeset-release/**"
+      - "changesets-ghcommit-temp/**"
   schedule:
     - cron: "0 3 * * 1"
   workflow_dispatch:

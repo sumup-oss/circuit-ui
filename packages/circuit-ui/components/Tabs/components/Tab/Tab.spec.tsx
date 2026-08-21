@@ -13,10 +13,12 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render, screen } from '../../../../util/test-utils.js';
+
+import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import { Tab } from './Tab.js';
 
@@ -34,6 +36,7 @@ describe('Tab', () => {
     const tab = screen.getByRole('tab');
     expect(ref.current).toBe(tab);
   });
+
   it('should render with tab semantics', () => {
     const { rerender } = render(<Tab>Tab title</Tab>);
     expect(screen.getByText('Tab title')).toHaveRole('tab');
@@ -49,6 +52,7 @@ describe('Tab', () => {
     );
     expect(screen.getByText('Tab title')).not.toHaveAttribute('tabindex');
   });
+
   it('should render with listitem semantics', () => {
     const { rerender } = render(<Tab as="listitem">Tab title</Tab>);
     expect(screen.getByText('Tab title').parentElement).toHaveRole('listitem');
@@ -63,5 +67,13 @@ describe('Tab', () => {
       'aria-current',
       'page',
     );
+  });
+
+  it('should render a trailing component, always at size s', () => {
+    const TrailingComponent = vi.fn((_props: TierIndicatorProps) => null);
+    render(<Tab trailingComponent={TrailingComponent}>Services</Tab>);
+    expect(screen.getByText('Services')).toBeVisible();
+    const [props] = TrailingComponent.mock.calls[0];
+    expect(props).toStrictEqual({ variant: 'plus', size: 's' });
   });
 });

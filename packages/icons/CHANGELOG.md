@@ -6,6 +6,12 @@
 
 - [#3783](https://github.com/sumup-oss/circuit-ui/pull/3783) [`014aa70`](https://github.com/sumup-oss/circuit-ui/commit/014aa70de218430bf8f3cfb06b6b5f977c8784ac) Thanks [@missating](https://github.com/missating)! - Removed multi-colored icons (payment methods, card schemes, and country flags) from the React component exports
 
+## 6.16.0
+
+### Minor Changes
+
+- [#3833](https://github.com/sumup-oss/circuit-ui/pull/3833) [`a40c68d`](https://github.com/sumup-oss/circuit-ui/commit/a40c68d45097444a30e2007c2d050d68c54c5634) Thanks [@Bonnie-wy](https://github.com/Bonnie-wy)! - Added allergen icons in size 24.
+
 ## 7.0.0-next.3
 
 ## 6.15.1

@@ -17,6 +17,8 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
+import { TierIndicator } from '../TierIndicator/TierIndicator.js';
+
 import { Tabs } from './Tabs.js';
 
 describe('Tabs', () => {
@@ -114,5 +116,23 @@ describe('Tabs', () => {
     );
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
+  });
+
+  it('should render a trailing component for a tab item', () => {
+    render(
+      <Tabs
+        items={[
+          {
+            id: 'a',
+            tab: 'Services',
+            trailingComponent: TierIndicator,
+            panel: 'panel-a',
+          },
+          { id: 'b', tab: 'Items', panel: 'panel-b' },
+        ]}
+      />,
+    );
+    expect(screen.getByText('Services')).toBeVisible();
+    expect(screen.getByText('plus')).toBeVisible();
   });
 });

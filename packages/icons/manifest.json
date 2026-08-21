@@ -4636,6 +4636,76 @@
       "name": "youtube",
       "category": "Social media",
       "size": "24"
+    },
+    {
+      "name": "celery",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "crustaceans",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "eggs",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "fish",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "gluten",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "lupin",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "milk",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "molluscs",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "mustard",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "nuts",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "peanuts",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "sesame",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "soy",
+      "category": "Allergen",
+      "size": "24"
+    },
+    {
+      "name": "sulphites",
+      "category": "Allergen",
+      "size": "24"
     }
   ]
 }

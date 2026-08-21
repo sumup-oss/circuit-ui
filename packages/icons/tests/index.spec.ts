@@ -36,54 +36,77 @@ describe('Icons', () => {
     });
 
   describe.each(files)('$name ($size)', ({ name, size, file, fileSize }) => {
-    it('should be valid XML', () => {
-      const isValidXML = XMLValidator.validate(file);
-
-      expect(isValidXML).toBeTruthy();
-    });
-
-    (size === '480' ? it.skip : it)('should weigh less than 12kb', () => {
-      // eslint-disable-next-line vitest/no-standalone-expect
-      expect(fileSize).toBeLessThan(12);
-    });
+    const iconManifest = getIconManifest(name, size);
+    const svg = parseSVG(file);
 
     it('should have a valid manifest', () => {
-      const iconManifest = getIconManifest(name, size);
-
       expect(iconManifest.name).toBeTypeOf('string');
       expect(SIZES).toContain(iconManifest.size);
       expect(CATEGORIES).toContain(iconManifest.category);
     });
 
-    it('should match the size in the file name', () => {
-      const iconManifest = getIconManifest(name, size);
-
-      const attributes = parseSVGAttributes(file);
-      /* eslint-disable vitest/no-conditional-expect */
-      if (iconManifest.category === 'Flag') {
-        expect(iconManifest.size).toBe('480');
-        expect(attributes.height).toBe(iconManifest.size);
-        expect(attributes.width).toBe('640');
-      } else {
-        expect(iconManifest.size).toBe(size);
-        if (iconManifest.category === 'Card scheme') {
-          expect(attributes.width).toBe(size);
-        } else {
-          expect(attributes.height).toBe(size);
-        }
-      }
-      /* eslint-enable vitest/no-conditional-expect */
+    it('should be valid XML', () => {
+      const isValidXML = XMLValidator.validate(file);
+      expect(isValidXML).toBeTruthy();
     });
 
     it("should have valid  'width', 'height' and 'viewBox' attributes", () => {
-      const attributes = parseSVGAttributes(file);
-
-      expect(attributes.width).toMatch(/^\d+$/);
-      expect(attributes.height).toMatch(/^\d+$/);
-      expect(attributes.viewBox).toBe(
-        `0 0 ${attributes.width} ${attributes.height}`,
+      expect(svg.attributes.width).toMatch(/^\d+$/);
+      expect(svg.attributes.height).toMatch(/^\d+$/);
+      expect(svg.attributes.viewBox).toBe(
+        `0 0 ${svg.attributes.width} ${svg.attributes.height}`,
       );
     });
+
+    const isMonochromatic = ![
+      'Card scheme',
+      'Country flag',
+      'Flag',
+      'Payment method',
+    ].includes(iconManifest.category);
+
+    if (isMonochromatic) {
+      // Monochromatic icons that are exported as React components
+
+      it('should weigh less than 12kb', () => {
+        expect(fileSize).toBeLessThan(12);
+      });
+
+      it('should match the size in the file name', () => {
+        expect(iconManifest.size).toBe(size);
+        expect(svg.attributes.height).toBe(size);
+      });
+
+      it('should use currentColor for fill and stroke', () => {
+        const colors = getColorAttributes(svg);
+
+        colors.forEach((color) => {
+          expect(color).toBe('currentColor');
+        });
+      });
+    } else {
+      // Multi-colored icons that are loaded via URL
+
+      it('should weigh less than 120kb', () => {
+        expect(fileSize).toBeLessThan(120);
+      });
+
+      if (iconManifest.category === 'Flag') {
+        it('should be 640x480 in size', () => {
+          expect(iconManifest.size).toBe('480');
+          expect(svg.attributes.height).toBe('480');
+          expect(svg.attributes.width).toBe('640');
+        });
+      } else if (iconManifest.category === 'Card scheme') {
+        it('should match the size in the file name in width', () => {
+          expect(svg.attributes.width).toBe(size);
+        });
+      } else {
+        it('should match the size in the file name in height', () => {
+          expect(svg.attributes.height).toBe(size);
+        });
+      }
+    }
   });
 });
 
@@ -95,7 +118,7 @@ function parseFileName(fileName: string) {
       return { name, size: '480' };
     }
     return { name, size };
-  } catch (_error) {
+  } catch {
     throw new Error(`Failed to parse the '${fileName}' file name.`);
   }
 }
@@ -106,18 +129,34 @@ const parser = new XMLParser({
   attributesGroupName: 'attributes',
 });
 
-function parseSVGAttributes(file: string) {
-  const ast = parser.parse(file) as {
-    svg: {
-      attributes: {
-        width: string;
-        height: string;
-        viewBox: `${number} ${number} ${number} ${number}`;
-      };
-    };
-  };
+type ColorAttributes = {
+  fill?: string;
+  stroke?: string;
+};
 
-  return ast.svg.attributes;
+type Path = {
+  attributes: ColorAttributes;
+};
+
+type SVG = {
+  attributes: {
+    width: string;
+    height: string;
+    viewBox: `${number} ${number} ${number} ${number}`;
+  } & ColorAttributes;
+  path: Path | Path[];
+};
+
+function parseSVG(file: string) {
+  const ast = parser.parse(file) as { svg: SVG };
+  return ast.svg;
+}
+
+function getColorAttributes(svg: SVG) {
+  const paths = Array.isArray(svg.path) ? svg.path : [svg.path];
+  return paths
+    .flatMap(({ attributes }) => [attributes.fill, attributes.stroke])
+    .filter((color) => Boolean(color));
 }
 
 function getIconManifest(name: string, size: string) {

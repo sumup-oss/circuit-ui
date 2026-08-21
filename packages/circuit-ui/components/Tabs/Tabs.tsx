@@ -49,7 +49,11 @@ export function Tabs({
     <>
       <TabList
         as="tablist"
-        tabs={items.map(({ id, tab }) => ({ id, tab }))}
+        tabs={items.map(({ id, tab, trailingComponent }) => ({
+          id,
+          tab,
+          trailingComponent,
+        }))}
         initialSelectedIndex={initialSelectedIndex}
         onTabChange={handleTabChange}
         {...props}

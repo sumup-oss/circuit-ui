@@ -64,6 +64,8 @@ import {
   type ComboboxInputProps,
 } from './components/ComboboxInput/ComboboxInput.js';
 import type { AutocompleteInputOption } from './components/Option/Option.js';
+import { clsx } from '../../styles/clsx.js';
+import { sharedClasses } from '../../styles/shared.js';
 
 export type AutocompleteInputProps = Omit<
   ComboboxInputProps,
@@ -579,7 +581,7 @@ export function AutocompleteInput({
       </div>
       {isOpen && (
         <div
-          className={classes.results}
+          className={clsx(sharedClasses.elevatedSurface, classes.results)}
           ref={refs.setFloating}
           style={{
             ...floatingStyles,

@@ -15,11 +15,17 @@
 
 'use client';
 
-import type { Ref, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import type {
+  Ref,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ComponentType,
+} from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
 import type { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { clsx } from '../../../../styles/clsx.js';
+import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import classes from './Tab.module.css';
 
@@ -37,6 +43,11 @@ export type TabProps = LinkElProps &
      * Triggers selected styles of the component
      */
     selected?: boolean;
+    /**
+     * Display a `TierIndicator` badge next to the tab's label to indicate
+     * features that are part of the plus plan
+     */
+    trailingComponent?: ComponentType<TierIndicatorProps>;
     ref?: Ref<HTMLButtonElement>;
   };
 
@@ -49,27 +60,45 @@ export function Tab({
   selected = false,
   as = 'tab',
   className,
+  children,
+  trailingComponent: TrailingComponent,
+  ref,
   ...props
 }: TabProps) {
   const components = useComponents();
   const Link = components.Link as EmotionAsPropType;
   const Element = props.href ? Link : 'button';
 
+  const content = TrailingComponent ? (
+    <span className={classes.content}>
+      {children}
+      <TrailingComponent variant="plus" size="s" />
+    </span>
+  ) : (
+    children
+  );
+
   return as === 'tab' ? (
     <Element
+      ref={ref}
       role={as}
       className={clsx(classes.base, className)}
       aria-selected={selected}
       tabIndex={tabIndex(selected)}
       {...props}
-    />
+    >
+      {content}
+    </Element>
   ) : (
     <div role="listitem">
       <Element
+        ref={ref}
         className={clsx(classes.base, className)}
         aria-current={selected ? 'page' : undefined}
         {...props}
-      />
+      >
+        {content}
+      </Element>
     </div>
   );
 }
