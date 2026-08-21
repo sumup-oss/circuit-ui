@@ -28,6 +28,7 @@ import { clsx } from '../../../../styles/clsx.js';
 import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import classes from './Tab.module.css';
+import { utilClasses } from '../../../../styles/utility.js';
 
 type LinkElProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonElProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -82,7 +83,7 @@ export function Tab({
     <Element
       ref={ref}
       role={as}
-      className={clsx(classes.base, className)}
+      className={clsx(classes.base, utilClasses.focusVisibleInset, className)}
       aria-selected={selected}
       tabIndex={tabIndex(selected)}
       {...props}
@@ -93,7 +94,7 @@ export function Tab({
     <div role="listitem">
       <Element
         ref={ref}
-        className={clsx(classes.base, className)}
+        className={clsx(classes.base, utilClasses.focusVisibleInset, className)}
         aria-current={selected ? 'page' : undefined}
         {...props}
       >

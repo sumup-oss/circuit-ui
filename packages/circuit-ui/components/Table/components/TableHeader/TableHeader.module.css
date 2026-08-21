@@ -67,11 +67,11 @@
   display: block;
   width: 100%;
   height: 100%;
-  outline: 0;
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
   content: "";
-  box-shadow:
-    0 0 0 2px var(--cui-bg-normal),
-    0 0 0 4px var(--cui-border-focus);
 }
 
 .base[aria-sort]:focus-within,

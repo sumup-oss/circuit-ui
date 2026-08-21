@@ -17,7 +17,7 @@
   gap: 2px;
   min-width: 170px;
   cursor: text;
-  outline: 0;
+  outline-color: transparent;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   box-shadow: none;

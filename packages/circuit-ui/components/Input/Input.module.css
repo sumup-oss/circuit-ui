@@ -9,7 +9,7 @@
   font-size: var(--field-input-font-size);
   line-height: var(--field-input-line-height);
   appearance: none;
-  outline: 0;
+  outline-color: transparent;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: var(--field-input-border-radius);

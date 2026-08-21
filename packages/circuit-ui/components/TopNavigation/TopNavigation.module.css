@@ -33,8 +33,10 @@
 
 .logo a:focus,
 .logo button:focus {
-  outline: 0;
-  box-shadow: inset 0 0 0 2px var(--cui-border-focus);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
 }
 
 .logo a:focus::-moz-focus-inner,
@@ -44,7 +46,7 @@
 
 .logo a:focus:not(:focus-visible),
 .logo button:focus:not(:focus-visible) {
-  box-shadow: none;
+  outline-color: transparent;
 }
 
 @media (min-width: 1024px) {

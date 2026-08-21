@@ -41,14 +41,14 @@ UTIL CLASSES MARKER START
 }
 
 .focus-visible:focus:not(:focus-visible) {
-  outline: 0;
+  outline-color: transparent;
 }
 
 .focus-visible-inset:focus {
   outline-width: var(--cui-border-width-mega);
   outline-style: solid;
   outline-color: var(--cui-border-focus);
-  outline-offset: -2px;
+  outline-offset: calc(-1 * var(--cui-border-width-mega));
 }
 
 .focus-visible-inset:focus::-moz-focus-inner {

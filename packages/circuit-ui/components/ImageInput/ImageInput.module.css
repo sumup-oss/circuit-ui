@@ -5,10 +5,10 @@
 }
 
 .input:focus + label > *:last-child {
-  outline: 0;
-  box-shadow:
-    0 0 0 2px var(--cui-bg-normal),
-    0 0 0 4px var(--cui-border-focus);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
 }
 
 .input:focus + label > *:last-child::-moz-focus-inner {
@@ -16,7 +16,7 @@
 }
 
 .input:focus:not(:focus-visible) + label > *:last-child {
-  box-shadow: none;
+  outline-color: transparent;
 }
 
 .base .label {
@@ -98,10 +98,10 @@
 /* Dragging */
 
 .label.dragging *:last-child {
-  outline: 0;
-  box-shadow:
-    0 0 0 2px var(--cui-bg-normal),
-    0 0 0 4px var(--cui-border-focus);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
 }
 
 .label.dragging *:last-child::-moz-focus-inner {
