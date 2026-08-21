@@ -21,6 +21,7 @@ import { render, screen } from '../../../../util/test-utils.js';
 import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import { Tab } from './Tab.js';
+import { AccessibilityError } from '../../../../util/errors.js';
 
 describe('Tab', () => {
   it('should merge a custom class name with the default ones', () => {
@@ -83,14 +84,15 @@ describe('Tab', () => {
     onClick: vi.fn(),
     onKeyDown: vi.fn(),
   };
-  const accessibilityProps = ['id', 'aria-controls', 'onClick', 'onKeyDown'];
-  it.each(
-    accessibilityProps,
-  )('[Accessibility props] should throw an error when the "%s" prop is missing', (prop) => {
+  it.each([
+    'id',
+    'aria-controls',
+    'onClick',
+    'onKeyDown',
+  ])('[Accessibility props] should throw an error when the "%s" prop is missing', (prop) => {
     const consoleSpy = vi.spyOn(console, 'warn');
     consoleSpy.mockImplementation(() => {});
 
-    // eslint-disable-next-line circuit-ui/no-deprecated-props
     const testProps = {
       ...requiredAccessibilityProps,
       [prop]: undefined,
@@ -101,9 +103,7 @@ describe('Tab', () => {
         Tab title
       </Tab>,
     );
-    expect(consoleSpy).toHaveBeenCalledWith(
-      `[Circuit UI] The Tab component is missing some accessibility props. Accessibility props will be required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently`,
-    );
+    expect(consoleSpy).toHaveBeenCalledWith(expect.any(AccessibilityError));
     process.env.NODE_ENV = 'test';
   });
 });

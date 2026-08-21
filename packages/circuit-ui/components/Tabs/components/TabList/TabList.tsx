@@ -34,6 +34,7 @@ import { useTabState } from '../../helper.js';
 
 import { Tab, type TabProps } from '../Tab/Tab.js';
 import classes from './TabList.module.css';
+import { AccessibilityError } from '../../../../util/errors.js';
 
 export interface TabItem
   extends Omit<TabProps, 'selected' | 'as' | 'children' | 'id'> {
@@ -116,7 +117,10 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     ) {
       // biome-ignore lint/suspicious/noConsole: Logging an accessibility warning is intentional.
       console.warn(
-        '[Circuit UI] The TabList component is missing some accessibility props. Accessibility props will be required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently',
+        new AccessibilityError(
+          'TabList',
+          'Missing some accessibility props which will become required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently',
+        ),
       );
     }
 

@@ -28,6 +28,7 @@ import { clsx } from '../../../../styles/clsx.js';
 import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import classes from './Tab.module.css';
+import { AccessibilityError } from '../../../../util/errors.js';
 
 type LinkElProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonElProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -88,7 +89,10 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
     ) {
       // biome-ignore lint/suspicious/noConsole: Logging an accessibility warning is intentional.
       console.warn(
-        '[Circuit UI] The Tab component is missing some accessibility props. Accessibility props will be required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently',
+        new AccessibilityError(
+          'Tab',
+          'Missing some accessibility props which will become required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently',
+        ),
       );
     }
 
