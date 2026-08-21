@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.17.0
+
+### Minor Changes
+
+- [#3790](https://github.com/sumup-oss/circuit-ui/pull/3790) [`c6fc25b`](https://github.com/sumup-oss/circuit-ui/commit/c6fc25bf8a672a08a4c65eb9aea48eae3573decc) Thanks [@missating](https://github.com/missating)! - Added a `trailingComponent` prop to the Tab component to display a TierIndicator badge next to a tab's label to indicate features that are part of the plus plan.
+
 ## 11.16.0
 
 ### Minor Changes
