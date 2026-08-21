@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
+  getCountryCodeFieldWidth,
   mapCountryCodeOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
+  resolveCountryCodeOptionLabel,
 } from './PhoneNumberInputService.js';
 
 describe('PhoneNumberInputService', () => {
@@ -208,6 +210,101 @@ describe('PhoneNumberInputService', () => {
       const locale = 'en';
       const actual = mapCountryCodeOptions(options, locale, false);
       expect(actual.map(({ label }) => label)).toEqual(['+1', '+1', '+49']);
+    });
+
+    it('should use option.label when provided', () => {
+      const options = [
+        { country: 'CA', code: '+1', label: 'Canada (+1)' },
+        { country: 'DE', code: '+49', label: 'Germany (+49)' },
+      ];
+      const actual = mapCountryCodeOptions(options, undefined, true);
+      expect(actual[0].label).toBe('Canada (+1)');
+      expect(actual[1].label).toBe('Germany (+49)');
+    });
+
+    it('should use getOptionLabel when provided', () => {
+      const options = [
+        { country: 'CA', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const getOptionLabel = ({
+        country,
+        code,
+      }: {
+        country: string;
+        code: string;
+      }) => `${country} ${code}`;
+      const actual = mapCountryCodeOptions(
+        options,
+        undefined,
+        true,
+        getOptionLabel,
+      );
+      expect(actual.find(({ value }) => value === 'CA')?.label).toBe('CA +1');
+      expect(actual.find(({ value }) => value === 'DE')?.label).toBe('DE +49');
+    });
+
+    it('should prefer option.label over getOptionLabel', () => {
+      const options = [{ country: 'CA', code: '+1', label: 'Custom label' }];
+      const getOptionLabel = () => 'Ignored';
+      expect(
+        resolveCountryCodeOptionLabel(
+          options[0],
+          undefined,
+          true,
+          getOptionLabel,
+        ),
+      ).toBe('Custom label');
+    });
+  });
+
+  describe('getCountryCodeFieldWidth', () => {
+    const options = [
+      { label: 'Canada (+1)' },
+      { label: 'Germany (+49)' },
+      { label: 'United States (+1)' },
+    ];
+
+    it('should size to the longest option label with prefix', () => {
+      expect(getCountryCodeFieldWidth(options, 'm', true)).toBe(
+        'calc(var(--cui-spacings-exa) + 18ch + var(--cui-spacings-exa))',
+      );
+    });
+
+    it('should use smaller spacing tokens for size s', () => {
+      expect(getCountryCodeFieldWidth(options, 's', true)).toBe(
+        'calc(var(--cui-spacings-tera) + 18ch + var(--cui-spacings-tera))',
+      );
+    });
+
+    it('should omit prefix spacing when there is no prefix', () => {
+      expect(getCountryCodeFieldWidth(options, 'm', false)).toBe(
+        'calc(var(--cui-spacings-mega) + 18ch + var(--cui-spacings-exa))',
+      );
+    });
+
+    it('should return undefined when there are no options', () => {
+      expect(getCountryCodeFieldWidth([], 'm', true)).toBeUndefined();
+    });
+  });
+
+  describe('resolveCountryCodeOptionLabel', () => {
+    it('should fall back to the country code when Intl.DisplayNames throws', () => {
+      const displayNamesSpy = vi
+        .spyOn(globalThis.Intl, 'DisplayNames')
+        .mockImplementation(() => {
+          throw new Error('Intl.DisplayNames unavailable');
+        });
+
+      expect(
+        resolveCountryCodeOptionLabel(
+          { country: 'DE', code: '+49' },
+          'en',
+          true,
+        ),
+      ).toBe('DE (+49)');
+
+      displayNamesSpy.mockRestore();
     });
   });
 });

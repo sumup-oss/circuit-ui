@@ -17,7 +17,13 @@ import { describe, it, vi, expect } from 'vitest';
 import { createRef, useState, type ChangeEvent } from 'react';
 import { getIconURL } from '@sumup-oss/icons';
 
-import { axe, render, screen, userEvent } from '../../util/test-utils.js';
+import {
+  axe,
+  fireEvent,
+  render,
+  screen,
+  userEvent,
+} from '../../util/test-utils.js';
 
 import {
   PhoneNumberInput,
@@ -376,6 +382,322 @@ describe('PhoneNumberInput', () => {
     const { container } = render(<PhoneNumberInput {...defaultProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
+  });
+
+  it('should meet accessibility guidelines with a custom country dropdown', async () => {
+    const { container } = render(
+      <PhoneNumberInput
+        {...defaultProps}
+        countryCode={{
+          ...defaultProps.countryCode,
+          options: defaultProps.countryCode.options.map((option) => ({
+            ...option,
+            label: `Label ${option.country}`,
+          })),
+          renderOption: (option) => option.label ?? option.country,
+        }}
+      />,
+    );
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
+  });
+
+  it('should use getOptionLabel for native select option labels', () => {
+    const getOptionLabel = ({
+      country,
+      code,
+    }: {
+      country: string;
+      code: string;
+    }) => `Custom ${country} (${code})`;
+    render(
+      <PhoneNumberInput
+        {...defaultProps}
+        countryCode={{
+          ...defaultProps.countryCode,
+          getOptionLabel,
+        }}
+      />,
+    );
+    expect(
+      screen.getByRole('option', { name: 'Custom CA (+1)' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Custom DE (+49)' }),
+    ).toBeInTheDocument();
+  });
+
+  it('should use option.label for native select option labels', () => {
+    render(
+      <PhoneNumberInput
+        {...defaultProps}
+        countryCode={{
+          ...defaultProps.countryCode,
+          options: defaultProps.countryCode.options.map((option) => ({
+            ...option,
+            label: `Label ${option.country}`,
+          })),
+        }}
+      />,
+    );
+    expect(
+      screen.getByRole('option', { name: 'Label CA' }),
+    ).toBeInTheDocument();
+  });
+
+  describe('custom country dropdown', () => {
+    const renderOption = (option: { country: string; code: string }) =>
+      `${option.country} ${option.code}`;
+
+    const customDropdownProps = {
+      ...defaultProps,
+      countryCode: {
+        ...defaultProps.countryCode,
+        renderOption,
+      },
+    };
+
+    it('should render a combobox when renderOption is provided', () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      expect(combobox).toBeInTheDocument();
+      expect(combobox).toHaveAttribute('aria-autocomplete', 'none');
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    });
+
+    it('should expose required and invalid state on the combobox', () => {
+      render(<PhoneNumberInput {...customDropdownProps} required invalid />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      expect(combobox).toHaveAttribute('aria-required', 'true');
+      expect(combobox).toHaveAttribute('aria-invalid', 'true');
+    });
+
+    it('should open the listbox on arrow down and close on escape with focus returned', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      combobox.focus();
+      await userEvent.keyboard('{ArrowDown}');
+      expect(combobox).toHaveAttribute('aria-expanded', 'true');
+      expect(screen.getByRole('listbox')).toBeVisible();
+      await userEvent.keyboard('{Escape}');
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(combobox).toHaveFocus();
+    });
+
+    it('should expose option accessible names independent of renderOption content', async () => {
+      render(
+        <PhoneNumberInput
+          {...customDropdownProps}
+          countryCode={{
+            ...customDropdownProps.countryCode,
+            options: defaultProps.countryCode.options.map((option) => ({
+              ...option,
+              label: `Accessible ${option.country}`,
+            })),
+            renderOption: () => <span aria-hidden="true">decorative</span>,
+          }}
+        />,
+      );
+      await userEvent.click(
+        screen.getByRole('combobox', { name: 'Country code' }),
+      );
+      expect(
+        screen.getByRole('option', { name: 'Accessible DE' }),
+      ).toBeInTheDocument();
+    });
+
+    it('should open the custom dropdown and select a country', async () => {
+      const onChange = vi.fn();
+      render(<PhoneNumberInput {...customDropdownProps} onChange={onChange} />);
+      await userEvent.click(screen.getByRole('combobox'));
+      expect(screen.getByRole('listbox')).toBeInTheDocument();
+      await userEvent.click(
+        screen.getByRole('option', { name: 'Germany (+49)' }),
+      );
+      expect(onChange).toHaveBeenCalled();
+      expect(screen.getByRole('combobox')).toHaveTextContent('Germany (+49)');
+    });
+
+    it('should update the hidden phone number input when selecting a country', async () => {
+      const { container } = render(
+        <PhoneNumberInput {...customDropdownProps} />,
+      );
+      await userEvent.click(screen.getByRole('combobox'));
+      await userEvent.click(
+        screen.getByRole('option', { name: 'Germany (+49)' }),
+      );
+      const subscriberNumber = screen.getByLabelText(/Subscriber number/);
+      await userEvent.type(subscriberNumber, '12345678');
+      expect(getHiddenInput(container)).toHaveValue('+4912345678');
+    });
+
+    it('should distinguish countries that share a calling code', async () => {
+      render(
+        <PhoneNumberInput
+          {...customDropdownProps}
+          countryCode={{
+            ...customDropdownProps.countryCode,
+            options: defaultProps.countryCode.options.map((option) => ({
+              ...option,
+              label:
+                option.country === 'CA'
+                  ? 'Canada (+1)'
+                  : option.country === 'US'
+                    ? 'United States (+1)'
+                    : `Germany (${option.code})`,
+            })),
+          }}
+        />,
+      );
+      await userEvent.click(screen.getByRole('combobox'));
+      await userEvent.click(
+        screen.getByRole('option', { name: 'United States (+1)' }),
+      );
+      expect(screen.getByRole('combobox')).toHaveTextContent(
+        'United States (+1)',
+      );
+    });
+
+    it('should call countryCode.onChange when selecting a country', async () => {
+      const onCountryChange = vi.fn();
+      render(
+        <PhoneNumberInput
+          {...customDropdownProps}
+          countryCode={{
+            ...customDropdownProps.countryCode,
+            onChange: onCountryChange,
+          }}
+        />,
+      );
+      await userEvent.click(screen.getByRole('combobox'));
+      await userEvent.click(
+        screen.getByRole('option', { name: 'Germany (+49)' }),
+      );
+      expect(onCountryChange).toHaveBeenCalled();
+    });
+
+    it('should close the dropdown when clicking outside', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      await userEvent.click(screen.getByRole('combobox'));
+      expect(screen.getByRole('listbox')).toBeVisible();
+      await userEvent.click(document.body);
+      expect(screen.getByRole('combobox')).toHaveAttribute(
+        'aria-expanded',
+        'false',
+      );
+    });
+
+    it('should not toggle the dropdown when disabled', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} disabled />);
+      await userEvent.click(screen.getByRole('combobox'));
+      expect(screen.getByRole('combobox')).toHaveAttribute(
+        'aria-expanded',
+        'false',
+      );
+    });
+
+    it('should open the dropdown with arrow up', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      combobox.focus();
+      await userEvent.keyboard('{ArrowUp}');
+      expect(combobox).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('should navigate options with arrow keys and select with enter', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      combobox.focus();
+      await userEvent.keyboard('{ArrowDown}');
+      await userEvent.keyboard('{ArrowDown}');
+      await userEvent.keyboard('{Enter}');
+      expect(combobox).toHaveTextContent('Germany (+49)');
+    });
+
+    it('should wrap arrow up navigation to the last option', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      combobox.focus();
+      await userEvent.keyboard('{ArrowDown}');
+      await userEvent.keyboard('{ArrowUp}');
+      expect(combobox).toHaveAttribute(
+        'aria-activedescendant',
+        expect.stringMatching(/-option-2$/),
+      );
+    });
+
+    it('should select the active option with space', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      combobox.focus();
+      await userEvent.keyboard('{ArrowDown}');
+      await userEvent.keyboard('{ArrowDown}');
+      await userEvent.keyboard(' ');
+      expect(combobox).toHaveTextContent('Germany (+49)');
+    });
+
+    it('should open the dropdown with space when closed', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      combobox.focus();
+      await userEvent.keyboard(' ');
+      expect(combobox).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('should support keyboard navigation on the listbox', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      await userEvent.click(screen.getByRole('combobox'));
+      const listbox = screen.getByRole('listbox');
+      fireEvent.keyDown(listbox, { key: 'ArrowDown' });
+      fireEvent.keyDown(listbox, { key: 'Enter' });
+      expect(screen.getByRole('combobox')).toHaveTextContent('Germany (+49)');
+    });
+
+    it('should close the listbox on escape from listbox keyboard events', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      await userEvent.click(combobox);
+      fireEvent.keyDown(screen.getByRole('listbox'), { key: 'Escape' });
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
+      expect(combobox).toHaveFocus();
+    });
+
+    it('should ignore keyboard input when disabled', () => {
+      render(<PhoneNumberInput {...customDropdownProps} disabled />);
+      const combobox = screen.getByRole('combobox');
+      fireEvent.keyDown(combobox, { key: 'ArrowDown' });
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('should ignore enter when the dropdown is closed', () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      const combobox = screen.getByRole('combobox', { name: 'Country code' });
+      fireEvent.keyDown(combobox, { key: 'Enter' });
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('should navigate the listbox with arrow up', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      await userEvent.click(screen.getByRole('combobox'));
+      fireEvent.keyDown(screen.getByRole('listbox'), { key: 'ArrowUp' });
+      expect(screen.getByRole('combobox')).toHaveAttribute(
+        'aria-activedescendant',
+        expect.stringMatching(/-option-2$/),
+      );
+    });
+
+    it('should highlight options on mouse enter', async () => {
+      render(<PhoneNumberInput {...customDropdownProps} />);
+      await userEvent.click(screen.getByRole('combobox'));
+      await userEvent.hover(
+        screen.getByRole('option', { name: 'Germany (+49)' }),
+      );
+      expect(screen.getByRole('combobox')).toHaveAttribute(
+        'aria-activedescendant',
+        expect.stringMatching(/-option-1$/),
+      );
+    });
   });
 
   it('should set aria-describedby when there is an error message', () => {
