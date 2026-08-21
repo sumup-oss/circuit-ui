@@ -52,10 +52,10 @@ export type TabProps = LinkElProps &
 
 function hasMissingAccessibilityProps(props: Partial<TabProps>) {
   return !(
-    'id' in props &&
-    'aria-controls' in props &&
-    'onClick' in props &&
-    'onKeyDown' in props
+    props.id &&
+    props['aria-controls'] &&
+    props.onClick &&
+    props.onKeyDown
   );
 }
 

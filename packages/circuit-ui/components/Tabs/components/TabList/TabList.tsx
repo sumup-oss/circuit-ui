@@ -71,7 +71,7 @@ export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 
 function hasMissingAccessibilityProps(props: Partial<TabListProps>) {
-  return !('id' in props && 'aria-labelledby' in props);
+  return !(props.id && props['aria-labelledby']);
 }
 
 const getCurrentTab = (node?: HTMLElement | null) =>
