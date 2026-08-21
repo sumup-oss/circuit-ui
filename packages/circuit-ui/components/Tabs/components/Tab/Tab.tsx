@@ -50,6 +50,11 @@ export type TabProps = LinkElProps &
     trailingComponent?: ComponentType<TierIndicatorProps>;
   };
 
+function hasMissingAccessibilityProps (props: Partial<TabProps>) {
+  return !('id' in props && 'aria-controls' in props
+    && 'onClick' in props && 'onKeyDown' in props);
+}
+
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
 
 /**
@@ -71,14 +76,26 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
     const Link = components.Link as EmotionAsPropType;
     const Element = props.href ? Link : 'button';
 
-    const content = TrailingComponent ? (
-      <span className={classes.content}>
-        {children}
-        <TrailingComponent variant="plus" size="s" />
-      </span>
-    ) : (
-      children
+    if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    as === 'tab' &&
+    hasMissingAccessibilityProps(props)
+  ) {
+    // biome-ignore lint/suspicious/noConsole: Logging an accessibility warning is intentional.
+    console.warn(
+      '[Circuit UI] The Tab component is missing some accessibility props. Accessibility props will be required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently',
     );
+  }
+
+  const content = TrailingComponent ? (
+    <span className={classes.content}>
+      {children}
+      <TrailingComponent variant="plus" size="s" />
+    </span>
+  ) : (
+    children
+  );
 
     return as === 'tab' ? (
       <Element

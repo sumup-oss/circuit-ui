@@ -70,6 +70,10 @@ export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 
+function hasMissingAccessibilityProps (props: Partial<TabListProps>) {
+  return !('id' in props && 'aria-labelledby' in props);
+}
+
 const getCurrentTab = (node?: HTMLElement | null) =>
   node
     ? node.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]')
@@ -104,9 +108,21 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       onTabChangeProp,
     );
 
-    const selectedIndex = ids.indexOf(selectedId);
-    const numberOfTabs = tabs?.length || Children.toArray(children).length;
-    const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
+    if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    as === 'tablist' &&
+    hasMissingAccessibilityProps(props)
+  ) {
+    // biome-ignore lint/suspicious/noConsole: Logging an accessibility warning is intentional.
+    console.warn(
+      '[Circuit UI] The TabList component is missing some accessibility props. Accessibility props will be required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently',
+    );
+  }
+
+  const selectedIndex = ids.indexOf(selectedId);
+  const numberOfTabs = tabs?.length || Children.toArray(children).length;
+  const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
 
     const updateGliderStyles = useCallback((tab: HTMLElement) => {
       tabListRef.current?.style.setProperty(
