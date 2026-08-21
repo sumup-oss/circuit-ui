@@ -1,5 +1,23 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.6
+
+### Major Changes
+
+- [#3821](https://github.com/sumup-oss/circuit-ui/pull/3821) [`da7668d`](https://github.com/sumup-oss/circuit-ui/commit/da7668d7a96fadf76c26459bdd36199701650a88) Thanks [@sirineJ](https://github.com/sirineJ)! - Redesigned the TopNavigation layout to create a lighter visual appearance with fewer borders and more spacious alignment.
+  
+  The component API remains unchanged. However, the app-level custom property `--top-navigation-height` has increased to `68px`, which may affect layouts that depend on the navigation height.
+
+- [#3815](https://github.com/sumup-oss/circuit-ui/pull/3815) [`5e195af`](https://github.com/sumup-oss/circuit-ui/commit/5e195afa1af60581e386887cc603af3c643e613c) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the SidePanel layout on desktop so it no longer sits flush against the viewport edges. This change improves the visual balance of the component and aligns upcoming changes to the navigation components in the context of the brand refresh. This may affect applications that rely on the previous edge-to-edge positioning of the SidePanel. Review affected screens and adjust where necessary.
+
+- [#3821](https://github.com/sumup-oss/circuit-ui/pull/3821) [`da7668d`](https://github.com/sumup-oss/circuit-ui/commit/da7668d7a96fadf76c26459bdd36199701650a88) Thanks [@sirineJ](https://github.com/sirineJ)! - Redesigned the SideNavigation component API and layout.
+  
+  The component now uses a `groups: NavigationGroup[]` prop to organize navigation items into labeled groups, including support for nested items.
+  The `primaryNavigationLabel` and `secondaryNavigationLabel` props have been removed, and labels are now passed as part of the `groups` prop.
+  
+  The SideNavigation component now supports a `logo` prop, and can be used as a standalone navigation component.
+  An app-level custom property, `--side-navigation-width`, has been added to help consumers account for the SideNavigation width in their layouts.
+
 ## 11.17.0
 
 ### Minor Changes
