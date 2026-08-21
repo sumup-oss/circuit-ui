@@ -17,9 +17,9 @@ import type { HTMLAttributes, Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
 
 import classes from './Body.module.css';
+import { CircuitError } from '../../util/errors.js';
 
 type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
@@ -117,28 +117,35 @@ export function Body({
 }: BodyProps) {
   const Element = as || getHTMLElement(variant);
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
     if (variant) {
       if (variant === 'highlight') {
-        deprecate(
+        throw new CircuitError(
           'Body',
           'The "highlight" variant has been deprecated. Use the new `weight` prop instead.',
         );
-      } else if (variant === 'quote') {
-        deprecate(
+      }
+      if (variant === 'quote') {
+        throw new CircuitError(
           'Body',
           'The "quote" variant has been deprecated. Use custom CSS instead.',
         );
-      } else {
-        deprecate(
-          'Body',
-          `The "${variant}" variant has been deprecated. Use the new \`color\` prop instead.`,
-        );
       }
+      throw new CircuitError(
+        'Body',
+        `The "${variant}" variant has been deprecated. Use the new \`color\` prop instead.`,
+      );
     }
 
-    if (legacySize in deprecatedSizeMap) {
-      deprecate(
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      legacySize in deprecatedSizeMap
+    ) {
+      throw new CircuitError(
         'Body',
         `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
       );

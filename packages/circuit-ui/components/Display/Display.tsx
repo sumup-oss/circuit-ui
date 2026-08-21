@@ -17,7 +17,6 @@ import type { HTMLAttributes, Ref } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
-import { deprecate } from '../../util/logger.js';
 
 import classes from './Display.module.css';
 
@@ -112,9 +111,10 @@ export function Display({
 
   if (
     process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
     (weight === 'regular' || weight === 'semibold')
   ) {
-    deprecate(
+    throw new CircuitError(
       'Display',
       `The "${weight}" weight has been deprecated. Use the "bold" or "black" weights instead.`,
     );
@@ -122,9 +122,10 @@ export function Display({
 
   if (
     process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
     legacySize in deprecatedSizeMap
   ) {
-    deprecate(
+    throw new CircuitError(
       'Display',
       `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
     );
