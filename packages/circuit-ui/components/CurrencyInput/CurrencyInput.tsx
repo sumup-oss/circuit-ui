@@ -23,6 +23,7 @@ import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
 import { idx } from '../../util/idx.js';
 import type { Locale } from '../../util/i18n.js';
+import { deprecate } from '../../util/logger.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { Input, type InputProps } from '../Input/index.js';
 
@@ -99,6 +100,13 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     },
     ref,
   ) => {
+    if (process.env.NODE_ENV !== 'production' && customLocale) {
+      deprecate(
+        'CurrencyInput',
+        'The `locale` prop has been deprecated. Use the `I18nProvider` component or the `formattingLocale` prop instead.',
+      );
+    }
+
     const { formattingLocale } = useI18n({
       locale: customLocale,
       formattingLocale: customFormattingLocale,

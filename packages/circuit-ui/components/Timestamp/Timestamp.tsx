@@ -18,12 +18,13 @@
 import { forwardRef, useEffect, useState, type HTMLAttributes } from 'react';
 import { Temporal } from 'temporal-polyfill';
 
-import type { Locale } from '../../util/i18n.js';
 import { clsx } from '../../styles/clsx.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import type { Locale } from '../../util/i18n.js';
+import { deprecate } from '../../util/logger.js';
 
 import { getInitialState, getState } from './TimestampService.js';
 import classes from './Timestamp.module.css';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
 export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
   /**
@@ -88,10 +89,18 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
     },
     ref,
   ) => {
+    if (process.env.NODE_ENV !== 'production' && customLocale) {
+      deprecate(
+        'Timestamp',
+        'The `locale` prop has been deprecated. Use the `I18nProvider` component or the `formattingLocale` prop instead.',
+      );
+    }
+
     const { formattingLocale } = useI18n({
       locale: customLocale,
       formattingLocale: customFormattingLocale,
     });
+
     const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
     const [state, setState] = useState(
       getInitialState({
