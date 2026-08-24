@@ -21,6 +21,11 @@ import { render, screen } from '../../../../util/test-utils.js';
 import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import { Tab } from './Tab.js';
+import { AccessibilityError } from '../../../../util/errors.js';
+
+declare const process: {
+  env: { NODE_ENV: string };
+};
 
 describe('Tab', () => {
   it('should merge a custom class name with the default ones', () => {
@@ -75,5 +80,34 @@ describe('Tab', () => {
     expect(screen.getByText('Services')).toBeVisible();
     const [props] = TrailingComponent.mock.calls[0];
     expect(props).toStrictEqual({ variant: 'plus', size: 's' });
+  });
+
+  const requiredAccessibilityProps = {
+    id: 'tab-id',
+    'aria-controls': 'tab-id',
+    onClick: vi.fn(),
+    onKeyDown: vi.fn(),
+  };
+  it.each([
+    'id',
+    'aria-controls',
+    'onClick',
+    'onKeyDown',
+  ])('[Accessibility props] should throw an error when the "%s" prop is missing', (prop) => {
+    const consoleSpy = vi.spyOn(console, 'warn');
+    consoleSpy.mockImplementation(() => {});
+
+    const testProps = {
+      ...requiredAccessibilityProps,
+      [prop]: undefined,
+    };
+    process.env.NODE_ENV = 'development';
+    render(
+      <Tab as="tab" {...testProps}>
+        Tab title
+      </Tab>,
+    );
+    expect(consoleSpy).toHaveBeenCalledWith(expect.any(AccessibilityError));
+    process.env.NODE_ENV = 'test';
   });
 });

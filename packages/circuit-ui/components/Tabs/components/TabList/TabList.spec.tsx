@@ -21,6 +21,11 @@ import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 import { TierIndicator } from '../../../TierIndicator/TierIndicator.js';
 
 import { TabList } from './TabList.js';
+import { AccessibilityError } from '../../../../util/errors.js';
+
+declare const process: {
+  env: { NODE_ENV: string };
+};
 
 const tabs = [
   { id: 'a', tab: 'Tab A' },
@@ -151,5 +156,30 @@ describe('TabList', () => {
       />,
     );
     expect(screen.getByText('Services')).toBeVisible();
+  });
+
+  const requiredAccessibilityProps = {
+    id: 'tab-id',
+    'aria-labelledby': 'foo',
+  };
+
+  it.each([
+    'id',
+    'aria-labelledby',
+  ])('[Accessibility props] should throw an error when the "%s" prop is missing', (prop) => {
+    const consoleSpy = vi.spyOn(console, 'warn');
+    consoleSpy.mockImplementation(() => {});
+    const testProps = {
+      ...requiredAccessibilityProps,
+      [prop]: undefined,
+    };
+    process.env.NODE_ENV = 'development';
+    render(
+      <TabList as="tablist" {...testProps}>
+        Tab title
+      </TabList>,
+    );
+    expect(consoleSpy).toHaveBeenCalledWith(expect.any(AccessibilityError));
+    process.env.NODE_ENV = 'test';
   });
 });
