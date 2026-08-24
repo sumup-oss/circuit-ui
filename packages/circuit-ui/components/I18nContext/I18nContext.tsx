@@ -15,7 +15,7 @@
 
 'use client';
 
-import { createContext, type ReactNode } from 'react';
+import { createContext, useMemo, type ReactNode } from 'react';
 
 import { getDefaultLocale, type Locale } from '../../util/i18n.js';
 
@@ -67,11 +67,11 @@ export function I18nProvider({
   locale,
   formattingLocale = locale,
 }: I18nProviderProps) {
+  const contextValue = useMemo(
+    () => ({ locale, formattingLocale, isDefault: false }),
+    [locale, formattingLocale],
+  );
   return (
-    <I18nContext.Provider
-      value={{ locale, formattingLocale, isDefault: false }}
-    >
-      {children}
-    </I18nContext.Provider>
+    <I18nContext.Provider value={contextValue}>{children}</I18nContext.Provider>
   );
 }
