@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^16.2.11",
-    "@sumup-oss/circuit-ui": "^11.17.0",
+    "@sumup-oss/circuit-ui": "^11.18.0",
     "@sumup-oss/design-tokens": "^10.2.0",
-    "@sumup-oss/icons": "^6.16.0",
+    "@sumup-oss/icons": "^6.17.0",
     "@sumup-oss/intl": "^3.5.1",
     "next": "^16.2.11",
     "react": "^19.2.6",
