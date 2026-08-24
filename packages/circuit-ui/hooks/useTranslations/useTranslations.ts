@@ -27,7 +27,10 @@ export function useTranslations<
   Props extends Partial<I18nProps<Key>>,
   Key extends string | number | symbol,
 >(props: Props, translations: Translations<Key>): Props & I18nProps<Key> {
-  const { locale, formattingLocale } = useI18n({ locale: props.locale });
+  const { locale, formattingLocale } = useI18n({
+    locale: props.locale,
+    formattingLocale: props.formattingLocale,
+  });
 
   const supportedLocale = findSupportedLocale(locale);
   const strings = translations[supportedLocale] || {};
