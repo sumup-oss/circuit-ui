@@ -1,5 +1,19 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.7
+
+### Major Changes
+
+- [#3842](https://github.com/sumup-oss/circuit-ui/pull/3842) [`58c18db`](https://github.com/sumup-oss/circuit-ui/commit/58c18dbee271cd8bdaf803fa85fc1dbc0307c59b) Thanks [@sirineJ](https://github.com/sirineJ)! - Moved `@sumup-oss/illustrations` from `dependencies` to `peerDependencies`. To use illustrations in Circuit UI components, consumers must now explicitly install it in their application and import its styles:
+  
+  ```diff
+  +import '@sumup-oss/illustrations/styles.css';
+  ```
+
+### Patch Changes
+
+- [#3836](https://github.com/sumup-oss/circuit-ui/pull/3836) [`fc9e290`](https://github.com/sumup-oss/circuit-ui/commit/fc9e290dad9e043e59662351f728df63fb2a76f6) Thanks [@sirineJ](https://github.com/sirineJ)! - Changed the focus ring from using a `box-shadow` to using an `outline` to improve its visual appearance and to ensure it stays visible in Windows High Contrast Mode.
+
 ## 12.0.0-next.6
 
 ### Major Changes
