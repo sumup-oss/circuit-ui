@@ -4503,11 +4503,6 @@
       "size": "24"
     },
     {
-      "name": "split",
-      "category": "Payment method",
-      "size": "16"
-    },
-    {
       "name": "swile",
       "category": "Payment method",
       "size": "24"
