@@ -92,14 +92,14 @@ Relative.parameters = {
 
 export const Absolute = (args: TimestampProps) => (
   <Stack>
-    {locales.map((locale) => (
-      <Stack vertical key={locale}>
+    {locales.map((formattingLocale) => (
+      <Stack vertical key={formattingLocale}>
         {getDatetimes('absolute').map((datetime) => (
           <Timestamp
             {...args}
             key={datetime.toString()}
             datetime={datetime.toString()}
-            locale={locale}
+            formattingLocale={formattingLocale}
           />
         ))}
       </Stack>

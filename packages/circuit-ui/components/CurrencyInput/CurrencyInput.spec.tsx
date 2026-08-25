@@ -36,7 +36,13 @@ describe('CurrencyInput', () => {
   });
 
   it('should format a en-GB amount correctly', async () => {
-    render(<CurrencyInput {...defaultProps} currency="GBP" locale="en-GB" />);
+    render(
+      <CurrencyInput
+        {...defaultProps}
+        currency="GBP"
+        formattingLocale="en-GB"
+      />,
+    );
 
     const input: HTMLInputElement = screen.getByRole('textbox');
 
@@ -46,7 +52,13 @@ describe('CurrencyInput', () => {
   });
 
   it('should format a de-DE amount correctly', async () => {
-    render(<CurrencyInput {...defaultProps} currency="EUR" locale="de-DE" />);
+    render(
+      <CurrencyInput
+        {...defaultProps}
+        currency="EUR"
+        formattingLocale="de-DE"
+      />,
+    );
 
     const input: HTMLInputElement = screen.getByRole('textbox');
 
