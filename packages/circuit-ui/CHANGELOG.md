@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.19.0
+
+### Minor Changes
+
+- [#3813](https://github.com/sumup-oss/circuit-ui/pull/3813) [`e578508`](https://github.com/sumup-oss/circuit-ui/commit/e5785086ae794ed49da70c3ee043d36a51c7e5d3) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an `I18nProvider` component to set the locale for all design system components globally. Use the `locale` prop to set the language of built-in translations strings. The optional `formattingLocale` prop enables setting a separate locale to format date, time, currency, and other numeric values and defaults to the `locale` prop. Read the new [Internationalization docs](https://circuit.sumup.com/?path=/docs/introduction-internationalization--docs) for details.
+
 ## 11.18.0
 
 ### Minor Changes
