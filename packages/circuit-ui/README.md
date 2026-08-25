@@ -13,19 +13,13 @@ A React component library designed to help developers build inclusive, performan
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With npm
 npm install --save @sumup-oss/circuit-ui
-# With yarn v1
-yarn add @sumup-oss/circuit-ui
 ```
 
 `@sumup-oss/circuit-ui` has a number of required peer dependencies. If your project doesn't have them already, you can install them by running:
 
 ```sh
-# With npm
 npm install --save react react-dom @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl
-# With yarn v1
-yarn add react react-dom @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl
 ```
 
 ## Usage

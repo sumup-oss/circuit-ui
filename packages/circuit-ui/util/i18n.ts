@@ -17,7 +17,7 @@ import { isString } from './type-check.js';
 
 export const FALLBACK_LOCALE = 'en-US';
 
-const SUPPORTED_LOCALES = [
+export const SUPPORTED_LOCALES = [
   'bg-BG',
   'cs-CZ',
   'da-DK',
@@ -62,6 +62,11 @@ const SUPPORTED_LOCALES = [
   'sv-SE',
 ] as const;
 
+/**
+ * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+ * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+ * When providing an array, the first supported locale is used.
+ */
 export type Locale = string | string[];
 type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 

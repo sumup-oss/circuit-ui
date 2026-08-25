@@ -32,7 +32,7 @@ The `NotificationToast` component provides quick status messages to the user. A 
 First, wrap your application in the `ToastProvider` which keeps track of the open toasts and ensures accessibility of the toast messages.
 
 ```tsx
-// _app.tsx for Next.js or App.js for CRA
+// /app/layout.tsx or /pages/_app.tsx for Next.js
 import { ToastProvider } from '@sumup-oss/circuit-ui';
 
 export default function App() {

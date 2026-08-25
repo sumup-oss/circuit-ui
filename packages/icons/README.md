@@ -13,11 +13,7 @@ A collection of icons for the web, part of the SumUp Circuit Design System.
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With npm
 npm install @sumup-oss/icons
-
-# With yarn v1
-yarn add @sumup-oss/icons
 ```
 
 ## Usage
@@ -27,7 +23,7 @@ yarn add @sumup-oss/icons
 The easiest way to use an icon in [React](https://reactjs.org/) is to import it as a component. This approach works out of the box (no special loaders needed), is tree-shaking enabled, and comes with TypeScript typings included.
 
 ```tsx
-import { Check } from '@sumup-oss/icons';
+import { Check } from "@sumup-oss/icons";
 
 const SuccessMessage = ({ description }) => (
   <div>
@@ -40,7 +36,7 @@ const SuccessMessage = ({ description }) => (
 Some icons have multiple sizes. They default to size '24', if supported, or to the smallest available size. Use the `size` prop to show one of the other sizes ('16' or '32') instead:
 
 ```tsx
-import { CircleCheckmark } from '@sumup-oss/icons';
+import { CircleCheckmark } from "@sumup-oss/icons";
 
 const SuccessMessage = ({ description }) => (
   <div>
@@ -61,8 +57,8 @@ To change the color of an icon, set the `color` property in CSS. The color will 
 
 ```tsx
 // SuccessMessage.tsx
-import { Check } from '@sumup-oss/icons';
-import styles from './SuccessMessage.module.css';
+import { Check } from "@sumup-oss/icons";
+import styles from "./SuccessMessage.module.css";
 
 const SuccessMessage = ({ message }) => (
   <div>
@@ -77,7 +73,7 @@ const SuccessMessage = ({ message }) => (
 Alternatively, it's possible to import the raw SVG files. Most bundlers require a special loader to make this work. For Webpack, we recommend the [file-loader](https://github.com/webpack-contrib/file-loader) which turns the import into a URL to the SVG.
 
 ```tsx
-import checkIcon from '@sumup-oss/icons/check_24.svg';
+import checkIcon from "@sumup-oss/icons/check_24.svg";
 
 const SuccessMessage = ({ message }) => (
   <div>
@@ -94,11 +90,11 @@ It is not possible to change the color of an external SVG using the `css` color 
 The latest version of the icon library is [automatically deployed](https://circuit.sumup.com/icons/v2) to [Vercel](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. Use the `getIconURL` helper function to obtain the full URL with type-safety:
 
 ```tsx
-import { getIconURL } from '@sumup-oss/icons';
+import { getIconURL } from "@sumup-oss/icons";
 
 const SuccessMessage = ({ message }) => (
   <div>
-    <img src={getIconURL('check', '24')} alt="" />
+    <img src={getIconURL("check", "24")} alt="" />
     <span>{message}</span>
   </div>
 );
@@ -108,12 +104,12 @@ Alternatively, you can manually construct the URL (`https://circuit.sumup.com/ic
 
 ```css
 .icon {
-  background-image: url('https://circuit.sumup.com/icons/v2/check_24.svg');
+  background-image: url("https://circuit.sumup.com/icons/v2/check_24.svg");
 }
 ```
 
 It is not possible to change the color of an external SVG using the CSS `color` property. Instead, you can use the [CSS `filter` hack](https://blog.union.io/code/2017/08/10/img-svg-fill/) to colorize the icon.
 
-
 ### Filled icons
+
 Outlined icons are the default. Use the filled icons for specific cases to help emphasize the icon's meaning or state, like an active link or a selected option.

@@ -46,7 +46,7 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
 import { last } from '../../util/helpers.js';
 import { Body } from '../Body/Body.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 
 import {
   CalendarActionType,
@@ -114,6 +114,12 @@ export interface CalendarProps
    */
   locale?: Locale;
   /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   */
+  formattingLocale?: Locale;
+  /**
    * A callback that is called with the visible months on the initial render and
    * whenever a user navigates to different months.
    */
@@ -147,12 +153,13 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       maxDate,
       firstDayOfWeek = 1,
       locale,
+      formattingLocale,
       prevMonthButtonLabel,
       nextMonthButtonLabel,
       modifiers,
       numberOfMonths = 1,
       ...rest
-    } = useI18n(props, translations);
+    } = useTranslations(props, translations);
     const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
       calendarReducer,
       { selection, minDate, maxDate, numberOfMonths },
@@ -310,7 +317,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
               today={today}
               firstDayOfWeek={firstDayOfWeek}
               daysInWeek={daysInWeek}
-              locale={locale}
+              formattingLocale={formattingLocale}
               modifiers={modifiers}
               onFocus={handleFocusDate}
               onSelect={onSelect}
@@ -338,7 +345,7 @@ interface MonthProps extends SharedProps {
   focusedDate: Temporal.PlainDate;
   hoveredDate: Temporal.PlainDate | null;
   daysInWeek: number;
-  locale: Locale;
+  formattingLocale: Locale;
 }
 
 function Month({
@@ -357,17 +364,17 @@ function Month({
   onMouseLeave,
   firstDayOfWeek = 1,
   daysInWeek,
-  locale,
+  formattingLocale,
 }: MonthProps) {
   const descriptionIds = useId();
   const headlineId = useId();
   const headline = useMemo(
-    () => getMonthHeadline(yearMonth, locale),
-    [yearMonth, locale],
+    () => getMonthHeadline(yearMonth, formattingLocale),
+    [yearMonth, formattingLocale],
   );
   const weekdays = useMemo(
-    () => getWeekdays(firstDayOfWeek, daysInWeek, locale),
-    [firstDayOfWeek, daysInWeek, locale],
+    () => getWeekdays(firstDayOfWeek, daysInWeek, formattingLocale),
+    [firstDayOfWeek, daysInWeek, formattingLocale],
   );
   const weeks = useMemo(
     () => getViewOfMonth(yearMonth, firstDayOfWeek, daysInWeek),
@@ -389,7 +396,6 @@ function Month({
         {headline}
       </Headline>
       {/** biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: 'grid' is an appropriate role for a table element */}
-      {/** biome-ignore lint/a11y/useSemanticElements: 'grid' is more specific than 'table */}
       <table role="grid" className={classes.grid}>
         <thead>
           <tr>

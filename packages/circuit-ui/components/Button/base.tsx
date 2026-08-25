@@ -32,7 +32,7 @@ import {
 } from '../../util/errors.js';
 import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import type { Locale } from '../../util/i18n.js';
 
 import classes from './base.module.css';
@@ -152,8 +152,9 @@ export function createButtonComponent<Props>(
       navigationIcon: TrailingIcon,
       as,
       locale,
+      formattingLocale,
       ...sharedProps
-    } = useI18n(mapProps(props as Props), translations);
+    } = useTranslations(mapProps(props as Props), translations);
 
     const components = useComponents();
     const Link = components.Link as AsPropType;

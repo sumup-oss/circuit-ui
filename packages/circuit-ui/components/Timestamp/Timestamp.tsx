@@ -18,12 +18,13 @@
 import { forwardRef, useEffect, useState, type HTMLAttributes } from 'react';
 import { Temporal } from 'temporal-polyfill';
 
-import type { Locale } from '../../util/i18n.js';
 import { clsx } from '../../styles/clsx.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import type { Locale } from '../../util/i18n.js';
+import { deprecate } from '../../util/logger.js';
 
 import { getInitialState, getState } from './TimestampService.js';
 import classes from './Timestamp.module.css';
-import { useLocale } from '../../hooks/useLocale/useLocale.js';
 
 export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
   /**
@@ -56,12 +57,19 @@ export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
    */
   variant?: 'auto' | 'relative' | 'absolute';
   /**
+   * @deprecated Use the `I18nProvider` component or the `formattingLocale` prop instead.
+   *
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
    * When passing an array, the first supported locale is used.
-   * Defaults to `navigator.language` in supported environments.
    */
   locale?: Locale;
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   */
+  formattingLocale?: Locale;
 }
 
 /**
@@ -75,15 +83,32 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
       formatStyle = 'long',
       includeTime = false,
       locale: customLocale,
+      formattingLocale: customFormattingLocale,
       className,
       ...props
     },
     ref,
   ) => {
-    const locale = useLocale(customLocale);
+    if (process.env.NODE_ENV !== 'production' && customLocale) {
+      deprecate(
+        'Timestamp',
+        'The `locale` prop has been deprecated. Use the `I18nProvider` component or the `formattingLocale` prop instead.',
+      );
+    }
+
+    const { formattingLocale } = useI18n({
+      locale: customLocale,
+      formattingLocale: customFormattingLocale,
+    });
+
     const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
     const [state, setState] = useState(
-      getInitialState({ datetime, locale, formatStyle, includeTime }),
+      getInitialState({
+        datetime,
+        formattingLocale,
+        formatStyle,
+        includeTime,
+      }),
     );
 
     // Update state on props change
@@ -91,13 +116,13 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
       setState(
         getState({
           datetime,
-          locale,
+          formattingLocale,
           formatStyle,
           variant,
           includeTime,
         }),
       );
-    }, [datetime, variant, formatStyle, locale, includeTime]);
+    }, [datetime, variant, formatStyle, formattingLocale, includeTime]);
 
     // Update state in regular intervals for relative times
     useEffect(() => {
@@ -109,7 +134,7 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
         setState(
           getState({
             datetime,
-            locale,
+            formattingLocale,
             formatStyle,
             variant,
             includeTime,
@@ -120,13 +145,20 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
       return () => {
         clearInterval(timer);
       };
-    }, [state.interval, datetime, variant, formatStyle, locale, includeTime]);
+    }, [
+      state.interval,
+      datetime,
+      variant,
+      formatStyle,
+      formattingLocale,
+      includeTime,
+    ]);
 
     return (
       <time
         ref={ref}
         dateTime={zonedDateTime.toString({ timeZoneName: 'never' })}
-        title={zonedDateTime.toLocaleString(locale, {
+        title={zonedDateTime.toLocaleString(formattingLocale, {
           year: 'numeric',
           month: 'short',
           day: 'numeric',

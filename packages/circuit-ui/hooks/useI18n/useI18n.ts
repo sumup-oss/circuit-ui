@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,38 +15,49 @@
  * limitations under the License.
  */
 
-'use client';
+import { useContext, useEffect, useState } from 'react';
 
+import { getDefaultLocale, type Locale } from '../../util/i18n.js';
 import {
-  findSupportedLocale,
-  type Locale,
-  type Translations,
-} from '../../util/i18n.js';
-import { useLocale } from '../useLocale/useLocale.js';
+  I18nContext,
+  type I18nConfig,
+} from '../../components/I18nContext/I18nContext.js';
 
-type I18nProps<Key extends string | number | symbol> = {
-  [key in Key]: string;
-} & {
-  locale: Locale;
-};
-
-export function useI18n<
-  Props extends Partial<I18nProps<Key>>,
-  Key extends string | number | symbol,
->(props: Props, translations: Translations<Key>): Props & I18nProps<Key> {
-  const locale = useLocale(props.locale);
-
-  const supportedLocale = findSupportedLocale(locale);
-  const strings = translations[supportedLocale] || {};
-  const keys = Object.keys(strings) as Key[];
-
-  const translatedProps = keys.reduce(
-    (acc, key) => {
-      acc[key] = props[key] || strings[key];
-      return acc;
-    },
-    {} as Record<Key, string>,
+/**
+ * Provides localization context, either from the I18nProvider or the current
+ * browser/system language.
+ */
+export function useI18n({
+  locale: customLocale,
+  // TODO: Remove this fallback in v12 once the deprecated `locale` props have been removed.
+  formattingLocale: customFormattingLocale = customLocale,
+}: Partial<I18nConfig>): I18nConfig {
+  const {
+    locale: globalLocale,
+    formattingLocale: globalFormattingLocale,
+    isDefault,
+  } = useContext(I18nContext);
+  const [locale, setLocale] = useState<Locale>(customLocale || globalLocale);
+  const [formattingLocale, setFormattingLocale] = useState<Locale>(
+    customFormattingLocale || globalFormattingLocale || locale,
   );
 
-  return { ...props, ...translatedProps, locale };
+  // Update the locales after hydration on the client
+  useEffect(() => {
+    if (customLocale || (globalLocale && !isDefault)) {
+      return;
+    }
+
+    setLocale(getDefaultLocale());
+  }, [customLocale, globalLocale, isDefault]);
+
+  useEffect(() => {
+    if (customFormattingLocale || (globalFormattingLocale && !isDefault)) {
+      return;
+    }
+
+    setFormattingLocale(getDefaultLocale());
+  }, [customFormattingLocale, globalFormattingLocale, isDefault]);
+
+  return { locale, formattingLocale };
 }

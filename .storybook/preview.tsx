@@ -4,8 +4,14 @@ import '@sumup-oss/design-tokens/consumer-scoped.css';
 import '@sumup-oss/illustrations/styles.css';
 import '../packages/circuit-ui/styles/base.css';
 
+import {
+  FALLBACK_LOCALE,
+  SUPPORTED_LOCALES,
+} from '../packages/circuit-ui/util/i18n.js';
+
 import { light, components } from './themes.js';
 import { withThemeProvider } from './decorators/withThemeProvider.js';
+import { withI18nProvider } from './decorators/withI18nProvider.js';
 import { DocsContainer } from './components/DocsContainer.js';
 import { modes } from './modes.js';
 
@@ -56,8 +62,16 @@ export const parameters = {
       order: [
         'Introduction',
         'Features',
+        [
+          'Theme',
+          'Base Components',
+          'Illustrations',
+          'Utility Classes',
+          'Style Mixins',
+        ],
         'Icons',
         ['Overview', 'CardScheme', 'Flag', 'PaymentMethod'],
+        'Typography',
       ],
       includeName: true,
     },
@@ -70,6 +84,11 @@ export const parameters = {
     codePanel: true,
   },
 };
+
+// eslint-disable-next-line compat/compat
+const languageName = new Intl.DisplayNames(FALLBACK_LOCALE, {
+  type: 'language',
+});
 
 export const globalTypes = {
   theme: {
@@ -103,6 +122,19 @@ export const globalTypes = {
       ],
     },
   },
+  locale: {
+    name: 'Locale',
+    description: 'Locale',
+    defaultValue: FALLBACK_LOCALE,
+    toolbar: {
+      title: 'Locale',
+      icon: 'globe',
+      items: SUPPORTED_LOCALES.map((locale) => ({
+        title: languageName.of(locale) || locale,
+        value: locale,
+      })).sort((a, b) => a.title.localeCompare(b.title)),
+    },
+  },
 };
 
-export const decorators = [withThemeProvider];
+export const decorators = [withThemeProvider, withI18nProvider];

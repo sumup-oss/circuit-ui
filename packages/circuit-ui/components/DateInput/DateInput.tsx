@@ -29,7 +29,7 @@ import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -160,6 +160,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       min,
       max,
       locale,
+      formattingLocale,
       firstDayOfWeek,
       modifiers,
       hideLabel,
@@ -187,7 +188,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       style,
       size = 'm',
       ...rest
-    } = useI18n(props, translations);
+    } = useTranslations(props, translations);
     const isMobile = useMedia('(max-width: 479px)');
 
     const inputRef = useRef<HTMLInputElement>(null);
@@ -216,7 +217,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       onChange: handleChange,
       minDate,
       maxDate,
-      locale,
+      formattingLocale,
     });
 
     const [open, setOpen] = useState(false);
@@ -259,11 +260,11 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       closeCalendar();
     };
 
-    const segments = getDateSegments(locale);
+    const segments = getDateSegments(formattingLocale);
     const calendarButtonLabel = getCalendarButtonLabel(
       openCalendarButtonLabel,
       state.date,
-      locale,
+      formattingLocale,
     );
 
     if (
@@ -429,6 +430,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 minDate={minDate}
                 maxDate={maxDate}
                 locale={locale}
+                formattingLocale={formattingLocale}
                 firstDayOfWeek={firstDayOfWeek}
                 modifiers={modifiers}
                 prevMonthButtonLabel={prevMonthButtonLabel}

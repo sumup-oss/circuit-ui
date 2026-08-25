@@ -35,7 +35,6 @@ export default {
 const baseArgs = {
   label: 'Discount',
   placeholder: 0,
-  locale: 'de-DE',
 };
 
 export const Base = (args: PercentageInputProps) => (
@@ -56,13 +55,13 @@ export const Locales = (args: PercentageInputProps) => (
       {...args}
       style={{ maxWidth: '250px' }}
       label="Percentage (de-DE)"
-      locale="de-DE"
+      formattingLocale="de-DE"
     />
     <PercentageInput
       {...args}
       style={{ maxWidth: '250px' }}
       label="Percentage (en-IE)"
-      locale="en-IE"
+      formattingLocale="en-IE"
     />
   </Stack>
 );
