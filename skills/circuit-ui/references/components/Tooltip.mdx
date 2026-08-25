@@ -32,6 +32,8 @@ The Tooltip works without JavaScript as long as the parent element is [positione
 
 Use the `label` type when the tooltip acts as the wrapped component's label (aka [accessible name](https://w3c.github.io/accname/#dfn-accessible-name)). The label text should state the element's function or action in one or two words maximum.
 
+[IconButton](Components/Button/IconButton/Base) already wraps itself in a label-type Tooltip by default, you don't need to compose them manually.
+
 #### Description
 
 Use the `description` type when the tooltip provides supplemental information about the wrapped component ([accessible description](https://w3c.github.io/accname/#dfn-accessible-description)). The label text should not contain information that is critical for a user to understand the wrapped element. Use sentence-case for the label text and write complete sentences with punctuation unless space is limited. Avoid exceeding 160 characters.
