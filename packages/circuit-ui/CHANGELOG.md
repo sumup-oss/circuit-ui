@@ -5,7 +5,7 @@
 ### Major Changes
 
 - [#3842](https://github.com/sumup-oss/circuit-ui/pull/3842) [`58c18db`](https://github.com/sumup-oss/circuit-ui/commit/58c18dbee271cd8bdaf803fa85fc1dbc0307c59b) Thanks [@sirineJ](https://github.com/sirineJ)! - Moved `@sumup-oss/illustrations` from `dependencies` to `peerDependencies`. To use illustrations in Circuit UI components, consumers must now explicitly install it in their application and import its styles:
-  
+
   ```diff
   +import '@sumup-oss/illustrations/styles.css';
   ```
@@ -19,18 +19,30 @@
 ### Major Changes
 
 - [#3821](https://github.com/sumup-oss/circuit-ui/pull/3821) [`da7668d`](https://github.com/sumup-oss/circuit-ui/commit/da7668d7a96fadf76c26459bdd36199701650a88) Thanks [@sirineJ](https://github.com/sirineJ)! - Redesigned the TopNavigation layout to create a lighter visual appearance with fewer borders and more spacious alignment.
-  
+
   The component API remains unchanged. However, the app-level custom property `--top-navigation-height` has increased to `68px`, which may affect layouts that depend on the navigation height.
 
 - [#3815](https://github.com/sumup-oss/circuit-ui/pull/3815) [`5e195af`](https://github.com/sumup-oss/circuit-ui/commit/5e195afa1af60581e386887cc603af3c643e613c) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the SidePanel layout on desktop so it no longer sits flush against the viewport edges. This change improves the visual balance of the component and aligns upcoming changes to the navigation components in the context of the brand refresh. This may affect applications that rely on the previous edge-to-edge positioning of the SidePanel. Review affected screens and adjust where necessary.
 
 - [#3821](https://github.com/sumup-oss/circuit-ui/pull/3821) [`da7668d`](https://github.com/sumup-oss/circuit-ui/commit/da7668d7a96fadf76c26459bdd36199701650a88) Thanks [@sirineJ](https://github.com/sirineJ)! - Redesigned the SideNavigation component API and layout.
-  
+
   The component now uses a `groups: NavigationGroup[]` prop to organize navigation items into labeled groups, including support for nested items.
   The `primaryNavigationLabel` and `secondaryNavigationLabel` props have been removed, and labels are now passed as part of the `groups` prop.
-  
+
   The SideNavigation component now supports a `logo` prop, and can be used as a standalone navigation component.
   An app-level custom property, `--side-navigation-width`, has been added to help consumers account for the SideNavigation width in their layouts.
+
+## 11.19.0
+
+### Minor Changes
+
+- [#3813](https://github.com/sumup-oss/circuit-ui/pull/3813) [`e578508`](https://github.com/sumup-oss/circuit-ui/commit/e5785086ae794ed49da70c3ee043d36a51c7e5d3) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an `I18nProvider` component to set the locale for all design system components globally. Use the `locale` prop to set the language of built-in translations strings. The optional `formattingLocale` prop enables setting a separate locale to format date, time, currency, and other numeric values and defaults to the `locale` prop. Read the new [Internationalization docs](https://circuit.sumup.com/?path=/docs/introduction-internationalization--docs) for details.
+
+## 11.18.0
+
+### Minor Changes
+
+- [#3846](https://github.com/sumup-oss/circuit-ui/pull/3846) [`529c50b`](https://github.com/sumup-oss/circuit-ui/commit/529c50bb9b08a57b7c216431d14b319ad08a8f75) Thanks [@sirineJ](https://github.com/sirineJ)! - Added development-time console warnings for missing accessibility props in the Tab and TabList components. These props will become mandatory in a future major version. [Read about the accessibility recommendations.](https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently)
 
 ## 11.17.0
 

@@ -27,7 +27,7 @@ import {
 import { isFunction } from '../../util/type-check.js';
 import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
 import { clsx } from '../../styles/clsx.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 
@@ -55,7 +55,7 @@ export function SidePanel(props: SidePanelProps) {
     preventEscapeKeyClose,
     className,
     ...rest
-  } = useI18n(props, translations);
+  } = useTranslations(props, translations);
   const isMobile = useMedia('(max-width: 767px)');
 
   {

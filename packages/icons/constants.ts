@@ -31,6 +31,7 @@ export const CATEGORIES = [
   'Device',
   'File',
   'Finance',
+  'Media',
   'Miscellaneous',
   'Navigation',
   'Notification',

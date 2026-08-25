@@ -76,6 +76,11 @@
     {
       "name": "controls",
       "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "controls",
+      "category": "Action",
       "size": "16"
     },
     {
@@ -100,6 +105,11 @@
       "name": "day_view",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "day_view",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "delete",
@@ -235,6 +245,11 @@
       "name": "month_view",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "month_view",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "more",
@@ -427,6 +442,11 @@
       "size": "24"
     },
     {
+      "name": "week_view",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "zoom_in",
       "category": "Action",
       "size": "24"
@@ -437,8 +457,63 @@
       "size": "24"
     },
     {
+      "name": "controls_custom",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "cropping_horizontal",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "cropping_square",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "cropping_vertical",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "request_history",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "request_history",
+      "category": "Finance",
+      "size": "16"
+    },
+    {
+      "name": "switch_account",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "unlink",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "switch_account",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "recurring_transfer",
       "category": "Bank",
+      "size": "24"
+    },
+    {
+      "name": "headset",
+      "category": "Communication",
+      "size": "24"
+    },
+    {
+      "name": "account_details",
+      "category": "Finance",
       "size": "24"
     },
     {
@@ -713,6 +788,16 @@
       "alternative": ["Phone"],
       "deprecation": "Use the `Phone` icon instead.",
       "inactive": true
+    },
+    {
+      "name": "scam_call",
+      "category": "Communication",
+      "size": "24"
+    },
+    {
+      "name": "video",
+      "category": "Media",
+      "size": "24"
     },
     {
       "name": "flag_ae",
@@ -1312,7 +1397,6 @@
       "deprecation": "Use the Flag component instead.",
       "inactive": true
     },
-
     {
       "category": "Flag",
       "keywords": ["Andorra"],
@@ -2931,6 +3015,101 @@
       "size": "24"
     },
     {
+      "name": "android_terminal",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "battery_charging",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "battery_charging",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "bluetooth_connecting",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "bluetooth_off",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "customer_facing_display",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "disable_nfc",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "power_off",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "restart",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "signal_full",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "signal_high",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "signal_low",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "signal_medium",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "signal_no_signal",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "wifi_high",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "wifi_low",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "wifi_medium",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "wifi_no_ip",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "wifi_no_signal",
+      "category": "Device",
+      "size": "24"
+    },
+    {
       "name": "archive",
       "category": "File",
       "size": "24"
@@ -3001,6 +3180,21 @@
       "size": "24"
     },
     {
+      "name": "export",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "import",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "tracking_number",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "activate_card",
       "category": "Finance",
       "size": "24"
@@ -3019,6 +3213,11 @@
       "name": "bank",
       "category": "Finance",
       "size": "24"
+    },
+    {
+      "name": "bank",
+      "category": "Finance",
+      "size": "16"
     },
     {
       "name": "bulk_transfer",
@@ -3059,6 +3258,11 @@
       "name": "interest_on_balance",
       "category": "Finance",
       "size": "24"
+    },
+    {
+      "name": "interest_on_balance",
+      "category": "Finance",
+      "size": "16"
     },
     {
       "name": "no_costs",
@@ -3333,6 +3537,11 @@
       "size": "24"
     },
     {
+      "name": "legal",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
       "name": "like",
       "category": "Miscellaneous",
       "size": "24"
@@ -3573,6 +3782,31 @@
       "size": "24"
     },
     {
+      "name": "cafe_restaurant",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "diamond",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "hotel",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "placeholder",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "placeholder",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
       "name": "browser_secure",
       "category": "Security",
       "size": "24"
@@ -3618,9 +3852,29 @@
       "size": "24"
     },
     {
+      "name": "cvv",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "trusted_individual",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "unfreeze",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "arrow_down",
       "category": "Navigation",
       "size": "24"
+    },
+    {
+      "name": "arrow_down",
+      "category": "Navigation",
+      "size": "16"
     },
     {
       "name": "arrow_left",
@@ -3656,6 +3910,11 @@
       "name": "arrow_up",
       "category": "Navigation",
       "size": "24"
+    },
+    {
+      "name": "arrow_up",
+      "category": "Navigation",
+      "size": "16"
     },
     {
       "name": "external_link",
@@ -3823,6 +4082,26 @@
     },
     {
       "name": "transit",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "back_online",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "back_online",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "offline",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "offline",
       "category": "Notification",
       "size": "16"
     },
@@ -4152,6 +4431,11 @@
       "category": "Product and feature",
       "keywords": ["Navigation", "Users"],
       "size": "24"
+    },
+    {
+      "name": "employees",
+      "category": "Product and feature",
+      "size": "16"
     },
     {
       "name": "employees_filled",
@@ -4516,6 +4800,11 @@
       "size": "24"
     },
     {
+      "name": "sum_up_card",
+      "category": "Product and feature",
+      "size": "16"
+    },
+    {
       "name": "sum_up_connect",
       "category": "Product and feature",
       "keywords": ["Navigation"],
@@ -4553,6 +4842,11 @@
       "size": "24"
     },
     {
+      "name": "tipping",
+      "category": "Product and feature",
+      "size": "16"
+    },
+    {
       "name": "transactions",
       "category": "Product and feature",
       "size": "24"
@@ -4570,6 +4864,42 @@
       "size": "24"
     },
     {
+      "name": "add_items_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "checkout_amount_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "customise_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "floor_plan_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "mail_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "orders_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
       "name": "webspace",
       "category": "Product and feature",
       "size": "24"
@@ -4583,6 +4913,73 @@
       "name": "general_preferences",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "automatic_pix",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "automatic_pix",
+      "category": "Product and feature",
+      "size": "16"
+    },
+    {
+      "name": "checkout_amount",
+      "category": "Product and feature",
+      "size": "24",
+      "keywords": ["Navigation"]
+    },
+    {
+      "name": "checkout_settings",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "floor_plan",
+      "category": "Product and feature",
+      "size": "24",
+      "keywords": ["Navigation"]
+    },
+    {
+      "name": "loyalty_add",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "loyalty_logged_in",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "online_integrations",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "ordering",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "subscription_plans",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "sum_up_pay",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "till_management",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "till_management",
+      "category": "Product and feature",
+      "size": "16"
     },
     {
       "name": "facebook",

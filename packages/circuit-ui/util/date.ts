@@ -109,8 +109,8 @@ export function getLastDateOfWeek(
   });
 }
 
-export function getMonthName(month: number, locale: Locale) {
+export function getMonthName(month: number, formattingLocale: Locale) {
   // The year can be arbitrary since the month names are the same every year
   const yearMonth = new Temporal.PlainYearMonth(2000, month, 'gregory');
-  return formatDateTime(yearMonth, locale, { month: 'long' });
+  return formatDateTime(yearMonth, formattingLocale, { month: 'long' });
 }

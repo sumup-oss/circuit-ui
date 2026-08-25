@@ -18,7 +18,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { renderHook } from '../../util/test-utils.js';
 import type { Locale, Translations } from '../../util/i18n.js';
 
-import { useI18n } from './useI18n.js';
+import { useTranslations } from './useTranslations.js';
 
 type Props = {
   locale?: Locale;
@@ -27,7 +27,7 @@ type Props = {
   onFoo?: () => void;
 };
 
-describe('useI18n', () => {
+describe('useTranslations', () => {
   const translations = {
     'en-US': { greeting: 'Hello' },
     'de-DE': { greeting: 'Hallo' },
@@ -35,20 +35,20 @@ describe('useI18n', () => {
 
   it('should return translations for the provided locale', () => {
     const props: Props = { locale: 'de-DE' };
-    const { result } = renderHook(() => useI18n(props, translations));
+    const { result } = renderHook(() => useTranslations(props, translations));
     expect(result.current.locale).toBe('de-DE');
     expect(result.current.greeting).toBe('Hallo');
   });
 
   it('should return the custom translation when provided', () => {
     const props: Props = { greeting: 'Salut' };
-    const { result } = renderHook(() => useI18n(props, translations));
+    const { result } = renderHook(() => useTranslations(props, translations));
     expect(result.current.greeting).toBe('Salut');
   });
 
   it('should forward all other props', () => {
     const props: Props = { foo: 'bar', onFoo: vi.fn() };
-    const { result } = renderHook(() => useI18n(props, translations));
+    const { result } = renderHook(() => useTranslations(props, translations));
     expect(result.current).toEqual(expect.objectContaining(props));
   });
 });

@@ -80,12 +80,12 @@ type State = {
 
 export function getInitialState({
   datetime,
-  locale,
+  formattingLocale,
   formatStyle,
   includeTime,
 }: {
   datetime: string;
-  locale: Locale;
+  formattingLocale: Locale;
   formatStyle: 'long' | 'short' | 'narrow';
   includeTime: boolean;
 }): State {
@@ -97,20 +97,24 @@ export function getInitialState({
     options.timeStyle = TIME_STYLE;
   }
   return {
-    label: formatDateTime(zonedDateTime.toPlainDateTime(), locale, options),
+    label: formatDateTime(
+      zonedDateTime.toPlainDateTime(),
+      formattingLocale,
+      options,
+    ),
     interval: null,
   };
 }
 
 export function getState({
   datetime,
-  locale,
+  formattingLocale,
   formatStyle,
   variant,
   includeTime,
 }: {
   datetime: string;
-  locale: Locale;
+  formattingLocale: Locale;
   formatStyle: 'long' | 'short' | 'narrow';
   variant: 'auto' | 'relative' | 'absolute';
   includeTime: boolean;
@@ -136,7 +140,11 @@ export function getState({
       options.timeStyle = TIME_STYLE;
     }
     return {
-      label: formatDateTime(zonedDateTime.toPlainDateTime(), locale, options),
+      label: formatDateTime(
+        zonedDateTime.toPlainDateTime(),
+        formattingLocale,
+        options,
+      ),
       interval: null,
     };
   }
@@ -157,7 +165,7 @@ export function getState({
   const options = { style: formatStyle };
 
   return {
-    label: formatRelativeTime(value, unit.name, locale, options),
+    label: formatRelativeTime(value, unit.name, formattingLocale, options),
     interval: unit.interval,
   };
 }

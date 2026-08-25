@@ -27,7 +27,7 @@ import {
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 import type { ClickEvent } from '../../types/events.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import type { Locale } from '../../util/i18n.js';
 
 import classes from './SearchInput.module.css';
@@ -56,8 +56,16 @@ export type SearchInputProps = InputProps & {
  * SearchInput component for forms.
  */
 export function SearchInput(rawProps: SearchInputProps) {
-  const { value, onClear, clearLabel, inputClassName, locale, ref, ...rest } =
-    useI18n(rawProps, translations);
+  const {
+    value,
+    onClear,
+    clearLabel,
+    inputClassName,
+    locale,
+    formattingLocale,
+    ref,
+    ...rest
+  } = useTranslations(rawProps, translations);
   const localRef = useRef<HTMLInputElement>(null);
 
   if (

@@ -56,6 +56,7 @@
 | `ComponentsContext` | Unknown | `@sumup-oss/circuit-ui` | `./components/ComponentsContext/index.js` | Not available |
 | `Flag` | Unknown | `@sumup-oss/circuit-ui` | `./components/Flag/Flag.js` | Not available |
 | `Hr` | `stable` | `@sumup-oss/circuit-ui` | `./components/Hr/index.js` | [Read MDX reference](components/Hr.mdx) |
+| `I18nProvider` | Unknown | `@sumup-oss/circuit-ui` | `./components/I18nContext/I18nContext.js` | Not available |
 | `Image` | `stable` | `@sumup-oss/circuit-ui` | `./components/Image/index.js` | [Read MDX reference](components/Image.mdx) |
 | `ListItem` | `stable` | `@sumup-oss/circuit-ui` | `./components/ListItem/index.js` | [Read MDX reference](components/ListItem.mdx) |
 | `ListItemGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/ListItemGroup/index.js` | [Read MDX reference](components/ListItemGroup.mdx) |

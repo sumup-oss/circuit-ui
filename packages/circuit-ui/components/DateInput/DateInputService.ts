@@ -20,8 +20,8 @@ import type { Locale } from '../../util/i18n.js';
 
 const TEST_VALUE = new Temporal.PlainDate(2024, 3, 8);
 
-export function getDateSegments(locale: Locale) {
-  const parts = formatDateTimeToParts(TEST_VALUE, locale);
+export function getDateSegments(formattingLocale: Locale) {
+  const parts = formatDateTimeToParts(TEST_VALUE, formattingLocale);
   return parts.map(({ type, value }) =>
     type === 'literal' ? { type, value } : { type },
   );
@@ -30,10 +30,10 @@ export function getDateSegments(locale: Locale) {
 export function getCalendarButtonLabel(
   label: string,
   date: Temporal.PlainDate | undefined,
-  locale: Locale,
+  formattingLocale: Locale,
 ) {
   if (!date) {
     return label;
   }
-  return [label, formatDate(date, locale, 'long')].join(', ');
+  return [label, formatDate(date, formattingLocale, 'long')].join(', ');
 }

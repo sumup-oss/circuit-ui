@@ -37,7 +37,7 @@ import {
 
 import type { ClickEvent } from '../../types/events.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import type { Locale } from '../../util/i18n.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
@@ -169,7 +169,7 @@ export function AutocompleteInput({
     clearLabel,
     moreResults,
     removeTagButtonLabel,
-  } = useI18n(
+  } = useTranslations(
     {
       locale,
       loadMoreLabel: props.loadMoreLabel,
