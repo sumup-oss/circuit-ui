@@ -35,6 +35,50 @@ describe('Body', () => {
     expect(ref.current).toBe(paragraph);
   });
 
+  const deprecatedVariants = [
+    [
+      'highlight',
+      'The "highlight" variant has been deprecated. Use the new `weight` prop instead.',
+    ],
+    [
+      'quote',
+      'The "quote" variant has been deprecated. Use custom CSS instead.',
+    ],
+    [
+      'confirm',
+      'The "confirm" variant has been deprecated. Use the new `color` prop instead.',
+    ],
+    [
+      'alert',
+      'The "alert" variant has been deprecated. Use the new `color` prop instead.',
+    ],
+    [
+      'subtle',
+      'The "subtle" variant has been deprecated. Use the new `color` prop instead.',
+    ],
+  ] as const;
+  it.each(
+    deprecatedVariants,
+  )('[Deprecated variants] should throw an error when a deprecated "%s" variant is passed', (variant, error) => {
+    process.env.NODE_ENV = 'development';
+    // eslint-disable-next-line circuit-ui/no-deprecated-props
+    expect(() => render(<Body variant={variant}>Body</Body>)).toThrow(error);
+  });
+
+  const deprecatedSizes = [
+    ['one', 'm'],
+    ['two', 's'],
+  ] as const;
+  it.each(
+    deprecatedSizes,
+  )('[Deprecated sizes] should throw an error when legacy "%s" value is passed to the size prop', (size, alternative) => {
+    process.env.NODE_ENV = 'development';
+    expect(() => render(<Body size={size}>Body</Body>)).toThrow(
+      `[Body] The "${size}" size has been deprecated. Use the "${alternative}" size instead.`,
+    );
+    process.env.NODE_ENV = 'test';
+  });
+
   const elements = ['p', 'article', 'div'] as const;
   it.each(elements)('should render as a "%s" element', (as) => {
     const { container } = render(<Body as={as}>{as} Body</Body>);

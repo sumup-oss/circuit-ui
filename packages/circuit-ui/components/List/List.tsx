@@ -18,9 +18,9 @@ import type { OlHTMLAttributes, Ref } from 'react';
 import { clsx } from '../../styles/clsx.js';
 import type { BodyProps } from '../Body/index.js';
 import { deprecatedSizeMap } from '../Body/Body.js';
-import { deprecate } from '../../util/logger.js';
 
 import classes from './List.module.css';
+import { CircuitError } from '../../util/errors.js';
 
 export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
   ref?: Ref<HTMLOListElement>;
@@ -45,9 +45,10 @@ export function List({
 }: ListProps) {
   if (
     process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
     legacySize in deprecatedSizeMap
   ) {
-    deprecate(
+    throw new CircuitError(
       'List',
       `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
     );
