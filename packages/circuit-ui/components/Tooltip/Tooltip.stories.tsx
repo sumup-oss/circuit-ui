@@ -14,11 +14,10 @@
  */
 
 import { userEvent } from 'storybook/test';
-import { TransferOut, UploadCloud } from '@sumup-oss/icons';
+import { UploadCloud } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import { Button, IconButton } from '../Button/index.js';
-
+import { Button } from '../Button/index.js';
 import {
   Tooltip,
   type TooltipProps,
@@ -70,16 +69,6 @@ Base.play = showTooltip;
 
 export const Types = (args: TooltipProps) => (
   <Stack>
-    <Tooltip
-      {...args}
-      type="label"
-      label="Transfer out"
-      component={(props) => (
-        <IconButton {...props} icon={TransferOut} title={undefined}>
-          Transfer out
-        </IconButton>
-      )}
-    />
     <Tooltip
       {...args}
       type="description"

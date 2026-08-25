@@ -70,7 +70,9 @@ describe('SidePanel', () => {
     const onClose = vi.fn();
     renderComponent({ onClose });
 
-    await userEvent.click(screen.getByTitle(closeButtonLabel));
+    await userEvent.click(
+      screen.getByRole('button', { name: closeButtonLabel }),
+    );
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -95,7 +97,7 @@ describe('SidePanel', () => {
     const onClose = vi.fn();
     renderComponent({ onClose });
 
-    const sidePanel = screen.getByText('Close');
+    const sidePanel = screen.getByRole('button', { name: 'Close' });
 
     await waitFor(() => expect(sidePanel).toBeVisible());
 
@@ -109,7 +111,9 @@ describe('SidePanel', () => {
       renderComponent();
 
       expect(
-        screen.queryByTitle(baseProps.backButtonLabel as string),
+        screen.queryByRole('button', {
+          name: baseProps.backButtonLabel as string,
+        }),
       ).toBeNull();
     });
   });
@@ -120,7 +124,9 @@ describe('SidePanel', () => {
       renderComponent({ onBack });
 
       expect(
-        screen.getByTitle(baseProps.backButtonLabel as string),
+        screen.getByRole('button', {
+          name: baseProps.backButtonLabel as string,
+        }),
       ).toBeVisible();
     });
 
@@ -129,7 +135,9 @@ describe('SidePanel', () => {
       renderComponent({ onBack });
 
       await userEvent.click(
-        screen.getByTitle(baseProps.backButtonLabel as string),
+        screen.getByRole('button', {
+          name: baseProps.backButtonLabel as string,
+        }),
       );
 
       expect(onBack).toHaveBeenCalled();

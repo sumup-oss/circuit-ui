@@ -222,7 +222,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(screen.getByText('Open panel'));
         await userEvent.click(screen.getByText('Open second panel'));
-        await userEvent.click(screen.getByText('Back'));
+        await userEvent.click(screen.getByRole('button', { name: 'Back' }));
         act(() => {
           vi.runAllTimers();
         });
@@ -253,7 +253,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(screen.getByText('Open panel'));
         await userEvent.click(screen.getByText('Open second panel'));
-        await userEvent.click(screen.getByText('Back'));
+        await userEvent.click(screen.getByRole('button', { name: 'Back' }));
         act(() => {
           vi.runAllTimers();
         });

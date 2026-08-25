@@ -13,10 +13,17 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { createRef } from 'react';
 import { Close } from '@sumup-oss/icons';
 
-import { render, screen } from '../../util/test-utils.js';
+import {
+  render,
+  axe,
+  screen,
+  userEvent,
+  within,
+} from '../../util/test-utils.js';
 
 import { IconButton } from './IconButton.js';
 
@@ -33,7 +40,8 @@ describe('IconButton', () => {
 
   it('should render a visually hidden label', () => {
     render(<IconButton icon={Close}>Close</IconButton>);
-    const label = screen.getByText('Close');
+    const button = screen.getByRole('button');
+    const label = within(button).getByText('Close');
     expect(label).toBeInTheDocument();
   });
 
@@ -41,5 +49,79 @@ describe('IconButton', () => {
     render(<IconButton icon={Close}>Close</IconButton>);
     const button = screen.getByRole('button');
     expect(button).toHaveAccessibleName('Close');
+  });
+
+  it('should forward a ref to the button element', () => {
+    const ref = createRef<HTMLButtonElement>();
+    render(
+      <IconButton icon={Close} ref={ref}>
+        Close
+      </IconButton>,
+    );
+    const button = screen.getByRole('button');
+    expect(ref.current).toBe(button);
+  });
+
+  it('should merge a custom className', () => {
+    render(
+      <IconButton icon={Close} className="foo">
+        Close
+      </IconButton>,
+    );
+    const button = screen.getByRole('button');
+    expect(button).toHaveClass('foo');
+  });
+
+  it('should not render a native title attribute', () => {
+    render(<IconButton icon={Close}>Close</IconButton>);
+    const button = screen.getByRole('button');
+    expect(button).not.toHaveAttribute('title');
+  });
+
+  it('should render a tooltip with the label text', () => {
+    render(<IconButton icon={Close}>Close</IconButton>);
+    const tooltip = screen.getByRole('tooltip');
+    expect(tooltip).toHaveTextContent('Close');
+    expect(tooltip).toHaveAttribute('data-state', 'closed');
+  });
+
+  it('should open the tooltip when the button is focused', async () => {
+    render(<IconButton icon={Close}>Close</IconButton>);
+
+    await userEvent.tab();
+
+    const tooltip = screen.getByRole('tooltip');
+    expect(tooltip).toHaveAttribute('data-state', 'open');
+  });
+
+  it('should open the tooltip when the button is hovered', async () => {
+    render(<IconButton icon={Close}>Close</IconButton>);
+    const button = screen.getByRole('button');
+
+    await userEvent.hover(button);
+
+    const tooltip = screen.getByRole('tooltip');
+    expect(tooltip).toHaveAttribute('data-state', 'open');
+  });
+
+  it('should call a custom onFocus handler in addition to opening the tooltip', async () => {
+    const onFocus = vi.fn();
+    render(
+      <IconButton icon={Close} onFocus={onFocus}>
+        Close
+      </IconButton>,
+    );
+
+    await userEvent.tab();
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+    const tooltip = screen.getByRole('tooltip');
+    expect(tooltip).toHaveAttribute('data-state', 'open');
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<IconButton icon={Close}>Close</IconButton>);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });
