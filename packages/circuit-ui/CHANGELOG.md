@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.8
+
+### Minor Changes
+
+- [#3847](https://github.com/sumup-oss/circuit-ui/pull/3847) [`1b19962`](https://github.com/sumup-oss/circuit-ui/commit/1b19962c0b77bcdfd1ba08fa8ca7aa12a9fd5706) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated typography components to throw development-time errors when legacy size values are used.
+
 ## 12.0.0-next.7
 
 ### Major Changes
