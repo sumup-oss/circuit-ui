@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
+import type { ReactElement, PropsWithChildren } from 'react';
 import '@testing-library/jest-dom/vitest';
 import { configureAxe } from 'jest-axe';
 import {
@@ -28,6 +28,8 @@ import {
   ComponentsContext,
   defaultComponents,
 } from '../components/ComponentsContext/ComponentsContext.js';
+import { I18nProvider } from '../components/I18nContext/I18nContext.js';
+import { FALLBACK_LOCALE } from './i18n.js';
 
 // biome-ignore lint/performance/noReExportAll: We re-export the package to override specific functions below
 export * from '@testing-library/react';
@@ -37,13 +39,15 @@ export type RenderFn<T = unknown> = (
   ...rest: any[]
 ) => T;
 
-const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
-  children,
-}) => (
-  <ComponentsContext.Provider value={defaultComponents}>
-    {children}
-  </ComponentsContext.Provider>
-);
+function WithProviders({ children }: PropsWithChildren<unknown>) {
+  return (
+    <I18nProvider locale={FALLBACK_LOCALE}>
+      <ComponentsContext.Provider value={defaultComponents}>
+        {children}
+      </ComponentsContext.Provider>
+    </I18nProvider>
+  );
+}
 
 const render: RenderFn<RenderResult> = (component, options: RenderOptions) =>
   renderTest(component, { wrapper: WithProviders, ...options });

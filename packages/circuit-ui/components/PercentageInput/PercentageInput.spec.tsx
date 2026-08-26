@@ -24,9 +24,9 @@ import {
 } from './PercentageInput.js';
 
 const defaultProps = {
-  locale: 'de-DE',
+  formattingLocale: 'de-DE',
   label: 'Discount',
-};
+} satisfies PercentageInputProps;
 
 describe('PercentageInput', () => {
   it('should forward a ref', () => {

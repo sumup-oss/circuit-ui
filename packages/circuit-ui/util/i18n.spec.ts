@@ -13,63 +13,11 @@
  * limitations under the License.
  */
 
-import {
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
-  type MockInstance,
-} from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import {
-  FALLBACK_LOCALE,
-  findSupportedLocale,
-  getDefaultLocale,
-} from './i18n.js';
+import { FALLBACK_LOCALE, findSupportedLocale } from './i18n.js';
 
 describe('i18n', () => {
-  describe('getDefaultLocale', () => {
-    const originalWindow = window;
-    let languagesGetter: MockInstance;
-    let languageGetter: MockInstance;
-
-    beforeEach(() => {
-      window = originalWindow;
-      languagesGetter = vi.spyOn(window.navigator, 'languages', 'get');
-      languageGetter = vi.spyOn(window.navigator, 'language', 'get');
-    });
-
-    it('should return the default locale in server environments', () => {
-      // @ts-expect-error The window object is undefined in server environments
-      window = undefined;
-      const actual = getDefaultLocale();
-      expect(actual).toBe(FALLBACK_LOCALE);
-    });
-
-    it('should return the preferred locales', () => {
-      const languages = ['de-DE', 'en'];
-      languagesGetter.mockReturnValue(languages);
-      const actual = getDefaultLocale();
-      expect(actual).toEqual(languages);
-    });
-
-    it('should fall back to the preferred locale', () => {
-      const language = 'de-DE';
-      languagesGetter.mockReturnValue(undefined);
-      languageGetter.mockReturnValue(language);
-      const actual = getDefaultLocale();
-      expect(actual).toEqual(language);
-    });
-
-    it('should fall back to the default locale', () => {
-      languagesGetter.mockReturnValue(undefined);
-      languageGetter.mockReturnValue(undefined);
-      const actual = getDefaultLocale();
-      expect(actual).toEqual(FALLBACK_LOCALE);
-    });
-  });
-
   describe('findSupportedLocale', () => {
     it('should match a full locale', () => {
       const locale = 'de-DE';

@@ -148,9 +148,24 @@ Disabled.args = {
 
 export const Locales = (args: DateInputProps) => (
   <Stack>
-    <DateInput {...args} locale="de-DE" label="Geburtsdatum" />
-    <DateInput {...args} locale="es-CL" label="Fecha de nacimiento" />
-    <DateInput {...args} locale="pt-BR" label="Data de nascimento" />
+    <DateInput
+      {...args}
+      locale="de-DE"
+      formattingLocale="de-DE"
+      label="Geburtsdatum"
+    />
+    <DateInput
+      {...args}
+      locale="es-CL"
+      formattingLocale="de-DE"
+      label="Fecha de nacimiento"
+    />
+    <DateInput
+      {...args}
+      locale="pt-BR"
+      formattingLocale="de-DE"
+      label="Data de nascimento"
+    />
   </Stack>
 );
 

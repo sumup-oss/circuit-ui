@@ -22,10 +22,10 @@ import { CurrencyInput, type CurrencyInputProps } from './CurrencyInput.js';
 
 // Note: these defaults render a '€' as an input suffix
 const defaultProps = {
-  locale: 'de-DE',
+  formattingLocale: 'de-DE',
   currency: 'EUR',
   label: 'Amount',
-};
+} satisfies CurrencyInputProps;
 
 describe('CurrencyInput', () => {
   it('should forward a ref', () => {

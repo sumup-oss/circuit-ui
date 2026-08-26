@@ -15,49 +15,35 @@
  * limitations under the License.
  */
 
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
-import { getDefaultLocale, type Locale } from '../../util/i18n.js';
 import {
   I18nContext,
   type I18nConfig,
 } from '../../components/I18nContext/I18nContext.js';
+import { CircuitError } from '../../util/errors.js';
+import { FALLBACK_LOCALE } from '../../util/i18n.js';
 
 /**
- * Provides localization context, either from the I18nProvider or the current
- * browser/system language.
+ * Provides localization context from the I18nProvider.
  */
 export function useI18n({
   locale: customLocale,
-  // TODO: Remove this fallback in v12 once the deprecated `locale` props have been removed.
-  formattingLocale: customFormattingLocale = customLocale,
+  formattingLocale: customFormattingLocale,
 }: Partial<I18nConfig>): I18nConfig {
-  const {
-    locale: globalLocale,
-    formattingLocale: globalFormattingLocale,
-    isDefault,
-  } = useContext(I18nContext);
-  const [locale, setLocale] = useState<Locale>(customLocale || globalLocale);
-  const [formattingLocale, setFormattingLocale] = useState<Locale>(
-    customFormattingLocale || globalFormattingLocale || locale,
-  );
+  const { locale: globalLocale, formattingLocale: globalFormattingLocale } =
+    useContext(I18nContext);
 
-  // Update the locales after hydration on the client
-  useEffect(() => {
-    if (customLocale || (globalLocale && !isDefault)) {
-      return;
-    }
+  if (process.env.NODE_ENV !== 'production' && !globalLocale) {
+    throw new CircuitError(
+      'Internationalization',
+      'Missing internationalization context. Make sure the `I18nProvider` component wraps your entire app component tree.',
+    );
+  }
 
-    setLocale(getDefaultLocale());
-  }, [customLocale, globalLocale, isDefault]);
-
-  useEffect(() => {
-    if (customFormattingLocale || (globalFormattingLocale && !isDefault)) {
-      return;
-    }
-
-    setFormattingLocale(getDefaultLocale());
-  }, [customFormattingLocale, globalFormattingLocale, isDefault]);
-
-  return { locale, formattingLocale };
+  return {
+    locale: customLocale || globalLocale || FALLBACK_LOCALE,
+    formattingLocale:
+      customFormattingLocale || globalFormattingLocale || FALLBACK_LOCALE,
+  };
 }
