@@ -157,13 +157,13 @@ export const Locales = (args: DateInputProps) => (
     <DateInput
       {...args}
       locale="es-CL"
-      formattingLocale="de-DE"
+      formattingLocale="es-CL"
       label="Fecha de nacimiento"
     />
     <DateInput
       {...args}
       locale="pt-BR"
-      formattingLocale="de-DE"
+      formattingLocale="pt-BR"
       label="Data de nascimento"
     />
   </Stack>

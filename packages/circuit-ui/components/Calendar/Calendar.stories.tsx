@@ -52,9 +52,27 @@ export const Localized = ({ selection, ...args }: CalendarProps) => {
   const [date, setDate] = useState(selection);
   return (
     <Stack>
-      <Calendar {...args} selection={date} onSelect={setDate} locale="de-DE" />
-      <Calendar {...args} selection={date} onSelect={setDate} locale="bg-BG" />
-      <Calendar {...args} selection={date} onSelect={setDate} locale="pt-BR" />
+      <Calendar
+        {...args}
+        selection={date}
+        onSelect={setDate}
+        locale="de-DE"
+        formattingLocale="de-DE"
+      />
+      <Calendar
+        {...args}
+        selection={date}
+        onSelect={setDate}
+        locale="bg-BG"
+        formattingLocale="bg-BG"
+      />
+      <Calendar
+        {...args}
+        selection={date}
+        onSelect={setDate}
+        locale="pt-BR"
+        formattingLocale="pt-BR"
+      />
     </Stack>
   );
 };
