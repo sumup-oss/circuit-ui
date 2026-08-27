@@ -60,12 +60,7 @@ function getCountryName(country: string, locale: Locale | undefined) {
 export function resolveCountryCodeOptionLabel(
   option: CountryCodeOption,
   locale: Locale | undefined,
-  shouldDisplayCountryNames = true,
 ): string {
-  if (!shouldDisplayCountryNames) {
-    return option.code;
-  }
-
   const countryName = getCountryName(option.country, locale);
   return countryName ? `${countryName} (${option.code})` : option.code;
 }
@@ -168,15 +163,10 @@ export function normalizePhoneNumber(
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
-  shouldDisplayCountryNames = true,
 ): AutocompleteInputOption[] {
   return countryCodeOptions
     .map((option) => ({
-      label: resolveCountryCodeOptionLabel(
-        option,
-        locale,
-        shouldDisplayCountryNames,
-      ),
+      label: resolveCountryCodeOptionLabel(option, locale),
       value: option.country,
     }))
     .sort((a, b) => a.label.localeCompare(b.label));
@@ -185,17 +175,14 @@ export function mapCountryCodeOptions(
 export function mapCountryCodeAutocompleteOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
-  shouldDisplayCountryNames = true,
 ): AutocompleteInputOption[] {
-  return mapCountryCodeOptions(
-    countryCodeOptions,
-    locale,
-    shouldDisplayCountryNames,
-  ).map(({ label, value }) => ({
-    label,
-    value,
-    image: getCountryFlagIcon(value),
-  }));
+  return mapCountryCodeOptions(countryCodeOptions, locale).map(
+    ({ label, value }) => ({
+      label,
+      value,
+      image: getCountryFlagIcon(value),
+    }),
+  );
 }
 
 export function filterCountryCodeAutocompleteOptions(

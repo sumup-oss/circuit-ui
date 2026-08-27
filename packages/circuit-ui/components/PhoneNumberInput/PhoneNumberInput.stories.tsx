@@ -176,15 +176,6 @@ export const WithPrefix = (args: PhoneNumberInputProps) => {
 
 WithPrefix.args = Base.args;
 
-export const WithoutCountryNames = (args: PhoneNumberInputProps) => (
-  <StatefulPhoneNumberInput {...args} />
-);
-
-WithoutCountryNames.args = {
-  ...Base.args,
-  shouldDisplayCountryNames: false,
-};
-
 export const Sizes = (args: PhoneNumberInputProps) => (
   <Stack>
     <StatefulPhoneNumberInput {...args} size="s" />
