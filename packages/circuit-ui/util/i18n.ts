@@ -76,18 +76,6 @@ export type Translations<Key extends string | number | symbol> = Record<
 >;
 
 /**
- * Returns the user's preferred locale(s) in browser-like environments.
- */
-export function getDefaultLocale(): Locale {
-  if (typeof window === 'undefined') {
-    return FALLBACK_LOCALE;
-  }
-  return (navigator.languages ||
-    navigator.language ||
-    FALLBACK_LOCALE) as Locale;
-}
-
-/**
  * Returns the first supported locale.
  */
 export function findSupportedLocale(locale: Locale): SupportedLocale {

@@ -17,12 +17,20 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render } from '../../util/test-utils.js';
 
-import { I18nContext, I18nProvider, type I18nConfig } from './I18nContext.js';
+import {
+  I18nContext,
+  I18nProvider,
+  type I18nContextValue,
+} from './I18nContext.js';
 import { useContext } from 'react';
 
 describe('I18nContext', () => {
   describe('I18nProvider', () => {
-    function TestChild({ callback }: { callback: (i18n: I18nConfig) => void }) {
+    function TestChild({
+      callback,
+    }: {
+      callback: (i18n: I18nContextValue) => void;
+    }) {
       const i18n = useContext(I18nContext);
       callback(i18n);
       return null;
@@ -40,7 +48,6 @@ describe('I18nContext', () => {
       expect(callback).toHaveBeenCalledWith({
         locale,
         formattingLocale,
-        isDefault: false,
       });
     });
 
@@ -55,7 +62,6 @@ describe('I18nContext', () => {
       expect(callback).toHaveBeenCalledWith({
         locale,
         formattingLocale: locale,
-        isDefault: false,
       });
     });
   });

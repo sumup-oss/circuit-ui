@@ -4,6 +4,8 @@ import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 
+import { I18nProvider } from '@sumup-oss/circuit-ui';
+
 import { PreloadResources } from './preload-resources.js';
 
 export const metadata: Metadata = {
@@ -34,10 +36,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const locale = 'en-GB';
   return (
-    <html lang="en">
+    <html lang={locale}>
       <PreloadResources />
-      <body>{children}</body>
+      <body>
+        <I18nProvider locale={locale}>{children}</I18nProvider>
+      </body>
     </html>
   );
 }

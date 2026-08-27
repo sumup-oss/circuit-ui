@@ -24,9 +24,9 @@ import {
 } from './PercentageInput.js';
 
 const defaultProps = {
-  locale: 'de-DE',
+  formattingLocale: 'de-DE',
   label: 'Discount',
-};
+} satisfies PercentageInputProps;
 
 describe('PercentageInput', () => {
   it('should forward a ref', () => {
@@ -37,7 +37,7 @@ describe('PercentageInput', () => {
   });
 
   it('should format an en-GB amount', async () => {
-    render(<PercentageInput {...defaultProps} locale="en-GB" />);
+    render(<PercentageInput {...defaultProps} formattingLocale="en-GB" />);
 
     const input = screen.getByRole<HTMLInputElement>('textbox');
 
@@ -47,7 +47,7 @@ describe('PercentageInput', () => {
   });
 
   it('should format an de-DE amount', async () => {
-    render(<PercentageInput {...defaultProps} locale="de-DE" />);
+    render(<PercentageInput {...defaultProps} formattingLocale="de-DE" />);
 
     const input = screen.getByRole<HTMLInputElement>('textbox');
 

@@ -50,6 +50,6 @@ Use the `readOnly` prop to indicate that the field is not currently editable. Th
 
 ## Internationalization
 
-Pass one or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) locale identifiers such as `'de-DE'` or `['GB', 'en-US']` to the `locale` prop to display the date in the local format. When passing an array, the first supported locale is used. Defaults to `navigator.language` in supported environments.
+The DateInput integrates with the [internationalization context](Introduction/Internationalization/Docs) to format the date according to the locale's formatting style. Use the `locale` and `formattingLocale` props to override the global locales on a component level:
 
 <Story of={Stories.Locales} />

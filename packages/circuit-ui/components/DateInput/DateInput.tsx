@@ -79,6 +79,7 @@ export interface DateInputProps
     Pick<
       CalendarProps,
       | 'locale'
+      | 'formattingLocale'
       | 'firstDayOfWeek'
       | 'prevMonthButtonLabel'
       | 'nextMonthButtonLabel'
@@ -384,7 +385,6 @@ export function DateInput({ ref, ...props }: DateInputProps) {
             hideCloseButton={!isMobile}
             aria-labelledby={idx(open && headlineId)}
             closeButtonLabel={closeCalendarButtonLabel}
-            locale={locale}
             placement={placement}
             offset={4}
             className={classes.dialog}

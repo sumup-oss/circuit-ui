@@ -17,22 +17,21 @@
 
 import { createContext, useMemo, type ReactNode } from 'react';
 
-import { getDefaultLocale, type Locale } from '../../util/i18n.js';
+import type { Locale } from '../../util/i18n.js';
 
 export interface I18nConfig {
   locale: Locale;
   formattingLocale: Locale;
 }
 
-interface I18nContextValue extends I18nConfig {
-  // TODO: Remove in v12 when the I18nProvider becomes required.
-  isDefault: boolean;
+export interface I18nContextValue {
+  locale: Locale | null;
+  formattingLocale: Locale | null;
 }
 
 export const I18nContext = createContext<I18nContextValue>({
-  locale: getDefaultLocale(),
-  formattingLocale: getDefaultLocale(),
-  isDefault: true,
+  locale: null,
+  formattingLocale: null,
 });
 
 export interface I18nProviderProps {
@@ -68,7 +67,7 @@ export function I18nProvider({
   formattingLocale = locale,
 }: I18nProviderProps) {
   const contextValue = useMemo(
-    () => ({ locale, formattingLocale, isDefault: false }),
+    () => ({ locale, formattingLocale }),
     [locale, formattingLocale],
   );
   return (

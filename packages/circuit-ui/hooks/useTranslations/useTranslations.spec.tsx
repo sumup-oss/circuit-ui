@@ -19,12 +19,20 @@ import { renderHook } from '../../util/test-utils.js';
 import type { Locale, Translations } from '../../util/i18n.js';
 
 import { useTranslations } from './useTranslations.js';
+import { I18nProvider } from '../../components/I18nContext/I18nContext.js';
+import type { PropsWithChildren } from 'react';
 
 type Props = {
   locale?: Locale;
   greeting?: string;
   foo?: string;
   onFoo?: () => void;
+};
+
+const options = {
+  wrapper: ({ children }: PropsWithChildren) => (
+    <I18nProvider locale="en-US">{children}</I18nProvider>
+  ),
 };
 
 describe('useTranslations', () => {
@@ -35,20 +43,29 @@ describe('useTranslations', () => {
 
   it('should return translations for the provided locale', () => {
     const props: Props = { locale: 'de-DE' };
-    const { result } = renderHook(() => useTranslations(props, translations));
+    const { result } = renderHook(
+      () => useTranslations(props, translations),
+      options,
+    );
     expect(result.current.locale).toBe('de-DE');
     expect(result.current.greeting).toBe('Hallo');
   });
 
   it('should return the custom translation when provided', () => {
     const props: Props = { greeting: 'Salut' };
-    const { result } = renderHook(() => useTranslations(props, translations));
+    const { result } = renderHook(
+      () => useTranslations(props, translations),
+      options,
+    );
     expect(result.current.greeting).toBe('Salut');
   });
 
   it('should forward all other props', () => {
     const props: Props = { foo: 'bar', onFoo: vi.fn() };
-    const { result } = renderHook(() => useTranslations(props, translations));
+    const { result } = renderHook(
+      () => useTranslations(props, translations),
+      options,
+    );
     expect(result.current).toEqual(expect.objectContaining(props));
   });
 });

@@ -23,7 +23,7 @@ import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
 import { idx } from '../../util/idx.js';
 import type { Locale } from '../../util/i18n.js';
-import { deprecate } from '../../util/logger.js';
+import { CircuitError } from '../../util/errors.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { Input, type InputProps } from '../Input/index.js';
 
@@ -41,14 +41,6 @@ export interface CurrencyInputProps
    * 'EUR' for the Euro, or 'CNY' for the Chinese RMB.
    */
   currency: string;
-  /**
-   * @deprecated Use the `I18nProvider` component or the `formattingLocale` prop instead.
-   *
-   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
-   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
-   * When passing an array, the first supported locale is used.
-   */
-  locale?: Locale;
   /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
@@ -90,7 +82,6 @@ const DUMMY_DELIMITER = '?';
  * parser for formatting values automatically.
  */
 export function CurrencyInput({
-  locale: customLocale,
   formattingLocale: customFormattingLocale,
   currency,
   placeholder,
@@ -98,15 +89,14 @@ export function CurrencyInput({
   ref,
   ...props
 }: CurrencyInputProps) {
-  if (process.env.NODE_ENV !== 'production' && customLocale) {
-    deprecate(
+  if (process.env.NODE_ENV !== 'production' && 'locale' in props) {
+    throw new CircuitError(
       'CurrencyInput',
-      'The `locale` prop has been deprecated. Use the `I18nProvider` component or the `formattingLocale` prop instead.',
+      'The `locale` prop has been removed. Use the `I18nProvider` component or the `formattingLocale` prop instead.',
     );
   }
 
   const { formattingLocale } = useI18n({
-    locale: customLocale,
     formattingLocale: customFormattingLocale,
   });
   const currencySymbolId = useId();
