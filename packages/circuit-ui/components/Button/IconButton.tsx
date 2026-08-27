@@ -15,11 +15,13 @@
 
 'use client';
 
-import type {
-  FocusEvent,
-  FocusEventHandler,
-  MouseEvent,
-  MouseEventHandler,
+import {
+  useCallback,
+  useRef,
+  type FocusEvent,
+  type FocusEventHandler,
+  type MouseEvent,
+  type MouseEventHandler,
 } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
@@ -72,9 +74,14 @@ export function IconButton({
     );
   }
 
-  const renderReference = (tooltipProps: TooltipReferenceProps) => {
+  const latest = useRef({ props, size, className });
+  latest.current = { props, size, className };
+
+  const renderReference = useCallback((tooltipProps: TooltipReferenceProps) => {
+    const { current } = latest;
+
     const { onFocus, onBlur, onMouseEnter, onMouseLeave, ...restProps } =
-      props as typeof props & {
+      current.props as typeof current.props & {
         onFocus?: FocusEventHandler;
         onBlur?: FocusEventHandler;
         onMouseEnter?: MouseEventHandler;
@@ -86,7 +93,7 @@ export function IconButton({
         {...restProps}
         {...tooltipProps}
         componentName="IconButton"
-        size={size}
+        size={current.size}
         onFocus={eachFn<[FocusEvent<Element>]>([onFocus, tooltipProps.onFocus])}
         onBlur={eachFn<[FocusEvent<Element>]>([onBlur, tooltipProps.onBlur])}
         onMouseEnter={eachFn<[MouseEvent<Element>]>([
@@ -99,13 +106,13 @@ export function IconButton({
         ])}
         className={clsx(
           classes.base,
-          classes[size],
+          classes[current.size],
           tooltipProps.className,
-          className,
+          current.className,
         )}
       />
     );
-  };
+  }, []);
 
   const isDecorative =
     props['aria-hidden'] === true || props['aria-hidden'] === 'true';
