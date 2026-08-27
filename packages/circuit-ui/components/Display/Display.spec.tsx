@@ -20,6 +20,10 @@ import { render, axe } from '../../util/test-utils.js';
 
 import { Display } from './Display.jsx';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('Display', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
@@ -61,7 +65,6 @@ describe('Display', () => {
   it.each(
     deprecatedSizes,
   )('[Deprecated sizes] should throw an error when legacy "%s" value is passed to the size prop', (size, alternative) => {
-    // eslint-disable-next-line circuit-ui/no-deprecated-props
     process.env.NODE_ENV = 'development';
     expect(() =>
       render(
@@ -79,7 +82,6 @@ describe('Display', () => {
   it.each(
     deprecatedWeights,
   )('[Deprecated weights] should throw an error when legacy "%s" value is passed to the size prop', (weight) => {
-    // eslint-disable-next-line circuit-ui/no-deprecated-props
     process.env.NODE_ENV = 'development';
     expect(() =>
       render(

@@ -20,6 +20,10 @@ import { axe, render } from '../../util/test-utils.js';
 
 import { Headline } from './Headline.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('Headline', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
@@ -61,7 +65,6 @@ describe('Headline', () => {
   it.each(
     deprecatedSizes,
   )('[Deprecated sizes] should throw an error when legacy "%s" value is passed to the size prop', (size, alternative) => {
-    // eslint-disable-next-line circuit-ui/no-deprecated-props
     process.env.NODE_ENV = 'development';
     expect(() =>
       render(

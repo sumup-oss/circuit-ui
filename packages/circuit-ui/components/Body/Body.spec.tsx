@@ -20,6 +20,10 @@ import { axe, render } from '../../util/test-utils.js';
 
 import { Body } from './Body.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('Body', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
