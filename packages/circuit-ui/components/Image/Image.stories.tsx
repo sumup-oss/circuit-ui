@@ -28,7 +28,8 @@ export default {
 export const Base = (args: ImageProps) => <Image {...args} />;
 
 Base.args = {
-  src: '/images/sumup-tablet-insights.jpg',
+  src: '/images/sumup-solo-printer.jpg',
+  srcDark: '/images/sumup-solo-cradle.jpg',
   alt: 'A tablet shows sales insights in the SumUp POS app. On the table next to it are a SumUp Solo card reader with printer and two bowls with fruits',
 };
 
@@ -36,7 +37,6 @@ Base.parameters = {
   chromatic: {
     modes: {
       // theme variation has no impact on the story
-      dark: { disable: true },
       consumer: { disable: true },
     },
   },

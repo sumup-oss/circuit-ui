@@ -4,3 +4,33 @@
   height: auto;
   max-height: 100%;
 }
+
+.dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .base {
+    display: none;
+  }
+
+  .dark {
+    display: block;
+  }
+}
+
+[data-color-scheme="light"] .base {
+  display: block;
+}
+
+[data-color-scheme="light"] .dark {
+  display: none;
+}
+
+[data-color-scheme="dark"] .base {
+  display: none;
+}
+
+[data-color-scheme="dark"] .dark {
+  display: block;
+}

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type ImgHTMLAttributes } from 'react';
+import { forwardRef, Fragment, type ImgHTMLAttributes } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 
@@ -24,6 +24,14 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
    * The source URL of the image. Do not use unauthorized images from external sources.
    */
   src: string;
+  /**
+   * An alternative source URL of the image to be used in dark mode.
+   */
+  srcDark?: string;
+  /**
+   * A comma separated list of source URLs of the image to be used in dark mode.
+   */
+  srcSetDark?: string;
   /**
    * Images must have text alternatives that describe the information or function represented by them. This ensures that images can be used by people with various disabilities.
    *
@@ -44,14 +52,24 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
  * The Image component. Responsive by default.
  */
 export const Image = forwardRef<HTMLImageElement, ImageProps>(
-  ({ className, alt, ...props }, ref) => (
-    // biome-ignore lint/a11y/useAltText: The `alt` prop is marked as required.
-    <img
-      alt={alt}
-      ref={ref}
-      className={clsx(classes.base, className)}
-      {...props}
-    />
+  ({ className, src, srcDark, alt, srcSet, srcSetDark, ...props }, ref) => (
+    <Fragment>
+      <img
+        ref={ref}
+        src={src}
+        srcSet={srcSet}
+        alt={alt}
+        className={clsx(classes.base, className)}
+        {...props}
+      />
+      <img
+        src={srcDark}
+        srcSet={srcSetDark}
+        alt={alt}
+        className={clsx(classes.base, classes.dark, className)}
+        {...props}
+      />
+    </Fragment>
   ),
 );
 
