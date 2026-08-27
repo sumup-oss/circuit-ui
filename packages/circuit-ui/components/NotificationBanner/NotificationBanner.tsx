@@ -153,6 +153,7 @@ export const NotificationBanner = forwardRef<
       closeButtonLabel,
       isVisible = true,
       className,
+      style,
       ...props
     },
     ref,
@@ -193,6 +194,7 @@ export const NotificationBanner = forwardRef<
       <div
         ref={applyMultipleRefs(ref, contentElement)}
         style={{
+          ...style,
           opacity: isOpen ? 1 : 0,
           height: isOpen ? height : 0,
           visibility: isOpen ? 'visible' : 'hidden',
