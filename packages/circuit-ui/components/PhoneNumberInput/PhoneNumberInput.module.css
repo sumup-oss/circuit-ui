@@ -11,6 +11,11 @@
   flex: 0 0 auto;
 }
 
+.subscriber-number {
+  /* to avoid having a 2px inner border separating the two inputs */
+  transform: translateY(-1px);
+}
+
 .country-code-autocomplete-shell [role="option"] img {
   width: var(--cui-icon-sizes-giga);
   height: var(--cui-icon-sizes-mega);
@@ -46,6 +51,11 @@
 }
 
 @media (min-width: 480px) {
+  .subscriber-number {
+    /* to avoid having a 2px inner border separating the two inputs */
+    transform: translateX(-1px);
+  }
+
   .wrapper .country-code-autocomplete-shell .country-code > div,
   .wrapper .country-code.country-code input,
   .wrapper .country-code .country-code-input.country-code-input {
@@ -90,6 +100,22 @@
   }
 }
 
+/* Elevate the subscriber number input above the country code select by default */
 .subscriber-number.subscriber-number {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 1);
   flex-grow: 1;
+}
+
+/* Elevate the country code select above the subscriber number input on hover and focus */
+.country-code.country-code:hover,
+.country-code.country-code:focus-within {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 2);
+}
+
+/* Elevate the input prefix above the country code select on hover and focus */
+svg:has(+ .country-code:hover),
+svg:has(+ .country-code:focus-within) {
+  z-index: calc(var(--cui-z-index-input) + 3);
 }
