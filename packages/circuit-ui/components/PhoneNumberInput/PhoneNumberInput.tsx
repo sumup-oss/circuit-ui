@@ -55,8 +55,6 @@ import type { Locale } from '../../util/i18n.js';
 
 import {
   filterCountryCodeAutocompleteOptions,
-  getCountry,
-  getCountryCode,
   getCountryCodeAutocompleteValue,
   mapCountryCodeAutocompleteOptions,
   normalizePhoneNumber,
@@ -251,7 +249,6 @@ export function PhoneNumberInput({
   const hiddenInputRef = useRef<HTMLInputElement>(null);
   const countryCodeRef = useRef<HTMLInputElement>(null);
   const subscriberNumberRef = useRef<HTMLInputElement>(null);
-  const { options, ...countryCodeFieldProps } = countryCode;
 
   // This state is used to trigger a re-render when selecting a different
   // country with the same country code as the current one (e.g. Canada → USA).
@@ -434,72 +431,38 @@ export function PhoneNumberInput({
           defaultValue={defaultValue}
           {...props}
         />
-        {readOnly || countryCode.readonly ? (
-          <Input
+        <div className={classes['country-code-autocomplete-shell']}>
+          <input
+            type="hidden"
+            ref={countryCodeRef}
+            {...(value !== undefined
+              ? { value: selectedCountry ?? '' }
+              : { defaultValue: selectedCountry ?? '' })}
+            disabled={disabled}
+          />
+          <AutocompleteInput
             hideLabel
             aria-describedby={descriptionIds}
-            autoComplete="tel-country-code"
+            readOnly={readOnly || countryCode.readonly}
             required={required}
             disabled={disabled}
             size={size}
             className={classes['country-code']}
-            inputClassName={classes['country-code-input']}
-            {...countryCodeFieldProps}
-            value={getCountryCode(countryCode.options, parsedValue.countryCode)}
-            defaultValue={getCountryCode(
-              countryCode.options,
-              parsedDefaultValue.countryCode ?? countryCode.defaultValue,
-            )}
+            inputClassName={classes['country-code-autocomplete-input']}
+            label={countryCode.label}
             invalid={invalid || countryCode.invalid}
-            readOnly={true}
-            onChange={() => {}}
-            ref={applyMultipleRefs(
-              countryCodeRef,
-              countryCode.ref as ForwardedRef<HTMLInputElement>,
-            )}
+            value={selectedCountryAutocompleteValue}
+            options={filteredAutocompleteOptions}
+            onSearch={handleCountryCodeSearch}
+            onChange={handleCountryAutocompleteChange}
+            variant="contextual"
+            ref={countryCode.ref}
             renderPrefix={
-              (countryCode.renderPrefix as InputProps['renderPrefix']) ??
-              (({ value: inputValue, ...rest }) => (
-                <DefaultPrefix
-                  value={getCountry(countryCode.options, inputValue as string)}
-                  {...rest}
-                />
-              ))
+              (countryCode.renderPrefix ??
+                DefaultPrefix) as InputProps['renderPrefix']
             }
           />
-        ) : (
-          <div className={classes['country-code-autocomplete-shell']}>
-            <input
-              type="hidden"
-              ref={countryCodeRef}
-              {...(value !== undefined
-                ? { value: selectedCountry ?? '' }
-                : { defaultValue: selectedCountry ?? '' })}
-              disabled={disabled}
-            />
-            <AutocompleteInput
-              hideLabel
-              aria-describedby={descriptionIds}
-              required={required}
-              disabled={disabled}
-              size={size}
-              className={classes['country-code']}
-              inputClassName={classes['country-code-autocomplete-input']}
-              label={countryCode.label}
-              invalid={invalid || countryCode.invalid}
-              value={selectedCountryAutocompleteValue}
-              options={filteredAutocompleteOptions}
-              onSearch={handleCountryCodeSearch}
-              onChange={handleCountryAutocompleteChange}
-              variant="contextual"
-              ref={countryCode.ref}
-              renderPrefix={
-                (countryCode.renderPrefix ??
-                  DefaultPrefix) as InputProps['renderPrefix']
-              }
-            />
-          </div>
-        )}
+        </div>
         <Input
           hideLabel
           aria-describedby={descriptionIds}

@@ -212,19 +212,3 @@ export function getCountryCodeAutocompleteValue(
 
   return options.find((option) => option.value === country);
 }
-
-export function getCountryCode(
-  options: CountryCodeOption[],
-  country: string | undefined,
-) {
-  const option = options.find((o) => o.country === country);
-  return option ? option.code : country;
-}
-
-export function getCountry(
-  options: CountryCodeOption[],
-  code: string | undefined,
-) {
-  const option = options.find((o) => o.code === code);
-  return option?.country;
-}
