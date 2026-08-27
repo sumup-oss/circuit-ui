@@ -18,7 +18,6 @@ import { getIconURL, type IconName } from '@sumup-oss/icons';
 import { isEmpty } from '../../util/helpers.js';
 import type { Locale } from '../../util/i18n.js';
 import type { AutocompleteInputOption } from '../AutocompleteInput/components/Option/Option.js';
-import type { SelectProps } from '../Select/Select.js';
 
 export function getCountryFlagIcon(country: string): string {
   return getIconURL(`flag_${country.toLowerCase()}` as IconName);
@@ -39,11 +38,6 @@ export type CountryCodeOption = {
    * where `268` is the area code.
    */
   areaCodes?: string[];
-  /**
-   * Pre-computed option label. When set, takes precedence over
-   * `getOptionLabel`, `shouldDisplayCountryNames`, and `Intl.DisplayNames`.
-   */
-  label?: string;
 };
 
 function getCountryName(country: string, locale: Locale | undefined) {
@@ -67,16 +61,7 @@ export function resolveCountryCodeOptionLabel(
   option: CountryCodeOption,
   locale: Locale | undefined,
   shouldDisplayCountryNames = true,
-  getOptionLabel?: (option: CountryCodeOption) => string,
 ): string {
-  if (option.label) {
-    return option.label;
-  }
-
-  if (getOptionLabel) {
-    return getOptionLabel(option);
-  }
-
   if (!shouldDisplayCountryNames) {
     return option.code;
   }
@@ -184,15 +169,13 @@ export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
   shouldDisplayCountryNames = true,
-  getOptionLabel?: (option: CountryCodeOption) => string,
-): Required<SelectProps>['options'] {
+): AutocompleteInputOption[] {
   return countryCodeOptions
     .map((option) => ({
       label: resolveCountryCodeOptionLabel(
         option,
         locale,
         shouldDisplayCountryNames,
-        getOptionLabel,
       ),
       value: option.country,
     }))
@@ -203,17 +186,15 @@ export function mapCountryCodeAutocompleteOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
   shouldDisplayCountryNames = true,
-  getOptionLabel?: (option: CountryCodeOption) => string,
 ): AutocompleteInputOption[] {
   return mapCountryCodeOptions(
     countryCodeOptions,
     locale,
     shouldDisplayCountryNames,
-    getOptionLabel,
   ).map(({ label, value }) => ({
     label,
-    value: String(value),
-    image: getCountryFlagIcon(String(value)),
+    value,
+    image: getCountryFlagIcon(value),
   }));
 }
 

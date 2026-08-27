@@ -216,51 +216,6 @@ describe('PhoneNumberInputService', () => {
       const actual = mapCountryCodeOptions(options, locale, false);
       expect(actual.map(({ label }) => label)).toEqual(['+1', '+1', '+49']);
     });
-
-    it('should use option.label when provided', () => {
-      const options = [
-        { country: 'CA', code: '+1', label: 'Canada (+1)' },
-        { country: 'DE', code: '+49', label: 'Germany (+49)' },
-      ];
-      const actual = mapCountryCodeOptions(options, undefined, true);
-      expect(actual[0].label).toBe('Canada (+1)');
-      expect(actual[1].label).toBe('Germany (+49)');
-    });
-
-    it('should use getOptionLabel when provided', () => {
-      const options = [
-        { country: 'CA', code: '+1' },
-        { country: 'DE', code: '+49' },
-      ];
-      const getOptionLabel = ({
-        country,
-        code,
-      }: {
-        country: string;
-        code: string;
-      }) => `${country} ${code}`;
-      const actual = mapCountryCodeOptions(
-        options,
-        undefined,
-        true,
-        getOptionLabel,
-      );
-      expect(actual.find(({ value }) => value === 'CA')?.label).toBe('CA +1');
-      expect(actual.find(({ value }) => value === 'DE')?.label).toBe('DE +49');
-    });
-
-    it('should prefer option.label over getOptionLabel', () => {
-      const options = [{ country: 'CA', code: '+1', label: 'Custom label' }];
-      const getOptionLabel = () => 'Ignored';
-      expect(
-        resolveCountryCodeOptionLabel(
-          options[0],
-          undefined,
-          true,
-          getOptionLabel,
-        ),
-      ).toBe('Custom label');
-    });
   });
 
   describe('getCountryFlagIcon', () => {
@@ -289,17 +244,6 @@ describe('PhoneNumberInputService', () => {
           image: getIconURL('flag_de'),
         },
       ]);
-    });
-
-    it('should use custom labels from option.label', () => {
-      const options = [
-        { country: 'CA', code: '+1', label: 'Custom CA' },
-        { country: 'DE', code: '+49', label: 'Custom DE' },
-      ];
-      const actual = mapCountryCodeAutocompleteOptions(options, undefined);
-
-      expect(actual[0].label).toBe('Custom CA');
-      expect(actual[1].label).toBe('Custom DE');
     });
   });
 

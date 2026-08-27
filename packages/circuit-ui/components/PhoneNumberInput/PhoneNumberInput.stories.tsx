@@ -185,27 +185,6 @@ WithoutCountryNames.args = {
   shouldDisplayCountryNames: false,
 };
 
-const precomputedCountryLabels: Record<string, string> = {
-  CA: 'Canada (+1)',
-  US: 'United States (+1)',
-  DE: 'Germany (+49)',
-};
-
-export const WithCustomLabels = (args: PhoneNumberInputProps) => (
-  <StatefulPhoneNumberInput {...args} />
-);
-
-WithCustomLabels.args = {
-  ...Base.args,
-  countryCode: {
-    ...Base.args.countryCode,
-    options: Base.args.countryCode.options.map((option) => ({
-      ...option,
-      label: precomputedCountryLabels[option.country],
-    })),
-  },
-};
-
 export const Sizes = (args: PhoneNumberInputProps) => (
   <Stack>
     <StatefulPhoneNumberInput {...args} size="s" />

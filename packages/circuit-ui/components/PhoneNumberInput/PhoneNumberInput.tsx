@@ -166,12 +166,6 @@ export interface PhoneNumberInputProps
      */
     onChange?: InputProps['onChange'];
     /**
-     * Computes the option label for each country code option. Takes precedence
-     * over `shouldDisplayCountryNames` and `Intl.DisplayNames`, but not over
-     * `options[].label`.
-     */
-    getOptionLabel?: (option: CountryCodeOption) => string;
-    /**
      * The ref to the country code selector HTML DOM element.
      */
     ref?: ForwardedRef<HTMLInputElement>;
@@ -266,11 +260,7 @@ export function PhoneNumberInput({
   const hiddenInputRef = useRef<HTMLInputElement>(null);
   const countryCodeRef = useRef<HTMLInputElement>(null);
   const subscriberNumberRef = useRef<HTMLInputElement>(null);
-  const {
-    options: countryCodeOptions,
-    getOptionLabel,
-    ...countryCodeFieldProps
-  } = countryCode;
+  const { options, ...countryCodeFieldProps } = countryCode;
 
   // This state is used to trigger a re-render when selecting a different
   // country with the same country code as the current one (e.g. Canada → USA).
@@ -285,12 +275,11 @@ export function PhoneNumberInput({
   const autocompleteOptions = useMemo(
     () =>
       mapCountryCodeAutocompleteOptions(
-        countryCodeOptions,
+        countryCode.options,
         locale,
         shouldDisplayCountryNames,
-        getOptionLabel,
       ),
-    [countryCodeOptions, locale, shouldDisplayCountryNames, getOptionLabel],
+    [countryCode.options, locale, shouldDisplayCountryNames],
   );
 
   const [filteredAutocompleteOptions, setFilteredAutocompleteOptions] =
@@ -309,7 +298,7 @@ export function PhoneNumberInput({
     if (!selectedCountry) {
       return;
     }
-    const code = countryCodeOptions.find(
+    const code = countryCode.options.find(
       ({ country }) => country === selectedCountry,
     )?.code;
 
@@ -323,7 +312,7 @@ export function PhoneNumberInput({
 
     changeInputValue(hiddenInputRef.current, phoneNumber);
     setVersion((prev) => prev + 1);
-  }, [countryCodeOptions]);
+  }, [countryCode.options]);
 
   const handleCountryCodeSearch = useCallback(
     (query: string) => {
@@ -361,7 +350,7 @@ export function PhoneNumberInput({
 
     const pastedPhoneNumber = parsePhoneNumber(
       event.clipboardData.getData('text/plain'),
-      countryCodeOptions,
+      countryCode.options,
       countryCodeRef.current.value,
     );
 
@@ -382,10 +371,13 @@ export function PhoneNumberInput({
 
   const parsedValue = parsePhoneNumber(
     value,
-    countryCodeOptions,
+    countryCode.options,
     countryCodeRef.current?.value,
   );
-  const parsedDefaultValue = parsePhoneNumber(defaultValue, countryCodeOptions);
+  const parsedDefaultValue = parsePhoneNumber(
+    defaultValue,
+    countryCode.options,
+  );
 
   const selectedCountry =
     parsedValue.countryCode ??
@@ -467,9 +459,9 @@ export function PhoneNumberInput({
             className={classes['country-code']}
             inputClassName={classes['country-code-input']}
             {...countryCodeFieldProps}
-            value={getCountryCode(countryCodeOptions, parsedValue.countryCode)}
+            value={getCountryCode(countryCode.options, parsedValue.countryCode)}
             defaultValue={getCountryCode(
-              countryCodeOptions,
+              countryCode.options,
               parsedDefaultValue.countryCode ?? countryCode.defaultValue,
             )}
             invalid={invalid || countryCode.invalid}
@@ -483,7 +475,7 @@ export function PhoneNumberInput({
               (countryCode.renderPrefix as InputProps['renderPrefix']) ??
               (({ value: inputValue, ...rest }) => (
                 <DefaultPrefix
-                  value={getCountry(countryCodeOptions, inputValue as string)}
+                  value={getCountry(countryCode.options, inputValue as string)}
                   {...rest}
                 />
               ))
