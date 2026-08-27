@@ -16,10 +16,10 @@
 import type { HTMLAttributes, Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
+import { CircuitError } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Body.module.css';
-import { CircuitError } from '../../util/errors.js';
 
 type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
@@ -140,11 +140,7 @@ export function Body({
       );
     }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      legacySize in deprecatedSizeMap
-    ) {
+    if (legacySize in deprecatedSizeMap) {
       throw new CircuitError(
         'Body',
         `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
