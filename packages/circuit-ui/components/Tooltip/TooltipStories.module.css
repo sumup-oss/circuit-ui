@@ -1,0 +1,27 @@
+.reference {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
+  color: var(--cui-fg-normal);
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-normal);
+  border-radius: var(--cui-border-radius-kilo);
+  transition:
+    color var(--cui-transitions-default),
+    background-color var(--cui-transitions-default),
+    border-color var(--cui-transitions-default);
+}
+
+.reference:hover {
+  color: var(--cui-fg-normal-hovered);
+  background-color: var(--cui-bg-subtle-hovered);
+  border-color: var(--cui-border-normal-hovered);
+}
+
+.reference:active {
+  color: var(--cui-fg-normal-pressed);
+  background-color: var(--cui-bg-subtle-pressed);
+  border-color: var(--cui-border-normal-pressed);
+}

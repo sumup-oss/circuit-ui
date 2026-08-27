@@ -18,14 +18,14 @@ import { TransferOut, UploadCloud } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { clsx } from '../../styles/clsx.js';
+import { utilClasses } from '../../styles/utility.js';
 import { Button } from '../Button/index.js';
-import { BaseButton } from '../Button/base.js';
-import iconButtonClasses from '../Button/IconButton.module.css';
 import {
   Tooltip,
   type TooltipProps,
   type TooltipReferenceProps,
 } from './Tooltip.js';
+import classes from './TooltipStories.module.css';
 
 export default {
   title: 'Components/Tooltip',
@@ -79,19 +79,17 @@ export const Types = (args: TooltipProps) => (
       type="label"
       label="Transfer out"
       component={(props) => (
-        <BaseButton
+        <button
           {...props}
-          componentName="IconButton"
-          icon={TransferOut}
-          size="m"
+          type="button"
           className={clsx(
-            iconButtonClasses.base,
-            iconButtonClasses.m,
+            classes.reference,
+            utilClasses.focusVisible,
             props.className,
           )}
         >
-          Transfer out
-        </BaseButton>
+          <TransferOut aria-hidden="true" size="24" />
+        </button>
       )}
     />
     <Tooltip

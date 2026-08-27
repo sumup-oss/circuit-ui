@@ -15,11 +15,16 @@
 
 'use client';
 
-import { useCallback, useRef } from 'react';
-import type { FocusEventHandler, MouseEventHandler } from 'react';
+import type {
+  FocusEvent,
+  FocusEventHandler,
+  MouseEvent,
+  MouseEventHandler,
+} from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
+import { eachFn } from '../../util/helpers.js';
 import { deprecate } from '../../util/logger.js';
 import { Tooltip, type TooltipReferenceProps } from '../Tooltip/index.js';
 
@@ -67,14 +72,9 @@ export function IconButton({
     );
   }
 
-  const latest = useRef({ props, size, className });
-  latest.current = { props, size, className };
-
-  const renderReference = useCallback((tooltipProps: TooltipReferenceProps) => {
-    const { current } = latest;
-
+  const renderReference = (tooltipProps: TooltipReferenceProps) => {
     const { onFocus, onBlur, onMouseEnter, onMouseLeave, ...restProps } =
-      current.props as typeof current.props & {
+      props as typeof props & {
         onFocus?: FocusEventHandler;
         onBlur?: FocusEventHandler;
         onMouseEnter?: MouseEventHandler;
@@ -86,32 +86,26 @@ export function IconButton({
         {...restProps}
         {...tooltipProps}
         componentName="IconButton"
-        size={current.size}
-        onFocus={(event) => {
-          onFocus?.(event);
-          tooltipProps.onFocus(event);
-        }}
-        onBlur={(event) => {
-          onBlur?.(event);
-          tooltipProps.onBlur(event);
-        }}
-        onMouseEnter={(event) => {
-          onMouseEnter?.(event);
-          tooltipProps.onMouseEnter(event);
-        }}
-        onMouseLeave={(event) => {
-          onMouseLeave?.(event);
-          tooltipProps.onMouseLeave(event);
-        }}
+        size={size}
+        onFocus={eachFn<[FocusEvent<Element>]>([onFocus, tooltipProps.onFocus])}
+        onBlur={eachFn<[FocusEvent<Element>]>([onBlur, tooltipProps.onBlur])}
+        onMouseEnter={eachFn<[MouseEvent<Element>]>([
+          onMouseEnter,
+          tooltipProps.onMouseEnter,
+        ])}
+        onMouseLeave={eachFn<[MouseEvent<Element>]>([
+          onMouseLeave,
+          tooltipProps.onMouseLeave,
+        ])}
         className={clsx(
           classes.base,
-          classes[current.size],
+          classes[size],
           tooltipProps.className,
-          current.className,
+          className,
         )}
       />
     );
-  }, []);
+  };
 
   const isDecorative =
     props['aria-hidden'] === true || props['aria-hidden'] === 'true';
