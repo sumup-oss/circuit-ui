@@ -24,7 +24,7 @@ Use the `selection` prop to set the currently selected date or date range and th
 
 Dates are represented as [`Temporal.PlainDate` objects](https://tc39.es/proposal-temporal/docs/plaindate.html) which are time zone agnostic.
 
-Dates are formatted using the [`Intl.DateTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). The Calendar component integrates with the [internationalization context](Internationalization/Docs) to localize month and weekday names and to format dates according to the locale's formatting style. Use the `locale` and `formattingLocale` props to override the global locales on a component level.
+Dates are formatted using the [`Intl.DateTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). The Calendar component integrates with the [internationalization context](Introduction/Internationalization/Docs) to localize month and weekday names and to format dates according to the locale's formatting style. Use the `locale` and `formattingLocale` props to override the global locales on a component level.
 
 Use the `firstDayOfWeek` prop to set the first day of the week for the locale, either `1` (Monday) or `7` (Sunday). This information can be obtained using the [`Intl.Locale.prototype.getWeekInfo()` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo#firstday) in supported browsers.
 
