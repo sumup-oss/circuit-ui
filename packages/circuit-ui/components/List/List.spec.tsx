@@ -20,6 +20,10 @@ import { render, axe } from '../../util/test-utils.js';
 
 import { List } from './List.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('List', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';

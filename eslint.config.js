@@ -93,4 +93,14 @@ export default defineConfig([
       'notice/notice': 'off',
     },
   },
+  {
+    // `react()` is a valid `AstroIntegration`, but this rule misfires because
+    // npm doesn't hoist `astro` to the root `node_modules`, so `@astrojs/react`
+    // resolves its `AstroIntegration` import to `any`. The scaffolded template
+    // has a flat install and is unaffected.
+    files: ['templates/**/astro.config.ts'],
+    rules: {
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+    },
+  },
 ]);
