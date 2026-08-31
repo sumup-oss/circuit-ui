@@ -149,6 +149,7 @@ export function NotificationBanner({
   closeButtonLabel,
   isVisible = true,
   className,
+  style,
   ref,
   ...props
 }: NotificationBannerProps) {
@@ -185,6 +186,7 @@ export function NotificationBanner({
     <div
       ref={applyMultipleRefs(ref, contentElement)}
       style={{
+        ...style,
         opacity: isOpen ? 1 : 0,
         height: isOpen ? height : 0,
         visibility: isOpen ? 'visible' : 'hidden',

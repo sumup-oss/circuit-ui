@@ -14,7 +14,6 @@
  */
 
 import path from 'node:path';
-import preserveDirectives from 'rollup-plugin-preserve-directives';
 
 import { defineConfig, type ViteUserConfig } from 'vitest/config';
 
@@ -47,22 +46,17 @@ export default defineConfig({
     target: ['es2019'],
     lib: {
       entry: [
-        path.resolve(__dirname, 'index.ts'),
-        path.resolve(__dirname, 'internal.ts'),
-        path.resolve(__dirname, 'experimental.ts'),
-        path.resolve(__dirname, 'legacy.ts'),
+        path.resolve(import.meta.dirname, 'index.ts'),
+        path.resolve(import.meta.dirname, 'internal.ts'),
+        path.resolve(import.meta.dirname, 'experimental.ts'),
+        path.resolve(import.meta.dirname, 'legacy.ts'),
       ],
       formats: ['es'],
       fileName: (_, entryName: string) => `${entryName}.js`,
       cssFileName: stylesFileName,
     },
     minify: false,
-    rollupOptions: {
-      plugins: [
-        // @ts-expect-error rollup-plugin-preserve-directives is bundled in a non-standard way.
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        (preserveDirectives.default || preserveDirectives)(),
-      ],
+    rolldownOptions: {
       output: {
         preserveModules: true,
       },
