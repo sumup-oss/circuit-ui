@@ -1,5 +1,26 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.9
+
+### Major Changes
+
+- [#3852](https://github.com/sumup-oss/circuit-ui/pull/3852) [`473879b`](https://github.com/sumup-oss/circuit-ui/commit/473879b5b5ee85afcc54e73379d370314de5c653) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the internationalization context required to configure the display language and formatting locale for all design system components. Wrap your application in the `I18nProvider`:
+  
+  ```tsx
+  // For example /app/layout.tsx for Next.js
+  import { I18nProvider } from "@sumup-oss/circuit-ui";
+  
+  export default function App() {
+    return (
+      <I18nProvider locale="en-US" formattingLocale="de-DE">
+        {/* children */}
+      </I18nProvider>
+    );
+  }
+  ```
+
+- [#3852](https://github.com/sumup-oss/circuit-ui/pull/3852) [`473879b`](https://github.com/sumup-oss/circuit-ui/commit/473879b5b5ee85afcc54e73379d370314de5c653) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `locale` prop from the CurrencyInput, PercentageInput, and Timestamp components. Use the `I18nProvider` component or the `formattingLocale` prop instead.
+
 ## 12.0.0-next.8
 
 ### Minor Changes
