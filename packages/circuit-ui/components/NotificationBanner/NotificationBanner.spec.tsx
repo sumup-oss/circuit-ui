@@ -37,6 +37,24 @@ describe('NotificationBanner', () => {
     },
   };
 
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <NotificationBanner className={className} {...baseProps} />,
+    );
+    const wrapper = container.querySelector('div');
+    expect(wrapper?.className).toContain(className);
+  });
+
+  it('should merge custom styles with the default ones', () => {
+    const style = { color: 'blue' };
+    const { container } = render(
+      <NotificationBanner style={style} {...baseProps} />,
+    );
+    const wrapper = container.querySelector('div');
+    expect(wrapper?.style.color).toBe(style.color);
+  });
+
   it('should forward a ref', () => {
     const ref = createRef<HTMLDivElement>();
     const { container } = render(
