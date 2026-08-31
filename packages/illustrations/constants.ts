@@ -49,10 +49,15 @@ export const NAMES = [
   // General communication
   'security',
   'support',
+  // Flow
+  'flow-danger',
+  'flow-success',
+  'flow-warning',
 ] as const;
 export const CATEGORIES = [
   'Feedback',
   'States',
   'Feature',
   'General communication',
+  'Flow',
 ] as const;

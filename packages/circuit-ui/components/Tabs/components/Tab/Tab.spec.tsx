@@ -23,6 +23,10 @@ import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js
 import { Tab } from './Tab.js';
 import { AccessibilityError } from '../../../../util/errors.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('Tab', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';

@@ -29,6 +29,10 @@ const tabs = [
   { id: 'c', tab: 'Tab C' },
 ];
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('TabList', () => {
   beforeAll(() => {
     HTMLElement.prototype.scrollIntoView = vi.fn();
