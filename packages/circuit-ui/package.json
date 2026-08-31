@@ -61,30 +61,30 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.1.8",
+    "@floating-ui/react-dom": "^2.1.9",
     "@nanostores/react": "^1.1.0",
-    "nanostores": "^1.4.1"
+    "nanostores": "^1.5.2"
   },
   "devDependencies": {
     "@sumup-oss/icons": "^7.0.0-next.4",
     "@sumup-oss/intl": "^3.5.1",
     "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "7.0.0",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.6",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^25.9.1",
-    "@types/react": "^19.2.15",
-    "@types/react-dom": "^19.2.3",
-    "jest-axe": "^10.0.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
+    "@types/node": "^26.4.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "jest-axe": "^11.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-swipeable": "^7.0.2",
     "temporal-polyfill": "^1.0.4",
     "typescript": "^6.0.3",
     "typescript-plugin-css-modules": "^5.2.0",
     "vite": "^8.2.2",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.11"
   },
   "peerDependencies": {
     "@sumup-oss/design-tokens": ">=11.0.0-next.0",
