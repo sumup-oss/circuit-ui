@@ -17,7 +17,6 @@
 
 import {
   type ChangeEvent,
-  type FocusEventHandler,
   forwardRef,
   type KeyboardEventHandler,
   useCallback,
@@ -42,7 +41,6 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import type { Locale } from '../../util/i18n.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
-import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import {
   isArrowDown,
   isArrowUp,
@@ -201,6 +199,7 @@ export const AutocompleteInput = forwardRef<
     const [activeOption, setActiveOption] = useState<number>();
     const comboboxRef = useRef<HTMLInputElement>(null);
     const inputWrapperRef = useRef<HTMLDivElement>(null);
+    const wrapperRef = useRef<HTMLDivElement>(null);
     const presentationFieldRef = useRef<HTMLInputElement>(null);
     const resultsRef = useRef<HTMLDivElement>(null);
     const listboxId = useId();
@@ -248,8 +247,17 @@ export const AutocompleteInput = forwardRef<
 
     const closeResults = useCallback(() => {
       setIsOpen(false);
+      if (Array.isArray(value) && searchText !== '') {
+        changeInputValue(comboboxRef.current, '');
+        onSearch('');
+      }
+      if (!Array.isArray(value) && searchText && searchText !== value?.label) {
+        changeInputValue(comboboxRef.current, value?.label ?? '');
+        onSearch('');
+      }
+
       setActiveOption(undefined);
-    }, []);
+    }, [onSearch, searchText, value]);
 
     const debouncedOnSearch = useMemo(
       () =>
@@ -444,13 +452,6 @@ export const AutocompleteInput = forwardRef<
       }
     }, [isOpen, update, options.length, value]);
 
-    const handleClickOutside = useCallback(() => {
-      if (!isImmersive) {
-        closeResults();
-      }
-    }, [closeResults, isImmersive]);
-    useClickOutside([inputWrapperRef, refs.floating], handleClickOutside);
-
     useEscapeKey(closeResults, isOpen);
 
     useEffect(() => {
@@ -459,6 +460,23 @@ export const AutocompleteInput = forwardRef<
         closeResults();
       }
     }, [readOnly, disabled, isOpen, closeResults]);
+
+    useEffect(() => {
+      function closeOnFocusOut(event: FocusEvent) {
+        const nextTarget = event.relatedTarget as Node | null;
+        const isFocusInside =
+          inputWrapperRef.current?.contains(nextTarget) ||
+          refs.floating.current?.contains(nextTarget) ||
+          resultsRef.current?.contains(nextTarget);
+        if (!isFocusInside) {
+          closeResults();
+        }
+      }
+      wrapperRef?.current?.addEventListener('focusout', closeOnFocusOut);
+      return () => {
+        wrapperRef?.current?.removeEventListener('focusout', closeOnFocusOut);
+      };
+    }, [closeResults, refs.floating]);
 
     const activeDescendant =
       isOpen && activeOption !== undefined
@@ -504,26 +522,13 @@ export const AutocompleteInput = forwardRef<
         />
       ) : null;
 
-    const restoreValue: FocusEventHandler<HTMLInputElement> = useCallback(
-      (event) => {
-        if (!Array.isArray(value) && searchText !== value?.value) {
-          setSearchText(value?.label ?? '');
-          if (isImmersive) {
-            setPresentationFieldValue(value?.label ?? '');
-          }
-        }
-        props.onBlur?.(event);
-      },
-      [value, searchText, isImmersive, props.onBlur],
-    );
-
     const comboboxProps = {
       ...props,
       label,
       size,
       'data-id': autocompleteId,
       clearLabel,
-      value: searchText,
+      value: !Array.isArray(value) && !isOpen ? value?.label : searchText,
       onChange: onComboboxChange,
       onClear: onClear && !multiple ? onComboboxClear : undefined,
       onKeyDown: isLoading ? undefined : onComboboxKeyDown,
@@ -535,7 +540,6 @@ export const AutocompleteInput = forwardRef<
       onClick: !readOnly && !disabled ? onComboboxClick : undefined,
       readOnly,
       disabled,
-      onBlur: allowNewItems ? undefined : restoreValue,
       tags: Array.isArray(value) ? value : undefined,
       onTagRemove,
       isOpen,
@@ -592,7 +596,7 @@ export const AutocompleteInput = forwardRef<
     }
 
     return (
-      <>
+      <div ref={wrapperRef}>
         <div ref={inputWrapperRef}>
           <ComboboxInput
             ref={applyMultipleRefs(comboboxRef, ref, refs.setReference)}
@@ -615,7 +619,7 @@ export const AutocompleteInput = forwardRef<
             {results}
           </div>
         )}
-      </>
+      </div>
     );
   },
 );
