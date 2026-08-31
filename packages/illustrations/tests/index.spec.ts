@@ -40,10 +40,11 @@ describe('Illustrations', () => {
     });
 
     it('should be in the default size', () => {
+      const isFlow = name.startsWith('flow-');
       const attributes = parseSVGAttributes(file);
 
-      expect(attributes.height).toBe('240');
-      expect(attributes.width).toBe('240');
+      expect(attributes.height).toBe(isFlow ? '112' : '240');
+      expect(attributes.width).toBe(isFlow ? '112' : '240');
     });
 
     it('should match the theme in the file name', () => {
