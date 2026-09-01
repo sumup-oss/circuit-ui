@@ -15,10 +15,20 @@
 
 'use client';
 
+import {
+  useCallback,
+  useRef,
+  type FocusEvent,
+  type FocusEventHandler,
+  type MouseEvent,
+  type MouseEventHandler,
+} from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
+import { eachFn } from '../../util/helpers.js';
 import { deprecate } from '../../util/logger.js';
+import { Tooltip, type TooltipReferenceProps } from '../Tooltip/index.js';
 
 import {
   BaseButton,
@@ -32,7 +42,8 @@ export type IconButtonProps = SharedButtonProps & {
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a
    * one-word object if needed to clarify.
-   * Displayed on hover and accessible to screen readers.
+   * Used as the button's accessible name and displayed in a tooltip on
+   * hover and keyboard focus.
    */
   children: string;
   /**
@@ -63,14 +74,61 @@ export function IconButton({
     );
   }
 
+  const latest = useRef({ props, size, className });
+  latest.current = { props, size, className };
+
+  const renderReference = useCallback((tooltipProps: TooltipReferenceProps) => {
+    const { current } = latest;
+
+    const { onFocus, onBlur, onMouseEnter, onMouseLeave, ...restProps } =
+      current.props as typeof current.props & {
+        onFocus?: FocusEventHandler;
+        onBlur?: FocusEventHandler;
+        onMouseEnter?: MouseEventHandler;
+        onMouseLeave?: MouseEventHandler;
+      };
+
+    return (
+      <BaseButton
+        {...restProps}
+        {...tooltipProps}
+        componentName="IconButton"
+        size={current.size}
+        onFocus={eachFn<[FocusEvent<Element>]>([onFocus, tooltipProps.onFocus])}
+        onBlur={eachFn<[FocusEvent<Element>]>([onBlur, tooltipProps.onBlur])}
+        onMouseEnter={eachFn<[MouseEvent<Element>]>([
+          onMouseEnter,
+          tooltipProps.onMouseEnter,
+        ])}
+        onMouseLeave={eachFn<[MouseEvent<Element>]>([
+          onMouseLeave,
+          tooltipProps.onMouseLeave,
+        ])}
+        className={clsx(
+          classes.base,
+          classes[current.size],
+          tooltipProps.className,
+          current.className,
+        )}
+      />
+    );
+  }, []);
+
+  const isDecorative =
+    props['aria-hidden'] === true || props['aria-hidden'] === 'true';
+
+  if (isDecorative) {
+    return (
+      <BaseButton
+        {...props}
+        componentName="IconButton"
+        size={size}
+        className={clsx(classes.base, classes[size], className)}
+      />
+    );
+  }
+
   return (
-    <BaseButton
-      componentName="IconButton"
-      className={clsx(classes.base, classes[size], className)}
-      size={size}
-      title={props.children}
-      aria-label={props.children}
-      {...props}
-    />
+    <Tooltip type="label" label={props.children} component={renderReference} />
   );
 }

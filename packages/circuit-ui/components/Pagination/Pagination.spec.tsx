@@ -32,14 +32,14 @@ describe('Pagination', () => {
 
   it('should disable the previous button on the first page', () => {
     render(<Pagination {...baseProps} currentPage={1} />);
-    const prevButtonEl = screen.getByText('Previous').closest('button');
+    const prevButtonEl = screen.getByRole('button', { name: 'Previous' });
 
     expect(prevButtonEl).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('should disable the next button on the last page', () => {
     render(<Pagination {...baseProps} currentPage={baseProps.totalPages} />);
-    const nextButtonEl = screen.getByText('Next').closest('button');
+    const nextButtonEl = screen.getByRole('button', { name: 'Next' });
 
     expect(nextButtonEl).toHaveAttribute('aria-disabled', 'true');
   });
@@ -48,7 +48,7 @@ describe('Pagination', () => {
     const onChange = vi.fn();
     render(<Pagination {...baseProps} onChange={onChange} currentPage={3} />);
 
-    const prevButtonEl = screen.getByText('Previous');
+    const prevButtonEl = screen.getByRole('button', { name: 'Previous' });
 
     await userEvent.click(prevButtonEl);
 
@@ -60,7 +60,7 @@ describe('Pagination', () => {
     const onChange = vi.fn();
     render(<Pagination {...baseProps} onChange={onChange} />);
 
-    const nextButtonEl = screen.getByText('Next');
+    const nextButtonEl = screen.getByRole('button', { name: 'Next' });
 
     await userEvent.click(nextButtonEl);
 

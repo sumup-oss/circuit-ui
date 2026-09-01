@@ -17,13 +17,15 @@ import { userEvent } from 'storybook/test';
 import { TransferOut, UploadCloud } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import { Button, IconButton } from '../Button/index.js';
-
+import { clsx } from '../../styles/clsx.js';
+import { utilClasses } from '../../styles/utility.js';
+import { Button } from '../Button/index.js';
 import {
   Tooltip,
   type TooltipProps,
   type TooltipReferenceProps,
 } from './Tooltip.js';
+import classes from './TooltipStories.module.css';
 
 export default {
   title: 'Components/Tooltip',
@@ -70,14 +72,24 @@ Base.play = showTooltip;
 
 export const Types = (args: TooltipProps) => (
   <Stack>
+    {/* IconButton already wraps itself in a label-type Tooltip by default, this recreates its underlying
+        button styling to show the `label` type for a custom reference component. */}
     <Tooltip
       {...args}
       type="label"
       label="Transfer out"
       component={(props) => (
-        <IconButton {...props} icon={TransferOut} title={undefined}>
-          Transfer out
-        </IconButton>
+        <button
+          {...props}
+          type="button"
+          className={clsx(
+            classes.reference,
+            utilClasses.focusVisible,
+            props.className,
+          )}
+        >
+          <TransferOut aria-hidden="true" size="24" />
+        </button>
       )}
     />
     <Tooltip

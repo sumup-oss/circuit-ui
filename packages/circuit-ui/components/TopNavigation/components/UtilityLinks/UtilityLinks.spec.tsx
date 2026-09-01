@@ -44,7 +44,7 @@ describe('UtilityLinks', () => {
 
     const link = baseProps.links[0] as UtilityLinkProps;
 
-    await userEvent.click(screen.getByText(link.label));
+    await userEvent.click(screen.getByRole('link', { name: link.label }));
 
     expect(link.onClick).toHaveBeenCalledTimes(1);
   });
