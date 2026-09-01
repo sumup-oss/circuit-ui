@@ -15,18 +15,18 @@
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^16.2.11",
+    "@next/bundle-analyzer": "^16.3.2",
     "@sumup-oss/circuit-ui": "^11.20.0",
     "@sumup-oss/design-tokens": "^10.2.0",
     "@sumup-oss/icons": "^6.17.0",
     "@sumup-oss/intl": "^3.5.1",
-    "next": "^16.2.11",
+    "next": "^16.3.2",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "temporal-polyfill": "^1.0.4"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^16.2.11",
+    "@next/eslint-plugin-next": "^16.3.2",
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.1.0",
     "@sumup-oss/foundry": "^10.1.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
