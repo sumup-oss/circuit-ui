@@ -28,7 +28,7 @@
 .content {
   padding: var(--cui-spacings-mega);
   color: var(--cui-fg-normal);
-  outline: 0;
+  outline-color: transparent;
   background-color: var(--cui-bg-elevated);
   border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);

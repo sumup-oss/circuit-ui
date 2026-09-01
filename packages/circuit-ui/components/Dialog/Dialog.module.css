@@ -1,7 +1,7 @@
 .base {
   padding: 0 !important;
   pointer-events: none;
-  outline: none;
+  outline-color: transparent;
   background-color: var(--cui-bg-elevated);
   border: none;
 }

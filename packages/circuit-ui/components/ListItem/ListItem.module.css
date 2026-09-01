@@ -7,7 +7,7 @@
   margin: 0;
   color: var(--cui-fg-normal);
   text-align: left;
-  text-decoration: none;
+  text-decoration-color: transparent;
   background-color: var(--cui-bg-normal);
   border: var(--cui-border-width-mega) solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-mega);
@@ -43,11 +43,10 @@ button.base:hover {
 a.base:focus,
 button.base:focus {
   z-index: 2;
-  outline: 0;
-  border-color: transparent;
-  box-shadow:
-    0 0 0 4px var(--cui-bg-normal),
-    0 0 0 6px var(--cui-border-focus);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
 }
 
 a.base:focus::-moz-focus-inner,
@@ -58,8 +57,8 @@ button.base:focus::-moz-focus-inner {
 a.base:focus:not(:focus-visible),
 button.base:focus:not(:focus-visible) {
   z-index: auto;
+  outline-color: transparent;
   border-color: var(--cui-border-subtle);
-  box-shadow: none;
 }
 
 a.base:active,
