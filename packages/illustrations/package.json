@@ -40,10 +40,10 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "tsx": "^4.21.0",
+    "tsx": "^4.23.13",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.5",
-    "fast-xml-parser": "^5.7.1"
+    "vitest": "^4.1.11",
+    "fast-xml-parser": "^5.11.1"
   },
   "peerDependencies": {
     "react": ">=16.0.0 <20.0.0"
