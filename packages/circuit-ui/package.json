@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/circuit-ui",
-  "version": "11.19.0",
+  "version": "11.19.1",
   "description": "SumUp's React UI component library",
   "type": "module",
   "main": "./dist/index.js",
@@ -61,7 +61,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@sumup-oss/illustrations": "^1.0.0",
+    "@sumup-oss/illustrations": "^1.1.0",
     "@floating-ui/react-dom": "^2.1.8",
     "@nanostores/react": "^1.1.0",
     "nanostores": "^1.4.1"

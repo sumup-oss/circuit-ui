@@ -1,5 +1,11 @@
 # @sumup-oss/illustrations
 
+## 1.1.0
+
+### Minor Changes
+
+- [#3860](https://github.com/sumup-oss/circuit-ui/pull/3860) [`ae756f7`](https://github.com/sumup-oss/circuit-ui/commit/ae756f76be4fea62cf9d6a1c28b46137d8659115) Thanks [@sirineJ](https://github.com/sirineJ)! - Added new illustrations for flow states: Success, Danger and Warning.
+
 ## 1.0.0
 
 ### Major Changes
