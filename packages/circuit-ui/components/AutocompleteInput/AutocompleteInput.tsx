@@ -40,7 +40,6 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import type { Locale } from '../../util/i18n.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
-import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import {
   isArrowDown,
   isArrowUp,
@@ -193,6 +192,7 @@ export function AutocompleteInput({
   const [activeOption, setActiveOption] = useState<number>();
   const comboboxRef = useRef<HTMLInputElement>(null);
   const inputWrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const presentationFieldRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const listboxId = useId();
@@ -240,13 +240,17 @@ export function AutocompleteInput({
 
   const closeResults = useCallback(() => {
     setIsOpen(false);
-    // when we close the listbox, set the search text to the value of the combobox,
-    // otherwise, reset it.
-    if (!Array.isArray(value)) {
-      changeInputValue(comboboxRef.current, value?.label ?? '');
+    if (Array.isArray(value) && searchText !== '') {
+      changeInputValue(comboboxRef.current, '');
+      onSearch('');
     }
+    if (!Array.isArray(value) && searchText && searchText !== value?.label) {
+      changeInputValue(comboboxRef.current, value?.label ?? '');
+      onSearch('');
+    }
+
     setActiveOption(undefined);
-  }, [value]);
+  }, [onSearch, searchText, value]);
 
   const debouncedOnSearch = useMemo(
     () =>
@@ -438,13 +442,6 @@ export function AutocompleteInput({
     }
   }, [isOpen, update, options.length, value]);
 
-  const handleClickOutside = useCallback(() => {
-    if (!isImmersive) {
-      closeResults();
-    }
-  }, [closeResults, isImmersive]);
-  useClickOutside([inputWrapperRef, refs.floating], handleClickOutside);
-
   useEscapeKey(closeResults, isOpen);
 
   useEffect(() => {
@@ -453,6 +450,23 @@ export function AutocompleteInput({
       closeResults();
     }
   }, [readOnly, disabled, isOpen, closeResults]);
+
+  useEffect(() => {
+    function closeOnFocusOut(event: FocusEvent) {
+      const nextTarget = event.relatedTarget as Node | null;
+      const isFocusInside =
+        inputWrapperRef.current?.contains(nextTarget) ||
+        refs.floating.current?.contains(nextTarget) ||
+        resultsRef.current?.contains(nextTarget);
+      if (!isFocusInside) {
+        closeResults();
+      }
+    }
+    wrapperRef?.current?.addEventListener('focusout', closeOnFocusOut);
+    return () => {
+      wrapperRef?.current?.removeEventListener('focusout', closeOnFocusOut);
+    };
+  }, [closeResults, refs.floating]);
 
   const activeDescendant =
     isOpen && activeOption !== undefined
@@ -568,7 +582,7 @@ export function AutocompleteInput({
   }
 
   return (
-    <>
+    <div ref={wrapperRef}>
       <div ref={inputWrapperRef}>
         <ComboboxInput
           ref={applyMultipleRefs(comboboxRef, ref)}
@@ -592,6 +606,6 @@ export function AutocompleteInput({
           {results}
         </div>
       )}
-    </>
+    </div>
   );
 }

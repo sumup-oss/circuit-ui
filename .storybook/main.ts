@@ -56,6 +56,7 @@ const config: StorybookConfig = {
     reactDocgenTypescriptOptions: {
       exclude: ['.storybook/**/*'],
       shouldRemoveUndefinedFromOptional: true,
+      shouldExtractLiteralValuesFromEnum: true,
       propFilter: (prop: PropItem) => {
         // @ts-expect-error deprecated tag exists
         const deprecation = prop.tags.deprecated as string;

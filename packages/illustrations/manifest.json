@@ -219,6 +219,36 @@
       "name": "support",
       "category": "General communication",
       "color-scheme": "dark"
+    },
+    {
+      "name": "flow-success",
+      "category": "Flow",
+      "color-scheme": "light"
+    },
+    {
+      "name": "flow-success",
+      "category": "Flow",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "flow-warning",
+      "category": "Flow",
+      "color-scheme": "light"
+    },
+    {
+      "name": "flow-warning",
+      "category": "Flow",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "flow-danger",
+      "category": "Flow",
+      "color-scheme": "light"
+    },
+    {
+      "name": "flow-danger",
+      "category": "Flow",
+      "color-scheme": "dark"
     }
   ]
 }

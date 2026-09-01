@@ -1,5 +1,23 @@
 # @sumup-oss/circuit-ui
 
+## 11.20.0
+
+### Minor Changes
+
+- [#3856](https://github.com/sumup-oss/circuit-ui/pull/3856) [`16ed1bc`](https://github.com/sumup-oss/circuit-ui/commit/16ed1bce329c63bd4db6a3eb684e35871e23cbfd) Thanks [@connor-baer](https://github.com/connor-baer)! - Added optional `srcDark` and `srcSetDark` props to the Image component to display a different image in dark mode.
+
+## 11.19.1
+
+### Patch Changes
+
+- [#3690](https://github.com/sumup-oss/circuit-ui/pull/3690) [`a572972`](https://github.com/sumup-oss/circuit-ui/commit/a57297236ff11fce29448b346e2f83c820edf490) Thanks [@nicosommi](https://github.com/nicosommi)! - Updated the AutocompleteInput focus management to close the suggestion box whenever the focus leaves the elements of the component (combobox or suggestion box).
+
+- [#3690](https://github.com/sumup-oss/circuit-ui/pull/3690) [`a572972`](https://github.com/sumup-oss/circuit-ui/commit/a57297236ff11fce29448b346e2f83c820edf490) Thanks [@nicosommi](https://github.com/nicosommi)! - Updated the AutocompleteInput to fire the `onSearch` callback whenever the suggestion box is closed, allowing consumers to reset the suggestion list.
+
+- [#3857](https://github.com/sumup-oss/circuit-ui/pull/3857) [`33c7768`](https://github.com/sumup-oss/circuit-ui/commit/33c7768e2b2966d31016d4effebcdf61c5add301) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed merging of custom inline styles in the NotificationBanner component.
+- Updated dependencies [[`ae756f7`](https://github.com/sumup-oss/circuit-ui/commit/ae756f76be4fea62cf9d6a1c28b46137d8659115)]:
+  - @sumup-oss/illustrations@1.1.0
+
 ## 12.0.0-next.9
 
 ### Major Changes
