@@ -1,8 +1,8 @@
 .base {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   min-height: 40px;
-  padding: var(--cui-spacings-byte);
+  padding: var(--cui-spacings-bit) var(--cui-spacings-byte);
   margin-bottom: var(--cui-spacings-bit);
   cursor: pointer;
   border-radius: var(--cui-border-radius-byte);
@@ -89,10 +89,6 @@
   border: var(--cui-border-width-kilo) solid var(--cui-border-normal);
   border-radius: var(--cui-border-radius-bit);
   transition: all var(--cui-transitions-default);
-}
-
-.offset {
-  margin-top: 10px;
 }
 
 .checkbox svg,

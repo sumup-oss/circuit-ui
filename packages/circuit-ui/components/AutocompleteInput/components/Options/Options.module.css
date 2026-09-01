@@ -1,6 +1,6 @@
 .base {
   position: relative;
-  padding: var(--cui-spacings-mega);
+  padding: var(--cui-spacings-byte);
   margin: 0;
 }
 
@@ -46,7 +46,8 @@ li:last-of-type {
 }
 
 .load-more {
-  margin: 0 var(--cui-spacings-giga) var(--cui-spacings-mega);
+  margin: var(--cui-spacings-byte) var(--cui-spacings-mega)
+    var(--cui-spacings-mega);
 }
 
 .load-more-modal {

@@ -126,11 +126,7 @@ export const Option = ({
       {isSelectable && (
         <div
           data-testid={`option-checkbox-${value}`}
-          className={clsx(
-            classes.checkbox,
-            selected && classes.selected,
-            description && classes.offset,
-          )}
+          className={clsx(classes.checkbox, selected && classes.selected)}
         >
           {selected && <Checkmark size="16" />}
         </div>
