@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { getIconURL } from '@sumup-oss/icons';
 
@@ -21,11 +21,9 @@ import {
   filterCountryCodeAutocompleteOptions,
   getCountryCodeAutocompleteValue,
   getCountryFlagIcon,
-  mapCountryCodeAutocompleteOptions,
   mapCountryCodeOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
-  resolveCountryCodeOptionLabel,
 } from './PhoneNumberInputService.js';
 
 describe('PhoneNumberInputService', () => {
@@ -197,29 +195,6 @@ describe('PhoneNumberInputService', () => {
     });
   });
 
-  describe('mapCountryCodeAutocompleteOptions', () => {
-    it('should map select options to autocomplete options', () => {
-      const options = [
-        { country: 'CA', code: '+1' },
-        { country: 'DE', code: '+49' },
-      ];
-      const actual = mapCountryCodeAutocompleteOptions(options, undefined);
-
-      expect(actual).toEqual([
-        {
-          label: 'Canada (+1)',
-          value: 'CA',
-          image: getIconURL('flag_ca'),
-        },
-        {
-          label: 'Germany (+49)',
-          value: 'DE',
-          image: getIconURL('flag_de'),
-        },
-      ]);
-    });
-  });
-
   describe('filterCountryCodeAutocompleteOptions', () => {
     const options = [
       { label: 'Canada (+1)', value: 'CA' },
@@ -259,22 +234,6 @@ describe('PhoneNumberInputService', () => {
       expect(
         getCountryCodeAutocompleteValue(options, undefined),
       ).toBeUndefined();
-    });
-  });
-
-  describe('resolveCountryCodeOptionLabel', () => {
-    it('should fall back to the country code when Intl.DisplayNames throws', () => {
-      const displayNamesSpy = vi
-        .spyOn(globalThis.Intl, 'DisplayNames')
-        .mockImplementation(() => {
-          throw new Error('Intl.DisplayNames unavailable');
-        });
-
-      expect(
-        resolveCountryCodeOptionLabel({ country: 'DE', code: '+49' }, 'en'),
-      ).toBe('DE (+49)');
-
-      displayNamesSpy.mockRestore();
     });
   });
 });

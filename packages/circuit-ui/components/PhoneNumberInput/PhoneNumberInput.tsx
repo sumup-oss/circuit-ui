@@ -56,7 +56,7 @@ import type { Locale } from '../../util/i18n.js';
 import {
   filterCountryCodeAutocompleteOptions,
   getCountryCodeAutocompleteValue,
-  mapCountryCodeAutocompleteOptions,
+  mapCountryCodeOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
   type CountryCodeOption,
@@ -261,7 +261,7 @@ export function PhoneNumberInput({
   const descriptionIds = idx(descriptionId, validationHint && validationHintId);
 
   const autocompleteOptions = useMemo(
-    () => mapCountryCodeAutocompleteOptions(countryCode.options, locale),
+    () => mapCountryCodeOptions(countryCode.options, locale),
     [countryCode.options, locale],
   );
 

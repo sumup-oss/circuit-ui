@@ -57,14 +57,6 @@ function getCountryName(country: string, locale: Locale | undefined) {
   }
 }
 
-export function resolveCountryCodeOptionLabel(
-  option: CountryCodeOption,
-  locale: Locale | undefined,
-): string {
-  const countryName = getCountryName(option.country, locale);
-  return countryName ? `${countryName} (${option.code})` : option.code;
-}
-
 export function parsePhoneNumber(
   value: string | undefined,
   options: CountryCodeOption[],
@@ -165,24 +157,15 @@ export function mapCountryCodeOptions(
   locale: Locale | undefined,
 ): AutocompleteInputOption[] {
   return countryCodeOptions
-    .map((option) => ({
-      label: resolveCountryCodeOptionLabel(option, locale),
-      value: option.country,
-    }))
+    .map(({ code, country }) => {
+      const countryName = getCountryName(country, locale);
+      return {
+        label: countryName ? `${countryName} (${code})` : code,
+        value: country,
+        image: getCountryFlagIcon(country),
+      };
+    })
     .sort((a, b) => a.label.localeCompare(b.label));
-}
-
-export function mapCountryCodeAutocompleteOptions(
-  countryCodeOptions: CountryCodeOption[],
-  locale: Locale | undefined,
-): AutocompleteInputOption[] {
-  return mapCountryCodeOptions(countryCodeOptions, locale).map(
-    ({ label, value }) => ({
-      label,
-      value,
-      image: getCountryFlagIcon(value),
-    }),
-  );
 }
 
 export function filterCountryCodeAutocompleteOptions(
