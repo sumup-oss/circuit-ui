@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.20.0
+
+### Minor Changes
+
+- [#3856](https://github.com/sumup-oss/circuit-ui/pull/3856) [`16ed1bc`](https://github.com/sumup-oss/circuit-ui/commit/16ed1bce329c63bd4db6a3eb684e35871e23cbfd) Thanks [@connor-baer](https://github.com/connor-baer)! - Added optional `srcDark` and `srcSetDark` props to the Image component to display a different image in dark mode.
+
 ## 11.19.1
 
 ### Patch Changes
