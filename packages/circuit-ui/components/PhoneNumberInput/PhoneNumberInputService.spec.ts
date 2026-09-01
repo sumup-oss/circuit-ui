@@ -18,7 +18,7 @@ import { describe, expect, it } from 'vitest';
 import { getIconURL } from '@sumup-oss/icons';
 
 import {
-  filterCountryCodeAutocompleteOptions,
+  filterCountryCodeOptions,
   getCountryCodeAutocompleteValue,
   getCountryFlagIcon,
   mapCountryCodeOptions,
@@ -144,7 +144,7 @@ describe('PhoneNumberInputService', () => {
       expect(actual[2].value).toBe('US');
     });
 
-    it('should use the country name and code as the option label', () => {
+    it('should use the country code as the option label', () => {
       const options = [
         { country: 'CA', code: '+1' },
         { country: 'US', code: '+1' },
@@ -152,9 +152,22 @@ describe('PhoneNumberInputService', () => {
       ];
       const locale = 'en';
       const actual = mapCountryCodeOptions(options, locale);
-      expect(actual[0].label).toBe('Canada (+1)');
-      expect(actual[1].label).toBe('Germany (+49)');
-      expect(actual[2].label).toBe('United States (+1)');
+      expect(actual[0].label).toBe('+1');
+      expect(actual[1].label).toBe('+49');
+      expect(actual[2].label).toBe('+1');
+    });
+
+    it('should use the country name as the option description', () => {
+      const options = [
+        { country: 'CA', code: '+1' },
+        { country: 'US', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const locale = 'en';
+      const actual = mapCountryCodeOptions(options, locale);
+      expect(actual[0].description).toBe('Canada');
+      expect(actual[1].description).toBe('Germany');
+      expect(actual[2].description).toBe('United States');
     });
 
     it('should omit the country name when it is not available', () => {
@@ -164,7 +177,7 @@ describe('PhoneNumberInputService', () => {
       expect(actual[0].label).toBe('+49');
     });
 
-    it('should sort the options alphabetically', () => {
+    it('should sort the options alphabetically by country name', () => {
       const options = [
         { country: 'CA', code: '+1' },
         { country: 'US', code: '+1' },
@@ -172,20 +185,9 @@ describe('PhoneNumberInputService', () => {
       ];
       const locale = 'en';
       const actual = mapCountryCodeOptions(options, locale);
-      expect(actual[0].label).toBe('Canada (+1)');
-      expect(actual[1].label).toBe('Germany (+49)');
-      expect(actual[2].label).toBe('United States (+1)');
-    });
-
-    it('should use the locale as the default country code', () => {
-      const options = [
-        { country: 'CA', code: '+1' },
-        { country: 'US', code: '+1' },
-        { country: 'DE', code: '+49' },
-      ];
-      const locale = 'DE';
-      const actual = mapCountryCodeOptions(options, locale);
-      expect(actual[0].value).toBe('DE');
+      expect(actual[0].description).toBe('Canada');
+      expect(actual[1].description).toBe('Germany');
+      expect(actual[2].description).toBe('United States');
     });
   });
 
@@ -195,34 +197,38 @@ describe('PhoneNumberInputService', () => {
     });
   });
 
-  describe('filterCountryCodeAutocompleteOptions', () => {
+  describe('filterCountryCodeOptions', () => {
     const options = [
-      { label: 'Canada (+1)', value: 'CA' },
-      { label: 'Germany (+49)', value: 'DE' },
-      { label: 'United States (+1)', value: 'US' },
+      { label: '+1', value: 'CA', description: 'Canada' },
+      { label: '+49', value: 'DE', description: 'Germany' },
+      { label: '+1', value: 'US', description: 'United States' },
     ];
 
     it('should return all options for an empty query', () => {
-      expect(filterCountryCodeAutocompleteOptions(options, '')).toEqual(
-        options,
-      );
+      expect(filterCountryCodeOptions(options, '')).toEqual(options);
     });
 
     it('should filter options by label', () => {
-      expect(filterCountryCodeAutocompleteOptions(options, 'germ')).toEqual([
-        { label: 'Germany (+49)', value: 'DE' },
+      expect(filterCountryCodeOptions(options, '+49')).toEqual([
+        { label: '+49', value: 'DE', description: 'Germany' },
       ]);
     });
 
-    it('should filter options by country code', () => {
-      expect(filterCountryCodeAutocompleteOptions(options, 'us')).toEqual([
-        { label: 'United States (+1)', value: 'US' },
+    it('should filter options by value', () => {
+      expect(filterCountryCodeOptions(options, 'us')).toEqual([
+        { label: '+1', value: 'US', description: 'United States' },
+      ]);
+    });
+
+    it('should filter options by description', () => {
+      expect(filterCountryCodeOptions(options, 'unit')).toEqual([
+        { label: '+1', value: 'US', description: 'United States' },
       ]);
     });
   });
 
   describe('getCountryCodeAutocompleteValue', () => {
-    const options = [{ label: 'Canada (+1)', value: 'CA' }];
+    const options = [{ label: '+1', value: 'CA', description: 'Canada' }];
 
     it('should return the matching option', () => {
       expect(getCountryCodeAutocompleteValue(options, 'CA')).toEqual(

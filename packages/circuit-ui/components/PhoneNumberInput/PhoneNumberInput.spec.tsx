@@ -163,7 +163,7 @@ describe('PhoneNumberInput', () => {
     const countryCode = screen.getByRole('combobox', { name: 'Country code' });
     const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+4912345678');
-    expect(countryCode).toHaveValue('Germany (+49)');
+    expect(countryCode).toHaveValue('+49');
     expect(subscriberNumber).toHaveValue('12345678');
   });
 
@@ -177,7 +177,7 @@ describe('PhoneNumberInput', () => {
     const countryCode = screen.getByRole('combobox', { name: 'Country code' });
     const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+4912345678');
-    expect(countryCode).toHaveValue('Germany (+49)');
+    expect(countryCode).toHaveValue('+49');
     expect(subscriberNumber).toHaveValue('12345678');
   });
 
@@ -217,7 +217,7 @@ describe('PhoneNumberInput', () => {
     const countryCode = screen.getByRole('combobox', { name: 'Country code' });
     const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+112345678');
-    expect(countryCode).toHaveValue('Canada (+1)');
+    expect(countryCode).toHaveValue('+1');
     expect(subscriberNumber).toHaveValue('12345678');
   });
 
@@ -244,7 +244,7 @@ describe('PhoneNumberInput', () => {
     await selectCountry(/United States/);
     expect(onChange).toHaveBeenCalledOnce();
     expect(screen.getByRole('combobox', { name: 'Country code' })).toHaveValue(
-      'United States (+1)',
+      '+1',
     );
   });
 
@@ -271,7 +271,7 @@ describe('PhoneNumberInput', () => {
     await selectCountry(/United States/);
     await selectCountry(/Canada/);
     expect(screen.getByRole('combobox', { name: 'Country code' })).toHaveValue(
-      'Canada (+1)',
+      '+1',
     );
   });
 

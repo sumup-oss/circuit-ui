@@ -160,15 +160,18 @@ export function mapCountryCodeOptions(
     .map(({ code, country }) => {
       const countryName = getCountryName(country, locale);
       return {
-        label: countryName ? `${countryName} (${code})` : code,
+        label: code,
+        description: countryName,
         value: country,
         image: getCountryFlagIcon(country),
       };
     })
-    .sort((a, b) => a.label.localeCompare(b.label));
+    .sort((a, b) =>
+      (a.description || a.label).localeCompare(b.description || b.label),
+    );
 }
 
-export function filterCountryCodeAutocompleteOptions(
+export function filterCountryCodeOptions(
   options: AutocompleteInputOption[],
   query: string,
 ): AutocompleteInputOption[] {
@@ -179,8 +182,9 @@ export function filterCountryCodeAutocompleteOptions(
   }
 
   return options.filter(
-    ({ label, value }) =>
+    ({ label, value, description }) =>
       label.toLowerCase().includes(normalizedQuery) ||
+      description?.toLowerCase().includes(normalizedQuery) ||
       value.toLowerCase().includes(normalizedQuery),
   );
 }

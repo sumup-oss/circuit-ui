@@ -54,7 +54,7 @@ import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import type { Locale } from '../../util/i18n.js';
 
 import {
-  filterCountryCodeAutocompleteOptions,
+  filterCountryCodeOptions,
   getCountryCodeAutocompleteValue,
   mapCountryCodeOptions,
   normalizePhoneNumber,
@@ -300,7 +300,7 @@ export function PhoneNumberInput({
   const handleCountryCodeSearch = useCallback(
     (query: string) => {
       setFilteredAutocompleteOptions(
-        filterCountryCodeAutocompleteOptions(autocompleteOptions, query),
+        filterCountryCodeOptions(autocompleteOptions, query),
       );
     },
     [autocompleteOptions],
