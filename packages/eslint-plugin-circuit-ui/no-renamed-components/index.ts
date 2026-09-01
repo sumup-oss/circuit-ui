@@ -24,18 +24,6 @@ const createRule = ESLintUtils.RuleCreator<RuleDocs>(
 
 const components = [
   {
-    name: 'Popover',
-    alternative: 'ActionMenu',
-  },
-  {
-    name: 'PopoverProps',
-    alternative: 'ActionMenuProps',
-  },
-  {
-    name: 'PopoverItemProps',
-    alternative: 'ActionMenuItemProps',
-  },
-  {
     name: 'Badge',
     alternative: 'Status',
   },

@@ -37,72 +37,8 @@ ruleTester.run('no-renamed-components', noRenamedComponents, {
           return <Button />
         }`,
     },
-    {
-      name: 'similar component from another package',
-      code: `
-          import {Popover} from 'some-other-package';
-   function Component() {
-          return <Popover />
-        }`,
-    },
   ],
   invalid: [
-    {
-      name: 'matched component from Circuit UI',
-      code: `
-          import {Popover} from '@sumup-oss/circuit-ui';
-   function Component() {
-          return <Popover />
-        }`,
-      output: `
-          import {ActionMenu} from '@sumup-oss/circuit-ui';
-   function Component() {
-          return <ActionMenu />
-        }`,
-      errors: [{ messageId: 'renamed' }, { messageId: 'renamed' }],
-    },
-    {
-      name: 'matched component from Circuit UI',
-      code: `import {PopoverProps} from '@sumup-oss/circuit-ui';`,
-      output: `import {ActionMenuProps} from '@sumup-oss/circuit-ui';`,
-      errors: [{ messageId: 'renamed' }],
-    },
-    {
-      name: 'matched component from Circuit UI',
-      code: `import {PopoverItemProps} from '@sumup-oss/circuit-ui';`,
-      output: `import {ActionMenuItemProps} from '@sumup-oss/circuit-ui';`,
-      errors: [{ messageId: 'renamed' }],
-    },
-    {
-      name: 'matched renamed import from Circuit UI',
-      code: `
-          import {Popover as CircuitPopover} from '@sumup-oss/circuit-ui';
-   function Component() {
-          return <CircuitPopover />
-        }`,
-      output: `
-          import {ActionMenu as CircuitPopover} from '@sumup-oss/circuit-ui';
-   function Component() {
-          return <CircuitPopover />
-        }`,
-      errors: [{ messageId: 'renamed' }],
-    },
-    {
-      name: 'matched renamed import from Circuit UI',
-      code: `
-          import {PopoverProps as CircuitPopoverProps} from '@sumup-oss/circuit-ui';`,
-      output: `
-          import {ActionMenuProps as CircuitPopoverProps} from '@sumup-oss/circuit-ui';`,
-      errors: [{ messageId: 'renamed' }],
-    },
-    {
-      name: 'matched renamed import from Circuit UI',
-      code: `
-          import {PopoverItemProps as CircuitPopoverItemProps} from '@sumup-oss/circuit-ui';`,
-      output: `
-          import {ActionMenuItemProps as CircuitPopoverItemProps} from '@sumup-oss/circuit-ui';`,
-      errors: [{ messageId: 'renamed' }],
-    },
     {
       name: 'matched Badge component from Circuit UI',
       code: `
