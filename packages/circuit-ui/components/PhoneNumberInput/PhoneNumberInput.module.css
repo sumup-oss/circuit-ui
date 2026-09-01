@@ -17,8 +17,8 @@
 }
 
 .country-code-autocomplete-shell [role="option"] img {
-  width: var(--cui-icon-sizes-giga);
-  height: var(--cui-icon-sizes-mega);
+  width: 1.5rem;
+  height: 1.125rem;
   border-radius: var(--cui-border-radius-bit);
 }
 
