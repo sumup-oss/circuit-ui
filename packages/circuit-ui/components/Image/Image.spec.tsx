@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 
 import { Image } from './Image.js';
 
@@ -40,6 +40,14 @@ describe('Image', () => {
     const { container } = render(<Image {...baseProps} ref={ref} />);
     const image = container.querySelector('img');
     expect(ref.current).toBe(image);
+  });
+
+  it('should render a different image for dark mode', () => {
+    const srcDark = 'http://www.placepuppy.net/1p/500/800';
+    render(<Image {...baseProps} srcDark={srcDark} />);
+    const images = screen.getAllByRole('img');
+    expect(images[1].getAttribute('src')).toBe(baseProps.src);
+    expect(images[0].getAttribute('src')).toBe(srcDark);
   });
 
   it('should have no accessibility violations', async () => {

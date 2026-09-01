@@ -10,7 +10,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .base {
+  .dark + .base {
     display: none;
   }
 
@@ -19,7 +19,7 @@
   }
 }
 
-[data-color-scheme="light"] .base {
+[data-color-scheme="light"] .dark + .base {
   display: block;
 }
 
@@ -27,7 +27,7 @@
   display: none;
 }
 
-[data-color-scheme="dark"] .base {
+[data-color-scheme="dark"] .dark + .base {
   display: none;
 }
 

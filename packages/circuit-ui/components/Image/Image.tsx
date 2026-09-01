@@ -54,19 +54,21 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 export const Image = forwardRef<HTMLImageElement, ImageProps>(
   ({ className, src, srcDark, alt, srcSet, srcSetDark, ...props }, ref) => (
     <Fragment>
+      {(srcDark || srcSetDark) && (
+        <img
+          src={srcDark}
+          srcSet={srcSetDark}
+          alt={alt}
+          className={clsx(classes.base, classes.dark, className)}
+          {...props}
+        />
+      )}
       <img
         ref={ref}
         src={src}
         srcSet={srcSet}
         alt={alt}
         className={clsx(classes.base, className)}
-        {...props}
-      />
-      <img
-        src={srcDark}
-        srcSet={srcSetDark}
-        alt={alt}
-        className={clsx(classes.base, classes.dark, className)}
         {...props}
       />
     </Fragment>
