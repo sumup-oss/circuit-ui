@@ -189,13 +189,13 @@ export function filterCountryCodeOptions(
   );
 }
 
-export function getCountryCodeAutocompleteValue(
+export function getCountry(
   options: AutocompleteInputOption[],
-  country: string | undefined,
+  code: string | undefined,
 ): AutocompleteInputOption | undefined {
-  if (!country) {
+  if (!code) {
     return undefined;
   }
 
-  return options.find((option) => option.value === country);
+  return options.find((option) => option.value === code);
 }

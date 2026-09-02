@@ -55,7 +55,7 @@ import type { Locale } from '../../util/i18n.js';
 
 import {
   filterCountryCodeOptions,
-  getCountryCodeAutocompleteValue,
+  getCountry,
   mapCountryCodeOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
@@ -260,17 +260,16 @@ export function PhoneNumberInput({
 
   const descriptionIds = idx(descriptionId, validationHint && validationHintId);
 
-  const autocompleteOptions = useMemo(
+  const options = useMemo(
     () => mapCountryCodeOptions(countryCode.options, locale),
     [countryCode.options, locale],
   );
 
-  const [filteredAutocompleteOptions, setFilteredAutocompleteOptions] =
-    useState(autocompleteOptions);
+  const [filteredOptions, setFilteredOptions] = useState(options);
 
   useEffect(() => {
-    setFilteredAutocompleteOptions(autocompleteOptions);
-  }, [autocompleteOptions]);
+    setFilteredOptions(options);
+  }, [options]);
 
   const handleChange = useCallback(() => {
     if (!countryCodeRef.current || !subscriberNumberRef.current) {
@@ -299,23 +298,21 @@ export function PhoneNumberInput({
 
   const handleCountryCodeSearch = useCallback(
     (query: string) => {
-      setFilteredAutocompleteOptions(
-        filterCountryCodeOptions(autocompleteOptions, query),
-      );
+      setFilteredOptions(filterCountryCodeOptions(options, query));
     },
-    [autocompleteOptions],
+    [options],
   );
 
-  const handleCountryAutocompleteChange = useCallback(
+  const handleCountryCodeChange = useCallback(
     (option: AutocompleteInputOption) => {
       changeInputValue(countryCodeRef.current, option.value);
       countryCode.onChange?.({
         target: countryCodeRef.current,
       } as ChangeEvent<HTMLInputElement>);
       handleChange();
-      setFilteredAutocompleteOptions(autocompleteOptions);
+      setFilteredOptions(options);
     },
-    [autocompleteOptions, countryCode.onChange, handleChange],
+    [options, countryCode.onChange, handleChange],
   );
 
   const handlePaste = (event: ClipboardEvent) => {
@@ -362,15 +359,12 @@ export function PhoneNumberInput({
     countryCode.options,
   );
 
-  const selectedCountry =
+  const selectedCountryCode =
     parsedValue.countryCode ??
     parsedDefaultValue.countryCode ??
     countryCode.defaultValue;
 
-  const selectedCountryAutocompleteValue = getCountryCodeAutocompleteValue(
-    autocompleteOptions,
-    selectedCountry,
-  );
+  const countryCodeValue = getCountry(options, selectedCountryCode);
 
   if (
     process.env.NODE_ENV !== 'production' &&
@@ -436,8 +430,8 @@ export function PhoneNumberInput({
             type="hidden"
             ref={countryCodeRef}
             {...(value !== undefined
-              ? { value: selectedCountry ?? '' }
-              : { defaultValue: selectedCountry ?? '' })}
+              ? { value: selectedCountryCode ?? '' }
+              : { defaultValue: selectedCountryCode ?? '' })}
             disabled={disabled}
           />
           <AutocompleteInput
@@ -451,10 +445,10 @@ export function PhoneNumberInput({
             inputClassName={classes['country-code-autocomplete-input']}
             label={countryCode.label}
             invalid={invalid || countryCode.invalid}
-            value={selectedCountryAutocompleteValue}
-            options={filteredAutocompleteOptions}
+            value={countryCodeValue}
+            options={filteredOptions}
             onSearch={handleCountryCodeSearch}
-            onChange={handleCountryAutocompleteChange}
+            onChange={handleCountryCodeChange}
             variant="contextual"
             ref={countryCode.ref}
             renderPrefix={

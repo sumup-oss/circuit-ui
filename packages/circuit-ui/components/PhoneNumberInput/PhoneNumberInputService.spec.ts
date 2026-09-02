@@ -19,7 +19,7 @@ import { getIconURL } from '@sumup-oss/icons';
 
 import {
   filterCountryCodeOptions,
-  getCountryCodeAutocompleteValue,
+  getCountry,
   getCountryFlagIcon,
   mapCountryCodeOptions,
   normalizePhoneNumber,
@@ -227,19 +227,19 @@ describe('PhoneNumberInputService', () => {
     });
   });
 
-  describe('getCountryCodeAutocompleteValue', () => {
-    const options = [{ label: '+1', value: 'CA', description: 'Canada' }];
+  describe('getCountry', () => {
+    const options = [
+      { label: '+1', value: 'CA', description: 'Canada' },
+      { label: '+49', value: 'DE', description: 'Germany' },
+      { label: '+1', value: 'US', description: 'United States' },
+    ];
 
     it('should return the matching option', () => {
-      expect(getCountryCodeAutocompleteValue(options, 'CA')).toEqual(
-        options[0],
-      );
+      expect(getCountry(options, 'CA')).toEqual(options[0]);
     });
 
     it('should return undefined when the country is missing', () => {
-      expect(
-        getCountryCodeAutocompleteValue(options, undefined),
-      ).toBeUndefined();
+      expect(getCountry(options, undefined)).toBeUndefined();
     });
   });
 });
