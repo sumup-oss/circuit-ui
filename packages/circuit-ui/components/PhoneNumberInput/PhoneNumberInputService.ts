@@ -13,9 +13,15 @@
  * limitations under the License.
  */
 
+import { getIconURL, type IconName } from '@sumup-oss/icons';
+
 import { isEmpty } from '../../util/helpers.js';
 import type { Locale } from '../../util/i18n.js';
-import type { SelectProps } from '../Select/Select.js';
+import type { AutocompleteInputOption } from '../AutocompleteInput/components/Option/Option.js';
+
+export function getCountryFlagIcon(country: string): string {
+  return getIconURL(`flag_${country.toLowerCase()}` as IconName);
+}
 
 export type CountryCodeOption = {
   /**
@@ -33,6 +39,23 @@ export type CountryCodeOption = {
    */
   areaCodes?: string[];
 };
+
+function getCountryName(country: string, locale: Locale | undefined) {
+  // eslint-disable-next-line compat/compat
+  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+
+  if (!isIntlDisplayNamesSupported || !country) {
+    return country;
+  }
+
+  try {
+    // eslint-disable-next-line compat/compat
+    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+    return displayName.of(country);
+  } catch {
+    return country;
+  }
+}
 
 export function parsePhoneNumber(
   value: string | undefined,
@@ -131,59 +154,48 @@ export function normalizePhoneNumber(
 
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
-  locale: Locale,
-  shouldDisplayCountryNames = true,
-): Required<SelectProps>['options'] {
-  if (!shouldDisplayCountryNames) {
-    return countryCodeOptions
-      .map(({ code, country }) => ({
-        label: code,
-        value: country,
-      }))
-      .sort((a, b) => a.label.localeCompare(b.label));
-  }
-
-  const getCountryName = (country: string) => {
-    // eslint-disable-next-line compat/compat
-    const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
-
-    // When Intl.DisplayNames is not supported, we can't provide the localized country names
-    if (!isIntlDisplayNamesSupported || !country) {
-      return country;
-    }
-
-    try {
-      // eslint-disable-next-line compat/compat
-      const displayName = new Intl.DisplayNames(locale, { type: 'region' });
-      return displayName.of(country);
-    } catch {
-      return country;
-    }
-  };
-
+  locale: Locale | undefined,
+): AutocompleteInputOption[] {
   return countryCodeOptions
     .map(({ code, country }) => {
-      const countryName = getCountryName(country);
+      const countryName = getCountryName(country, locale);
       return {
-        label: countryName ? `${countryName} (${code})` : code,
+        label: code,
+        description: countryName,
         value: country,
+        image: getCountryFlagIcon(country),
       };
     })
-    .sort((a, b) => a.label.localeCompare(b.label));
+    .sort((a, b) =>
+      (a.description || a.label).localeCompare(b.description || b.label),
+    );
 }
 
-export function getCountryCode(
-  options: CountryCodeOption[],
-  country: string | undefined,
-) {
-  const option = options.find((o) => o.country === country);
-  return option ? option.code : country;
+export function filterCountryCodeOptions(
+  options: AutocompleteInputOption[],
+  query: string,
+): AutocompleteInputOption[] {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  if (!normalizedQuery) {
+    return options;
+  }
+
+  return options.filter(
+    ({ label, value, description }) =>
+      label.toLowerCase().includes(normalizedQuery) ||
+      description?.toLowerCase().includes(normalizedQuery) ||
+      value.toLowerCase().includes(normalizedQuery),
+  );
 }
 
 export function getCountry(
-  options: CountryCodeOption[],
+  options: AutocompleteInputOption[],
   code: string | undefined,
-) {
-  const option = options.find((o) => o.code === code);
-  return option?.country;
+): AutocompleteInputOption | undefined {
+  if (!code) {
+    return undefined;
+  }
+
+  return options.find((option) => option.value === code);
 }

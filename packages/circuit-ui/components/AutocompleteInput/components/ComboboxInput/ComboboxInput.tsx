@@ -43,10 +43,11 @@ import classes from './ComboboxInput.module.css';
 import { utilClasses } from '../../../../styles/utility.js';
 
 export interface ComboboxInputProps
-  extends Omit<
-    InputProps,
-    'renderPrefix' | 'renderSuffix' | 'as' | 'multiple'
-  > {
+  extends Omit<InputProps, 'renderSuffix' | 'as' | 'multiple'> {
+  /**
+   * Value passed to `renderPrefix`. Defaults to the input `value` when omitted.
+   */
+  prefixValue?: string | number;
   /**
    * Callback function when the user clears the field.
    */
@@ -100,6 +101,8 @@ export function ComboboxInput({
   'data-id': comboboxInputId,
   removeTagButtonLabel,
   moreResults,
+  renderPrefix: RenderPrefix,
+  prefixValue,
   ref,
   comboboxRef,
   ...props
@@ -135,6 +138,11 @@ export function ComboboxInput({
     }
   }, [isOpen]);
 
+  const prefix = RenderPrefix && (
+    <RenderPrefix className={classes.prefix} value={prefixValue ?? value} />
+  );
+  const hasPrefix = Boolean(prefix);
+
   return (
     <FieldWrapper
       size={size}
@@ -154,6 +162,7 @@ export function ComboboxInput({
         className={clsx(
           classes.base,
           classes[size],
+          tags.length > 0 && classes.scrollable,
           invalid && classes.invalid,
           disabled && classes.disabled,
           readOnly && classes.readonly,
@@ -161,6 +170,7 @@ export function ComboboxInput({
         )}
         ref={comboboxRef}
       >
+        {prefix}
         <div className={clsx(classes.content, utilClasses.hideScrollbar)}>
           {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => {
             const onRemoveProps =
@@ -197,6 +207,7 @@ export function ComboboxInput({
             aria-describedby={descriptionIds}
             className={clsx(
               textAlign === 'right' && classes['align-right'],
+              hasPrefix && classes['has-prefix'],
               inputClassName,
             )}
             aria-invalid={invalid && 'true'}
