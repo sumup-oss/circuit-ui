@@ -76,6 +76,7 @@ export type AutocompleteInputProps = Omit<
   | 'tags'
   | 'onTagRemove'
   | 'isOpen'
+  | 'autoComplete'
 > &
   Pick<
     ResultsProps,
