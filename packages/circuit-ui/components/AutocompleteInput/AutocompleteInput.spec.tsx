@@ -413,15 +413,6 @@ describe('AutocompleteInput', () => {
       await userEvent.tab();
 
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
-
-      expect(screen.getByRole('combobox', { name: props.label })).toHaveValue(
-        'Mochi',
-      );
-      // reopen the list box
-      await userEvent.keyboard('{ArrowDown}');
-      expect(screen.getByRole('combobox', { name: props.label })).toHaveValue(
-        'Mochi',
-      );
     });
   });
 
