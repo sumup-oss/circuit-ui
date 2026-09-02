@@ -275,6 +275,15 @@ describe('PhoneNumberInput', () => {
     );
   });
 
+  it('should update the displayed country code in an uncontrolled input', async () => {
+    const { container } = render(<PhoneNumberInput {...defaultProps} />);
+    await selectCountry(/Germany/);
+    expect(screen.getByRole('combobox', { name: 'Country code' })).toHaveValue(
+      '+49',
+    );
+    expect(getHiddenInput(container)).toHaveValue('+49');
+  });
+
   it('should call onChange when there is a change', async () => {
     const onChange = vi.fn();
     const props = {

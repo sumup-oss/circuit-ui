@@ -174,7 +174,10 @@ export const WithPrefix = (args: PhoneNumberInputProps) => {
   );
 };
 
-WithPrefix.args = Base.args;
+WithPrefix.args = {
+  ...Base.args,
+  value: undefined,
+};
 
 export const Sizes = (args: PhoneNumberInputProps) => (
   <Stack>

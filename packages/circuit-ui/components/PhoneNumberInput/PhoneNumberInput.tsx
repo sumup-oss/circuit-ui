@@ -361,6 +361,10 @@ export function PhoneNumberInput({
 
   const selectedCountryCode =
     parsedValue.countryCode ??
+    // read the current country back from the hidden input
+    (value === undefined
+      ? countryCodeRef.current?.value || undefined
+      : undefined) ??
     parsedDefaultValue.countryCode ??
     countryCode.defaultValue;
 
