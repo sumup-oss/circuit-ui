@@ -1,5 +1,21 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.10
+
+### Major Changes
+
+- [#3884](https://github.com/sumup-oss/circuit-ui/pull/3884) [`b560f11`](https://github.com/sumup-oss/circuit-ui/commit/b560f118c908ab9c8019dc5d6509b5f68a2c5d9f) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the Flag component. Import the component from `@sumup-oss/icons` instead.
+
+- [#3624](https://github.com/sumup-oss/circuit-ui/pull/3624) [`2775359`](https://github.com/sumup-oss/circuit-ui/commit/27753591075b57445120dd20e6df008b4e724730) Thanks [@nicosommi](https://github.com/nicosommi)! - Replaced the PhoneNumberInput component's native `<select>` for the country code with a searchable AutocompleteInput combobox. Country options show flag icons and can be filtered by name or ISO code.
+
+- [#3624](https://github.com/sumup-oss/circuit-ui/pull/3624) [`2775359`](https://github.com/sumup-oss/circuit-ui/commit/27753591075b57445120dd20e6df008b4e724730) Thanks [@nicosommi](https://github.com/nicosommi)! - Removed the `shouldDisplayCountryNames` prop from the AutocompleteInput component. Use the [internationalization context](https://circuit.sumup.com/?path=/docs/introduction-internationalization--docs) or the `locale` prop to prevent hydration mismatches.
+
+### Minor Changes
+
+- [#3851](https://github.com/sumup-oss/circuit-ui/pull/3851) [`1aa2641`](https://github.com/sumup-oss/circuit-ui/commit/1aa26412c654021066b59c75885a0160fbb08fcf) Thanks [@missating](https://github.com/missating)! - Replaced the `title` attribute in IconButton with a [Tooltip](https://circuit.sumup.com/?path=/docs/components-tooltip--docs) to display its accessible name, since `title` was not accessible to keyboard users.
+
+- [#3845](https://github.com/sumup-oss/circuit-ui/pull/3845) [`deec9ce`](https://github.com/sumup-oss/circuit-ui/commit/deec9ceea6ee02d4b1a7979caeae89d232ecfbd6) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved some styles for Windows High Contrast Mode (text-decoration and focus-ring).
+
 ## 11.20.0
 
 ### Minor Changes
