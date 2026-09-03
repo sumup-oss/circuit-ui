@@ -1,5 +1,13 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 8.0.0-next.2
+
+### Minor Changes
+
+- [#3884](https://github.com/sumup-oss/circuit-ui/pull/3884) [`b560f11`](https://github.com/sumup-oss/circuit-ui/commit/b560f118c908ab9c8019dc5d6509b5f68a2c5d9f) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `componenet-lifecycle-imports` eslint rule to automatically fix imports of the Flag component.
+
+- [#3879](https://github.com/sumup-oss/circuit-ui/pull/3879) [`848eb43`](https://github.com/sumup-oss/circuit-ui/commit/848eb43c617a1afad60d98e55afc1b79ebb2c149) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the Popover component (and related types) from the list of renamed components of the `no-renamed-components` eslint rule.
+
 ## 8.0.0-next.1
 
 ### Major Changes
