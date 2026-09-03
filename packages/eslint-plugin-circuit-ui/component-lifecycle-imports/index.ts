@@ -23,6 +23,11 @@ const createRule = ESLintUtils.RuleCreator<RuleDocs>(
 
 const mappings = [
   {
+    from: '@sumup-oss/circuit-ui',
+    to: '@sumup-oss/icons',
+    specifiers: ['Flag'],
+  },
+  {
     from: '@sumup-oss/circuit-ui/experimental',
     to: '@sumup-oss/circuit-ui',
     specifiers: [
