@@ -129,7 +129,7 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
               height: `calc(${sizeValue} * 3 / 4)`,
               ...style,
             }}
-            src={getIconURL(flagName)}
+            src={getIconURL(flagName, '480')}
             {...props}
             alt={alt}
           />
