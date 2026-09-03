@@ -1,5 +1,126 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0
+
+### Major Changes
+
+- [#3884](https://github.com/sumup-oss/circuit-ui/pull/3884) [`b560f11`](https://github.com/sumup-oss/circuit-ui/commit/b560f118c908ab9c8019dc5d6509b5f68a2c5d9f) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the Flag component. Import the component from `@sumup-oss/icons` instead.
+
+- [#3624](https://github.com/sumup-oss/circuit-ui/pull/3624) [`2775359`](https://github.com/sumup-oss/circuit-ui/commit/27753591075b57445120dd20e6df008b4e724730) Thanks [@nicosommi](https://github.com/nicosommi)! - Replaced the PhoneNumberInput component's native `<select>` for the country code with a searchable AutocompleteInput combobox. Country options show flag icons and can be filtered by name or ISO code.
+
+- [#3624](https://github.com/sumup-oss/circuit-ui/pull/3624) [`2775359`](https://github.com/sumup-oss/circuit-ui/commit/27753591075b57445120dd20e6df008b4e724730) Thanks [@nicosommi](https://github.com/nicosommi)! - Removed the `shouldDisplayCountryNames` prop from the AutocompleteInput component. Use the [internationalization context](https://circuit.sumup.com/?path=/docs/introduction-internationalization--docs) or the `locale` prop to prevent hydration mismatches.
+  
+  Use the `no-deprecated-icons` ESLint rule to automatically apply the replacements.
+
+- [#3679](https://github.com/sumup-oss/circuit-ui/pull/3679) [`d1ef773`](https://github.com/sumup-oss/circuit-ui/commit/d1ef7739548c856660048d80ab92f3df5d6508b6) Thanks [@missating](https://github.com/missating)! - Removed the deprecated `Italic` decoration prop from the `Numeral` component following the brand refresh.
+
+- [#3680](https://github.com/sumup-oss/circuit-ui/pull/3680) [`6f6cd02`](https://github.com/sumup-oss/circuit-ui/commit/6f6cd0219275a06e4944ba12a89669aac162bde9) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the `uniqueId` utility from the public API. Use React’s `useId` hook instead.
+
+- [#3679](https://github.com/sumup-oss/circuit-ui/pull/3679) [`d1ef773`](https://github.com/sumup-oss/circuit-ui/commit/d1ef7739548c856660048d80ab92f3df5d6508b6) Thanks [@missating](https://github.com/missating)! - Removed the `menu` ARIA role from the `ActionMenu` component. The `role="menu"` pattern is reserved for complex, desktop-like applications and is not appropriate for the ActionMenu component.
+
+- [#3745](https://github.com/sumup-oss/circuit-ui/pull/3745) [`001e42c`](https://github.com/sumup-oss/circuit-ui/commit/001e42c312b2203729707967390917e8a696015b) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `label` prop from the IconButton component. Use the `children` prop for the label and the `icon` prop for the icon instead.
+
+- [#3647](https://github.com/sumup-oss/circuit-ui/pull/3647) [`1ea4fe8`](https://github.com/sumup-oss/circuit-ui/commit/1ea4fe88cf5bb6e4574e3a0f1f322d969a70ebd3) Thanks [@missating](https://github.com/missating)! - Dropped support for Node.js 22. Node.js 24 or higher is now required.
+
+- [#3685](https://github.com/sumup-oss/circuit-ui/pull/3685) [`9992a96`](https://github.com/sumup-oss/circuit-ui/commit/9992a962d382a5a71f9017dae8aed43aeced0a37) Thanks [@sirineJ](https://github.com/sirineJ)! - Remove deprecated style mixins in favor of utility classes.
+
+- [#3679](https://github.com/sumup-oss/circuit-ui/pull/3679) [`d1ef773`](https://github.com/sumup-oss/circuit-ui/commit/d1ef7739548c856660048d80ab92f3df5d6508b6) Thanks [@missating](https://github.com/missating)! - Removed the default value for the `alt` prop in the `Avatar` component. The `alt` prop is now required.
+
+- [#3821](https://github.com/sumup-oss/circuit-ui/pull/3821) [`da7668d`](https://github.com/sumup-oss/circuit-ui/commit/da7668d7a96fadf76c26459bdd36199701650a88) Thanks [@sirineJ](https://github.com/sirineJ)! - Redesigned the TopNavigation layout to create a lighter visual appearance with fewer borders and more spacious alignment.
+  
+  The component API remains unchanged. However, the app-level custom property `--top-navigation-height` has increased to `68px`, which may affect layouts that depend on the navigation height.
+
+- [#3756](https://github.com/sumup-oss/circuit-ui/pull/3756) [`17930d4`](https://github.com/sumup-oss/circuit-ui/commit/17930d447b2f8dbd2df24928d7c8bbf544d8566a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a development-time error to the Button component when passing children that aren't a string or a number. This will be enforced by the prop types in the next major.
+
+- [#3675](https://github.com/sumup-oss/circuit-ui/pull/3675) [`5377af0`](https://github.com/sumup-oss/circuit-ui/commit/5377af030a7a9cc4d3074027ee96d9184586e80b) Thanks [@missating](https://github.com/missating)! - Removed the deprecated `checkedLabel` and `uncheckedLabel` props from `Toggle`.
+
+- [#3670](https://github.com/sumup-oss/circuit-ui/pull/3670) [`c30f886`](https://github.com/sumup-oss/circuit-ui/commit/c30f8860b1eee9616b1d334efb1c9d1aa4b99d20) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the legacy Tooltip component. Use the newer Tooltip or Toggletip components instead.
+
+- [#3670](https://github.com/sumup-oss/circuit-ui/pull/3670) [`c30f886`](https://github.com/sumup-oss/circuit-ui/commit/c30f8860b1eee9616b1d334efb1c9d1aa4b99d20) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the deprecated InlineElements component. Use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead.
+
+- [#3852](https://github.com/sumup-oss/circuit-ui/pull/3852) [`473879b`](https://github.com/sumup-oss/circuit-ui/commit/473879b5b5ee85afcc54e73379d370314de5c653) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the internationalization context required to configure the display language and formatting locale for all design system components. Wrap your application in the `I18nProvider`:
+  
+  ```tsx
+  // For example /app/layout.tsx for Next.js
+  import { I18nProvider } from "@sumup-oss/circuit-ui";
+  
+  export default function App() {
+    return (
+      <I18nProvider locale="en-US" formattingLocale="de-DE">
+        {/* children */}
+      </I18nProvider>
+    );
+  }
+  ```
+
+- [#3679](https://github.com/sumup-oss/circuit-ui/pull/3679) [`d1ef773`](https://github.com/sumup-oss/circuit-ui/commit/d1ef7739548c856660048d80ab92f3df5d6508b6) Thanks [@missating](https://github.com/missating)! - Removed the deprecated `Italic` decoration prop from the `Body` component following the brand refresh.
+
+- [#3675](https://github.com/sumup-oss/circuit-ui/pull/3675) [`5377af0`](https://github.com/sumup-oss/circuit-ui/commit/5377af030a7a9cc4d3074027ee96d9184586e80b) Thanks [@missating](https://github.com/missating)! - Removed the deprecated `hideCloseButton` prop from `Modal` (use `preventClose` instead).
+
+- [#3646](https://github.com/sumup-oss/circuit-ui/pull/3646) [`ded38de`](https://github.com/sumup-oss/circuit-ui/commit/ded38de1e7860fd1241d1de2229f39c09c5a82a4) Thanks [@missating](https://github.com/missating)! - Removed the `placeholder` color option from the `Body`, `Numeral` and `Compact` components' `color` prop. The `--cui-fg-placeholder` token does not meet WCAG 2.1 contrast requirements for text content.
+
+- [#3815](https://github.com/sumup-oss/circuit-ui/pull/3815) [`5e195af`](https://github.com/sumup-oss/circuit-ui/commit/5e195afa1af60581e386887cc603af3c643e613c) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the SidePanel layout on desktop so it no longer sits flush against the viewport edges. This change improves the visual balance of the component and aligns upcoming changes to the navigation components in the context of the brand refresh. This may affect applications that rely on the previous edge-to-edge positioning of the SidePanel. Review affected screens and adjust where necessary.
+
+- [#3689](https://github.com/sumup-oss/circuit-ui/pull/3689) [`842063f`](https://github.com/sumup-oss/circuit-ui/commit/842063fe34c72d1165b9667db4ab7bfc6012e92d) Thanks [@missating](https://github.com/missating)! - Removed the `UNSAFE_DISABLE_ELEMENT_ERRORS` environment variable. The `as` prop on Headline and Display is now always required.
+
+- [#3695](https://github.com/sumup-oss/circuit-ui/pull/3695) [`12533cb`](https://github.com/sumup-oss/circuit-ui/commit/12533cb1267944b202f54c998c84fcb6fcc924ee) Thanks [@missating](https://github.com/missating)! - Changed the Toggle component implementation to use a native input element instead of a button element under the hood. `onChange` now fires a native `ChangeEvent<HTMLInputElement>` instead of `ClickEvent<HTMLButtonElement>`.
+
+- [#3674](https://github.com/sumup-oss/circuit-ui/pull/3674) [`27c0eca`](https://github.com/sumup-oss/circuit-ui/commit/27c0eca4e7c5a3ae52bb91561db6714ac39730e2) Thanks [@missating](https://github.com/missating)! - Dropped support for React 18. React 19 is now the minimum required version. `react` and `react-dom` peer dependencies now require `>=19.0.0`
+
+- [#3842](https://github.com/sumup-oss/circuit-ui/pull/3842) [`58c18db`](https://github.com/sumup-oss/circuit-ui/commit/58c18dbee271cd8bdaf803fa85fc1dbc0307c59b) Thanks [@sirineJ](https://github.com/sirineJ)! - Moved `@sumup-oss/illustrations` from `dependencies` to `peerDependencies`. To use illustrations in Circuit UI components, consumers must now explicitly install it in their application and import its styles:
+  
+  ```diff
+  +import '@sumup-oss/illustrations/styles.css';
+  ```
+
+- [#3821](https://github.com/sumup-oss/circuit-ui/pull/3821) [`da7668d`](https://github.com/sumup-oss/circuit-ui/commit/da7668d7a96fadf76c26459bdd36199701650a88) Thanks [@sirineJ](https://github.com/sirineJ)! - Redesigned the SideNavigation component API and layout.
+  
+  The component now uses a `groups: NavigationGroup[]` prop to organize navigation items into labeled groups, including support for nested items.
+  The `primaryNavigationLabel` and `secondaryNavigationLabel` props have been removed, and labels are now passed as part of the `groups` prop.
+  
+  The SideNavigation component now supports a `logo` prop, and can be used as a standalone navigation component.
+  An app-level custom property, `--side-navigation-width`, has been added to help consumers account for the SideNavigation width in their layouts.
+
+- [#3852](https://github.com/sumup-oss/circuit-ui/pull/3852) [`473879b`](https://github.com/sumup-oss/circuit-ui/commit/473879b5b5ee85afcc54e73379d370314de5c653) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `locale` prop from the CurrencyInput, PercentageInput, and Timestamp components. Use the `I18nProvider` component or the `formattingLocale` prop instead.
+
+- [#3749](https://github.com/sumup-oss/circuit-ui/pull/3749) [`6bf75c1`](https://github.com/sumup-oss/circuit-ui/commit/6bf75c1e1e687d8701ffc6bfdbd6a9b606b66ea0) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the browser support policy.
+  
+  | Browser          | Previous | New |
+  | ---------------- | -------- | --- |
+  | Chrome           | 73+      | 85+ |
+  | Firefox          | 67+      | 79+ |
+  | Edge             | 79+      | 85+ |
+  | Safari iOS       | 12.2+    | 14+ |
+  | Safari macOS     | 12.1+    | 14+ |
+  | Opera            | 60+      | 71+ |
+  | Samsung Internet | 11.1+    | 14+ |
+
+- [#3681](https://github.com/sumup-oss/circuit-ui/pull/3681) [`f929e3f`](https://github.com/sumup-oss/circuit-ui/commit/f929e3f642bf9fb7c0d3279ef08639037ca11ee5) Thanks [@missating](https://github.com/missating)! - Marked the AutocompleteInput component as stable. Import it from `@sumup-oss/circuit-ui` instead of `@sumup-oss/circuit-ui/experimental`.
+
+### Minor Changes
+
+- [#3851](https://github.com/sumup-oss/circuit-ui/pull/3851) [`1aa2641`](https://github.com/sumup-oss/circuit-ui/commit/1aa26412c654021066b59c75885a0160fbb08fcf) Thanks [@missating](https://github.com/missating)! - Replaced the `title` attribute in IconButton with a [Tooltip](https://circuit.sumup.com/?path=/docs/components-tooltip--docs) to display its accessible name, since `title` was not accessible to keyboard users.
+
+- [#3845](https://github.com/sumup-oss/circuit-ui/pull/3845) [`deec9ce`](https://github.com/sumup-oss/circuit-ui/commit/deec9ceea6ee02d4b1a7979caeae89d232ecfbd6) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved some styles for Windows High Contrast Mode (text-decoration and focus-ring).
+
+- [#3743](https://github.com/sumup-oss/circuit-ui/pull/3743) [`98022a8`](https://github.com/sumup-oss/circuit-ui/commit/98022a8a691c74a19711ce9be640118abce3bd1c) Thanks [@sirineJ](https://github.com/sirineJ)! - Made PhoneNumberInput default flag size responsive to the input size.
+
+- [#3847](https://github.com/sumup-oss/circuit-ui/pull/3847) [`1b19962`](https://github.com/sumup-oss/circuit-ui/commit/1b19962c0b77bcdfd1ba08fa8ca7aa12a9fd5706) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated typography components to throw development-time errors when legacy size values are used.
+
+- [#3684](https://github.com/sumup-oss/circuit-ui/pull/3684) [`ac299a1`](https://github.com/sumup-oss/circuit-ui/commit/ac299a16fc343ad1efc696a35d5cd0ac4ec7fbe4) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the deprecated BodyLarge component. Use Body with `size="l"` instead.
+
+### Patch Changes
+
+- [#3836](https://github.com/sumup-oss/circuit-ui/pull/3836) [`fc9e290`](https://github.com/sumup-oss/circuit-ui/commit/fc9e290dad9e043e59662351f728df63fb2a76f6) Thanks [@sirineJ](https://github.com/sirineJ)! - Changed the focus ring from using a `box-shadow` to using an `outline` to improve its visual appearance and to ensure it stays visible in Windows High Contrast Mode.
+
+- [#3694](https://github.com/sumup-oss/circuit-ui/pull/3694) [`da5d5ac`](https://github.com/sumup-oss/circuit-ui/commit/da5d5ac0f32f908f369e8b4441ee200ba1296c39) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the behavior responsible for restoring the AutocompleteInput's displayed value when it loses focus.
+
+- [#3694](https://github.com/sumup-oss/circuit-ui/pull/3694) [`da5d5ac`](https://github.com/sumup-oss/circuit-ui/commit/da5d5ac0f32f908f369e8b4441ee200ba1296c39) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the AutocompleteInput suggestion box incorrectly scrolling with the combobox input.
+
+- [#3686](https://github.com/sumup-oss/circuit-ui/pull/3686) [`bdfccf1`](https://github.com/sumup-oss/circuit-ui/commit/bdfccf123ba6942c4dcb67f4d26517401c614d83) Thanks [@missating](https://github.com/missating)! - Updated ListItemGroup to render the `label` prop as a plain Body component instead of an `h4` heading.
+
+- [#3694](https://github.com/sumup-oss/circuit-ui/pull/3694) [`da5d5ac`](https://github.com/sumup-oss/circuit-ui/commit/da5d5ac0f32f908f369e8b4441ee200ba1296c39) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an overflow issue in the AutocompleteInput when using multi-selection mode.
+
 ## 11.20.0
 
 ### Minor Changes
