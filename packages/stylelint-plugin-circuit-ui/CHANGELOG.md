@@ -1,5 +1,7 @@
 # @sumup-oss/stylelint-plugin-circuit-ui
 
+## 5.0.0
+
 ## 5.0.0-next.0
 
 ### Patch Changes
