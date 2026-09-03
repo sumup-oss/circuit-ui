@@ -112,13 +112,13 @@ In the following majors, we plan to remove remaining deprecated props or legacy 
 - Errors when using the Headline or Display component without the `as` prop. You can no longer opt out of the `as` prop with the `UNSAFE_DISABLE_ELEMENT_ERRORS` environment variable, and must provide the appropriate semantic HTML element.
 
 ### Other changes
-- Removed the following components:
-  - Tooltip (use the Tooltip or Toggletip components instead)
-  - InlineElements (use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead)
-  - BodyLarge component (use Body size="l" instead)
 - The PhoneNumberInput component now lists country codes in a dropdown with autocompletion instead of a native `<select>`, allowing users to easily search and select an option.
 - IconButton now shows its label inside a Tooltip when hovered, instead of the `title` attribute, for improved accessibility.
-- Removed the deprecated `Italic` decoration prop from the `Numeral` component
+- Removed the following components:
+  - Legacy Tooltip (use the Tooltip or Toggletip components instead)
+  - InlineElements (use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead)
+  - BodyLarge component (use Body size="l" instead)
+- Removed the deprecated `Italic` decoration prop from the Numeral and Body components.
 - Removed the `uniqueId` utility in favor of React’s `useId` hook.
 - Removed the  `menu` ARIA role from the `ActionMenu` component, originally reserved for complex, desktop-like applications.
 - Removed the deprecated `label` prop from the IconButton component. Use the `children` prop for the label and the `icon` prop for the icon instead.
@@ -127,6 +127,20 @@ In the following majors, we plan to remove remaining deprecated props or legacy 
 - Removed the `placeholder` color option from Body/Numeral/Compact.
 - Removed the deprecated `hideCloseButton` prop from `Modal` (use `preventClose` instead).
 - Removed the deprecated `width` and `height` props from the Flag component. Use the `size` prop instead.
+
+### Browser policy updates
+
+Circuit UI v12 updates its browser support policy as follows:
+
+| Browser          | Previous | New |
+| ---------------- | -------- | --- |
+| Chrome           | 73+      | 85+ |
+| Firefox          | 67+      | 79+ |
+| Edge             | 79+      | 85+ |
+| Safari iOS       | 12.2+    | 14+ |
+| Safari macOS     | 12.1+    | 14+ |
+| Opera            | 60+      | 71+ |
+| Samsung Internet | 11.1+    | 14+ |
 
 ## From v10.x to v11
 
