@@ -17,7 +17,7 @@ import { useState } from 'react';
 
 import { Select, type SelectProps } from './Select.js';
 import { Stack } from '../../../../.storybook/components/index.js';
-import { Flag, type FlagProps } from '../Flag/Flag.js';
+import { Flag, type FlagProps } from '@sumup-oss/icons';
 
 export default {
   title: 'Forms/Select',

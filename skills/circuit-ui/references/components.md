@@ -54,7 +54,6 @@
 | `CarouselPagination` | `stable` | `@sumup-oss/circuit-ui` | `./components/CarouselPagination/index.js` | [Read MDX reference](components/CarouselPagination.mdx) |
 | `ComparisonTable` | `stable` | `@sumup-oss/circuit-ui` | `./components/ComparisonTable/ComparisonTable.js` | [Read MDX reference](components/ComparisonTable.mdx) |
 | `ComponentsContext` | Unknown | `@sumup-oss/circuit-ui` | `./components/ComponentsContext/index.js` | Not available |
-| `Flag` | Unknown | `@sumup-oss/circuit-ui` | `./components/Flag/Flag.js` | Not available |
 | `Hr` | `stable` | `@sumup-oss/circuit-ui` | `./components/Hr/index.js` | [Read MDX reference](components/Hr.mdx) |
 | `I18nProvider` | Unknown | `@sumup-oss/circuit-ui` | `./components/I18nContext/I18nContext.js` | Not available |
 | `Image` | `stable` | `@sumup-oss/circuit-ui` | `./components/Image/index.js` | [Read MDX reference](components/Image.mdx) |

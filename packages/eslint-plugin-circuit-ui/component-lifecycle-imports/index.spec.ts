@@ -50,6 +50,12 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       `,
     },
     {
+      name: 'Flag import from correct package',
+      code: `
+        import { Flag } from '@sumup-oss/icons';
+      `,
+    },
+    {
       name: 'unrelated import from matching package',
       code: `
         import { Button } from '@sumup-oss/circuit-ui/experimental';
@@ -125,6 +131,16 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       `,
       output: `
         import { AutocompleteInput } from '@sumup-oss/circuit-ui';
+      `,
+      errors: [{ messageId: 'refactor' }],
+    },
+    {
+      name: 'Flag import from circuit-ui',
+      code: `
+        import { Flag } from '@sumup-oss/circuit-ui';
+      `,
+      output: `
+        import { Flag } from '@sumup-oss/icons';
       `,
       errors: [{ messageId: 'refactor' }],
     },

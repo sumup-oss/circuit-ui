@@ -243,7 +243,6 @@ export {
   ComparisonTable,
   type ComparisonTableProps,
 } from './components/ComparisonTable/ComparisonTable.js';
-export { Flag, type FlagProps } from './components/Flag/Flag.js';
 export { Status, type StatusProps } from './components/Status/index.js';
 
 // Brand
