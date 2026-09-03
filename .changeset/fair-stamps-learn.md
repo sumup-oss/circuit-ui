@@ -2,4 +2,4 @@
 "@sumup-oss/icons": patch
 ---
 
-Fixed asset urls in the Flag component.
+Fixed the flag asset url in the Flag component.
