@@ -8,6 +8,140 @@ We encourage you to enable and apply the rules incrementally and review the chan
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
 
+## From v11.x to v12
+
+Circuit UI v12 modernizes the codebase by updating its tooling, removing legacy APIs, and standardizing several component patterns.
+
+### Upgrading
+Circuit UI now requires Node.js v24 or later. Node.js 22 will reach its end-of-life in less than a year (April 2027).
+Support for React 18 has been dropped, raising minimum peer dependencies from `>=18.0.0 <20.0.0` to `>=19.0.0 <20.0.0`.
+
+To get started, upgrade `@sumup-oss/circuit-ui` and its peer dependencies:
+
+```sh
+npm upgrade @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/eslint-plugin-circuit-ui
+```
+If your project uses illustrations, also install the illustrations package explicitly as described below.
+
+
+### Illustrations now a peer dependency
+The `@sumup-oss/illustrations` package is now a peer dependency. To use illustrations in Circuit UI components, consumers must now explicitly install it and import its styles:
+
+Install the package:
+```sh
+npm install @sumup-oss/illustrations
+```
+
+Import the styles once in your application entry point:
+```tsx
+import '@sumup-oss/illustrations/styles.css';
+```
+
+### I18nProvider wraps your application
+
+Wrap your application with the `I18nProvider` component to provide the locale to all components that support internationalisation.
+
+```tsx
+// For example /app/layout.tsx for Next.js
+import { I18nProvider } from "@sumup-oss/circuit-ui";
+
+export default function App() {
+  return (
+    <I18nProvider locale="en-US" formattingLocale="de-DE">
+      {/* children */}
+    </I18nProvider>
+  );
+}
+```
+CurrencyInput, PercentageInput, and Timestamp components no longer accept a `locale` prop. Instead, they use the locale provided by the `I18nProvider` component, or the `formattingLocale` prop.
+
+### The design-tokens package is now ESM only
+`sumup-oss/design-tokens` no longer has a CommonJS entry point from the package exports.
+If your application or build tooling imports design tokens with CommonJS, update it to use ESM. This may require changes to your configuration.
+
+### Cleaner icons
+
+Deprecated icons have been removed from the `@sumup-oss/icons`.
+Larger, multicolored icons have been removed in favor of new icon components from the same package:
+
+
+| Previous icon Category | Component replacement |
+|------------------------|-----------------------|
+| Country flag           | Flag                  |
+| Payment method         | PaymentMethod         |
+| Card scheme            | CardScheme            |
+
+Apply the `no-deprecated-icons` ESLint rule to your codebase. The rule will:
+- Automatically replace icons when a direct replacement is available.
+- Suggest an alternative in your editor when a direct replacement is not available.
+
+### Removed legacy styling APIs
+
+Circuit UI v12 removes all legacy style mixins. All mixins now either have an equivalent [utility class](https://circuit.sumup.com/?path=/docs/features-utility-classes--docs) or css property.
+Use the `no-deprecated-spacing-mixin` eslint rule to automatically replace legacy spacing mixins with the corresponding utility classes.
+
+```diff
+- import { spacing } from '@sumup-oss/circuit-ui';
+- <div css={spacing({ top: 'giga' })}/>}
+
++ import { utilClasses } from '@sumup-oss/circuit-ui';
++ <div className={utilClasses.marginTopGiga}/>}
+```
+
+### Emotion.js no longer used by Circuit UI
+
+Removing the legacy mixins allowed Circuit UI to remove Emotion.js from its codebase. As a result, Circuit UI no longer exports a `light` theme object nor the Theme interface. It is recommended to use the available CSS custom properties instead.
+
+### Navigation components revamped 
+
+Major navigation components have been redesigned for a more lightweight, modern look:
+- **TopNavigation**: the updates are visual only, no changes to the API.
+- **SidePanel**: On large screens, the side panel no longer attaches to the viewport edges. It now appears slightly detached from them. It remains unchanged on narrow viewports. Although the API is unchanged, this change can break UIs that rely on the previous layout for relative positioning of content. It is recommended to review and adjust your application after upgrading.
+- **SideNavigation**: Navigation items are now displayed in a single column, with support for nested navigation items. You will need to adjust the structure of the props passed to the component. Refer to the component [stories](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/components/SideNavigation/SideNavigation.stories.tsx) for examples.
+
+### AutocompleteInput now stable 
+
+The component should now be imported from `sumup-oss/circuit-ui` instead of `@sumup/circuit-ui/experimental`. Use the `component-lifecycle-imports` eslint rule to automatically update imports.
+Version 12 also fixes several issues in AutocompleteInput, including focus management, scrolling, and restoring the value on blur.
+
+### Prepare for development-time errors
+
+In the following majors, we plan to remove remaining deprecated props or legacy values. To help you prepare for this migration, Circuit UI v12 introduces development-time errors for patterns that are planned for removal. Here's what to expect:
+- Errors when passing children that aren't a `string` or `number` to the Button and IconButton components.
+- Errors when using legacy typography size values (e.g. `"one"` `"two"` `"three"` and `"four"`)
+- Errors when using the Headline or Display component without the `as` prop. You can no longer opt out of the `as` prop with the `UNSAFE_DISABLE_ELEMENT_ERRORS` environment variable, and must provide the appropriate semantic HTML element.
+
+### Other changes
+- The PhoneNumberInput component now lists country codes in a dropdown with autocompletion instead of a native `<select>`, allowing users to easily search and select an option.
+- IconButton now shows its label inside a Tooltip when hovered, instead of the `title` attribute, for improved accessibility.
+- Removed the following components:
+  - Legacy Tooltip (use the Tooltip or Toggletip components instead)
+  - InlineElements (use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead)
+  - BodyLarge component (use Body size="l" instead)
+- Removed the deprecated `Italic` decoration prop from the Numeral and Body components.
+- Removed the `uniqueId` utility in favor of React’s `useId` hook.
+- Removed the  `menu` ARIA role from the `ActionMenu` component, originally reserved for complex, desktop-like applications.
+- Removed the deprecated `label` prop from the IconButton component. Use the `children` prop for the label and the `icon` prop for the icon instead.
+- Removed the default value for the `alt` prop in the `Avatar` component. The `alt` prop is now required.
+- Removed the deprecated `checkedLabel` and `uncheckedLabel` props from `Toggle`.
+- Removed the `placeholder` color option from Body/Numeral/Compact.
+- Removed the deprecated `hideCloseButton` prop from `Modal` (use `preventClose` instead).
+- Removed the deprecated `width` and `height` props from the Flag component. Use the `size` prop instead.
+
+### Browser policy updates
+
+Circuit UI v12 updates its browser support policy as follows:
+
+| Browser          | Previous | New |
+| ---------------- | -------- | --- |
+| Chrome           | 73+      | 85+ |
+| Firefox          | 67+      | 79+ |
+| Edge             | 79+      | 85+ |
+| Safari iOS       | 12.2+    | 14+ |
+| Safari macOS     | 12.1+    | 14+ |
+| Opera            | 60+      | 71+ |
+| Samsung Internet | 11.1+    | 14+ |
+
 ## From v10.x to v11
 
 Circuit UI v11 refreshes SumUp's brand language with warmer colors, rounder corners, strong authentic typography, and outlined icons. While this is a major visual change, there are no breaking changes to developer-facing APIs to make the migration as smooth as possible.
@@ -40,7 +174,7 @@ npm upgrade @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons @sum
 
 ### Overlay components: now using native `dialog`
 
-All overlay components have been refactored to use the native `dialog` element instead of [react-modal](https://www.npmjs.com/package/react-modal). As a result, the modal dialog is now rendered in the DOM's [Top Layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), a special rendering layer that sits above the browser's `document`, previously reserved for browser controlled UI elements like alerts, permission prompts or autofill popups.
+All overlay components have been refactored to use the native `dialog` element instead of [react-modal](https://www.npmjs.com/package/react-modal). As a result, the modal dialog is now rendered in the DOM's [Top Layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), a special rendering layer that sits above the browser's `document`, previously reserved for browser controlled UI elements like alerts, permission prompts, or autofill popups.
 This is an important concept to consider when building UI, as it changes our perception of how content is rendered.
 
 All children of a modal dialog are rendered in the Top Layer as well. However, [portal-based](https://react.dev/reference/react-dom/createPortal) components might not be part of the Top Layer, since they render their content outside the normal DOM hierarchy. When possible, try refactoring these components with the Popover or Dialog components.
@@ -194,7 +328,7 @@ To speed up the loading of the fonts, add preload links to the global `<head>` e
 
 ### Typography APIs
 
-The typography components have been redesigned to improve visual hierarchy, ensure consistency across platforms and provide more flexible APIs for developers. The changes are fully backward compatible and can be adopted gradually.
+The typography components have been redesigned to improve visual hierarchy, ensure consistency across platforms, and provide more flexible APIs for developers. The changes are fully backward compatible and can be adopted gradually.
 
 #### Consistent names
 
@@ -426,7 +560,7 @@ The color tokens have been removed from the legacy JavaScript theme object and t
 
 ### Removed components and props
 
-- Removed the legacy navigation components: Header, Sidebar, SidebarContextProvider and SidebarContextConsumer. Use the [TopNavigation](https://circuit.sumup.com/?path=/docs/navigation-topnavigation--docs) and [SideNavigation](https://circuit.sumup.com/?path=/docs/navigation-sidenavigation--docs) components instead (🤖 _no-deprecated-components_)
+- Removed the legacy navigation components: Header, Sidebar, SidebarContextProvider, and SidebarContextConsumer. Use the [TopNavigation](https://circuit.sumup.com/?path=/docs/navigation-topnavigation--docs) and [SideNavigation](https://circuit.sumup.com/?path=/docs/navigation-sidenavigation--docs) components instead (🤖 _no-deprecated-components_)
 - Removed the deprecated `variant` prop from the ProgressBar component (🤖 _no-deprecated-props_)
 
 ### Other changes
@@ -494,7 +628,7 @@ As of ES6 (ES2015), JavaScript supports a native module format called ES Modules
 
 ### CSS Modules
 
-[Emotion.js](https://emotion.sh/), the CSS-in-JS library that Circuit UI had used until now to style components, has been replaced with [CSS Modules](https://github.com/css-modules/css-modules). This will significantly improve the performance of SumUp’s web applications, future-proof the component library against ecosystem changes and start to decouple it from React. Read more about the reasoning in the [RFC](https://github.com/sumup-oss/circuit-ui/issues/2153).
+[Emotion.js](https://emotion.sh/), the CSS-in-JS library that Circuit UI had used until now to style components, has been replaced with [CSS Modules](https://github.com/css-modules/css-modules). This will significantly improve the performance of SumUp’s web applications, future-proof the component library against ecosystem changes, and start to decouple it from React. Read more about the reasoning in the [RFC](https://github.com/sumup-oss/circuit-ui/issues/2153).
 
 #### Global styles
 
@@ -1139,7 +1273,7 @@ Now, if you want to turn off the accessibility errors temporarily, run the devel
 UNSAFE_DISABLE_ACCESSIBILITY_ERRORS=true yarn dev # or yarn start
 ```
 
-Keep in mind that this escape hatch is not meant as a way to permanently avoid the errors, but as a temporary workaround while the missing labels are being written, localized and added to the relevant components.
+Keep in mind that this escape hatch is not meant as a way to permanently avoid the errors, but as a temporary workaround while the missing labels are being written, localized, and added to the relevant components.
 
 > Reminder: For the `Input` and `Select` components, use the built-in `label` prop instead of using the `Label` component separately.
 

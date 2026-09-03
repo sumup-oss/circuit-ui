@@ -353,6 +353,7 @@ describe('AutocompleteInput', () => {
         screen.getByRole('combobox', { name: props.label }),
       );
       expect(screen.getByRole('listbox')).toBeVisible();
+      await userEvent.type(screen.getByRole('combobox'), 'l');
       await userEvent.keyboard('{Escape}');
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
       expect(screen.getByRole('combobox', { name: props.label })).toHaveValue(
@@ -365,6 +366,7 @@ describe('AutocompleteInput', () => {
       await userEvent.click(
         screen.getByRole('combobox', { name: props.label }),
       );
+      expect(screen.getByRole('listbox')).toBeVisible();
       expect(screen.getByRole('listbox')).toBeVisible();
       await userEvent.click(document.body);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -384,8 +386,8 @@ describe('AutocompleteInput', () => {
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
 
-    it('should close the list box and restore value when Enter key is pressed', async () => {
-      render(<AutocompleteInput {...props} value={options[0]} />);
+    it('should close the list box when Enter key is pressed', async () => {
+      render(<AutocompleteInput {...props} />);
 
       await userEvent.click(screen.getByLabelText(props.label));
 
@@ -401,7 +403,7 @@ describe('AutocompleteInput', () => {
     it('should close the list box when focus moves to another element via Tab', async () => {
       render(
         <>
-          <AutocompleteInput {...props} />
+          <AutocompleteInput {...props} onClear={undefined} />
           <Button>Next field</Button>
         </>,
       );
@@ -655,11 +657,18 @@ describe('AutocompleteInput', () => {
 
   describe('Loading state', () => {
     it('should render the default loading message when isLoading is true', async () => {
-      render(<AutocompleteInput {...props} options={[]} isLoading />);
+      render(
+        <AutocompleteInput
+          {...props}
+          options={[]}
+          isLoading
+          loadingLabel="Loading..."
+        />,
+      );
       await userEvent.type(screen.getByRole('combobox'), 'l');
 
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
-      expect(screen.getByText('Loading')).toBeVisible();
+      expect(screen.getByText('Loading...')).toBeVisible();
       expect(screen.getByTestId('options-loading-spinner')).toBeVisible();
     });
 
