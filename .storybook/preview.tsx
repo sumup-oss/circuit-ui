@@ -18,8 +18,9 @@ import { modes } from './modes.js';
 export const parameters = {
   layout: 'centered',
   versions: {
-    current: 'v11',
+    current: 'v12',
     previous: [
+      { name: 'v11', url: 'https://circuit-v11.sumup-vercel.app' },
       { name: 'v10', url: 'https://circuit-v10.sumup-vercel.app' },
       { name: 'v9', url: 'https://circuit-v9.sumup-vercel.app' },
       { name: 'v8', url: 'https://circuit-v8.sumup-vercel.app' },
