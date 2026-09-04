@@ -55,7 +55,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Create release PR or publish to npm
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary' || startsWith(github.ref, 'refs/heads/release')) && matrix.node == '24'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary' || startsWith(github.ref, 'refs/heads/release')|| startsWith(github.ref, 'refs/heads/version/')) && matrix.node == '24'
         uses: changesets/action@v2
         with:
           publish-script: npm run release
