@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.17.2
+
+### Patch Changes
+
+- [#3900](https://github.com/sumup-oss/circuit-ui/pull/3900) [`b12d249`](https://github.com/sumup-oss/circuit-ui/commit/b12d249770b1e7a56673b4494b3fb6757bc030a7) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the flag asset url in the Flag component, when size is not provided.
+
 ## 6.17.1
 
 ### Patch Changes
