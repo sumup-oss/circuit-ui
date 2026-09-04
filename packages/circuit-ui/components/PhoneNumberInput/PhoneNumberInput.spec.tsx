@@ -187,7 +187,7 @@ describe('PhoneNumberInput', () => {
     };
     render(<PhoneNumberInput {...props} />);
     const flag = screen.getByRole('presentation');
-    expect(flag).toHaveAttribute('src', getIconURL('flag_de'));
+    expect(flag).toHaveAttribute('src', getIconURL('flag_de', '480'));
   });
 
   it('should update the displayed value', () => {
