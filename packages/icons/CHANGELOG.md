@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.17.1
+
+### Patch Changes
+
+- [#3896](https://github.com/sumup-oss/circuit-ui/pull/3896) [`10c2a8b`](https://github.com/sumup-oss/circuit-ui/commit/10c2a8b923a84b3816017a9a56f02a2b2d74cd73) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the flag asset url in the Flag component.
+
 ## 6.17.0
 
 ### Minor Changes
