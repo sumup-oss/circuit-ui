@@ -8623,6 +8623,15 @@ eslint-formatter-github@^1.0.11:
     create-check "^0.6.0"
     eslint-formatter-pretty "^3.0.0"
 
+eslint-formatter-github@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/eslint-formatter-github/-/eslint-formatter-github-1.1.4.tgz#476634a30d7ab9f3a979904bb1bbd2616cdd6321"
+  integrity sha512-W3VNC1f+LHvI23xPTfxoVaqp9Fc+xIdhXxGx+a+PLEwEIyzP632wgn6D4Qg8x2QVnYtMH7hg9SfZ1mRwmdbBXw==
+  dependencies:
+    create-check "^0.6.0"
+    eslint-formatter-pretty "^3.0.0"
+    execa "^1.0.0"
+
 eslint-formatter-pretty@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/eslint-formatter-pretty/-/eslint-formatter-pretty-3.0.1.tgz#97603fcb2ddcc6dd60662d6e9f327a734cc55a54"
