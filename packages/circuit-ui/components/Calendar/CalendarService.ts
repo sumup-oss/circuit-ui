@@ -167,14 +167,19 @@ export function getWeekdays(
 export function getMonthHeadline(
   yearMonth: Temporal.PlainYearMonth,
   locale?: Locale,
-  calendar = 'iso8601',
 ) {
+  // Temporal objects use the `iso8601` calendar system by default, which
+  // (incorrectly?) renders the year before the month since Node 22.12
+  // (e.g. "2020 March" instead of "March 2020").
+  // A `PlainYearMonth` has to be converted to a `PlainDate` to be able to
+  // change its calendar system.
+  const date = yearMonth.toPlainDate({ day: 1 }).withCalendar('gregory');
   const intl = new Intl.DateTimeFormat(locale, {
     year: 'numeric',
     month: 'long',
-    calendar,
+    calendar: date.calendarId,
   });
-  return intl.format(yearMonth);
+  return intl.format(date);
 }
 
 export function getDatesInRange(

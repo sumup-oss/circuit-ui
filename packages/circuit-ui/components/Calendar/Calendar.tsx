@@ -378,7 +378,7 @@ function Month({
   const descriptionIds = useId();
   const headlineId = useId();
   const headline = useMemo(
-    () => getMonthHeadline(yearMonth, locale, calendar),
+    () => getMonthHeadline(yearMonth, locale),
     [yearMonth, locale, calendar],
   );
   const weekdays = useMemo(
