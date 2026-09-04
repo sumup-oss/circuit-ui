@@ -72,7 +72,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@sumup-oss/design-tokens": "^10.0.0",
-    "@sumup-oss/icons": "^6.17.0",
+    "@sumup-oss/icons": "^6.17.2",
     "@sumup-oss/intl": "^3.5.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "7.0.0",
