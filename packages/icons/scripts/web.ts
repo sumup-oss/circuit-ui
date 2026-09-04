@@ -20,8 +20,7 @@ import { fileURLToPath } from 'node:url';
 import prettier from 'prettier';
 import { transformSync } from '@babel/core';
 
-// @ts-ignore Import assertions are fine
-import manifest from '../manifest.json' assert { type: 'json' };
+import manifest from '../manifest.json';
 
 // @ts-ignore `import` is fine
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
