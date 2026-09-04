@@ -61,16 +61,16 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@sumup-oss/illustrations": "^1.1.0",
     "@floating-ui/react-dom": "^2.1.9",
     "@nanostores/react": "^1.1.0",
+    "@sumup-oss/illustrations": "^1.0.0",
     "nanostores": "^1.5.2"
   },
   "devDependencies": {
     "@sumup-oss/icons": "^7.0.0",
     "@sumup-oss/intl": "^3.5.1",
     "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.6",
     "@types/jest-axe": "^3.5.9",
@@ -90,8 +90,8 @@
   "peerDependencies": {
     "@sumup-oss/design-tokens": ">=11.0.0-next.0",
     "@sumup-oss/icons": ">=7.0.0-next.0",
-    "@sumup-oss/intl": "^3.1.1",
     "@sumup-oss/illustrations": "^1.0.0",
+    "@sumup-oss/intl": "^3.1.1",
     "react": ">=19.0.0 <20.0.0",
     "react-dom": ">=19.0.0 <20.0.0",
     "temporal-polyfill": ">=0.2.0 <2.0.0"
