@@ -25,7 +25,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -55,12 +55,12 @@ jobs:
         run: yarn test:ci
 
       - name: Upload results to Codecov
-        uses: codecov/codecov-action@v1.0.3
+        uses: codecov/codecov-action@v1.0.4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Create release PR or publish to npm
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary') && matrix.node == 16
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary' || github.ref == 'refs/heads/version/') && matrix.node == 16
         uses: changesets/action@master
         with:
           publish: yarn release
