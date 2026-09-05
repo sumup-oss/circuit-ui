@@ -23,7 +23,10 @@ import { axe, render, screen } from '../../../tests/test-utils.js';
 import { Flag, type FlagProps } from './Flag.js';
 
 describe('Flag', () => {
-  const baseProps: FlagProps = { countryCode: 'FR', alt: 'France' };
+  const baseProps = {
+    countryCode: 'FR' as FlagProps['countryCode'],
+    alt: 'France',
+  };
 
   it('renders', () => {
     const { container } = render(<Flag {...baseProps} />);
@@ -42,6 +45,24 @@ describe('Flag', () => {
     render(<Flag {...baseProps} ref={ref} />);
     const image = screen.getByAltText(baseProps.alt);
     expect(ref.current).toBe(image);
+  });
+
+  it('should apply the correct size', () => {
+    render(<Flag {...baseProps} size="m" />);
+    const image = screen.getByRole('img');
+    expect(image.getAttribute('style')).toContain('var(--cui-icon-sizes-m)');
+  });
+
+  it('should use correct width when height is provided', () => {
+    render(<Flag {...baseProps} height={15} />);
+    const image = screen.getByRole('img');
+    expect(image.getAttribute('width')).toBe('20px');
+  });
+
+  it('should use correct height when width is provided', () => {
+    render(<Flag {...baseProps} width={20} />);
+    const image = screen.getByRole('img');
+    expect(image.getAttribute('height')).toBe('15px');
   });
 
   it('should have no accessibility violations', async () => {
