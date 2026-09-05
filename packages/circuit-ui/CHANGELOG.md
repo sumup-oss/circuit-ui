@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.20.1
+
+### Patch Changes
+
+- [#3899](https://github.com/sumup-oss/circuit-ui/pull/3899) [`7663544`](https://github.com/sumup-oss/circuit-ui/commit/76635448c8a4956018eb067bee87302010205d8d) Thanks [@sirineJ](https://github.com/sirineJ)! - Bumped the `@sumup-oss/icons` package to fix missing flags in the PhoneNumberInput component.
+
 ## 11.20.0
 
 ### Minor Changes
