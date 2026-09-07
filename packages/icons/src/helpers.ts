@@ -14,5 +14,8 @@
  */
 
 export function getIconURL(name: string, size?: string): string {
-  return `https://circuit.sumup.com/icons/v2/${name}${size ? `_${size}` : ''}.svg`;
+  // `sumup_card` was renamed to `sumup_card_scheme` in v12, and the original
+  // file was removed from the shared icon host
+  const asset = name === 'sumup_card' ? 'sumup_card_scheme' : name;
+  return `https://circuit.sumup.com/icons/v2/${asset}${size ? `_${size}` : ''}.svg`;
 }
