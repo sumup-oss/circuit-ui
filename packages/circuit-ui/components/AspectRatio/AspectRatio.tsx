@@ -58,7 +58,9 @@ export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
         }}
         {...props}
       >
-        {cloneElement(child, { className: classes.child })}
+        {cloneElement(child, {
+          className: clsx(child.props.className, classes.child),
+        })}
       </div>
     );
   },
