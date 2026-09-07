@@ -168,7 +168,9 @@ export function Carousel({
                   alt={slide.image.alt}
                   aspectRatio={aspectRatio}
                   aria-labelledby={
-                    getAriaLabelledBy ? getAriaLabelledBy(slide, index) : null
+                    getAriaLabelledBy
+                      ? getAriaLabelledBy(slide, index)
+                      : undefined
                   }
                 />
               </Slide>
