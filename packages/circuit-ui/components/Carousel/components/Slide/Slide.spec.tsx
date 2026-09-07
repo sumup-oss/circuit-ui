@@ -18,8 +18,23 @@ import { describe, expect, it } from 'vitest';
 import { axe, render } from '../../../../util/test-utils.js';
 
 import { Slide } from './Slide.js';
+import { createRef } from 'react';
 
 describe('Slide', () => {
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(<Slide className={className}>content</Slide>);
+    const slide = container.querySelector('div');
+    expect(slide?.className).toContain(className);
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(<Slide ref={ref}>content</Slide>);
+    const slide = container.querySelector('div');
+    expect(ref.current).toBe(slide);
+  });
+
   it('should have no accessibility violation', async () => {
     const { container } = render(<Slide>content</Slide>);
     const actual = await axe(container);
