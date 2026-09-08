@@ -46,11 +46,14 @@ describe('Icons', () => {
       expect(CATEGORIES).toContain(iconManifest.category);
     });
 
-    it.skipIf(!isLegacyFlag)('should have a valid manifest - Legacy flag', () => {
-      expect(iconManifest.name).toBeTypeOf('string');
-      expect(SIZES).toContain(iconManifest.size);
-      expect(iconManifest.category).toBe('Country flag');
-    });
+    it.skipIf(!isLegacyFlag)(
+      'should have a valid manifest - Legacy flag',
+      () => {
+        expect(iconManifest.name).toBeTypeOf('string');
+        expect(SIZES).toContain(iconManifest.size);
+        expect(iconManifest.category).toBe('Country flag');
+      },
+    );
 
     it('should be valid XML', () => {
       const isValidXML = XMLValidator.validate(file);
