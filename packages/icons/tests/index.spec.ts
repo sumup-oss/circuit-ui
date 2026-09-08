@@ -38,19 +38,29 @@ describe('Icons', () => {
   describe.each(files)('$name ($size)', ({ name, size, file, fileSize }) => {
     const iconManifest = getIconManifest(name, size);
     const svg = parseSVG(file);
+    const isLegacyFlag = name.startsWith('flag_') && size === '16';
 
-    it('should have a valid manifest', () => {
+    it.skipIf(isLegacyFlag)('should have a valid manifest', () => {
       expect(iconManifest.name).toBeTypeOf('string');
       expect(SIZES).toContain(iconManifest.size);
       expect(CATEGORIES).toContain(iconManifest.category);
     });
+
+    it.skipIf(!isLegacyFlag)(
+      'should have a valid manifest - Legacy flag',
+      () => {
+        expect(iconManifest.name).toBeTypeOf('string');
+        expect(SIZES).toContain(iconManifest.size);
+        expect(iconManifest.category).toBe('Country flag');
+      },
+    );
 
     it('should be valid XML', () => {
       const isValidXML = XMLValidator.validate(file);
       expect(isValidXML).toBeTruthy();
     });
 
-    it("should have valid  'width', 'height' and 'viewBox' attributes", () => {
+    it("should have valid 'width', 'height' and 'viewBox' attributes", () => {
       expect(svg.attributes.width).toMatch(/^\d+$/);
       expect(svg.attributes.height).toMatch(/^\d+$/);
       expect(svg.attributes.viewBox).toBe(
