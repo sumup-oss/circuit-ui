@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 11.20.1
+
+### Patch Changes
+
+- [#3906](https://github.com/sumup-oss/circuit-ui/pull/3906) [`164798e`](https://github.com/sumup-oss/circuit-ui/commit/164798e42bc00df843e240a7226a7e495de4cd00) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed merging of custom styles in the AspectRatio, Slide, and SlideImage components.
+
+- [#3899](https://github.com/sumup-oss/circuit-ui/pull/3899) [`7663544`](https://github.com/sumup-oss/circuit-ui/commit/76635448c8a4956018eb067bee87302010205d8d) Thanks [@sirineJ](https://github.com/sirineJ)! - Bumped the `@sumup-oss/icons` package to fix missing flags in the PhoneNumberInput component.
+
 ## 11.20.0
 
 ### Minor Changes
