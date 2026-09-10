@@ -13,6 +13,7 @@ Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshif
 Circuit UI v12 modernizes the codebase by updating its tooling, removing legacy APIs, and standardizing several component patterns.
 
 ### Upgrading
+
 Circuit UI now requires Node.js v24 or later. Node.js 22 will reach its end-of-life in less than a year (April 2027).
 Support for React 18 has been dropped, raising minimum peer dependencies from `>=18.0.0 <20.0.0` to `>=19.0.0 <20.0.0`.
 
@@ -21,25 +22,27 @@ To get started, upgrade `@sumup-oss/circuit-ui` and its peer dependencies:
 ```sh
 npm upgrade @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/eslint-plugin-circuit-ui
 ```
-If your project uses illustrations, also install the illustrations package explicitly as described below.
 
+If your project uses illustrations, also install the `@sumup-oss/illustrations` package explicitly as described below.
 
 ### Illustrations now a peer dependency
+
 The `@sumup-oss/illustrations` package is now a peer dependency. To use illustrations in Circuit UI components, consumers must now explicitly install it and import its styles:
 
-Install the package:
 ```sh
 npm install @sumup-oss/illustrations
 ```
 
 Import the styles once in your application entry point:
+
 ```tsx
-import '@sumup-oss/illustrations/styles.css';
+// For example /app/layout.tsx for Next.js
+import "@sumup-oss/illustrations/styles.css";
 ```
 
 ### I18nProvider wraps your application
 
-Wrap your application with the `I18nProvider` component to provide the locale to all components that support internationalisation.
+Wrap your application with the I18nProvider component to provide the locale to all components that support internationalization.
 
 ```tsx
 // For example /app/layout.tsx for Next.js
@@ -53,32 +56,31 @@ export default function App() {
   );
 }
 ```
-CurrencyInput, PercentageInput, and Timestamp components no longer accept a `locale` prop. Instead, they use the locale provided by the `I18nProvider` component, or the `formattingLocale` prop.
 
-### The design-tokens package is now ESM only
-`sumup-oss/design-tokens` no longer has a CommonJS entry point from the package exports.
-If your application or build tooling imports design tokens with CommonJS, update it to use ESM. This may require changes to your configuration.
+CurrencyInput, PercentageInput, and Timestamp components no longer accept a `locale` prop. Instead, they use the locale provided by the I18nProvider component, or the `formattingLocale` prop.
+
+### The design tokens package is now ESM only
+
+`sumup-oss/design-tokens` no longer has a CommonJS entry point from the package exports. If your application or build tooling imports design tokens with CommonJS, update it to use ESM. This may require changes to your configuration.
 
 ### Cleaner icons
 
-Deprecated icons have been removed from the `@sumup-oss/icons`.
-Larger, multicolored icons have been removed in favor of new icon components from the same package:
-
+Deprecated icons have been removed from the `@sumup-oss/icons` package. Larger, multicolored icons have been removed in favor of new icon components from the same package:
 
 | Previous icon Category | Component replacement |
-|------------------------|-----------------------|
-| Country flag           | Flag                  |
-| Payment method         | PaymentMethod         |
-| Card scheme            | CardScheme            |
+| ---------------------- | --------------------- |
+| Country flag           | `Flag`                |
+| Payment method         | `PaymentMethod`       |
+| Card scheme            | `CardScheme`          |
 
-Apply the `no-deprecated-icons` ESLint rule to your codebase. The rule will:
+Apply the 🤖 `no-deprecated-icons` ESLint rule to your codebase. The rule will:
+
 - Automatically replace icons when a direct replacement is available.
 - Suggest an alternative in your editor when a direct replacement is not available.
 
 ### Removed legacy styling APIs
 
-Circuit UI v12 removes all legacy style mixins. All mixins now either have an equivalent [utility class](https://circuit.sumup.com/?path=/docs/features-utility-classes--docs) or css property.
-Use the `no-deprecated-spacing-mixin` eslint rule to automatically replace legacy spacing mixins with the corresponding utility classes.
+Circuit UI v12 removes all legacy style mixins in favor of equivalent [utility classes](https://circuit.sumup.com/?path=/docs/features-utility-classes--docs). Use the 🤖 `no-deprecated-spacing-mixin` ESLint rule to automatically replace legacy spacing mixins with the corresponding utility classes.
 
 ```diff
 - import { spacing } from '@sumup-oss/circuit-ui';
@@ -90,42 +92,44 @@ Use the `no-deprecated-spacing-mixin` eslint rule to automatically replace legac
 
 ### Emotion.js no longer used by Circuit UI
 
-Removing the legacy mixins allowed Circuit UI to remove Emotion.js from its codebase. As a result, Circuit UI no longer exports a `light` theme object nor the Theme interface. It is recommended to use the available CSS custom properties instead.
+Removing the legacy mixins allowed Circuit UI to remove Emotion.js from its codebase. As a result, Circuit UI no longer exports a `light` theme object nor the `Theme` interface. Use the available CSS custom properties instead.
 
-### Navigation components revamped 
+### Navigation components revamped
 
 Major navigation components have been redesigned for a more lightweight, modern look:
+
 - **TopNavigation**: the updates are visual only, no changes to the API.
-- **SidePanel**: On large screens, the side panel no longer attaches to the viewport edges. It now appears slightly detached from them. It remains unchanged on narrow viewports. Although the API is unchanged, this change can break UIs that rely on the previous layout for relative positioning of content. It is recommended to review and adjust your application after upgrading.
 - **SideNavigation**: Navigation items are now displayed in a single column, with support for nested navigation items. You will need to adjust the structure of the props passed to the component. Refer to the component [stories](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/components/SideNavigation/SideNavigation.stories.tsx) for examples.
+- **SidePanel**: On large screens, the side panel no longer attaches to the viewport edges. It now appears slightly detached from them. It remains unchanged on narrow viewports. Although the API is unchanged, this change can break UIs that rely on the previous layout for relative positioning of content. It is recommended to review and adjust your application after upgrading.
 
-### AutocompleteInput now stable 
+### AutocompleteInput now stable
 
-The component should now be imported from `sumup-oss/circuit-ui` instead of `@sumup/circuit-ui/experimental`. Use the `component-lifecycle-imports` eslint rule to automatically update imports.
-Version 12 also fixes several issues in AutocompleteInput, including focus management, scrolling, and restoring the value on blur.
+The component should now be imported from `sumup-oss/circuit-ui` instead of `@sumup/circuit-ui/experimental`. Use the 🤖 `component-lifecycle-imports` ESLint rule to automatically update imports. Version 12 also fixes several usability issues, including focus management, scrolling, and restoring the value on blur.
 
 ### Prepare for development-time errors
 
 In the following majors, we plan to remove remaining deprecated props or legacy values. To help you prepare for this migration, Circuit UI v12 introduces development-time errors for patterns that are planned for removal. Here's what to expect:
+
 - Errors when passing children that aren't a `string` or `number` to the Button and IconButton components.
 - Errors when using legacy typography size values (e.g. `"one"` `"two"` `"three"` and `"four"`)
 - Errors when using the Headline or Display component without the `as` prop. You can no longer opt out of the `as` prop with the `UNSAFE_DISABLE_ELEMENT_ERRORS` environment variable, and must provide the appropriate semantic HTML element.
 
 ### Other changes
+
 - The PhoneNumberInput component now lists country codes in a dropdown with autocompletion instead of a native `<select>`, allowing users to easily search and select an option.
 - IconButton now shows its label inside a Tooltip when hovered, instead of the `title` attribute, for improved accessibility.
 - Removed the following components:
   - Legacy Tooltip (use the Tooltip or Toggletip components instead)
   - InlineElements (use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead)
   - BodyLarge component (use Body size="l" instead)
-- Removed the deprecated `Italic` decoration prop from the Numeral and Body components.
+- Removed the deprecated `italic` decoration prop from the Numeral and Body components.
 - Removed the `uniqueId` utility in favor of React’s `useId` hook.
-- Removed the  `menu` ARIA role from the `ActionMenu` component, originally reserved for complex, desktop-like applications.
+- Removed the `menu` ARIA role from the ActionMenu component, originally reserved for complex, desktop-like applications.
 - Removed the deprecated `label` prop from the IconButton component. Use the `children` prop for the label and the `icon` prop for the icon instead.
-- Removed the default value for the `alt` prop in the `Avatar` component. The `alt` prop is now required.
-- Removed the deprecated `checkedLabel` and `uncheckedLabel` props from `Toggle`.
-- Removed the `placeholder` color option from Body/Numeral/Compact.
-- Removed the deprecated `hideCloseButton` prop from `Modal` (use `preventClose` instead).
+- Removed the default value for the `alt` prop in the Avatar component. The `alt` prop is now required. Use `alt=""` for presentation-only images.
+- Removed the deprecated `checkedLabel` and `uncheckedLabel` props from the Toggle component.
+- Removed the `placeholder` color option from the Body, Numeral, and Compact components.
+- Removed the deprecated `hideCloseButton` prop from `Modal`. Use `preventClose` instead.
 - Removed the deprecated `width` and `height` props from the Flag component. Use the `size` prop instead.
 
 ### Browser policy updates
@@ -428,7 +432,7 @@ Update the related imports (🤖 `component-lifecycle-imports`). For example:
     return (
       <Calendar
         onSelect={setSelection((prevSelection) =>
-          updatePlainDateRange(prevSelection, date)
+          updatePlainDateRange(prevSelection, date),
         )}
       />
     );
@@ -512,7 +516,7 @@ expect.extend({
           this.utils.matcherHint(
             `${this.isNot ? ".not" : ""}.toBeDisabled`,
             "element",
-            ""
+            "",
           ),
           "",
           `Received element ${is} disabled:`,
@@ -533,7 +537,7 @@ expect.extend({
           this.utils.matcherHint(
             `${this.isNot ? ".not" : ""}.toBeEnabled`,
             "element",
-            ""
+            "",
           ),
           "",
           `Received element ${is} enabled:`,
@@ -1165,7 +1169,7 @@ import styled from "util/styled";
 const RedCard = styled(Card)(
   ({ theme }) => css`
     background-color: red;
-  `
+  `,
 );
 ```
 
@@ -1191,7 +1195,7 @@ import styled from "@emotion/styled";
 const RedCard = styled(Card)(
   ({ theme }) => css`
     background-color: red;
-  `
+  `,
 );
 ```
 
@@ -1450,14 +1454,14 @@ In addition to its increased height, the `Button`'s default size was renamed fro
 ### Other changes
 
 - The design tokens **borderRadius** scale was changed. (🤖 _theme-border-radius_)
-  | value | v2 name | v3 name |
-  | --- | --- | --- |
-  | 1px | `kilo` | — (remove the radius or hardcode) |
-  | 4px | `mega` | `bit` |
-  | 6px | `giga` | — (migrate to `byte`) |
-  | 8px | `tera` | `byte` |
-  | 12px | `peta` | `kilo` |
-  | 16px | — | `mega` (new value) |
+  | value | v2 name | v3 name                           |
+  | ----- | ------- | --------------------------------- |
+  | 1px   | `kilo`  | — (remove the radius or hardcode) |
+  | 4px   | `mega`  | `bit`                             |
+  | 6px   | `giga`  | — (migrate to `byte`)             |
+  | 8px   | `tera`  | `byte`                            |
+  | 12px  | `peta`  | `kilo`                            |
+  | 16px  | —       | `mega` (new value)                |
 - The **NotificationBanner** component has been renamed to **NotificationCard**. (🤖 _component-names-v3_)
 - Label prop names across components were harmonized to follow the _Label_ pattern. (🤖 _label-prop-names_)
   - **CardHeader**: `labelCloseButton` 👉 `closeButtonLabel`
