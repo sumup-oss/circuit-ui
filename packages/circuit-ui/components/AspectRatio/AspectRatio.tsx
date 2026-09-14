@@ -65,7 +65,9 @@ export function AspectRatio({
       }}
       {...props}
     >
-      {cloneElement(child, { className: classes.child })}
+      {cloneElement(child, {
+        className: clsx(child.props.className, classes.child),
+      })}
     </div>
   );
 }

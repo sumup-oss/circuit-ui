@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode, Ref } from 'react';
 
 import { ANIMATION_DURATION, SlideDirection } from '../../constants.js';
 import { clsx } from '../../../../styles/clsx.js';
@@ -26,6 +26,7 @@ import {
 import classes from './Slide.module.css';
 
 export interface SlideProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    *  Index of a slide in a carousel (required for animation).
    */
@@ -67,6 +68,7 @@ export function Slide({
   slideDirection,
   animationDuration = ANIMATION_DURATION,
   children,
+  className,
   style = {},
   ...props
 }: SlideProps) {
@@ -85,7 +87,7 @@ export function Slide({
         '--slide-animation-duration': `${animationDuration}ms`,
         ...style,
       }}
-      className={classes.base}
+      className={clsx(classes.base, className)}
       {...props}
     >
       <div

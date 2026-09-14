@@ -15,9 +15,10 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils.js';
+import { axe, render, screen } from '../../../../util/test-utils.js';
 
 import { SlideImage } from './SlideImage.js';
+import { createRef } from 'react';
 
 const image = {
   src: '/images/sumup-coffee-transaction.jpg',
@@ -25,10 +26,23 @@ const image = {
 };
 
 describe('SlideImage', () => {
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    render(<SlideImage {...image} className={className} />);
+    const slideImage = screen.getByRole('img');
+    screen.debug();
+    expect(slideImage?.className).toContain(className);
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLImageElement>();
+    render(<SlideImage {...image} ref={ref} />);
+    const slideImage = screen.getByRole('img');
+    expect(ref.current).toBe(slideImage);
+  });
+
   it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <SlideImage src={image.src} alt={image.alt} />,
-    );
+    const { container } = render(<SlideImage {...image} />);
     const actual = await axe(container);
 
     expect(actual).toHaveNoViolations();

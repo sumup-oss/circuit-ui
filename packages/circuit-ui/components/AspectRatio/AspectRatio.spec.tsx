@@ -34,6 +34,17 @@ describe('AspectRatio', () => {
     expect(wrapper?.className).toContain(className);
   });
 
+  it('should merge the custom class name of the child element', () => {
+    const className = 'foo';
+    const { container } = render(
+      <AspectRatio aspectRatio={1.618}>
+        <span className={className} />
+      </AspectRatio>,
+    );
+    const child = container.querySelector('span');
+    expect(child?.className).toContain(className);
+  });
+
   it('should forward a ref', () => {
     const ref = createRef<HTMLDivElement>();
     const { container } = render(

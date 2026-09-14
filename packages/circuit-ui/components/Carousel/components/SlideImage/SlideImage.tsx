@@ -13,25 +13,14 @@
  * limitations under the License.
  */
 
-import { Image } from '../../../Image/index.js';
+import { Image, type ImageProps } from '../../../Image/index.js';
 import { AspectRatio } from '../../../AspectRatio/index.js';
 import { ASPECT_RATIO } from '../../constants.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './SlideImage.module.css';
 
-interface SlideImageProps {
-  /**
-   * Specifies the source URL of an image.
-   */
-  src: string;
-  /**
-   * [Images must have text alternatives](https://www.w3.org/WAI/tutorials/images/)
-   * that describe the information or function represented by them. This
-   * ensures that images can be used by people with various disabilities. Pass
-   * an empty string if the image is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
-   * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
-   */
-  alt: string;
+interface SlideImageProps extends ImageProps {
   /**
    * Image aspect ratio.
    */
@@ -39,14 +28,13 @@ interface SlideImageProps {
 }
 
 export function SlideImage({
-  src,
-  alt,
   aspectRatio = ASPECT_RATIO,
+  className,
   ...props
 }: SlideImageProps) {
   return (
     <AspectRatio aspectRatio={aspectRatio} className={classes['aspect-ratio']}>
-      <Image src={src} alt={alt} className={classes.image} {...props} />
+      <Image className={clsx(classes.image, className)} {...props} />
     </AspectRatio>
   );
 }
