@@ -30,7 +30,6 @@ describe('SlideImage', () => {
     const className = 'foo';
     render(<SlideImage {...image} className={className} />);
     const slideImage = screen.getByRole('img');
-    screen.debug();
     expect(slideImage?.className).toContain(className);
   });
 
