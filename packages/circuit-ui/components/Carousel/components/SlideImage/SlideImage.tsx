@@ -19,6 +19,7 @@ import { ASPECT_RATIO } from '../../constants.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './SlideImage.module.css';
+import { forwardRef } from 'react';
 
 interface SlideImageProps extends ImageProps {
   /**
@@ -27,14 +28,10 @@ interface SlideImageProps extends ImageProps {
   aspectRatio?: number;
 }
 
-export function SlideImage({
-  aspectRatio = ASPECT_RATIO,
-  className,
-  ...props
-}: SlideImageProps) {
-  return (
+export const SlideImage = forwardRef<HTMLImageElement, SlideImageProps>(
+  ({ aspectRatio = ASPECT_RATIO, className, ...props }, ref) => (
     <AspectRatio aspectRatio={aspectRatio} className={classes['aspect-ratio']}>
-      <Image className={clsx(classes.image, className)} {...props} />
+      <Image className={clsx(classes.image, className)} ref={ref} {...props} />
     </AspectRatio>
-  );
-}
+  ),
+);
