@@ -21,7 +21,7 @@ import { clsx } from '../../../../styles/clsx.js';
 import classes from './SlideImage.module.css';
 import { forwardRef } from 'react';
 
-interface SlideImageProps extends ImageProps {
+export interface SlideImageProps extends ImageProps {
   /**
    * Image aspect ratio.
    */
