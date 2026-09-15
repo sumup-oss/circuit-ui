@@ -68,7 +68,7 @@ export function usePlainDateState({
   );
 
   useEffect(() => {
-    if (value) {
+    if (value !== undefined) {
       setValues(parseValue(value));
     }
   }, [value]);

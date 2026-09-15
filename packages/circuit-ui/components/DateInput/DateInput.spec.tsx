@@ -233,6 +233,25 @@ describe('DateInput', () => {
       expect(screen.getByLabelText(/month/i)).toHaveValue('1');
       expect(screen.getByLabelText(/year/i)).toHaveValue('2000');
     });
+
+    it('should reset the displayed value when value is updated to an empty string', () => {
+      const ref = createRef<HTMLInputElement>();
+      const { rerender } = render(
+        <DateInput {...props} ref={ref} value="2000-01-12" />,
+      );
+
+      expect(ref.current).toHaveValue('2000-01-12');
+      expect(screen.getByLabelText(/day/i)).toHaveValue('12');
+      expect(screen.getByLabelText(/month/i)).toHaveValue('1');
+      expect(screen.getByLabelText(/year/i)).toHaveValue('2000');
+
+      rerender(<DateInput {...props} ref={ref} value="" />);
+
+      expect(ref.current).toHaveValue('');
+      expect(screen.getByLabelText(/day/i)).toHaveValue('');
+      expect(screen.getByLabelText(/month/i)).toHaveValue('');
+      expect(screen.getByLabelText(/year/i)).toHaveValue('');
+    });
   });
 
   describe('user interactions', () => {
