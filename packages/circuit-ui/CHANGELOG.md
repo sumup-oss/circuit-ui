@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 11.20.2
+
+### Patch Changes
+
+- [#3914](https://github.com/sumup-oss/circuit-ui/pull/3914) [`49febfd`](https://github.com/sumup-oss/circuit-ui/commit/49febfdb889b75d7b05c827852ebf943d608dc1b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed forwarding a ref to the SlideImage component.
+
+- [#3914](https://github.com/sumup-oss/circuit-ui/pull/3914) [`49febfd`](https://github.com/sumup-oss/circuit-ui/commit/49febfdb889b75d7b05c827852ebf943d608dc1b) Thanks [@connor-baer](https://github.com/connor-baer)! - Moved the accessibility warning for missing props to the correct component. It's the TabPanel, not the TabList, that requires the `id` and `aria-labelledby` props.
+
 ## 11.20.1
 
 ### Patch Changes
