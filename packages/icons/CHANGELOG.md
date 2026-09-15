@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 7.0.2
+
+### Patch Changes
+
+- [#3902](https://github.com/sumup-oss/circuit-ui/pull/3902) [`9f57dda`](https://github.com/sumup-oss/circuit-ui/commit/9f57dda710757323913ab4b73119666f0a6b63ad) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed Flag asset url when size is not provided.
+
 ## 7.0.1
 
 ### Patch Changes

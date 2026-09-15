@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.1
+
+### Patch Changes
+
+- [#3905](https://github.com/sumup-oss/circuit-ui/pull/3905) [`cc18c34`](https://github.com/sumup-oss/circuit-ui/commit/cc18c342d8c03d2176a41d8ed5c57b29183c5cdd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed merging of custom styles in the AspectRatio, Slide, and SlideImage components.
+
+- [#3915](https://github.com/sumup-oss/circuit-ui/pull/3915) [`65438c8`](https://github.com/sumup-oss/circuit-ui/commit/65438c852ec8bd4a4f0be64c82b0e0faedfae04b) Thanks [@connor-baer](https://github.com/connor-baer)! - Moved the accessibility warning for missing props to the correct component. It's the TabPanel, not the TabList, that requires the `id` and `aria-labelledby` props.
+
 ## 12.0.0
 
 ### Major Changes
