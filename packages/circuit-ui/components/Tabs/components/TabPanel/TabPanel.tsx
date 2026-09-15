@@ -15,13 +15,33 @@
 
 import type { Ref, HTMLAttributes } from 'react';
 
+import { AccessibilityError } from '../../../../util/errors.js';
+
 export interface TabPanelProps extends HTMLAttributes<HTMLDivElement> {
   ref?: Ref<HTMLDivElement>;
+}
+
+function hasMissingAccessibilityProps(props: Partial<TabPanelProps>) {
+  return !props.id || !props['aria-labelledby'];
 }
 
 /**
  * TabPanel wrapping content being showed by tabs
  */
 export function TabPanel({ ...props }: TabPanelProps) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    hasMissingAccessibilityProps(props)
+  ) {
+    // biome-ignore lint/suspicious/noConsole: Logging an accessibility warning is intentional.
+    console.warn(
+      new AccessibilityError(
+        'TabPanel',
+        'Missing some accessibility props which will become required in the next major version. Read more about tab accessibility here: https://circuit.sumup.com/?path=/docs/navigation-tabs--docs#use-subcomponents-independently',
+      ),
+    );
+  }
+
   return <div {...props} role="tabpanel" tabIndex={-1} />;
 }
