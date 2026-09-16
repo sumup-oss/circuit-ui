@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": minor
 ---
 
-fix the logic to determine wether `DateInput` is in controlled state
+Fixed resetting the DateInput component's displayed value when passing an empty string.
