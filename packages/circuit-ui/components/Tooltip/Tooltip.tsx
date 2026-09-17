@@ -49,7 +49,7 @@ import {
 } from '../../util/errors.js';
 
 import classes from './Tooltip.module.css';
-import type {TextLabel} from "../../types/prop-types.js";
+import type { TextLabel } from '../../types/prop-types.js';
 
 export interface TooltipReferenceProps {
   'aria-describedby'?: string;

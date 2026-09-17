@@ -303,7 +303,9 @@ export const ImageInput = ({
             disabled={isLoading || disabled}
             className={clsx(classes.button, classes.add)}
             icon={Plus}
-          >{''}</IconButton>
+          >
+            {''}
+          </IconButton>
         )}
         <Spinner
           className={clsx(classes.spinner, isLoading && classes.loading)}

@@ -36,7 +36,7 @@ import {
   type SharedButtonProps,
 } from './base.js';
 import classes from './IconButton.module.css';
-import type { TextLabel } from "../../types/prop-types.js";
+import type { TextLabel } from '../../types/prop-types.js';
 
 export type IconButtonProps = SharedButtonProps & {
   /**
@@ -130,6 +130,10 @@ export function IconButton({
   }
 
   return (
-    <Tooltip  label={props.children as string} type="label" component={renderReference} />
+    <Tooltip
+      label={props.children as string}
+      type="label"
+      component={renderReference}
+    />
   );
 }

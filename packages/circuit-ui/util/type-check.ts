@@ -14,7 +14,7 @@
  */
 
 import type { ComponentType } from 'react';
-import type { TextLabel } from "../types/prop-types.js";
+import type { TextLabel } from '../types/prop-types.js';
 
 // biome-ignore lint/complexity/noBannedTypes: There is no better type for this type guard
 export function isFunction(value?: unknown): value is Function {
