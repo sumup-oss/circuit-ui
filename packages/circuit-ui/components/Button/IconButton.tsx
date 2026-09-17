@@ -130,10 +130,6 @@ export function IconButton({
   }
 
   return (
-    <Tooltip
-      label={props.children as string}
-      type="label"
-      component={renderReference}
-    />
+    <Tooltip type="label" label={props.children} component={renderReference} />
   );
 }
