@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": minor
 ---
 
-Added text content support for IconButton `children` and Tooltip `label`, matching Button.
+Added support for string-like content (such as numbers or an array of strings) to the IconButton's `children` and the Tooltip's `label` prop, matching the Button component.
