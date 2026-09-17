@@ -25,7 +25,7 @@ import {
   isObject,
   isReactComponent,
   isString,
-  isStringChildren,
+  isTextLabel,
 } from './type-check.js';
 
 describe('type check', () => {
@@ -296,102 +296,102 @@ describe('type check', () => {
 
   describe('isStringChildren', () => {
     it('should return true for a string', () => {
-      const actual = isStringChildren('Hello world');
+      const actual = isTextLabel('Hello world');
       expect(actual).toBeTruthy();
     });
 
     it('should return true for a number', () => {
-      const actual = isStringChildren(42);
+      const actual = isTextLabel(42);
       expect(actual).toBeTruthy();
     });
 
     it('should return true for an empty string', () => {
-      const actual = isStringChildren('');
+      const actual = isTextLabel('');
       expect(actual).toBeTruthy();
     });
 
     it('should return true for an array of strings', () => {
-      const actual = isStringChildren(['Hello', 'world']);
+      const actual = isTextLabel(['Hello', 'world']);
       expect(actual).toBeTruthy();
     });
 
     it('should return true for an array of numbers', () => {
-      const actual = isStringChildren([1, 2, 3]);
+      const actual = isTextLabel([1, 2, 3]);
       expect(actual).toBeTruthy();
     });
 
     it('should return true for an array of strings and numbers', () => {
-      const actual = isStringChildren(['Hello', 42]);
+      const actual = isTextLabel(['Hello', 42]);
       expect(actual).toBeTruthy();
     });
 
     it('should return true for a nested array of strings and numbers', () => {
-      const actual = isStringChildren(['Hello', [42, 'world']]);
+      const actual = isTextLabel(['Hello', [42, 'world']]);
       expect(actual).toBeTruthy();
     });
 
     it('should return true for an empty array', () => {
-      const actual = isStringChildren([]);
+      const actual = isTextLabel([]);
       expect(actual).toBeTruthy();
     });
 
     it('should return false for an object', () => {
-      const actual = isStringChildren({ foo: 'bar' });
+      const actual = isTextLabel({ foo: 'bar' });
       expect(actual).toBeFalsy();
     });
 
     it('should return false for null', () => {
-      const actual = isStringChildren(null);
+      const actual = isTextLabel(null);
       expect(actual).toBeFalsy();
     });
 
     it('should return false for undefined', () => {
-      const actual = isStringChildren(undefined);
+      const actual = isTextLabel(undefined);
       expect(actual).toBeFalsy();
     });
 
     it('should return false for a boolean', () => {
-      const actual = isStringChildren(true);
+      const actual = isTextLabel(true);
       expect(actual).toBeFalsy();
     });
 
     it('should return false for a function', () => {
-      const actual = isStringChildren(vi.fn());
+      const actual = isTextLabel(vi.fn());
       expect(actual).toBeFalsy();
     });
 
     it('should return false for an HTML element', () => {
-      const actual = isStringChildren(document.createElement('div'));
+      const actual = isTextLabel(document.createElement('div'));
       expect(actual).toBeFalsy();
     });
 
     it('should return false for a React component', () => {
-      const actual = isStringChildren(() => 'Hello world');
+      const actual = isTextLabel(() => 'Hello world');
       expect(actual).toBeFalsy();
     });
 
     it('should return false for an array containing an object', () => {
-      const actual = isStringChildren(['Hello', { foo: 'bar' }]);
+      const actual = isTextLabel(['Hello', { foo: 'bar' }]);
       expect(actual).toBeFalsy();
     });
 
     it('should return false for an array containing null', () => {
-      const actual = isStringChildren(['Hello', null]);
+      const actual = isTextLabel(['Hello', null]);
       expect(actual).toBeFalsy();
     });
 
     it('should return false for an array containing undefined', () => {
-      const actual = isStringChildren(['Hello', undefined]);
+      const actual = isTextLabel(['Hello', undefined]);
       expect(actual).toBeFalsy();
     });
 
     it('should return false for an array containing a React component', () => {
-      const actual = isStringChildren(['Hello', () => 'world']);
+      const actual = isTextLabel(['Hello', () => 'world']);
       expect(actual).toBeFalsy();
     });
 
     it('should return false for a nested array containing invalid children', () => {
-      const actual = isStringChildren(['Hello', [42, true]]);
+      const actual = isTextLabel(['Hello', [42, true]]);
       expect(actual).toBeFalsy();
     });
   });

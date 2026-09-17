@@ -21,3 +21,7 @@ export type AsPropType = ElementType<any>;
 
 // This is the type that Emotion expects
 export type EmotionAsPropType = ElementType<any> & string;
+
+type TextPrimitive = string | number;
+type OneOrMany<T> = T | T[];
+export type TextLabel = OneOrMany<TextPrimitive>;

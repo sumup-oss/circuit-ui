@@ -14,6 +14,7 @@
  */
 
 import type { ComponentType } from 'react';
+import type { TextLabel } from "../types/prop-types.js";
 
 // biome-ignore lint/complexity/noBannedTypes: There is no better type for this type guard
 export function isFunction(value?: unknown): value is Function {
@@ -69,10 +70,10 @@ export function isReactComponent(
   return false;
 }
 
-export function isStringChildren(value?: unknown): value is string {
+export function isTextLabel(value?: unknown): value is TextLabel {
   if (isArray(value)) {
     // @ts-expect-error This is a boolean and you know it.
-    return value.reduce((acc, chunk) => acc && isStringChildren(chunk), true);
+    return value.reduce((acc, chunk) => acc && isTextLabel(chunk), true);
   }
 
   return isString(value) || isNumber(value);
