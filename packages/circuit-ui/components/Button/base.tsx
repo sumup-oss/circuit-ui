@@ -38,7 +38,7 @@ import type { Locale } from '../../util/i18n.js';
 
 import classes from './base.module.css';
 import { translations } from './translations/index.js';
-import { isStringChildren } from '../../util/type-check.js';
+import { isTextLabel } from '../../util/type-check.js';
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
@@ -191,7 +191,7 @@ export function BaseButton(props: BaseButtonProps) {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
-    !isStringChildren(children)
+    !isTextLabel(children)
   ) {
     throw new CircuitError(
       componentName,

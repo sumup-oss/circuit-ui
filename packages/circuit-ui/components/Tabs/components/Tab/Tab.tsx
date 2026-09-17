@@ -20,10 +20,10 @@ import type {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   ComponentType,
+  ElementType,
 } from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
-import type { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { clsx } from '../../../../styles/clsx.js';
 import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
@@ -77,7 +77,7 @@ export function Tab({
   ...props
 }: TabProps) {
   const components = useComponents();
-  const Link = components.Link as EmotionAsPropType;
+  const Link = components.Link as ElementType<any>;
   const Element = props.href ? Link : 'button';
 
   if (

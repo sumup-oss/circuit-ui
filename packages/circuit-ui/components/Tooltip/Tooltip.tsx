@@ -49,6 +49,7 @@ import {
 } from '../../util/errors.js';
 
 import classes from './Tooltip.module.css';
+import type {TextLabel} from "../../types/prop-types.js";
 
 export interface TooltipReferenceProps {
   'aria-describedby'?: string;
@@ -67,7 +68,7 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
    * Interactive content such as buttons or links and rich content such as
    * bold text or headings are not supported.
    */
-  label: string;
+  label: TextLabel;
   /**
    * The focusable element that acts as the reference for the tooltip.
    */
