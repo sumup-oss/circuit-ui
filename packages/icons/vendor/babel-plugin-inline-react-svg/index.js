@@ -52483,7 +52483,7 @@ var require_transformSvg = __commonJS({
         JSXOpeningElement: function JSXOpeningElement(_ref2) {
           var _ref2$node = _ref2.node, name = _ref2$node.name, attributes = _ref2$node.attributes;
           if (name.name.toLowerCase() === "svg") {
-            attributes.push(t.jSXSpreadAttribute(t.identifier("props")));
+            attributes.push(t.jsxSpreadAttribute(t.identifier("props")));
           }
         }
       };
@@ -52618,7 +52618,7 @@ function _toPrimitive(t, r) {
 var ignoreRegex;
 var _default = exports["default"] = (0, _helperPluginUtils.declare)(function(_ref) {
   var assertVersion = _ref.assertVersion, template = _ref.template, traverse = _ref.traverse, t = _ref.types;
-  assertVersion(7);
+  assertVersion(8);
   var buildSvg = function buildSvg2(_ref2) {
     var IS_EXPORT = _ref2.IS_EXPORT, EXPORT_FILENAME = _ref2.EXPORT_FILENAME, SVG_NAME = _ref2.SVG_NAME, SVG_CODE = _ref2.SVG_CODE, SVG_DEFAULT_PROPS_CODE = _ref2.SVG_DEFAULT_PROPS_CODE;
     var namedTemplate = "\n      var SVG_NAME = function SVG_NAME(props) { return SVG_CODE; };\n      ".concat(SVG_DEFAULT_PROPS_CODE ? "SVG_NAME.defaultProps = SVG_DEFAULT_PROPS_CODE;" : "", "\n      ").concat(IS_EXPORT ? "export { SVG_NAME };" : "", "\n    ");
