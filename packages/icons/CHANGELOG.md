@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 7.1.0
+
+### Minor Changes
+
+- [#3878](https://github.com/sumup-oss/circuit-ui/pull/3878) [`36fd500`](https://github.com/sumup-oss/circuit-ui/commit/36fd50040dc8fc56d02ef7ad7ce36424c50fef36) Thanks [@coronado03](https://github.com/coronado03)! - Added the `TikTok` icon in size 24.
+
 ## 7.0.2
 
 ### Patch Changes
