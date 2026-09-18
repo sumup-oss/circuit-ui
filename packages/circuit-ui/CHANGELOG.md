@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.2
+
+### Patch Changes
+
+- [#3913](https://github.com/sumup-oss/circuit-ui/pull/3913) [`210ac31`](https://github.com/sumup-oss/circuit-ui/commit/210ac316b087e57d655623d5a9be0cabc5b60184) Thanks [@jandriescher](https://github.com/jandriescher)! - Fixed resetting the DateInput component's displayed value when passing an empty string.
+
+- [#3912](https://github.com/sumup-oss/circuit-ui/pull/3912) [`9249ce5`](https://github.com/sumup-oss/circuit-ui/commit/9249ce520767f8c25c869c67fb3d2e7ddba7b2d5) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed peer dependency ranges for `@sumup-oss/design-tokens` and `@sumup-oss/icons`.
+
 ## 12.0.1
 
 ### Patch Changes
