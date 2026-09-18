@@ -36,6 +36,7 @@ import {
   type SharedButtonProps,
 } from './base.js';
 import classes from './IconButton.module.css';
+import type { TextLabel } from '../../types/prop-types.js';
 
 export type IconButtonProps = SharedButtonProps & {
   /**
@@ -45,7 +46,7 @@ export type IconButtonProps = SharedButtonProps & {
    * Used as the button's accessible name and displayed in a tooltip on
    * hover and keyboard focus.
    */
-  children: string;
+  children: TextLabel;
   /**
    * The icon provides context for the button, such as a “search” icon for a
    * search field submission.

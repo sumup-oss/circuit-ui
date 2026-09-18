@@ -294,7 +294,6 @@ export const ImageInput = ({
             {clearButtonLabel}
           </IconButton>
         ) : (
-          // @ts-expect-error The button is purely presentational and thus doesn't need a label.
           <IconButton
             type="button"
             size="s"
@@ -304,7 +303,9 @@ export const ImageInput = ({
             disabled={isLoading || disabled}
             className={clsx(classes.button, classes.add)}
             icon={Plus}
-          />
+          >
+            {''}
+          </IconButton>
         )}
         <Spinner
           className={clsx(classes.spinner, isLoading && classes.loading)}
