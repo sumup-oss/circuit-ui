@@ -197,14 +197,14 @@ describe('Button', () => {
 
       expect(() =>
         render(
-          <Button>
+          <BaseButton componentName="TestButton" size="m">
             <span>foo</span>
-          </Button>,
+          </BaseButton>,
         ),
       ).toThrow(
         expect.objectContaining({
           message: expect.stringContaining(
-            '[Button] The `children` prop must be a string.',
+            '[TestButton] The `children` prop must be a string.',
           ),
         }),
       );
@@ -218,10 +218,13 @@ describe('Button', () => {
       vi.spyOn(console, 'error').mockImplementation(() => undefined);
       process.env.NODE_ENV = 'development';
 
-      expect(() => render(<Button />)).toThrow(
+      expect(() =>
+        // @ts-expect-error intentionally withholding the children prop
+        render(<BaseButton componentName="TestButton" size="m" />),
+      ).toThrow(
         expect.objectContaining({
           message: expect.stringContaining(
-            '[Button] The `children` prop is missing or invalid.',
+            '[TestButton] The `children` prop is missing or invalid.',
           ),
         }),
       );
