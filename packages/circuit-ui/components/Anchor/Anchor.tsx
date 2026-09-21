@@ -34,6 +34,7 @@ import { utilClasses } from '../../styles/utility.js';
 import { AccessibilityError } from '../../util/errors.js';
 
 import classes from './Anchor.module.css';
+import { ArrowSlanted } from '@sumup-oss/icons';
 
 interface BaseProps extends Omit<BodyProps, 'color'> {
   children: ReactNode;
@@ -122,6 +123,13 @@ export function Anchor({
             {externalLabel}
           </span>
         )}
+        {isExternalLink && (
+          <ArrowSlanted
+            aria-hidden="true"
+            className={classes['trailing-icon']}
+            size="16"
+          />
+        )}
       </Body>
     );
   }
@@ -143,6 +151,13 @@ export function Anchor({
         >
           {externalLabel}
         </span>
+      )}
+      {isExternalLink && (
+        <ArrowSlanted
+          aria-hidden="true"
+          className={classes['trailing-icon']}
+          size="16"
+        />
       )}
     </Body>
   );

@@ -15,13 +15,14 @@
 
 'use client';
 
-import type {
-  ButtonHTMLAttributes,
-  AnchorHTMLAttributes,
-  ReactNode,
-  Ref,
+import {
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+  type ReactNode,
+  type Ref,
+  useId,
 } from 'react';
-import type { IconComponentType } from '@sumup-oss/icons';
+import { ArrowSlanted, type IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
@@ -39,6 +40,7 @@ import type { Locale } from '../../util/i18n.js';
 import classes from './base.module.css';
 import { translations } from './translations/index.js';
 import { isTextLabel } from '../../util/type-check.js';
+import { idx } from '../../util/idx.js';
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
@@ -101,6 +103,10 @@ export type SharedButtonProps = LinkElProps &
      * Defaults to `navigator.language` in supported environments.
      */
     locale?: Locale;
+    /**
+     * Short label to describe that the link leads to an external page or opens in a new tab.
+     */
+    externalLabel?: string;
     // biome-ignore lint/suspicious/noExplicitAny: Polymorphic component supports button, anchor, and custom elements
     ref?: Ref<any>;
   };
@@ -149,9 +155,11 @@ export function BaseButton(props: BaseButtonProps) {
     variant = 'secondary',
     isLoading,
     loadingLabel,
+    externalLabel,
+    'aria-describedby': descriptionId,
     className,
     icon: LeadingIcon,
-    navigationIcon: TrailingIcon,
+    navigationIcon,
     as,
     locale,
     formattingLocale,
@@ -162,6 +170,16 @@ export function BaseButton(props: BaseButtonProps) {
   const Link = components.Link as AsPropType;
 
   const isLink = Boolean(sharedProps.href);
+  const isExternalLink = props.rel === 'external' || props.target === '_blank';
+  const externalLabelId = useId();
+  const descriptionIds = idx(
+    externalLabel && isExternalLink && externalLabelId,
+    descriptionId,
+  );
+  let TrailingIcon = navigationIcon;
+  if (isExternalLink && !TrailingIcon) {
+    TrailingIcon = ArrowSlanted;
+  }
 
   const Element = as || (isLink ? Link : 'button');
 
@@ -199,6 +217,18 @@ export function BaseButton(props: BaseButtonProps) {
     );
   }
 
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    isExternalLink &&
+    !externalLabel
+  ) {
+    throw new AccessibilityError(
+      'Button',
+      'An external link is missing an alternative text. Provide an `externalLabel` prop to communicate that the link leads to an external page or opens in a new tab.',
+    );
+  }
+
   return (
     <Element
       {...sharedProps}
@@ -209,6 +239,7 @@ export function BaseButton(props: BaseButtonProps) {
       {...(isDisabled && {
         'aria-disabled': true,
       })}
+      aria-describedby={descriptionIds}
       onClick={isDisabled ? onDisabledClick : onClick}
       className={clsx(
         classes.base,
@@ -237,6 +268,15 @@ export function BaseButton(props: BaseButtonProps) {
           />
         )}
         <span className={classes.label}>{children}</span>
+        {isExternalLink && externalLabel && (
+          <span
+            aria-hidden={true}
+            id={externalLabelId}
+            className={utilClasses.hideVisually}
+          >
+            {externalLabel}
+          </span>
+        )}
         {TrailingIcon && (
           <TrailingIcon
             aria-hidden="true"

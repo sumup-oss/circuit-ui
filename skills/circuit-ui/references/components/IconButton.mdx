@@ -82,3 +82,10 @@ with a primary button for the expected action and a secondary button on its left
 <Story of={ButtonGroupStories.Base} />
 
 - **Do** use the same verb tenses for both actions
+
+## As link
+
+Pass an href to render the Button as a link. That changes the underlying element from a `button` to an `a` (or to whatever Link component is provided via [ComponentsContext](Features/Base-Components/Docs).
+For external links, also pass an `externalLabel`. Screen readers announce that label, and an icon appears next to the text unless you set a custom `navigationIcon`.
+When opening external links, prefer a new tab over a new window to avoid disorienting users.
+

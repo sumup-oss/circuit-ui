@@ -88,6 +88,7 @@ export const WithIcons = (args: ButtonProps) => (
       href="https://sumup.com/terms"
       target="_blank"
       navigationIcon={ArrowSlanted}
+      externalLabel="Opens in a new tab"
     >
       Terms & Conditions
     </Button>
@@ -118,4 +119,14 @@ export const Loading = (args: ButtonProps) => {
 
 Loading.args = {
   isLoading: true,
+};
+
+export const AsLink = (args: ButtonProps) => <Button {...args} />;
+
+AsLink.args = {
+  children: 'Visit Sumup',
+  href: 'https://sumup.com',
+  target: '_blank',
+  externalLabel: 'Opens a new tab',
+  navigationIcon: ArrowSlanted,
 };

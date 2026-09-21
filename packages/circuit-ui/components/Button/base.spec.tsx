@@ -20,6 +20,10 @@ import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 
 import { BaseButton, type SharedButtonProps } from './base.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 function Button({ size, ...props }: SharedButtonProps) {
   return (
     <BaseButton componentName="TestButton" size="m" {...props}>
@@ -162,6 +166,68 @@ describe('Button', () => {
 
       expect(button).not.toHaveAttribute('aria-live');
       expect(button).not.toHaveAttribute('aria-busy');
+    });
+
+    it('should throw an AccessibilityError when it has an external link without externalLabel', () => {
+      // Silence the console.error output and switch to development mode to throw the error
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      process.env.NODE_ENV = 'development';
+
+      expect(() =>
+        render(
+          <Button href="www.foo.bar" target="_blank">
+            Visit site
+          </Button>,
+        ),
+      ).toThrow(
+        expect.objectContaining({
+          message: expect.stringContaining(
+            '[Button] An external link is missing an alternative text',
+          ),
+        }),
+      );
+      process.env.NODE_ENV = 'test';
+      vi.restoreAllMocks();
+    });
+
+    it('should throw an error when children is not a string', () => {
+      // Silence the console.error output and switch to development mode to throw the error
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      process.env.NODE_ENV = 'development';
+
+      expect(() =>
+        render(
+          <Button>
+            <span>foo</span>
+          </Button>,
+        ),
+      ).toThrow(
+        expect.objectContaining({
+          message: expect.stringContaining(
+            '[Button] The `children` prop must be a string.',
+          ),
+        }),
+      );
+
+      process.env.NODE_ENV = 'test';
+      vi.restoreAllMocks();
+    });
+
+    it('should throw an error when children is not provided', () => {
+      // Silence the console.error output and switch to development mode to throw the error
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      process.env.NODE_ENV = 'development';
+
+      expect(() => render(<Button />)).toThrow(
+        expect.objectContaining({
+          message: expect.stringContaining(
+            '[Button] The `children` prop is missing or invalid.',
+          ),
+        }),
+      );
+
+      process.env.NODE_ENV = 'test';
+      vi.restoreAllMocks();
     });
   });
 });

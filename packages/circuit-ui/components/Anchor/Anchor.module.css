@@ -26,3 +26,8 @@
 .base:active {
   color: var(--cui-fg-accent-pressed);
 }
+
+.trailing-icon {
+  margin-left: var(--cui-spacings-bit);
+  vertical-align: middle;
+}
