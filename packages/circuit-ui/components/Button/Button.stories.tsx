@@ -130,3 +130,10 @@ AsLink.args = {
   externalLabel: 'Opens a new tab',
   navigationIcon: ArrowSlanted,
 };
+
+AsLink.parameters = {
+  chromatic: {
+    // covered in the Variants story
+    disableSnapshot: true,
+  },
+};
