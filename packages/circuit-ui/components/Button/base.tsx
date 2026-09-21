@@ -22,7 +22,7 @@ import {
   type Ref,
   useId,
 } from 'react';
-import { ArrowSlanted, type IconComponentType } from '@sumup-oss/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
@@ -159,7 +159,7 @@ export function BaseButton(props: BaseButtonProps) {
     'aria-describedby': descriptionId,
     className,
     icon: LeadingIcon,
-    navigationIcon,
+    navigationIcon: TrailingIcon,
     as,
     locale,
     formattingLocale,
@@ -176,10 +176,6 @@ export function BaseButton(props: BaseButtonProps) {
     externalLabel && isExternalLink && externalLabelId,
     descriptionId,
   );
-  let TrailingIcon = navigationIcon;
-  if (isExternalLink && !TrailingIcon) {
-    TrailingIcon = ArrowSlanted;
-  }
 
   const Element = as || (isLink ? Link : 'button');
 
@@ -267,7 +263,6 @@ export function BaseButton(props: BaseButtonProps) {
             height={leadingIconSize}
           />
         )}
-        <span className={classes.label}>{children}</span>
         {isExternalLink && externalLabel && (
           <span
             aria-hidden={true}
@@ -277,6 +272,7 @@ export function BaseButton(props: BaseButtonProps) {
             {externalLabel}
           </span>
         )}
+        <span className={classes.label}>{children}</span>
         {TrailingIcon && (
           <TrailingIcon
             aria-hidden="true"
