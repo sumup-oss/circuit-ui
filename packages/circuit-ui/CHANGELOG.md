@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 12.1.0
+
+### Minor Changes
+
+- [#3918](https://github.com/sumup-oss/circuit-ui/pull/3918) [`c346b59`](https://github.com/sumup-oss/circuit-ui/commit/c346b59ec48164046da44f784ad6bb4552bf310b) Thanks [@sirineJ](https://github.com/sirineJ)! - Added support for string-like content (such as numbers or an array of strings) to the IconButton's `children` and the Tooltip's `label` prop, matching the Button component.
+
+### Patch Changes
+
+- [#3918](https://github.com/sumup-oss/circuit-ui/pull/3918) [`c346b59`](https://github.com/sumup-oss/circuit-ui/commit/c346b59ec48164046da44f784ad6bb4552bf310b) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed ImageInput breaking when its IconButton is rendered without a `label`.
+
 ## 12.0.2
 
 ### Patch Changes
