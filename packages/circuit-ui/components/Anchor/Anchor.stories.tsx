@@ -30,8 +30,6 @@ export const AsLink = (args: AnchorProps) => <Anchor {...args} />;
 
 AsLink.args = {
   href: 'https://opensource.sumup.com',
-  target: '_blank',
-  externalLabel: 'Opens in a new tab',
   children: "View SumUp's OSS projects",
 };
 
@@ -40,6 +38,4 @@ export const AsButton = (args: AnchorProps) => <Anchor {...args} />;
 AsButton.args = {
   onClick: () => alert('Hello'),
   children: 'Say hello',
-  target: '_blank',
-  externalLabel: 'Opens in a new tab',
 };
