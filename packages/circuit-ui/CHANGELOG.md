@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.2.0
+
+### Minor Changes
+
+- [#3923](https://github.com/sumup-oss/circuit-ui/pull/3923) [`5fef93b`](https://github.com/sumup-oss/circuit-ui/commit/5fef93b8747e140a87ec760b14cbf259a20a8c60) Thanks [@sirineJ](https://github.com/sirineJ)! - Added an `externalLabel` prop to the Button component to support external link semantics.
+
 ## 12.1.0
 
 ### Minor Changes
