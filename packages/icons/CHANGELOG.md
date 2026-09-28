@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 7.2.0
+
+### Minor Changes
+
+- [`0c3597d`](https://github.com/sumup-oss/circuit-ui/commit/0c3597ddeb96d125bccb7f2cde87a27d342470c8) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the file size of all icon components.
+
 ## 7.1.0
 
 ### Minor Changes
