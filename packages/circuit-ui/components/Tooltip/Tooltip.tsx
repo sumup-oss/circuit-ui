@@ -109,6 +109,10 @@ function getState(activeTooltipId: string | null, tooltipId: string) {
   }
 }
 
+const supportsPopover =
+  typeof HTMLElement !== 'undefined' &&
+  typeof HTMLElement.prototype.showPopover === 'function';
+
 export function Tooltip({
   label,
   component: Component,
@@ -122,6 +126,7 @@ export function Tooltip({
   const activeTooltipId = useStore($activeTooltipId);
   const tooltipId = useId();
   const arrowRef = useRef<HTMLDivElement>(null);
+
 
   const state = getState(activeTooltipId, tooltipId);
   const ariaAttributeName =
@@ -198,7 +203,13 @@ export function Tooltip({
       refs.reference.current &&
       refs.floating.current
     ) {
+      if (supportsPopover) {
+        refs.floating.current?.showPopover();
+      }
       return autoUpdate(refs.reference.current, refs.floating.current, update);
+    }
+    if (supportsPopover) {
+      refs.floating.current?.hidePopover();
     }
     return undefined;
   }, [state, refs.reference, refs.floating, update]);
@@ -243,6 +254,7 @@ export function Tooltip({
         style={
           state === State.initial ? style : { ...style, ...floatingStyles }
         }
+        popover={supportsPopover ? "auto": undefined}
       >
         <div className={classes.content}>{label}</div>
         <div

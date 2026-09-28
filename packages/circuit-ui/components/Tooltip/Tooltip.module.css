@@ -10,7 +10,12 @@
 
   /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   max-width: min(360px, calc(100vw - 8px));
+  padding: 0;
+  margin: 0;
+  overflow: inherit;
   pointer-events: none;
+  background: transparent;
+  border: none;
   opacity: 0;
   transition: opacity var(--cui-transitions-default);
 }
