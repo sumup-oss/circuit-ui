@@ -1,5 +1,19 @@
 # @sumup-oss/circuit-ui
 
+## 12.3.0
+
+### Minor Changes
+
+- [#3931](https://github.com/sumup-oss/circuit-ui/pull/3931) [`19cd19f`](https://github.com/sumup-oss/circuit-ui/commit/19cd19fd2887fb0bbfc227cbf29a15f32e81fe00) Thanks [@connor-baer](https://github.com/connor-baer)! - Allowed including additional data in the AutocompleteInput's options.
+
+- [#3932](https://github.com/sumup-oss/circuit-ui/pull/3932) [`04c90b2`](https://github.com/sumup-oss/circuit-ui/commit/04c90b28ae4d012b90b5222365682c7c4e72b620) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the Tooltip component to use the Popover API as a progressive enhancement.
+
+### Patch Changes
+
+- [#3929](https://github.com/sumup-oss/circuit-ui/pull/3929) [`59c36aa`](https://github.com/sumup-oss/circuit-ui/commit/59c36aaecea876e4cbe73065edc4fd54478f9f56) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the obsolete `forwardRef` wrapper from the Callout component.
+
+- [#3936](https://github.com/sumup-oss/circuit-ui/pull/3936) [`b446e9f`](https://github.com/sumup-oss/circuit-ui/commit/b446e9fdbc312c5c188e786f3f9332dc352c8319) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the TabList width when the component isn't initially visible, for example when rendered inside a Modal or Popover.
+
 ## 12.2.0
 
 ### Minor Changes
