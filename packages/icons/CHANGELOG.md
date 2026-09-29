@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 7.2.1
+
+### Patch Changes
+
+- [#3929](https://github.com/sumup-oss/circuit-ui/pull/3929) [`59c36aa`](https://github.com/sumup-oss/circuit-ui/commit/59c36aaecea876e4cbe73065edc4fd54478f9f56) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the obsolete `forwardRef` wrapper from the CardScheme, Flag, and PaymentMethod components.
+
 ## 7.2.0
 
 ### Minor Changes
