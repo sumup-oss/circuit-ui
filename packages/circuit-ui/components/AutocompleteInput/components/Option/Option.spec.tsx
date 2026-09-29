@@ -23,10 +23,13 @@ import { Option, type OptionProps } from './Option.js';
 const description = 'A gentle giant';
 
 const props: OptionProps = {
-  label: 'Mochi',
-  value: 'mochi',
-  description,
-  image: '/images/illustration-cat-mochi.jpg',
+  option: {
+    label: 'Mochi',
+    value: 'mochi',
+    description,
+    image: '/images/illustration-cat-mochi.jpg',
+  },
+  selected: false,
   isSelectable: false,
   isFocused: false,
   onOptionClick: vi.fn(),
@@ -35,29 +38,35 @@ const props: OptionProps = {
 
 describe('Option', () => {
   it('should render with leading icon', () => {
-    render(<Option {...props} image={Favourite} />);
+    render(
+      <Option {...props} option={{ ...props.option, image: Favourite }} />,
+    );
 
-    expect(screen.getByText(props.label)).toBeVisible();
+    expect(screen.getByText(props.option.label)).toBeVisible();
     expect(screen.getByText(description)).toBeVisible();
-    expect(screen.getByTestId(`option-icon-${props.value}`)).toBeVisible();
+    expect(
+      screen.getByTestId(`option-icon-${props.option.value}`),
+    ).toBeVisible();
   });
 
   it('should render with leading image', () => {
     render(<Option {...props} />);
 
-    expect(screen.getByText(props.label)).toBeVisible();
-    expect(screen.getByTestId(`option-image-${props.value}`)).toBeVisible();
+    expect(screen.getByText(props.option.label)).toBeVisible();
+    expect(
+      screen.getByTestId(`option-image-${props.option.value}`),
+    ).toBeVisible();
   });
 
   it('should call onOptionClick when clicked', async () => {
     render(<Option {...props} />);
 
-    await userEvent.click(screen.getByText(props.label));
+    await userEvent.click(screen.getByText(props.option.label));
     expect(props.onOptionClick).toHaveBeenCalledWith({
-      value: props.value,
-      label: props.label,
-      image: props.image,
-      description: props.description,
+      value: props.option.value,
+      label: props.option.label,
+      image: props.option.image,
+      description: props.option.description,
     });
   });
 

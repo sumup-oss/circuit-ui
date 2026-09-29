@@ -38,7 +38,7 @@ import {
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { Button } from '../Button/index.js';
 
-import { luna, mochi, oliver, options } from './fixtures.js';
+import { luna, mochi, oliver, pepper, options } from './fixtures.js';
 import {
   AutocompleteInput,
   type AutocompleteInputProps,
@@ -241,6 +241,15 @@ describe('AutocompleteInput', () => {
 
     expect(props.onChange).toHaveBeenCalledWith(props.options[0]);
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+  });
+
+  it('should call onChange with the full option object, including additional data', async () => {
+    render(<AutocompleteInput {...props} options={[pepper]} />);
+    await userEvent.click(screen.getByRole('combobox', { name: props.label }));
+    expect(screen.queryByRole('listbox')).toBeVisible();
+
+    await userEvent.click(screen.getByText(pepper.label));
+    expect(props.onChange).toHaveBeenCalledWith(pepper);
   });
 
   describe('Opening the list box', () => {
