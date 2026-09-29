@@ -21,6 +21,7 @@ import {
   useEffect,
   useId,
   useRef,
+  useState,
   type ComponentType,
   type FocusEventHandler,
   type HTMLAttributes,
@@ -109,10 +110,6 @@ function getState(activeTooltipId: string | null, tooltipId: string) {
   }
 }
 
-const supportsPopover =
-  typeof HTMLElement !== 'undefined' &&
-  typeof HTMLElement.prototype.showPopover === 'function';
-
 export function Tooltip({
   label,
   component: Component,
@@ -126,6 +123,7 @@ export function Tooltip({
   const activeTooltipId = useStore($activeTooltipId);
   const tooltipId = useId();
   const arrowRef = useRef<HTMLDivElement>(null);
+  const [supportsPopover, setSupportsPopover] = useState(false);
 
   const state = getState(activeTooltipId, tooltipId);
   const ariaAttributeName =
@@ -155,11 +153,16 @@ export function Tooltip({
     [handleOpen],
   );
 
-  // The tooltip works without JavaScript using only CSS (the "initial" state).
-  // When JS is available, the component is progressively enhanced and toggles
-  // between the "closed" and "open" states.
   useEffect(() => {
+    // The tooltip works without JavaScript using only CSS (the "initial" state).
+    // When JS is available, the component is progressively enhanced and toggles
+    // between the "closed" and "open" states.
     $activeTooltipId.set(null);
+
+    setSupportsPopover(
+      typeof HTMLElement !== 'undefined' &&
+        typeof HTMLElement.prototype.showPopover === 'function',
+    );
   }, []);
 
   useEscapeKey(handleClose, state === State.open);
@@ -211,7 +214,7 @@ export function Tooltip({
       refs.floating.current?.hidePopover();
     }
     return undefined;
-  }, [state, refs.reference, refs.floating, update]);
+  }, [state, refs.reference, refs.floating, update, supportsPopover]);
 
   if (process.env.NODE_ENV !== 'production') {
     if (!type) {
