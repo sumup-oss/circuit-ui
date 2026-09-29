@@ -155,11 +155,11 @@ export function TabList({
         const listWidth = Math.ceil(listSize.width);
 
         if (listWidth > 0) {
-          gliderCallback();
           tabListRef.current.style.setProperty(
             '--tab-list-width',
             `${listWidth / numberOfTabs}px`,
           );
+          gliderCallback();
           return undefined;
         }
       }
