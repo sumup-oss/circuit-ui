@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.3.1
+
+### Patch Changes
+
+- [#3939](https://github.com/sumup-oss/circuit-ui/pull/3939) [`e2618dc`](https://github.com/sumup-oss/circuit-ui/commit/e2618dc3cb3346037d7069a8f9d3d1e455aff1e9) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed server-side rendering the Tooltip component and all components that depend on it such as the IconButton.
+
 ## 12.3.0
 
 ### Minor Changes
