@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-import { useContext } from 'react';
+import { useStore } from '@nanostores/react';
 
 import {
-  I18nContext,
+  $i18n,
   type I18nConfig,
 } from '../../components/I18nContext/I18nContext.js';
 import { CircuitError } from '../../util/errors.js';
@@ -32,7 +32,7 @@ export function useI18n({
   formattingLocale: customFormattingLocale,
 }: Partial<I18nConfig>): I18nConfig {
   const { locale: globalLocale, formattingLocale: globalFormattingLocale } =
-    useContext(I18nContext);
+    useStore($i18n);
 
   if (process.env.NODE_ENV !== 'production' && !globalLocale) {
     throw new CircuitError(

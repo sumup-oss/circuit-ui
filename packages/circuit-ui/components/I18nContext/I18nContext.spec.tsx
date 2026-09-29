@@ -17,12 +17,8 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render } from '../../util/test-utils.js';
 
-import {
-  I18nContext,
-  I18nProvider,
-  type I18nContextValue,
-} from './I18nContext.js';
-import { useContext } from 'react';
+import { $i18n, I18nProvider, type I18nContextValue } from './I18nContext.js';
+import { useStore } from '@nanostores/react';
 
 describe('I18nContext', () => {
   describe('I18nProvider', () => {
@@ -31,7 +27,7 @@ describe('I18nContext', () => {
     }: {
       callback: (i18n: I18nContextValue) => void;
     }) {
-      const i18n = useContext(I18nContext);
+      const i18n = useStore($i18n);
       callback(i18n);
       return null;
     }

@@ -15,7 +15,8 @@
 
 'use client';
 
-import { createContext, useMemo, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { atom } from 'nanostores';
 
 import type { Locale } from '../../util/i18n.js';
 
@@ -29,7 +30,7 @@ export interface I18nContextValue {
   formattingLocale: Locale | null;
 }
 
-export const I18nContext = createContext<I18nContextValue>({
+export const $i18n = atom<I18nContextValue>({
   locale: null,
   formattingLocale: null,
 });
@@ -66,11 +67,6 @@ export function I18nProvider({
   locale,
   formattingLocale = locale,
 }: I18nProviderProps) {
-  const contextValue = useMemo(
-    () => ({ locale, formattingLocale }),
-    [locale, formattingLocale],
-  );
-  return (
-    <I18nContext.Provider value={contextValue}>{children}</I18nContext.Provider>
-  );
+  $i18n.set({ locale, formattingLocale });
+  return children;
 }
