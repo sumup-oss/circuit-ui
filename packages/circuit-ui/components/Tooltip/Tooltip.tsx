@@ -127,7 +127,6 @@ export function Tooltip({
   const tooltipId = useId();
   const arrowRef = useRef<HTMLDivElement>(null);
 
-
   const state = getState(activeTooltipId, tooltipId);
   const ariaAttributeName =
     type === 'label' ? 'aria-labelledby' : 'aria-describedby';
@@ -254,7 +253,7 @@ export function Tooltip({
         style={
           state === State.initial ? style : { ...style, ...floatingStyles }
         }
-        popover={supportsPopover ? "auto": undefined}
+        popover={supportsPopover ? 'auto' : undefined}
       >
         <div className={classes.content}>{label}</div>
         <div
