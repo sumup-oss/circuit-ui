@@ -1,9 +1,12 @@
 .base {
   padding: 0 !important;
   pointer-events: none;
-  outline-color: transparent;
   background-color: var(--cui-bg-elevated);
   border: none;
+}
+
+.base:focus {
+  outline: var(--cui-border-width-mega) solid transparent;
 }
 
 .base[open] {

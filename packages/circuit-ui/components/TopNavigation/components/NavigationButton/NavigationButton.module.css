@@ -26,10 +26,3 @@
 .base[aria-expanded="true"] {
   background-color: var(--cui-bg-highlight);
 }
-
-.base:focus,
-.base:focus-visible {
-  box-shadow:
-    0 0 0 0 var(--cui-bg-normal),
-    0 0 0 2px var(--cui-border-focus);
-}

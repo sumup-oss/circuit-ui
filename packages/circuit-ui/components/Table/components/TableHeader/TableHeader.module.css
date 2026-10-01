@@ -67,9 +67,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  outline-width: var(--cui-border-width-mega);
-  outline-style: solid;
-  outline-color: var(--cui-border-focus);
+  outline: var(--cui-border-width-mega) sold var(--cui-border-focus);
   outline-offset: var(--cui-border-width-mega);
   content: "";
 }
