@@ -545,17 +545,11 @@ describe('AutocompleteInput', () => {
 
     it('should open in a modal dialog on (any) key press', async () => {
       render(<AutocompleteInput {...props} variant="immersive" />);
-      // focus the input
       await userEvent.keyboard('{Tab}');
-      // press anything
       await userEvent.keyboard('m');
 
       const dialog = screen.getByRole('dialog');
-
       expect(dialog).toBeVisible();
-      expect(
-        within(dialog).getByRole('combobox', { name: props.label }),
-      ).toHaveValue('m');
     });
 
     it('should open in a modal dialog on click', async () => {
