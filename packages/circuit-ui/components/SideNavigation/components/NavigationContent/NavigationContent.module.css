@@ -32,10 +32,6 @@
   margin-bottom: var(--cui-spacings-bit);
 }
 
-.logo {
-  padding: 0 var(--cui-spacings-mega);
-}
-
 .logo a:focus,
 .logo button:focus {
   outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
@@ -70,7 +66,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    padding: var(--cui-spacings-bit) var(--cui-spacings-kilo);
+    padding: 0 var(--cui-spacings-byte);
     background-color: var(--cui-bg-normal);
   }
 
