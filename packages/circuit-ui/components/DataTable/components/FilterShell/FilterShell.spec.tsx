@@ -48,6 +48,16 @@ describe('FilterShell', () => {
     ).toBeInTheDocument();
   });
 
+  it('should keep the trigger focused when the count changes', () => {
+    const { rerender } = render(<FilterShell {...baseProps} />);
+    const trigger = screen.getByRole('button', { name: 'Amount' });
+    trigger.focus();
+
+    rerender(<FilterShell {...baseProps} count={2} />);
+
+    expect(screen.getByRole('button', { name: 'Amount (2)' })).toHaveFocus();
+  });
+
   it('should open the popover when clicking the trigger', async () => {
     render(<FilterShell {...baseProps} />);
     const trigger = screen.getByRole('button', { name: 'Amount' });

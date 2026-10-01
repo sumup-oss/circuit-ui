@@ -13,14 +13,20 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
-import type { StoryObj } from '@storybook/react-vite';
+import { type ReactNode, useState } from 'react';
 
-import { Input } from '../../../Input/index.js';
 import { modes } from '../../../../../../.storybook/modes.js';
-
 import { FilterShell } from '../FilterShell/index.js';
-import { useFilterDraft } from './useFilterDraft.js';
+import {
+  MultiChoiceFilter,
+  type MultiChoiceFilterProps,
+} from '../MultiChoiceFilter/index.js';
+import {
+  SingleChoiceFilter,
+  type SingleChoiceFilterProps,
+} from '../SingleChoiceFilter/index.js';
+
+import type { FilterOption } from './types.js';
 
 export default {
   title: 'Components/DataTable/Filter',
@@ -37,55 +43,56 @@ export default {
   },
 };
 
-type Story = StoryObj<typeof FilterShell>;
+function StoryWrapper({ children }: { children: ReactNode }) {
+  return <div style={{ minHeight: '300px' }}>{children}</div>;
+}
 
-export const Base: Story = {
-  args: {
-    label: 'Payment Status',
-    children: <p>Filter controls go here.</p>,
-  },
-  render: (args) => (
-    <div style={{ minHeight: '300px' }}>
-      <FilterShell {...args} />
-    </div>
-  ),
-};
+const paymentStatusOptions: FilterOption[] = [
+  { label: 'Paid', value: 'paid' },
+  { label: 'Unpaid', value: 'unpaid' },
+  { label: 'Revoked', value: 'revoked' },
+];
 
-export const WithCount: Story = {
-  ...Base,
-  args: { ...Base.args, count: 3 },
-};
+export const SingleChoice = (args: SingleChoiceFilterProps) => {
+  const [value, setValue] = useState<string | undefined>();
 
-/**
- * Filters that commit on request keep a draft. Closing the popover without
- * clicking Apply discards it.
- */
-export const WithApply: Story = {
-  args: { label: 'Amount' },
-  render: (args) => {
-    const [value, setValue] = useState<string | undefined>();
-    const { draft, setDraft, apply, clear, discard } = useFilterDraft(
-      value,
-      setValue,
-    );
-
-    return (
-      <div style={{ minHeight: '300px' }}>
-        <FilterShell
+  return (
+    <StoryWrapper>
+      <FilterShell label={args.label} count={value ? 1 : 0}>
+        <SingleChoiceFilter
           {...args}
-          count={value ? 1 : 0}
-          onApply={apply}
-          onClear={clear}
-          onDiscard={discard}
-        >
-          <Input
-            label="Min"
-            value={draft ?? ''}
-            onChange={(event) => setDraft(event.target.value || undefined)}
-          />
-        </FilterShell>
-        <p>Applied value: {value ?? 'none'}</p>
-      </div>
-    );
-  },
+          hideLabel
+          value={value}
+          onChange={setValue}
+        />
+      </FilterShell>
+    </StoryWrapper>
+  );
+};
+
+SingleChoice.args = {
+  label: 'Payment Status',
+  options: paymentStatusOptions,
+};
+
+export const MultiChoice = (args: MultiChoiceFilterProps) => {
+  const [value, setValue] = useState<string[] | undefined>();
+
+  return (
+    <StoryWrapper>
+      <FilterShell label={args.label} count={value?.length}>
+        <MultiChoiceFilter
+          {...args}
+          hideLabel
+          value={value}
+          onChange={setValue}
+        />
+      </FilterShell>
+    </StoryWrapper>
+  );
+};
+
+MultiChoice.args = {
+  label: 'Payment Status',
+  options: paymentStatusOptions,
 };

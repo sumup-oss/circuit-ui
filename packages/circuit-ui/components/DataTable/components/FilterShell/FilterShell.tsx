@@ -15,7 +15,13 @@
 
 'use client';
 
-import { type ReactNode, useCallback, useState } from 'react';
+import {
+  createContext,
+  type ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
 
 import { Button } from '../../../Button/index.js';
@@ -69,6 +75,31 @@ export interface FilterShellProps extends Partial<I18nConfig> {
   className?: string;
 }
 
+const TriggerContext = createContext<{ label: string; className?: string }>({
+  label: '',
+});
+
+/**
+ * Defined once instead of inside `FilterShell`, so that React keeps the same
+ * button (and its focus) when the label changes.
+ */
+function FilterTrigger(triggerProps: PopoverReferenceProps) {
+  const { label, className } = useContext(TriggerContext);
+
+  return (
+    <Button
+      {...triggerProps}
+      type="button"
+      variant="secondary"
+      size="s"
+      navigationIcon={ChevronDown}
+      className={className}
+    >
+      {label}
+    </Button>
+  );
+}
+
 /**
  * The popover shell shared by all filter types: a trigger button, the
  * filter controls and, optionally, Apply and Clear actions.
@@ -106,53 +137,39 @@ export function FilterShell(props: FilterShellProps) {
 
   const triggerLabel = count > 0 ? `${label} (${count})` : label;
 
-  const Trigger = useCallback(
-    (triggerProps: PopoverReferenceProps) => (
-      <Button
-        {...triggerProps}
-        type="button"
-        variant="secondary"
-        size="s"
-        navigationIcon={ChevronDown}
-        className={className}
-      >
-        {triggerLabel}
-      </Button>
-    ),
-    [triggerLabel, className],
-  );
-
   return (
-    <Popover
-      isOpen={isOpen}
-      onToggle={handleToggle}
-      component={Trigger}
-      placement="bottom-start"
-      hideCloseButton
-    >
-      <div className={classes.content}>
-        {children}
-        {onApply && (
-          <div className={classes.footer}>
-            <Button
-              type="button"
-              size="s"
-              variant="secondary"
-              onClick={onClear}
-            >
-              {clearButtonLabel}
-            </Button>
-            <Button
-              type="button"
-              size="s"
-              variant="primary"
-              onClick={handleApply}
-            >
-              {applyButtonLabel}
-            </Button>
-          </div>
-        )}
-      </div>
-    </Popover>
+    <TriggerContext value={{ label: triggerLabel, className }}>
+      <Popover
+        isOpen={isOpen}
+        onToggle={handleToggle}
+        component={FilterTrigger}
+        placement="bottom-start"
+        hideCloseButton
+      >
+        <div className={classes.content}>
+          {children}
+          {onApply && (
+            <div className={classes.footer}>
+              <Button
+                type="button"
+                size="s"
+                variant="secondary"
+                onClick={onClear}
+              >
+                {clearButtonLabel}
+              </Button>
+              <Button
+                type="button"
+                size="s"
+                variant="primary"
+                onClick={handleApply}
+              >
+                {applyButtonLabel}
+              </Button>
+            </div>
+          )}
+        </div>
+      </Popover>
+    </TriggerContext>
   );
 }
