@@ -33,14 +33,6 @@
   color: var(--cui-fg-normal-hovered);
 }
 
-.base:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.base:focus:not(:focus-visible) {
-  outline-color: transparent;
-}
-
 .base:active {
   color: var(--cui-fg-normal);
 }

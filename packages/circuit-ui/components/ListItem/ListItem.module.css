@@ -43,9 +43,7 @@ button.base:hover {
 a.base:focus,
 button.base:focus {
   z-index: 2;
-  outline-width: var(--cui-border-width-mega);
-  outline-style: solid;
-  outline-color: var(--cui-border-focus);
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
   outline-offset: var(--cui-border-width-mega);
 }
 
@@ -57,7 +55,7 @@ button.base:focus::-moz-focus-inner {
 a.base:focus:not(:focus-visible),
 button.base:focus:not(:focus-visible) {
   z-index: auto;
-  outline-color: transparent;
+  outline: var(--cui-border-width-mega) solid transparent;
   border-color: var(--cui-border-subtle);
 }
 

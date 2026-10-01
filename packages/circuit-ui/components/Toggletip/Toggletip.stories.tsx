@@ -65,6 +65,7 @@ Base.args = {
     children: 'Learn more',
     navigationIcon: ArrowSlanted,
     href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
+    externalLabel: 'Opens in a new tab',
     target: '_blank',
   },
   offset: 8,

@@ -32,11 +32,13 @@
   margin-bottom: var(--cui-spacings-bit);
 }
 
+.logo {
+  padding: 0 var(--cui-spacings-mega);
+}
+
 .logo a:focus,
 .logo button:focus {
-  outline-width: var(--cui-border-width-mega);
-  outline-style: solid;
-  outline-color: var(--cui-border-focus);
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
   outline-offset: var(--cui-border-width-mega);
 }
 
@@ -47,7 +49,7 @@
 
 .logo a:focus:not(:focus-visible),
 .logo button:focus:not(:focus-visible) {
-  outline-color: transparent;
+  outline: var(--cui-border-width-mega) solid transparent;
 }
 
 .logo svg {
@@ -68,7 +70,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    padding: 0 var(--cui-spacings-byte);
+    padding: var(--cui-spacings-bit) var(--cui-spacings-kilo);
     background-color: var(--cui-bg-normal);
   }
 

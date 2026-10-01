@@ -5,6 +5,7 @@ import {
   legacyButtonSizeMap,
 } from '../../../Button/index.js';
 import { clsx } from '../../../../styles/clsx.js';
+import { utilClasses } from '../../../../styles/utility.js';
 
 export interface NavigationButtonProps
   extends Omit<IconButtonProps, 'variant' | 'children'> {
@@ -35,7 +36,12 @@ export function NavigationButton({
       type="button"
       aria-current={isActive ? 'page' : undefined}
       size={size}
-      className={clsx(classes.base, classes[size], className)}
+      className={clsx(
+        classes.base,
+        classes[size],
+        utilClasses.focusVisible,
+        className,
+      )}
       {...props}
     >
       {label}
