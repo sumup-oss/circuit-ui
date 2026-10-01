@@ -59,7 +59,7 @@
     "@vitest/coverage-v8": "^4.1.11",
     "@vitest/eslint-plugin": "^1.6.27",
     "audit-ci": "^7.1.0",
-    "chromatic": "^18.7.1",
+    "chromatic": "^18.9.5",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-server-components": "^1.2.0",
     "eslint-plugin-storybook": "^10.5.10",
