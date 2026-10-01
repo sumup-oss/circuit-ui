@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 11.1.0
+
+### Minor Changes
+
+- [#3941](https://github.com/sumup-oss/circuit-ui/pull/3941) [`58576d8`](https://github.com/sumup-oss/circuit-ui/commit/58576d8b50417c3cba5179e6d7495d1b78d1a9e2) Thanks [@sirineJ](https://github.com/sirineJ)! - Added media foreground and background color tokens. Use the media color tokens for elements that should remain dark regardless of the user color-scheme, such as overlays over media elements. Combine `--cui-fg-on-media-*` colors with `--cui-bg-media-*` colors to ensure sufficient color contrast.
+
 ## 11.0.0
 
 ### Major Changes
