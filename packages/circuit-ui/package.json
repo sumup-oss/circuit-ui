@@ -62,9 +62,9 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.9",
-    "@nanostores/react": "^1.1.0",
+    "@nanostores/react": "^2.0.1",
     "@sumup-oss/illustrations": "^1.0.0",
-    "nanostores": "^1.5.2"
+    "nanostores": "^1.5.3"
   },
   "devDependencies": {
     "@sumup-oss/icons": "^7.1.0",
