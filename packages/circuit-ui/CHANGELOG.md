@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.3.2
+
+### Patch Changes
+
+- [#3961](https://github.com/sumup-oss/circuit-ui/pull/3961) [`edf1e09`](https://github.com/sumup-oss/circuit-ui/commit/edf1e09502599567ecf9e4cd105373fbe4d04f83) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed styling issues of focus indicator across multiple components.
+
 ## 12.3.1
 
 ### Patch Changes
