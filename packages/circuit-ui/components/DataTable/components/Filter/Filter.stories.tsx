@@ -27,6 +27,7 @@ import {
 } from '../SingleChoiceFilter/index.js';
 
 import type { FilterOption } from './types.js';
+import { useFilterDraft } from './useFilterDraft.js';
 
 export default {
   title: 'Components/DataTable/Filter',
@@ -55,15 +56,25 @@ const paymentStatusOptions: FilterOption[] = [
 
 export const SingleChoice = (args: SingleChoiceFilterProps) => {
   const [value, setValue] = useState<string | undefined>();
+  const { draft, setDraft, apply, clear, discard } = useFilterDraft(
+    value,
+    setValue,
+  );
 
   return (
     <StoryWrapper>
-      <FilterShell label={args.label} count={value ? 1 : 0}>
+      <FilterShell
+        label={args.label}
+        count={value ? 1 : 0}
+        onApply={apply}
+        onClear={clear}
+        onDiscard={discard}
+      >
         <SingleChoiceFilter
           {...args}
           hideLabel
-          value={value}
-          onChange={setValue}
+          value={draft}
+          onChange={setDraft}
         />
       </FilterShell>
     </StoryWrapper>
@@ -77,15 +88,25 @@ SingleChoice.args = {
 
 export const MultiChoice = (args: MultiChoiceFilterProps) => {
   const [value, setValue] = useState<string[] | undefined>();
+  const { draft, setDraft, apply, clear, discard } = useFilterDraft(
+    value,
+    setValue,
+  );
 
   return (
     <StoryWrapper>
-      <FilterShell label={args.label} count={value?.length}>
+      <FilterShell
+        label={args.label}
+        count={value?.length}
+        onApply={apply}
+        onClear={clear}
+        onDiscard={discard}
+      >
         <MultiChoiceFilter
           {...args}
           hideLabel
-          value={value}
-          onChange={setValue}
+          value={draft}
+          onChange={setDraft}
         />
       </FilterShell>
     </StoryWrapper>
