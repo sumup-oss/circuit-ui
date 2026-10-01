@@ -36,7 +36,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.6.2",
     "browserslist": "^4.28.8",
     "lightningcss": "^1.33.0",
     "tsx": "^4.23.13",
