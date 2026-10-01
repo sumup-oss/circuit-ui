@@ -547,7 +547,7 @@ describe('AutocompleteInput', () => {
       render(<AutocompleteInput {...props} variant="immersive" />);
       await userEvent.keyboard('{Tab}');
       await userEvent.keyboard('m');
-    
+
       const dialog = screen.getByRole('dialog');
       expect(dialog).toBeVisible();
     });
