@@ -36,7 +36,7 @@ import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanel.module.css';
 import { translations } from './translations/index.js';
 
-export type SidePanelProps = Omit<DialogProps, 'children'> &
+export type SidePanelProps = Omit<DialogProps, 'children' | 'topLayer'> &
   SidePanelHookProps & { ref?: Ref<HTMLDialogElement> };
 
 export function SidePanel(props: SidePanelProps) {
@@ -95,6 +95,7 @@ export function SidePanel(props: SidePanelProps) {
         ref={ref}
         open={open}
         isModal={isMobile}
+        topLayer={false}
         aria-labelledby={headerAriaId}
         animationDuration={animationDuration}
         className={clsx(classes.base, animationClass, className)}
