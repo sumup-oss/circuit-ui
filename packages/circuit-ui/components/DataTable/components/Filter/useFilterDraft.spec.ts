@@ -28,7 +28,7 @@ describe('useFilterDraft', () => {
   });
 
   describe('when applying', () => {
-    it('should only commit the draft when calling apply', () => {
+    it('should only commit the draft when apply is clicked', () => {
       const onChange = vi.fn();
       const { result } = renderHook(() =>
         useFilterDraft<string>('a', onChange),
@@ -57,16 +57,18 @@ describe('useFilterDraft', () => {
   });
 
   describe('when clearing', () => {
-    it('should empty the draft without committing', () => {
+    it('should empty the draft and remove the filter immediately', () => {
       const onChange = vi.fn();
       const { result } = renderHook(() =>
         useFilterDraft<string>('a', onChange),
       );
 
+      act(() => result.current.setDraft('b'));
       act(() => result.current.clear());
 
       expect(result.current.draft).toBeUndefined();
-      expect(onChange).not.toHaveBeenCalled();
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(undefined);
     });
   });
 

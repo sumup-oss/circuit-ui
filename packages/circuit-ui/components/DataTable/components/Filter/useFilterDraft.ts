@@ -18,10 +18,9 @@
 import { useCallback, useEffect, useState } from 'react';
 
 /**
- * Holds an uncommitted value next to the committed one. Filters that need an
- * explicit Apply (ranges) edit the draft, and only `apply` reports it via
- * `onChange`. `discard` drops the draft, and `clear` empties it without
- * committing.
+ * Keeps a draft of a filter value next to the applied one, so that edits only
+ * take effect once the user applies them. Clearing the draft also removes the
+ * filter right away.
  */
 export function useFilterDraft<T>(
   value: T | undefined,
@@ -44,7 +43,8 @@ export function useFilterDraft<T>(
 
   const clear = useCallback(() => {
     setDraft(undefined);
-  }, []);
+    onChange(undefined);
+  }, [onChange]);
 
   return { draft, setDraft, apply, discard, clear };
 }
