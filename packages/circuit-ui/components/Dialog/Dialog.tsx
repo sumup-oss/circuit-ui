@@ -45,6 +45,32 @@ import { sharedClasses } from '../../styles/shared.js';
 
 type DataAttribute = `data-${string}`;
 
+/**
+ * Opens the dialog. Non-modal dialogs are also shown in the top layer using the
+ * Popover API when available.
+ */
+function openDialog(dialog: HTMLDialogElement, isModal: boolean) {
+  if (isModal) {
+    if (!dialog.open) {
+      dialog.showModal();
+    }
+    return;
+  }
+  if (!dialog.open) {
+    dialog.show();
+  }
+  if (dialog.hasAttribute('popover')) {
+    dialog.showPopover();
+  }
+}
+
+function closeDialog(dialog: HTMLDialogElement, returnValue?: string) {
+  if (dialog.hasAttribute('popover')) {
+    dialog.hidePopover();
+  }
+  dialog.close(returnValue);
+}
+
 export interface PublicDialogProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
   ref?: Ref<HTMLDialogElement>;
@@ -112,6 +138,12 @@ export interface DialogProps extends PublicDialogProps {
    */
   hideCloseButton?: boolean;
   /**
+   * Renders non-modal dialogs in the top layer using the Popover API when
+   * supported. Disable it for dialogs that should stack using `z-index`.
+   * @default true
+   */
+  topLayer?: boolean;
+  /**
    * By passing a `preventOutsideClickRefs` ref or array of refs,
    * you can prevent the dialog from closing when clicking on elements referenced by these refs.
    */
@@ -134,6 +166,7 @@ export function Dialog(props: DialogProps) {
     hideCloseButton = false,
     preventEscapeKeyClose = false,
     animationDuration = 0,
+    topLayer = true,
     onCloseStart,
     locale,
     formattingLocale,
@@ -146,6 +179,15 @@ export function Dialog(props: DialogProps) {
   const animationDurationRef = useLatest<number>(animationDuration);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [supportsPopover, setSupportsPopover] = useState(false);
+
+  useEffect(() => {
+    // Progressively enhance the dialog with the Popover API.
+    setSupportsPopover(
+      typeof HTMLElement !== 'undefined' &&
+        typeof HTMLElement.prototype.showPopover === 'function',
+    );
+  }, []);
 
   // Focus Management
   useEffect(() => {
@@ -181,7 +223,7 @@ export function Dialog(props: DialogProps) {
     // trigger closing of the dialog after animation
     setTimeout(() => {
       if (dialogElement.open) {
-        dialogElement.close();
+        closeDialog(dialogElement);
         setIsClosing(false);
       }
     }, animationDurationRef.current);
@@ -204,17 +246,13 @@ export function Dialog(props: DialogProps) {
     if (!openRef.current) {
       dialogElement.returnValue = '';
     }
-    if (openRef.current && !dialogElement.open) {
-      if (isModal) {
-        dialogElement.showModal();
-      } else {
-        dialogElement.show();
-      }
+    if (openRef.current) {
+      openDialog(dialogElement, isModal);
     }
 
     return () => {
       if (dialogElement.open) {
-        dialogElement.close('skipOnClose');
+        closeDialog(dialogElement, 'skipOnClose');
       }
     };
   }, [isModal, openRef]);
@@ -229,14 +267,24 @@ export function Dialog(props: DialogProps) {
     if (!open) {
       dialogElement.returnValue = '';
     }
-    if (open && !dialogElement.open) {
-      if (isModalRef.current) {
-        dialogElement.showModal();
-      } else {
-        dialogElement.show();
-      }
+    if (open) {
+      openDialog(dialogElement, isModalRef.current);
     }
   }, [isModalRef, open]);
+
+  useEffect(() => {
+    // Show dialogs that opened before support was detected in the top layer.
+    const dialogElement = dialogRef.current;
+    if (
+      supportsPopover &&
+      topLayer &&
+      open &&
+      dialogElement?.open &&
+      !isModal
+    ) {
+      dialogElement.showPopover();
+    }
+  }, [supportsPopover, topLayer, open, isModal]);
 
   useEffect(() => {
     const dialogElement = dialogRef.current;
@@ -323,7 +371,7 @@ export function Dialog(props: DialogProps) {
   useEffect(
     () => () => {
       if (dialogRef.current?.open) {
-        dialogRef.current?.close();
+        closeDialog(dialogRef.current);
       }
     },
     [],
@@ -449,6 +497,7 @@ export function Dialog(props: DialogProps) {
           className,
         )}
         ref={applyMultipleRefs(ref, dialogRef)}
+        popover={supportsPopover && topLayer ? 'manual' : undefined}
         style={{
           ...style,
           '--dialog-animation-duration': `${animationDuration}ms`,
