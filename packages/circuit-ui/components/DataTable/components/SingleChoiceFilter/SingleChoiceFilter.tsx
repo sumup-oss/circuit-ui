@@ -18,7 +18,7 @@
 import type { ChangeEvent } from 'react';
 
 import { RadioButtonGroup } from '../../../RadioButtonGroup/index.js';
-import type { FilterOption } from '../Filter/types.js';
+import type { Option } from '../../types.js';
 
 export interface SingleChoiceFilterProps {
   /**
@@ -33,7 +33,7 @@ export interface SingleChoiceFilterProps {
   /**
    * The available options.
    */
-  options: FilterOption[];
+  options: Option[];
   /**
    * The value of the selected option. `undefined` means no option is selected.
    */

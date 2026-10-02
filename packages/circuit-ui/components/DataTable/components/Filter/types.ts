@@ -13,28 +13,25 @@
  * limitations under the License.
  */
 
-import type { ReactNode } from 'react';
-
-export interface FilterOption {
-  label: string;
-  value: string;
-}
-
+/**
+ * A range of numbers. Both ends are optional and inclusive.
+ */
 export interface NumberRange {
   min?: number;
   max?: number;
 }
 
 /**
- * ISO 8601 calendar dates (`YYYY-MM-DD`), inclusive.
+ * A range of ISO 8601 calendar dates (`YYYY-MM-DD`). Both ends are optional
+ * and inclusive.
  */
 export interface DateRange {
-  min?: string;
-  max?: string;
+  from?: string;
+  to?: string;
 }
 
 /**
- * The value of each filter type. An `undefined` value means the filter is
+ * The value of each kind of filter. An `undefined` value means the filter is
  * not active.
  */
 export interface FilterValueMap {
@@ -44,23 +41,6 @@ export interface FilterValueMap {
   percentage: NumberRange;
   currency: NumberRange;
   date: DateRange;
-  custom: unknown;
 }
 
-export interface CustomFilterRenderProps {
-  value: unknown;
-  onChange: (value: unknown) => void;
-  onClose: () => void;
-}
-
-export type FilterConfig =
-  | { type: 'single'; options: FilterOption[] }
-  | { type: 'multi'; options: FilterOption[] }
-  | { type: 'number' }
-  | { type: 'percentage' }
-  | { type: 'currency'; currency: string }
-  | { type: 'date' }
-  /** Reserved for later. Not rendered yet. */
-  | { type: 'custom'; render: (props: CustomFilterRenderProps) => ReactNode };
-
-export type FilterType = FilterConfig['type'];
+export type FilterKind = keyof FilterValueMap;

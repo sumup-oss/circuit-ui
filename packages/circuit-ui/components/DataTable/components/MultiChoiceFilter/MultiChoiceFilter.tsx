@@ -18,7 +18,7 @@
 import { type ChangeEvent, useId } from 'react';
 
 import { CheckboxGroup } from '../../../CheckboxGroup/index.js';
-import type { FilterOption } from '../Filter/types.js';
+import type { Option } from '../../types.js';
 
 export interface MultiChoiceFilterProps {
   /**
@@ -33,7 +33,7 @@ export interface MultiChoiceFilterProps {
   /**
    * The available options.
    */
-  options: FilterOption[];
+  options: Option[];
   /**
    * The values of the selected options. `undefined` means no option is
    * selected.

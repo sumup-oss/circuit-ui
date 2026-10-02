@@ -26,7 +26,7 @@ import {
   type SingleChoiceFilterProps,
 } from '../SingleChoiceFilter/index.js';
 
-import type { FilterOption } from './types.js';
+import type { Option } from '../../types.js';
 import { useFilterDraft } from './useFilterDraft.js';
 
 export default {
@@ -48,7 +48,7 @@ function StoryWrapper({ children }: { children: ReactNode }) {
   return <div style={{ minHeight: '300px' }}>{children}</div>;
 }
 
-const paymentStatusOptions: FilterOption[] = [
+const paymentStatusOptions: Option[] = [
   { label: 'Paid', value: 'paid' },
   { label: 'Unpaid', value: 'unpaid' },
   { label: 'Revoked', value: 'revoked' },
