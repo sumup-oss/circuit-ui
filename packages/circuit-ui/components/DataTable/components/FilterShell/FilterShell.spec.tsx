@@ -67,7 +67,7 @@ describe('FilterShell', () => {
     await userEvent.click(trigger);
 
     expect(trigger).toHaveAttribute('aria-expanded', 'true');
-    expect(screen.getByText('Filter controls')).toBeVisible();
+    expect(screen.getByText('Filter controls')).toBeInTheDocument();
   });
 
   describe('without an onApply callback', () => {

@@ -16,6 +16,7 @@
 import { type ReactNode, useState } from 'react';
 
 import { modes } from '../../../../../../.storybook/modes.js';
+import { AmountFilter, type AmountFilterProps } from '../AmountFilter/index.js';
 import { FilterShell } from '../FilterShell/index.js';
 import {
   MultiChoiceFilter,
@@ -27,6 +28,7 @@ import {
 } from '../SingleChoiceFilter/index.js';
 
 import type { Option } from '../../types.js';
+import type { NumberRange } from './types.js';
 import { useFilterDraft } from './useFilterDraft.js';
 
 export default {
@@ -116,4 +118,50 @@ export const MultiChoice = (args: MultiChoiceFilterProps) => {
 MultiChoice.args = {
   label: 'Payment Status',
   options: paymentStatusOptions,
+};
+
+const AmountStory = (args: AmountFilterProps) => {
+  const [value, setValue] = useState<NumberRange | undefined>();
+  const { draft, setDraft, apply, clear, discard } = useFilterDraft(
+    value,
+    setValue,
+  );
+
+  return (
+    <StoryWrapper>
+      <FilterShell
+        label={args.label}
+        count={value ? 1 : 0}
+        onApply={apply}
+        onClear={clear}
+        onDiscard={discard}
+      >
+        <AmountFilter {...args} hideLabel value={draft} onChange={setDraft} />
+      </FilterShell>
+    </StoryWrapper>
+  );
+};
+
+export const Quantity = (args: AmountFilterProps) => <AmountStory {...args} />;
+
+Quantity.args = {
+  label: 'Quantity',
+  kind: 'number',
+};
+
+export const Percentage = (args: AmountFilterProps) => (
+  <AmountStory {...args} />
+);
+
+Percentage.args = {
+  label: 'VAT',
+  kind: 'percentage',
+};
+
+export const Currency = (args: AmountFilterProps) => <AmountStory {...args} />;
+
+Currency.args = {
+  label: 'Amount',
+  kind: 'currency',
+  currency: 'EUR',
 };
