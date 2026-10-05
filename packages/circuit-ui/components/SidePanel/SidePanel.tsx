@@ -95,7 +95,6 @@ export function SidePanel(props: SidePanelProps) {
         ref={ref}
         open={open}
         isModal={isMobile}
-        topLayer={false}
         aria-labelledby={headerAriaId}
         animationDuration={animationDuration}
         className={clsx(classes.base, animationClass, className)}
@@ -103,6 +102,7 @@ export function SidePanel(props: SidePanelProps) {
         preventOutsideClickClose={true}
         preventEscapeKeyClose={true}
         hideCloseButton
+        popover={false}
       >
         <div className={classes.wrapper} onScroll={handleScroll}>
           <Header

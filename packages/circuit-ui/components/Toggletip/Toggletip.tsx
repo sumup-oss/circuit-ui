@@ -57,7 +57,7 @@ export interface ToggletipReferenceProps {
 export interface ToggletipProps
   extends Omit<
     PublicDialogProps,
-    'open' | 'children' | 'isModal' | 'animationDuration'
+    'open' | 'children' | 'isModal' | 'animationDuration' | 'popover'
   > {
   /**
    * The button element that triggers the toggletip.
@@ -211,6 +211,7 @@ export function Toggletip(props: ToggletipProps) {
         className={clsx(classes.base, sharedClasses.elevatedSurface, className)}
         closeButtonLabel={closeButtonLabel}
         style={{ ...style, ...dialogStyles }}
+        popover
       >
         <div className={classes.content}>
           {headline && (

@@ -46,33 +46,44 @@ import { sharedClasses } from '../../styles/shared.js';
 type DataAttribute = `data-${string}`;
 
 /**
- * Opens the dialog. Non-modal dialogs are also shown in the top layer using the
+ * Opens the dialog.
+ * If the dialog is treated as a popover using the `popover` prop, it will be shown in the top layer using the
  * Popover API when available.
  */
-function openDialog(dialog: HTMLDialogElement, isModal: boolean) {
+function openDialog(
+  dialog: HTMLDialogElement,
+  isModal: boolean,
+  supportsPopover: boolean,
+) {
   if (isModal) {
     if (!dialog.open) {
       dialog.showModal();
     }
     return;
   }
+
+  if (dialog.hasAttribute('popover') && supportsPopover) {
+    dialog.showPopover();
+  }
+
   if (!dialog.open) {
     dialog.show();
   }
-  if (dialog.hasAttribute('popover')) {
-    dialog.showPopover();
-  }
 }
 
-function closeDialog(dialog: HTMLDialogElement, returnValue?: string) {
-  if (dialog.hasAttribute('popover')) {
+function closeDialog(
+  dialog: HTMLDialogElement,
+  supportsPopover: boolean,
+  returnValue?: string,
+) {
+  if (dialog.hasAttribute('popover') && supportsPopover) {
     dialog.hidePopover();
   }
   dialog.close(returnValue);
 }
 
 export interface PublicDialogProps
-  extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
+  extends Omit<HTMLAttributes<HTMLDialogElement>, 'children' | 'popover'> {
   ref?: Ref<HTMLDialogElement>;
   /**
    * Whether the modal dialog is open or not. Learn more about the `dialog` api https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/open.
@@ -100,6 +111,10 @@ export interface PublicDialogProps
    * Defaults to `navigator.language` in supported environments.
    */
   locale?: Locale;
+  /**
+   * When true, the dialog will be displayed as a popover with light dismissal (["auto"](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover#auto)).
+   */
+  popover?: boolean;
   /**
    * A `ReactNode` or a function that returns the content of the modal dialog.
    */
@@ -138,12 +153,6 @@ export interface DialogProps extends PublicDialogProps {
    */
   hideCloseButton?: boolean;
   /**
-   * Renders non-modal dialogs in the top layer using the Popover API when
-   * supported. Disable it for dialogs that should stack using `z-index`.
-   * @default true
-   */
-  topLayer?: boolean;
-  /**
    * By passing a `preventOutsideClickRefs` ref or array of refs,
    * you can prevent the dialog from closing when clicking on elements referenced by these refs.
    */
@@ -166,7 +175,7 @@ export function Dialog(props: DialogProps) {
     hideCloseButton = false,
     preventEscapeKeyClose = false,
     animationDuration = 0,
-    topLayer = true,
+    popover,
     onCloseStart,
     locale,
     formattingLocale,
@@ -223,11 +232,11 @@ export function Dialog(props: DialogProps) {
     // trigger closing of the dialog after animation
     setTimeout(() => {
       if (dialogElement.open) {
-        closeDialog(dialogElement);
+        closeDialog(dialogElement, supportsPopover);
         setIsClosing(false);
       }
     }, animationDurationRef.current);
-  }, [animationDurationRef, onCloseStart]);
+  }, [animationDurationRef, onCloseStart, supportsPopover]);
 
   useEffect(() => {
     // register the dialog element with the polyfill
@@ -247,15 +256,15 @@ export function Dialog(props: DialogProps) {
       dialogElement.returnValue = '';
     }
     if (openRef.current) {
-      openDialog(dialogElement, isModal);
+      openDialog(dialogElement, isModal, supportsPopover);
     }
 
     return () => {
       if (dialogElement.open) {
-        closeDialog(dialogElement, 'skipOnClose');
+        closeDialog(dialogElement, supportsPopover, 'skipOnClose');
       }
     };
-  }, [isModal, openRef]);
+  }, [isModal, openRef, supportsPopover]);
 
   useEffect(() => {
     const dialogElement = dialogRef.current;
@@ -268,23 +277,9 @@ export function Dialog(props: DialogProps) {
       dialogElement.returnValue = '';
     }
     if (open) {
-      openDialog(dialogElement, isModalRef.current);
+      openDialog(dialogElement, isModalRef.current, supportsPopover);
     }
-  }, [isModalRef, open]);
-
-  useEffect(() => {
-    // Show dialogs that opened before support was detected in the top layer.
-    const dialogElement = dialogRef.current;
-    if (
-      supportsPopover &&
-      topLayer &&
-      open &&
-      dialogElement?.open &&
-      !isModal
-    ) {
-      dialogElement.showPopover();
-    }
-  }, [supportsPopover, topLayer, open, isModal]);
+  }, [isModalRef, open, supportsPopover]);
 
   useEffect(() => {
     const dialogElement = dialogRef.current;
@@ -371,10 +366,10 @@ export function Dialog(props: DialogProps) {
   useEffect(
     () => () => {
       if (dialogRef.current?.open) {
-        closeDialog(dialogRef.current);
+        closeDialog(dialogRef.current, supportsPopover);
       }
     },
-    [],
+    [supportsPopover],
   );
 
   const handleSwipe = useCallback(
@@ -497,7 +492,7 @@ export function Dialog(props: DialogProps) {
           className,
         )}
         ref={applyMultipleRefs(ref, dialogRef)}
-        popover={supportsPopover && topLayer ? 'manual' : undefined}
+        popover={supportsPopover && popover ? 'auto' : undefined}
         style={{
           ...style,
           '--dialog-animation-duration': `${animationDuration}ms`,

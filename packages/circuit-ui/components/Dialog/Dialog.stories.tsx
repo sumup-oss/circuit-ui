@@ -106,6 +106,32 @@ export const Base = (dialog: DialogProps) => {
 Base.args = baseArgs;
 Base.play = openDialog;
 
+export const ASPopover = (dialog: DialogProps) => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  return (
+    <>
+      <Button
+        type="button"
+        onClick={() => {
+          setDialogOpen(true);
+        }}
+      >
+        Open dialog
+      </Button>
+      <Dialog
+        {...dialog}
+        open={dialogOpen}
+        onCloseEnd={() => setDialogOpen(false)}
+      />
+    </>
+  );
+};
+ASPopover.args = {
+  ...baseArgs,
+  popover: 'auto',
+};
+ASPopover.play = openDialog;
+
 export const Modal = (dialog: DialogProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   return (

@@ -136,48 +136,49 @@ describe('Dialog', () => {
     expect(dialog).toHaveAttribute('open');
   });
 
-  describe('top layer', () => {
-    it('should not use the popover API when `topLayer` is disabled', () => {
-      const { rerender } = render(<Dialog {...props} topLayer={false} />);
-      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
-        hidden: true,
-      });
-      vi.spyOn(dialog, 'showPopover');
-      rerender(<Dialog {...props} topLayer={false} open />);
-      expect(dialog).not.toHaveAttribute('popover');
-      expect(dialog.showPopover).not.toHaveBeenCalled();
-    });
-
-    it('should show the popover when a non-modal dialog opens', () => {
+  describe('As popover', () => {
+    it('should not use the popover API when popover is falsy', () => {
       const { rerender } = render(<Dialog {...props} />);
       const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
         hidden: true,
       });
       vi.spyOn(dialog, 'showPopover');
       rerender(<Dialog {...props} open />);
+      expect(dialog).not.toHaveAttribute('popover');
+      expect(dialog.showPopover).not.toHaveBeenCalled();
+    });
+
+    it('should show the popover when popover is truthy and a non-modal dialog opens', () => {
+      const { rerender } = render(<Dialog {...props} popover />);
+      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+        hidden: true,
+      });
+      vi.spyOn(dialog, 'showPopover');
+      rerender(<Dialog {...props} popover open />);
       expect(dialog.showPopover).toHaveBeenCalled();
     });
 
     it('should hide the popover when the dialog closes', () => {
-      const { rerender } = render(<Dialog {...props} open />);
+      const { rerender } = render(<Dialog {...props} popover open />);
       const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
         hidden: true,
       });
       vi.spyOn(dialog, 'hidePopover');
-      rerender(<Dialog {...props} />);
+      rerender(<Dialog {...props} popover />);
       vi.runAllTimers();
       expect(dialog.hidePopover).toHaveBeenCalled();
     });
 
     it('should hide the popover before switching to modal mode', () => {
-      const { rerender } = render(<Dialog {...props} open />);
+      const { rerender } = render(<Dialog {...props} popover open />);
       const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
         hidden: true,
       });
       const hidePopover = vi.spyOn(dialog, 'hidePopover');
       const showModal = vi.spyOn(dialog, 'showModal');
-      rerender(<Dialog {...props} open isModal />);
-      expect(hidePopover).toHaveBeenCalled();
+      rerender(<Dialog {...props} popover open isModal />);
+      expect(hidePopover).toHaveBeenCalledOnce();
+      expect(showModal).toHaveBeenCalledOnce();
       expect(hidePopover.mock.invocationCallOrder[0]).toBeLessThan(
         showModal.mock.invocationCallOrder[0],
       );

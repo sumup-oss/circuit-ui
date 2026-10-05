@@ -64,7 +64,7 @@ export interface PopoverReferenceProps {
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
 export interface PopoverProps
-  extends Omit<PublicDialogProps, 'open' | 'onToggle' | 'isModal'>,
+  extends Omit<PublicDialogProps, 'open' | 'onToggle' | 'isModal' | 'popover'>,
     Pick<DialogProps, 'hideCloseButton'> {
   /**
    * The state of the Popover.
@@ -247,6 +247,7 @@ export function Popover({
         animationDuration={animationDuration}
         style={isModalOnMobile ? style : { ...style, ...floatingStyles }}
         preventOutsideClickRefs={refs.reference as RefObject<HTMLElement>}
+        popover
       >
         <div id={contentId} className={clsx(classes.content, contentClassName)}>
           {typeof children === 'function'
