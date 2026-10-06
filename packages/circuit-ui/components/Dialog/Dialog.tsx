@@ -73,7 +73,10 @@ function openDialog(
 
 function closeDialog(dialog: HTMLDialogElement, returnValue?: string) {
   dialog.close(returnValue);
-  if (dialog.hasAttribute('popover') && dialog.matches(':popover-open')) {
+  if (
+    dialog.hasAttribute('popover') &&
+    typeof dialog.hidePopover === 'function'
+  ) {
     dialog.hidePopover();
   }
 }
