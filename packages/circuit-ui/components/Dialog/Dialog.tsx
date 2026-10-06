@@ -71,12 +71,8 @@ function openDialog(
   }
 }
 
-function closeDialog(
-  dialog: HTMLDialogElement,
-  supportsPopover: boolean,
-  returnValue?: string,
-) {
-  if (dialog.hasAttribute('popover') && supportsPopover) {
+function closeDialog(dialog: HTMLDialogElement, returnValue?: string) {
+  if (dialog.hasAttribute('popover') && dialog.matches(':popover-open')) {
     dialog.hidePopover();
   }
   dialog.close(returnValue);
@@ -188,7 +184,7 @@ export function Dialog(props: DialogProps) {
   const animationDurationRef = useLatest<number>(animationDuration);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
   const [isClosing, setIsClosing] = useState(false);
-  const [supportsPopover, setSupportsPopover] = useState(false);
+  const [supportsPopover, setSupportsPopover] = useState<boolean | null>(null);
 
   useEffect(() => {
     // Progressively enhance the dialog with the Popover API.
@@ -221,10 +217,10 @@ export function Dialog(props: DialogProps) {
     };
   }, [open, animationDurationRef]);
 
-  // Component  opening/closing logic
+  // Component opening/closing logic
   const handleDialogClose = useCallback(() => {
     const dialogElement = dialogRef.current;
-    if (!dialogElement) {
+    if (!dialogElement || supportsPopover === null) {
       return;
     }
     onCloseStart?.();
@@ -232,7 +228,7 @@ export function Dialog(props: DialogProps) {
     // trigger closing of the dialog after animation
     setTimeout(() => {
       if (dialogElement.open) {
-        closeDialog(dialogElement, supportsPopover);
+        closeDialog(dialogElement);
         setIsClosing(false);
       }
     }, animationDurationRef.current);
@@ -248,7 +244,7 @@ export function Dialog(props: DialogProps) {
   useEffect(() => {
     const dialogElement = dialogRef.current;
 
-    if (!dialogElement) {
+    if (!dialogElement || supportsPopover === null) {
       return undefined;
     }
 
@@ -261,7 +257,7 @@ export function Dialog(props: DialogProps) {
 
     return () => {
       if (dialogElement.open) {
-        closeDialog(dialogElement, supportsPopover, 'skipOnClose');
+        closeDialog(dialogElement, 'skipOnClose');
       }
     };
   }, [isModal, openRef, supportsPopover]);
@@ -269,7 +265,7 @@ export function Dialog(props: DialogProps) {
   useEffect(() => {
     const dialogElement = dialogRef.current;
 
-    if (!dialogElement) {
+    if (!dialogElement || supportsPopover === null) {
       return;
     }
 
@@ -366,10 +362,10 @@ export function Dialog(props: DialogProps) {
   useEffect(
     () => () => {
       if (dialogRef.current?.open) {
-        closeDialog(dialogRef.current, supportsPopover);
+        closeDialog(dialogRef.current);
       }
     },
-    [supportsPopover],
+    [],
   );
 
   const handleSwipe = useCallback(

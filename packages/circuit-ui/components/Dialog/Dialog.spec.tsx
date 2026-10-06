@@ -164,6 +164,12 @@ describe('Dialog', () => {
         hidden: true,
       });
       vi.spyOn(dialog, 'hidePopover');
+      vi.spyOn(dialog, 'matches').mockImplementationOnce((selector) => {
+        if (selector === ':popover-open') {
+          return dialog.hasAttribute('popover-open');
+        }
+        return dialog.matches(selector);
+      });
       rerender(<Dialog {...props} popover />);
       vi.runAllTimers();
       expect(dialog.hidePopover).toHaveBeenCalled();
@@ -176,6 +182,12 @@ describe('Dialog', () => {
       });
       const hidePopover = vi.spyOn(dialog, 'hidePopover');
       const showModal = vi.spyOn(dialog, 'showModal');
+      vi.spyOn(dialog, 'matches').mockImplementationOnce((selector) => {
+        if (selector === ':popover-open') {
+          return dialog.hasAttribute('popover-open');
+        }
+        return dialog.matches(selector);
+      });
       rerender(<Dialog {...props} popover open isModal />);
       expect(hidePopover).toHaveBeenCalledOnce();
       expect(showModal).toHaveBeenCalledOnce();
