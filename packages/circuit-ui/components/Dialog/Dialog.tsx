@@ -72,10 +72,10 @@ function openDialog(
 }
 
 function closeDialog(dialog: HTMLDialogElement, returnValue?: string) {
+  dialog.close(returnValue);
   if (dialog.hasAttribute('popover') && dialog.matches(':popover-open')) {
     dialog.hidePopover();
   }
-  dialog.close(returnValue);
 }
 
 export interface PublicDialogProps
@@ -110,7 +110,7 @@ export interface PublicDialogProps
   /**
    * When true, the dialog will be displayed as a popover with light dismissal (["auto"](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover#auto)).
    */
-  popover?: "auto";
+  popover?: 'auto';
   /**
    * A `ReactNode` or a function that returns the content of the modal dialog.
    */
