@@ -98,6 +98,7 @@ export function Modal({
       preventOutsideClickClose={preventClose}
       hideCloseButton={preventClose}
       {...rest}
+      popover={undefined}
     >
       <div className={clsx(classes.content, contentClassName)}>
         {typeof children === 'function' ? children?.({ onClose }) : children}

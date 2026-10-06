@@ -110,7 +110,7 @@ export interface PublicDialogProps
   /**
    * When true, the dialog will be displayed as a popover with light dismissal (["auto"](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover#auto)).
    */
-  popover?: boolean;
+  popover?: "auto";
   /**
    * A `ReactNode` or a function that returns the content of the modal dialog.
    */
@@ -171,7 +171,7 @@ export function Dialog(props: DialogProps) {
     hideCloseButton = false,
     preventEscapeKeyClose = false,
     animationDuration = 0,
-    popover,
+    popover = undefined,
     onCloseStart,
     locale,
     formattingLocale,

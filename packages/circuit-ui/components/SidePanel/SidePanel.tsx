@@ -102,7 +102,7 @@ export function SidePanel(props: SidePanelProps) {
         preventOutsideClickClose={true}
         preventEscapeKeyClose={true}
         hideCloseButton
-        popover={false}
+        popover={undefined}
       >
         <div className={classes.wrapper} onScroll={handleScroll}>
           <Header
