@@ -17,6 +17,7 @@ import { type ReactNode, useState } from 'react';
 
 import { modes } from '../../../../../../.storybook/modes.js';
 import { AmountFilter, type AmountFilterProps } from '../AmountFilter/index.js';
+import { DateFilter, type DateFilterProps } from '../DateFilter/index.js';
 import { FilterShell } from '../FilterShell/index.js';
 import {
   MultiChoiceFilter,
@@ -28,7 +29,7 @@ import {
 } from '../SingleChoiceFilter/index.js';
 
 import type { Option } from '../../types.js';
-import type { NumberRange } from './types.js';
+import type { DateRange as DateRangeValue, NumberRange } from './types.js';
 import { useFilterDraft } from './useFilterDraft.js';
 
 export default {
@@ -164,4 +165,30 @@ Currency.args = {
   label: 'Amount',
   kind: 'currency',
   currency: 'EUR',
+};
+
+export const DateRange = (args: DateFilterProps) => {
+  const [value, setValue] = useState<DateRangeValue | undefined>();
+  const { draft, setDraft, apply, clear, discard } = useFilterDraft(
+    value,
+    setValue,
+  );
+
+  return (
+    <StoryWrapper>
+      <FilterShell
+        label={args.label}
+        count={value ? 1 : 0}
+        onApply={apply}
+        onClear={clear}
+        onDiscard={discard}
+      >
+        <DateFilter {...args} hideLabel value={draft} onChange={setDraft} />
+      </FilterShell>
+    </StoryWrapper>
+  );
+};
+
+DateRange.args = {
+  label: 'Date',
 };
