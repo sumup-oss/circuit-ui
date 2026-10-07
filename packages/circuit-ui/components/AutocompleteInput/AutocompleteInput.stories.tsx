@@ -170,6 +170,16 @@ export default {
         category: 'Input',
       },
     },
+    renderPrefix: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
+    prefixValue: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
     // Behavior & Appearance
     multiple: {
       table: {
@@ -177,6 +187,11 @@ export default {
       },
     },
     variant: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
+    embedded: {
       table: {
         category: 'Behavior & Appearance',
       },
@@ -323,6 +338,12 @@ export const Base = (args: AutocompleteInputProps) => {
 };
 Base.args = baseArgs;
 Base.play = openAutocomplete();
+
+export const Embedded = (args: AutocompleteInputProps) => (
+  <AutocompleteInput {...args} />
+);
+Embedded.args = { ...baseArgs, embedded: true };
+Embedded.play = openAutocomplete();
 
 export const WithIcons = (args: AutocompleteInputProps) => (
   <AutocompleteInput {...args} />

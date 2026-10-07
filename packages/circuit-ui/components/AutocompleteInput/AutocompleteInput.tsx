@@ -114,6 +114,11 @@ export type AutocompleteInputProps = Omit<
      * */
     variant?: 'contextual' | 'immersive';
     /**
+     * Removes the floating container of the results
+     * so that the component can be embedded in other containers.
+     * */
+    embedded?: boolean;
+    /**
      * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
      * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
      * When passing an array, the first supported locale is used.
@@ -154,6 +159,7 @@ export function AutocompleteInput({
   minQueryLength = 0,
   action,
   loadMore,
+  embedded,
   allowNewItems,
   variant = 'contextual',
   size = 'm',
@@ -581,6 +587,24 @@ export function AutocompleteInput({
           {results}
         </Modal>
       </>
+    );
+  }
+
+  if (embedded) {
+    return (
+      <div ref={wrapperRef}>
+        <div ref={inputWrapperRef}>
+          <ComboboxInput
+            ref={applyMultipleRefs(comboboxRef, ref)}
+            comboboxRef={refs.setReference}
+            inputClassName={props.inputClassName}
+            aria-expanded={isOpen}
+            aria-haspopup="listbox"
+            {...comboboxProps}
+          />
+        </div>
+        {isOpen && results}
+      </div>
     );
   }
 
