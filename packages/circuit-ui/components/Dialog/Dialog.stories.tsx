@@ -128,7 +128,7 @@ export const ASPopover = (dialog: DialogProps) => {
 };
 ASPopover.args = {
   ...baseArgs,
-  popover: 'auto',
+  popover: 'manual',
 };
 ASPopover.play = openDialog;
 

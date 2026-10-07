@@ -28,7 +28,8 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 
 import classes from './Modal.module.css';
 
-export interface ModalProps extends Omit<PublicDialogProps, 'isModal'> {
+export interface ModalProps
+  extends Omit<PublicDialogProps, 'isModal' | 'popover'> {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
    * @default 'contextual'
@@ -98,7 +99,6 @@ export function Modal({
       preventOutsideClickClose={preventClose}
       hideCloseButton={preventClose}
       {...rest}
-      popover={undefined}
     >
       <div className={clsx(classes.content, contentClassName)}>
         {typeof children === 'function' ? children?.({ onClose }) : children}

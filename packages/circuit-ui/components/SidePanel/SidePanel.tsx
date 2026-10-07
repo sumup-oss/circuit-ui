@@ -36,7 +36,7 @@ import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanel.module.css';
 import { translations } from './translations/index.js';
 
-export type SidePanelProps = Omit<DialogProps, 'children' | 'topLayer'> &
+export type SidePanelProps = Omit<DialogProps, 'children' | 'popover'> &
   SidePanelHookProps & { ref?: Ref<HTMLDialogElement> };
 
 export function SidePanel(props: SidePanelProps) {
@@ -102,7 +102,6 @@ export function SidePanel(props: SidePanelProps) {
         preventOutsideClickClose={true}
         preventEscapeKeyClose={true}
         hideCloseButton
-        popover={undefined}
       >
         <div className={classes.wrapper} onScroll={handleScroll}>
           <Header
