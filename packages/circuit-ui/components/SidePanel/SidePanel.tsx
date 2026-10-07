@@ -36,7 +36,7 @@ import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanel.module.css';
 import { translations } from './translations/index.js';
 
-export type SidePanelProps = Omit<DialogProps, 'children' | 'popover'> &
+export type SidePanelProps = Omit<DialogProps, 'children'> &
   SidePanelHookProps & { ref?: Ref<HTMLDialogElement> };
 
 export function SidePanel(props: SidePanelProps) {

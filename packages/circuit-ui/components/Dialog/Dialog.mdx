@@ -84,9 +84,10 @@ function Component() {
 
 ### As a popover
 
-Use the `popover` prop to show a non-modal dialog in the top layer using the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API), so it's not obscured by other elements. In browsers that don't support the Popover API, the dialog renders as usual.
+Use the `popover` prop to show a non-modal dialog in the top layer using the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API). As a popover, the dialog will render in the top layer.
+In browsers that don't support the Popover API, the dialog renders as usual.
 
-Only the `"manual"` popover behavior is supported. The dialog closes itself on outside clicks and the escape key, so the browser's light dismissal is disabled. This also keeps the dialog open when other popovers, such as tooltips, are shown.
+Only the `"manual"` popover behavior is supported. The dialog's dismissal is handled by the component itself. `preventOutsideClickClose` and `preventEscapeKeyClose` still apply.
 
 ## Accessibility
 

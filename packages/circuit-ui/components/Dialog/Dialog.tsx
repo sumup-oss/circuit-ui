@@ -46,7 +46,7 @@ import { sharedClasses } from '../../styles/shared.js';
 type DataAttribute = `data-${string}`;
 
 /**
- * Opens the dialog. Dialogs with the `popover` prop are also shown in the top
+ * Opens the dialog. Non-modal dialogs with the `popover` prop are shown in the top
  * layer using the Popover API when available.
  */
 function openDialog(
@@ -64,10 +64,9 @@ function openDialog(
   // `show()` hides the dialog's own popover if it's shown first
   if (!dialog.open) {
     dialog.show();
-  }
-
-  if (dialog.hasAttribute('popover') && supportsPopover) {
-    dialog.showPopover();
+    if (dialog.hasAttribute('popover') && supportsPopover) {
+      dialog.showPopover();
+    }
   }
 }
 
@@ -111,12 +110,6 @@ export interface PublicDialogProps
    */
   locale?: Locale;
   /**
-   * Shows non-modal dialogs in the top layer using the Popover API when
-   * supported. The dialog handles closing itself, so the browser's light
-   * dismissal is disabled.
-   */
-  popover?: 'manual';
-  /**
    * A `ReactNode` or a function that returns the content of the modal dialog.
    */
   children?:
@@ -148,6 +141,12 @@ export interface DialogProps extends PublicDialogProps {
    * @default false
    */
   preventEscapeKeyClose?: boolean;
+  /**
+   * Shows non-modal dialogs in the top layer using the Popover API when
+   * supported. Dismissing popover dialogs is [manual](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/popover#manual).
+   * `preventEscapeKeyClose` and `preventOutsideClickClose` still apply.
+   */
+  popover?: 'manual';
   /**
    * Hides the close button when the dialog is modal.
    @default false
