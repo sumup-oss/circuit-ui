@@ -138,17 +138,30 @@ export function parsePhoneNumber(
   };
 }
 
+/**
+ * Countries where a leading zero is part of the national significant number
+ * and must be retained in the international format (unlike a trunk prefix).
+ * @see https://en.wikipedia.org/wiki/Telephone_numbers_in_Italy
+ */
+const COUNTRIES_WITH_LEADING_ZERO = new Set(['IT']);
+
 export function normalizePhoneNumber(
   countryCode: string,
   subscriberNumber: string,
+  country?: string,
 ) {
-  const normalizedSubscriberNumber = subscriberNumber
+  let normalizedSubscriberNumber = subscriberNumber
     // Strip non-numeric, non-whitespace characters
     .replace(/[^0-9\s]/g, ' ')
     // Replace unsupported whitespace characters with simple space
-    .replace(/\s+/g, ' ')
-    // Strip any leading zeros
-    .replace(/^0+/, '');
+    .replace(/\s+/g, ' ');
+
+  // Strip leading zeros unless they are significant for the selected country
+  // (e.g. Italian geographic numbers keep the leading 0 after +39).
+  if (!country || !COUNTRIES_WITH_LEADING_ZERO.has(country)) {
+    normalizedSubscriberNumber = normalizedSubscriberNumber.replace(/^0+/, '');
+  }
+
   return `${countryCode}${normalizedSubscriberNumber}`;
 }
 

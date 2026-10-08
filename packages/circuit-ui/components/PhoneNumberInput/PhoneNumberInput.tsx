@@ -290,6 +290,7 @@ export function PhoneNumberInput({
     const phoneNumber = normalizePhoneNumber(
       code,
       subscriberNumberRef.current.value,
+      selectedCountry,
     );
 
     changeInputValue(hiddenInputRef.current, phoneNumber);
