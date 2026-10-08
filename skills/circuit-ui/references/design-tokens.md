@@ -72,6 +72,26 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-bg-brand-hovered` | `color` | no |  | `#eb58df` | `#eb58df` |
 | `--cui-bg-brand-pressed` | `color` | no |  | `#da4ece` | `#da4ece` |
 | `--cui-bg-brand-disabled` | `color` | no |  | `rgba(255, 97, 242, 0.2000)` | `rgba(255, 97, 242, 0.4000)` |
+| `--cui-bg-media` | `color` | no |  |  |  |
+| `--cui-bg-media-hovered` | `color` | no |  |  |  |
+| `--cui-bg-media-pressed` | `color` | no |  |  |  |
+| `--cui-bg-media-disabled` | `color` | no |  |  |  |
+| `--cui-bg-media-subtle` | `color` | no |  |  |  |
+| `--cui-bg-media-subtle-hovered` | `color` | no |  |  |  |
+| `--cui-bg-media-subtle-pressed` | `color` | no |  |  |  |
+| `--cui-bg-media-subtle-disabled` | `color` | no |  |  |  |
+| `--cui-bg-media-highlight` | `color` | no |  |  |  |
+| `--cui-bg-media-highlight-hovered` | `color` | no |  |  |  |
+| `--cui-bg-media-highlight-pressed` | `color` | no |  |  |  |
+| `--cui-bg-media-highlight-disabled` | `color` | no |  |  |  |
+| `--cui-bg-media-warning` | `color` | no |  |  |  |
+| `--cui-bg-media-warning-hovered` | `color` | no |  |  |  |
+| `--cui-bg-media-warning-pressed` | `color` | no |  |  |  |
+| `--cui-bg-media-warning-disabled` | `color` | no |  |  |  |
+| `--cui-bg-media-danger` | `color` | no |  |  |  |
+| `--cui-bg-media-danger-hovered` | `color` | no |  |  |  |
+| `--cui-bg-media-danger-pressed` | `color` | no |  |  |  |
+| `--cui-bg-media-danger-disabled` | `color` | no |  |  |  |
 | `--cui-fg-normal` | `color` | no |  | `#1e1c1c` | `#f0eee7` |
 | `--cui-fg-normal-hovered` | `color` | no |  | `rgba(30, 28, 28, 0.9000)` | `#f0eee7` |
 | `--cui-fg-normal-pressed` | `color` | no |  | `rgba(30, 28, 28, 0.8000)` | `#f0eee7` |
@@ -120,6 +140,14 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-fg-brand-hovered` | `color` | no |  | `#eb58df` | `#eb58df` |
 | `--cui-fg-brand-pressed` | `color` | no |  | `#da4ece` | `#da4ece` |
 | `--cui-fg-brand-disabled` | `color` | no |  | `rgba(255, 97, 242, 0.6000)` | `rgba(255, 97, 242, 0.4000)` |
+| `--cui-fg-on-media` | `color` | no |  |  |  |
+| `--cui-fg-on-media-hovered` | `color` | no |  |  |  |
+| `--cui-fg-on-media-pressed` | `color` | no |  |  |  |
+| `--cui-fg-on-media-disabled` | `color` | no |  |  |  |
+| `--cui-fg-on-media-subtle` | `color` | no |  |  |  |
+| `--cui-fg-on-media-subtle-hovered` | `color` | no |  |  |  |
+| `--cui-fg-on-media-subtle-pressed` | `color` | no |  |  |  |
+| `--cui-fg-on-media-subtle-disabled` | `color` | no |  |  |  |
 | `--cui-border-normal` | `color` | no |  | `#d0cdc3` | `#46423d` |
 | `--cui-border-normal-hovered` | `color` | no |  | `#ded7cf` | `#3a3730` |
 | `--cui-border-normal-pressed` | `color` | no |  | `#cac4be` | `#454238` |

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import { getIconURL } from '../../helpers.js';
 import { ICON_SIZES } from '../../icon-sizes.js';
@@ -41,28 +41,32 @@ export type CardSchemeProps = HTMLAttributes<HTMLImageElement> & {
    * Additional class name to apply to the image.
    */
   className?: string;
+  ref?: Ref<HTMLImageElement>;
 };
 
 /**
  * Renders the logo of a card scheme as an image, loaded from a URL.
  */
-export const CardScheme = forwardRef<HTMLImageElement, CardSchemeProps>(
-  ({ name, alt, style, size = 'm', ...props }, ref) => {
-    const sizeValue = ICON_SIZES[size];
-    return (
-      <img
-        ref={ref}
-        style={{
-          width: sizeValue,
-          height: `calc(${sizeValue} * 3 / 4)`,
-          ...style,
-        }}
-        src={getIconURL(name, '32')}
-        {...props}
-        alt={alt}
-      />
-    );
-  },
-);
-
-CardScheme.displayName = 'CardScheme';
+export function CardScheme({
+  name,
+  alt,
+  style,
+  size = 'm',
+  ref,
+  ...props
+}: CardSchemeProps) {
+  const sizeValue = ICON_SIZES[size];
+  return (
+    <img
+      ref={ref}
+      style={{
+        width: sizeValue,
+        height: `calc(${sizeValue} * 3 / 4)`,
+        ...style,
+      }}
+      src={getIconURL(name, '32')}
+      {...props}
+      alt={alt}
+    />
+  );
+}

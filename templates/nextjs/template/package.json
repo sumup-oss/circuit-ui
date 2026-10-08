@@ -1,6 +1,6 @@
 {
   "name": "next-app",
-  "version": "2.0.3-next.0",
+  "version": "2.0.3",
   "private": true,
   "type": "module",
   "scripts": {
@@ -15,40 +15,35 @@
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^16.3.3",
-    "@sumup-oss/circuit-ui": "^12.0.0",
-    "@sumup-oss/design-tokens": "^11.0.0",
-    "@sumup-oss/icons": "^7.0.0",
+    "@next/bundle-analyzer": "^16.3.6",
+    "@sumup-oss/circuit-ui": "^12.3.0",
+    "@sumup-oss/design-tokens": "^11.1.0",
+    "@sumup-oss/icons": "^7.2.0",
     "@sumup-oss/intl": "^3.5.1",
-    "next": "^16.3.3",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "temporal-polyfill": "^1.0.4"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^16.3.3",
+    "@next/eslint-plugin-next": "^16.3.6",
     "@sumup-oss/eslint-plugin-circuit-ui": "^8.0.0",
-    "@sumup-oss/foundry": "^10.1.0",
-    "@sumup-oss/stylelint-plugin-circuit-ui": "^5.0.0-next.0",
+    "@sumup-oss/foundry": "^10.2.0",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^5.0.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
-    "@testing-library/user-event": "^14.6.6",
+    "@testing-library/user-event": "^14.6.7",
     "@types/jest": "^30.0.0",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^26.4.0",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.5",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "eslint-plugin-jest": "^29.16.6",
     "eslint-plugin-testing-library": "^7.16.2",
-    "jest": "^30.5.0",
+    "jest": "^30.5.2",
     "jest-axe": "^11.0.0",
     "jest-environment-jsdom": "^30.5.0",
     "typescript": "^6.0.3",
     "typescript-plugin-css-modules": "^5.2.0"
-  },
-  "overrides": {
-    "@sumup-oss/foundry": {
-      "@sumup-oss/stylelint-plugin-circuit-ui": "$@sumup-oss/stylelint-plugin-circuit-ui"
-    }
   }
 }

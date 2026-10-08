@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type CSSProperties, type HTMLAttributes } from 'react';
+import type { CSSProperties, HTMLAttributes, Ref } from 'react';
 
 import { getIconURL } from '../../helpers.js';
 import { ICON_SIZES } from '../../icon-sizes.js';
@@ -70,6 +70,7 @@ export type FlagProps = HTMLAttributes<HTMLImageElement> & {
    * Additional class name to apply to the flag's inner image.
    */
   imageClassName?: string;
+  ref?: Ref<HTMLImageElement>;
 } & (WithSize | WithHeightWidth);
 
 const ASPECT_RATIO = 4 / 3;
@@ -92,77 +93,70 @@ const IMAGE_STYLE: CSSProperties = {
 /**
  * Renders an SVG icon of a flag. Flags are sourced from: https://flagicons.lipis.dev/
  */
-export const Flag = forwardRef<HTMLImageElement, FlagProps>(
-  (
-    {
-      countryCode,
-      alt,
-      className,
-      imageClassName,
-      style,
-      size,
-      width,
-      height,
-      ...props
-    },
-    ref,
-  ) => {
-    const flagName = `flag_${countryCode.toLowerCase()}`;
+export function Flag({
+  countryCode,
+  alt,
+  className,
+  imageClassName,
+  style,
+  size,
+  width,
+  height,
+  ref,
+  ...props
+}: FlagProps) {
+  const flagName = `flag_${countryCode.toLowerCase()}`;
 
-    if (process.env.NODE_ENV !== 'production' && (width || height)) {
-      deprecate(
-        'Flag',
-        'The `width` and `height` props are deprecated. Use the `size` prop instead.',
-      );
-    }
+  if (process.env.NODE_ENV !== 'production' && (width || height)) {
+    deprecate(
+      'Flag',
+      'The `width` and `height` props are deprecated. Use the `size` prop instead.',
+    );
+  }
 
-    if (size) {
-      const sizeValue = ICON_SIZES[size];
-      return (
-        <div className={className} style={WRAPPER_STYLE}>
-          <img
-            ref={ref}
-            className={imageClassName}
-            style={{
-              ...IMAGE_STYLE,
-              width: sizeValue,
-              height: `calc(${sizeValue} * 3 / 4)`,
-              ...style,
-            }}
-            src={getIconURL(flagName, '480')}
-            {...props}
-            alt={alt}
-          />
-        </div>
-      );
-    }
-
-    // default dimensions
-    const dimensions = { width: 16, height: 12 };
-    // for a consistent aspect ratio
-    if (height) {
-      dimensions.height = height;
-      dimensions.width = height * ASPECT_RATIO;
-    }
-    if (width) {
-      dimensions.width = width;
-      dimensions.height = width / ASPECT_RATIO;
-    }
+  if (size) {
+    const sizeValue = ICON_SIZES[size];
     return (
       <div className={className} style={WRAPPER_STYLE}>
         <img
-          ref={ref}
           className={imageClassName}
-          style={{ ...IMAGE_STYLE, ...style }}
-          height={`${dimensions.height}px`}
-          width={`${dimensions.width}px`}
+          style={{
+            ...IMAGE_STYLE,
+            width: sizeValue,
+            height: `calc(${sizeValue} * 3 / 4)`,
+            ...style,
+          }}
           src={getIconURL(flagName, '480')}
           {...props}
           alt={alt}
         />
       </div>
     );
-  },
-);
+  }
 
-Flag.displayName = 'Flag';
+  // default dimensions
+  const dimensions = { width: 16, height: 12 };
+  // for a consistent aspect ratio
+  if (height) {
+    dimensions.height = height;
+    dimensions.width = height * ASPECT_RATIO;
+  }
+  if (width) {
+    dimensions.width = width;
+    dimensions.height = width / ASPECT_RATIO;
+  }
+  return (
+    <div className={className} style={WRAPPER_STYLE}>
+      <img
+        ref={ref}
+        className={imageClassName}
+        style={{ ...IMAGE_STYLE, ...style }}
+        height={`${dimensions.height}px`}
+        width={`${dimensions.width}px`}
+        src={getIconURL(flagName, '480')}
+        alt={alt}
+        {...props}
+      />
+    </div>
+  );
+}

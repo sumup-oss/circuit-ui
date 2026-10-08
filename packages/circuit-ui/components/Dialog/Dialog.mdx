@@ -82,6 +82,13 @@ function Component() {
 }
 ```
 
+### As a popover
+
+Use the `popover` prop to show a non-modal dialog in the top layer using the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API). As a popover, the dialog will render in the top layer.
+In browsers that don't support the Popover API, the dialog renders as usual.
+
+Only the `"manual"` popover behavior is supported. The dialog's dismissal is handled by the component itself. `preventOutsideClickClose` and `preventEscapeKeyClose` still apply.
+
 ## Accessibility
 
 This component is built using the native `dialog` HTML element and follows the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). It is fully accessible and supports keyboard navigation and screen readers. In browsers where `dialog` is not supported, it uses [dialog-polyfill](https://github.com/GoogleChrome/dialog-polyfill).

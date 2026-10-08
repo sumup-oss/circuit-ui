@@ -164,7 +164,7 @@ export const Options = ({
                     return (
                       <Option
                         key={optionFromGroup.value}
-                        {...optionFromGroup}
+                        option={optionFromGroup}
                         onOptionClick={onOptionClick}
                         isSelectable={multiple}
                         selected={isOptionSelected(
@@ -192,7 +192,7 @@ export const Options = ({
           return (
             <Option
               key={option.value}
-              {...option}
+              option={option}
               onOptionClick={onOptionClick}
               selected={isOptionSelected(option.value, value)}
               isSelectable={multiple}
@@ -206,9 +206,11 @@ export const Options = ({
 
         {showsNewOption && (
           <Option
-            value={searchText}
-            label={searchText}
-            image={optionsHaveMedia.current ? Plus : undefined}
+            option={{
+              value: searchText,
+              label: searchText,
+              image: optionsHaveMedia.current ? Plus : undefined,
+            }}
             isNew
             onOptionClick={onOptionClick}
             selected={isOptionSelected(searchText, value)}

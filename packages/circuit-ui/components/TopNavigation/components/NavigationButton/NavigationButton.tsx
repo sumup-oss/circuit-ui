@@ -5,7 +5,7 @@ import {
   legacyButtonSizeMap,
 } from '../../../Button/index.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { forwardRef } from 'react';
+import { utilClasses } from '../../../../styles/utility.js';
 
 export interface NavigationButtonProps
   extends Omit<IconButtonProps, 'variant' | 'children'> {
@@ -16,26 +16,35 @@ export interface NavigationButtonProps
    */
   href?: string;
 }
-export const NavigationButton = forwardRef<any, NavigationButtonProps>(
-  (
-    { className, icon: Icon, label, isActive, size: sizeProp = 'm', ...props },
-    ref,
-  ) => {
-    const size = legacyButtonSizeMap[sizeProp] || sizeProp;
 
-    return (
-      <IconButton
-        ref={ref}
-        variant="tertiary"
-        icon={Icon}
-        type="button"
-        aria-current={isActive ? 'page' : undefined}
-        size={size}
-        className={clsx(classes.base, classes[size], className)}
-        {...props}
-      >
-        {label}
-      </IconButton>
-    );
-  },
-);
+export function NavigationButton({
+  className,
+  icon: Icon,
+  label,
+  isActive,
+  size: sizeProp = 'm',
+  ref,
+  ...props
+}: NavigationButtonProps) {
+  const size = legacyButtonSizeMap[sizeProp] || sizeProp;
+
+  return (
+    <IconButton
+      ref={ref}
+      variant="tertiary"
+      icon={Icon}
+      type="button"
+      aria-current={isActive ? 'page' : undefined}
+      size={size}
+      className={clsx(
+        classes.base,
+        classes[size],
+        utilClasses.focusVisible,
+        className,
+      )}
+      {...props}
+    >
+      {label}
+    </IconButton>
+  );
+}

@@ -211,6 +211,7 @@ function buildDeclarationFile(
 async function transpileModule(fileName: string, code: string) {
   const output = transformSync(code, {
     cwd: BASE_DIR,
+    envName: 'production',
     targets: { esmodules: true },
     presets: [
       [
