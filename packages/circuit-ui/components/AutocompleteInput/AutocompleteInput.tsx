@@ -660,7 +660,6 @@ export function AutocompleteInput({
         className={clsx(sharedClasses.elevatedSurface, classes.results)}
         ref={applyMultipleRefs(refs.setFloating, popoverRef)}
         hidden={!isOpen}
-        aria-hidden={!isOpen}
         style={
           isOpen
             ? {
