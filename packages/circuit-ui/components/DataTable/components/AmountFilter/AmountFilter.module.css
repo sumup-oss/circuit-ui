@@ -1,0 +1,27 @@
+.base {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--cui-spacings-bit);
+}
+
+.range {
+  display: flex;
+  gap: var(--cui-spacings-byte);
+  align-items: center;
+}
+
+.range > :not(.separator) {
+  flex: 1;
+  min-width: 0;
+}
+
+.separator {
+  flex: none;
+  color: var(--cui-fg-subtle);
+}

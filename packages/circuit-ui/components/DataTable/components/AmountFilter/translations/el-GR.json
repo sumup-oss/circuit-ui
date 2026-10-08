@@ -1,0 +1,5 @@
+{
+  "minLabel": "Min",
+  "maxLabel": "Max",
+  "invalidRangeMessage": "The minimum cannot be greater than the maximum."
+}

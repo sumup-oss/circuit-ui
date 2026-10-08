@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-mega);
+}
+
+.footer {
+  display: flex;
+  gap: var(--cui-spacings-byte);
+  justify-content: flex-end;
+}
+
+@media (max-width: 479px) {
+  .footer > * {
+    flex: 1;
+  }
+}
