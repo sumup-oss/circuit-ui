@@ -76,7 +76,7 @@ export interface SelectorGroupProps
    */
   size?: SelectorSize;
   /**
-   * Whether the group should take the whole width available. Defaults to true.
+   * Whether the group should take the whole width available. Defaults to false.
    */
   stretch?: boolean;
   /**
