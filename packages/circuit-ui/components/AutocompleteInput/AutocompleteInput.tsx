@@ -200,10 +200,12 @@ export function AutocompleteInput({
   const comboboxRef = useRef<HTMLInputElement>(null);
   const inputWrapperRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
   const presentationFieldRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const listboxId = useId();
   const autocompleteId = useId();
+  const [supportsPopover, setSupportsPopover] = useState(false);
 
   if (
     process.env.NODE_ENV !== 'production' &&
@@ -255,9 +257,16 @@ export function AutocompleteInput({
       changeInputValue(comboboxRef.current, value?.label ?? '');
       onSearch('');
     }
+    if (
+      supportsPopover &&
+      popoverRef.current?.matches(':popover-open') &&
+      !isImmersive
+    ) {
+      popoverRef.current.hidePopover();
+    }
 
     setActiveOption(undefined);
-  }, [onSearch, searchText, value]);
+  }, [onSearch, searchText, value, supportsPopover, isImmersive]);
 
   const debouncedOnSearch = useMemo(
     () =>
@@ -341,6 +350,26 @@ export function AutocompleteInput({
     ],
     whileElementsMounted: autoUpdate,
   });
+
+  useEffect(() => {
+    setSupportsPopover(
+      typeof HTMLElement !== 'undefined' &&
+        typeof HTMLElement.prototype.showPopover === 'function',
+    );
+  }, []);
+
+  useEffect(() => {
+    if (!supportsPopover || !popoverRef.current) {
+      return;
+    }
+    if (
+      isOpen &&
+      !isImmersive &&
+      !popoverRef.current.matches(':popover-open')
+    ) {
+      popoverRef.current.showPopover();
+    }
+  }, [isOpen, supportsPopover, isImmersive]);
 
   useEffect(() => {
     if (value && !Array.isArray(value)) {
@@ -608,6 +637,11 @@ export function AutocompleteInput({
     );
   }
 
+  const sizeStyles = {
+    width: refs.reference.current?.parentElement?.offsetWidth ?? 0,
+    maxWidth: refs.reference.current?.parentElement?.offsetWidth ?? 0,
+  };
+
   return (
     <div ref={wrapperRef}>
       <div ref={inputWrapperRef}>
@@ -620,19 +654,25 @@ export function AutocompleteInput({
           {...comboboxProps}
         />
       </div>
-      {isOpen && (
-        <div
-          className={clsx(sharedClasses.elevatedSurface, classes.results)}
-          ref={refs.setFloating}
-          style={{
-            ...floatingStyles,
-            width: refs.reference.current?.parentElement?.offsetWidth ?? 0,
-            maxWidth: refs.reference.current?.parentElement?.offsetWidth ?? 0,
-          }}
-        >
-          {results}
-        </div>
-      )}
+
+      <div
+        data-testid="results"
+        className={clsx(sharedClasses.elevatedSurface, classes.results)}
+        ref={applyMultipleRefs(refs.setFloating, popoverRef)}
+        hidden={!isOpen}
+        aria-hidden={!isOpen}
+        style={
+          isOpen
+            ? {
+                ...sizeStyles,
+                ...floatingStyles,
+              }
+            : sizeStyles
+        }
+        popover={supportsPopover ? 'manual' : undefined}
+      >
+        {results}
+      </div>
     </div>
   );
 }

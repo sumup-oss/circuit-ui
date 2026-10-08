@@ -256,11 +256,15 @@ describe('AutocompleteInput', () => {
     it('should open list box if the user types anything', async () => {
       render(<AutocompleteInput {...props} />);
       const input = screen.getByRole('combobox', { name: props.label });
+      const results = screen.getByTestId('results');
+      vi.spyOn(results, 'showPopover');
+      expect(results).not.toBeVisible();
       await userEvent.type(input, 'AZERTY');
       act(() => {
         vi.runAllTimers();
       });
       expect(props.onSearch).toHaveBeenCalledExactlyOnceWith('AZERTY');
+      expect(results.showPopover).toHaveBeenCalledOnce();
 
       expect(screen.getByRole('listbox')).toBeVisible();
     });
@@ -397,8 +401,18 @@ describe('AutocompleteInput', () => {
 
     it('should close the list box when Enter key is pressed', async () => {
       render(<AutocompleteInput {...props} />);
-
-      await userEvent.click(screen.getByLabelText(props.label));
+      const results = screen.getByTestId('results');
+      expect(results).not.toBeVisible();
+      vi.spyOn(results, 'hidePopover');
+      vi.spyOn(results, 'matches').mockImplementation((selector) => {
+        if (selector === ':popover-open') {
+          return results.getAttribute('data-state') === 'open';
+        }
+        return results.matches(selector);
+      });
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
 
       await userEvent.keyboard('{ArrowDown}');
 
@@ -406,6 +420,7 @@ describe('AutocompleteInput', () => {
 
       await userEvent.keyboard('{Enter}');
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(results.hidePopover).toHaveBeenCalledOnce();
       expect(props.onSearch).not.toHaveBeenCalled();
     });
 
@@ -442,8 +457,8 @@ describe('AutocompleteInput', () => {
       render(
         <AutocompleteInput {...props} multiple value={options.slice(0, 2)} />,
       );
-      expect(screen.getByText(options[0].label)).toBeVisible();
-      expect(screen.getByText(options[1].label)).toBeVisible();
+      expect(screen.getByText(options[0].label, { ignore: 'p' })).toBeVisible();
+      expect(screen.getByText(options[1].label, { ignore: 'p' })).toBeVisible();
       expect(
         screen.getByRole('button', { name: `Remove ${options[0].label}` }),
       ).toBeVisible();
@@ -742,8 +757,7 @@ describe('AutocompleteInput', () => {
 
     it('should have the correct attributes', async () => {
       render(<AutocompleteInput {...props} />);
-      const input = screen.getByLabelText(props.label);
-      expect(input).toHaveRole('combobox');
+      const input = screen.getByRole('combobox', { name: props.label });
       expect(input).toHaveAttribute('aria-autocomplete', 'list');
       expect(input).toHaveAttribute('aria-expanded', 'false');
 
@@ -761,7 +775,7 @@ describe('AutocompleteInput', () => {
       const { rerender } = render(
         <AutocompleteInput {...props} options={[mochi, luna, oliver]} />,
       );
-      const input = screen.getByLabelText(props.label);
+      const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       await userEvent.keyboard('{ArrowDown}');
       expect(input).toHaveAttribute(
