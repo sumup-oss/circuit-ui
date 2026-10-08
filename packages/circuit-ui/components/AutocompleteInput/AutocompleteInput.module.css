@@ -8,6 +8,7 @@
 
 .results[popover] {
   inset: auto;
+  padding: 0;
   border: none;
 }
 
