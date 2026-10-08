@@ -73,10 +73,7 @@ export function Results({
   return (
     <div
       ref={ref}
-      className={clsx(
-        !isImmersive && classes.modal,
-        isImmersive && action && classes['modal-with-action'],
-      )}
+      className={clsx(isImmersive && action && classes['modal-with-action'])}
     >
       <div
         role="status"
