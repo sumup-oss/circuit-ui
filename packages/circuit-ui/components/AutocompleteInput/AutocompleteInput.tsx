@@ -260,13 +260,14 @@ export function AutocompleteInput({
     if (
       supportsPopover &&
       popoverRef.current?.matches(':popover-open') &&
-      !isImmersive
+      !isImmersive &&
+      !embedded
     ) {
       popoverRef.current.hidePopover();
     }
 
     setActiveOption(undefined);
-  }, [onSearch, searchText, value, supportsPopover, isImmersive]);
+  }, [onSearch, searchText, value, supportsPopover, isImmersive, embedded]);
 
   const debouncedOnSearch = useMemo(
     () =>
@@ -365,11 +366,12 @@ export function AutocompleteInput({
     if (
       isOpen &&
       !isImmersive &&
+      !embedded &&
       !popoverRef.current.matches(':popover-open')
     ) {
       popoverRef.current.showPopover();
     }
-  }, [isOpen, supportsPopover, isImmersive]);
+  }, [isOpen, supportsPopover, isImmersive, embedded]);
 
   useEffect(() => {
     if (value && !Array.isArray(value)) {
