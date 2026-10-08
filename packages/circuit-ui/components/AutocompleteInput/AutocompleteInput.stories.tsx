@@ -265,7 +265,9 @@ const openAutocomplete =
   (label?: string, text?: string) =>
   async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByLabelText(label ?? baseArgs.label);
+    const input = canvas.getByRole('combobox', {
+      name: label ?? baseArgs.label,
+    });
 
     await userEvent.click(input);
     await screen.findByText(text ?? 'Luna');
@@ -292,8 +294,9 @@ const openAutocompleteAndType =
   (label?: string, text?: string) =>
   async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByLabelText(label ?? baseArgs.label);
-
+    const input = canvas.getByRole('combobox', {
+      name: label ?? baseArgs.label,
+    });
     await userEvent.type(input, 'Lu');
     await screen.findByText(text ?? 'Luna');
   };
