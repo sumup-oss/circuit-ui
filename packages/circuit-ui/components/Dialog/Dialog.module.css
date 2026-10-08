@@ -13,6 +13,12 @@
   pointer-events: auto;
 }
 
+/* Override the default popover styles */
+.base:popover-open {
+  inset: auto;
+  overflow: visible;
+}
+
 .modal {
   /* Firefox does not support animating the backdrop property.
  As a workaround, we used the box-shadow on the dialog element as a fake backdrop,

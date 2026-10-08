@@ -247,6 +247,7 @@ export function Popover({
         animationDuration={animationDuration}
         style={isModalOnMobile ? style : { ...style, ...floatingStyles }}
         preventOutsideClickRefs={refs.reference as RefObject<HTMLElement>}
+        popover="manual"
       >
         <div id={contentId} className={clsx(classes.content, contentClassName)}>
           {typeof children === 'function'

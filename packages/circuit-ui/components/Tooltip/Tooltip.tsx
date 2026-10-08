@@ -256,7 +256,7 @@ export function Tooltip({
         style={
           state === State.initial ? style : { ...style, ...floatingStyles }
         }
-        popover={supportsPopover ? 'auto' : undefined}
+        popover={supportsPopover ? 'manual' : undefined}
       >
         <div className={classes.content}>{label}</div>
         <div
