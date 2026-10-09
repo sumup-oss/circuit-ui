@@ -200,10 +200,12 @@ export function AutocompleteInput({
   const comboboxRef = useRef<HTMLInputElement>(null);
   const inputWrapperRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
   const presentationFieldRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const listboxId = useId();
   const autocompleteId = useId();
+  const [supportsPopover, setSupportsPopover] = useState(false);
 
   if (
     process.env.NODE_ENV !== 'production' &&
@@ -246,6 +248,9 @@ export function AutocompleteInput({
   }, [isLoading]);
 
   const closeResults = useCallback(() => {
+    if (supportsPopover && popoverRef.current?.matches(':popover-open')) {
+      popoverRef.current.hidePopover();
+    }
     setIsOpen(false);
     if (Array.isArray(value) && searchText !== '') {
       changeInputValue(comboboxRef.current, '');
@@ -257,7 +262,7 @@ export function AutocompleteInput({
     }
 
     setActiveOption(undefined);
-  }, [onSearch, searchText, value]);
+  }, [onSearch, searchText, value, supportsPopover]);
 
   const debouncedOnSearch = useMemo(
     () =>
@@ -341,6 +346,24 @@ export function AutocompleteInput({
     ],
     whileElementsMounted: autoUpdate,
   });
+
+  useEffect(() => {
+    setSupportsPopover(
+      typeof HTMLElement !== 'undefined' &&
+        typeof HTMLElement.prototype.showPopover === 'function',
+    );
+  }, []);
+
+  useEffect(() => {
+    // show the popover once the results have mounted.
+    if (
+      supportsPopover &&
+      isOpen &&
+      !popoverRef.current?.matches(':popover-open')
+    ) {
+      popoverRef.current?.showPopover();
+    }
+  }, [isOpen, supportsPopover]);
 
   useEffect(() => {
     if (value && !Array.isArray(value)) {
@@ -623,12 +646,13 @@ export function AutocompleteInput({
       {isOpen && (
         <div
           className={clsx(sharedClasses.elevatedSurface, classes.results)}
-          ref={refs.setFloating}
+          ref={applyMultipleRefs(refs.setFloating, popoverRef)}
           style={{
             ...floatingStyles,
             width: refs.reference.current?.parentElement?.offsetWidth ?? 0,
             maxWidth: refs.reference.current?.parentElement?.offsetWidth ?? 0,
           }}
+          popover={supportsPopover ? 'manual' : undefined}
         >
           {results}
         </div>

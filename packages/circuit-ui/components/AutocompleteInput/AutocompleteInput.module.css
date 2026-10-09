@@ -6,6 +6,13 @@
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
 }
 
+.results[popover] {
+  inset: auto;
+  padding: 0;
+  color: inherit;
+  border: none;
+}
+
 .results::before {
   position: absolute;
   top: 0;
