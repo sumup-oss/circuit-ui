@@ -248,6 +248,9 @@ export function AutocompleteInput({
   }, [isLoading]);
 
   const closeResults = useCallback(() => {
+    if (supportsPopover && popoverRef.current?.matches(':popover-open')) {
+      popoverRef.current.hidePopover();
+    }
     setIsOpen(false);
     if (Array.isArray(value) && searchText !== '') {
       changeInputValue(comboboxRef.current, '');
@@ -259,7 +262,7 @@ export function AutocompleteInput({
     }
 
     setActiveOption(undefined);
-  }, [onSearch, searchText, value]);
+  }, [onSearch, searchText, value, supportsPopover]);
 
   const debouncedOnSearch = useMemo(
     () =>
@@ -352,8 +355,12 @@ export function AutocompleteInput({
   }, []);
 
   useEffect(() => {
-    // The popover is removed from the top layer when the results unmount.
-    if (supportsPopover && isOpen) {
+    // show the popover once the results have mounted.
+    if (
+      supportsPopover &&
+      isOpen &&
+      !popoverRef.current?.matches(':popover-open')
+    ) {
       popoverRef.current?.showPopover();
     }
   }, [isOpen, supportsPopover]);
