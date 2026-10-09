@@ -9,6 +9,7 @@
 .results[popover] {
   inset: auto;
   padding: 0;
+  color: inherit;
   border: none;
 }
 
