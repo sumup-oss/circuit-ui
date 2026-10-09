@@ -1,5 +1,24 @@
 # @sumup-oss/circuit-ui
 
+## 12.4.0
+
+### Minor Changes
+
+- [#3966](https://github.com/sumup-oss/circuit-ui/pull/3966) [`5b0f435`](https://github.com/sumup-oss/circuit-ui/commit/5b0f43516fd6830be89504951a9a4d32d2a67814) Thanks [@missating](https://github.com/missating)! - Added a `popover` prop to the Dialog component. When `popover` is provided, the Dialog component will render with the [popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API).
+  The Popover, ActionMenu and ToggleTip components will now render as a `<dialog popover>` elements when supported by the browser.
+
+- [#3969](https://github.com/sumup-oss/circuit-ui/pull/3969) [`719ee2a`](https://github.com/sumup-oss/circuit-ui/commit/719ee2a0ac0ae6ac6698e61298d9e2ef854cdb29) Thanks [@sirineJ](https://github.com/sirineJ)! - Added an `embedded` prop to the AutocompleteInput component, allowing results to be rendered without the floating container.
+
+- [#3970](https://github.com/sumup-oss/circuit-ui/pull/3970) [`5850d2c`](https://github.com/sumup-oss/circuit-ui/commit/5850d2c2cfafb14d6346ae61223252ba305c1e35) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the AutocompleteInput to use the Popover API when supported.
+
+### Patch Changes
+
+- [#3967](https://github.com/sumup-oss/circuit-ui/pull/3967) [`a39724a`](https://github.com/sumup-oss/circuit-ui/commit/a39724ac0fe5afc8c0dc79c84d5237d7eceae352) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the styles of a SideNavigation section label when `hideLabel` is enabled.
+
+- [#3971](https://github.com/sumup-oss/circuit-ui/pull/3971) [`e45f392`](https://github.com/sumup-oss/circuit-ui/commit/e45f3924b3e1bcb936d7c284a6a40f2d6b3da797) Thanks [@ianakorichneva](https://github.com/ianakorichneva)! - Fixed PhoneNumberInput to preserve leading zeros in Italian subscriber numbers, where the leading 0 is part of the national significant number (e.g. `+39 06…`).
+
+- [#3966](https://github.com/sumup-oss/circuit-ui/pull/3966) [`5b0f435`](https://github.com/sumup-oss/circuit-ui/commit/5b0f43516fd6830be89504951a9a4d32d2a67814) Thanks [@missating](https://github.com/missating)! - Changed the Tooltip's popover behavior from `"auto"` to `"manual"` to prevent it from accidentally closing other popover elements.
+
 ## 12.3.2
 
 ### Patch Changes
