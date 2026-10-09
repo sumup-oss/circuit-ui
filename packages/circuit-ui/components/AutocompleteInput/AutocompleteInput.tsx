@@ -257,17 +257,9 @@ export function AutocompleteInput({
       changeInputValue(comboboxRef.current, value?.label ?? '');
       onSearch('');
     }
-    if (
-      supportsPopover &&
-      popoverRef.current?.matches(':popover-open') &&
-      !isImmersive &&
-      !embedded
-    ) {
-      popoverRef.current.hidePopover();
-    }
 
     setActiveOption(undefined);
-  }, [onSearch, searchText, value, supportsPopover, isImmersive, embedded]);
+  }, [onSearch, searchText, value]);
 
   const debouncedOnSearch = useMemo(
     () =>
@@ -360,18 +352,11 @@ export function AutocompleteInput({
   }, []);
 
   useEffect(() => {
-    if (!supportsPopover || !popoverRef.current) {
-      return;
+    // The popover is removed from the top layer when the results unmount.
+    if (supportsPopover && isOpen) {
+      popoverRef.current?.showPopover();
     }
-    if (
-      isOpen &&
-      !isImmersive &&
-      !embedded &&
-      !popoverRef.current.matches(':popover-open')
-    ) {
-      popoverRef.current.showPopover();
-    }
-  }, [isOpen, supportsPopover, isImmersive, embedded]);
+  }, [isOpen, supportsPopover]);
 
   useEffect(() => {
     if (value && !Array.isArray(value)) {
@@ -639,11 +624,6 @@ export function AutocompleteInput({
     );
   }
 
-  const sizeStyles = {
-    width: refs.reference.current?.parentElement?.offsetWidth ?? 0,
-    maxWidth: refs.reference.current?.parentElement?.offsetWidth ?? 0,
-  };
-
   return (
     <div ref={wrapperRef}>
       <div ref={inputWrapperRef}>
@@ -656,24 +636,20 @@ export function AutocompleteInput({
           {...comboboxProps}
         />
       </div>
-
-      <div
-        data-testid="results"
-        className={clsx(sharedClasses.elevatedSurface, classes.results)}
-        ref={applyMultipleRefs(refs.setFloating, popoverRef)}
-        hidden={!isOpen}
-        style={
-          isOpen
-            ? {
-                ...sizeStyles,
-                ...floatingStyles,
-              }
-            : sizeStyles
-        }
-        popover={supportsPopover ? 'manual' : undefined}
-      >
-        {results}
-      </div>
+      {isOpen && (
+        <div
+          className={clsx(sharedClasses.elevatedSurface, classes.results)}
+          ref={applyMultipleRefs(refs.setFloating, popoverRef)}
+          style={{
+            ...floatingStyles,
+            width: refs.reference.current?.parentElement?.offsetWidth ?? 0,
+            maxWidth: refs.reference.current?.parentElement?.offsetWidth ?? 0,
+          }}
+          popover={supportsPopover ? 'manual' : undefined}
+        >
+          {results}
+        </div>
+      )}
     </div>
   );
 }

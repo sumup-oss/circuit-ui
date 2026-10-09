@@ -262,12 +262,10 @@ const baseArgs: AutocompleteInputProps = {
 };
 
 const openAutocomplete =
-  (label?: string, text?: string, role?: string) =>
+  (label?: string, text?: string) =>
   async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole(role ?? 'combobox', {
-      name: label ?? baseArgs.label,
-    });
+    const input = canvas.getByLabelText(label ?? baseArgs.label);
 
     await userEvent.click(input);
     await screen.findByText(text ?? 'Luna');
@@ -294,9 +292,8 @@ const openAutocompleteAndType =
   (label?: string, text?: string) =>
   async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole('combobox', {
-      name: label ?? baseArgs.label,
-    });
+    const input = canvas.getByLabelText(label ?? baseArgs.label);
+
     await userEvent.type(input, 'Lu');
     await screen.findByText(text ?? 'Luna');
   };
@@ -583,7 +580,7 @@ export const Immersive = (args: AutocompleteInputProps) => (
 );
 
 Immersive.args = { ...baseArgs };
-Immersive.play = openAutocomplete(undefined, undefined, 'textbox');
+Immersive.play = openAutocomplete();
 Immersive.parameters = {
   chromatic: {
     cropToViewport: true,

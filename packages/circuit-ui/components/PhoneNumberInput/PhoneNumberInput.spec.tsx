@@ -136,9 +136,7 @@ describe('PhoneNumberInput', () => {
 
     it('should render as read-only', async () => {
       render(<PhoneNumberInput {...defaultProps} readOnly />);
-      const countryCode = screen.getByRole('combobox', {
-        name: 'Country code',
-      });
+      const countryCode = screen.getByLabelText('Country code');
       const subscriberNumber = screen.getByLabelText('Subscriber number');
       expect(countryCode).toHaveAttribute('readonly');
       expect(subscriberNumber).toHaveAttribute('readonly');
