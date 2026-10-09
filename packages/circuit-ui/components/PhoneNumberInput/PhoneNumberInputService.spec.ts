@@ -125,8 +125,15 @@ describe('PhoneNumberInputService', () => {
     it('should strip leading zeros from the subscriber number', () => {
       const countryCode = '+1';
       const subscriberNumber = '0023456789';
-      const actual = normalizePhoneNumber(countryCode, subscriberNumber);
+      const actual = normalizePhoneNumber(countryCode, subscriberNumber, 'US');
       expect(actual).toBe('+123456789');
+    });
+
+    it('should preserve leading zeros for Italian subscriber numbers', () => {
+      const countryCode = '+39';
+      const subscriberNumber = '08 1234567';
+      const actual = normalizePhoneNumber(countryCode, subscriberNumber, 'IT');
+      expect(actual).toBe('+3908 1234567');
     });
   });
 
