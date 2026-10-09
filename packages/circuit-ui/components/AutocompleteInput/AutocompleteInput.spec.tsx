@@ -268,7 +268,9 @@ describe('AutocompleteInput', () => {
     it('should show the results in the top layer', async () => {
       const showPopover = vi.spyOn(HTMLElement.prototype, 'showPopover');
       render(<AutocompleteInput {...props} />);
-      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('listbox', { hidden: true }),
+      ).not.toBeInTheDocument();
 
       await userEvent.type(
         screen.getByRole('combobox', { name: props.label }),
@@ -281,6 +283,21 @@ describe('AutocompleteInput', () => {
       expect(showPopover).toHaveBeenCalledOnce();
       expect(showPopover.mock.contexts[0]).toHaveAttribute('popover', 'manual');
       showPopover.mockRestore();
+    });
+
+    it('should remove the results from the DOM when the list box closes', async () => {
+      render(<AutocompleteInput {...props} />);
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
+      await userEvent.keyboard('{ArrowDown}');
+      expect(screen.getByRole('listbox')).toBeInTheDocument();
+
+      await userEvent.keyboard('{Enter}');
+
+      expect(
+        screen.queryByRole('listbox', { hidden: true }),
+      ).not.toBeInTheDocument();
     });
 
     it('should render the results without the popover attribute when the Popover API is not supported', async () => {
