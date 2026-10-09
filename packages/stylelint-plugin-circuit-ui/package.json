@@ -37,7 +37,7 @@
     "@tsconfig/node20": "^20.1.10",
     "jest-preset-stylelint": "^9.2.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.1"
   },
   "peerDependencies": {
     "@sumup-oss/design-tokens": ">=11.0.0",
