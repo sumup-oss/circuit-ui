@@ -601,6 +601,11 @@
       "size": "32"
     },
     {
+      "name": "card_other",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "conecs",
       "category": "Card scheme",
       "size": "32"
