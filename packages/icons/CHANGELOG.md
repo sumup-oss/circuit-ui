@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 7.3.0
+
+### Minor Changes
+
+- [#3977](https://github.com/sumup-oss/circuit-ui/pull/3977) [`f1e5446`](https://github.com/sumup-oss/circuit-ui/commit/f1e5446cbd69fbd288419d4c9ccb4a4f9fd68ef9) Thanks [@amelako](https://github.com/amelako)! - Added `card_other` icon in size 32.
+
 ## 7.2.1
 
 ### Patch Changes
