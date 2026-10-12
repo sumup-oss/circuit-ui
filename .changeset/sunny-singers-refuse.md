@@ -2,4 +2,4 @@
 "@sumup-oss/icons": minor
 ---
 
-Add Card other icon in size 32.
+Added `card_other` icon in size 32.
