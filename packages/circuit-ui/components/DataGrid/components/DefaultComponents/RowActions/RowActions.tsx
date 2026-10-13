@@ -4,7 +4,7 @@ import {
   type ActionMenuProps,
 } from '../../../../ActionMenu/index.js';
 import { More } from '@sumup-oss/icons';
-import { RowActionButton } from '../../RowActionButton/RowActionButton.js';
+import { RowActionButton } from './RowActionButton/RowActionButton.js';
 
 export function RowActions({
   label,

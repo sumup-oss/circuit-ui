@@ -1,4 +1,7 @@
-import { IconButton, type IconButtonProps } from '../../../Button/index.js';
+import {
+  IconButton,
+  type IconButtonProps,
+} from '../../../../../Button/index.js';
 import classes from './RowActionButton.module.css';
 
 export const RowActionButton = ({

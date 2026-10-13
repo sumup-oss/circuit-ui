@@ -1,6 +1,6 @@
 import { useId, useRef } from 'react';
 import classes from './QuickActions.module.css';
-import { RowActionButton } from '../../RowActionButton/RowActionButton.js';
+import { RowActionButton } from '../RowActions/RowActionButton/RowActionButton.js';
 import type { IconButtonProps } from '../../../../Button/index.js';
 import type { ClickEvent } from '../../../../../types/events.js';
 
