@@ -205,6 +205,13 @@ export type {
   TableCell,
   TableRow,
 } from './components/Table/index.js';
+export { DataGrid } from './components/DataGrid/DataGrid.js';
+export type { DataGridProps } from './components/DataGrid/DataGrid.js';
+export type {
+  Column,
+  ColumnType,
+  MobileConfig,
+} from './components/DataGrid/types.js';
 
 export { Step, useStep } from './components/Step/index.js';
 export type { StepProps, StepOptions } from './components/Step/index.js';

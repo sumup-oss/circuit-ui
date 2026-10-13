@@ -49,6 +49,20 @@ export type Column<P> = {
   isRowHeader?: boolean;
 };
 
+export type MobileSlots = {
+  leadingComponent?: string;
+  label: string;
+  details?: string;
+  trailingDetails?: string;
+  trailingLabel?: string;
+};
+
+export type MobileConfig<P> = {
+  slots: MobileSlots;
+  hideLabel?: boolean;
+  onClick?: (event: ClickEvent, item: P) => void;
+};
+
 type RowActions<P> = {
   name: 'row-actions';
   actions:

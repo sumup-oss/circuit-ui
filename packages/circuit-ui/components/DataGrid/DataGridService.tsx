@@ -1,6 +1,8 @@
 import type {
   BasicType,
+  Column,
   ColumnType,
+  MobileSlots,
   Option,
 } from './types.js';
 import type { PropsWithChildren, ReactNode } from 'react';
@@ -227,6 +229,12 @@ export function defaultFormatFn<P>(
 
   if (name === 'quick-actions' && 'actions' in rest && !('label' in rest)) {
     const { actions: quickActions } = rest;
+    if (quickActions.length > 4) {
+      throw new CircuitError(
+        'DataGrid',
+        'The number of quick actions must not surpass 4.',
+      );
+    }
     const actions =
       quickActions instanceof Function ? quickActions(data) : quickActions;
 
@@ -234,6 +242,75 @@ export function defaultFormatFn<P>(
   }
 
   return value as ReactNode;
+}
+
+export function getListItemFragmentContent<P>(
+  columns: Column<P>[],
+  data: P,
+  locale: Locale,
+  mobileConfig: MobileSlots,
+  uniqueId: string,
+) {
+  const result: Record<string, ReactNode> = {};
+  (Object.keys(mobileConfig) as Array<keyof MobileSlots>).forEach((key) => {
+    const colKey = mobileConfig[key];
+    if (colKey) {
+      const dataElements = colKey.split(';');
+      if (dataElements.length === 1) {
+        const column = columns.find((col) => col.id === dataElements[0]);
+        if (column) {
+          const { type, getValue } = column;
+          const value = getValue
+            ? getValue(data)
+            : (data[dataElements[0] as keyof P] as BasicType);
+          result[key] =
+            type.name === 'custom'
+              ? type.render?.(data)
+              : defaultFormatFn(type, data, value, locale, uniqueId);
+        }
+      }
+
+      if (dataElements.length > 1) {
+        result[key] = intersperseWithDot(
+          dataElements
+            .map((element) => {
+              const column = columns.find((col) => col.id === element);
+              if (column) {
+                const { type, getValue } = column;
+                const value = getValue
+                  ? getValue(data)
+                  : (data[element as keyof P] as BasicType);
+                return type.name === 'custom'
+                  ? type.render?.(data)
+                  : defaultFormatFn(type, data, value, locale, uniqueId);
+              }
+              return null;
+            })
+            .filter(Boolean),
+        );
+      }
+    }
+  });
+
+  return result as {
+    leadingComponent?: ReactNode;
+    label: ReactNode;
+    details?: ReactNode;
+    trailingDetails?: ReactNode;
+    trailingLabel?: ReactNode;
+  };
+}
+
+function intersperseWithDot(elements: ReactNode[]) {
+  return (
+    <>
+      {elements.map((el, i) =>
+        i === 0 || (i > 0 && isNil(el))
+          ? [el]
+          : [<>&nbsp;&middot;&nbsp;</>, el],
+      )}
+    </>
+  );
 }
 
 function isOption(value?: unknown): value is Option {
