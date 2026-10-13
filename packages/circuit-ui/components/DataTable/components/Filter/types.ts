@@ -34,7 +34,7 @@ export interface DateRange {
  * The value of each kind of filter. An `undefined` value means the filter is
  * not active.
  */
-export interface FilterValueMap {
+interface FilterValueMap {
   single: string;
   multi: string[];
   number: NumberRange;
@@ -44,3 +44,8 @@ export interface FilterValueMap {
 }
 
 export type FilterKind = keyof FilterValueMap;
+
+/**
+ * The value of any filter. Its shape follows the kind of the filter.
+ */
+export type FilterValue = FilterValueMap[FilterKind];

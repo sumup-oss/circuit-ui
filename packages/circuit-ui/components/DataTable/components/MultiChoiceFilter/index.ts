@@ -14,4 +14,3 @@
  */
 
 export { MultiChoiceFilter } from './MultiChoiceFilter.js';
-export type { MultiChoiceFilterProps } from './MultiChoiceFilter.js';

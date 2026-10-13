@@ -16,25 +16,14 @@
 import { type ReactNode, useState } from 'react';
 
 import { modes } from '../../../../../../.storybook/modes.js';
-import { AmountFilter, type AmountFilterProps } from '../AmountFilter/index.js';
-import { DateFilter, type DateFilterProps } from '../DateFilter/index.js';
-import { FilterShell } from '../FilterShell/index.js';
-import {
-  MultiChoiceFilter,
-  type MultiChoiceFilterProps,
-} from '../MultiChoiceFilter/index.js';
-import {
-  SingleChoiceFilter,
-  type SingleChoiceFilterProps,
-} from '../SingleChoiceFilter/index.js';
-
 import type { Option } from '../../types.js';
-import type { DateRange as DateRangeValue, NumberRange } from './types.js';
-import { useFilterDraft } from './useFilterDraft.js';
+
+import { FilterWrapper, type FilterWrapperProps } from './index.js';
+import type { FilterValue } from './types.js';
 
 export default {
   title: 'Components/DataTable/Filter',
-  component: FilterShell,
+  component: FilterWrapper,
   tags: ['status:internal'],
   chromatic: {
     modes: {
@@ -48,8 +37,18 @@ export default {
 };
 
 function StoryWrapper({ children }: { children: ReactNode }) {
-  return <div style={{ minHeight: '300px' }}>{children}</div>;
+  return <div style={{ minHeight: '400px' }}>{children}</div>;
 }
+
+const FilterStory = (args: FilterWrapperProps) => {
+  const [value, setValue] = useState<FilterValue | undefined>();
+
+  return (
+    <StoryWrapper>
+      <FilterWrapper {...args} value={value} onChange={setValue} />
+    </StoryWrapper>
+  );
+};
 
 const paymentStatusOptions: Option[] = [
   { label: 'Paid', value: 'paid' },
@@ -57,138 +56,100 @@ const paymentStatusOptions: Option[] = [
   { label: 'Revoked', value: 'revoked' },
 ];
 
-export const SingleChoice = (args: SingleChoiceFilterProps) => {
-  const [value, setValue] = useState<string | undefined>();
-  const { draft, setDraft, apply, clear, discard } = useFilterDraft(
-    value,
-    setValue,
-  );
-
-  return (
-    <StoryWrapper>
-      <FilterShell
-        label={args.label}
-        count={value ? 1 : 0}
-        onApply={apply}
-        onClear={clear}
-        onDiscard={discard}
-      >
-        <SingleChoiceFilter
-          {...args}
-          hideLabel
-          value={draft}
-          onChange={setDraft}
-        />
-      </FilterShell>
-    </StoryWrapper>
-  );
-};
-
-SingleChoice.args = {
+const singleChoiceColumn: FilterWrapperProps['column'] = {
   label: 'Payment Status',
-  options: paymentStatusOptions,
+  filter: true,
+  type: { name: 'singleSelection', options: paymentStatusOptions },
 };
 
-export const MultiChoice = (args: MultiChoiceFilterProps) => {
-  const [value, setValue] = useState<string[] | undefined>();
-  const { draft, setDraft, apply, clear, discard } = useFilterDraft(
-    value,
-    setValue,
-  );
-
-  return (
-    <StoryWrapper>
-      <FilterShell
-        label={args.label}
-        count={value?.length}
-        onApply={apply}
-        onClear={clear}
-        onDiscard={discard}
-      >
-        <MultiChoiceFilter
-          {...args}
-          hideLabel
-          value={draft}
-          onChange={setDraft}
-        />
-      </FilterShell>
-    </StoryWrapper>
-  );
-};
-
-MultiChoice.args = {
-  label: 'Payment Status',
-  options: paymentStatusOptions,
-};
-
-const AmountStory = (args: AmountFilterProps) => {
-  const [value, setValue] = useState<NumberRange | undefined>();
-  const { draft, setDraft, apply, clear, discard } = useFilterDraft(
-    value,
-    setValue,
-  );
-
-  return (
-    <StoryWrapper>
-      <FilterShell
-        label={args.label}
-        count={value ? 1 : 0}
-        onApply={apply}
-        onClear={clear}
-        onDiscard={discard}
-      >
-        <AmountFilter {...args} hideLabel value={draft} onChange={setDraft} />
-      </FilterShell>
-    </StoryWrapper>
-  );
-};
-
-export const Quantity = (args: AmountFilterProps) => <AmountStory {...args} />;
-
-Quantity.args = {
-  label: 'Quantity',
-  kind: 'number',
-};
-
-export const Percentage = (args: AmountFilterProps) => (
-  <AmountStory {...args} />
+export const SingleChoice = (args: FilterWrapperProps) => (
+  <FilterStory {...args} />
 );
 
-Percentage.args = {
+SingleChoice.args = { column: singleChoiceColumn };
+
+const multiChoiceColumn: FilterWrapperProps['column'] = {
+  label: 'Payment Status',
+  filter: true,
+  type: { name: 'multiSelection', options: paymentStatusOptions },
+};
+
+export const MultiChoice = (args: FilterWrapperProps) => (
+  <FilterStory {...args} />
+);
+
+MultiChoice.args = { column: multiChoiceColumn };
+
+const quantityColumn: FilterWrapperProps['column'] = {
+  label: 'Quantity',
+  filter: true,
+  type: { name: 'number' },
+};
+
+export const Quantity = (args: FilterWrapperProps) => <FilterStory {...args} />;
+
+Quantity.args = { column: quantityColumn };
+
+const percentageColumn: FilterWrapperProps['column'] = {
   label: 'VAT',
-  kind: 'percentage',
+  filter: true,
+  type: { name: 'number', formattingOptions: { style: 'percent' } },
 };
 
-export const Currency = (args: AmountFilterProps) => <AmountStory {...args} />;
+export const Percentage = (args: FilterWrapperProps) => (
+  <FilterStory {...args} />
+);
 
-Currency.args = {
+Percentage.args = { column: percentageColumn };
+
+const currencyColumn: FilterWrapperProps['column'] = {
   label: 'Amount',
-  kind: 'currency',
-  currency: 'EUR',
+  filter: true,
+  type: {
+    name: 'number',
+    formattingOptions: { style: 'currency', currency: 'EUR' },
+  },
 };
 
-export const DateRange = (args: DateFilterProps) => {
-  const [value, setValue] = useState<DateRangeValue | undefined>();
-  const { draft, setDraft, apply, clear, discard } = useFilterDraft(
-    value,
-    setValue,
+export const Currency = (args: FilterWrapperProps) => <FilterStory {...args} />;
+
+Currency.args = { column: currencyColumn };
+
+const dateColumn: FilterWrapperProps['column'] = {
+  label: 'Date',
+  filter: true,
+  type: { name: 'date' },
+};
+
+export const DateRange = (args: FilterWrapperProps) => (
+  <FilterStory {...args} />
+);
+
+DateRange.args = { column: dateColumn };
+
+const inlineColumns = [multiChoiceColumn, currencyColumn, dateColumn];
+
+/**
+ * Eg of how filters can be stacked on mobile.
+ */
+export const Inline = () => {
+  const [values, setValues] = useState<Record<string, FilterValue | undefined>>(
+    {},
   );
 
   return (
-    <StoryWrapper>
-      <FilterShell
-        label={args.label}
-        count={value ? 1 : 0}
-        onApply={apply}
-        onClear={clear}
-        onDiscard={discard}
-      >
-        <DateFilter {...args} hideLabel value={draft} onChange={setDraft} />
-      </FilterShell>
-    </StoryWrapper>
+    <div style={{ display: 'grid', gap: '24px', maxWidth: '360px' }}>
+      {inlineColumns.map((column) => (
+        <FilterWrapper
+          key={column.label}
+          column={column}
+          variant="inline"
+          value={values[column.label]}
+          onChange={(value) =>
+            setValues((previous) => ({ ...previous, [column.label]: value }))
+          }
+        />
+      ))}
+    </div>
   );
-};
-
-DateRange.args = {
-  label: 'Date',
 };

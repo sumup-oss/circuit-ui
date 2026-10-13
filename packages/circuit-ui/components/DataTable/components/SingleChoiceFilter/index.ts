@@ -14,4 +14,3 @@
  */
 
 export { SingleChoiceFilter } from './SingleChoiceFilter.js';
-export type { SingleChoiceFilterProps } from './SingleChoiceFilter.js';

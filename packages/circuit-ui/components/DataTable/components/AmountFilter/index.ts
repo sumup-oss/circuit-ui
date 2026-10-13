@@ -14,4 +14,3 @@
  */
 
 export { AmountFilter } from './AmountFilter.js';
-export type { AmountFilterProps } from './AmountFilter.js';
