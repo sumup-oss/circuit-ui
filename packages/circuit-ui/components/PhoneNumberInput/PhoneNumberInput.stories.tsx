@@ -46,12 +46,14 @@ const flagIconMap: { [key: string]: IconComponentType<'16'> } = {
   CA: Checkmark,
   US: Notify,
   DE: Alert,
+  IT: Notify,
 };
 
 const countryCodeMap: { [key: string]: string } = {
   CA: '+1',
   US: '+1',
   DE: '+49',
+  IT: '+39',
 };
 
 const StatefulPhoneNumberInput = (args: PhoneNumberInputProps) => {

@@ -297,6 +297,7 @@ export const PhoneNumberInput = forwardRef<
       const phoneNumber = normalizePhoneNumber(
         code,
         subscriberNumberRef.current.value,
+        selectedCountry,
       );
 
       changeInputValue(hiddenInputRef.current, phoneNumber);
