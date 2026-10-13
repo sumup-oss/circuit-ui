@@ -212,9 +212,9 @@ const DefaultPrefix: ComponentType<{
   value?: string | number;
   className?: string;
 }> = ({ value, ...rest }) =>
-    value ? (
-      <Flag countryCode={value as FlagProps['countryCode']} alt="" {...rest} />
-    ) : null;
+  value ? (
+    <Flag countryCode={value as FlagProps['countryCode']} alt="" {...rest} />
+  ) : null;
 
 /**
  * Provides a straightforward way for users to type their phone number in an
@@ -423,7 +423,7 @@ export const PhoneNumberInput = forwardRef<
               )}
               invalid={invalid || countryCode.invalid}
               readOnly={true}
-              onChange={() => { }}
+              onChange={() => {}}
               ref={applyMultipleRefs(
                 countryCodeRef as RefObject<HTMLInputElement>,
                 countryCode.ref as ForwardedRef<HTMLInputElement>,
