@@ -205,7 +205,6 @@ export type {
   TableCell,
   TableRow,
 } from './components/Table/index.js';
-export { DataTable } from './components/DataTable/DataTable.js';
 
 export { Step, useStep } from './components/Step/index.js';
 export type { StepProps, StepOptions } from './components/Step/index.js';
