@@ -1,0 +1,22 @@
+.base th {
+  min-height: 48px;
+  padding: var(--cui-spacings-kilo);
+  text-align: left;
+  background-color: var(--cui-bg-normal);
+  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+}
+
+.title {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.base th:first-of-type {
+  border-top-left-radius: var(--cui-border-radius-mega);
+}
+
+.base th:last-of-type {
+  border-top-right-radius: var(--cui-border-radius-mega);
+}
