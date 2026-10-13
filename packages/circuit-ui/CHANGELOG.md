@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.20.3
+
+### Patch Changes
+
+- [#3979](https://github.com/sumup-oss/circuit-ui/pull/3979) [`c5b2439`](https://github.com/sumup-oss/circuit-ui/commit/c5b24392cfdbfac898213df3c74a55e4015cfda3) Thanks [@ianakorichneva](https://github.com/ianakorichneva)! - Fixed PhoneNumberInput to preserve leading zeros in Italian subscriber numbers, where the leading 0 is part of the national significant number (e.g. `+39 06…`).
+
 ## 11.20.2
 
 ### Patch Changes
