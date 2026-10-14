@@ -14,8 +14,12 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-
-import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
+import {
+  axe,
+  render,
+  screen,
+  userEvent,
+} from '../../../../../util/test-utils.js';
 
 import { AmountFilter, type AmountFilterProps } from './AmountFilter.js';
 

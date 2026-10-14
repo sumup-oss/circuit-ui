@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { transformModulesToTranslations } from '../../../../../util/i18n.js';
+import { transformModulesToTranslations } from '../../../../../../util/i18n.js';
 
 export const translations = transformModulesToTranslations<
   typeof import('./en-US.json')

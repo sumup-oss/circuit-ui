@@ -15,7 +15,12 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
+import {
+  axe,
+  render,
+  screen,
+  userEvent,
+} from '../../../../../util/test-utils.js';
 
 import { MultiChoiceFilter } from './MultiChoiceFilter.js';
 

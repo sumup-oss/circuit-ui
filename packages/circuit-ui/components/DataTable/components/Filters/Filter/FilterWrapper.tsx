@@ -15,8 +15,8 @@
 
 'use client';
 
-import { useI18n } from '../../../../hooks/useI18n/useI18n.js';
-import type { Column, ColumnType } from '../../types.js';
+import { useI18n } from '../../../../../hooks/useI18n/useI18n.js';
+import type { Column, ColumnType } from '../../../types.js';
 import { AmountFilter } from '../AmountFilter/index.js';
 import { DateFilter } from '../DateFilter/index.js';
 import { FilterShell } from '../FilterShell/index.js';

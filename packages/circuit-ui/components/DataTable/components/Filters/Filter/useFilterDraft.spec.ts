@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { useState } from 'react';
 
-import { act, renderHook } from '../../../../util/test-utils.js';
+import { act, renderHook } from '../../../../../util/test-utils.js';
 
 import { useFilterDraft } from './useFilterDraft.js';
 

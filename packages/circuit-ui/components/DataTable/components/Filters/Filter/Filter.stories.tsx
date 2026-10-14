@@ -15,8 +15,8 @@
 
 import { type ReactNode, useState } from 'react';
 
-import { modes } from '../../../../../../.storybook/modes.js';
-import type { Option } from '../../types.js';
+import { modes } from '../../../../../../../.storybook/modes.js';
+import type { Option } from '../../../types.js';
 
 import { FilterWrapper, type FilterWrapperProps } from './index.js';
 import type { FilterValue } from './types.js';

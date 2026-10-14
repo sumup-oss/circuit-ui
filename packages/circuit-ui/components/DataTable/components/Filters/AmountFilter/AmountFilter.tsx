@@ -17,14 +17,14 @@
 
 import { useId } from 'react';
 
-import { CurrencyInput } from '../../../CurrencyInput/index.js';
-import { Body } from '../../../Body/index.js';
-import { Input } from '../../../Input/index.js';
-import type { I18nConfig } from '../../../I18nContext/I18nContext.js';
-import { PercentageInput } from '../../../PercentageInput/index.js';
-import { useTranslations } from '../../../../hooks/useTranslations/useTranslations.js';
-import { clsx } from '../../../../styles/clsx.js';
-import { utilClasses } from '../../../../styles/utility.js';
+import { CurrencyInput } from '../../../../CurrencyInput/index.js';
+import { Body } from '../../../../Body/index.js';
+import { Input } from '../../../../Input/index.js';
+import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
+import { PercentageInput } from '../../../../PercentageInput/index.js';
+import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
+import { clsx } from '../../../../../styles/clsx.js';
+import { utilClasses } from '../../../../../styles/utility.js';
 import type { FilterKind, NumberRange } from '../Filter/types.js';
 
 import classes from './AmountFilter.module.css';

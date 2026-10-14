@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import type { ColumnType } from '../../types.js';
+import type { ColumnType } from '../../../types.js';
 
 import {
   getAmountKind,
