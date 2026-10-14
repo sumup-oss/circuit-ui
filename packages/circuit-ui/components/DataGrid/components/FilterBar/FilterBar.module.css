@@ -1,0 +1,19 @@
+.base {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
+}
+
+.active-filters,
+.search-config {
+  display: flex;
+  gap: var(--cui-spacings-kilo);
+}
+
+.search {
+  width: 300px;
+}
+
+.search input {
+  border-radius: var(--cui-border-radius-pill);
+}

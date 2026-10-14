@@ -33,6 +33,7 @@ import type { Locale } from '../../util/i18n.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { utilClasses } from '../../styles/utility.js';
 import type { ClickEvent } from '../../types/events.js';
+import { FilterBar } from './components/FilterBar/FilterBar.js';
 
 export interface DataGridProps<P> extends TableHTMLAttributes<HTMLDivElement> {
   /**
@@ -71,6 +72,10 @@ export interface DataGridProps<P> extends TableHTMLAttributes<HTMLDivElement> {
    */
   formattingLocale?: Locale;
   /**
+   * A callback fired when the main search bar query changes.
+   */
+  onSearch: (query: string) => void;
+  /**
    * A ref forwarded to the underlying `table` element (or to the list
    * element when the mobile layout is rendered).
    */
@@ -89,6 +94,7 @@ export function DataGrid<P>({
   mobileConfig,
   formattingLocale: customFormattingLocale,
   mobileBreakpoint = 768,
+  onSearch,
   ref,
   ...props
 }: DataGridProps<P>) {
@@ -234,6 +240,7 @@ export function DataGrid<P>({
 
   return (
     <div className={classes.wrapper}>
+      <FilterBar onSearch={onSearch} />
       <div className={classes.table}>
         <table
           ref={applyMultipleRefs(ref, internalRef)}

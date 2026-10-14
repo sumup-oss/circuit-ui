@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 import { createRef } from 'react';
 
 import {
+  act,
   axe,
   render,
   screen,
@@ -24,17 +25,26 @@ const mobileConfig = {
   },
 } satisfies MobileConfig<Member>;
 
+const onSearch = vi.fn();
+
 const defaultProps = {
   columns,
   data: members,
   label: 'Members',
   formattingLocale: 'en-US',
+  onSearch,
 } satisfies DataGridProps<Member>;
 
 describe('DataGrid', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     (useMedia as Mock).mockReturnValue(false);
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.clearAllMocks();
   });
 
   it('should merge a custom class name with the default ones', () => {
@@ -57,6 +67,19 @@ describe('DataGrid', () => {
     expect(
       screen.getByRole('grid', { name: defaultProps.label }),
     ).toBeInTheDocument();
+  });
+
+  it('should call the onSearch when user types a query', async () => {
+    render(<DataGrid {...defaultProps} />);
+    await userEvent.type(
+      screen.getByRole('searchbox', { name: 'Search' }),
+      'P',
+    );
+    // wait for debounce
+    act(() => {
+      vi.runAllTimers();
+    });
+    expect(onSearch).toHaveBeenCalledExactlyOnceWith('P');
   });
 
   it('should render a column header for each column', () => {
