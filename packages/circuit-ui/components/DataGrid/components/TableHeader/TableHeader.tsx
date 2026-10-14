@@ -14,7 +14,7 @@ function TableHeaderComponent<P>({ columns, ...rest }: TableHeaderProps<P>) {
   return (
     <thead>
       <tr className={classes.base} {...rest}>
-        {columns.map(({ label, id }, index) => (
+        {columns.map(({ label, id, type }, index) => (
           <Cell
             as="th"
             role="columnheader"
@@ -32,7 +32,7 @@ function TableHeaderComponent<P>({ columns, ...rest }: TableHeaderProps<P>) {
               weight="semibold"
               color="subtle"
               className={clsx(
-                id === 'row-actions' && utilClasses.hideVisually,
+                type.name === 'row-actions' && utilClasses.hideVisually,
                 classes.title,
               )}
               title={label}
