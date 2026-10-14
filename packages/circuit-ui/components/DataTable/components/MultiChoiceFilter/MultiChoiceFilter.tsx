@@ -54,15 +54,21 @@ export function MultiChoiceFilter({
   onChange,
   ...props
 }: MultiChoiceFilterProps) {
+  const name = useId();
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value: optionValue, checked } = event.target;
     const currentSelection = new Set(value);
-    if(checked) {
-      currentSelection.add(optionValue)
+
+    if (checked) {
+      currentSelection.add(optionValue);
     } else {
       currentSelection.delete(optionValue);
     }
 
-    onChange(Array.from(currentSelection));
+    onChange(
+      currentSelection.size > 0 ? Array.from(currentSelection) : undefined,
+    );
   };
 
   return (
