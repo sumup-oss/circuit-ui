@@ -98,6 +98,39 @@ describe('DateFilter', () => {
     });
   });
 
+  it('should call onChange with the end date when entering a full date', async () => {
+    const onChange = vi.fn();
+    render(<DateFilter {...baseProps} onChange={onChange} />);
+    const to = within(screen.getByRole('group', { name: 'To' }));
+
+    await userEvent.type(to.getByLabelText('Year'), '2026');
+    await userEvent.type(to.getByLabelText('Month'), '10');
+    await userEvent.type(to.getByLabelText('Day'), '12');
+
+    expect(onChange).toHaveBeenLastCalledWith({ to: '2026-10-12' });
+  });
+
+  it('should keep the start date when changing the end date', async () => {
+    const onChange = vi.fn();
+    render(
+      <DateFilter
+        {...baseProps}
+        value={{ from: '2026-09-05' }}
+        onChange={onChange}
+      />,
+    );
+    const to = within(screen.getByRole('group', { name: 'To' }));
+
+    await userEvent.type(to.getByLabelText('Year'), '2026');
+    await userEvent.type(to.getByLabelText('Month'), '10');
+    await userEvent.type(to.getByLabelText('Day'), '12');
+
+    expect(onChange).toHaveBeenLastCalledWith({
+      from: '2026-09-05',
+      to: '2026-10-12',
+    });
+  });
+
   it('should call onChange with undefined when the last date is cleared', async () => {
     const onChange = vi.fn();
     render(
@@ -114,6 +147,24 @@ describe('DateFilter', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Clear date' }));
 
     expect(onChange).toHaveBeenLastCalledWith(undefined);
+  });
+
+  it('should keep the start date when the end date is cleared', async () => {
+    const onChange = vi.fn();
+    render(
+      <DateFilter
+        {...baseProps}
+        value={{ from: '2026-09-05', to: '2026-10-12' }}
+        onChange={onChange}
+      />,
+    );
+
+    await userEvent.click(
+      screen.getAllByRole('button', { name: /change date/i })[1],
+    );
+    await userEvent.click(screen.getByRole('button', { name: 'Clear date' }));
+
+    expect(onChange).toHaveBeenLastCalledWith({ from: '2026-09-05' });
   });
 
   it('should not offer start dates after the end date', async () => {
@@ -133,6 +184,28 @@ describe('DateFilter', () => {
       'true',
     );
     expect(screen.getByRole('button', { name: '15' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
+  });
+
+  it('should not offer end dates before the start date', async () => {
+    render(
+      <DateFilter
+        {...baseProps}
+        value={{ from: '2026-09-10', to: '2026-09-20' }}
+      />,
+    );
+
+    await userEvent.click(
+      screen.getAllByRole('button', { name: /change date/i })[1],
+    );
+
+    expect(screen.getByRole('button', { name: '15' })).not.toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
+    expect(screen.getByRole('button', { name: '7' })).toHaveAttribute(
       'aria-disabled',
       'true',
     );

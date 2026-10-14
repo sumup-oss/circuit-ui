@@ -35,7 +35,6 @@ export interface DateRange {
  * not active.
  */
 interface FilterValueMap {
-  single: string;
   multi: string[];
   number: NumberRange;
   percentage: NumberRange;

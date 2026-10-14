@@ -99,6 +99,7 @@ function AmountField({
     label,
     hideLabel: true,
     placeholder: label,
+    size: 's' as const,
     invalid,
     value: value ?? '',
   };

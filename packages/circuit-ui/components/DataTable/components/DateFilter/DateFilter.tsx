@@ -81,6 +81,7 @@ export function DateFilter(props: DateFilterProps) {
       </legend>
       <div className={classes.fields}>
         <DateInput
+          size="s"
           label={fromLabel}
           value={value?.from ?? ''}
           max={value?.to}
@@ -93,6 +94,7 @@ export function DateFilter(props: DateFilterProps) {
           }
         />
         <DateInput
+          size="s"
           label={toLabel}
           value={value?.to ?? ''}
           min={value?.from}

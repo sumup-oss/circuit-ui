@@ -10,6 +10,12 @@
   justify-content: flex-end;
 }
 
+@media (min-width: 480px) {
+  .content {
+    max-width: 360px;
+  }
+}
+
 @media (max-width: 479px) {
   .footer > * {
     flex: 1;

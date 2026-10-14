@@ -68,8 +68,8 @@ describe('FilterWrapper', () => {
   });
 
   it.each([
-    ['single choice', { name: 'singleSelection', options }],
-    ['multi choice', { name: 'multiSelection', options }],
+    ['single selection', { name: 'singleSelection', options }],
+    ['multi selection', { name: 'multiSelection', options }],
     ['number', { name: 'number' }],
     ['date', { name: 'date' }],
   ] as const)('should render a trigger with the column label for a %s column', (_, type) => {
@@ -88,6 +88,37 @@ describe('FilterWrapper', () => {
 
     expect(
       screen.getByRole('button', { name: 'Allergies (2)' }),
+    ).toBeInTheDocument();
+  });
+
+  it('should offer checkboxes for a single selection column', async () => {
+    render(
+      <FilterWrapper
+        {...baseProps}
+        column={{
+          label: 'Status',
+          filter: true,
+          type: { name: 'singleSelection', options },
+        }}
+      />,
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Status' }));
+
+    expect(screen.getAllByRole('checkbox')).toHaveLength(2);
+  });
+
+  it('should describe a range in the trigger', () => {
+    render(
+      <FilterWrapper
+        {...baseProps}
+        column={{ label: 'Quantity', filter: true, type: { name: 'number' } }}
+        value={{ min: 5, max: 20 }}
+      />,
+    );
+
+    expect(
+      screen.getByRole('button', { name: 'Quantity (5 – 20)' }),
     ).toBeInTheDocument();
   });
 
@@ -120,18 +151,18 @@ describe('FilterWrapper', () => {
       expect(onChange).not.toHaveBeenCalled();
     });
 
-    it('should remove the filter right away when clicking Clear', async () => {
+    it('should remove the filter and close the popover when clicking Clear', async () => {
       const onChange = vi.fn();
       render(
         <FilterWrapper {...baseProps} value={['eggs']} onChange={onChange} />,
       );
+      const trigger = screen.getByRole('button', { name: 'Allergies (1)' });
 
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Allergies (1)' }),
-      );
+      await userEvent.click(trigger);
       await userEvent.click(screen.getByRole('button', { name: 'Clear' }));
 
       expect(onChange).toHaveBeenCalledWith(undefined);
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
     });
   });
 

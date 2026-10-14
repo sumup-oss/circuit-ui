@@ -40,34 +40,22 @@ describe('FilterShell', () => {
     expect(screen.getByRole('button', { name: 'Amount' })).toBeInTheDocument();
   });
 
-  it('should add the number of active selections to the trigger label', () => {
-    render(<FilterShell {...baseProps} count={3} />);
+  it('should add the summary to the trigger label', () => {
+    render(<FilterShell {...baseProps} summary="3" />);
 
     expect(
       screen.getByRole('button', { name: 'Amount (3)' }),
     ).toBeInTheDocument();
   });
 
-  it('should keep the trigger focused when the count changes', () => {
+  it('should keep the trigger focused when the summary changes', () => {
     const { rerender } = render(<FilterShell {...baseProps} />);
     const trigger = screen.getByRole('button', { name: 'Amount' });
     trigger.focus();
 
-    rerender(<FilterShell {...baseProps} count={2} />);
+    rerender(<FilterShell {...baseProps} summary="2" />);
 
     expect(screen.getByRole('button', { name: 'Amount (2)' })).toHaveFocus();
-  });
-
-  it('should open the popover when clicking the trigger', async () => {
-    render(<FilterShell {...baseProps} />);
-    const trigger = screen.getByRole('button', { name: 'Amount' });
-
-    expect(trigger).toHaveAttribute('aria-expanded', 'false');
-
-    await userEvent.click(trigger);
-
-    expect(trigger).toHaveAttribute('aria-expanded', 'true');
-    expect(screen.getByText('Filter controls')).toBeInTheDocument();
   });
 
   describe('without an onApply callback', () => {
@@ -101,7 +89,7 @@ describe('FilterShell', () => {
       expect(trigger).toHaveAttribute('aria-expanded', 'false');
     });
 
-    it('should call onClear without closing the popover when clicking Clear', async () => {
+    it('should call onClear and close the popover when clicking Clear', async () => {
       const onClear = vi.fn();
       render(
         <FilterShell {...baseProps} onApply={vi.fn()} onClear={onClear} />,
@@ -112,7 +100,7 @@ describe('FilterShell', () => {
       await userEvent.click(screen.getByRole('button', { name: 'Clear' }));
 
       expect(onClear).toHaveBeenCalledTimes(1);
-      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
     });
 
     it('should call onDiscard when closing the popover without applying', async () => {

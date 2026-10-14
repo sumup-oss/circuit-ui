@@ -13,9 +13,18 @@
  * limitations under the License.
  */
 
+import { formatCurrency, formatDate, formatNumber } from '@sumup-oss/intl';
+
+import { toPlainDate } from '../../../../util/date.js';
+import type { Locale } from '../../../../util/i18n.js';
 import type { Column } from '../../types.js';
 
-import type { FilterKind, FilterValue } from './types.js';
+import type {
+  DateRange,
+  FilterKind,
+  FilterValue,
+  NumberRange,
+} from './types.js';
 
 type FilterColumn = Pick<Column<unknown>, 'type' | 'filter'>;
 
@@ -53,7 +62,6 @@ export function getFilterKind({
   }
   switch (type.name) {
     case 'singleSelection':
-      return 'single';
     case 'multiSelection':
       return 'multi';
     case 'number':
@@ -65,15 +73,67 @@ export function getFilterKind({
   }
 }
 
-/**
- * Returns how many selections a filter has, e.g. for the count on its trigger.
- */
-export function getFilterCount(
-  kind: FilterKind,
-  value: FilterValue | undefined,
-): number {
-  if (value === undefined) {
-    return 0;
+function formatRange(
+  start: string | undefined,
+  end: string | undefined,
+): string | undefined {
+  if (start !== undefined && end !== undefined) {
+    return `${start} – ${end}`;
   }
-  return kind === 'multi' ? (value as string[]).length : 1;
+  if (start !== undefined) {
+    return `≥ ${start}`;
+  }
+  return end === undefined ? undefined : `≤ ${end}`;
+}
+
+/**
+ * Describes the applied value of a filter in a few words, to show on its
+ * trigger: the number of selections, or the range of an amount or a date.
+ */
+export function getFilterSummary(
+  { type }: Pick<FilterColumn, 'type'>,
+  value: FilterValue | undefined,
+  locale: Locale,
+): string | undefined {
+  if (value === undefined) {
+    return undefined;
+  }
+  switch (type.name) {
+    case 'singleSelection':
+    case 'multiSelection':
+      return String((value as string[]).length);
+    case 'number': {
+      const amount = getAmountKind(type);
+      const format = (number: number) => {
+        if (amount.kind === 'currency') {
+          return formatCurrency(number, locale, amount.currency);
+        }
+        if (amount.kind === 'percentage') {
+          return formatNumber(number / 100, locale, {
+            style: 'percent',
+            maximumFractionDigits: 2,
+          });
+        }
+        return formatNumber(number, locale);
+      };
+      const { min, max } = value as NumberRange;
+      return formatRange(
+        min === undefined ? undefined : format(min),
+        max === undefined ? undefined : format(max),
+      );
+    }
+    case 'date': {
+      const format = (date: string) => {
+        const plainDate = toPlainDate(date);
+        return plainDate ? formatDate(plainDate, locale, 'medium') : date;
+      };
+      const { from, to } = value as DateRange;
+      return formatRange(
+        from === undefined ? undefined : format(from),
+        to === undefined ? undefined : format(to),
+      );
+    }
+    default:
+      return undefined;
+  }
 }

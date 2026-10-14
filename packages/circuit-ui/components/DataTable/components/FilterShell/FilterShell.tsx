@@ -41,10 +41,10 @@ export interface FilterShellProps extends Partial<I18nConfig> {
    */
   label: string;
   /**
-   * The number of active selections. Shown next to the label when it is
-   * greater than 0.
+   * A short description of the applied filter, shown in brackets after the
+   * label.
    */
-  count?: number;
+  summary?: string;
   /**
    * The filter controls.
    */
@@ -56,7 +56,8 @@ export interface FilterShellProps extends Partial<I18nConfig> {
    */
   onApply?: () => void;
   /**
-   * Called when the Clear button is clicked. Only shown alongside `onApply`.
+   * Called when the Clear button is clicked, which also closes the popover.
+   * Only shown alongside `onApply`.
    */
   onClear?: () => void;
   /**
@@ -107,7 +108,7 @@ function FilterTrigger(triggerProps: PopoverReferenceProps) {
 export function FilterShell(props: FilterShellProps) {
   const {
     label,
-    count = 0,
+    summary,
     children,
     onApply,
     onClear,
@@ -135,7 +136,12 @@ export function FilterShell(props: FilterShellProps) {
     setOpen(false);
   };
 
-  const triggerLabel = count > 0 ? `${label} (${count})` : label;
+  const handleClear = () => {
+    onClear?.();
+    setOpen(false);
+  };
+
+  const triggerLabel = summary ? `${label} (${summary})` : label;
 
   return (
     <TriggerContext value={{ label: triggerLabel, className }}>
@@ -154,7 +160,7 @@ export function FilterShell(props: FilterShellProps) {
                 type="button"
                 size="s"
                 variant="secondary"
-                onClick={onClear}
+                onClick={handleClear}
               >
                 {clearButtonLabel}
               </Button>

@@ -19,7 +19,7 @@ import type { ColumnType } from '../../types.js';
 
 import {
   getAmountKind,
-  getFilterCount,
+  getFilterSummary,
   getFilterKind,
 } from './FilterService.js';
 
@@ -28,7 +28,7 @@ describe('FilterService', () => {
 
   describe('getFilterKind', () => {
     it.each([
-      [{ name: 'singleSelection', options }, 'single'],
+      [{ name: 'singleSelection', options }, 'multi'],
       [{ name: 'multiSelection', options }, 'multi'],
       [{ name: 'number' }, 'number'],
       [{ name: 'date' }, 'date'],
@@ -104,21 +104,63 @@ describe('FilterService', () => {
     });
   });
 
-  describe('getFilterCount', () => {
-    it('should return 0 without a value', () => {
-      expect(getFilterCount('multi', undefined)).toBe(0);
-    });
+  describe('getFilterSummary', () => {
+    const summarize = (
+      type: ColumnType,
+      value: Parameters<typeof getFilterSummary>[1],
+    ) => getFilterSummary({ type }, value, 'en-US');
 
-    it('should return the number of selected options for a multi choice', () => {
-      expect(getFilterCount('multi', ['a', 'b'])).toBe(2);
+    it('should return undefined without a value', () => {
+      expect(summarize({ name: 'multiSelection', options }, undefined)).toBe(
+        undefined,
+      );
     });
 
     it.each([
-      ['single', 'paid'],
-      ['number', { min: 1 }],
-      ['date', { from: '2026-10-01' }],
-    ] as const)('should return 1 for a %s filter with a value', (kind, value) => {
-      expect(getFilterCount(kind, value)).toBe(1);
+      [{ name: 'singleSelection', options }],
+      [{ name: 'multiSelection', options }],
+    ] as [
+      ColumnType,
+    ][])('should return the number of selections for a %j column', (type) => {
+      expect(summarize(type, ['a', 'b'])).toBe('2');
+    });
+
+    it('should return the range of a number column', () => {
+      expect(summarize({ name: 'number' }, { min: 5, max: 1200 })).toBe(
+        '5 – 1,200',
+      );
+    });
+
+    it('should return the range of a percentage column', () => {
+      expect(
+        summarize(
+          { name: 'number', formattingOptions: { style: 'percent' } },
+          { min: 10, max: 12.5 },
+        ),
+      ).toBe('10% – 12.5%');
+    });
+
+    it('should return the range of a currency column', () => {
+      expect(
+        summarize(
+          {
+            name: 'number',
+            formattingOptions: { style: 'currency', currency: 'EUR' },
+          },
+          { min: 10, max: 50 },
+        ),
+      ).toBe('€10.00 – €50.00');
+    });
+
+    it('should return the range of a date column', () => {
+      expect(
+        summarize({ name: 'date' }, { from: '2026-10-08', to: '2026-10-15' }),
+      ).toBe('Oct 8, 2026 – Oct 15, 2026');
+    });
+
+    it('should describe a range with only a minimum or a maximum', () => {
+      expect(summarize({ name: 'number' }, { min: 5 })).toBe('≥ 5');
+      expect(summarize({ name: 'number' }, { max: 5 })).toBe('≤ 5');
     });
   });
 });

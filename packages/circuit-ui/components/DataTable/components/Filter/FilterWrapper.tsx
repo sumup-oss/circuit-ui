@@ -15,24 +15,19 @@
 
 'use client';
 
+import { useI18n } from '../../../../hooks/useI18n/useI18n.js';
 import type { Column, ColumnType } from '../../types.js';
 import { AmountFilter } from '../AmountFilter/index.js';
 import { DateFilter } from '../DateFilter/index.js';
 import { FilterShell } from '../FilterShell/index.js';
 import { MultiChoiceFilter } from '../MultiChoiceFilter/index.js';
-import { SingleChoiceFilter } from '../SingleChoiceFilter/index.js';
 
 import {
   getAmountKind,
-  getFilterCount,
   getFilterKind,
+  getFilterSummary,
 } from './FilterService.js';
-import type {
-  DateRange,
-  FilterKind,
-  FilterValue,
-  NumberRange,
-} from './types.js';
+import type { DateRange, FilterValue, NumberRange } from './types.js';
 import { useFilterDraft } from './useFilterDraft.js';
 
 export interface FilterWrapperProps {
@@ -65,65 +60,34 @@ interface FilterBodyProps {
   onChange: (value: FilterValue | undefined) => void;
 }
 
-function FilterBody({
-  type,
-  label,
-  hideLabel,
-  value,
-  onChange,
-}: FilterBodyProps) {
+function FilterBody({ type, value, ...props }: FilterBodyProps) {
   switch (type.name) {
     case 'singleSelection':
-      return (
-        <SingleChoiceFilter
-          label={label}
-          hideLabel={hideLabel}
-          options={type.options}
-          value={value as string | undefined}
-          onChange={onChange}
-        />
-      );
     case 'multiSelection':
       return (
         <MultiChoiceFilter
-          label={label}
-          hideLabel={hideLabel}
+          {...props}
           options={type.options}
           value={value as string[] | undefined}
-          onChange={onChange}
         />
       );
     case 'number':
       return (
         <AmountFilter
-          label={label}
-          hideLabel={hideLabel}
+          {...props}
           value={value as NumberRange | undefined}
-          onChange={onChange}
           {...getAmountKind(type)}
         />
       );
     case 'date':
-      return (
-        <DateFilter
-          label={label}
-          hideLabel={hideLabel}
-          value={value as DateRange | undefined}
-          onChange={onChange}
-        />
-      );
+      return <DateFilter {...props} value={value as DateRange | undefined} />;
     default:
       return null;
   }
 }
 
-function PopoverFilter({
-  kind,
-  type,
-  label,
-  value,
-  onChange,
-}: FilterBodyProps & { kind: FilterKind }) {
+function PopoverFilter({ type, label, value, onChange }: FilterBodyProps) {
+  const { formattingLocale } = useI18n({});
   const { draft, setDraft, apply, clear, discard } = useFilterDraft(
     value,
     onChange,
@@ -132,7 +96,7 @@ function PopoverFilter({
   return (
     <FilterShell
       label={label}
-      count={getFilterCount(kind, value)}
+      summary={getFilterSummary({ type }, value, formattingLocale)}
       onApply={apply}
       onClear={clear}
       onDiscard={discard}
@@ -177,7 +141,6 @@ export function FilterWrapper({
 
   return (
     <PopoverFilter
-      kind={kind}
       type={column.type}
       label={column.label}
       value={value}

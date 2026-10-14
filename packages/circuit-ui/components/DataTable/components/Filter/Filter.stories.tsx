@@ -56,18 +56,6 @@ const paymentStatusOptions: Option[] = [
   { label: 'Revoked', value: 'revoked' },
 ];
 
-const singleChoiceColumn: FilterWrapperProps['column'] = {
-  label: 'Payment Status',
-  filter: true,
-  type: { name: 'singleSelection', options: paymentStatusOptions },
-};
-
-export const SingleChoice = (args: FilterWrapperProps) => (
-  <FilterStory {...args} />
-);
-
-SingleChoice.args = { column: singleChoiceColumn };
-
 const multiChoiceColumn: FilterWrapperProps['column'] = {
   label: 'Payment Status',
   filter: true,

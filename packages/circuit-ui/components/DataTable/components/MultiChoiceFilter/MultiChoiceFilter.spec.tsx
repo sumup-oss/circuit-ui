@@ -78,21 +78,6 @@ describe('MultiChoiceFilter', () => {
 
       expect(onChange).toHaveBeenCalledWith(['paid', 'unpaid']);
     });
-
-    it('should report the values in the order of the options', async () => {
-      const onChange = vi.fn();
-      render(
-        <MultiChoiceFilter
-          {...baseProps}
-          value={['revoked']}
-          onChange={onChange}
-        />,
-      );
-
-      await userEvent.click(screen.getByRole('checkbox', { name: 'Paid' }));
-
-      expect(onChange).toHaveBeenCalledWith(['paid', 'revoked']);
-    });
   });
 
   describe('when deselecting an option', () => {

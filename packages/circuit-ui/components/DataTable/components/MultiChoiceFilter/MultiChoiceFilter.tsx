@@ -40,8 +40,8 @@ export interface MultiChoiceFilterProps {
    */
   value?: string[];
   /**
-   * Called with the values of the selected options, in the order of the
-   * `options`. Called with `undefined` when the last option is deselected.
+   * Called with the values of the selected options, or with `undefined` when
+   * the last option is deselected.
    */
   onChange: (value: string[] | undefined) => void;
 }
@@ -50,11 +50,9 @@ export interface MultiChoiceFilterProps {
  * Lets the user pick any number of options. Changes are reported immediately.
  */
 export function MultiChoiceFilter({
-  label,
-  hideLabel,
-  options,
   value = [],
   onChange,
+  ...props
 }: MultiChoiceFilterProps) {
   const name = useId();
 
@@ -63,19 +61,14 @@ export function MultiChoiceFilter({
     const selected = checked
       ? [...value, optionValue]
       : value.filter((item) => item !== optionValue);
-    const ordered = options
-      .map((option) => option.value)
-      .filter((item) => selected.includes(item));
 
-    onChange(ordered.length > 0 ? ordered : undefined);
+    onChange(selected.length > 0 ? selected : undefined);
   };
 
   return (
     <CheckboxGroup
+      {...props}
       name={name}
-      label={label}
-      hideLabel={hideLabel}
-      options={options}
       value={value}
       onChange={handleChange}
     />
