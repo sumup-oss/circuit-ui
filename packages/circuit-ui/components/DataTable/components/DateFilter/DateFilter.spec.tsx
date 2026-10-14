@@ -63,6 +63,7 @@ describe('DateFilter', () => {
     expect(from.getByLabelText('Day')).toHaveValue('5');
     expect(to.getByLabelText('Month')).toHaveValue('10');
     expect(to.getByLabelText('Day')).toHaveValue('12');
+    expect(to.getByLabelText('Year')).toHaveValue('2026');
   });
 
   it('should call onChange with the start date when entering a full date', async () => {
