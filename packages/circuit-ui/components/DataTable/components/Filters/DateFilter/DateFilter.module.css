@@ -15,3 +15,17 @@
   flex-direction: column;
   gap: var(--cui-spacings-kilo);
 }
+
+.fields fieldset {
+  --field-input-padding-inline: calc(
+    var(--cui-spacings-mega) -
+    var(--cui-border-width-kilo)
+  );
+  --field-input-border-radius: var(--cui-border-radius-kilo);
+}
+
+/* Match the corners of the calendar button to the date field */
+.fields button[aria-controls] {
+  border-top-right-radius: var(--cui-border-radius-kilo);
+  border-bottom-right-radius: var(--cui-border-radius-kilo);
+}

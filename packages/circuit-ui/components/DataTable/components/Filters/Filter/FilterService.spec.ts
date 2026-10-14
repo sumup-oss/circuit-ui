@@ -19,8 +19,9 @@ import type { ColumnType } from '../../../types.js';
 
 import {
   getAmountKind,
-  getFilterSummary,
+  getAmountUnit,
   getFilterKind,
+  getFilterSummary,
 } from './FilterService.js';
 
 describe('FilterService', () => {
@@ -101,6 +102,33 @@ describe('FilterService', () => {
           formattingOptions: { style: 'currency' },
         }),
       ).toEqual({ kind: 'number' });
+    });
+  });
+
+  describe('getAmountUnit', () => {
+    it('should return the currency symbol for a currency column', () => {
+      expect(
+        getAmountUnit(
+          {
+            name: 'number',
+            formattingOptions: { style: 'currency', currency: 'EUR' },
+          },
+          'en-US',
+        ),
+      ).toBe('€');
+    });
+
+    it('should return a percent sign for a percentage column', () => {
+      expect(
+        getAmountUnit(
+          { name: 'number', formattingOptions: { style: 'percent' } },
+          'en-US',
+        ),
+      ).toBe('%');
+    });
+
+    it('should return undefined for a plain number column', () => {
+      expect(getAmountUnit({ name: 'number' }, 'en-US')).toBeUndefined();
     });
   });
 

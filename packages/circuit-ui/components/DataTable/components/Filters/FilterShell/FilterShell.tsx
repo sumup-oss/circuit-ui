@@ -30,6 +30,7 @@ import {
   type PopoverReferenceProps,
 } from '../../../../Popover/Popover.js';
 import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
+import { clsx } from '../../../../../styles/clsx.js';
 import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
 
 import classes from './FilterShell.module.css';
@@ -76,6 +77,8 @@ export interface FilterShellProps extends Partial<I18nConfig> {
   className?: string;
 }
 
+const POPOVER_OFFSET = 12;
+
 const TriggerContext = createContext<{ label: string; className?: string }>({
   label: '',
 });
@@ -94,7 +97,7 @@ function FilterTrigger(triggerProps: PopoverReferenceProps) {
       variant="secondary"
       size="s"
       navigationIcon={ChevronDown}
-      className={className}
+      className={clsx(classes.trigger, className)}
     >
       {label}
     </Button>
@@ -150,6 +153,9 @@ export function FilterShell(props: FilterShellProps) {
         onToggle={handleToggle}
         component={FilterTrigger}
         placement="bottom-start"
+        offset={POPOVER_OFFSET}
+        className={classes.popover}
+        contentClassName={classes['popover-content']}
         hideCloseButton
       >
         <div className={classes.content}>

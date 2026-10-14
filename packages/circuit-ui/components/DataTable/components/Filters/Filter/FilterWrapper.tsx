@@ -23,7 +23,7 @@ import { FilterShell } from '../FilterShell/index.js';
 import { MultiChoiceFilter } from '../MultiChoiceFilter/index.js';
 
 import {
-  getAmountKind,
+  getAmountUnit,
   getFilterKind,
   getFilterSummary,
 } from './FilterService.js';
@@ -61,6 +61,8 @@ interface FilterBodyProps {
 }
 
 function FilterBody({ type, value, ...props }: FilterBodyProps) {
+  const { formattingLocale } = useI18n({});
+
   switch (type.name) {
     case 'singleSelection':
     case 'multiSelection':
@@ -71,14 +73,17 @@ function FilterBody({ type, value, ...props }: FilterBodyProps) {
           value={value as string[] | undefined}
         />
       );
-    case 'number':
+    case 'number': {
+      const unit = getAmountUnit(type, formattingLocale);
+
       return (
         <AmountFilter
           {...props}
+          label={unit ? `${props.label} (${unit})` : props.label}
           value={value as NumberRange | undefined}
-          {...getAmountKind(type)}
         />
       );
+    }
     case 'date':
       return <DateFilter {...props} value={value as DateRange | undefined} />;
     default:
@@ -104,7 +109,7 @@ function PopoverFilter({ type, label, value, onChange }: FilterBodyProps) {
       <FilterBody
         type={type}
         label={label}
-        hideLabel
+        hideLabel={type.name !== 'number'}
         value={draft}
         onChange={setDraft}
       />

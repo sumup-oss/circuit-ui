@@ -26,7 +26,6 @@ import { AmountFilter, type AmountFilterProps } from './AmountFilter.js';
 describe('AmountFilter', () => {
   const baseProps = {
     label: 'Amount range',
-    kind: 'number',
     onChange: vi.fn(),
   } satisfies AmountFilterProps;
 
@@ -38,20 +37,11 @@ describe('AmountFilter', () => {
     ).toBeInTheDocument();
   });
 
-  it.each([
-    ['number', 'spinbutton'],
-    ['percentage', 'textbox'],
-    ['currency', 'textbox'],
-  ] as const)('should render a min and a max field for the %s kind', (kind, role) => {
-    render(
-      <AmountFilter
-        {...baseProps}
-        {...(kind === 'currency' ? { kind, currency: 'EUR' } : { kind })}
-      />,
-    );
+  it('should render a min and a max field', () => {
+    render(<AmountFilter {...baseProps} />);
 
-    expect(screen.getByRole(role, { name: 'Min' })).toBeInTheDocument();
-    expect(screen.getByRole(role, { name: 'Max' })).toBeInTheDocument();
+    expect(screen.getByRole('spinbutton', { name: 'Min' })).toBeInTheDocument();
+    expect(screen.getByRole('spinbutton', { name: 'Max' })).toBeInTheDocument();
   });
 
   it('should show the values of the range', () => {
@@ -90,23 +80,6 @@ describe('AmountFilter', () => {
     await userEvent.clear(screen.getByRole('spinbutton', { name: 'Min' }));
 
     expect(onChange).toHaveBeenCalledWith(undefined);
-  });
-
-  it('should report a number for the currency kind', async () => {
-    const onChange = vi.fn();
-    render(
-      <AmountFilter
-        {...baseProps}
-        kind="currency"
-        currency="EUR"
-        formattingLocale="en-US"
-        onChange={onChange}
-      />,
-    );
-
-    await userEvent.type(screen.getByRole('textbox', { name: 'Max' }), '12.5');
-
-    expect(onChange).toHaveBeenLastCalledWith({ max: 12.5 });
   });
 
   describe('when the minimum is greater than the maximum', () => {

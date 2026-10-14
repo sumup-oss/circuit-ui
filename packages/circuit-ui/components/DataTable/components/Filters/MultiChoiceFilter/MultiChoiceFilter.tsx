@@ -20,6 +20,8 @@ import { type ChangeEvent, useId } from 'react';
 import { CheckboxGroup } from '../../../../CheckboxGroup/index.js';
 import type { Option } from '../../../types.js';
 
+import classes from './MultiChoiceFilter.module.css';
+
 export interface MultiChoiceFilterProps {
   /**
    * The name of the filter, used as the label of the checkbox group.
@@ -74,6 +76,7 @@ export function MultiChoiceFilter({
   return (
     <CheckboxGroup
       {...props}
+      className={classes.list}
       name={name}
       value={value}
       onChange={handleChange}

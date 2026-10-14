@@ -1,3 +1,14 @@
+.field.field {
+  --field-input-padding-inline: calc(
+    var(--cui-spacings-mega) -
+    var(--cui-border-width-kilo)
+  );
+  --field-input-border-radius: var(--cui-border-radius-kilo);
+
+  flex: none;
+  width: 80px;
+}
+
 .base {
   min-width: 0;
   padding: 0;
@@ -7,18 +18,19 @@
 
 .legend {
   padding: 0;
-  margin-bottom: var(--cui-spacings-bit);
+  margin-bottom: var(--cui-spacings-kilo);
+  font-size: var(--cui-body-s-font-size);
+  font-weight: var(--cui-font-weight-semibold);
+  line-height: var(--cui-body-s-line-height);
+  color: var(--cui-fg-normal);
 }
 
 .range {
   display: flex;
-  gap: var(--cui-spacings-byte);
+  gap: var(--cui-spacings-bit);
   align-items: center;
-}
-
-.range > :not(.separator) {
-  flex: 1;
-  min-width: 0;
+  align-self: stretch;
+  justify-content: center;
 }
 
 .separator {

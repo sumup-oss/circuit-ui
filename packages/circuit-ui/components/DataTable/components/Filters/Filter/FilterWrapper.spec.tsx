@@ -171,6 +171,34 @@ describe('FilterWrapper', () => {
     });
   });
 
+  it.each([
+    [
+      'currency',
+      {
+        name: 'number',
+        formattingOptions: { style: 'currency', currency: 'EUR' },
+      },
+      'Amount (€)',
+    ],
+    [
+      'percentage',
+      { name: 'number', formattingOptions: { style: 'percent' } },
+      'Amount (%)',
+    ],
+    ['plain number', { name: 'number' }, 'Amount'],
+  ] as const)('should name the amount group with its unit for a %s column', async (_, type, name) => {
+    render(
+      <FilterWrapper
+        {...baseProps}
+        column={{ label: 'Amount', filter: true, type }}
+      />,
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Amount' }));
+
+    expect(screen.getByRole('group', { name })).toBeInTheDocument();
+  });
+
   it('should report a range when applying a number filter', async () => {
     const onChange = vi.fn();
     render(

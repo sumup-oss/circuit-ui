@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { formatCurrency, formatDate, formatNumber } from '@sumup-oss/intl';
+import {
+  formatCurrency,
+  formatDate,
+  formatNumber,
+  resolveCurrencyFormat,
+} from '@sumup-oss/intl';
 
 import { toPlainDate } from '../../../../../util/date.js';
 import type { Locale } from '../../../../../util/i18n.js';
@@ -47,6 +52,26 @@ export function getAmountKind({
     return { kind: 'percentage' };
   }
   return { kind: 'number' };
+}
+
+/**
+ * Returns the unit of a number column to show next to its name, such as the
+ * currency symbol or `%`. Plain numbers have no unit.
+ */
+export function getAmountUnit(
+  type: NumberColumnType,
+  locale: Locale,
+): string | undefined {
+  const amount = getAmountKind(type);
+
+  if (amount.kind === 'currency') {
+    return (
+      resolveCurrencyFormat(locale, amount.currency)?.currencySymbol ??
+      amount.currency
+    );
+  }
+
+  return amount.kind === 'percentage' ? '%' : undefined;
 }
 
 /**

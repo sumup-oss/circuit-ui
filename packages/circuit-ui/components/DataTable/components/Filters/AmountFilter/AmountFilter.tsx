@@ -17,22 +17,19 @@
 
 import { useId } from 'react';
 
-import { CurrencyInput } from '../../../../CurrencyInput/index.js';
 import { Body } from '../../../../Body/index.js';
 import { Input } from '../../../../Input/index.js';
 import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
-import { PercentageInput } from '../../../../PercentageInput/index.js';
 import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
 import { clsx } from '../../../../../styles/clsx.js';
 import { utilClasses } from '../../../../../styles/utility.js';
-import type { FilterKind, NumberRange } from '../Filter/types.js';
+import { compactRange } from '../Filter/range.js';
+import type { NumberRange } from '../Filter/types.js';
 
 import classes from './AmountFilter.module.css';
 import { translations } from './translations/index.js';
 
-type AmountKind = Extract<FilterKind, 'number' | 'percentage' | 'currency'>;
-
-interface BaseAmountFilterProps extends Partial<I18nConfig> {
+export interface AmountFilterProps extends Partial<I18nConfig> {
   /**
    * The name of the filter, used as the label of the min and max fields.
    */
@@ -65,70 +62,24 @@ interface BaseAmountFilterProps extends Partial<I18nConfig> {
   invalidRangeMessage?: string;
 }
 
-export type AmountFilterProps = BaseAmountFilterProps &
-  (
-    | { kind: Exclude<AmountKind, 'currency'> }
-    | {
-        kind: 'currency';
-        /**
-         * An ISO 4217 currency code, such as 'EUR'.
-         */
-        currency: string;
-      }
-  );
-
-interface AmountFieldProps extends Partial<I18nConfig> {
-  kind: AmountKind;
-  currency?: string;
+interface AmountFieldProps {
   label: string;
   value?: number;
   invalid: boolean;
   onChange: (value: number | undefined) => void;
 }
 
-function AmountField({
-  kind,
-  currency,
-  label,
-  value,
-  invalid,
-  onChange,
-  formattingLocale,
-}: AmountFieldProps) {
-  const sharedProps = {
-    label,
-    hideLabel: true,
-    placeholder: label,
-    size: 's' as const,
-    invalid,
-    value: value ?? '',
-  };
-
-  if (kind === 'currency' && currency) {
-    return (
-      <CurrencyInput
-        {...sharedProps}
-        currency={currency}
-        formattingLocale={formattingLocale}
-        onValueChange={({ floatValue }) => onChange(floatValue)}
-      />
-    );
-  }
-
-  if (kind === 'percentage') {
-    return (
-      <PercentageInput
-        {...sharedProps}
-        formattingLocale={formattingLocale}
-        onValueChange={({ floatValue }) => onChange(floatValue)}
-      />
-    );
-  }
-
+function AmountField({ label, value, invalid, onChange }: AmountFieldProps) {
   return (
     <Input
-      {...sharedProps}
       type="number"
+      size="s"
+      className={classes.field}
+      label={label}
+      hideLabel
+      placeholder={label}
+      invalid={invalid}
+      value={value ?? ''}
       onChange={(event) =>
         onChange(
           event.target.value === '' ? undefined : Number(event.target.value),
@@ -139,12 +90,10 @@ function AmountField({
 }
 
 /**
- * Lets the user enter a minimum and a maximum for a quantity, percentage or
- * currency amount.
+ * Lets the user enter a minimum and a maximum number.
  */
 export function AmountFilter(props: AmountFilterProps) {
   const {
-    kind,
     label,
     hideLabel,
     value,
@@ -152,26 +101,13 @@ export function AmountFilter(props: AmountFilterProps) {
     minLabel,
     maxLabel,
     invalidRangeMessage,
-    formattingLocale,
   } = useTranslations(props, translations);
-  const currency = 'currency' in props ? props.currency : undefined;
   const hintId = useId();
 
   const isInvalid =
     value?.min !== undefined &&
     value?.max !== undefined &&
     value.min > value.max;
-
-  const handleChange = (next: NumberRange) => {
-    const range: NumberRange = {};
-    if (next.min !== undefined) {
-      range.min = next.min;
-    }
-    if (next.max !== undefined) {
-      range.max = next.max;
-    }
-    onChange(Object.keys(range).length > 0 ? range : undefined);
-  };
 
   return (
     <fieldset
@@ -185,25 +121,19 @@ export function AmountFilter(props: AmountFilterProps) {
       </legend>
       <div className={classes.range}>
         <AmountField
-          kind={kind}
-          currency={currency}
           label={minLabel}
           value={value?.min}
           invalid={isInvalid}
-          formattingLocale={formattingLocale}
-          onChange={(min) => handleChange({ ...value, min })}
+          onChange={(min) => onChange(compactRange({ ...value, min }))}
         />
         <span className={classes.separator} aria-hidden="true">
           –
         </span>
         <AmountField
-          kind={kind}
-          currency={currency}
           label={maxLabel}
           value={value?.max}
           invalid={isInvalid}
-          formattingLocale={formattingLocale}
-          onChange={(max) => handleChange({ ...value, max })}
+          onChange={(max) => onChange(compactRange({ ...value, max }))}
         />
       </div>
       {isInvalid && (

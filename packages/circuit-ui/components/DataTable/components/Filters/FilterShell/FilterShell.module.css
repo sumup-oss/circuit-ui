@@ -1,16 +1,45 @@
+.trigger.trigger {
+  border-radius: var(--cui-border-radius-pill);
+}
+
+.trigger.trigger[aria-expanded="true"] {
+  background-color: var(--cui-bg-highlight);
+  border-color: transparent;
+}
+
+.trigger[aria-expanded="true"] svg {
+  color: var(--cui-fg-subtle);
+}
+
 .content {
   display: flex;
   flex-direction: column;
-  gap: var(--cui-spacings-mega);
+  gap: var(--cui-spacings-kilo);
 }
 
 .footer {
+  /* Keeps the buttons above the fade at the bottom of the dialog */
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: var(--cui-spacings-byte);
   justify-content: flex-end;
 }
 
 @media (min-width: 480px) {
+  .popover.popover {
+    border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+    border-radius: var(--cui-border-radius-mega);
+  }
+
+  .popover-content.popover-content {
+    padding-top: calc(var(--cui-spacings-mega) - var(--cui-border-width-kilo));
+    padding-bottom: calc(
+      var(--cui-spacings-mega) -
+      var(--cui-border-width-kilo)
+    );
+  }
+
   .content {
     max-width: 360px;
   }
