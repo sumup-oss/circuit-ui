@@ -17,3 +17,15 @@
 .search input {
   border-radius: var(--cui-border-radius-pill);
 }
+
+.mobile-view {
+  justify-content: start;
+  width: 100%;
+  padding: 0;
+  margin-bottom: var(--cui-spacings-mega);
+}
+
+.mobile-view .search-config,
+.mobile-view .search {
+  flex: 1;
+}

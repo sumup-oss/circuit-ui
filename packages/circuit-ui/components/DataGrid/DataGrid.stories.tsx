@@ -450,6 +450,7 @@ const baseArgs: DataGridProps<Member> = {
       details: 'age;allergies',
       trailingLabel: 'subscriptionPrice',
     },
+    hideLabel: true,
     onClick: action('onListItemClick'),
   },
 };

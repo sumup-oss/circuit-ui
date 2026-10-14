@@ -224,29 +224,6 @@ export function DataGrid<P>({
     [columns],
   );
 
-  if (isMobile && mobileConfig) {
-    const { slots, hideLabel, onClick } = mobileConfig;
-    return (
-      <ListItemGroup
-        ref={ref}
-        label={label}
-        hideLabel={hideLabel}
-        items={data.map((value, index) => ({
-          key: `${rowId}-${index}`,
-          variant: 'action',
-          onClick: (event: ClickEvent) => onClick?.(event, value),
-          ...getListItemFragmentContent(
-            columns,
-            value,
-            formattingLocale,
-            slots,
-            `${rowId}-${index}`,
-          ),
-        }))}
-      />
-    );
-  }
-
   return (
     <div className={classes.wrapper}>
       <FilterBar
@@ -254,35 +231,58 @@ export function DataGrid<P>({
         onVisibleColumnChange={onVisibleColumnChange}
         columns={columns}
         visibleColumns={visibleColumns}
+        isMobile={isMobile}
       />
-      <div className={classes.table}>
-        <table
-          ref={applyMultipleRefs(ref, internalRef)}
-          className={clsx(classes.base, className)}
-          // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: grid is valid role for table
-          role="grid"
-          aria-colcount={columns.length}
-          aria-rowcount={data.length}
-          {...props}
-        >
-          <caption className={utilClasses.hideVisually}>{label}</caption>
-          <TableHeader columns={visibleColumns} />
+      {isMobile && mobileConfig ? (
+        <ListItemGroup
+          ref={ref}
+          label={label}
+          className={classes.list}
+          hideLabel={mobileConfig.hideLabel}
+          items={data.map((value, index) => ({
+            key: `${rowId}-${index}`,
+            variant: 'action',
+            onClick: (event: ClickEvent) =>
+              mobileConfig.onClick?.(event, value),
+            ...getListItemFragmentContent(
+              columns,
+              value,
+              formattingLocale,
+              mobileConfig.slots,
+              `${rowId}-${index}`,
+            ),
+          }))}
+        />
+      ) : (
+        <div className={classes.table}>
+          <table
+            ref={applyMultipleRefs(ref, internalRef)}
+            className={clsx(classes.base, className)}
+            // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: grid is valid role for table
+            role="grid"
+            aria-colcount={columns.length}
+            aria-rowcount={data.length}
+            {...props}
+          >
+            <caption className={utilClasses.hideVisually}>{label}</caption>
+            <TableHeader columns={visibleColumns} />
 
-          <tbody>
-            {data.map((value, index) => (
-              <Row
-                rowIndex={index}
-                key={`${rowId}-${index}`}
-                columns={visibleColumns}
-                formattingLocale={formattingLocale}
-                data={value}
-                className={classes.row}
-                aria-rowindex={index + 1}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
+            <tbody>
+              {data.map((value, index) => (
+                <Row
+                  rowIndex={index}
+                  key={`${rowId}-${index}`}
+                  columns={visibleColumns}
+                  formattingLocale={formattingLocale}
+                  data={value}
+                  className={classes.row}
+                  aria-rowindex={index + 1}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
