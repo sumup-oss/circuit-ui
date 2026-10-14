@@ -1,0 +1,18 @@
+.trigger {
+  border-radius: var(--cui-border-radius-pill);
+}
+
+.picker {
+  max-width: 250px;
+  padding: var(--cui-spacings-giga);
+}
+
+.picker legend {
+  margin-bottom: var(--cui-spacings-byte);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
+}
+
+.picker ul {
+  gap: var(--cui-spacings-mega);
+}

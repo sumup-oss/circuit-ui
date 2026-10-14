@@ -7,6 +7,7 @@ import {
   type TableHTMLAttributes,
   useId,
   type Ref,
+  useState,
 } from 'react';
 import { TableHeader } from './components/TableHeader/TableHeader.js';
 import { Row } from './components/Row/Row.js';
@@ -99,6 +100,7 @@ export function DataGrid<P>({
   ...props
 }: DataGridProps<P>) {
   const rowId = useId();
+  const [visibleColumns, setVisibleColumns] = useState(columns);
 
   const isMobile = useMedia(`(max-width: ${mobileBreakpoint}px)`);
   const { formattingLocale } = useI18n({
@@ -147,7 +149,7 @@ export function DataGrid<P>({
       if (isArrowDown(event) && currentY < data.length) {
         newY = currentY + 1;
       }
-      if (isArrowRight(event) && currentX < columns.length) {
+      if (isArrowRight(event) && currentX < visibleColumns.length) {
         newX = currentX + 1;
       }
       if (isArrowLeft(event) && currentX > 0) {
@@ -163,7 +165,7 @@ export function DataGrid<P>({
         newX = 0;
       }
       if (isEnd(event)) {
-        newX = columns.length - 1;
+        newX = visibleColumns.length - 1;
       }
       if (isControlHome(event)) {
         newY = 0;
@@ -171,7 +173,7 @@ export function DataGrid<P>({
       }
       if (isControlEnd(event)) {
         newY = data.length;
-        newX = columns.length - 1;
+        newX = visibleColumns.length - 1;
       }
       if (newX !== currentX || newY !== currentY) {
         const newActiveCell = table.querySelector(
@@ -183,7 +185,7 @@ export function DataGrid<P>({
         newActiveCell?.focus();
       }
     },
-    [data, columns],
+    [data, visibleColumns],
   );
 
   useEffect(() => {
@@ -196,8 +198,8 @@ export function DataGrid<P>({
   }, [handleKeyboardEvent, handleClickEvent]);
 
   useEffect(() => {
-    columns.forEach(({ maxWidth, minWidth, id }) => {
-      if (id === 'row-actions' || id === 'quick-actions') {
+    columns.forEach(({ maxWidth, minWidth, id, type }) => {
+      if (type.name === 'row-actions' || type.name === 'quick-actions') {
         return;
       }
       if (maxWidth) {
@@ -214,6 +216,13 @@ export function DataGrid<P>({
       }
     });
   }, [columns]);
+
+  const onVisibleColumnChange = useCallback(
+    (value: string[]) => {
+      setVisibleColumns(columns.filter(({ id }) => value.includes(id)));
+    },
+    [columns],
+  );
 
   if (isMobile && mobileConfig) {
     const { slots, hideLabel, onClick } = mobileConfig;
@@ -240,7 +249,12 @@ export function DataGrid<P>({
 
   return (
     <div className={classes.wrapper}>
-      <FilterBar onSearch={onSearch} />
+      <FilterBar
+        onSearch={onSearch}
+        onVisibleColumnChange={onVisibleColumnChange}
+        columns={columns}
+        visibleColumns={visibleColumns}
+      />
       <div className={classes.table}>
         <table
           ref={applyMultipleRefs(ref, internalRef)}
@@ -252,14 +266,14 @@ export function DataGrid<P>({
           {...props}
         >
           <caption className={utilClasses.hideVisually}>{label}</caption>
-          <TableHeader columns={columns} />
+          <TableHeader columns={visibleColumns} />
 
           <tbody>
             {data.map((value, index) => (
               <Row
                 rowIndex={index}
                 key={`${rowId}-${index}`}
-                columns={columns}
+                columns={visibleColumns}
                 formattingLocale={formattingLocale}
                 data={value}
                 className={classes.row}
