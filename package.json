@@ -42,7 +42,8 @@
     "check:security": "audit-ci --critical",
     "copy-docs": "./scripts/copy-docs.sh",
     "bootstrap": "npm run build && npm run copy-docs && cd templates/nextjs/template && npm ci",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "release:backport": "changeset publish --tag latest-v11"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.0",
