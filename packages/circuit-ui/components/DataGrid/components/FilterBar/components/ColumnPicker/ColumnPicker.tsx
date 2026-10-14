@@ -1,10 +1,10 @@
 import { type ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { Popover } from '../../../../../Popover/Popover.js';
-import { IconButton } from '../../../../../Button/index.js';
 import { WeekView } from '@sumup-oss/icons';
 import classes from './ColumnPicker.module.css';
 import { CheckboxGroup } from '../../../../../CheckboxGroup/index.js';
 import type { Column } from '../../../../types.js';
+import { TriggerButton } from '../TriggerButton/TriggerButton.js';
 
 export interface ColumnPickerProps<P> {
   onChange: (value: string[]) => void;
@@ -56,14 +56,9 @@ export const ColumnPicker = <P,>({
       placement="bottom-end"
       contentClassName={classes.picker}
       component={(props) => (
-        <IconButton
-          {...props}
-          size="s"
-          className={classes.trigger}
-          icon={WeekView}
-        >
+        <TriggerButton {...props} icon={WeekView}>
           Pick Columns
-        </IconButton>
+        </TriggerButton>
       )}
     >
       <CheckboxGroup

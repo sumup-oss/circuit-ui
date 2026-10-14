@@ -1,0 +1,20 @@
+.base {
+  background-color: var(--cui-bg-highlight);
+  border-radius: var(--cui-border-radius-pill);
+}
+
+.base:hover {
+  background-color: var(--cui-bg-highlight-hovered);
+}
+
+.base:active,
+.base[aria-expanded="true"],
+.base[aria-pressed="true"] {
+  background-color: var(--cui-bg-highlight-pressed);
+}
+
+.base:disabled,
+.base[disabled],
+.base[aria-disabled="true"] {
+  background-color: var(--cui-bg-highlight-disabled);
+}

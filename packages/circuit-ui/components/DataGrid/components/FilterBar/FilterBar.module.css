@@ -28,4 +28,5 @@
 .mobile-view .search-config,
 .mobile-view .search {
   flex: 1;
+  width: unset;
 }
