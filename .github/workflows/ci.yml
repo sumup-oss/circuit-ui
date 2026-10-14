@@ -58,6 +58,6 @@ jobs:
         if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary' || github.ref == 'refs/heads/v10' || startsWith(github.ref, 'refs/heads/release')|| startsWith(github.ref, 'refs/heads/version/')) && matrix.node == 24
         uses: changesets/action@v1
         with:
-          publish: npm run release
+          publish: npm run release:backport
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_PAT }}
