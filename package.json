@@ -36,7 +36,8 @@
     "check:security": "audit-ci --critical",
     "copy-docs": "./scripts/copy-docs.sh",
     "bootstrap": "npm run build && npm run copy-docs && cd packages/cna-template/template && npm ci",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "release:backport": "changeset publish --tag latest-v8"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
