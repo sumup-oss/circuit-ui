@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.4.1
+
+### Patch Changes
+
+- [#3986](https://github.com/sumup-oss/circuit-ui/pull/3986) [`4cfcb02`](https://github.com/sumup-oss/circuit-ui/commit/4cfcb02718883dd204e8ec5fd2fd99458ee41a7a) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed focus restoration issue in the Popover component when opened by an action different from `onClick`.
+
 ## 12.4.0
 
 ### Minor Changes
