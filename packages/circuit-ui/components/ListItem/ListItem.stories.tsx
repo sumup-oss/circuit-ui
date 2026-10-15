@@ -108,28 +108,30 @@ const baseArgs: ListItemProps = {
   trailingComponent: undefined,
   selected: undefined,
   disabled: undefined,
-  onClick: action('onClick'),
+  onClick: undefined,
   href: undefined,
-  actions: [
-    {
-      onClick: action('Button Click'),
-      children: 'View Details',
-      icon: View,
-    },
-    {
-      onClick: action('Button Click'),
-      children: 'Edit',
-      icon: Edit,
-    },
-    { type: 'divider' },
-    {
-      onClick: action('Button Click'),
-      children: 'Delete',
-      icon: Delete,
-      destructive: true,
-    },
-  ],
-  menuLabel: 'Actions',
+  menu: {
+    actions: [
+      {
+        onClick: action('Button Click'),
+        children: 'View Details',
+        icon: View,
+      },
+      {
+        onClick: action('Button Click'),
+        children: 'Edit',
+        icon: Edit,
+      },
+      { type: 'divider' },
+      {
+        onClick: action('Button Click'),
+        children: 'Delete',
+        icon: Delete,
+        destructive: true,
+      },
+    ],
+    label: 'Actions',
+  },
 };
 
 export const Base = (args: ListItemProps) => (

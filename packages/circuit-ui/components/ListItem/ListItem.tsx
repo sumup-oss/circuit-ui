@@ -92,14 +92,18 @@ interface BaseProps {
    */
   href?: string;
   /**
-   * Label for the menu trigger when using the `menu` variant.
+   * Specific to the `"menu"` variant.
    */
-  menuLabel?: string;
-  /**
-   * An array of ActionMenuItem or Divider.
-   * Used with the `menu` variant, otherwise ignored
-   */
-  actions?: ActionMenuProps['actions'];
+  menu?: {
+    /**
+     * Label for the menu trigger when using the `menu` variant.
+     */
+    label: string;
+    /**
+     * An array of ActionMenuItem or Divider.
+     */
+    actions: ActionMenuProps['actions'];
+  };
 }
 
 type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>;
@@ -127,8 +131,7 @@ export function ListItem({
   trailingComponent,
   className,
   selected,
-  actions = [],
-  menuLabel,
+  menu,
   disabled,
   ref,
   ...props
@@ -160,7 +163,7 @@ export function ListItem({
   }
 
   const isNavigation = variant === 'navigation';
-  const hasMenu = variant === 'menu' && actions?.length > 0 && menuLabel;
+  const hasMenu = variant === 'menu' && menu && menu?.actions?.length > 0;
   const hasTrailing = !!trailingLabel || !!trailingComponent;
   const shouldRenderTrailingContainer = hasTrailing || isNavigation || hasMenu;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -173,7 +176,6 @@ export function ListItem({
         classes.base,
         isNavigation && classes.navigation,
         hasMenu && classes.menu,
-        shouldRenderTrailingContainer && classes['with-trailing-content'],
         className,
       )}
       disabled={disabled}
@@ -215,28 +217,44 @@ export function ListItem({
               classes.trailing,
               Boolean(trailingLabel) && classes['has-label'],
             )}
+            data-variant={variant}
           >
-            <div className={classes.chevron}>
-              {isString(trailingLabel) ? (
-                <Body size="m" weight="semibold">
-                  {trailingLabel}
-                </Body>
-              ) : (
-                trailingLabel
+            <div className={classes['trailing-content']}>
+              <div className={classes['trailing-label']}>
+                {isString(trailingLabel) ? (
+                  <Body size="m" weight="semibold">
+                    {trailingLabel}
+                  </Body>
+                ) : (
+                  trailingLabel
+                )}
+                {trailingComponent}
+              </div>
+              {trailingDetails && (
+                <div className={classes.details}>
+                  {isString(trailingDetails) ? (
+                    <Body size="s" color="subtle">
+                      {trailingDetails}
+                    </Body>
+                  ) : (
+                    trailingDetails
+                  )}
+                </div>
               )}
-              {trailingComponent}
-              <div className={clsx(utilClasses.center, classes.placeholder)}>
+            </div>
+            {variant !== 'action' && (
+              <div
+                className={clsx(classes['trailing-detail'], utilClasses.center)}
+              >
                 {isNavigation && <ChevronRight size="16" aria-hidden="true" />}
                 {hasMenu && (
                   <ActionMenu
                     isOpen={isMenuOpen}
                     onToggle={setIsMenuOpen}
-                    placement={'bottom-end'}
-                    fallbackPlacements={['bottom-end']}
+                    placement={'bottom-start'}
                     component={(btnProps) => (
                       <IconButton
                         {...btnProps}
-                        className={classes['menu-trigger']}
                         icon={More}
                         disabled={disabled}
                         onClick={(event) => {
@@ -247,22 +265,11 @@ export function ListItem({
                         size="s"
                         variant="tertiary"
                       >
-                        {menuLabel}
+                        {menu.label}
                       </IconButton>
                     )}
-                    actions={actions}
+                    actions={menu.actions}
                   />
-                )}
-              </div>
-            </div>
-            {trailingDetails && (
-              <div className={classes.details}>
-                {isString(trailingDetails) ? (
-                  <Body size="s" color="subtle">
-                    {trailingDetails}
-                  </Body>
-                ) : (
-                  trailingDetails
                 )}
               </div>
             )}

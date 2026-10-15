@@ -244,19 +244,18 @@ describe('ListItem', () => {
   });
 
   describe('menu variant', () => {
-    const menuProps: Partial<ListItemProps> = {
-      variant: 'menu',
+    const menuProps = {
       actions: [
         {
           onClick: vi.fn(),
           children: 'View',
         },
       ],
-      menuLabel: 'Actions',
+      label: 'Actions',
     };
 
     it('should render as the menu variant', async () => {
-      render(<ListItem {...baseProps} {...menuProps} />);
+      render(<ListItem {...baseProps} variant="menu" menu={menuProps} />);
       const trigger = screen.getByRole('button', { name: 'Actions' });
       expect(trigger).toBeVisible();
       await userEvent.click(trigger);
@@ -265,14 +264,28 @@ describe('ListItem', () => {
 
     it('should not fire onClick action when trigger button is clicked', async () => {
       const onClick = vi.fn();
-      render(<ListItem {...baseProps} {...menuProps} onClick={onClick} />);
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={menuProps}
+          onClick={onClick}
+        />,
+      );
       const trigger = screen.getByRole('button', { name: 'Actions' });
       expect(trigger).toBeVisible();
       await userEvent.click(trigger);
       expect(onClick).not.toHaveBeenCalled();
     });
     it('should not navigate when the menu trigger is clicked', async () => {
-      render(<ListItem {...baseProps} {...menuProps} href="/settings" />);
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={menuProps}
+          href="/settings"
+        />,
+      );
 
       const trigger = screen.getByRole('button', { name: 'Actions' });
       let clickEvent: MouseEvent | undefined;
@@ -285,13 +298,19 @@ describe('ListItem', () => {
     });
 
     it('should not render with menu when variant is menu and actions are missing', async () => {
-      render(<ListItem {...baseProps} {...menuProps} actions={[]} />);
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={{ ...menuProps, actions: [] }}
+        />,
+      );
       expect(
         screen.queryByRole('button', { name: 'See actions' }),
       ).not.toBeInTheDocument();
     });
     it('should not render with menu when variant is menu and menu label is not provided', async () => {
-      render(<ListItem {...baseProps} {...menuProps} menuLabel={undefined} />);
+      render(<ListItem {...baseProps} menu={{ ...menuProps, label: '' }} />);
       expect(
         screen.queryByRole('button', { name: 'See actions' }),
       ).not.toBeInTheDocument();

@@ -13,11 +13,6 @@
   border-radius: var(--cui-border-radius-mega);
 }
 
-.with-trailing-content {
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-byte)
-    var(--cui-spacings-kilo) var(--cui-spacings-mega);
-}
-
 .base:disabled,
 .base[disabled] {
   color: var(--cui-fg-normal-disabled);
@@ -131,44 +126,42 @@ button.base:active {
 
 .trailing {
   display: flex;
-  flex: none;
-  flex-direction: column;
-  gap: var(--cui-spacings-bit);
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: flex-start;
   align-self: stretch;
   justify-content: center;
-  margin-left: var(--cui-spacings-byte);
+  margin-left: var(--cui-spacings-mega);
 }
 
 .trailing.has-label {
   justify-content: flex-start;
 }
 
-.trailing .details {
-  margin-right: calc(var(--cui-icon-sizes-mega) + var(--cui-spacings-bit));
+.trailing-content {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--cui-spacings-bit);
+  align-items: flex-end;
 }
 
-.placeholder {
+.trailing-detail {
   width: var(--cui-icon-sizes-mega);
-  margin-left: var(--cui-spacings-bit);
+  height: var(--cui-icon-sizes-mega);
+  margin-right: calc(-1 * var(--cui-spacings-byte));
 }
 
-.chevron {
+.trailing-label {
   display: flex;
   align-items: center;
 }
 
-/* When the chevron is preceded by other content */
-.navigation .chevron svg:not(:first-child) {
+/* When the trailing-label is preceded by other content */
+.navigation .trailing-label svg:not(:first-child) {
   margin-left: var(--cui-spacings-bit);
 }
 
 .navigation .trailing .details,
 .menu .trailing .details {
   height: var(--cui-body-m-line-height);
-}
-
-.menu-trigger {
-  width: var(--cui-icon-sizes-mega);
-  height: var(--cui-icon-sizes-mega);
 }
