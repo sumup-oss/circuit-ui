@@ -15,14 +15,15 @@
 
 'use client';
 
-import type {
-  ReactNode,
-  ButtonHTMLAttributes,
-  AnchorHTMLAttributes,
-  HTMLAttributes,
-  Ref,
+import {
+  type ReactNode,
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+  type HTMLAttributes,
+  type Ref,
+  useState,
 } from 'react';
-import { ChevronRight, type IconComponentType } from '@sumup-oss/icons';
+import { ChevronRight, More, type IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
@@ -33,13 +34,18 @@ import { Body } from '../Body/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './ListItem.module.css';
+import { IconButton } from '../Button/index.js';
+import { ActionMenu, type ActionMenuProps } from '../ActionMenu/index.js';
+import { utilClasses } from '../../styles/utility.js';
 
-type Variant = 'action' | 'navigation';
+type Variant = 'action' | 'navigation' | 'menu';
 
 interface BaseProps {
   /**
-   * Choose between 'action' and 'navigation' variant. Default: 'action'.
+   * Choose between 3 variants: 'action', 'navigation' and 'menu'.
+   * @default `"action"`.
    * The `navigation` variant renders a chevron in the trailing section.
+   * The `menu` variant renders an ActionMenu in the trailing section.
    */
   variant?: Variant;
   /**
@@ -85,6 +91,15 @@ interface BaseProps {
    * Link to another part of the application or external page.
    */
   href?: string;
+  /**
+   * Label for the menu trigger when using the `menu` variant.
+   */
+  menuLabel?: string;
+  /**
+   * An array of ActionMenuItem or Divider.
+   * Used with the `menu` variant, otherwise ignored
+   */
+  actions?: ActionMenuProps['actions'];
 }
 
 type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>;
@@ -112,6 +127,8 @@ export function ListItem({
   trailingComponent,
   className,
   selected,
+  actions = [],
+  menuLabel,
   ref,
   ...props
 }: ListItemProps) {
@@ -142,8 +159,10 @@ export function ListItem({
   }
 
   const isNavigation = variant === 'navigation';
+  const hasMenu = variant === 'menu' && actions?.length > 0 && menuLabel;
   const hasTrailing = !!trailingLabel || !!trailingComponent;
-  const shouldRenderTrailingContainer = hasTrailing || isNavigation;
+  const shouldRenderTrailingContainer = hasTrailing || isNavigation || hasMenu;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Element
@@ -152,6 +171,8 @@ export function ListItem({
       className={clsx(
         classes.base,
         isNavigation && classes.navigation,
+        hasMenu && classes.menu,
+        shouldRenderTrailingContainer && classes['with-trailing-content'],
         className,
       )}
       ref={ref}
@@ -202,7 +223,34 @@ export function ListItem({
                 trailingLabel
               )}
               {trailingComponent}
-              {isNavigation && <ChevronRight size="16" aria-hidden="true" />}
+              <div className={clsx(utilClasses.center, classes.placeholder)}>
+                {isNavigation && <ChevronRight size="16" aria-hidden="true" />}
+                {hasMenu && (
+                  <ActionMenu
+                    isOpen={isMenuOpen}
+                    onToggle={setIsMenuOpen}
+                    placement={'bottom-end'}
+                    fallbackPlacements={['bottom-end']}
+                    component={(btnProps) => (
+                      <IconButton
+                        {...btnProps}
+                        className={classes['menu-trigger']}
+                        icon={More}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          event.preventDefault(); // to prevent navigation
+                          btnProps.onClick?.(event);
+                        }}
+                        size="s"
+                        variant="tertiary"
+                      >
+                        {menuLabel}
+                      </IconButton>
+                    )}
+                    actions={actions}
+                  />
+                )}
+              </div>
             </div>
             {trailingDetails && (
               <div className={classes.details}>
