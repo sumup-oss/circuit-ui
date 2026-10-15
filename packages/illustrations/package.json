@@ -42,7 +42,7 @@
   "devDependencies": {
     "tsx": "^4.23.13",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.11",
+    "vitest": "^5.0.1",
     "fast-xml-parser": "^5.11.1"
   },
   "peerDependencies": {
