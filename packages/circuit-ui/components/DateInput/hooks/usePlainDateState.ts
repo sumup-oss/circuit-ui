@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Temporal } from 'temporal-polyfill';
 
 import {
@@ -67,10 +67,17 @@ export function usePlainDateState({
     parseValue(defaultValue || value),
   );
 
+  const lastEmittedValue = useRef<string>(undefined);
+
   useEffect(() => {
-    if (value !== undefined) {
-      setValues(parseValue(value));
+    if (value === undefined) {
+      return;
     }
+    if (value === lastEmittedValue.current) {
+      return;
+    }
+    lastEmittedValue.current = value;
+    setValues(parseValue(value));
   }, [value]);
 
   const update = useCallback(
@@ -97,7 +104,9 @@ export function usePlainDateState({
 
         if (onChange) {
           const plainDate = safePlainDate(year, month, day);
-          onChange(plainDate?.toString() || '');
+          const newValue = plainDate?.toString() || '';
+          lastEmittedValue.current = newValue;
+          onChange(newValue);
         }
 
         return { year, month, day };
