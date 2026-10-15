@@ -129,6 +129,7 @@ export function ListItem({
   selected,
   actions = [],
   menuLabel,
+  disabled,
   ref,
   ...props
 }: ListItemProps) {
@@ -175,6 +176,7 @@ export function ListItem({
         shouldRenderTrailingContainer && classes['with-trailing-content'],
         className,
       )}
+      disabled={disabled}
       ref={ref}
     >
       {LeadingComponent && (
@@ -236,6 +238,7 @@ export function ListItem({
                         {...btnProps}
                         className={classes['menu-trigger']}
                         icon={More}
+                        disabled={disabled}
                         onClick={(event) => {
                           event.stopPropagation();
                           event.preventDefault(); // to prevent navigation
