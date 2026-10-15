@@ -180,7 +180,6 @@ export function Popover({
         setClosing(true);
         return false;
       }
-      $activePopoverId.set(popoverId);
       return true;
     });
   };
@@ -218,6 +217,9 @@ export function Popover({
     if (prevOpen && !isOpen && activePopoverId === popoverId) {
       (refs.reference.current as HTMLElement)?.focus({ preventScroll: true });
       $activePopoverId.set(null);
+    }
+    if (!prevOpen && isOpen) {
+      $activePopoverId.set(popoverId);
     }
   }, [isOpen, prevOpen, refs.reference, activePopoverId, popoverId]);
   return (
