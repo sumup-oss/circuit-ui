@@ -15,7 +15,13 @@
 
 'use client';
 
-import { useState, type HTMLAttributes, type ReactNode, type Ref } from 'react';
+import {
+  useMemo,
+  useState,
+  type HTMLAttributes,
+  type ReactNode,
+  type Ref,
+} from 'react';
 
 import {
   AccessibilityError,
@@ -94,6 +100,13 @@ export function ListItemGroup({
       'The `label` prop, `aria-label` or `aria-labelledby` is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
     );
   }
+  const offsetItems = useMemo(
+    () =>
+      items.some(
+        (item) => item.variant === 'navigation' || item.variant === 'menu',
+      ),
+    [items],
+  );
 
   return (
     <div
@@ -123,6 +136,7 @@ export function ListItemGroup({
             className={clsx(
               classes.item,
               isInteractive && classes.interactive,
+              offsetItems && classes.offset,
               focusedItemKey === key && classes.focused,
               item.selected && classes.selected,
             )}

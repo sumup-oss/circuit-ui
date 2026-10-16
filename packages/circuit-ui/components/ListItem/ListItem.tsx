@@ -15,14 +15,15 @@
 
 'use client';
 
-import type {
-  ReactNode,
-  ButtonHTMLAttributes,
-  AnchorHTMLAttributes,
-  HTMLAttributes,
-  Ref,
+import {
+  type ReactNode,
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+  type HTMLAttributes,
+  type Ref,
+  useState,
 } from 'react';
-import { ChevronRight, type IconComponentType } from '@sumup-oss/icons';
+import { ChevronRight, More, type IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
@@ -33,13 +34,18 @@ import { Body } from '../Body/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './ListItem.module.css';
+import { IconButton } from '../Button/index.js';
+import { ActionMenu, type ActionMenuProps } from '../ActionMenu/index.js';
+import { utilClasses } from '../../styles/utility.js';
 
-type Variant = 'action' | 'navigation';
+type Variant = 'action' | 'navigation' | 'menu';
 
 interface BaseProps {
   /**
-   * Choose between 'action' and 'navigation' variant. Default: 'action'.
+   * Choose between 3 variants: 'action', 'navigation' and 'menu'.
+   * @default `"action"`.
    * The `navigation` variant renders a chevron in the trailing section.
+   * The `menu` variant renders an ActionMenu in the trailing section.
    */
   variant?: Variant;
   /**
@@ -85,6 +91,19 @@ interface BaseProps {
    * Link to another part of the application or external page.
    */
   href?: string;
+  /**
+   * Specific to the `"menu"` variant.
+   */
+  menu?: {
+    /**
+     * Label for the menu trigger when using the `menu` variant.
+     */
+    label: string;
+    /**
+     * An array of ActionMenuItem or Divider.
+     */
+    actions: ActionMenuProps['actions'];
+  };
 }
 
 type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>;
@@ -112,6 +131,8 @@ export function ListItem({
   trailingComponent,
   className,
   selected,
+  menu,
+  disabled,
   ref,
   ...props
 }: ListItemProps) {
@@ -142,8 +163,10 @@ export function ListItem({
   }
 
   const isNavigation = variant === 'navigation';
+  const hasMenu = variant === 'menu' && menu && menu?.actions?.length > 0;
   const hasTrailing = !!trailingLabel || !!trailingComponent;
-  const shouldRenderTrailingContainer = hasTrailing || isNavigation;
+  const shouldRenderTrailingContainer = hasTrailing || isNavigation || hasMenu;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Element
@@ -152,8 +175,10 @@ export function ListItem({
       className={clsx(
         classes.base,
         isNavigation && classes.navigation,
+        hasMenu && classes.menu,
         className,
       )}
+      disabled={disabled}
       ref={ref}
     >
       {LeadingComponent && (
@@ -192,26 +217,59 @@ export function ListItem({
               classes.trailing,
               Boolean(trailingLabel) && classes['has-label'],
             )}
+            data-variant={variant}
           >
-            <div className={classes.chevron}>
-              {isString(trailingLabel) ? (
-                <Body size="m" weight="semibold">
-                  {trailingLabel}
-                </Body>
-              ) : (
-                trailingLabel
-              )}
-              {trailingComponent}
-              {isNavigation && <ChevronRight size="16" aria-hidden="true" />}
-            </div>
-            {trailingDetails && (
-              <div className={classes.details}>
-                {isString(trailingDetails) ? (
-                  <Body size="s" color="subtle">
-                    {trailingDetails}
+            <div className={classes['trailing-content']}>
+              <div className={classes['trailing-label']}>
+                {isString(trailingLabel) ? (
+                  <Body size="m" weight="semibold">
+                    {trailingLabel}
                   </Body>
                 ) : (
-                  trailingDetails
+                  trailingLabel
+                )}
+                {trailingComponent}
+              </div>
+              {trailingDetails && (
+                <div className={classes.details}>
+                  {isString(trailingDetails) ? (
+                    <Body size="s" color="subtle">
+                      {trailingDetails}
+                    </Body>
+                  ) : (
+                    trailingDetails
+                  )}
+                </div>
+              )}
+            </div>
+            {variant !== 'action' && (
+              <div
+                className={clsx(classes['trailing-detail'], utilClasses.center)}
+              >
+                {isNavigation && <ChevronRight size="16" aria-hidden="true" />}
+                {hasMenu && (
+                  <ActionMenu
+                    isOpen={isMenuOpen}
+                    onToggle={setIsMenuOpen}
+                    placement={'bottom-start'}
+                    component={(btnProps) => (
+                      <IconButton
+                        {...btnProps}
+                        icon={More}
+                        disabled={disabled}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          event.preventDefault(); // to prevent navigation
+                          btnProps.onClick?.(event);
+                        }}
+                        size="s"
+                        variant="tertiary"
+                      >
+                        {menu.label}
+                      </IconButton>
+                    )}
+                    actions={menu.actions}
+                  />
                 )}
               </div>
             )}
