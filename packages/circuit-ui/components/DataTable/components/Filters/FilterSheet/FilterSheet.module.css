@@ -6,10 +6,6 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  align-self: stretch;
-  justify-content: space-between;
   padding-right: var(--cui-spacings-peta);
 }
 

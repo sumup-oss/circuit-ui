@@ -32,9 +32,9 @@ import {
 import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
 import { clsx } from '../../../../../styles/clsx.js';
 import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
+import { translations } from '../translations/index.js';
 
 import classes from './FilterShell.module.css';
-import { translations } from '../translations/index.js';
 
 export interface FilterShellProps extends Partial<I18nConfig> {
   /**
@@ -57,8 +57,8 @@ export interface FilterShellProps extends Partial<I18nConfig> {
    */
   onApply?: () => void;
   /**
-   * Called when the Clear button is clicked. The popover stays open.
-   * Only shown alongside `onApply`.
+   * Called when the Clear button is clicked. The popover stays open. The
+   * button is only shown alongside `onApply`.
    */
   onClear?: () => void;
   /**
@@ -157,14 +157,16 @@ export function FilterShell(props: FilterShellProps) {
           {children}
           {onApply && (
             <div className={classes.footer}>
-              <Button
-                type="button"
-                size="s"
-                variant="secondary"
-                onClick={onClear}
-              >
-                {clearButtonLabel}
-              </Button>
+              {onClear && (
+                <Button
+                  type="button"
+                  size="s"
+                  variant="secondary"
+                  onClick={() => onClear()}
+                >
+                  {clearButtonLabel}
+                </Button>
+              )}
               <Button
                 type="button"
                 size="s"

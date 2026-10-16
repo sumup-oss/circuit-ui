@@ -84,5 +84,17 @@ describe('useFilterDraft', () => {
 
       expect(result.current.draft).toBeUndefined();
     });
+
+    it('should keep the draft when the value is a new object with the same content', () => {
+      const { result, rerender } = renderHook(
+        ({ value }) => useFilterDraft<{ min?: number }>(value, vi.fn()),
+        { initialProps: { value: { min: 1 } } },
+      );
+
+      act(() => result.current.setDraft({ min: 5 }));
+      rerender({ value: { min: 1 } });
+
+      expect(result.current.draft).toEqual({ min: 5 });
+    });
   });
 });

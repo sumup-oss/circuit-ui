@@ -14,6 +14,7 @@
  */
 
 import { useState } from 'react';
+import { screen, userEvent, within } from 'storybook/test';
 
 import { Button } from '../../../../Button/index.js';
 import { modes } from '../../../../../../../.storybook/modes.js';
@@ -71,6 +72,17 @@ const columns: Pick<Column<unknown>, 'id' | 'label' | 'type' | 'filter'>[] = [
   { id: 'date', label: 'Date', filter: true, type: { name: 'date' } },
 ];
 
+const openSheet = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.click(canvas.getByRole('button', { name: 'Filters' }));
+  await screen.findByRole('dialog');
+};
+
 /**
  * All the filters in one modal, e.g. on mobile. The DataGrid owns the trigger
  * and the "Clear all" action.
@@ -97,3 +109,5 @@ export const Base = () => {
     </div>
   );
 };
+
+Base.play = openSheet;

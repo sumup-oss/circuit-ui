@@ -16,18 +16,12 @@
 .legend {
   padding: 0;
   margin-bottom: var(--cui-spacings-kilo);
-  font-size: var(--cui-body-s-font-size);
-  font-weight: var(--cui-font-weight-semibold);
-  line-height: var(--cui-body-s-line-height);
-  color: var(--cui-fg-normal);
 }
 
 .range {
   display: flex;
   gap: var(--cui-spacings-bit);
   align-items: center;
-  align-self: stretch;
-  justify-content: center;
 }
 
 .separator {

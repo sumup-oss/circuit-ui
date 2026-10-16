@@ -109,9 +109,9 @@ function FilterBody({ type, labels, value, ...props }: FilterBodyProps) {
 function PopoverFilter({
   type,
   label,
-  labels,
   value,
   onChange,
+  ...props
 }: FilterBodyProps) {
   const { formattingLocale } = useI18n({});
   const { draft, setDraft, apply, clear, discard } = useFilterDraft(
@@ -128,9 +128,9 @@ function PopoverFilter({
       onDiscard={discard}
     >
       <FilterBody
+        {...props}
         type={type}
         label={label}
-        labels={labels}
         hideLabel
         value={draft}
         onChange={setDraft}
@@ -145,10 +145,8 @@ function PopoverFilter({
  */
 export function FilterWrapper({
   column,
-  labels,
-  value,
-  onChange,
   variant = 'popover',
+  ...props
 }: FilterWrapperProps) {
   const kind = getFilterKind(column);
 
@@ -157,24 +155,8 @@ export function FilterWrapper({
   }
 
   if (variant === 'inline') {
-    return (
-      <FilterBody
-        type={column.type}
-        label={column.label}
-        labels={labels}
-        value={value}
-        onChange={onChange}
-      />
-    );
+    return <FilterBody {...props} type={column.type} label={column.label} />;
   }
 
-  return (
-    <PopoverFilter
-      type={column.type}
-      label={column.label}
-      labels={labels}
-      value={value}
-      onChange={onChange}
-    />
-  );
+  return <PopoverFilter {...props} type={column.type} label={column.label} />;
 }

@@ -108,6 +108,17 @@ describe('FilterShell', () => {
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
 
+    it('should not render the Clear button without an onClear callback', async () => {
+      render(<FilterShell {...baseProps} onApply={vi.fn()} />);
+
+      await userEvent.click(screen.getByRole('button', { name: 'Amount' }));
+
+      expect(screen.getByRole('button', { name: 'Apply' })).toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', { name: 'Clear' }),
+      ).not.toBeInTheDocument();
+    });
+
     it('should call onDiscard when closing the popover without applying', async () => {
       const onApply = vi.fn();
       const onDiscard = vi.fn();

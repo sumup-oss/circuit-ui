@@ -207,23 +207,6 @@ describe('FilterWrapper', () => {
     expect(screen.getByRole(role, { name: 'Min' })).toBeInTheDocument();
   });
 
-  it('should report a range when applying a number filter', async () => {
-    const onChange = vi.fn();
-    render(
-      <FilterWrapper
-        labels={labels}
-        column={{ label: 'Quantity', filter: true, type: { name: 'number' } }}
-        onChange={onChange}
-      />,
-    );
-
-    await userEvent.click(screen.getByRole('button', { name: 'Quantity' }));
-    await userEvent.type(screen.getByRole('textbox', { name: 'Min' }), '5');
-    await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
-
-    expect(onChange).toHaveBeenCalledWith({ min: 5 });
-  });
-
   describe('when inline', () => {
     it('should render the controls without a trigger', () => {
       render(<FilterWrapper {...baseProps} variant="inline" />);

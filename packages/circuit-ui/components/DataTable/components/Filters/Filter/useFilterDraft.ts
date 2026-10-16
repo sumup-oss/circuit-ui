@@ -15,7 +15,7 @@
 
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 /**
  * Keeps a draft of a filter value next to the applied one, so that edits only
@@ -27,11 +27,16 @@ export function useFilterDraft<T>(
   onChange: (value: T | undefined) => void,
 ) {
   const [draft, setDraft] = useState<T | undefined>(value);
+  // Filter values are plain strings, numbers and arrays or objects of them.
+  const [committed, setCommitted] = useState(JSON.stringify(value));
 
-  // Follow the committed value, e.g. when the table resets all filters.
-  useEffect(() => {
+  // Follow the committed value, e.g. when the table resets all filters. A new
+  // object with the same content must not wipe what the user is typing.
+  const next = JSON.stringify(value);
+  if (next !== committed) {
+    setCommitted(next);
     setDraft(value);
-  }, [value]);
+  }
 
   const apply = useCallback(() => {
     onChange(draft);

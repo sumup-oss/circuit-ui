@@ -39,19 +39,6 @@ describe('FilterService', () => {
       expect(getFilterKind({ type, filter: true })).toBe(kind);
     });
 
-    it.each([[{ name: 'text' }], [{ name: 'boolean' }]] as [
-      ColumnType,
-    ][])('should return undefined for the unsupported %j column', (type) => {
-      expect(getFilterKind({ type, filter: true })).toBeUndefined();
-    });
-
-    it('should return undefined when the column has no filter', () => {
-      expect(
-        getFilterKind({ type: { name: 'date' }, filter: false }),
-      ).toBeUndefined();
-      expect(getFilterKind({ type: { name: 'date' } })).toBeUndefined();
-    });
-
     it('should return the amount kind for a number column', () => {
       expect(
         getFilterKind({

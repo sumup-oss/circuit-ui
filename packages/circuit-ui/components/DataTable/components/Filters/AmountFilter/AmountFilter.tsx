@@ -15,12 +15,12 @@
 
 'use client';
 
-import { useId, type ComponentProps } from 'react';
+import { useId } from 'react';
 import { resolveNumberFormat } from '@sumup-oss/intl';
 
 import { Body } from '../../../../Body/index.js';
 import { CurrencyInput } from '../../../../CurrencyInput/index.js';
-import { Input } from '../../../../Input/index.js';
+import { Input, type InputProps } from '../../../../Input/index.js';
 import { PercentageInput } from '../../../../PercentageInput/index.js';
 import { useI18n } from '../../../../../hooks/useI18n/useI18n.js';
 import { NumericFormat } from '../../../../../vendor/react-number-format/index.js';
@@ -74,12 +74,20 @@ export interface AmountFilterProps {
 
 const QUANTITY_DECIMAL_SCALE = 3;
 
+type QuantityInputProps = Omit<
+  InputProps,
+  'ref' | 'type' | 'value' | 'defaultValue'
+> & {
+  value?: string | number;
+  onValueChange?: OnValueChange;
+};
+
 /**
  * A plain number input that formats the value for the locale, so it matches
  * the summary on the filter trigger. Unlike `type="number"`, it does not
  * depend on the browser's language.
  */
-function QuantityInput(props: ComponentProps<typeof Input>) {
+function QuantityInput(props: QuantityInputProps) {
   const { formattingLocale } = useI18n({});
   const { groupDelimiter, decimalDelimiter } = resolveNumberFormat(
     formattingLocale,

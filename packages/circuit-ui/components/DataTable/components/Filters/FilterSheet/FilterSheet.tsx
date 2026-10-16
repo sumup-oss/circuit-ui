@@ -21,14 +21,15 @@ import { Button } from '../../../../Button/index.js';
 import { Headline } from '../../../../Headline/index.js';
 import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
 import { Modal } from '../../../../Modal/index.js';
+import { useLatest } from '../../../../../hooks/useLatest/index.js';
 import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
 import type { Column } from '../../../types.js';
 import { getFilterKind } from '../Filter/FilterService.js';
 import type { FilterLabels, FilterValue } from '../Filter/types.js';
 import { FilterWrapper } from '../Filter/FilterWrapper.js';
+import { translations } from '../translations/index.js';
 
 import classes from './FilterSheet.module.css';
-import { translations } from '../translations/index.js';
 
 type SheetColumn = Pick<Column<unknown>, 'id' | 'label' | 'type' | 'filter'>;
 
@@ -36,11 +37,12 @@ export type FilterValues = Record<string, FilterValue | undefined>;
 
 export interface FilterSheetProps extends Partial<I18nConfig> {
   /**
-   * detects when the sheet is open.
+   * Whether the sheet is open.
    */
   open: boolean;
   /**
-   * Called when the sheet closes, with or without applying.
+   * Called once when the sheet closes, with or without applying. Set `open`
+   * to `false` in response.
    */
   onClose: () => void;
   /**
@@ -92,6 +94,7 @@ export function FilterSheet(props: FilterSheetProps) {
     applyButtonLabel,
   } = useTranslations(props, translations);
   const titleId = useId();
+  const openRef = useLatest(open);
   const [draft, setDraft] = useState<FilterValues>(values);
   const [wasOpen, setWasOpen] = useState(open);
 
@@ -114,6 +117,14 @@ export function FilterSheet(props: FilterSheetProps) {
     onClose();
   };
 
+  // Applying already asked to close. The modal reports it again once it has
+  // finished closing, which is only news when the user closed it themselves.
+  const handleModalClose = () => {
+    if (openRef.current) {
+      onClose();
+    }
+  };
+
   const handleClearAll = () => {
     setDraft({});
     clearAll?.onClick();
@@ -122,7 +133,7 @@ export function FilterSheet(props: FilterSheetProps) {
   return (
     <Modal
       open={open}
-      onClose={onClose}
+      onClose={handleModalClose}
       aria-labelledby={titleId}
       contentClassName={classes.content}
     >

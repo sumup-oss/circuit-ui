@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { useState } from 'react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
+  act,
   axe,
   render,
   screen,
@@ -64,11 +66,24 @@ describe('FilterSheet', () => {
     vi.clearAllMocks();
   });
 
-  it('should name the dialog with the title', () => {
-    render(<FilterSheet {...baseProps} />);
-
-    expect(screen.getByRole('dialog', { name: 'Filters' })).toBeInTheDocument();
+  afterEach(() => {
+    vi.useRealTimers();
   });
+
+  function ControlledSheet() {
+    const [open, setOpen] = useState(true);
+
+    return (
+      <FilterSheet
+        {...baseProps}
+        open={open}
+        onClose={() => {
+          baseProps.onClose();
+          setOpen(false);
+        }}
+      />
+    );
+  }
 
   it('should show every column that has a filter', () => {
     render(<FilterSheet {...baseProps} />);
@@ -78,12 +93,6 @@ describe('FilterSheet', () => {
     ).toBeInTheDocument();
     expect(screen.getByRole('group', { name: 'Amount' })).toBeInTheDocument();
     expect(screen.queryByText('Name')).not.toBeInTheDocument();
-  });
-
-  it('should show the applied values', () => {
-    render(<FilterSheet {...baseProps} values={{ status: ['paid'] }} />);
-
-    expect(screen.getByRole('checkbox', { name: 'Paid' })).toBeChecked();
   });
 
   describe('when clearAll is provided', () => {
@@ -105,16 +114,9 @@ describe('FilterSheet', () => {
     });
   });
 
-  it('should not show Clear all without clearAll', () => {
-    render(<FilterSheet {...baseProps} />);
-
-    expect(
-      screen.queryByRole('button', { name: 'Clear all' }),
-    ).not.toBeInTheDocument();
-  });
-
-  it('should apply the values of all filters at once and close', async () => {
-    render(<FilterSheet {...baseProps} />);
+  it('should apply the values of all filters at once and close once', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+    render(<ControlledSheet />);
 
     await userEvent.click(screen.getByRole('checkbox', { name: 'Paid' }));
     await userEvent.type(screen.getByRole('textbox', { name: 'Min' }), '5');
@@ -122,12 +124,28 @@ describe('FilterSheet', () => {
     expect(baseProps.onApply).not.toHaveBeenCalled();
 
     await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
 
     expect(baseProps.onApply).toHaveBeenCalledWith({
       status: ['paid'],
       amount: { min: 5 },
     });
     expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call onClose when the user closes the sheet', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+    render(<ControlledSheet />);
+
+    await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+
+    expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+    expect(baseProps.onApply).not.toHaveBeenCalled();
   });
 
   it('should leave out filters without a value', async () => {

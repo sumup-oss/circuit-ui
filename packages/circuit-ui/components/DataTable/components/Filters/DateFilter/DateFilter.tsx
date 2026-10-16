@@ -65,8 +65,7 @@ export function DateFilter({
   onChange,
   fromLabel,
   toLabel,
-  locale,
-  formattingLocale,
+  ...props
 }: DateFilterProps) {
   return (
     <fieldset className={classes.base}>
@@ -77,12 +76,11 @@ export function DateFilter({
       </legend>
       <div className={classes.fields}>
         <DateInput
+          {...props}
           size="s"
           label={fromLabel}
           value={value?.from ?? ''}
           max={value?.to}
-          locale={locale}
-          formattingLocale={formattingLocale}
           onChange={(event) =>
             onChange(
               compactRange({ ...value, from: event.target.value || undefined }),
@@ -90,12 +88,11 @@ export function DateFilter({
           }
         />
         <DateInput
+          {...props}
           size="s"
           label={toLabel}
           value={value?.to ?? ''}
           min={value?.from}
-          locale={locale}
-          formattingLocale={formattingLocale}
           onChange={(event) =>
             onChange(
               compactRange({ ...value, to: event.target.value || undefined }),
