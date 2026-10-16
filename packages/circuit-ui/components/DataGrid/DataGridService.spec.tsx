@@ -390,7 +390,7 @@ describe('DataGridService', () => {
       it('should throw CircuitError when `getOptionValue` and `getOptionLabel` are not provided', () => {
         const expectedError = new CircuitError(
           'DataGrid',
-          'Column type `singleSelection` options require `getOptionValue` and `getOptionLabel`.',
+          'Column type `singleSelection` options requires both `getOptionValue` and `getOptionLabel`.',
         );
 
         expect(() =>
@@ -516,7 +516,7 @@ describe('DataGridService', () => {
       it('should throw CircuitError when `getOptionValue` and `getOptionLabel` are not provided', () => {
         const expectedError = new CircuitError(
           'DataGrid',
-          'Column type `singleSelection` options require `getOptionValue` and `getOptionLabel`.',
+          'Column type `multiSelection` options requires both `getOptionValue` and `getOptionLabel`.',
         );
 
         expect(() =>
