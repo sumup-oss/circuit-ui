@@ -15,14 +15,21 @@
 
 'use client';
 
-import { useId } from 'react';
+import { useId, type ComponentProps } from 'react';
+import { resolveNumberFormat } from '@sumup-oss/intl';
 
 import { Body } from '../../../../Body/index.js';
+import { CurrencyInput } from '../../../../CurrencyInput/index.js';
 import { Input } from '../../../../Input/index.js';
+import { PercentageInput } from '../../../../PercentageInput/index.js';
 import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
+import { useI18n } from '../../../../../hooks/useI18n/useI18n.js';
 import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
+import { NumericFormat } from '../../../../../vendor/react-number-format/index.js';
+import type { OnValueChange } from '../../../../../vendor/react-number-format/types.js';
 import { clsx } from '../../../../../styles/clsx.js';
 import { utilClasses } from '../../../../../styles/utility.js';
+import type { AmountKind } from '../Filter/FilterService.js';
 import { compactRange } from '../Filter/range.js';
 import type { NumberRange } from '../Filter/types.js';
 
@@ -39,6 +46,12 @@ export interface AmountFilterProps extends Partial<I18nConfig> {
    * filter.
    */
   hideLabel?: boolean;
+  /**
+   * The kind of amount to enter. Currencies and percentages show their symbol
+   * in the fields and format the value for the locale.
+   * @default { kind: 'number' }
+   */
+  amount?: AmountKind;
   /**
    * The applied range. `undefined` means no range is set.
    */
@@ -62,31 +75,79 @@ export interface AmountFilterProps extends Partial<I18nConfig> {
   invalidRangeMessage?: string;
 }
 
+const QUANTITY_DECIMAL_SCALE = 3;
+
+/**
+ * A plain number input that formats the value for the locale, so it matches
+ * the summary on the filter trigger. Unlike `type="number"`, it does not
+ * depend on the browser's language.
+ */
+function QuantityInput(props: ComponentProps<typeof Input>) {
+  const { formattingLocale } = useI18n({});
+  const { groupDelimiter, decimalDelimiter } = resolveNumberFormat(
+    formattingLocale,
+    { minimumFractionDigits: 1, maximumFractionDigits: 1 },
+  ) ?? { groupDelimiter: ',', decimalDelimiter: '.' };
+
+  return (
+    <NumericFormat
+      thousandSeparator={groupDelimiter}
+      decimalSeparator={decimalDelimiter}
+      decimalScale={QUANTITY_DECIMAL_SCALE}
+      allowedDecimalSeparators={['.', ',', decimalDelimiter]}
+      customInput={Input}
+      textAlign="right"
+      type="text"
+      inputMode="decimal"
+      {...props}
+    />
+  );
+}
+
 interface AmountFieldProps {
+  amount: AmountKind;
   label: string;
   value?: number;
   invalid: boolean;
   onChange: (value: number | undefined) => void;
 }
 
-function AmountField({ label, value, invalid, onChange }: AmountFieldProps) {
-  return (
-    <Input
-      type="number"
-      size="s"
-      className={classes.field}
-      label={label}
-      hideLabel
-      placeholder={label}
-      invalid={invalid}
-      value={value ?? ''}
-      onChange={(event) =>
-        onChange(
-          event.target.value === '' ? undefined : Number(event.target.value),
-        )
+function AmountField({
+  amount,
+  label,
+  value,
+  invalid,
+  onChange,
+}: AmountFieldProps) {
+  const fieldProps = {
+    size: 's',
+    className: classes.field,
+    label,
+    hideLabel: true,
+    placeholder: label,
+    invalid,
+  } as const;
+
+  const formatted = {
+    ...fieldProps,
+    value: value ?? '',
+    onValueChange: (({ floatValue }, { event }) => {
+      // Skip the calls caused by the `value` prop changing
+      if (event) {
+        onChange(floatValue);
       }
-    />
-  );
+    }) satisfies OnValueChange,
+  };
+
+  if (amount.kind === 'currency') {
+    return <CurrencyInput {...formatted} currency={amount.currency} />;
+  }
+
+  if (amount.kind === 'percentage') {
+    return <PercentageInput {...formatted} decimalScale={2} />;
+  }
+
+  return <QuantityInput {...formatted} />;
 }
 
 /**
@@ -96,6 +157,7 @@ export function AmountFilter(props: AmountFilterProps) {
   const {
     label,
     hideLabel,
+    amount = { kind: 'number' },
     value,
     onChange,
     minLabel,
@@ -121,6 +183,7 @@ export function AmountFilter(props: AmountFilterProps) {
       </legend>
       <div className={classes.range}>
         <AmountField
+          amount={amount}
           label={minLabel}
           value={value?.min}
           invalid={isInvalid}
@@ -130,6 +193,7 @@ export function AmountFilter(props: AmountFilterProps) {
           –
         </span>
         <AmountField
+          amount={amount}
           label={maxLabel}
           value={value?.max}
           invalid={isInvalid}

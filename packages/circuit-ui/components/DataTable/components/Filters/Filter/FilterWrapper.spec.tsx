@@ -156,7 +156,7 @@ describe('FilterWrapper', () => {
       expect(onChange).not.toHaveBeenCalled();
     });
 
-    it('should remove the filter and close the popover when clicking Clear', async () => {
+    it('should remove the filter and keep the popover open when clicking Clear', async () => {
       const onChange = vi.fn();
       render(
         <FilterWrapper {...baseProps} value={['eggs']} onChange={onChange} />,
@@ -167,7 +167,7 @@ describe('FilterWrapper', () => {
       await userEvent.click(screen.getByRole('button', { name: 'Clear' }));
 
       expect(onChange).toHaveBeenCalledWith(undefined);
-      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
   });
 
@@ -178,15 +178,15 @@ describe('FilterWrapper', () => {
         name: 'number',
         formattingOptions: { style: 'currency', currency: 'EUR' },
       },
-      'Amount (€)',
+      'textbox',
     ],
     [
       'percentage',
       { name: 'number', formattingOptions: { style: 'percent' } },
-      'Amount (%)',
+      'textbox',
     ],
-    ['plain number', { name: 'number' }, 'Amount'],
-  ] as const)('should name the amount group with its unit for a %s column', async (_, type, name) => {
+    ['plain number', { name: 'number' }, 'textbox'],
+  ] as const)('should show the fields of a %s column', async (_, type, role) => {
     render(
       <FilterWrapper
         {...baseProps}
@@ -196,7 +196,8 @@ describe('FilterWrapper', () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Amount' }));
 
-    expect(screen.getByRole('group', { name })).toBeInTheDocument();
+    expect(screen.getByRole('group', { name: 'Amount' })).toBeInTheDocument();
+    expect(screen.getByRole(role, { name: 'Min' })).toBeInTheDocument();
   });
 
   it('should report a range when applying a number filter', async () => {
@@ -209,7 +210,7 @@ describe('FilterWrapper', () => {
     );
 
     await userEvent.click(screen.getByRole('button', { name: 'Quantity' }));
-    await userEvent.type(screen.getByRole('spinbutton', { name: 'Min' }), '5');
+    await userEvent.type(screen.getByRole('textbox', { name: 'Min' }), '5');
     await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
 
     expect(onChange).toHaveBeenCalledWith({ min: 5 });

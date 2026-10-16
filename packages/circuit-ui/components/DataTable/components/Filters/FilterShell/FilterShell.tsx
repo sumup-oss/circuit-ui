@@ -139,11 +139,6 @@ export function FilterShell(props: FilterShellProps) {
     setOpen(false);
   };
 
-  const handleClear = () => {
-    onClear?.();
-    setOpen(false);
-  };
-
   const triggerLabel = summary ? `${label} (${summary})` : label;
 
   return (
@@ -166,7 +161,7 @@ export function FilterShell(props: FilterShellProps) {
                 type="button"
                 size="s"
                 variant="secondary"
-                onClick={handleClear}
+                onClick={onClear}
               >
                 {clearButtonLabel}
               </Button>

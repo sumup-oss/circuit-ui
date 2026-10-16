@@ -4,9 +4,6 @@
     var(--cui-border-width-kilo)
   );
   --field-input-border-radius: var(--cui-border-radius-kilo);
-
-  flex: none;
-  width: 80px;
 }
 
 .base {

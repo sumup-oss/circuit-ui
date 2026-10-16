@@ -94,7 +94,7 @@ describe('FilterShell', () => {
       expect(trigger).toHaveAttribute('aria-expanded', 'false');
     });
 
-    it('should call onClear and close the popover when clicking Clear', async () => {
+    it('should call onClear and keep the popover open when clicking Clear', async () => {
       const onClear = vi.fn();
       render(
         <FilterShell {...baseProps} onApply={vi.fn()} onClear={onClear} />,
@@ -105,7 +105,7 @@ describe('FilterShell', () => {
       await userEvent.click(screen.getByRole('button', { name: 'Clear' }));
 
       expect(onClear).toHaveBeenCalledTimes(1);
-      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
 
     it('should call onDiscard when closing the popover without applying', async () => {
