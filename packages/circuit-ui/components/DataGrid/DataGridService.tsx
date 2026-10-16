@@ -5,7 +5,7 @@ import type {
   MobileSlots,
   Option,
 } from './types.js';
-import type { PropsWithChildren, ReactNode } from 'react';
+import { Fragment, type PropsWithChildren, type ReactNode } from 'react';
 import { getInitialState } from '../Timestamp/TimestampService.js';
 import { QuickActions } from './components/DefaultComponents/QuickActions/QuickActions.js';
 import styles from './DataGrid.module.css';
@@ -108,12 +108,14 @@ export function defaultFormatFn<P>(
           <Checkmark
             color="var(--cui-fg-success)"
             size="16"
+            role="img"
             aria-label={accessibleLabel(actualValue)}
           />
         ) : (
           <Close
             color="var(--cui-fg-danger)"
             size="16"
+            role="img"
             aria-label={accessibleLabel(actualValue)}
           />
         )}
@@ -124,12 +126,11 @@ export function defaultFormatFn<P>(
     const { options } = type;
     if (
       !isOptionArray(options) &&
-      !('getOptionValue' in rest) &&
-      !('getOptionLabel' in rest)
+      !('getOptionValue' in rest && 'getOptionLabel' in rest)
     ) {
       throw new CircuitError(
         'DataGrid',
-        'Column type `singleSelection` options require `getOptionValue` and `getOptionLabel`.',
+        'Column type `singleSelection` options requires both `getOptionValue` and `getOptionLabel`.',
       );
     }
     if (!isStringOrNumber(value)) {
@@ -147,7 +148,8 @@ export function defaultFormatFn<P>(
         }));
 
     const selectedItem = optionsToUse.find(
-      (option) => value === option.value,
+      // convert to string before comparing
+      (option) => String(value) === String(option.value),
     ) ?? {
       value,
       label: String(value),
@@ -168,7 +170,7 @@ export function defaultFormatFn<P>(
     ) {
       throw new CircuitError(
         'DataGrid',
-        'Column type `singleSelection` options require `getOptionValue` and `getOptionLabel`.',
+        'Column type `multiSelection` options requires both `getOptionValue` and `getOptionLabel`.',
       );
     }
     if (!isStringArray(value) && !isNumberArray(value)) {
@@ -191,17 +193,20 @@ export function defaultFormatFn<P>(
           value: getOptionValue?.(option) ?? '',
         }));
 
+    const stringValues = value.map((option) => String(option));
+
+    const valuesToDisplay = optionsToUse
+      // convert to string before comparing
+      .filter((option) => stringValues.includes(String(option.value)));
+
     return render ? (
       <ListCellWrapper>
-        {optionsToUse
-          .filter((option) => String(value).includes(String(option.value)))
-          .map((item) => render(item, `${uniqueId}-${item.value}`))}
+        {valuesToDisplay.map((item) =>
+          render(item, `${uniqueId}-${item.value}`),
+        )}
       </ListCellWrapper>
     ) : (
-      optionsToUse
-        .filter((option) => String(value).includes(String(option.value)))
-        .map((option) => option.label)
-        .join(', ')
+      valuesToDisplay.map((option) => option.label).join(', ')
     );
   }
   if (name === 'row-actions' && 'actions' in rest && 'label' in rest) {
@@ -229,14 +234,15 @@ export function defaultFormatFn<P>(
 
   if (name === 'quick-actions' && 'actions' in rest && !('label' in rest)) {
     const { actions: quickActions } = rest;
+    const actions =
+      quickActions instanceof Function ? quickActions(data) : quickActions;
+
     if (quickActions.length > 4) {
       throw new CircuitError(
         'DataGrid',
         'The number of quick actions must not surpass 4.',
       );
     }
-    const actions =
-      quickActions instanceof Function ? quickActions(data) : quickActions;
 
     return <QuickActions actions={actions} value={data} />;
   }
@@ -287,6 +293,7 @@ export function getListItemFragmentContent<P>(
               return null;
             })
             .filter(Boolean),
+          dataElements,
         );
       }
     }
@@ -301,14 +308,15 @@ export function getListItemFragmentContent<P>(
   };
 }
 
-function intersperseWithDot(elements: ReactNode[]) {
+function intersperseWithDot(elements: ReactNode[], ids: string[]) {
   return (
     <>
-      {elements.map((el, i) =>
-        i === 0 || (i > 0 && isNil(el))
-          ? [el]
-          : [<>&nbsp;&middot;&nbsp;</>, el],
-      )}
+      {elements.map((el, i) => (
+        <Fragment key={ids[i]}>
+          {i > 0 && !isNil(el) && <>&nbsp;&middot;&nbsp;</>}
+          {el}
+        </Fragment>
+      ))}
     </>
   );
 }

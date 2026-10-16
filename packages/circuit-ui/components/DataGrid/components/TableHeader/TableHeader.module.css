@@ -9,7 +9,6 @@
 .title {
   overflow-x: hidden;
   text-overflow: ellipsis;
-  text-transform: capitalize;
   white-space: nowrap;
 }
 
