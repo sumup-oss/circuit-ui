@@ -27,7 +27,12 @@ import {
   getFilterKind,
   getFilterSummary,
 } from './FilterService.js';
-import type { DateRange, FilterValue, NumberRange } from './types.js';
+import type {
+  DateRange,
+  FilterLabels,
+  FilterValue,
+  NumberRange,
+} from './types.js';
 import { useFilterDraft } from './useFilterDraft.js';
 
 export interface FilterWrapperProps {
@@ -36,6 +41,10 @@ export interface FilterWrapperProps {
    * the type of the column supports one.
    */
   column: Pick<Column<unknown>, 'label' | 'type' | 'filter'>;
+  /**
+   * The labels of the fields of the amount and date filters.
+   */
+  labels: FilterLabels;
   /**
    * The applied value. Its shape follows the type of the column.
    */
@@ -55,12 +64,13 @@ export interface FilterWrapperProps {
 interface FilterBodyProps {
   type: ColumnType;
   label: string;
+  labels: FilterLabels;
   hideLabel?: boolean;
   value?: FilterValue;
   onChange: (value: FilterValue | undefined) => void;
 }
 
-function FilterBody({ type, value, ...props }: FilterBodyProps) {
+function FilterBody({ type, labels, value, ...props }: FilterBodyProps) {
   switch (type.name) {
     case 'singleSelection':
     case 'multiSelection':
@@ -76,17 +86,33 @@ function FilterBody({ type, value, ...props }: FilterBodyProps) {
         <AmountFilter
           {...props}
           amount={getAmountKind(type)}
+          minLabel={labels.min}
+          maxLabel={labels.max}
+          invalidRangeMessage={labels.invalidRange}
           value={value as NumberRange | undefined}
         />
       );
     case 'date':
-      return <DateFilter {...props} value={value as DateRange | undefined} />;
+      return (
+        <DateFilter
+          {...props}
+          fromLabel={labels.from}
+          toLabel={labels.to}
+          value={value as DateRange | undefined}
+        />
+      );
     default:
       return null;
   }
 }
 
-function PopoverFilter({ type, label, value, onChange }: FilterBodyProps) {
+function PopoverFilter({
+  type,
+  label,
+  labels,
+  value,
+  onChange,
+}: FilterBodyProps) {
   const { formattingLocale } = useI18n({});
   const { draft, setDraft, apply, clear, discard } = useFilterDraft(
     value,
@@ -104,6 +130,7 @@ function PopoverFilter({ type, label, value, onChange }: FilterBodyProps) {
       <FilterBody
         type={type}
         label={label}
+        labels={labels}
         hideLabel
         value={draft}
         onChange={setDraft}
@@ -118,6 +145,7 @@ function PopoverFilter({ type, label, value, onChange }: FilterBodyProps) {
  */
 export function FilterWrapper({
   column,
+  labels,
   value,
   onChange,
   variant = 'popover',
@@ -133,6 +161,7 @@ export function FilterWrapper({
       <FilterBody
         type={column.type}
         label={column.label}
+        labels={labels}
         value={value}
         onChange={onChange}
       />
@@ -143,6 +172,7 @@ export function FilterWrapper({
     <PopoverFilter
       type={column.type}
       label={column.label}
+      labels={labels}
       value={value}
       onChange={onChange}
     />

@@ -48,3 +48,19 @@ export type FilterKind = keyof FilterValueMap;
  * The value of any filter. Its shape follows the kind of the filter.
  */
 export type FilterValue = FilterValueMap[FilterKind];
+
+/**
+ * The labels of the fields of the filters, to be translated by the parent.
+ */
+export interface FilterLabels {
+  /** Label of the minimum field of an amount filter. */
+  min: string;
+  /** Label of the maximum field of an amount filter. */
+  max: string;
+  /** Message shown when the minimum is greater than the maximum. */
+  invalidRange: string;
+  /** Label of the start date field of a date filter. */
+  from: string;
+  /** Label of the end date field of a date filter. */
+  to: string;
+}

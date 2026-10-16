@@ -50,6 +50,14 @@ const FilterStory = (args: FilterWrapperProps) => {
   );
 };
 
+const labels = {
+  min: 'Min',
+  max: 'Max',
+  invalidRange: 'The minimum cannot be greater than the maximum.',
+  from: 'From',
+  to: 'To',
+};
+
 const paymentStatusOptions: Option[] = [
   { label: 'Paid', value: 'paid' },
   { label: 'Unpaid', value: 'unpaid' },
@@ -66,7 +74,7 @@ export const MultiChoice = (args: FilterWrapperProps) => (
   <FilterStory {...args} />
 );
 
-MultiChoice.args = { column: multiChoiceColumn };
+MultiChoice.args = { column: multiChoiceColumn, labels };
 
 const quantityColumn: FilterWrapperProps['column'] = {
   label: 'Quantity',
@@ -76,7 +84,7 @@ const quantityColumn: FilterWrapperProps['column'] = {
 
 export const Quantity = (args: FilterWrapperProps) => <FilterStory {...args} />;
 
-Quantity.args = { column: quantityColumn };
+Quantity.args = { column: quantityColumn, labels };
 
 const percentageColumn: FilterWrapperProps['column'] = {
   label: 'VAT',
@@ -88,7 +96,7 @@ export const Percentage = (args: FilterWrapperProps) => (
   <FilterStory {...args} />
 );
 
-Percentage.args = { column: percentageColumn };
+Percentage.args = { column: percentageColumn, labels };
 
 const currencyColumn: FilterWrapperProps['column'] = {
   label: 'Amount',
@@ -101,7 +109,7 @@ const currencyColumn: FilterWrapperProps['column'] = {
 
 export const Currency = (args: FilterWrapperProps) => <FilterStory {...args} />;
 
-Currency.args = { column: currencyColumn };
+Currency.args = { column: currencyColumn, labels };
 
 const dateColumn: FilterWrapperProps['column'] = {
   label: 'Date',
@@ -113,7 +121,7 @@ export const DateRange = (args: FilterWrapperProps) => (
   <FilterStory {...args} />
 );
 
-DateRange.args = { column: dateColumn };
+DateRange.args = { column: dateColumn, labels };
 
 const inlineColumns = [multiChoiceColumn, currencyColumn, dateColumn];
 
@@ -131,6 +139,7 @@ export const Inline = () => {
         <FilterWrapper
           key={column.label}
           column={column}
+          labels={labels}
           variant="inline"
           value={values[column.label]}
           onChange={(value) =>

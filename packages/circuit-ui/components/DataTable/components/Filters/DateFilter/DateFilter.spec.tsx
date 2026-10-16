@@ -28,6 +28,8 @@ import { DateFilter } from './DateFilter.js';
 describe('DateFilter', () => {
   const baseProps = {
     label: 'Date range',
+    fromLabel: 'From',
+    toLabel: 'To',
     onChange: vi.fn(),
     locale: 'en-US',
   } as const;

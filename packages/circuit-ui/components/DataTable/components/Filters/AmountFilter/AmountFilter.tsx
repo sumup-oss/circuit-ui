@@ -22,9 +22,7 @@ import { Body } from '../../../../Body/index.js';
 import { CurrencyInput } from '../../../../CurrencyInput/index.js';
 import { Input } from '../../../../Input/index.js';
 import { PercentageInput } from '../../../../PercentageInput/index.js';
-import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
 import { useI18n } from '../../../../../hooks/useI18n/useI18n.js';
-import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
 import { NumericFormat } from '../../../../../vendor/react-number-format/index.js';
 import type { OnValueChange } from '../../../../../vendor/react-number-format/types.js';
 import { clsx } from '../../../../../styles/clsx.js';
@@ -34,9 +32,8 @@ import { compactRange } from '../Filter/range.js';
 import type { NumberRange } from '../Filter/types.js';
 
 import classes from './AmountFilter.module.css';
-import { translations } from './translations/index.js';
 
-export interface AmountFilterProps extends Partial<I18nConfig> {
+export interface AmountFilterProps {
   /**
    * The name of the filter, used as the label of the min and max fields.
    */
@@ -64,15 +61,15 @@ export interface AmountFilterProps extends Partial<I18nConfig> {
   /**
    * Label for the minimum field.
    */
-  minLabel?: string;
+  minLabel: string;
   /**
    * Label for the maximum field.
    */
-  maxLabel?: string;
+  maxLabel: string;
   /**
    * Message shown when the minimum is greater than the maximum.
    */
-  invalidRangeMessage?: string;
+  invalidRangeMessage: string;
 }
 
 const QUANTITY_DECIMAL_SCALE = 3;
@@ -153,17 +150,16 @@ function AmountField({
 /**
  * Lets the user enter a minimum and a maximum number.
  */
-export function AmountFilter(props: AmountFilterProps) {
-  const {
-    label,
-    hideLabel,
-    amount = { kind: 'number' },
-    value,
-    onChange,
-    minLabel,
-    maxLabel,
-    invalidRangeMessage,
-  } = useTranslations(props, translations);
+export function AmountFilter({
+  label,
+  hideLabel,
+  amount = { kind: 'number' },
+  value,
+  onChange,
+  minLabel,
+  maxLabel,
+  invalidRangeMessage,
+}: AmountFilterProps) {
   const hintId = useId();
 
   const isInvalid =

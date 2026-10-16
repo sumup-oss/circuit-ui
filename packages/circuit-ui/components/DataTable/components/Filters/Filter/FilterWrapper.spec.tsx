@@ -45,7 +45,14 @@ describe('FilterWrapper', () => {
     type: { name: 'multiSelection', options },
   };
 
-  const baseProps = { column: multiColumn, onChange: vi.fn() };
+  const labels = {
+    min: 'Min',
+    max: 'Max',
+    invalidRange: 'The minimum cannot be greater than the maximum.',
+    from: 'From',
+    to: 'To',
+  };
+  const baseProps = { column: multiColumn, labels, onChange: vi.fn() };
 
   it.each([
     ['text', { name: 'text' }],
@@ -204,6 +211,7 @@ describe('FilterWrapper', () => {
     const onChange = vi.fn();
     render(
       <FilterWrapper
+        labels={labels}
         column={{ label: 'Quantity', filter: true, type: { name: 'number' } }}
         onChange={onChange}
       />,

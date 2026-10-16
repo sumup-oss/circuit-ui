@@ -17,14 +17,12 @@
 
 import { clsx } from '../../../../../styles/clsx.js';
 import { utilClasses } from '../../../../../styles/utility.js';
-import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
 import { DateInput } from '../../../../DateInput/index.js';
 import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
 import { compactRange } from '../Filter/range.js';
 import type { DateRange } from '../Filter/types.js';
 
 import classes from './DateFilter.module.css';
-import { translations } from './translations/index.js';
 
 export interface DateFilterProps extends Partial<I18nConfig> {
   /**
@@ -49,29 +47,27 @@ export interface DateFilterProps extends Partial<I18nConfig> {
   /**
    * Label for the start date field.
    */
-  fromLabel?: string;
+  fromLabel: string;
   /**
    * Label for the end date field.
    */
-  toLabel?: string;
+  toLabel: string;
 }
 
 /**
  * Lets the user pick a start and an end date. Each field offers a calendar,
  * and the dates are limited so that the range cannot end before it starts.
  */
-export function DateFilter(props: DateFilterProps) {
-  const {
-    label,
-    hideLabel,
-    value,
-    onChange,
-    fromLabel,
-    toLabel,
-    locale,
-    formattingLocale,
-  } = useTranslations(props, translations);
-
+export function DateFilter({
+  label,
+  hideLabel,
+  value,
+  onChange,
+  fromLabel,
+  toLabel,
+  locale,
+  formattingLocale,
+}: DateFilterProps) {
   return (
     <fieldset className={classes.base}>
       <legend

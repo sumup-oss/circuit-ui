@@ -34,7 +34,7 @@ import { clsx } from '../../../../../styles/clsx.js';
 import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
 
 import classes from './FilterShell.module.css';
-import { translations } from './translations/index.js';
+import { translations } from '../translations/index.js';
 
 export interface FilterShellProps extends Partial<I18nConfig> {
   /**
@@ -57,7 +57,7 @@ export interface FilterShellProps extends Partial<I18nConfig> {
    */
   onApply?: () => void;
   /**
-   * Called when the Clear button is clicked, which also closes the popover.
+   * Called when the Clear button is clicked. The popover stays open.
    * Only shown alongside `onApply`.
    */
   onClear?: () => void;

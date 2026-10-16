@@ -27,6 +27,9 @@ import { AmountFilter, type AmountFilterProps } from './AmountFilter.js';
 describe('AmountFilter', () => {
   const baseProps = {
     label: 'Amount range',
+    minLabel: 'Min',
+    maxLabel: 'Max',
+    invalidRangeMessage: 'The minimum cannot be greater than the maximum.',
     onChange: vi.fn(),
   } satisfies AmountFilterProps;
 
