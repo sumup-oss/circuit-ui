@@ -1,0 +1,30 @@
+.field.field {
+  --field-input-padding-inline: calc(
+    var(--cui-spacings-mega) -
+    var(--cui-border-width-kilo)
+  );
+  --field-input-border-radius: var(--cui-border-radius-kilo);
+}
+
+.base {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--cui-spacings-kilo);
+}
+
+.range {
+  display: flex;
+  gap: var(--cui-spacings-bit);
+  align-items: center;
+}
+
+.separator {
+  flex: none;
+  color: var(--cui-fg-subtle);
+}
