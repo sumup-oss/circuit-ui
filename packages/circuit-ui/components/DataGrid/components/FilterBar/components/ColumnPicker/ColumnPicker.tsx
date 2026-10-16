@@ -3,10 +3,11 @@ import { Popover } from '../../../../../Popover/Popover.js';
 import { WeekView } from '@sumup-oss/icons';
 import classes from './ColumnPicker.module.css';
 import { CheckboxGroup } from '../../../../../CheckboxGroup/index.js';
-import type { Column } from '../../../../types.js';
+import type { Column, WithColumnPicker } from '../../../../types.js';
 import { TriggerButton } from '../TriggerButton/TriggerButton.js';
 
-export interface ColumnPickerProps<P> {
+export interface ColumnPickerProps<P>
+  extends NonNullable<WithColumnPicker['columnPickerConfig']> {
   onChange: (value: string[]) => void;
   columns: Column<P>[];
   visibleColumns: Column<P>[];
@@ -16,6 +17,8 @@ export const ColumnPicker = <P,>({
   columns,
   onChange,
   visibleColumns,
+  pickerLabel,
+  triggerLabel,
 }: ColumnPickerProps<P>) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -57,12 +60,12 @@ export const ColumnPicker = <P,>({
       contentClassName={classes.picker}
       component={(props) => (
         <TriggerButton {...props} icon={WeekView}>
-          Pick Columns
+          {triggerLabel}
         </TriggerButton>
       )}
     >
       <CheckboxGroup
-        label="Choose the column you want to display on this table"
+        label={pickerLabel}
         name="column-picker"
         value={value}
         onChange={onColumnChange}

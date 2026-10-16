@@ -444,6 +444,10 @@ const baseArgs: DataGridProps<Member> = {
   onSearch: action('onSearch'),
   mobileBreakpoint: 1024,
   formattingLocale,
+  columnPickerConfig: {
+    triggerLabel: 'Toggle column visibility',
+    pickerLabel: 'Choose the columns you want to display on this table',
+  },
   mobileConfig: {
     slots: {
       label: 'full_name',

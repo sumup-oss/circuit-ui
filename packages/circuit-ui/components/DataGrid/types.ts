@@ -3,6 +3,13 @@ import type { ReactNode } from 'react';
 import type { CustomAction } from './components/DefaultComponents/QuickActions/QuickActions.js';
 import type { ClickEvent } from '../../types/events.js';
 
+export interface WithColumnPicker {
+  columnPickerConfig?: {
+    triggerLabel: string;
+    pickerLabel: string;
+  };
+}
+
 export type BasicType =
   | string
   | string[]

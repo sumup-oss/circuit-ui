@@ -27,7 +27,7 @@ import classes from './DataGrid.module.css';
 import { clsx } from '../../styles/clsx.js';
 import { getListItemFragmentContent } from './DataGridService.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import type { Column, MobileConfig } from './types.js';
+import type { Column, MobileConfig, WithColumnPicker } from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
 import type { Locale } from '../../util/i18n.js';
@@ -36,7 +36,9 @@ import { utilClasses } from '../../styles/utility.js';
 import type { ClickEvent } from '../../types/events.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
 
-export interface DataGridProps<P> extends TableHTMLAttributes<HTMLDivElement> {
+export interface DataGridProps<P>
+  extends TableHTMLAttributes<HTMLDivElement>,
+    WithColumnPicker {
   /**
    * The columns to display, in order. Each column defines its header label,
    * data type, and how to read and render the cell value from a row.
@@ -97,6 +99,7 @@ export function DataGrid<P>({
   mobileBreakpoint = 768,
   onSearch,
   ref,
+  columnPickerConfig,
   ...props
 }: DataGridProps<P>) {
   const rowId = useId();
@@ -232,6 +235,7 @@ export function DataGrid<P>({
         columns={columns}
         visibleColumns={visibleColumns}
         isMobile={isMobile}
+        columnPickerConfig={columnPickerConfig}
       />
       {isMobile && mobileConfig ? (
         <ListItemGroup

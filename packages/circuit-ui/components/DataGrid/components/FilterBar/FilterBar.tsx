@@ -3,12 +3,12 @@ import classes from './FilterBar.module.css';
 import { SearchInput } from '../../../SearchInput/index.js';
 import { debounce } from '../../../../util/helpers.js';
 import { ColumnPicker } from './components/ColumnPicker/ColumnPicker.js';
-import type { Column } from '../../types.js';
+import type { Column, WithColumnPicker } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Filter } from '@sumup-oss/icons';
 import { TriggerButton } from './components/TriggerButton/TriggerButton.js';
 
-export interface FilterBarProps<P> {
+export interface FilterBarProps<P> extends WithColumnPicker {
   onSearch: (query: string) => void;
   onVisibleColumnChange: (value: string[]) => void;
   columns: Column<P>[];
@@ -22,6 +22,7 @@ const FilterBarComponent = <P,>({
   columns,
   isMobile,
   visibleColumns,
+  columnPickerConfig,
 }: FilterBarProps<P>) => {
   const onChange = useCallback(
     debounce(
@@ -32,7 +33,10 @@ const FilterBarComponent = <P,>({
   );
 
   return (
-    <div className={clsx(classes.base, isMobile && classes['mobile-view'])}>
+    <div
+      role="toolbar"
+      className={clsx(classes.base, isMobile && classes['mobile-view'])}
+    >
       {!isMobile && (
         <div className={classes['active-filters']}>- Filters go here -</div>
       )}
@@ -47,11 +51,14 @@ const FilterBarComponent = <P,>({
           onChange={onChange}
           className={classes.search}
         />
-        <ColumnPicker
-          columns={columns}
-          visibleColumns={visibleColumns}
-          onChange={onVisibleColumnChange}
-        />
+        {columnPickerConfig && (
+          <ColumnPicker
+            columns={columns}
+            visibleColumns={visibleColumns}
+            onChange={onVisibleColumnChange}
+            {...columnPickerConfig}
+          />
+        )}
       </div>
     </div>
   );

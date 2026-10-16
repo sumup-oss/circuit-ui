@@ -38,28 +38,25 @@ async function settle(action?: () => Promise<void>) {
 
 const [fullName, age, status, subscriptionPrice, frequentMember] = columns;
 
-const groupLabel = 'Choose the column you want to display on this table';
-
 describe('ColumnPicker', () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  const onChange = vi.fn();
+  const baseProps: ColumnPickerProps<Member> = {
+    columns,
+    onChange: vi.fn(),
+    triggerLabel: 'Toggle columns visibility',
+    pickerLabel: 'Chose columns to display',
+    visibleColumns: [],
+  };
+
   function renderColumnPicker({
     visibleColumns = [fullName, status],
-    ...props
   }: Partial<ColumnPickerProps<Member>> = {}) {
-    const view = render(
-      <ColumnPicker
-        columns={columns}
-        visibleColumns={visibleColumns}
-        onChange={onChange}
-        {...props}
-      />,
+    return render(
+      <ColumnPicker {...baseProps} visibleColumns={visibleColumns} />,
     );
-
-    return { ...view, onChange };
   }
 
   function getColumnCheckbox(column: (typeof columns)[number]) {
@@ -67,17 +64,19 @@ describe('ColumnPicker', () => {
   }
 
   async function openPicker() {
-    await click(screen.getByRole('button', { name: 'Pick Columns' }));
+    await click(screen.getByRole('button', { name: baseProps.triggerLabel }));
   }
 
   it('should render a collapsed trigger button', async () => {
     renderColumnPicker();
 
-    const trigger = screen.getByRole('button', { name: 'Pick Columns' });
+    const trigger = screen.getByRole('button', {
+      name: baseProps.triggerLabel,
+    });
     expect(trigger).toBeVisible();
     expect(trigger).toHaveAttribute('aria-expanded', 'false');
     expect(
-      screen.queryByRole('group', { name: groupLabel }),
+      screen.queryByRole('group', { name: baseProps.pickerLabel }),
     ).not.toBeInTheDocument();
 
     await settle();
@@ -88,9 +87,11 @@ describe('ColumnPicker', () => {
 
     await openPicker();
 
-    expect(screen.getByRole('group', { name: groupLabel })).toBeVisible();
     expect(
-      screen.getByRole('button', { name: 'Pick Columns' }),
+      screen.getByRole('group', { name: baseProps.pickerLabel }),
+    ).toBeVisible();
+    expect(
+      screen.getByRole('button', { name: baseProps.triggerLabel }),
     ).toHaveAttribute('aria-expanded', 'true');
 
     expect(screen.getAllByRole('checkbox')).toHaveLength(columns.length);
@@ -107,8 +108,12 @@ describe('ColumnPicker', () => {
     await openPicker();
     await click(getColumnCheckbox(age));
 
-    expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith([fullName.id, status.id, age.id]);
+    expect(baseProps.onChange).toHaveBeenCalledTimes(1);
+    expect(baseProps.onChange).toHaveBeenCalledWith([
+      fullName.id,
+      status.id,
+      age.id,
+    ]);
   });
 
   it('should call onChange without the column when a visible column is unchecked', async () => {
@@ -117,8 +122,8 @@ describe('ColumnPicker', () => {
     await openPicker();
     await click(getColumnCheckbox(fullName));
 
-    expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith([status.id]);
+    expect(baseProps.onChange).toHaveBeenCalledTimes(1);
+    expect(baseProps.onChange).toHaveBeenCalledWith([status.id]);
   });
 
   it('should append a newly shown column after the current visible columns', async () => {
@@ -129,7 +134,11 @@ describe('ColumnPicker', () => {
     await openPicker();
     await click(getColumnCheckbox(age));
 
-    expect(onChange).toHaveBeenCalledWith([status.id, fullName.id, age.id]);
+    expect(baseProps.onChange).toHaveBeenCalledWith([
+      status.id,
+      fullName.id,
+      age.id,
+    ]);
   });
 
   it('should disable the only remaining visible column', async () => {
@@ -147,7 +156,7 @@ describe('ColumnPicker', () => {
 
     await click(getColumnCheckbox(fullName));
 
-    expect(onChange).toHaveBeenCalledWith([age.id, fullName.id]);
+    expect(baseProps.onChange).toHaveBeenCalledWith([age.id, fullName.id]);
   });
 
   it('should keep every column enabled when more than one column is visible', async () => {
