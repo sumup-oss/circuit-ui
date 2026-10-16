@@ -5,8 +5,27 @@ import type { ClickEvent } from '../../types/events.js';
 
 export interface WithColumnPicker {
   columnPickerConfig?: {
+    /**
+     * Label for the column picker trigger button
+     */
     triggerLabel: string;
+    /**
+     * Label for the column selection popover
+     */
     pickerLabel: string;
+  };
+}
+
+export interface WithSearchBar {
+  searchBarConfig?: {
+    /**
+     * Label for the search bar
+     */
+    label: string;
+    /**
+     * A callback fired when the main search bar query changes.
+     */
+    onSearch: (query: string) => void;
   };
 }
 

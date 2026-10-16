@@ -441,7 +441,10 @@ const baseArgs: DataGridProps<Member> = {
   label: 'Gym members 2026',
   columns,
   data,
-  onSearch: action('onSearch'),
+  searchBarConfig: {
+    label: 'Search everywhere...',
+    onSearch: action('onSearch'),
+  },
   mobileBreakpoint: 1024,
   formattingLocale,
   columnPickerConfig: {

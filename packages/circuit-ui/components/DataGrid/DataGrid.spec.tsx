@@ -27,12 +27,16 @@ const mobileConfig = {
 
 const onSearch = vi.fn();
 
+const searchConfig = {
+  label: 'Search',
+  onSearch,
+};
+
 const defaultProps = {
   columns,
   data: members,
   label: 'Members',
   formattingLocale: 'en-US',
-  onSearch,
 } satisfies DataGridProps<Member>;
 
 describe('DataGrid', () => {
@@ -70,7 +74,7 @@ describe('DataGrid', () => {
   });
 
   it('should call the onSearch when user types a query', async () => {
-    render(<DataGrid {...defaultProps} />);
+    render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
     await userEvent.type(
       screen.getByRole('searchbox', { name: 'Search' }),
       'P',
@@ -79,7 +83,7 @@ describe('DataGrid', () => {
     act(() => {
       vi.runAllTimers();
     });
-    expect(onSearch).toHaveBeenCalledExactlyOnceWith('P');
+    expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('P');
   });
 
   it('should render a column header for each column', () => {

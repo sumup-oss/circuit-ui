@@ -38,18 +38,25 @@ async function settle(action?: () => Promise<void>) {
 }
 
 const [fullName, age, status] = columns;
+const onVisibleColumnChange = vi.fn();
+
+const columnPickerConfig = {
+  triggerLabel: 'Toggle columns visibility',
+  pickerLabel: 'Chose columns to display',
+};
+
+const searchBarConfig = {
+  label: 'Search',
+  onSearch: vi.fn(),
+};
+
+const defaultProps = {
+  columns,
+  visibleColumns: [fullName, status],
+  onVisibleColumnChange,
+} satisfies FilterBarProps<Member>;
 
 describe('FilterBar', () => {
-  const onSearch = vi.fn();
-  const onVisibleColumnChange = vi.fn();
-
-  const defaultProps = {
-    columns,
-    visibleColumns: [fullName, status],
-    onSearch,
-    onVisibleColumnChange,
-  } satisfies FilterBarProps<Member>;
-
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -59,10 +66,12 @@ describe('FilterBar', () => {
   }
 
   it('should render the search field, filter button, and column picker', async () => {
-    renderFilterBar();
+    renderFilterBar({ searchBarConfig, columnPickerConfig });
 
     expect(screen.getByRole('searchbox', { name: 'Search' })).toBeVisible();
-    expect(screen.getByRole('button', { name: 'Pick Columns' })).toBeVisible();
+    expect(
+      screen.getByRole('button', { name: columnPickerConfig.triggerLabel }),
+    ).toBeVisible();
 
     await settle();
   });
@@ -90,7 +99,7 @@ describe('FilterBar', () => {
 
     async function renderFilterBarWithTimers() {
       vi.useFakeTimers();
-      renderFilterBar();
+      renderFilterBar({ searchBarConfig });
       // Icon button tooltips position themselves on the next task. Flush that
       // update before changing the search value.
       await act(async () => {
@@ -104,22 +113,29 @@ describe('FilterBar', () => {
       });
     }
 
+    it('should not show the search bar when search config is missing', () => {
+      renderFilterBar();
+      expect(
+        screen.queryByRole('searchbox', { name: 'Search' }),
+      ).not.toBeInTheDocument();
+    });
+
     it('should call onSearch with the query after the debounce delay', async () => {
       await renderFilterBarWithTimers();
 
       changeSearch('ja');
 
-      expect(onSearch).not.toHaveBeenCalled();
+      expect(searchBarConfig.onSearch).not.toHaveBeenCalled();
 
       act(() => {
         vi.advanceTimersByTime(299);
       });
-      expect(onSearch).not.toHaveBeenCalled();
+      expect(searchBarConfig.onSearch).not.toHaveBeenCalled();
 
       act(() => {
         vi.advanceTimersByTime(1);
       });
-      expect(onSearch).toHaveBeenCalledExactlyOnceWith('ja');
+      expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('ja');
     });
 
     it('should call onSearch once with the latest query', async () => {
@@ -135,21 +151,31 @@ describe('FilterBar', () => {
         vi.advanceTimersByTime(300);
       });
 
-      expect(onSearch).toHaveBeenCalledExactlyOnceWith('jane');
+      expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('jane');
     });
   });
 
-  it('should forward visible column changes from the column picker', async () => {
-    renderFilterBar();
+  describe('visibleColumns', () => {
+    it('should not show the column picker when config is missing', () => {
+      renderFilterBar();
+      expect(
+        screen.queryByRole('button', { name: columnPickerConfig.triggerLabel }),
+      ).not.toBeInTheDocument();
+    });
+    it('should forward visible column changes from the column picker', async () => {
+      renderFilterBar({ columnPickerConfig });
 
-    await click(screen.getByRole('button', { name: 'Pick Columns' }));
-    await click(screen.getByRole('checkbox', { name: age.label }));
+      await click(
+        screen.getByRole('button', { name: columnPickerConfig.triggerLabel }),
+      );
+      await click(screen.getByRole('checkbox', { name: age.label }));
 
-    expect(onVisibleColumnChange).toHaveBeenCalledExactlyOnceWith([
-      fullName.id,
-      status.id,
-      age.id,
-    ]);
+      expect(onVisibleColumnChange).toHaveBeenCalledExactlyOnceWith([
+        fullName.id,
+        status.id,
+        age.id,
+      ]);
+    });
   });
 
   it('should meet accessibility guidelines', async () => {

@@ -27,7 +27,12 @@ import classes from './DataGrid.module.css';
 import { clsx } from '../../styles/clsx.js';
 import { getListItemFragmentContent } from './DataGridService.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import type { Column, MobileConfig, WithColumnPicker } from './types.js';
+import type {
+  Column,
+  MobileConfig,
+  WithColumnPicker,
+  WithSearchBar,
+} from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
 import type { Locale } from '../../util/i18n.js';
@@ -38,6 +43,7 @@ import { FilterBar } from './components/FilterBar/FilterBar.js';
 
 export interface DataGridProps<P>
   extends TableHTMLAttributes<HTMLDivElement>,
+    WithSearchBar,
     WithColumnPicker {
   /**
    * The columns to display, in order. Each column defines its header label,
@@ -75,10 +81,6 @@ export interface DataGridProps<P>
    */
   formattingLocale?: Locale;
   /**
-   * A callback fired when the main search bar query changes.
-   */
-  onSearch: (query: string) => void;
-  /**
    * A ref forwarded to the underlying `table` element (or to the list
    * element when the mobile layout is rendered).
    */
@@ -97,7 +99,7 @@ export function DataGrid<P>({
   mobileConfig,
   formattingLocale: customFormattingLocale,
   mobileBreakpoint = 768,
-  onSearch,
+  searchBarConfig,
   ref,
   columnPickerConfig,
   ...props
@@ -230,7 +232,7 @@ export function DataGrid<P>({
   return (
     <div className={classes.wrapper}>
       <FilterBar
-        onSearch={onSearch}
+        searchBarConfig={searchBarConfig}
         onVisibleColumnChange={onVisibleColumnChange}
         columns={columns}
         visibleColumns={visibleColumns}

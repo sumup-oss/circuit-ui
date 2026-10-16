@@ -58,6 +58,7 @@ export const ColumnPicker = <P,>({
       offset={10}
       placement="bottom-end"
       contentClassName={classes.picker}
+      aria-label={pickerLabel}
       component={(props) => (
         <TriggerButton {...props} icon={WeekView}>
           {triggerLabel}
