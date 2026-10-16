@@ -122,31 +122,3 @@ export const DateRange = (args: FilterWrapperProps) => (
 );
 
 DateRange.args = { column: dateColumn, labels };
-
-const inlineColumns = [multiChoiceColumn, currencyColumn, dateColumn];
-
-/**
- * Eg of how filters can be stacked on mobile.
- */
-export const Inline = () => {
-  const [values, setValues] = useState<Record<string, FilterValue | undefined>>(
-    {},
-  );
-
-  return (
-    <div style={{ display: 'grid', gap: '24px', maxWidth: '360px' }}>
-      {inlineColumns.map((column) => (
-        <FilterWrapper
-          key={column.label}
-          column={column}
-          labels={labels}
-          variant="inline"
-          value={values[column.label]}
-          onChange={(value) =>
-            setValues((previous) => ({ ...previous, [column.label]: value }))
-          }
-        />
-      ))}
-    </div>
-  );
-};
