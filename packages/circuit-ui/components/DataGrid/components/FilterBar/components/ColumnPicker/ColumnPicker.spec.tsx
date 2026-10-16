@@ -47,7 +47,7 @@ describe('ColumnPicker', () => {
     columns,
     onChange: vi.fn(),
     triggerLabel: 'Toggle columns visibility',
-    pickerLabel: 'Chose columns to display',
+    pickerLabel: 'Choose columns to display',
     visibleColumns: [],
   };
 

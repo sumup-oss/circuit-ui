@@ -105,7 +105,15 @@ export function DataGrid<P>({
   ...props
 }: DataGridProps<P>) {
   const rowId = useId();
-  const [visibleColumns, setVisibleColumns] = useState(columns);
+  const [visibleColumns, setVisibleColumns] = useState(() => {
+    const savedInStorage = sessionStorage
+      .getItem(`cui-grid-${label}-visible-columns`)
+      ?.split('|');
+
+    return savedInStorage
+      ? columns.filter(({ id }) => savedInStorage.includes(id))
+      : columns;
+  });
 
   const isMobile = useMedia(`(max-width: ${mobileBreakpoint}px)`);
   const { formattingLocale } = useI18n({
@@ -224,9 +232,14 @@ export function DataGrid<P>({
 
   const onVisibleColumnChange = useCallback(
     (value: string[]) => {
-      setVisibleColumns(columns.filter(({ id }) => value.includes(id)));
+      const newValue = columns.filter(({ id }) => value.includes(id));
+      setVisibleColumns(newValue);
+      sessionStorage.setItem(
+        `cui-grid-${label}-visible-columns`,
+        value.join('|'),
+      );
     },
-    [columns],
+    [columns, label],
   );
 
   return (

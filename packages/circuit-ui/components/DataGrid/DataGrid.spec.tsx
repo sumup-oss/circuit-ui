@@ -94,6 +94,15 @@ describe('DataGrid', () => {
       screen.getByRole('columnheader', { name: 'Full Name' }),
     ).toBeVisible();
     expect(screen.getByRole('columnheader', { name: 'Age' })).toBeVisible();
+    expect(
+      screen.getByRole('columnheader', { name: 'Subscription status' }),
+    ).toBeVisible();
+    expect(
+      screen.getByRole('columnheader', { name: 'Subscription Price' }),
+    ).toBeVisible();
+    expect(
+      screen.getByRole('columnheader', { name: 'Frequent Member' }),
+    ).toBeVisible();
   });
 
   it('should render a row for each data item', () => {
@@ -165,6 +174,80 @@ describe('DataGrid', () => {
     render(<DataGrid {...defaultProps} mobileBreakpoint={1024} />);
 
     expect(useMedia).toHaveBeenCalledWith('(max-width: 1024px)');
+  });
+
+  describe('column visibility', () => {
+    afterEach(() => {
+      sessionStorage.clear();
+    });
+    it('should load visible columns stored in local storage for the same grid', () => {
+      sessionStorage.setItem(
+        `cui-grid-${defaultProps.label}-visible-columns`,
+        'full_name|age',
+      );
+      render(<DataGrid {...defaultProps} />);
+      expect(
+        screen.getByRole('columnheader', { name: 'Full Name' }),
+      ).toBeVisible();
+      expect(screen.getByRole('columnheader', { name: 'Age' })).toBeVisible();
+      expect(
+        screen.queryByRole('columnheader', { name: 'Subscription status' }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('columnheader', { name: 'Subscription Price' }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('columnheader', { name: 'Frequent Member' }),
+      ).not.toBeInTheDocument();
+    });
+    it('should not load visible columns stored in local storage for another grid', () => {
+      sessionStorage.setItem(
+        `cui-grid-some-other-grid-visible-columns`,
+        'full_name|age',
+      );
+      render(<DataGrid {...defaultProps} />);
+      expect(
+        screen.getByRole('columnheader', { name: 'Full Name' }),
+      ).toBeVisible();
+      expect(screen.getByRole('columnheader', { name: 'Age' })).toBeVisible();
+      expect(
+        screen.getByRole('columnheader', { name: 'Subscription status' }),
+      ).toBeVisible();
+      expect(
+        screen.getByRole('columnheader', { name: 'Subscription Price' }),
+      ).toBeVisible();
+      expect(
+        screen.getByRole('columnheader', { name: 'Frequent Member' }),
+      ).toBeVisible();
+    });
+    it('should store visible columns in session storage', async () => {
+      const columnPickerConfig = {
+        pickerLabel: 'Choose columns to display',
+        triggerLabel: 'Toggle column visibility',
+      };
+      render(
+        <DataGrid {...defaultProps} columnPickerConfig={columnPickerConfig} />,
+      );
+
+      await userEvent.click(
+        screen.getByRole('button', { name: columnPickerConfig.triggerLabel }),
+      );
+      await userEvent.click(
+        screen.getByRole('checkbox', { name: defaultProps.columns[2].label }),
+      );
+      await userEvent.click(
+        screen.getByRole('checkbox', { name: defaultProps.columns[3].label }),
+      );
+      await userEvent.click(
+        screen.getByRole('checkbox', { name: defaultProps.columns[4].label }),
+      );
+
+      expect(
+        sessionStorage.getItem(
+          `cui-grid-${defaultProps.label}-visible-columns`,
+        ),
+      ).toBe('full_name|age');
+    });
   });
 
   describe('keyboard navigation', () => {

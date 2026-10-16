@@ -42,7 +42,7 @@ const onVisibleColumnChange = vi.fn();
 
 const columnPickerConfig = {
   triggerLabel: 'Toggle columns visibility',
-  pickerLabel: 'Chose columns to display',
+  pickerLabel: 'Choose columns to display',
 };
 
 const searchBarConfig = {
