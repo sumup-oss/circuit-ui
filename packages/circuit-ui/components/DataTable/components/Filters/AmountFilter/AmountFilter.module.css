@@ -1,11 +1,3 @@
-.field.field {
-  --field-input-padding-inline: calc(
-    var(--cui-spacings-mega) -
-    var(--cui-border-width-kilo)
-  );
-  --field-input-border-radius: var(--cui-border-radius-kilo);
-}
-
 .base {
   min-width: 0;
   padding: 0;

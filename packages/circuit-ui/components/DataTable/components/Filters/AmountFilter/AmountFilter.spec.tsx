@@ -97,6 +97,9 @@ describe('AmountFilter', () => {
       expect(
         screen.getByText('The minimum cannot be greater than the maximum.'),
       ).toBeInTheDocument();
+      expect(
+        screen.getAllByRole('status').map((status) => status.textContent),
+      ).toContain('The minimum cannot be greater than the maximum.');
       expect(screen.getByRole('textbox', { name: 'Min' })).toBeInvalid();
       expect(screen.getByRole('textbox', { name: 'Max' })).toBeInvalid();
     });

@@ -104,7 +104,7 @@ export const Base = () => {
         onApply={setValues}
         labels={labels}
         title="Filters"
-        clearAll={{ label: 'Clear all', onClick: () => setValues({}) }}
+        clearAllButtonLabel="Clear all"
       />
     </div>
   );

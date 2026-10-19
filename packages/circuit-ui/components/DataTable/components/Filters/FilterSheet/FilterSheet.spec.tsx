@@ -36,6 +36,7 @@ describe('FilterSheet', () => {
       from: 'From',
       to: 'To',
     },
+    clearAllButtonLabel: 'Clear all',
     onClose: vi.fn(),
     onApply: vi.fn(),
     values: {},
@@ -95,23 +96,14 @@ describe('FilterSheet', () => {
     expect(screen.queryByText('Name')).not.toBeInTheDocument();
   });
 
-  describe('when clearAll is provided', () => {
-    it('should call it and empty the draft when clicking Clear all', async () => {
-      const onClearAll = vi.fn();
-      render(
-        <FilterSheet
-          {...baseProps}
-          values={{ status: ['paid'] }}
-          clearAll={{ label: 'Clear all', onClick: onClearAll }}
-        />,
-      );
+  it('should empty the draft and remove all filters right away when clicking Clear all', async () => {
+    render(<FilterSheet {...baseProps} values={{ status: ['paid'] }} />);
 
-      await userEvent.click(screen.getByRole('button', { name: 'Clear all' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Clear all' }));
 
-      expect(onClearAll).toHaveBeenCalledTimes(1);
-      expect(screen.getByRole('checkbox', { name: 'Paid' })).not.toBeChecked();
-      expect(baseProps.onClose).not.toHaveBeenCalled();
-    });
+    expect(baseProps.onApply).toHaveBeenCalledWith({});
+    expect(screen.getByRole('checkbox', { name: 'Paid' })).not.toBeChecked();
+    expect(baseProps.onClose).not.toHaveBeenCalled();
   });
 
   it('should apply the values of all filters at once and close once', async () => {

@@ -18,8 +18,8 @@
 import { useId } from 'react';
 import { resolveNumberFormat } from '@sumup-oss/intl';
 
-import { Body } from '../../../../Body/index.js';
 import { CurrencyInput } from '../../../../CurrencyInput/index.js';
+import { FieldValidationHint } from '../../../../Field/index.js';
 import { Input, type InputProps } from '../../../../Input/index.js';
 import { PercentageInput } from '../../../../PercentageInput/index.js';
 import { useI18n } from '../../../../../hooks/useI18n/useI18n.js';
@@ -126,15 +126,10 @@ function AmountField({
 }: AmountFieldProps) {
   const fieldProps = {
     size: 's',
-    className: classes.field,
     label,
     hideLabel: true,
     placeholder: label,
     invalid,
-  } as const;
-
-  const formatted = {
-    ...fieldProps,
     value: value ?? '',
     onValueChange: (({ floatValue }, { event }) => {
       // Skip the calls caused by the `value` prop changing
@@ -142,17 +137,17 @@ function AmountField({
         onChange(floatValue);
       }
     }) satisfies OnValueChange,
-  };
+  } as const;
 
   if (amount.kind === 'currency') {
-    return <CurrencyInput {...formatted} currency={amount.currency} />;
+    return <CurrencyInput {...fieldProps} currency={amount.currency} />;
   }
 
   if (amount.kind === 'percentage') {
-    return <PercentageInput {...formatted} decimalScale={2} />;
+    return <PercentageInput {...fieldProps} decimalScale={2} />;
   }
 
-  return <QuantityInput {...formatted} />;
+  return <QuantityInput {...fieldProps} />;
 }
 
 /**
@@ -204,11 +199,11 @@ export function AmountFilter({
           onChange={(max) => onChange(compactRange({ ...value, max }))}
         />
       </div>
-      {isInvalid && (
-        <Body as="p" id={hintId} size="s" color="danger">
-          {invalidRangeMessage}
-        </Body>
-      )}
+      <FieldValidationHint
+        id={hintId}
+        invalid={isInvalid}
+        validationHint={isInvalid ? invalidRangeMessage : undefined}
+      />
     </fieldset>
   );
 }

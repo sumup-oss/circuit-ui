@@ -49,6 +49,7 @@ export interface FilterSheetProps extends Partial<I18nConfig> {
    * The columns to filter. Columns without a filter are skipped.
    */
   columns: SheetColumn[];
+  // TODO: Only require the labels of the filter types in use once the columns are hooked up.
   /**
    * The labels of the fields of the amount and date filters.
    */
@@ -58,15 +59,16 @@ export interface FilterSheetProps extends Partial<I18nConfig> {
    */
   values: FilterValues;
   /**
-   * Called with the values of all the filters when the user applies them.
-   * Filters without a value are left out.
+   * Called with the values of all the filters when the user applies them, or
+   * with an empty object when they clear all. Filters without a value are
+   * left out.
    */
   onApply: (values: FilterValues) => void;
   /**
-   * Adds a button that empties the draft and calls `onClick`, so that the
-   * parent can reset the applied filters.
+   * Label for the Clear all button. Clearing empties the draft and removes
+   * all the filters right away, and the sheet stays open.
    */
-  clearAll?: { label: string; onClick: () => void };
+  clearAllButtonLabel: string;
   /**
    * The title of the sheet.
    */
@@ -89,7 +91,7 @@ export function FilterSheet(props: FilterSheetProps) {
     labels,
     values,
     onApply,
-    clearAll,
+    clearAllButtonLabel,
     title,
     applyButtonLabel,
   } = useTranslations(props, translations);
@@ -127,7 +129,7 @@ export function FilterSheet(props: FilterSheetProps) {
 
   const handleClearAll = () => {
     setDraft({});
-    clearAll?.onClick();
+    onApply({});
   };
 
   return (
@@ -160,11 +162,9 @@ export function FilterSheet(props: FilterSheetProps) {
         )}
       </div>
       <div className={classes.footer}>
-        {clearAll && (
-          <Button type="button" variant="secondary" onClick={handleClearAll}>
-            {clearAll.label}
-          </Button>
-        )}
+        <Button type="button" variant="secondary" onClick={handleClearAll}>
+          {clearAllButtonLabel}
+        </Button>
         <Button
           type="button"
           variant="primary"

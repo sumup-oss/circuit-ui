@@ -41,6 +41,7 @@ export interface FilterWrapperProps {
    * the type of the column supports one.
    */
   column: Pick<Column<unknown>, 'label' | 'type' | 'filter'>;
+  // TODO: Only require the labels of the filter types in use once the columns are hooked up.
   /**
    * The labels of the fields of the amount and date filters.
    */
