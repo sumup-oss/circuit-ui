@@ -165,8 +165,7 @@ export function defaultFormatFn<P>(
     const { options } = type;
     if (
       !isOptionArray(options) &&
-      !('getOptionValue' in rest) &&
-      !('getOptionLabel' in rest)
+      !('getOptionValue' in rest && 'getOptionLabel' in rest)
     ) {
       throw new CircuitError(
         'DataGrid',
@@ -237,7 +236,7 @@ export function defaultFormatFn<P>(
     const actions =
       quickActions instanceof Function ? quickActions(data) : quickActions;
 
-    if (quickActions.length > 4) {
+    if (actions.length > 4) {
       throw new CircuitError(
         'DataGrid',
         'The number of quick actions must not surpass 4.',
