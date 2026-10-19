@@ -1,4 +1,4 @@
-import { memo, useCallback, type ChangeEvent } from 'react';
+import { memo, useCallback, useId, type ChangeEvent } from 'react';
 import classes from './FilterBar.module.css';
 import { SearchInput } from '../../../SearchInput/index.js';
 import { debounce } from '../../../../util/helpers.js';
@@ -7,6 +7,9 @@ import type { Column, WithColumnPicker, WithSearchBar } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Filter } from '@sumup-oss/icons';
 import { TriggerButton } from './components/TriggerButton/TriggerButton.js';
+import { useTranslations } from '../../../../hooks/useTranslations/useTranslations.js';
+import { translations } from './translations/index.js';
+import { Status } from '../../../Status/index.js';
 
 export interface FilterBarProps<P> extends WithColumnPicker, WithSearchBar {
   onVisibleColumnChange: (value: string[]) => void;
@@ -23,7 +26,11 @@ const FilterBarComponent = <P,>({
   searchBarConfig,
   columnPickerConfig,
 }: FilterBarProps<P>) => {
+  const filterCountId = useId();
   const { label: searchLabel, onSearch } = searchBarConfig ?? {};
+  const { activeFiltersCount: activeFiltersCountLabel, filtersLabel } =
+    useTranslations({ activeFiltersCount: '' }, translations);
+  const activeFiltersCount = 3; // fake count
   const onChange = useCallback(
     debounce(
       (event: ChangeEvent<HTMLInputElement>) => onSearch?.(event.target.value),
@@ -41,7 +48,24 @@ const FilterBarComponent = <P,>({
         <div className={classes['active-filters']}>- Filters go here -</div>
       )}
       <div className={classes['search-config']}>
-        {isMobile && <TriggerButton icon={Filter}>Filter</TriggerButton>}
+        {isMobile && (
+          <div className={classes.wrapper}>
+            {activeFiltersCount && (
+              <Status
+                aria-hidden
+                id={filterCountId}
+                className={classes.dot}
+                variant="dot"
+                color="special"
+              >
+                {`${activeFiltersCount} ${activeFiltersCountLabel}`}
+              </Status>
+            )}
+            <TriggerButton icon={Filter} aria-describedby={filterCountId}>
+              {filtersLabel}
+            </TriggerButton>
+          </div>
+        )}
         {searchLabel && onSearch && (
           <SearchInput
             label={searchLabel}

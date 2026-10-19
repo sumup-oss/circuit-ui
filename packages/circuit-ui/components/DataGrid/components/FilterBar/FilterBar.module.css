@@ -30,3 +30,14 @@
   flex: 1;
   width: unset;
 }
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper .dot {
+  position: absolute;
+  top: calc(-1 * var(--cui-spacings-bit));
+  right: calc(-1 * var(--cui-spacings-bit));
+  z-index: 1;
+}
