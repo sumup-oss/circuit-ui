@@ -162,7 +162,7 @@ export function FilterShell(props: FilterShellProps) {
                   type="button"
                   size="s"
                   variant="secondary"
-                  onClick={() => onClear()}
+                  onClick={onClear}
                 >
                   {clearButtonLabel}
                 </Button>
