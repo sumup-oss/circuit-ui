@@ -245,6 +245,29 @@ A column whose `id` is `row-actions` keeps its header available to assistive tec
 }
 ```
 
+#### Column visibility
+
+The grid can show and hide columns through a column picker control in the toolbar. By default, the picker is hidden and all columns are visible.
+In responsive mode, the picker is hidden and all columns are visible.
+To display the column picker, pass a `columnPickerConfig` prop. The prop is an object containing the labels the picker needs to render:
+
+```tsx
+<DataGrid
+  label="Gym members"
+  columns={columns}
+  data={members}
+  columnPickerConfig={{
+    triggerLabel: 'Toggle column visibility',
+    pickerLabel: 'Choose the columns you want to display on this table',
+  }}
+/>
+```
+
+<Story of={Stories.VisibleColumns} />
+
+
+The selection is saved in `sessionStorage` and restored when the grid mounts in the same browser tab. It is scoped to the grid `label`: grids that share a `label` share a selection.
+
 ### Cell rendering
 
 The grid chooses cell content in this order:

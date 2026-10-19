@@ -26,6 +26,7 @@ import { action } from 'storybook/actions';
 import { clsx } from '../../styles/clsx.js';
 import { Compact, type CompactProps } from '../Compact/Compact.js';
 import { Status } from '../Status/index.js';
+import { screen, userEvent, within } from 'storybook/test';
 
 export default {
   title: 'Components/DataGrid',
@@ -437,6 +438,33 @@ const data: Member[] = [
   },
 ];
 
+const openColumnPicker =
+  () =>
+  async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', {
+      name: columnPickerConfig.triggerLabel,
+    });
+
+    await userEvent.click(button);
+    screen.getByLabelText(columnPickerConfig.triggerLabel);
+  };
+
+const columnPickerConfig = {
+  triggerLabel: 'Toggle column visibility',
+  pickerLabel: 'Choose the columns you want to display on this table',
+};
+
+const mobileConfig = {
+  slots: {
+    label: 'full_name',
+    details: 'age;allergies',
+    trailingLabel: 'subscriptionPrice',
+  },
+  hideLabel: true,
+  onClick: action('onListItemClick'),
+};
+
 const baseArgs: DataGridProps<Member> = {
   label: 'Gym members 2026',
   columns,
@@ -445,23 +473,21 @@ const baseArgs: DataGridProps<Member> = {
     label: 'Search everywhere...',
     onSearch: action('onSearch'),
   },
-  mobileBreakpoint: 1024,
   formattingLocale,
-  columnPickerConfig: {
-    triggerLabel: 'Toggle column visibility',
-    pickerLabel: 'Choose the columns you want to display on this table',
-  },
-  mobileConfig: {
-    slots: {
-      label: 'full_name',
-      details: 'age;allergies',
-      trailingLabel: 'subscriptionPrice',
-    },
-    hideLabel: true,
-    onClick: action('onListItemClick'),
-  },
 };
 
 export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
 Base.args = baseArgs;
+
+export const VisibleColumns = (args: DataGridProps<Member>) => (
+  <DataGrid {...args} />
+);
+VisibleColumns.args = { ...baseArgs, columnPickerConfig };
+
+VisibleColumns.play = openColumnPicker();
+
+export const ResponsiveView = (args: DataGridProps<Member>) => (
+  <DataGrid {...args} />
+);
+ResponsiveView.args = { ...baseArgs, mobileBreakpoint: 1280, mobileConfig };

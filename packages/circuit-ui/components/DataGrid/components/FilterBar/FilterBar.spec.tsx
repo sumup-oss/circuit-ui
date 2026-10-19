@@ -162,6 +162,12 @@ describe('FilterBar', () => {
         screen.queryByRole('button', { name: columnPickerConfig.triggerLabel }),
       ).not.toBeInTheDocument();
     });
+    it('should not show the column picker in responsive view', () => {
+      renderFilterBar({ columnPickerConfig, isMobile: true });
+      expect(
+        screen.queryByRole('button', { name: columnPickerConfig.triggerLabel }),
+      ).not.toBeInTheDocument();
+    });
     it('should forward visible column changes from the column picker', async () => {
       renderFilterBar({ columnPickerConfig });
 

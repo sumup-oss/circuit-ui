@@ -76,7 +76,7 @@ const FilterBarComponent = <P,>({
             className={classes.search}
           />
         )}
-        {columnPickerConfig && (
+        {!isMobile && columnPickerConfig && (
           <ColumnPicker
             columns={columns}
             visibleColumns={visibleColumns}
