@@ -34,10 +34,10 @@ export function useI18n({
   const { locale: globalLocale, formattingLocale: globalFormattingLocale } =
     useContext(I18nContext);
 
-  if (process.env.NODE_ENV !== 'production' && !globalLocale) {
+  if (process.env.NODE_ENV !== 'production' && !globalLocale && !customLocale) {
     throw new CircuitError(
       'Internationalization',
-      'Missing internationalization context. Make sure the `I18nProvider` component wraps your entire app component tree.',
+      'Missing locale. Wrap your app in the `I18nProvider` or use the `locale` prop.',
     );
   }
 
