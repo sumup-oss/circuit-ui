@@ -17,10 +17,9 @@
   height: 100%;
 }
 
-.label {
+.label.label {
   height: var(--cui-compact-s-line-height);
-  padding: 0 var(--cui-spacings-kilo);
-  margin-bottom: var(--cui-spacings-kilo);
+  margin: 0 var(--cui-spacings-kilo) var(--cui-spacings-kilo);
   text-transform: uppercase;
 }
 

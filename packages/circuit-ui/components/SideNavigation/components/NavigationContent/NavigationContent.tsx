@@ -38,17 +38,18 @@ export const NavigationContent = ({
         <div className={classes.sections}>
           {groups.map(({ label, hideLabel, items, id }) => (
             <nav key={id} aria-labelledby={`nav-label-${id}-${suffix}`}>
-              <Skeleton className={clsx(hideLabel && utilClasses.hideVisually)}>
-                <Compact
-                  as="h2"
-                  id={`nav-label-${id}-${suffix}`}
-                  size="s"
-                  color="subtle"
-                  className={classes.label}
-                >
-                  {label}
-                </Compact>
-              </Skeleton>
+              <Compact
+                as="h2"
+                id={`nav-label-${id}-${suffix}`}
+                size="s"
+                color="subtle"
+                className={clsx(
+                  classes.label,
+                  hideLabel && utilClasses.hideVisually,
+                )}
+              >
+                <Skeleton>{label}</Skeleton>
+              </Compact>
               <ul className={classes.list}>
                 {items.map((item) => (
                   <PrimaryItem
