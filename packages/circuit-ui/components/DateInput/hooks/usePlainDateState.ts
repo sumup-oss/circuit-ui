@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Temporal } from 'temporal-polyfill';
 
 import {
@@ -67,17 +67,15 @@ export function usePlainDateState({
     parseValue(defaultValue || value),
   );
 
-  const lastEmittedValue = useRef<string>(undefined);
-
   useEffect(() => {
-    if (value === undefined) {
-      return;
+    if (value !== undefined) {
+      // Skip the update if `value` matches the date the segments already
+      // represent. An incomplete date is emitted as `''`, and passing it back
+      // as `value` would otherwise clear the segments.
+      setValues((prevValues) =>
+        toValue(prevValues) === value ? prevValues : parseValue(value),
+      );
     }
-    if (value === lastEmittedValue.current) {
-      return;
-    }
-    lastEmittedValue.current = value;
-    setValues(parseValue(value));
   }, [value]);
 
   const update = useCallback(
@@ -104,9 +102,7 @@ export function usePlainDateState({
 
         if (onChange) {
           const plainDate = safePlainDate(year, month, day);
-          const newValue = plainDate?.toString() || '';
-          lastEmittedValue.current = newValue;
-          onChange(newValue);
+          onChange(plainDate?.toString() || '');
         }
 
         return { year, month, day };
@@ -175,6 +171,10 @@ function parseValue(value?: string): DateValues {
   }
   const { year, month, day } = plainDate;
   return { year, month, day };
+}
+
+function toValue({ year, month, day }: DateValues): string {
+  return safePlainDate(year, month, day)?.toString() || '';
 }
 
 function clampValue(
