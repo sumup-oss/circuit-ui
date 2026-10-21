@@ -69,7 +69,12 @@ export function usePlainDateState({
 
   useEffect(() => {
     if (value !== undefined) {
-      setValues(parseValue(value));
+      // Skip the update if `value` matches the date the segments already
+      // represent. An incomplete date is emitted as `''`, and passing it back
+      // as `value` would otherwise clear the segments.
+      setValues((prevValues) =>
+        toValue(prevValues) === value ? prevValues : parseValue(value),
+      );
     }
   }, [value]);
 
@@ -166,6 +171,10 @@ function parseValue(value?: string): DateValues {
   }
   const { year, month, day } = plainDate;
   return { year, month, day };
+}
+
+function toValue({ year, month, day }: DateValues): string {
+  return safePlainDate(year, month, day)?.toString() || '';
 }
 
 function clampValue(
