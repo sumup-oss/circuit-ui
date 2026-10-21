@@ -37,3 +37,26 @@ export function formatFileSize(
 
   return `${formatter.format(value)} ${UNITS[unitIndex]}`;
 }
+
+/**
+ * Replaces the files of a native file input. Scripts can't edit a file input's
+ * `FileList`, but they can assign a new one built with a `DataTransfer`.
+ * This is a no-op in environments without `DataTransfer` (such as jsdom).
+ */
+export function setInputFiles(input: HTMLInputElement, files: File[]) {
+  if (typeof DataTransfer === 'undefined') {
+    return;
+  }
+
+  if (files.length === 0 && !input.files?.length) {
+    return;
+  }
+
+  const dataTransfer = new DataTransfer();
+
+  for (const file of files) {
+    dataTransfer.items.add(file);
+  }
+
+  input.files = dataTransfer.files;
+}

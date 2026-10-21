@@ -27,6 +27,11 @@
   border-color: var(--cui-border-normal-pressed);
 }
 
+.base .trigger.dragging {
+  background-color: var(--cui-bg-highlight);
+  border-color: var(--cui-border-accent);
+}
+
 .input:focus-visible + .trigger {
   outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
   outline-offset: var(--cui-border-width-mega);

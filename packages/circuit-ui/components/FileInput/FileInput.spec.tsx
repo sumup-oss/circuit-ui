@@ -16,10 +16,16 @@
 import { createRef } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { axe, render, screen, userEvent } from '../../util/test-utils.js';
+import {
+  axe,
+  fireEvent,
+  render,
+  screen,
+  userEvent,
+} from '../../util/test-utils.js';
 
 import { FileInput, type FileInputProps } from './FileInput.js';
-import { formatFileSize } from './FileInputService.js';
+import { formatFileSize, setInputFiles } from './FileInputService.js';
 
 describe('FileInput', () => {
   const baseProps: FileInputProps = {
@@ -27,13 +33,12 @@ describe('FileInput', () => {
     buttonLabel: 'Upload files',
     dropLabel: 'Drop your files or click to upload',
     description: 'PDF, JPG, PNG (max 10MB each)',
+    removeLabel: 'Remove file',
   };
 
-  const files: NonNullable<FileInputProps['files']> = [
-    { id: '1', name: 'march.pdf', size: 202_445, status: 'uploading' },
-    { id: '2', name: 'april.jpg', size: 1_452_100, status: 'success' },
-    { id: '3', name: 'may.png', size: 4_820_300, status: 'error' },
-  ];
+  const march = new File(['march'], 'march.pdf', { type: 'application/pdf' });
+  const april = new File(['april'], 'april.jpg', { type: 'image/jpeg' });
+  const may = new File(['may'], 'may.png', { type: 'image/png' });
 
   it('renders a labelled file input', () => {
     render(<FileInput {...baseProps} />);
@@ -107,74 +112,144 @@ describe('FileInput', () => {
     ).not.toBeInTheDocument();
   });
 
-  describe('files', () => {
-    const props: FileInputProps = {
-      ...baseProps,
-      files,
-      removeLabel: 'Remove file',
-      retryLabel: 'Retry upload',
-      uploadingLabel: 'Uploading…',
-      errorLabel: 'Upload failed',
-    };
-
-    it('renders the name, size and status of each file', () => {
-      render(<FileInput {...props} />);
-
-      expect(screen.getAllByRole('listitem')).toHaveLength(3);
-      expect(screen.getByText('march.pdf')).toBeVisible();
-      expect(screen.getByText('202.4 KB')).toBeVisible();
-      expect(screen.getByText('Uploading…')).toBeVisible();
-      expect(screen.getByText('Upload failed')).toBeVisible();
-    });
-
+  describe('selecting files', () => {
     it('does not render a list without files', () => {
       render(<FileInput {...baseProps} />);
 
       expect(screen.queryByRole('list')).not.toBeInTheDocument();
     });
 
-    it('calls onRemove with the id of the file', async () => {
-      const onRemove = vi.fn();
-      render(<FileInput {...props} onRemove={onRemove} />);
+    it('lists the name and size of the selected file', async () => {
+      render(<FileInput {...baseProps} />);
 
-      await userEvent.click(
-        screen.getAllByRole('button', { name: 'Remove file' })[1],
-      );
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
 
-      expect(onRemove).toHaveBeenCalledWith('2');
+      expect(screen.getAllByRole('listitem')).toHaveLength(1);
+      expect(screen.getByText('march.pdf')).toBeVisible();
+      expect(screen.getByText('5 B')).toBeVisible();
     });
 
-    it('only offers a retry action for failed files', async () => {
-      const onRetry = vi.fn();
-      render(<FileInput {...props} onRetry={onRetry} />);
+    it('calls the onChange handler when files are picked', async () => {
+      const onChange = vi.fn();
+      render(<FileInput {...baseProps} onChange={onChange} />);
 
-      const buttons = screen.getAllByRole('button', { name: 'Retry upload' });
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
 
-      expect(buttons).toHaveLength(1);
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
 
-      await userEvent.click(buttons[0]);
+    it('replaces the selected file when multiple is not set', async () => {
+      render(<FileInput {...baseProps} />);
 
-      expect(onRetry).toHaveBeenCalledWith('3');
+      const input = screen.getByLabelText('Receipts');
+      await userEvent.upload(input, march);
+      await userEvent.upload(input, april);
+
+      expect(screen.getAllByRole('listitem')).toHaveLength(1);
+      expect(screen.queryByText('march.pdf')).not.toBeInTheDocument();
+      expect(screen.getByText('april.jpg')).toBeVisible();
+    });
+
+    it('adds to the selected files when multiple is set', async () => {
+      render(<FileInput {...baseProps} multiple />);
+
+      const input = screen.getByLabelText('Receipts');
+      await userEvent.upload(input, [march, april]);
+      await userEvent.upload(input, may);
+
+      expect(screen.getAllByRole('listitem')).toHaveLength(3);
+      expect(screen.getByText('march.pdf')).toBeVisible();
+      expect(screen.getByText('april.jpg')).toBeVisible();
+      expect(screen.getByText('may.png')).toBeVisible();
+    });
+
+    it('removes a file from the list', async () => {
+      render(<FileInput {...baseProps} multiple />);
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), [march, april]);
+      await userEvent.click(
+        screen.getAllByRole('button', { name: 'Remove file' })[0],
+      );
+
+      expect(screen.getAllByRole('listitem')).toHaveLength(1);
+      expect(screen.queryByText('march.pdf')).not.toBeInTheDocument();
+      expect(screen.getByText('april.jpg')).toBeVisible();
+    });
+
+    it('keeps the list when the picker is cancelled', async () => {
+      render(<FileInput {...baseProps} />);
+
+      const input = screen.getByLabelText('Receipts');
+      await userEvent.upload(input, march);
+      fireEvent(input, new Event('cancel'));
+
+      expect(screen.getByText('march.pdf')).toBeVisible();
+    });
+  });
+
+  describe('dropping files', () => {
+    const getDropzone = () =>
+      screen.getByText('Drop your files or click to upload').closest('label');
+
+    it('lists the dropped file', () => {
+      render(<FileInput {...baseProps} />);
+
+      fireEvent.drop(getDropzone() as HTMLElement, {
+        dataTransfer: { files: [march] },
+      });
+
+      expect(screen.getByText('march.pdf')).toBeVisible();
+    });
+
+    it('only keeps the first dropped file when multiple is not set', () => {
+      render(<FileInput {...baseProps} />);
+
+      fireEvent.drop(getDropzone() as HTMLElement, {
+        dataTransfer: { files: [march, april] },
+      });
+
+      expect(screen.getAllByRole('listitem')).toHaveLength(1);
+      expect(screen.getByText('march.pdf')).toBeVisible();
+    });
+
+    it('keeps all dropped files when multiple is set', () => {
+      render(<FileInput {...baseProps} multiple />);
+
+      fireEvent.drop(getDropzone() as HTMLElement, {
+        dataTransfer: { files: [march, april] },
+      });
+
+      expect(screen.getAllByRole('listitem')).toHaveLength(2);
+    });
+
+    it('ignores drops without files', () => {
+      render(<FileInput {...baseProps} />);
+
+      fireEvent.drop(getDropzone() as HTMLElement, {
+        dataTransfer: { files: [] },
+      });
+
+      expect(screen.queryByRole('list')).not.toBeInTheDocument();
     });
   });
 
   it('has no accessibility violations', async () => {
-    const { container } = render(
-      <FileInput
-        {...baseProps}
-        files={files}
-        onRemove={() => {}}
-        onRetry={() => {}}
-        removeLabel="Remove file"
-        retryLabel="Retry upload"
-      />,
-    );
+    const { container } = render(<FileInput {...baseProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 
   it('has no accessibility violations in the button variant', async () => {
     const { container } = render(<FileInput {...baseProps} variant="button" />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
+  });
+
+  it('has no accessibility violations with selected files', async () => {
+    const { container } = render(<FileInput {...baseProps} multiple />);
+
+    await userEvent.upload(screen.getByLabelText('Receipts'), [march, april]);
+
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
@@ -190,5 +265,17 @@ describe('formatFileSize', () => {
     [3_200_000_000, '3.2 GB'],
   ])('formats %d bytes as %s', (bytes, expected) => {
     expect(formatFileSize(bytes, 'en-US')).toBe(expected);
+  });
+});
+
+describe('setInputFiles', () => {
+  it('does nothing when DataTransfer is not supported', () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+
+    expect(() =>
+      setInputFiles(input, [new File(['a'], 'a.txt')]),
+    ).not.toThrow();
+    expect(input.files).toHaveLength(0);
   });
 });

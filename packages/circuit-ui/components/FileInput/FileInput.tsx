@@ -15,7 +15,17 @@
 
 'use client';
 
-import { useContext, useId, type InputHTMLAttributes, type Ref } from 'react';
+import {
+  useContext,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type DragEvent,
+  type InputHTMLAttributes,
+  type Ref,
+} from 'react';
 import { File as FileIcon, Upload } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
@@ -25,6 +35,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { idx } from '../../util/idx.js';
+import { applyMultipleRefs } from '../../util/refs.js';
 import {
   FieldLabel,
   FieldValidationHint,
@@ -33,27 +44,12 @@ import {
 import { I18nContext } from '../I18nContext/I18nContext.js';
 
 import classes from './FileInput.module.css';
-import { FileInputItem, type FileInputStatus } from './FileInputItem.js';
+import { FileInputItem } from './FileInputItem.js';
+import { setInputFiles } from './FileInputService.js';
 
-export type { FileInputStatus };
-
-export interface FileInputFile {
-  /**
-   * A unique identifier for the file.
-   */
+interface SelectedFile {
   id: string;
-  /**
-   * The name of the file, including its extension.
-   */
-  name: string;
-  /**
-   * The size of the file in bytes.
-   */
-  size: number;
-  /**
-   * The upload state of the file.
-   */
-  status?: FileInputStatus;
+  file: File;
 }
 
 export interface FileInputProps
@@ -87,35 +83,9 @@ export interface FileInputProps
    */
   description?: string;
   /**
-   * The files to display below the input.
+   * Accessible label for the buttons that remove files from the list.
    */
-  files?: FileInputFile[];
-  /**
-   * Called when the user wants to remove a file from the list.
-   */
-  onRemove?: (id: string) => void;
-  /**
-   * Called when the user wants to retry a failed upload.
-   */
-  onRetry?: (id: string) => void;
-  /**
-   * Accessible label for the buttons that remove files. Required when passing
-   * the `onRemove` prop.
-   */
-  removeLabel?: string;
-  /**
-   * Accessible label for the buttons that retry failed uploads. Required
-   * when passing the `onRetry` prop.
-   */
-  retryLabel?: string;
-  /**
-   * The status text of files that are being uploaded.
-   */
-  uploadingLabel?: string;
-  /**
-   * The status text of files that failed to upload.
-   */
-  errorLabel?: string;
+  removeLabel: string;
   /**
    * A unique identifier for the input element. If not defined, a generated id
    * is used.
@@ -141,20 +111,16 @@ export function FileInput({
   variant = 'default',
   dropLabel,
   description,
-  files = [],
-  onRemove,
-  onRetry,
   removeLabel,
-  retryLabel,
-  uploadingLabel,
-  errorLabel,
   id: customId,
   validationHint,
   invalid,
   required,
   disabled,
+  multiple,
   className,
   style,
+  onChange,
   'aria-describedby': descriptionId,
   ref,
   ...props
@@ -164,6 +130,10 @@ export function FileInput({
   const labelId = useId();
   const supportingTextId = useId();
   const validationHintId = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const nextFileId = useRef(0);
+  const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
   const { formattingLocale } = useContext(I18nContext);
   const descriptionIds = idx(
     descriptionId,
@@ -181,23 +151,70 @@ export function FileInput({
         'The `label` prop is missing or invalid.',
       );
     }
-    if (onRemove && !isSufficientlyLabelled(removeLabel)) {
+    if (!isSufficientlyLabelled(removeLabel)) {
       throw new AccessibilityError(
         'FileInput',
-        'The `removeLabel` prop is missing or invalid. Omit the `onRemove` prop if you intend to disable removing files.',
-      );
-    }
-    if (onRetry && !isSufficientlyLabelled(retryLabel)) {
-      throw new AccessibilityError(
-        'FileInput',
-        'The `retryLabel` prop is missing or invalid. Omit the `onRetry` prop if you intend to disable retrying uploads.',
+        'The `removeLabel` prop is missing or invalid.',
       );
     }
   }
 
-  const statusLabels: Partial<Record<FileInputStatus, string>> = {
-    uploading: uploadingLabel,
-    error: errorLabel,
+  // The native input only holds the files of the latest selection, so the
+  // list is the source of truth and the input is kept in sync with it. This
+  // ensures that a surrounding form submits exactly the files the user sees.
+  useEffect(() => {
+    if (inputRef.current) {
+      setInputFiles(
+        inputRef.current,
+        selectedFiles.map(({ file }) => file),
+      );
+    }
+  }, [selectedFiles]);
+
+  const addFiles = (files: File[]) => {
+    if (files.length === 0) {
+      return;
+    }
+
+    const added = (multiple ? files : files.slice(0, 1)).map((file) => {
+      nextFileId.current += 1;
+      return { id: String(nextFileId.current), file };
+    });
+
+    setSelectedFiles((previous) =>
+      multiple ? [...previous, ...added] : added,
+    );
+  };
+
+  const removeFile = (fileId: string) => {
+    setSelectedFiles((previous) =>
+      previous.filter((selected) => selected.id !== fileId),
+    );
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    // The `FileList` is live, so copy it before the input is synced.
+    addFiles(Array.from(event.target.files ?? []));
+    onChange?.(event);
+  };
+
+  const handleDragEnter = (event: DragEvent<HTMLLabelElement>) => {
+    event.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (event: DragEvent<HTMLLabelElement>) => {
+    // Moving between the dropzone's children also fires `dragleave`.
+    if (event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      return;
+    }
+    setIsDragging(false);
+  };
+
+  const handleDrop = (event: DragEvent<HTMLLabelElement>) => {
+    event.preventDefault();
+    setIsDragging(false);
+    addFiles(Array.from(event.dataTransfer.files));
   };
 
   const supportingText = description && (
@@ -211,12 +228,14 @@ export function FileInput({
       <div className={classes.base}>
         <input
           {...props}
-          ref={ref}
+          ref={applyMultipleRefs(inputRef, ref)}
           id={inputId}
           type="file"
+          multiple={multiple}
           className={clsx(classes.input, utilClasses.hideVisually)}
           required={required}
           disabled={disabled}
+          onChange={handleChange}
           aria-invalid={invalid && 'true'}
           aria-labelledby={labelId}
           aria-describedby={descriptionIds}
@@ -243,7 +262,15 @@ export function FileInput({
         ) : (
           <FieldLabel
             htmlFor={inputId}
-            className={clsx(classes.trigger, classes['variant-default'])}
+            className={clsx(
+              classes.trigger,
+              classes['variant-default'],
+              isDragging && classes.dragging,
+            )}
+            onDragEnter={handleDragEnter}
+            onDragOver={handleDragEnter}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
           >
             <span id={labelId} className={utilClasses.hideVisually}>
               {label}
@@ -260,20 +287,16 @@ export function FileInput({
           </FieldLabel>
         )}
       </div>
-      {files.length > 0 && (
+      {selectedFiles.length > 0 && (
         <ul className={classes.list}>
-          {files.map((file) => (
+          {selectedFiles.map(({ id: fileId, file }) => (
             <FileInputItem
-              key={file.id}
+              key={fileId}
               name={file.name}
               size={file.size}
-              status={file.status}
-              statusLabel={file.status && statusLabels[file.status]}
               formattingLocale={formattingLocale ?? undefined}
               removeLabel={removeLabel}
-              retryLabel={retryLabel}
-              onRemove={onRemove && (() => onRemove(file.id))}
-              onRetry={onRetry && (() => onRetry(file.id))}
+              onRemove={() => removeFile(fileId)}
             />
           ))}
         </ul>
