@@ -88,6 +88,7 @@ export function ComboboxInput({
   readOnly,
   textAlign,
   inputClassName,
+  passwordManagerIgnore,
   label,
   hideLabel,
   'id': customId,
@@ -214,6 +215,11 @@ export function ComboboxInput({
             required={required}
             disabled={disabled}
             readOnly={readOnly}
+            data-1p-ignore={passwordManagerIgnore}
+            data-bwignore={passwordManagerIgnore}
+            data-lpignore={passwordManagerIgnore}
+            data-op-ignore={passwordManagerIgnore}
+            data-protonpass-ignore={passwordManagerIgnore}
             {...props}
           />
           {value && !disabled && !readOnly && onClear && clearLabel && (

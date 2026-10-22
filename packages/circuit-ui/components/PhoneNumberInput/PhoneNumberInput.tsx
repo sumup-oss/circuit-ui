@@ -441,6 +441,7 @@ export function PhoneNumberInput({
           />
           <AutocompleteInput
             hideLabel
+            passwordManagerIgnore
             aria-describedby={descriptionIds}
             readOnly={readOnly || countryCode.readonly}
             required={required}
