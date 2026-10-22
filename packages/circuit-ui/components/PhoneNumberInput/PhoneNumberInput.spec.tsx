@@ -103,6 +103,28 @@ describe('PhoneNumberInput', () => {
   });
 
   describe('semantics', () => {
+    it('should opt the country code selector out of password manager suggestions', () => {
+      render(<PhoneNumberInput {...defaultProps} />);
+
+      const countryCode = screen.getByRole('combobox', {
+        name: 'Country code',
+      });
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      const attributes = [
+        'data-1p-ignore',
+        'data-bwignore',
+        'data-lpignore',
+        'data-op-ignore',
+        'data-protonpass-ignore',
+      ];
+
+      for (const attribute of attributes) {
+        expect(countryCode).toHaveAttribute(attribute, 'true');
+        expect(subscriberNumber).not.toHaveAttribute(attribute);
+      }
+      expect(subscriberNumber).toHaveAttribute('autocomplete', 'tel-national');
+    });
+
     it('should accept a custom description via aria-describedby', () => {
       const customDescription = 'Custom description';
       const customDescriptionId = 'customDescriptionId';

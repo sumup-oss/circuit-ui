@@ -81,6 +81,29 @@ describe('AutocompleteInput', () => {
     expect(ref.current).toBe(input);
   });
 
+  it('should support opting out of password manager suggestions', () => {
+    const { rerender } = render(<AutocompleteInput {...props} />);
+    const input = screen.getByRole('combobox');
+    const attributes = [
+      'data-1p-ignore',
+      'data-bwignore',
+      'data-lpignore',
+      'data-op-ignore',
+      'data-protonpass-ignore',
+    ];
+
+    for (const attribute of attributes) {
+      expect(input).not.toHaveAttribute(attribute);
+    }
+
+    rerender(<AutocompleteInput {...props} passwordManagerIgnore />);
+
+    for (const attribute of attributes) {
+      expect(input).toHaveAttribute(attribute, 'true');
+    }
+    expect(input).not.toHaveAttribute('passwordManagerIgnore');
+  });
+
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     render(<AutocompleteInput {...props} inputClassName={className} />);
