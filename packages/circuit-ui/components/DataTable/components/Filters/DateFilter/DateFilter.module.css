@@ -1,0 +1,17 @@
+.base {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: calc(var(--cui-spacings-kilo) / 2);
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-kilo);
+}
