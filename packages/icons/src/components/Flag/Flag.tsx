@@ -79,7 +79,7 @@ const ASPECT_RATIO = 4 / 3;
 // is applied as a progressive enhancement with no fallback for browsers
 // that don't support it.
 const WRAPPER_STYLE: CSSProperties = {
-  display: 'flex',
+  display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
   aspectRatio: '1 / 1',
