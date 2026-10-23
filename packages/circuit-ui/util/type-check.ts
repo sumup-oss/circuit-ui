@@ -25,8 +25,23 @@ export function isString(value?: unknown): value is string {
   return typeof value === 'string';
 }
 
+export function isStringArray(value: unknown): value is string[] {
+  return (
+    Array.isArray(value) && value.every((item) => typeof item === 'string')
+  );
+}
+
+export function isNumberArray(value: unknown): value is number[] {
+  return (
+    Array.isArray(value) && value.every((item) => typeof item === 'number')
+  );
+}
 export function isNumber(value?: unknown): value is number {
   return typeof value === 'number';
+}
+type StringOrNumber = string | number;
+export function isStringOrNumber(value?: unknown): value is StringOrNumber {
+  return typeof value === 'number' || typeof value === 'string';
 }
 
 export function isArray<T>(value?: unknown): value is T[] {
