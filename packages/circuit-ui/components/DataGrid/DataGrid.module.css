@@ -1,0 +1,32 @@
+.base {
+  width: 100%;
+  overflow: auto;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.row:last-of-type th:first-of-type {
+  border-bottom-left-radius: var(--cui-border-radius-mega);
+}
+
+.row:last-of-type td:last-of-type {
+  border-bottom-right-radius: var(--cui-border-radius-mega);
+}
+
+.wrapper {
+  padding: var(--cui-spacings-kilo);
+  background-color: var(--cui-bg-subtle);
+  border-radius: var(--cui-border-radius-giga);
+}
+
+.table {
+  padding: var(--cui-spacings-bit);
+  overflow-x: auto;
+  border-radius: var(--cui-border-radius-giga);
+}
+
+.list-cell-wrapper {
+  display: inline-flex;
+  flex-flow: row wrap;
+  gap: var(--cui-spacings-bit);
+}
