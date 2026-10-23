@@ -14,7 +14,7 @@
  */
 
 import { action } from 'storybook/actions';
-import { SumUpCard, Confirm } from '@sumup-oss/icons';
+import { SumUpCard, Confirm, Edit, View, Delete } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Body } from '../Body/index.js';
@@ -110,6 +110,28 @@ const baseArgs: ListItemProps = {
   disabled: undefined,
   onClick: undefined,
   href: undefined,
+  menu: {
+    actions: [
+      {
+        onClick: action('Button Click'),
+        children: 'View Details',
+        icon: View,
+      },
+      {
+        onClick: action('Button Click'),
+        children: 'Edit',
+        icon: Edit,
+      },
+      { type: 'divider' },
+      {
+        onClick: action('Button Click'),
+        children: 'Delete',
+        icon: Delete,
+        destructive: true,
+      },
+    ],
+    label: 'Actions',
+  },
 };
 
 export const Base = (args: ListItemProps) => (
@@ -127,6 +149,7 @@ export const Variants = (args: ListItemProps) => (
   <Stack vertical>
     <ListItem {...args} variant="action" />
     <ListItem {...args} variant="navigation" />
+    <ListItem {...args} variant="menu" />
   </Stack>
 );
 Variants.args = baseArgs;
@@ -203,6 +226,12 @@ export const Interactive = (args: ListItemProps) => (
     <ListItem
       {...args}
       variant="navigation"
+      href="https://sumup.com"
+      target="_blank"
+    />
+    <ListItem
+      {...args}
+      variant="menu"
       href="https://sumup.com"
       target="_blank"
     />

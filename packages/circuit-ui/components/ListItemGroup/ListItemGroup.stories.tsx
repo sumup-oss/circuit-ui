@@ -20,6 +20,8 @@ import { Stack } from '../../../../.storybook/components/index.js';
 import { Body } from '../Body/index.js';
 
 import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup.js';
+import { action } from 'storybook/actions';
+import type { ListItemProps } from '../ListItem/index.js';
 
 interface Item {
   id: number;
@@ -27,6 +29,7 @@ interface Item {
   status: string;
   amount: string;
   timestamp: string;
+  variant: ListItemProps['variant'];
 }
 
 export default {
@@ -46,6 +49,7 @@ const items: Item[] = [
     status: 'Successful',
     amount: '€24.00',
     timestamp: '17:23',
+    variant: 'action',
   },
   {
     id: 2,
@@ -53,6 +57,7 @@ const items: Item[] = [
     status: 'Failed',
     amount: '€24.00',
     timestamp: '17:21',
+    variant: 'menu',
   },
   {
     id: 1,
@@ -60,6 +65,7 @@ const items: Item[] = [
     status: 'Successful',
     amount: '€2.20',
     timestamp: '08:14',
+    variant: 'navigation',
   },
 ];
 
@@ -128,8 +134,20 @@ export const Base = (args: ListItemGroupProps) => {
       {...args}
       items={items.map((item) => ({
         key: item.id,
-        variant: 'navigation',
+        variant: item.variant,
         leadingComponent: SumUpCard,
+        menu:
+          item.variant === 'menu'
+            ? {
+                actions: [
+                  {
+                    onClick: action('View'),
+                    children: 'View',
+                  },
+                ],
+                label: 'Actions',
+              }
+            : undefined,
         label: item.title,
         details: <Details item={item} />,
         trailingLabel: <TrailingLabel item={item} />,

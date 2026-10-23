@@ -29,6 +29,10 @@ import { Status } from '../Status/index.js';
 
 import { ListItem, type ListItemProps } from './ListItem.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('ListItem', () => {
   function renderListItem<T>(renderFn: RenderFn<T>, props: ListItemProps) {
     return renderFn(<ListItem {...props} />);
@@ -37,6 +41,43 @@ describe('ListItem', () => {
   const baseProps = {
     label: 'Label',
   };
+
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <ListItem {...baseProps} className={className} />,
+    );
+    const listItem = container.firstChild;
+    expect((listItem as HTMLElement)?.className).toContain(className);
+  });
+
+  it('should throw a CircuitError when props have trailingDetails but no trailingLabel', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      render(<ListItem {...baseProps} trailingDetails="Trailing details" />),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
+
+  it('should throw a CircuitError when props have trailingComponent and trailingLabel', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      render(
+        <ListItem
+          {...baseProps}
+          trailingComponent={<Status color="promo">Promo</Status>}
+          trailingLabel="Trailing label"
+        />,
+      ),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
 
   it('should render a ListItem with a leading icon', () => {
     const { container } = renderListItem(render, {
@@ -199,6 +240,80 @@ describe('ListItem', () => {
       const { container } = render(<ListItem {...baseProps} ref={ref} />);
       const listItem = container.firstChild;
       expect(ref.current).toBe(listItem);
+    });
+  });
+
+  describe('menu variant', () => {
+    const menuProps = {
+      actions: [
+        {
+          onClick: vi.fn(),
+          children: 'View',
+        },
+      ],
+      label: 'Actions',
+    };
+
+    it('should render as the menu variant', async () => {
+      render(<ListItem {...baseProps} variant="menu" menu={menuProps} />);
+      const trigger = screen.getByRole('button', { name: 'Actions' });
+      expect(trigger).toBeVisible();
+      await userEvent.click(trigger);
+      expect(screen.getByRole('button', { name: 'View' })).toBeVisible();
+    });
+
+    it('should not fire onClick action when trigger button is clicked', async () => {
+      const onClick = vi.fn();
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={menuProps}
+          onClick={onClick}
+        />,
+      );
+      const trigger = screen.getByRole('button', { name: 'Actions' });
+      expect(trigger).toBeVisible();
+      await userEvent.click(trigger);
+      expect(onClick).not.toHaveBeenCalled();
+    });
+    it('should not navigate when the menu trigger is clicked', async () => {
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={menuProps}
+          href="/settings"
+        />,
+      );
+
+      const trigger = screen.getByRole('button', { name: 'Actions' });
+      let clickEvent: MouseEvent | undefined;
+      trigger.addEventListener('click', (event) => {
+        clickEvent = event;
+      });
+
+      await userEvent.click(trigger);
+      expect(clickEvent?.defaultPrevented).toBe(true);
+    });
+
+    it('should not render with menu when variant is menu and actions are missing', async () => {
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={{ ...menuProps, actions: [] }}
+        />,
+      );
+      expect(
+        screen.queryByRole('button', { name: 'See actions' }),
+      ).not.toBeInTheDocument();
+    });
+    it('should not render with menu when variant is menu and menu label is not provided', async () => {
+      render(<ListItem {...baseProps} menu={{ ...menuProps, label: '' }} />);
+      expect(
+        screen.queryByRole('button', { name: 'See actions' }),
+      ).not.toBeInTheDocument();
     });
   });
 
