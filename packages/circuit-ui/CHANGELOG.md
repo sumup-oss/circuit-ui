@@ -1,5 +1,21 @@
 # @sumup-oss/circuit-ui
 
+## 12.5.0
+
+### Minor Changes
+
+- [#3964](https://github.com/sumup-oss/circuit-ui/pull/3964) [`1bc2963`](https://github.com/sumup-oss/circuit-ui/commit/1bc2963f182af5bd079a580560e39cfcbf214a56) Thanks [@connor-baer](https://github.com/connor-baer)! - Relax the requirement for the I18nProvider when the locale is passed directly as a prop. Wrapping your app in the I18nProvider remains the recommended way to set the locale and reduce boilerplate. Astro components, however, don't support React context, so passing the locale as a prop is easier in this case.
+
+### Patch Changes
+
+- [#3987](https://github.com/sumup-oss/circuit-ui/pull/3987) [`d93434e`](https://github.com/sumup-oss/circuit-ui/commit/d93434e03e8f29932e9f29960ce0227a96d0fbe8) Thanks [@missating](https://github.com/missating)! - Fixed the DateInput component clearing the day and month when only the year is cleared or invalid in controlled mode.
+
+- [#3986](https://github.com/sumup-oss/circuit-ui/pull/3986) [`4cfcb02`](https://github.com/sumup-oss/circuit-ui/commit/4cfcb02718883dd204e8ec5fd2fd99458ee41a7a) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed focus restoration issue in the Popover component when opened by an action different from `onClick`.
+
+- [#3992](https://github.com/sumup-oss/circuit-ui/pull/3992) [`d63b7c5`](https://github.com/sumup-oss/circuit-ui/commit/d63b7c52505b3e70f90fa4511acabb674f17527e) Thanks [@matoous](https://github.com/matoous)! - Fixed `passwordManagerIgnore` in `AutocompleteInput` and enabled it on the country code selector in `PhoneNumberInput` to prevent password manager suggestions on the prefix field.
+
+- [#3993](https://github.com/sumup-oss/circuit-ui/pull/3993) [`c790f9e`](https://github.com/sumup-oss/circuit-ui/commit/c790f9e257c25271d488566994f1caf0c3771cec) Thanks [@matoous](https://github.com/matoous)! - Give the PhoneNumberInput country autocomplete a stable, responsive width so clearing or typing a search keeps the country results readable.
+
 ## 12.4.0
 
 ### Minor Changes
