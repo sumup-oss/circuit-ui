@@ -24,7 +24,7 @@ import type { FilterLabels } from '../Filter/types.js';
 import { FilterSheet, type FilterValues } from './index.js';
 
 export default {
-  title: 'Components/DataTable/FilterSheet',
+  title: 'Components/DataGrid/FilterSheet',
   component: FilterSheet,
   tags: ['status:internal'],
   chromatic: {

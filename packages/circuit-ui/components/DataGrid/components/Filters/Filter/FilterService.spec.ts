@@ -23,8 +23,14 @@ import {
   getAmountKind,
   getFilterKind,
   getFilterSummary,
+  getSelectionOptions,
   normalizeFilterValue,
 } from './FilterService.js';
+
+interface Plan {
+  id: number;
+  name: string;
+}
 
 describe('FilterService', () => {
   const options = [{ label: 'Paid', value: 'paid' }];
@@ -36,7 +42,7 @@ describe('FilterService', () => {
       [{ name: 'number' }, 'number'],
       [{ name: 'date' }, 'date'],
     ] as [
-      ColumnType,
+      ColumnType<unknown>,
       string,
     ][])('should return the kind for the %j column', (type, kind) => {
       expect(getFilterKind({ type, filter: true })).toBe(kind);
@@ -103,7 +109,7 @@ describe('FilterService', () => {
         { from: '2026-01-10', to: '2026-02-01' },
       ],
     ] as [
-      ColumnType,
+      ColumnType<unknown>,
       FilterValue,
       FilterValue,
     ][])('should swap the ends of a reversed %j range', (type, value, expected) => {
@@ -118,7 +124,7 @@ describe('FilterService', () => {
       [{ name: 'date' }, { from: '2026-01-10' }],
       [{ name: 'multiSelection', options }, ['paid']],
     ] as [
-      ColumnType,
+      ColumnType<unknown>,
       FilterValue,
     ][])('should keep the %j value %j as it is', (type, value) => {
       expect(normalizeFilterValue({ type }, value)).toEqual(value);
@@ -131,9 +137,28 @@ describe('FilterService', () => {
     });
   });
 
+  describe('getSelectionOptions', () => {
+    it('should return the options as they are when they are labelled values', () => {
+      expect(getSelectionOptions({ name: 'multiSelection', options })).toBe(
+        options,
+      );
+    });
+
+    it('should read the label and value of other options with the getters', () => {
+      expect(
+        getSelectionOptions({
+          name: 'multiSelection',
+          options: [{ id: 1, name: 'Basic' }],
+          getOptionLabel: (option: Plan) => option.name,
+          getOptionValue: (option: Plan) => String(option.id),
+        }),
+      ).toEqual([{ label: 'Basic', value: '1' }]);
+    });
+  });
+
   describe('getFilterSummary', () => {
     const summarize = (
-      type: ColumnType,
+      type: ColumnType<unknown>,
       value: Parameters<typeof getFilterSummary>[1],
     ) => getFilterSummary({ type }, value, 'en-US');
 
@@ -147,7 +172,7 @@ describe('FilterService', () => {
       [{ name: 'singleSelection', options }],
       [{ name: 'multiSelection', options }],
     ] as [
-      ColumnType,
+      ColumnType<unknown>,
     ][])('should return the number of selections for a %j column', (type) => {
       expect(summarize(type, ['a', 'b'])).toBe('2');
     });

@@ -22,7 +22,7 @@ import { FilterWrapper, type FilterWrapperProps } from './index.js';
 import type { FilterValue } from './types.js';
 
 export default {
-  title: 'Components/DataTable/Filter',
+  title: 'Components/DataGrid/Filter',
   component: FilterWrapper,
   tags: ['status:internal'],
   chromatic: {

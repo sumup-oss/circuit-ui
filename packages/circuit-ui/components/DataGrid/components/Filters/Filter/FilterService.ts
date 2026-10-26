@@ -17,7 +17,7 @@ import { formatCurrency, formatDate, formatNumber } from '@sumup-oss/intl';
 
 import { toPlainDate } from '../../../../../util/date.js';
 import type { Locale } from '../../../../../util/i18n.js';
-import type { Column } from '../../../types.js';
+import type { Column, Option } from '../../../types.js';
 
 import type {
   DateRange,
@@ -101,6 +101,29 @@ export function normalizeFilterValue(
     default:
       return value;
   }
+}
+
+type SelectionColumnType = Extract<
+  FilterColumn['type'],
+  { name: 'singleSelection' | 'multiSelection' }
+>;
+
+/**
+ * Returns the options of a selection column as labelled values, also when they
+ * are objects that are read with `getOptionLabel` and `getOptionValue`.
+ */
+export function getSelectionOptions({
+  options,
+  getOptionLabel,
+  getOptionValue,
+}: SelectionColumnType): Option[] {
+  if (getOptionLabel && getOptionValue) {
+    return options.map((option) => ({
+      label: getOptionLabel(option),
+      value: getOptionValue(option),
+    }));
+  }
+  return options;
 }
 
 function formatRange(

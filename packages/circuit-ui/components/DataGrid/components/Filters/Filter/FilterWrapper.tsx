@@ -26,6 +26,7 @@ import {
   getAmountKind,
   getFilterKind,
   getFilterSummary,
+  getSelectionOptions,
   normalizeFilterValue,
 } from './FilterService.js';
 import type {
@@ -64,7 +65,7 @@ export interface FilterWrapperProps {
 }
 
 interface FilterBodyProps {
-  type: ColumnType;
+  type: ColumnType<unknown>;
   label: string;
   labels: FilterLabels;
   hideLabel?: boolean;
@@ -79,7 +80,7 @@ function FilterBody({ type, labels, value, ...props }: FilterBodyProps) {
       return (
         <MultiChoiceFilter
           {...props}
-          options={type.options}
+          options={getSelectionOptions(type)}
           value={value as string[] | undefined}
         />
       );

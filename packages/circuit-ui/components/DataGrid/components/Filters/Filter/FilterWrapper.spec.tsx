@@ -24,6 +24,11 @@ import {
 
 import { FilterWrapper, type FilterWrapperProps } from './FilterWrapper.js';
 
+interface Plan {
+  id: number;
+  name: string;
+}
+
 describe('FilterWrapper', () => {
   beforeEach(() => {
     vi.useFakeTimers({ shouldAdvanceTime: true });
@@ -55,7 +60,7 @@ describe('FilterWrapper', () => {
 
   it.each([
     ['text', { name: 'text' }],
-    ['boolean', { name: 'boolean' }],
+    ['boolean', { name: 'boolean', accessibleLabel: () => 'Active' }],
   ] as const)('should render nothing for a %s column', (_, type) => {
     const { container } = render(
       <FilterWrapper
@@ -222,6 +227,32 @@ describe('FilterWrapper', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
 
     expect(onChange).toHaveBeenCalledWith({ min: 0, max: 7 });
+  });
+
+  it('should offer options that are read with the getters', async () => {
+    render(
+      <FilterWrapper
+        {...baseProps}
+        column={{
+          label: 'Plan',
+          filter: true,
+          type: {
+            name: 'multiSelection',
+            options: [
+              { id: 1, name: 'Basic' },
+              { id: 2, name: 'Pro' },
+            ],
+            getOptionLabel: (option: Plan) => option.name,
+            getOptionValue: (option: Plan) => String(option.id),
+          },
+        }}
+      />,
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Plan' }));
+
+    expect(screen.getByRole('checkbox', { name: 'Basic' })).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', { name: 'Pro' })).toBeInTheDocument();
   });
 
   describe('when inline', () => {
