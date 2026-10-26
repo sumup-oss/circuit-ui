@@ -20,23 +20,30 @@ import { render, axe, screen, userEvent } from '../../util/test-utils.js';
 
 import { Tooltip, type TooltipProps } from './Tooltip.js';
 
-const baseProps: TooltipProps = {
-  label: 'Label',
+const label = 'Label';
+const baseProps = {
+  label,
   type: 'label',
   component: (props) => <button {...props} />,
-};
+} satisfies TooltipProps;
 
 describe('Tooltip', () => {
-  it('should merge a custom class name with the default ones', () => {
+  it('should merge a custom class name with the default ones', async () => {
     const className = 'foo';
     render(<Tooltip {...baseProps} className={className} />);
+    await userEvent.hover(
+      screen.getByRole('button', { name: baseProps.label }),
+    );
     const tooltip = screen.getByRole('tooltip');
     expect(tooltip?.className).toContain(className);
   });
 
-  it('should forward a ref to the tooltip', () => {
+  it('should forward a ref to the tooltip', async () => {
     const ref = createRef<HTMLDivElement>();
     render(<Tooltip {...baseProps} ref={ref} />);
+    await userEvent.hover(
+      screen.getByRole('button', { name: baseProps.label }),
+    );
     const tooltip = screen.getByRole('tooltip');
     expect(ref.current).toBe(tooltip);
   });
@@ -53,10 +60,10 @@ describe('Tooltip', () => {
     expect(button).toHaveAccessibleDescription(baseProps.label);
   });
 
-  it('should be initially closed', () => {
+  it('should be initially closed', async () => {
     render(<Tooltip {...baseProps} />);
-    const tooltip = screen.getByRole('tooltip');
-    expect(tooltip).toHaveAttribute('data-state', 'closed');
+    const tooltip = screen.queryByRole('tooltip');
+    expect(tooltip).not.toBeInTheDocument();
   });
 
   it('should be open when the reference element is focused', async () => {
@@ -80,6 +87,9 @@ describe('Tooltip', () => {
 
   it('should stay open when the tooltip element is hovered', async () => {
     render(<Tooltip {...baseProps} />);
+    await userEvent.hover(
+      screen.getByRole('button', { name: baseProps.label }),
+    );
     const button = screen.getByRole('button');
     const tooltip = screen.getByRole('tooltip');
 
@@ -92,6 +102,7 @@ describe('Tooltip', () => {
   it('should close when the escape key is pressed', async () => {
     render(<Tooltip {...baseProps} />);
     const button = screen.getByRole('button');
+    await userEvent.tab();
     const tooltip = screen.getByRole('tooltip');
 
     await userEvent.hover(button);
@@ -106,21 +117,22 @@ describe('Tooltip', () => {
   it('should close when another tooltip is opened', async () => {
     render(
       <>
-        <Tooltip {...baseProps} />
-        <Tooltip {...baseProps} />
+        <Tooltip {...baseProps} label="Tooltip1" />
+        <Tooltip {...baseProps} label="Tooltip2" />
       </>,
     );
-    const tooltips = screen.getAllByRole('tooltip');
-
     await userEvent.tab();
 
-    expect(tooltips[0]).toHaveAttribute('data-state', 'open');
-    expect(tooltips[1]).toHaveAttribute('data-state', 'closed');
+    const tooltipGroup = screen.getAllByRole('tooltip');
+    expect(tooltipGroup.length).toBe(1);
+    const [tooltip] = tooltipGroup;
+    expect(tooltip).toHaveTextContent('Tooltip1');
 
-    await userEvent.hover(tooltips[1]);
-
-    expect(tooltips[0]).toHaveAttribute('data-state', 'closed');
-    expect(tooltips[1]).toHaveAttribute('data-state', 'open');
+    await userEvent.tab();
+    const secondTooltipGroup = screen.getAllByRole('tooltip');
+    expect(secondTooltipGroup.length).toBe(1);
+    const [tooltip2] = secondTooltipGroup;
+    expect(tooltip2).toHaveTextContent('Tooltip2');
   });
 
   it('should have no accessibility violations', async () => {

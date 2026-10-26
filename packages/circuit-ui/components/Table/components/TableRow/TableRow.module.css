@@ -14,9 +14,7 @@ tbody .base:last-child td {
 
 .base[tabindex]:focus {
   z-index: 1;
-  outline-width: var(--cui-border-width-mega);
-  outline-style: solid;
-  outline-color: var(--cui-border-focus);
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
 
   /* Chrome doesn't respect position: relative; on table elements so the transform property is used to create a separate stacking context which is needed to show the focus outline above the other table rows. */
   transform: translate(0, 0);
@@ -27,7 +25,7 @@ tbody .base:last-child td {
 }
 
 .base[tabindex]:focus:not(:focus-visible) {
-  outline-color: transparent;
+  outline: var(--cui-border-width-mega) solid transparent;
 }
 
 tbody .base[tabindex]:focus td,

@@ -1,6 +1,6 @@
 .base {
   position: relative;
-  padding: var(--cui-spacings-byte);
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-byte);
   margin: 0;
 }
 

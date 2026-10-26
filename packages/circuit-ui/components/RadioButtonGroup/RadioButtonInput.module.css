@@ -59,16 +59,14 @@
 }
 
 .base:focus + .label::before {
-  outline-width: var(--cui-border-width-mega);
-  outline-style: solid;
-  outline-color: var(--cui-border-focus);
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
   outline-offset: var(--cui-border-width-mega);
   border-color: var(--cui-border-accent);
 }
 
 .base:focus:not(:focus-visible) + .label::before {
+  outline: var(--cui-border-width-mega) solid transparent;
   border-color: var(--cui-border-normal);
-  box-shadow: none;
 }
 
 .base:checked:focus:not(:focus-visible) + .label::before {

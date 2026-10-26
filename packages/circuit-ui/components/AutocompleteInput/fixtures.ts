@@ -80,11 +80,12 @@ const winston: AutocompleteInputOption = {
   image: '/images/illustration-cat.jpg',
 };
 
-const pepper: AutocompleteInputOption = {
+export const pepper: AutocompleteInputOption = {
   label: 'Pepper',
   value: 'pepper',
   description: 'Spicy personality',
   image: '/images/illustration-cat.jpg',
+  spicy: true,
 };
 
 export const options: AutocompleteInputOption[] = [

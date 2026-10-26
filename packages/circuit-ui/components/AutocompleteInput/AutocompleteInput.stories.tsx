@@ -39,6 +39,7 @@ import {
   updateMultipleSelectionValue,
 } from './AutocompleteInputService.js';
 import type { AutocompleteInputOption } from './components/Option/Option.js';
+import { Modal } from '../Modal/index.js';
 
 export default {
   title: 'Forms/AutocompleteInput',
@@ -170,6 +171,16 @@ export default {
         category: 'Input',
       },
     },
+    renderPrefix: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
+    prefixValue: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
     // Behavior & Appearance
     multiple: {
       table: {
@@ -177,6 +188,11 @@ export default {
       },
     },
     variant: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
+    embedded: {
       table: {
         category: 'Behavior & Appearance',
       },
@@ -255,6 +271,23 @@ const openAutocomplete =
     await screen.findByText(text ?? 'Luna');
   };
 
+const openModal = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button', {
+    name: 'Choose your cat',
+  });
+
+  await userEvent.click(button);
+  await screen.findByRole('dialog');
+  await userEvent.click(
+    screen.getByRole('combobox', { name: 'Choose your cat' }),
+  );
+};
+
 const openAutocompleteAndType =
   (label?: string, text?: string) =>
   async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
@@ -323,6 +356,31 @@ export const Base = (args: AutocompleteInputProps) => {
 };
 Base.args = baseArgs;
 Base.play = openAutocomplete();
+
+export const Embedded = (args: AutocompleteInputProps) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  return (
+    <>
+      <Button
+        type="button"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        Choose your cat
+      </Button>
+      <Modal
+        style={{ height: '400px' }}
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+      >
+        <AutocompleteInput {...args} />
+      </Modal>
+    </>
+  );
+};
+Embedded.args = { ...baseArgs, embedded: true };
+Embedded.play = openModal;
 
 export const WithIcons = (args: AutocompleteInputProps) => (
   <AutocompleteInput {...args} />

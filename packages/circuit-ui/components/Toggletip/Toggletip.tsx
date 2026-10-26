@@ -211,6 +211,7 @@ export function Toggletip(props: ToggletipProps) {
         className={clsx(classes.base, sharedClasses.elevatedSurface, className)}
         closeButtonLabel={closeButtonLabel}
         style={{ ...style, ...dialogStyles }}
+        popover="manual"
       >
         <div className={classes.content}>
           {headline && (

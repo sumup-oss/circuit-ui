@@ -1,9 +1,3 @@
-.modal {
-  height: inherit;
-  max-height: inherit;
-  overflow-y: auto;
-}
-
 .modal-with-action {
   margin-bottom: 81px; /* 32px for action button + 33px for Hr and 16px padding bottom of the modal */
 }

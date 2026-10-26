@@ -18,7 +18,6 @@
 }
 
 .wrapper {
-  outline-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,6 +29,10 @@
     env(safe-area-inset-bottom) env(safe-area-inset-left);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.wrapper:focus {
+  outline: var(--cui-border-width-mega) solid transparent;
 }
 
 @media (max-width: 767px) {

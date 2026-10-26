@@ -38,3 +38,43 @@ global.matchMedia = vi.fn().mockImplementation((query) => ({
 }));
 
 global.scrollTo = vi.fn();
+
+// The popover API is not available in JSDOM, so we need to mock it
+// from https://github.com/jsdom/jsdom/issues/3721#issuecomment-2702227347
+Object.defineProperties(HTMLElement.prototype, {
+  popover: {
+    value: 'auto',
+    configurable: true,
+    enumerable: true,
+    writable: true,
+  },
+  showPopover: {
+    value() {
+      // display: block is important for getting RTL tests to see the popover
+      // this is also how the popover is revealed in the browser
+      const element = this as HTMLElement;
+      element.style.display = 'block';
+      element.setAttribute('popover-open', '');
+      element.setAttribute('data-state', 'open');
+      const showEvent = new window.Event('show', { bubbles: true });
+      element.dispatchEvent(showEvent);
+      return undefined;
+    },
+    configurable: true,
+    writable: true,
+  },
+  hidePopover: {
+    value() {
+      // display; none is also how popovers are hidden in the browser
+      const element = this as HTMLElement;
+      element.style.display = 'none';
+      element.removeAttribute('popover-open');
+      element.setAttribute('data-state', 'closed');
+      const hideEvent = new window.Event('hide', { bubbles: true });
+      element.dispatchEvent(hideEvent);
+      return undefined;
+    },
+    configurable: true,
+    writable: true,
+  },
+});

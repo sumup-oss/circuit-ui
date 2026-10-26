@@ -1,0 +1,356 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './DataGrid.stories';
+
+<Meta of={Stories} />
+
+# DataGrid
+
+<Status variant="experimental" />
+
+The DataGrid component displays tabular data and allows users to navigate, edit, and act on records directly within the table.
+
+<Story of={Stories.Base} />
+<Props of={Stories.Base} />
+
+## When to use
+
+Use the DataGrid component to present tabular data that users need to explore, edit, or act on directly.
+It provides intuitive, spreadsheet-like interactions: users can move between cells with keyboard navigation and perform quick operations through controls embedded in the cells.
+Common actions include cell editing, row selection, search and filtering.
+
+Good fit for DataGrid::
+- Lists of records, such as employees, where users need quick access to row actions like editing or deleting.
+- Product catalogs with nested rows and bulk actions.
+- Data with interactive content, such as links and menus.
+
+DataGrid may not be the best choice when::
+- The data is static and only needs tabular layout: use the [Table component](Components/Table/Docs)
+- Each row is an entry point to another view, such as a modal dialog, a new page, or a side panel: use the [ListItemGroup component](Components/ListItem/ListItemGroup/Docs)
+
+## How to use
+
+The DataGrid will accept an array of data of type `<T>` and render it according to the column definition provided by the `columns` prop.
+The component will format standard data types by default if no custom rendering options are provided (see [cell rendering](#cell-rendering)).
+For smaller viewports, the DataGrid will render as a ListItemGroup component based on the provided `mobileConfig` prop.
+
+### Column Definition
+
+Each entry in `columns` describes one column. The grid reads a value from each row, then formats it according to the column `type`.
+
+| Property | Description |
+| --- | --- |
+| `id` | Unique column id. Also the default key used to read the cell value from the row (`row[id]`). |
+| `label` | Column header. Keep it short and use sentence case. |
+| `type` | How the value is interpreted and formatted. See [column types](#column-types). |
+| `getValue` | Reads a nested or computed value from the row. Used when the value does not live at `row[id]`. |
+| `isRowHeader` | Renders the cell as the row header (`th` with the `rowheader` role). Set this on the column that identifies the row, usually the first column. |
+
+```tsx
+import { DataGrid, type Column } from '@sumup-oss/circuit-ui';
+
+type Member = {
+  firstName: string;
+  lastName: string;
+  age: number;
+  subscription: {
+    status: 'active' | 'canceled';
+    price: number;
+  };
+};
+
+const columns: Column<Member>[] = [
+  {
+    id: 'full_name',
+    label: 'Full name',
+    type: { name: 'text' },
+    isRowHeader: true,
+    getValue: ({ firstName, lastName }) => `${firstName} ${lastName}`,
+  },
+  {
+    id: 'age',
+    label: 'Age',
+    type: { name: 'number' },
+  },
+  {
+    id: 'subscriptionPrice',
+    label: 'Monthly price',
+    getValue: ({ subscription }) => subscription.price,
+    type: {
+      name: 'number',
+      formattingOptions: {
+        style: 'currency',
+        currency: 'EUR',
+      },
+    },
+  },
+];
+```
+
+#### Column types
+
+##### Text
+
+`{ name: 'text' }` displays a string.
+
+##### Number
+
+`{ name: 'number', formattingOptions? }` displays a number or a numeric string. Optional `formattingOptions` follow the [`Intl.NumberFormat` options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options). The value is formatted with the `formattingLocale` prop, or with the locale from the [internationalization context](Introduction/Internationalization/Docs) when the `formattingLocale` prop is not provided.
+
+##### Boolean
+
+`{ name: 'boolean', accessibleLabel }` displays a checkmark icon when the value is `true` and a close icon when the value is `false`. The icon's accessible name is provided by the `accessibleLabel` function.
+
+##### Date
+
+`{ name: 'date', formatStyle?, includeTime? }` displays an absolute date. The value is a [zoned date-time](https://tc39.es/proposal-temporal/docs/zoneddatetime.html) string: an [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) date-time plus an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), the same format the [Timestamp](Components/Timestamp/Docs) component accepts.
+
+```tsx
+dateOfBirth: '1996-05-21T00:00[Europe/Berlin]';
+```
+
+`formatStyle` controls the verbosity: `'long'`, `'short'` (the default), or `'narrow'`. Set `includeTime` to `true` to append the time. The default is `false`.
+
+##### Single selection
+
+`{ name: 'singleSelection', options, filterOptions?, render? }` maps a string value to a label. `options` is a list of `{ label, value }` objects, that can be filtered by the `filterOptions` function based on the current row.
+
+```tsx
+{
+  id: 'status',
+  label: 'Status',
+  getValue: ({ subscription }) => subscription.status,
+  type: {
+    name: 'singleSelection',
+    options: [
+      { label: 'Active', value: 'active' },
+      { label: 'Canceled', value: 'canceled' },
+    ],
+  },
+}
+```
+
+When the options are not `{ label, value }` objects, pass `getOptionLabel` and `getOptionValue` to read those fields from each option.
+
+
+```tsx
+{
+  id: 'status',
+  label: 'Status',
+  getValue: ({ subscription }) => subscription.status,
+  type: {
+    name: 'singleSelection',
+    options: [
+      { name: 'Active', code: 'active' },
+      { name: 'Canceled', code: 'canceled' },
+    ],
+    getOptionLabel: (option) => option.name,
+    getOptionValue: (option) => option.code,
+  },
+}
+```
+
+`render` receives the matched option, allows custom rendering of the value instead of the default behavior that displays the value's label.
+
+```tsx
+render: ({ value, label }) => (
+  <Status variant="line" color={value === 'active' ? 'confirm' : 'neutral'}>
+    {label}
+  </Status>
+);
+```
+
+A value with no matching option is displayed as the raw string.
+
+##### Multiple selection
+
+`{ name: 'multiSelection', options, render? }` maps an array of string values to labels. Options work the same way as single selection.
+
+The default display joins the selected labels with a comma. An empty array renders an empty cell.
+
+`render` is called once per selected option, with the option, and a React key that is unique to each option. Return one node per option:
+
+```tsx
+render: (allergy, _options, key) => (
+  <Compact key={key} size="s">
+    {allergy.label}
+  </Compact>
+);
+```
+
+##### Quick actions
+
+`{ name: 'quick-actions', actions }` renders a row of icon buttons in the cell. `actions` is an array, or a function that returns an array for the current row so the available actions can depend on the data.
+
+Each action is an icon button, and receives an object that is an augmented `IconButtonProps` object with
+
+- `onClick` receives the click event <i>and</i> the current row.
+- `aria-description` (made required) is a function of the row. It must add enough context to identify the record. See [Labeling interactive cell content](#labeling-interactive-cell-content).
+
+```tsx
+{
+  id: 'actions',
+  label: 'Actions',
+  type: {
+    name: 'quick-actions',
+    actions: (member) => [
+      {
+        children: 'Send reminder',
+        icon: Send,
+        onClick: (event, value) => sendReminder(value),
+        'aria-description': ({ firstName, lastName }) =>
+          `Send reminder to ${firstName} ${lastName}`,
+      },
+    ],
+  },
+}
+```
+
+##### Row actions
+
+`{ name: 'row-actions', actions, label, labelDescription }` renders a "more" menu using the [ActionMenu](Components/ActionMenu/Docs) component. Use it for secondary actions that should stay out of the row.
+
+- `label` is the accessible name of the menu button, such as `"More actions"`.
+- `labelDescription` is a function of the row and describes that button for the current record.
+- `actions` is an array of menu items, or a function that returns them. Each item follows the ActionMenu item props, with `children` as the item label, `onClick(event, row)`, and an `aria-description` function of the row.
+
+A column whose `id` is `row-actions` keeps its header available to assistive technology and hides it visually. Typically a column of type `row-actions` is the last column of the grid.
+
+```tsx
+{
+  id: 'row-actions',
+  label: 'More actions',
+  type: {
+    name: 'row-actions',
+    label: 'More actions',
+    labelDescription: ({ firstName, lastName }) =>
+      `More actions for ${firstName} ${lastName}`,
+    actions: [
+      {
+        children: 'Edit',
+        icon: Edit,
+        onClick: (event, member) => editMember(member),
+        'aria-description': ({ firstName, lastName }) =>
+          `Edit details of ${firstName} ${lastName}`,
+      },
+      {
+        children: 'Delete',
+        icon: Delete,
+        destructive: true,
+        onClick: (event, member) => deleteMember(member),
+        'aria-description': ({ firstName, lastName }) =>
+          `Delete ${firstName} ${lastName}`,
+      },
+    ],
+  },
+}
+```
+
+### Cell rendering
+
+The grid chooses cell content in this order:
+
+1. A column of type `custom` will call the `render` function with the row, and its result is the cell content.
+2. Otherwise, the value comes from `getValue(row)` when that function is set, and from `row[id]` otherwise.
+3. The value is then formatted for the column type.
+
+Missing values (`null` or `undefined`) render an empty cell. Action columns (`quick-actions` and `row-actions`) do not read a value from the row.
+
+#### Default formatting
+
+| Type | Value | Displayed as |
+| --- | --- | --- |
+| `text` | `string` | The string, in a small Body. |
+| `number` | `number` or numeric `string` | The number, formatted with `formattingLocale` and `formattingOptions`, in a small Body. |
+| `boolean` | `boolean` `"true"/"false"` | A success checkmark or a danger close icon. |
+| `date` | Zoned date-time `string` | An absolute date label. `formatStyle` defaults to `'short'`. |
+| `singleSelection` | `string or number` | The label of the matching option, in a small Body. |
+| `multiSelection` | `string[] or number []` | The selected labels, joined with a comma. |
+| `quick-actions` | — | Icon buttons. |
+| `row-actions` | — | A more-actions menu. |
+
+On the [mobile list layout](#responsiveness), text, number, date, and single-selection values are plain text so they fit the styles of a [ListItem](Components/ListItem/Docs) slot.
+
+The grid throws when a present value does not match its column type (`custom` being the exception):
+
+- A `boolean` column type with a value that is not an actual boolean or `"true"`/`"false"` strings.
+- A date that is not a valid zoned date-time string.
+- A number column whose value is not a number or a numeric string, or whose value parses as `NaN`.
+- A single-selection value that is not a string or number, or a multiple-selection value that is not an array of strings or numbers.
+- Selection `options` that are not `{ label, value }` objects and are missing `getOptionLabel` or `getOptionValue`.
+
+### Responsiveness
+
+At widths up to `mobileBreakpoint` (768px by default), a `mobileConfig` renders the data as a [ListItemGroup](Components/ListItem/ListItemGroup/Docs). Each row becomes a list item with the `action` variant. The grid `label` becomes the list label and is visible, add an optional `hideLabel` property to `mobileConfig` to hide it.
+
+`mobileConfig.slots` maps column ids onto ListItem slots. `label` is required. The other slots are optional:
+
+| Slot | Role |
+| --- | --- |
+| `label` (required) | Primary text. |
+| `leadingComponent` | Leading visual, such as an avatar or icon column. |
+| `details` | Secondary line under the label. |
+| `trailingLabel` | Trailing primary text. |
+| `trailingDetails` | Trailing secondary text. Pair it with `trailingLabel`. |
+
+Separate several column ids with a semicolon to place them in the same slot. The grid joins them with a middot (`·`).
+
+```tsx
+<DataGrid
+  label="Gym members"
+  columns={columns}
+  data={members}
+  mobileBreakpoint={1024}
+  mobileConfig={{
+    slots: {
+    label: 'full_name',
+    details: 'age;allergies',
+    trailingLabel: 'subscriptionPrice',
+    }
+  }}
+/>
+```
+
+The same formatting and rendering rules apply on the columns in the responsive view.
+
+Avoid rendering interactive content in the responsive view and prefer using the ListItem's click action to open a detailed view of the selected item.
+
+When `mobileConfig` is omitted, the table stays in place at every viewport width. The table scrolls horizontally when the columns are wider than the container.
+
+### Accessibility
+
+The grid follows the [WAI-ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/). The table has `role="grid"`, exposes `aria-colcount` and `aria-rowcount`, and renders column headers. Body cells expose `aria-colindex`, and each data row exposes `aria-rowindex`.
+
+Mark the column that names each record with `isRowHeader` so assistive technology can associate the row with that cell.
+
+#### Label
+
+The `label` prop is required. It is rendered as a visually hidden caption and is the grid's accessible name.
+Describe the data set so screen reader users can decide whether to read the grid. On the mobile list layout the same string labels the list.
+
+#### Keyboard interactions
+
+One cell is in the tab sequence at a time. The first column header is the initial tab stop.
+
+| Key | Action |
+| --- | --- |
+| `Tab` | Moves focus into the grid, onto the active cell. From a focused cell, `Tab` moves through interactive content inside that cell, then leaves the grid. |
+| `Shift` + `Tab` | Moves focus back through interactive content of a cell, then out of the grid. |
+| `ArrowRight` / `ArrowLeft` | Moves focus one cell right or left. Focus stops at the first and last column. |
+| `ArrowDown` / `ArrowUp` | Moves focus one cell down or up, including between the header and the first row. Focus stops at the header and the last row. |
+| `PageDown` / `PageUp` | Moves focus five rows down or up in the same column. Focus stops at the header and the last row. |
+| `Home` / `End` | Moves focus to the first or last cell in the current row. |
+| `Control` + `Home` / `Control` + `End` | Moves focus to the first cell in the header row, or to the last cell in the last row. |
+
+Clicking a cell moves focus to that cell. Clicking a control inside a cell leaves focus on that control.
+
+Interactive elements inside a cell (buttons, links, inputs) stay out of the tab sequence until their cell is focused. They return to that state when the cell loses focus, so arrow-key navigation remains on the cells.
+
+#### Labeling interactive cell content
+
+A control inside a cell needs an accessible name that identifies both the action and the row. Screen readers announce that control on its own.
+
+For quick actions, keep `children` short (`"Edit"`) and put the row in `aria-description` (`"Edit details of Elena Martínez"`).
+
+For the row-actions menu, `label` names the button and `labelDescription` names it for the current row (`"More actions for Elena Martínez"`). Give every menu item its own `aria-description` in the same way.
+
+For custom interactive content rendered by a column `render` function, include the record in the control's accessible name, for example `"View Elena Martínez"` on a link.

@@ -45,8 +45,43 @@ import { sharedClasses } from '../../styles/shared.js';
 
 type DataAttribute = `data-${string}`;
 
+/**
+ * Opens the dialog. Non-modal dialogs with the `popover` prop are shown in the top
+ * layer using the Popover API when available.
+ */
+function openDialog(
+  dialog: HTMLDialogElement,
+  isModal: boolean,
+  supportsPopover: boolean,
+) {
+  if (isModal) {
+    if (!dialog.open) {
+      dialog.showModal();
+    }
+    return;
+  }
+
+  // `show()` hides the dialog's own popover if it's shown first
+  if (!dialog.open) {
+    dialog.show();
+    if (dialog.hasAttribute('popover') && supportsPopover) {
+      dialog.showPopover();
+    }
+  }
+}
+
+function closeDialog(dialog: HTMLDialogElement, returnValue?: string) {
+  dialog.close(returnValue);
+  if (
+    dialog.hasAttribute('popover') &&
+    typeof dialog.hidePopover === 'function'
+  ) {
+    dialog.hidePopover();
+  }
+}
+
 export interface PublicDialogProps
-  extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
+  extends Omit<HTMLAttributes<HTMLDialogElement>, 'children' | 'popover'> {
   ref?: Ref<HTMLDialogElement>;
   /**
    * Whether the modal dialog is open or not. Learn more about the `dialog` api https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/open.
@@ -107,6 +142,12 @@ export interface DialogProps extends PublicDialogProps {
    */
   preventEscapeKeyClose?: boolean;
   /**
+   * Shows non-modal dialogs in the top layer using the Popover API when
+   * supported. Dismissing popover dialogs is [manual](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/popover#manual).
+   * `preventEscapeKeyClose` and `preventOutsideClickClose` still apply.
+   */
+  popover?: 'manual';
+  /**
    * Hides the close button when the dialog is modal.
    @default false
    */
@@ -134,6 +175,7 @@ export function Dialog(props: DialogProps) {
     hideCloseButton = false,
     preventEscapeKeyClose = false,
     animationDuration = 0,
+    popover = undefined,
     onCloseStart,
     locale,
     formattingLocale,
@@ -146,6 +188,15 @@ export function Dialog(props: DialogProps) {
   const animationDurationRef = useLatest<number>(animationDuration);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [supportsPopover, setSupportsPopover] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    // Progressively enhance the dialog with the Popover API.
+    setSupportsPopover(
+      typeof HTMLElement !== 'undefined' &&
+        typeof HTMLElement.prototype.showPopover === 'function',
+    );
+  }, []);
 
   // Focus Management
   useEffect(() => {
@@ -170,10 +221,10 @@ export function Dialog(props: DialogProps) {
     };
   }, [open, animationDurationRef]);
 
-  // Component  opening/closing logic
+  // Component opening/closing logic
   const handleDialogClose = useCallback(() => {
     const dialogElement = dialogRef.current;
-    if (!dialogElement) {
+    if (!dialogElement || supportsPopover === null) {
       return;
     }
     onCloseStart?.();
@@ -181,11 +232,11 @@ export function Dialog(props: DialogProps) {
     // trigger closing of the dialog after animation
     setTimeout(() => {
       if (dialogElement.open) {
-        dialogElement.close();
+        closeDialog(dialogElement);
         setIsClosing(false);
       }
     }, animationDurationRef.current);
-  }, [animationDurationRef, onCloseStart]);
+  }, [animationDurationRef, onCloseStart, supportsPopover]);
 
   useEffect(() => {
     // register the dialog element with the polyfill
@@ -197,46 +248,38 @@ export function Dialog(props: DialogProps) {
   useEffect(() => {
     const dialogElement = dialogRef.current;
 
-    if (!dialogElement) {
+    if (!dialogElement || supportsPopover === null) {
       return undefined;
     }
 
     if (!openRef.current) {
       dialogElement.returnValue = '';
     }
-    if (openRef.current && !dialogElement.open) {
-      if (isModal) {
-        dialogElement.showModal();
-      } else {
-        dialogElement.show();
-      }
+    if (openRef.current) {
+      openDialog(dialogElement, isModal, supportsPopover);
     }
 
     return () => {
       if (dialogElement.open) {
-        dialogElement.close('skipOnClose');
+        closeDialog(dialogElement, 'skipOnClose');
       }
     };
-  }, [isModal, openRef]);
+  }, [isModal, openRef, supportsPopover]);
 
   useEffect(() => {
     const dialogElement = dialogRef.current;
 
-    if (!dialogElement) {
+    if (!dialogElement || supportsPopover === null) {
       return;
     }
 
     if (!open) {
       dialogElement.returnValue = '';
     }
-    if (open && !dialogElement.open) {
-      if (isModalRef.current) {
-        dialogElement.showModal();
-      } else {
-        dialogElement.show();
-      }
+    if (open) {
+      openDialog(dialogElement, isModalRef.current, supportsPopover);
     }
-  }, [isModalRef, open]);
+  }, [isModalRef, open, supportsPopover]);
 
   useEffect(() => {
     const dialogElement = dialogRef.current;
@@ -323,7 +366,7 @@ export function Dialog(props: DialogProps) {
   useEffect(
     () => () => {
       if (dialogRef.current?.open) {
-        dialogRef.current?.close();
+        closeDialog(dialogRef.current);
       }
     },
     [],
@@ -449,6 +492,7 @@ export function Dialog(props: DialogProps) {
           className,
         )}
         ref={applyMultipleRefs(ref, dialogRef)}
+        popover={supportsPopover ? popover : undefined}
         style={{
           ...style,
           '--dialog-animation-duration': `${animationDuration}ms`,

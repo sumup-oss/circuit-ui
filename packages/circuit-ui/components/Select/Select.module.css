@@ -15,7 +15,6 @@
   white-space: nowrap;
   appearance: none;
   cursor: pointer;
-  outline-color: transparent;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   box-shadow: none;
@@ -30,6 +29,7 @@
 }
 
 .base:focus {
+  outline: var(--cui-border-width-mega) solid transparent;
   border: 1px solid var(--cui-border-accent);
   box-shadow: inset 0 0 0 1px var(--cui-border-accent);
 }

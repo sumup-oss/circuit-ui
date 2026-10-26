@@ -31,6 +31,19 @@ export default {
   tags: ['status:stable'],
 };
 
+const baseArgs = {
+  headline: 'What is a chargeback?',
+  body: 'A chargeback is a return of money to a payer of a transaction, especially a credit card transaction.',
+  action: {
+    children: 'Learn more',
+    navigationIcon: ArrowSlanted,
+    href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
+    externalLabel: 'Opens in a new tab',
+    target: '_blank',
+  },
+  offset: 8,
+};
+
 const showToggletip = async ({
   canvasElement,
 }: {
@@ -58,17 +71,7 @@ export const Base = (args: ToggletipProps) => (
   </div>
 );
 
-Base.args = {
-  headline: 'What is a chargeback?',
-  body: 'A chargeback is a return of money to a payer of a transaction, especially a credit card transaction.',
-  action: {
-    children: 'Learn more',
-    navigationIcon: ArrowSlanted,
-    href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
-    target: '_blank',
-  },
-  offset: 8,
-};
+Base.args = baseArgs;
 
 Base.play = showToggletip;
 
@@ -86,17 +89,7 @@ export const Placements = (args: ToggletipProps) => (
   </Stack>
 );
 
-Placements.args = {
-  headline: 'What is a chargeback?',
-  body: 'A chargeback is a return of money to a payer of a transaction, especially a credit card transaction.',
-  action: {
-    children: 'Learn more',
-    navigationIcon: ArrowSlanted,
-    href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
-    target: '_blank',
-  },
-  offset: 8,
-};
+Placements.args = baseArgs;
 
 Placements.play = showToggletip;
 Placements.parameters = {

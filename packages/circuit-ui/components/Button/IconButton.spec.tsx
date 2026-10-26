@@ -78,11 +78,16 @@ describe('IconButton', () => {
     expect(button).not.toHaveAttribute('title');
   });
 
-  it('should render a tooltip with the label text', () => {
+  it('should render a tooltip with the label text', async () => {
     render(<IconButton icon={Close}>Close</IconButton>);
+    await userEvent.hover(
+      screen.getByRole('button', {
+        name: 'Close',
+      }),
+    );
     const tooltip = screen.getByRole('tooltip');
     expect(tooltip).toHaveTextContent('Close');
-    expect(tooltip).toHaveAttribute('data-state', 'closed');
+    expect(tooltip).toHaveAttribute('data-state', 'open');
   });
 
   it('should open the tooltip when the button is focused', async () => {

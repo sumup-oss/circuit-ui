@@ -25,6 +25,7 @@ import {
   type Ref,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
 } from 'react';
 
@@ -95,6 +96,7 @@ export function TabList({
   const gliderRef = useRef<HTMLSpanElement>(null);
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
   const ids = tabs?.map(({ id }) => id) ?? [];
   const { selectedId, onTabKeyDown, onTabClick } = useTabState(
     ids,
@@ -131,6 +133,13 @@ export function TabList({
     [onClick, updateGliderStyles],
   );
 
+  const gliderCallback = useCallback(() => {
+    const activeTab = tabRefs.current[selectedIndex];
+    if (activeTab) {
+      updateGliderStyles(activeTab);
+    }
+  }, [selectedIndex, updateGliderStyles]);
+
   useEffect(() => {
     // scrolls the active tab into view on initial render
     const activeTab = getCurrentTab(tabListRef.current);
@@ -139,24 +148,44 @@ export function TabList({
     }
   }, []);
 
-  useEffect(() => {
-    tabListRef.current?.style.setProperty(
-      '--tab-list-width',
-      `${tabListRef.current.getBoundingClientRect().width / numberOfTabs}px`,
-    );
-    const gliderCallback = () => {
-      const activeTab = tabRefs.current[selectedIndex];
-      if (activeTab) {
-        updateGliderStyles(activeTab);
-      }
-    };
-    // apply initial styles to glider
-    gliderCallback();
+  useLayoutEffect(() => {
+    function calculateWidth(retryDelay = 10) {
+      if (tabListRef.current) {
+        const listSize = tabListRef.current.getBoundingClientRect();
+        const listWidth = Math.ceil(listSize.width);
 
-    // listen to resize events
+        if (listWidth > 0) {
+          tabListRef.current.style.setProperty(
+            '--tab-list-width',
+            `${listWidth / numberOfTabs}px`,
+          );
+          gliderCallback();
+          return undefined;
+        }
+      }
+
+      if (retryDelay <= 1000) {
+        // Try again after up to 1 second using exponential backoff
+        timerRef.current = setTimeout(() => {
+          calculateWidth(retryDelay * 10);
+        }, retryDelay);
+        return () => {
+          if (timerRef.current) {
+            clearTimeout(timerRef.current);
+          }
+        };
+      }
+
+      return undefined;
+    }
+
+    return calculateWidth();
+  }, [gliderCallback, numberOfTabs]);
+
+  useEffect(() => {
     window.addEventListener('resize', gliderCallback);
     return () => window.removeEventListener('resize', gliderCallback);
-  }, [selectedIndex, updateGliderStyles, numberOfTabs]);
+  });
 
   // Fallback glider update for the children path.
   // Runs after every render since selection is controlled externally.

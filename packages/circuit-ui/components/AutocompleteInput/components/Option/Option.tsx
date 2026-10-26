@@ -27,31 +27,30 @@ export type AutocompleteInputOption = {
   value: string;
   label: string;
   description?: string;
-  selected?: boolean;
   image?: string | IconComponentType;
+  [key: string]: unknown;
 };
 
-export type OptionProps = HTMLAttributes<HTMLLIElement> &
-  AutocompleteInputOption & {
-    isSelectable?: boolean;
-    isFocused?: boolean;
-    onOptionClick: (value: AutocompleteInputOption) => void;
-    isNew?: boolean;
-  };
+export type OptionProps = HTMLAttributes<HTMLLIElement> & {
+  option: AutocompleteInputOption;
+  selected: boolean;
+  isSelectable: boolean;
+  isFocused: boolean;
+  onOptionClick: (value: AutocompleteInputOption) => void;
+  isNew?: boolean;
+};
 
 export const Option = ({
-  label,
-  description,
-  image,
+  option,
   selected,
   isSelectable,
   isFocused,
   onOptionClick,
-  value,
   className,
   isNew,
   ...props
 }: OptionProps) => {
+  const { label, description, image, value } = option;
   const labelId = useId();
   const optionRef = useRef<HTMLLIElement>(null);
   const icon = typeof image === 'string' ? undefined : image;
@@ -82,7 +81,7 @@ export const Option = ({
         className,
       )}
       aria-selected={selected}
-      onClick={() => onOptionClick({ label, value, image, description })}
+      onClick={() => onOptionClick(option)}
     >
       {(image || isNew) && (
         <div className={classes.media}>

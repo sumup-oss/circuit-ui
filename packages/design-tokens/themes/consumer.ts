@@ -359,6 +359,106 @@ export const consumer = [
     type: 'color',
   },
   {
+    'name': '--cui-bg-media',
+    'value': '#1e1c1c',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-hovered',
+    'value': '#302d2d',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-pressed',
+    'value': '#433f3f',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-disabled',
+    'value': 'rgba(30, 28, 28, 0.6000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-subtle',
+    'value': '#332f2f',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-subtle-hovered',
+    'value': '#443e3e',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-subtle-pressed',
+    'value': '#564f4f',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-subtle-disabled',
+    'value': 'rgba(51, 47, 47, 0.6000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-highlight',
+    'value': '#464242',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-highlight-hovered',
+    'value': '#524d4d',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-highlight-pressed',
+    'value': '#625d5d',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-highlight-disabled',
+    'value': 'rgba(70, 66, 66, 0.4000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-warning',
+    'value': '#462e12',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-warning-hovered',
+    'value': '#533715',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-warning-pressed',
+    'value': '#644219',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-warning-disabled',
+    'value': 'rgba(70, 46, 18, 0.4000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-danger',
+    'value': '#582b1b',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-danger-hovered',
+    'value': '#63301d',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-danger-pressed',
+    'value': '#733721',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-bg-media-danger-disabled',
+    'value': 'rgba(88, 43, 27, 0.4000)',
+    'type': 'color',
+  },
+  {
     name: '--cui-fg-normal',
     value: '#fbfbf9',
     type: 'color',
@@ -597,6 +697,46 @@ export const consumer = [
     name: '--cui-fg-brand-disabled',
     value: 'rgba(255, 97, 242, 0.4000)',
     type: 'color',
+  },
+  {
+    'name': '--cui-fg-on-media',
+    'value': '#fbfbf9',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-fg-on-media-hovered',
+    'value': 'rgba(251, 251, 249, 0.9000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-fg-on-media-pressed',
+    'value': 'rgba(251, 251, 249, 0.8000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-fg-on-media-disabled',
+    'value': 'rgba(251, 251, 249, 0.4000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-fg-on-media-subtle',
+    'value': 'rgba(251, 251, 249, 0.7000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-fg-on-media-subtle-hovered',
+    'value': 'rgba(212, 201, 194, 0.9000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-fg-on-media-subtle-pressed',
+    'value': 'rgba(212, 201, 194, 0.8000)',
+    'type': 'color',
+  },
+  {
+    'name': '--cui-fg-on-media-subtle-disabled',
+    'value': 'rgba(212, 201, 194, 0.3000)',
+    'type': 'color',
   },
   {
     name: '--cui-border-normal',

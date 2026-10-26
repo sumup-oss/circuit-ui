@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode, Ref } from 'react';
 
 import { Info, type IconComponentType } from '@sumup-oss/icons';
 
@@ -43,24 +43,23 @@ export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
    * copy isn't self-explanatory. Defaults to an empty string.
    */
   iconLabel?: string;
+  ref?: Ref<HTMLDivElement>;
 }
 
 /**
  * The `Callout` component renders static inline guidance or emphasis within
  * the content flow.
  */
-export const Callout = forwardRef<HTMLDivElement, CalloutProps>(
-  (
-    {
-      color = 'neutral',
-      body,
-      icon: Icon = Info,
-      iconLabel = '',
-      className,
-      ...props
-    },
-    ref,
-  ) => (
+export function Callout({
+  color = 'neutral',
+  body,
+  icon: Icon = Info,
+  iconLabel = '',
+  className,
+  ref,
+  ...props
+}: CalloutProps) {
+  return (
     <div
       ref={ref}
       className={clsx(classes.base, classes[color], className)}
@@ -72,7 +71,5 @@ export const Callout = forwardRef<HTMLDivElement, CalloutProps>(
       <span className={utilClasses.hideVisually}>{iconLabel}</span>
       <div className={classes.content}>{body}</div>
     </div>
-  ),
-);
-
-Callout.displayName = 'Callout';
+  );
+}

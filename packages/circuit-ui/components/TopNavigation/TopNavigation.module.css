@@ -33,9 +33,7 @@
 
 .logo a:focus,
 .logo button:focus {
-  outline-width: var(--cui-border-width-mega);
-  outline-style: solid;
-  outline-color: var(--cui-border-focus);
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
   outline-offset: var(--cui-border-width-mega);
 }
 
@@ -46,7 +44,7 @@
 
 .logo a:focus:not(:focus-visible),
 .logo button:focus:not(:focus-visible) {
-  outline-color: transparent;
+  outline: var(--cui-border-width-mega) solid transparent;
 }
 
 @media (min-width: 1024px) {

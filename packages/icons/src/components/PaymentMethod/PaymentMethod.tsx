@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import { getIconURL } from '../../helpers.js';
 import { ICON_SIZES } from '../../icon-sizes.js';
@@ -41,21 +41,27 @@ export type PaymentMethodProps = HTMLAttributes<HTMLImageElement> & {
    * Additional class name to apply to the image.
    */
   className?: string;
+  ref?: Ref<HTMLImageElement>;
 };
 
 /**
  * Renders the logo of a payment method as an image, loaded from a URL.
  */
-export const PaymentMethod = forwardRef<HTMLImageElement, PaymentMethodProps>(
-  ({ name, alt, style, size = 'm', ...props }, ref) => (
+export function PaymentMethod({
+  name,
+  alt,
+  style,
+  size = 'm',
+  ref,
+  ...props
+}: PaymentMethodProps) {
+  return (
     <img
       ref={ref}
       style={{ height: ICON_SIZES[size], width: 'auto', ...style }}
       src={getIconURL(name, '24')}
-      {...props}
       alt={alt}
+      {...props}
     />
-  ),
-);
-
-PaymentMethod.displayName = 'PaymentMethod';
+  );
+}
