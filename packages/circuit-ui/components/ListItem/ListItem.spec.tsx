@@ -79,6 +79,17 @@ describe('ListItem', () => {
     vi.restoreAllMocks();
   });
 
+  it('should throw a CircuitError when using the "menu" viriant without the `menu` prop', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() => render(<ListItem {...baseProps} variant="menu" />)).toThrow(
+      '[ListItem] The `menu` prop is required with the "menu" variant.',
+    );
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
+
   it('should render a ListItem with a leading icon', () => {
     const { container } = renderListItem(render, {
       ...baseProps,
@@ -306,11 +317,17 @@ describe('ListItem', () => {
         />,
       );
       expect(
-        screen.queryByRole('button', { name: 'See actions' }),
+        screen.queryByRole('button', { name: menuProps.label }),
       ).not.toBeInTheDocument();
     });
     it('should not render with menu when variant is menu and menu label is not provided', async () => {
-      render(<ListItem {...baseProps} menu={{ ...menuProps, label: '' }} />);
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={{ ...menuProps, label: '' }}
+        />,
+      );
       expect(
         screen.queryByRole('button', { name: 'See actions' }),
       ).not.toBeInTheDocument();

@@ -152,6 +152,12 @@ export function ListItem({
         'Using `trailingLabel` and `trailingComponent` at the same time is not supported. Add a label to the custom `trailingComponent` if necessary.',
       );
     }
+    if (variant === 'menu' && !menu) {
+      throw new CircuitError(
+        'ListItem',
+        'The `menu` prop is required with the "menu" variant.',
+      );
+    }
   }
 
   const { Link } = useComponents();
@@ -163,7 +169,8 @@ export function ListItem({
   }
 
   const isNavigation = variant === 'navigation';
-  const hasMenu = variant === 'menu' && menu && menu?.actions?.length > 0;
+  const hasMenu =
+    variant === 'menu' && menu && menu?.actions?.length > 0 && menu.label;
   const hasTrailing = !!trailingLabel || !!trailingComponent;
   const shouldRenderTrailingContainer = hasTrailing || isNavigation || hasMenu;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
