@@ -53,7 +53,6 @@ const FilterStory = (args: FilterWrapperProps) => {
 const labels = {
   min: 'Min',
   max: 'Max',
-  invalidRange: 'The minimum cannot be greater than the maximum.',
   from: 'From',
   to: 'To',
 };

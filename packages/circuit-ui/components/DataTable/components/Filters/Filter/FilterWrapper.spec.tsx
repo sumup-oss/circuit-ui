@@ -48,7 +48,6 @@ describe('FilterWrapper', () => {
   const labels = {
     min: 'Min',
     max: 'Max',
-    invalidRange: 'The minimum cannot be greater than the maximum.',
     from: 'From',
     to: 'To',
   };
@@ -205,6 +204,24 @@ describe('FilterWrapper', () => {
 
     expect(screen.getByRole('group', { name: 'Amount' })).toBeInTheDocument();
     expect(screen.getByRole(role, { name: 'Min' })).toBeInTheDocument();
+  });
+
+  it('should report the range in order when applying a reversed range', async () => {
+    const onChange = vi.fn();
+    render(
+      <FilterWrapper
+        labels={labels}
+        column={{ label: 'Quantity', filter: true, type: { name: 'number' } }}
+        onChange={onChange}
+      />,
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Quantity' }));
+    await userEvent.type(screen.getByRole('textbox', { name: 'Max' }), '0');
+    await userEvent.type(screen.getByRole('textbox', { name: 'Min' }), '7');
+    await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
+
+    expect(onChange).toHaveBeenCalledWith({ min: 0, max: 7 });
   });
 
   describe('when inline', () => {

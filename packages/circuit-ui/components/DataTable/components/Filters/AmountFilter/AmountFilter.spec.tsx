@@ -29,7 +29,6 @@ describe('AmountFilter', () => {
     label: 'Amount range',
     minLabel: 'Min',
     maxLabel: 'Max',
-    invalidRangeMessage: 'The minimum cannot be greater than the maximum.',
     onChange: vi.fn(),
   } satisfies AmountFilterProps;
 
@@ -88,31 +87,6 @@ describe('AmountFilter', () => {
     await userEvent.clear(screen.getByRole('textbox', { name: 'Min' }));
 
     expect(onChange).toHaveBeenCalledWith(undefined);
-  });
-
-  describe('when the minimum is greater than the maximum', () => {
-    it('should show the message and mark both fields as invalid', () => {
-      render(<AmountFilter {...baseProps} value={{ min: 10, max: 5 }} />);
-
-      expect(
-        screen.getByText('The minimum cannot be greater than the maximum.'),
-      ).toBeInTheDocument();
-      expect(
-        screen.getAllByRole('status').map((status) => status.textContent),
-      ).toContain('The minimum cannot be greater than the maximum.');
-      expect(screen.getByRole('textbox', { name: 'Min' })).toBeInvalid();
-      expect(screen.getByRole('textbox', { name: 'Max' })).toBeInvalid();
-    });
-  });
-
-  describe('when the range is valid', () => {
-    it('should not show the message', () => {
-      render(<AmountFilter {...baseProps} value={{ min: 5, max: 10 }} />);
-
-      expect(
-        screen.queryByText('The minimum cannot be greater than the maximum.'),
-      ).not.toBeInTheDocument();
-    });
   });
 
   it('should format a plain number for the locale', () => {

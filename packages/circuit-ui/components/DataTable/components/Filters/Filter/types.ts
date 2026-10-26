@@ -57,8 +57,6 @@ export interface FilterLabels {
   min: string;
   /** Label of the maximum field of an amount filter. */
   max: string;
-  /** Message shown when the minimum is greater than the maximum. */
-  invalidRange: string;
   /** Label of the start date field of a date filter. */
   from: string;
   /** Label of the end date field of a date filter. */

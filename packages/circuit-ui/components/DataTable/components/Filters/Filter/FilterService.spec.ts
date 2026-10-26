@@ -17,10 +17,13 @@ import { describe, expect, it } from 'vitest';
 
 import type { ColumnType } from '../../../types.js';
 
+import type { FilterValue } from './types.js';
+
 import {
   getAmountKind,
   getFilterKind,
   getFilterSummary,
+  normalizeFilterValue,
 } from './FilterService.js';
 
 describe('FilterService', () => {
@@ -88,6 +91,43 @@ describe('FilterService', () => {
           formattingOptions: { style: 'currency' },
         }),
       ).toEqual({ kind: 'number' });
+    });
+  });
+
+  describe('normalizeFilterValue', () => {
+    it.each([
+      [{ name: 'number' }, { min: 7, max: 0 }, { min: 0, max: 7 }],
+      [
+        { name: 'date' },
+        { from: '2026-02-01', to: '2026-01-10' },
+        { from: '2026-01-10', to: '2026-02-01' },
+      ],
+    ] as [
+      ColumnType,
+      FilterValue,
+      FilterValue,
+    ][])('should swap the ends of a reversed %j range', (type, value, expected) => {
+      expect(normalizeFilterValue({ type }, value)).toEqual(expected);
+    });
+
+    it.each([
+      [{ name: 'number' }, { min: 0, max: 7 }],
+      [{ name: 'number' }, { min: 7, max: 7 }],
+      [{ name: 'number' }, { min: 7 }],
+      [{ name: 'number' }, { max: 0 }],
+      [{ name: 'date' }, { from: '2026-01-10' }],
+      [{ name: 'multiSelection', options }, ['paid']],
+    ] as [
+      ColumnType,
+      FilterValue,
+    ][])('should keep the %j value %j as it is', (type, value) => {
+      expect(normalizeFilterValue({ type }, value)).toEqual(value);
+    });
+
+    it('should return undefined without a value', () => {
+      expect(
+        normalizeFilterValue({ type: { name: 'number' } }, undefined),
+      ).toBeUndefined();
     });
   });
 

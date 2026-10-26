@@ -41,7 +41,6 @@ export default {
 const labels: FilterLabels = {
   min: 'Min',
   max: 'Max',
-  invalidRange: 'The minimum cannot be greater than the maximum.',
   from: 'From',
   to: 'To',
 };

@@ -73,6 +73,36 @@ export function getFilterKind({
   }
 }
 
+/**
+ * Puts the ends of a range in order, so that a minimum above the maximum (or
+ * a start date after the end date) becomes a valid range. Other values are
+ * returned as they are.
+ */
+export function normalizeFilterValue(
+  { type }: Pick<FilterColumn, 'type'>,
+  value: FilterValue | undefined,
+): FilterValue | undefined {
+  if (value === undefined) {
+    return undefined;
+  }
+  switch (type.name) {
+    case 'number': {
+      const { min, max } = value as NumberRange;
+      return min !== undefined && max !== undefined && min > max
+        ? { min: max, max: min }
+        : value;
+    }
+    case 'date': {
+      const { from, to } = value as DateRange;
+      return from !== undefined && to !== undefined && from > to
+        ? { from: to, to: from }
+        : value;
+    }
+    default:
+      return value;
+  }
+}
+
 function formatRange(
   start: string | undefined,
   end: string | undefined,

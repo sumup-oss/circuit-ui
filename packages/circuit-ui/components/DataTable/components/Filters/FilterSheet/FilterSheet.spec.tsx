@@ -32,7 +32,6 @@ describe('FilterSheet', () => {
     labels: {
       min: 'Min',
       max: 'Max',
-      invalidRange: 'The minimum cannot be greater than the maximum.',
       from: 'From',
       to: 'To',
     },
@@ -138,6 +137,18 @@ describe('FilterSheet', () => {
 
     expect(baseProps.onClose).toHaveBeenCalledTimes(1);
     expect(baseProps.onApply).not.toHaveBeenCalled();
+  });
+
+  it('should apply a reversed range in order', async () => {
+    render(<FilterSheet {...baseProps} />);
+
+    await userEvent.type(screen.getByRole('textbox', { name: 'Max' }), '0');
+    await userEvent.type(screen.getByRole('textbox', { name: 'Min' }), '7');
+    await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
+
+    expect(baseProps.onApply).toHaveBeenCalledWith({
+      amount: { min: 0, max: 7 },
+    });
   });
 
   it('should leave out filters without a value', async () => {

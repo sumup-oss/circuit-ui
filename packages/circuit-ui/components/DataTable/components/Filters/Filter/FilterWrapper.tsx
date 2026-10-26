@@ -26,6 +26,7 @@ import {
   getAmountKind,
   getFilterKind,
   getFilterSummary,
+  normalizeFilterValue,
 } from './FilterService.js';
 import type {
   DateRange,
@@ -89,7 +90,6 @@ function FilterBody({ type, labels, value, ...props }: FilterBodyProps) {
           amount={getAmountKind(type)}
           minLabel={labels.min}
           maxLabel={labels.max}
-          invalidRangeMessage={labels.invalidRange}
           value={value as NumberRange | undefined}
         />
       );
@@ -117,7 +117,7 @@ function PopoverFilter({
   const { formattingLocale } = useI18n({});
   const { draft, setDraft, apply, clear, discard } = useFilterDraft(
     value,
-    onChange,
+    (next) => onChange(normalizeFilterValue({ type }, next)),
   );
 
   return (

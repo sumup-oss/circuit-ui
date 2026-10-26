@@ -7,7 +7,7 @@
 
 .legend {
   padding: 0;
-  margin-bottom: calc(var(--cui-spacings-kilo) / 2);
+  margin-bottom: var(--cui-spacings-bit);
 }
 
 .fields {

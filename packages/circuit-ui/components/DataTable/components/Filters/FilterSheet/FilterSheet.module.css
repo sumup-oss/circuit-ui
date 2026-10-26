@@ -20,8 +20,8 @@
 }
 
 .section + .section {
-  padding-top: var(--cui-spacings-giga);
-  margin-top: var(--cui-spacings-giga);
+  padding-top: var(--cui-spacings-mega);
+  margin-top: var(--cui-spacings-mega);
   border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
 }
 

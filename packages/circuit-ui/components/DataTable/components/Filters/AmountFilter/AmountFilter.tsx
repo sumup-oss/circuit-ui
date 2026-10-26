@@ -15,11 +15,9 @@
 
 'use client';
 
-import { useId } from 'react';
 import { resolveNumberFormat } from '@sumup-oss/intl';
 
 import { CurrencyInput } from '../../../../CurrencyInput/index.js';
-import { FieldValidationHint } from '../../../../Field/index.js';
 import { Input, type InputProps } from '../../../../Input/index.js';
 import { PercentageInput } from '../../../../PercentageInput/index.js';
 import { useI18n } from '../../../../../hooks/useI18n/useI18n.js';
@@ -66,10 +64,6 @@ export interface AmountFilterProps {
    * Label for the maximum field.
    */
   maxLabel: string;
-  /**
-   * Message shown when the minimum is greater than the maximum.
-   */
-  invalidRangeMessage: string;
 }
 
 const QUANTITY_DECIMAL_SCALE = 3;
@@ -113,23 +107,15 @@ interface AmountFieldProps {
   amount: AmountKind;
   label: string;
   value?: number;
-  invalid: boolean;
   onChange: (value: number | undefined) => void;
 }
 
-function AmountField({
-  amount,
-  label,
-  value,
-  invalid,
-  onChange,
-}: AmountFieldProps) {
+function AmountField({ amount, label, value, onChange }: AmountFieldProps) {
   const fieldProps = {
     size: 's',
     label,
     hideLabel: true,
     placeholder: label,
-    invalid,
     value: value ?? '',
     onValueChange: (({ floatValue }, { event }) => {
       // Skip the calls caused by the `value` prop changing
@@ -161,20 +147,9 @@ export function AmountFilter({
   onChange,
   minLabel,
   maxLabel,
-  invalidRangeMessage,
 }: AmountFilterProps) {
-  const hintId = useId();
-
-  const isInvalid =
-    value?.min !== undefined &&
-    value?.max !== undefined &&
-    value.min > value.max;
-
   return (
-    <fieldset
-      className={classes.base}
-      aria-describedby={isInvalid ? hintId : undefined}
-    >
+    <fieldset className={classes.base}>
       <legend
         className={clsx(classes.legend, hideLabel && utilClasses.hideVisually)}
       >
@@ -185,7 +160,6 @@ export function AmountFilter({
           amount={amount}
           label={minLabel}
           value={value?.min}
-          invalid={isInvalid}
           onChange={(min) => onChange(compactRange({ ...value, min }))}
         />
         <span className={classes.separator} aria-hidden="true">
@@ -195,15 +169,9 @@ export function AmountFilter({
           amount={amount}
           label={maxLabel}
           value={value?.max}
-          invalid={isInvalid}
           onChange={(max) => onChange(compactRange({ ...value, max }))}
         />
       </div>
-      <FieldValidationHint
-        id={hintId}
-        invalid={isInvalid}
-        validationHint={isInvalid ? invalidRangeMessage : undefined}
-      />
     </fieldset>
   );
 }

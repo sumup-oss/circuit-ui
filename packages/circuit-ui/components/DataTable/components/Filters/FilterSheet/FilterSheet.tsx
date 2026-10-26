@@ -24,7 +24,10 @@ import { Modal } from '../../../../Modal/index.js';
 import { useLatest } from '../../../../../hooks/useLatest/index.js';
 import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
 import type { Column } from '../../../types.js';
-import { getFilterKind } from '../Filter/FilterService.js';
+import {
+  getFilterKind,
+  normalizeFilterValue,
+} from '../Filter/FilterService.js';
 import type { FilterLabels, FilterValue } from '../Filter/types.js';
 import { FilterWrapper } from '../Filter/FilterWrapper.js';
 import { translations } from '../translations/index.js';
@@ -111,8 +114,9 @@ export function FilterSheet(props: FilterSheetProps) {
   const handleApply = () => {
     const applied: FilterValues = {};
     for (const [id, value] of Object.entries(draft)) {
+      const column = columns.find((item) => item.id === id);
       if (value !== undefined) {
-        applied[id] = value;
+        applied[id] = column ? normalizeFilterValue(column, value) : value;
       }
     }
     onApply(applied);
