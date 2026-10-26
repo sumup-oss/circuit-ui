@@ -49,7 +49,7 @@ const filtersConfig = {
 
 const defaultProps = {
   columns,
-  data: members,
+  data: members.slice(0, 2),
   label: 'Members',
   formattingLocale: 'en-US',
 } satisfies DataGridProps<Member>;
@@ -96,7 +96,13 @@ describe('DataGrid', () => {
   });
 
   it('should format values with the formatting locale', () => {
-    render(<DataGrid {...defaultProps} formattingLocale="de-DE" />);
+    render(
+      <DataGrid
+        {...defaultProps}
+        data={members.slice(0, 1)}
+        formattingLocale="de-DE"
+      />,
+    );
 
     expect(screen.getByText('39,99 €')).toBeVisible();
   });
@@ -125,15 +131,16 @@ describe('DataGrid', () => {
       render(<DataGrid {...defaultProps} />);
 
       // The header row is rendered inside the table body.
-      expect(screen.getAllByRole('row')).toHaveLength(members.length + 1);
+      expect(screen.getAllByRole('row')).toHaveLength(
+        defaultProps.data.length + 1,
+      );
     });
 
     it('should render formatted cell content', () => {
       render(<DataGrid {...defaultProps} />);
 
-      expect(screen.getByText('Jane Doe')).toBeVisible();
-      expect(screen.getByText('John Smith')).toBeVisible();
-      expect(screen.getByText('32')).toBeVisible();
+      expect(screen.getByText('Elena Martínez')).toBeVisible();
+      expect(screen.getByText('30')).toBeVisible();
       expect(screen.getByText('Active')).toBeVisible();
       expect(screen.getByText('Cancelled')).toBeVisible();
       expect(screen.getByText('€39.99')).toBeVisible();
@@ -146,7 +153,10 @@ describe('DataGrid', () => {
 
       const table = screen.getByRole('grid', { name: 'Members' });
       expect(table).toHaveAttribute('aria-colcount', String(columns.length));
-      expect(table).toHaveAttribute('aria-rowcount', String(members.length));
+      expect(table).toHaveAttribute(
+        'aria-rowcount',
+        String(defaultProps.data.length),
+      );
     });
   });
 
@@ -351,6 +361,56 @@ describe('DataGrid', () => {
     });
   });
 
+  describe('Pagination', () => {
+    const paginationConfig = {
+      currentPage: 1,
+      total: 3,
+      nextPageLabel: 'next',
+      previousPageLabel: 'previous',
+      onItemsPerPageChange: vi.fn(),
+      onPageChange: vi.fn(),
+      itemsPerPageLabel: 'Elements per page',
+    };
+    it('should not render the pagination when there is no data', () => {
+      render(
+        <DataGrid {...defaultProps} pagination={paginationConfig} data={[]} />,
+      );
+      expect(
+        screen.queryByRole('combobox', {
+          name: paginationConfig.itemsPerPageLabel,
+        }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', {
+          name: paginationConfig.nextPageLabel,
+        }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', {
+          name: paginationConfig.previousPageLabel,
+        }),
+      ).not.toBeInTheDocument();
+    });
+    it('should render the Pagination a pagination config is provided', () => {
+      render(<DataGrid {...defaultProps} pagination={paginationConfig} />);
+      expect(
+        screen.getByRole('combobox', {
+          name: paginationConfig.itemsPerPageLabel,
+        }),
+      ).toBeVisible();
+      expect(
+        screen.getByRole('button', { name: paginationConfig.nextPageLabel }),
+      ).toBeVisible();
+      expect(
+        screen.getByRole('button', {
+          name: paginationConfig.previousPageLabel,
+        }),
+      ).toBeVisible();
+      const [_, pageLiveRegion] = screen.queryAllByRole('status');
+      expect(pageLiveRegion).toHaveTextContent('1 of 3');
+    });
+  });
+
   describe('User interactions', () => {
     it('should place initial tab focus on the first header cell', async () => {
       render(<DataGrid {...defaultProps} />);
@@ -428,7 +488,7 @@ describe('DataGrid', () => {
       it('should not move focus below the last row', async () => {
         render(<DataGrid {...defaultProps} />);
         const lastRowCell = within(
-          screen.getAllByRole('row')[members.length],
+          screen.getAllByRole('row')[defaultProps.data.length],
         ).getAllByRole('gridcell')[0];
 
         await userEvent.tab();
@@ -494,7 +554,7 @@ describe('DataGrid', () => {
         render(<DataGrid {...defaultProps} />);
         const [firstHeader] = screen.getAllByRole('columnheader');
         const lastCell = within(
-          screen.getAllByRole('row')[members.length],
+          screen.getAllByRole('row')[defaultProps.data.length],
         ).getAllByRole('gridcell')[columns.length - 1];
 
         await userEvent.tab();
@@ -525,7 +585,7 @@ describe('DataGrid', () => {
       it('should not move focus when pressing Control+End on the last cell', async () => {
         render(<DataGrid {...defaultProps} />);
         const lastCell = within(
-          screen.getAllByRole('row')[members.length],
+          screen.getAllByRole('row')[defaultProps.data.length],
         ).getAllByRole('gridcell')[columns.length - 1];
 
         await userEvent.tab();
@@ -572,7 +632,7 @@ describe('DataGrid', () => {
         render(<DataGrid {...defaultProps} />);
         const [firstHeader] = screen.getAllByRole('columnheader');
         const lastRowCell = within(
-          screen.getAllByRole('row')[members.length],
+          screen.getAllByRole('row')[defaultProps.data.length],
         ).getAllByRole('gridcell')[0];
 
         await userEvent.tab();
@@ -603,7 +663,7 @@ describe('DataGrid', () => {
       it('should not move focus below the last row when pressing PageDown', async () => {
         render(<DataGrid {...defaultProps} />);
         const lastRowCell = within(
-          screen.getAllByRole('row')[members.length],
+          screen.getAllByRole('row')[defaultProps.data.length],
         ).getAllByRole('gridcell')[0];
 
         await userEvent.tab();
@@ -667,11 +727,13 @@ describe('DataGrid', () => {
 
       expect(screen.queryByRole('grid')).not.toBeInTheDocument();
       expect(screen.getByRole('list')).toBeVisible();
-      expect(screen.getAllByRole('listitem')).toHaveLength(members.length);
+      expect(screen.getAllByRole('listitem')).toHaveLength(
+        defaultProps.data.length,
+      );
       expect(screen.getByText('Members')).toBeVisible();
-      expect(screen.getByText('Jane Doe')).toBeVisible();
-      expect(screen.getByText('John Smith')).toBeVisible();
-      expect(screen.getByText('32')).toBeVisible();
+      expect(screen.getByText('Elena Martínez')).toBeVisible();
+      expect(screen.getByText('Jonas Bergström')).toBeVisible();
+      expect(screen.getByText('30')).toBeVisible();
       expect(screen.getByText('€39.99')).toBeVisible();
     });
 
@@ -691,9 +753,9 @@ describe('DataGrid', () => {
         />,
       );
       expect(screen.getByRole('list')).toBeVisible();
-      expect(screen.getByText('John Smith')).toBeVisible();
+      expect(screen.getByText('Jonas Bergström')).toBeVisible();
 
-      await userEvent.click(screen.getByText('John Smith'));
+      await userEvent.click(screen.getByText('Jonas Bergström'));
       expect(onListItemClick).toHaveBeenCalledExactlyOnceWith(
         expect.any(Object),
         defaultProps.data[1],

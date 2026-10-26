@@ -13,7 +13,9 @@ import {
   isValidZonedDateTimeInput,
 } from './DataGridService.js';
 import type { ColumnType, MobileSlots, Option } from './types.js';
-import { member, columns, type Member } from './fixtures.js';
+import { members, columns, type Member } from './fixtures.js';
+
+const member = members[0];
 
 describe('DataGridService', () => {
   describe('isOptionArray', () => {
@@ -641,7 +643,7 @@ describe('DataGridService', () => {
 
         expect(menuTrigger).toBeVisible();
         expect(menuTrigger).toHaveAccessibleDescription(
-          `More actions for Jane Doe`,
+          `More actions for Elena Martínez`,
         );
 
         await userEvent.click(menuTrigger);
@@ -672,7 +674,7 @@ describe('DataGridService', () => {
         uniqueId,
       );
 
-      expect(actual.label).toBe('Jane Doe');
+      expect(actual.label).toBe('Elena Martínez');
     });
 
     it('should join multiple column values with a middot separator', () => {
@@ -690,7 +692,7 @@ describe('DataGridService', () => {
       );
 
       renderFragment(actual.details);
-      expect(screen.getByTestId('fragment')).toHaveTextContent('32 · Active');
+      expect(screen.getByTestId('fragment')).toHaveTextContent('30 · Active');
     });
 
     it('should populate all configured fragment keys', () => {
@@ -711,8 +713,8 @@ describe('DataGridService', () => {
       );
 
       expect(actual.leadingComponent).toBe('Active');
-      expect(actual.label).toBe('Jane Doe');
-      expect(actual.details).toBe('32');
+      expect(actual.label).toBe('Elena Martínez');
+      expect(actual.details).toBe('30');
       expect(actual.trailingDetails).toBe('Active');
       renderFragment(actual.trailingLabel);
       expect(screen.getByTestId('fragment')).toHaveTextContent(/\$39\.99|€39/);
@@ -733,7 +735,7 @@ describe('DataGridService', () => {
         uniqueId,
       );
 
-      expect(actual).toEqual({ label: 'Jane Doe' });
+      expect(actual).toEqual({ label: 'Elena Martínez' });
     });
 
     it('should omit a key when the referenced column does not exist', () => {
@@ -767,7 +769,7 @@ describe('DataGridService', () => {
       );
 
       renderFragment(actual.details);
-      expect(screen.getByTestId('fragment')).toHaveTextContent('32 · Active');
+      expect(screen.getByTestId('fragment')).toHaveTextContent('30 · Active');
     });
   });
 
