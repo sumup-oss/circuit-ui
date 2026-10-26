@@ -44,12 +44,45 @@ import {
 import { I18nContext } from '../I18nContext/I18nContext.js';
 
 import classes from './FileInput.module.css';
-import { FileInputItem } from './FileInputItem.js';
+import { FileInputItem, type FileInputStatus } from './FileInputItem.js';
 import { setInputFiles } from './FileInputService.js';
+
+export type { FileInputStatus };
+
+export interface FileInputStateEvent {
+  /**
+   * The unique identifier of the file within the component.
+   */
+  id: string;
+  /**
+   * The file whose state changed.
+   */
+  file: File;
+  /**
+   * The new state of the file.
+   */
+  status: FileInputStatus;
+  /**
+   * The reason why the upload failed. Only set when the status is `error`.
+   */
+  error?: unknown;
+}
+
+export interface FileInputRemoveEvent {
+  /**
+   * The unique identifier of the file within the component.
+   */
+  id: string;
+  /**
+   * The file that was removed from the list.
+   */
+  file: File;
+}
 
 interface SelectedFile {
   id: string;
   file: File;
+  status?: FileInputStatus;
 }
 
 export interface FileInputProps
@@ -87,6 +120,47 @@ export interface FileInputProps
    */
   removeLabel: string;
   /**
+   * Uploads a file. The component calls it for every selected file and
+   * tracks the file's state: it is `uploading` until the returned promise
+   * settles, then `success` if it resolves or `error` if it rejects. The
+   * signal is aborted when the file is removed from the list.
+   *
+   * When omitted, the component only collects files (for example for a form
+   * submission) and doesn't track any upload state.
+   */
+  upload?: (file: File, options: { signal: AbortSignal }) => Promise<unknown>;
+  /**
+   * Called whenever the state of a file changes, as it starts uploading and
+   * when the upload succeeds or fails. Use it to decide when to move the user
+   * forward, for example once all files have been uploaded.
+   */
+  onFileStateChange?: (event: FileInputStateEvent) => void;
+  /**
+   * Called when a file is removed from the list, either by the user or
+   * because a new file replaced it. Pending uploads of the file are aborted.
+   */
+  onRemove?: (event: FileInputRemoveEvent) => void;
+  /**
+   * The status text of files that are being uploaded, for example
+   * "Uploading…". Required when passing the `upload` prop.
+   */
+  uploadingLabel?: string;
+  /**
+   * The status text of files that were uploaded successfully. It is shown and
+   * announced to assistive technology when provided.
+   */
+  successLabel?: string;
+  /**
+   * The status text of files that failed to upload, for example "Upload
+   * failed". Required when passing the `upload` prop.
+   */
+  errorLabel?: string;
+  /**
+   * Accessible label for the buttons that retry failed uploads. Required when
+   * passing the `upload` prop.
+   */
+  retryLabel?: string;
+  /**
    * A unique identifier for the input element. If not defined, a generated id
    * is used.
    */
@@ -112,6 +186,13 @@ export function FileInput({
   dropLabel,
   description,
   removeLabel,
+  upload,
+  onFileStateChange,
+  onRemove,
+  uploadingLabel,
+  successLabel,
+  errorLabel,
+  retryLabel,
   id: customId,
   validationHint,
   invalid,
@@ -133,7 +214,9 @@ export function FileInput({
   const inputRef = useRef<HTMLInputElement>(null);
   const nextFileId = useRef(0);
   const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([]);
+  const controllers = useRef(new Map<string, AbortController>());
   const [isDragging, setIsDragging] = useState(false);
+  const [announcement, setAnnouncement] = useState('');
   const { formattingLocale } = useContext(I18nContext);
   const descriptionIds = idx(
     descriptionId,
@@ -157,19 +240,113 @@ export function FileInput({
         'The `removeLabel` prop is missing or invalid.',
       );
     }
+    if (upload) {
+      for (const [name, value] of Object.entries({
+        uploadingLabel,
+        errorLabel,
+        retryLabel,
+      })) {
+        if (!isSufficientlyLabelled(value)) {
+          throw new AccessibilityError(
+            'FileInput',
+            `The \`${name}\` prop is missing or invalid. It is required when passing the \`upload\` prop.`,
+          );
+        }
+      }
+    }
   }
+
+  const statusLabels: Partial<Record<FileInputStatus, string>> = {
+    uploading: uploadingLabel,
+    success: successLabel,
+    error: errorLabel,
+  };
+
+  // The callbacks run after asynchronous uploads, so they must not be stale.
+  const latest = useRef({ onFileStateChange, onRemove, statusLabels });
+  latest.current = { onFileStateChange, onRemove, statusLabels };
 
   // The native input only holds the files of the latest selection, so the
   // list is the source of truth and the input is kept in sync with it. This
   // ensures that a surrounding form submits exactly the files the user sees.
+  // Files that failed to upload are not submitted.
   useEffect(() => {
     if (inputRef.current) {
       setInputFiles(
         inputRef.current,
-        selectedFiles.map(({ file }) => file),
+        selectedFiles
+          .filter(({ status }) => status !== 'error')
+          .map(({ file }) => file),
       );
     }
   }, [selectedFiles]);
+
+  // Abort pending uploads when the component is unmounted.
+  useEffect(() => {
+    const pending = controllers.current;
+    return () => {
+      for (const controller of pending.values()) {
+        controller.abort();
+      }
+      pending.clear();
+    };
+  }, []);
+
+  const updateStatus = (
+    fileId: string,
+    file: File,
+    status: FileInputStatus,
+    error?: unknown,
+  ) => {
+    setSelectedFiles((previous) =>
+      previous.map((selected) =>
+        selected.id === fileId ? { ...selected, status } : selected,
+      ),
+    );
+    latest.current.onFileStateChange?.({ id: fileId, file, status, error });
+
+    const statusLabel = latest.current.statusLabels[status];
+    if (statusLabel) {
+      setAnnouncement(`${file.name}: ${statusLabel}`);
+    }
+  };
+
+  const startUpload = (fileId: string, file: File) => {
+    if (!upload) {
+      return;
+    }
+
+    // eslint-disable-next-line compat/compat
+    const controller = new AbortController();
+    controllers.current.set(fileId, controller);
+
+    updateStatus(fileId, file, 'uploading');
+
+    const settle = (status: FileInputStatus, error?: unknown) => {
+      // The file was removed in the meantime, so its result is irrelevant.
+      if (controller.signal.aborted) {
+        return;
+      }
+      controllers.current.delete(fileId);
+      updateStatus(fileId, file, status, error);
+    };
+
+    // Wrapping the call also catches errors thrown by non-async functions.
+    new Promise((resolve) => {
+      resolve(upload(file, { signal: controller.signal }));
+    }).then(
+      () => settle('success'),
+      (error: unknown) => settle('error', error),
+    );
+  };
+
+  const discardFiles = (discarded: SelectedFile[]) => {
+    for (const { id: fileId, file } of discarded) {
+      controllers.current.get(fileId)?.abort();
+      controllers.current.delete(fileId);
+      latest.current.onRemove?.({ id: fileId, file });
+    }
+  };
 
   const addFiles = (files: File[]) => {
     if (files.length === 0) {
@@ -181,15 +358,34 @@ export function FileInput({
       return { id: String(nextFileId.current), file };
     });
 
-    setSelectedFiles((previous) =>
-      multiple ? [...previous, ...added] : added,
-    );
+    if (!multiple) {
+      discardFiles(selectedFiles);
+    }
+
+    setSelectedFiles(multiple ? [...selectedFiles, ...added] : added);
+
+    for (const { id: fileId, file } of added) {
+      startUpload(fileId, file);
+    }
   };
 
   const removeFile = (fileId: string) => {
-    setSelectedFiles((previous) =>
-      previous.filter((selected) => selected.id !== fileId),
+    const removed = selectedFiles.filter(
+      ({ id: selected }) => selected === fileId,
     );
+    discardFiles(removed);
+    setSelectedFiles((previous) =>
+      previous.filter(({ id: selected }) => selected !== fileId),
+    );
+  };
+
+  const retryFile = (fileId: string) => {
+    const retried = selectedFiles.find(
+      ({ id: selected }) => selected === fileId,
+    );
+    if (retried) {
+      startUpload(fileId, retried.file);
+    }
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -289,18 +485,25 @@ export function FileInput({
       </div>
       {selectedFiles.length > 0 && (
         <ul className={classes.list}>
-          {selectedFiles.map(({ id: fileId, file }) => (
+          {selectedFiles.map(({ id: fileId, file, status }) => (
             <FileInputItem
               key={fileId}
               name={file.name}
               size={file.size}
+              status={status}
+              statusLabel={status && statusLabels[status]}
               formattingLocale={formattingLocale ?? undefined}
               removeLabel={removeLabel}
+              retryLabel={retryLabel}
               onRemove={() => removeFile(fileId)}
+              onRetry={upload && (() => retryFile(fileId))}
             />
           ))}
         </ul>
       )}
+      <div role="status" className={utilClasses.hideVisually}>
+        {announcement}
+      </div>
       <FieldValidationHint
         id={validationHintId}
         disabled={disabled}

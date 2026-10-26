@@ -41,9 +41,25 @@ const baseArgs = {
   dropLabel: 'Drop your files or click to upload',
   description: 'PDF, JPG, PNG (max 10MB each)',
   removeLabel: 'Remove file',
-  retryLabel: 'Retry upload',
   uploadingLabel: 'Uploading…',
   errorLabel: 'Upload failed',
+  retryLabel: 'Retry upload',
+  // Simulates an upload that takes two seconds. Files with "fail" in their
+  // name are rejected.
+  upload: (file: File, { signal }: { signal: AbortSignal }) =>
+    new Promise<void>((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        if (file.name.includes('fail')) {
+          reject(new Error('Upload failed'));
+        } else {
+          resolve();
+        }
+      }, 2000);
+      signal.addEventListener('abort', () => {
+        clearTimeout(timeout);
+        reject(new Error('Upload aborted'));
+      });
+    }),
   accept: '.pdf,.jpg,.jpeg,.png',
   multiple: true,
 };
