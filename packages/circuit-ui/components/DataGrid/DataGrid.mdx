@@ -248,7 +248,6 @@ A column whose `id` is `row-actions` keeps its header available to assistive tec
 #### Column visibility
 
 The grid can show and hide columns through a column picker control in the toolbar. By default, the picker is hidden and all columns are visible.
-In responsive mode, the picker is hidden and all columns are visible.
 To display the column picker, pass a `columnPickerConfig` prop. The prop is an object containing the labels the picker needs to render:
 
 ```tsx
@@ -262,6 +261,8 @@ To display the column picker, pass a `columnPickerConfig` prop. The prop is an o
   }}
 />
 ```
+In responsive mode, the picker is not available.
+
 
 <Story of={Stories.VisibleColumns} />
 
