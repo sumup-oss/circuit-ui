@@ -70,6 +70,7 @@ export interface FilterProps<P = unknown> {
    * Label for the Clear button.
    */
   clearFilterLabel?: string;
+  disabled?: boolean;
 }
 
 interface FilterBodyProps<P> {
@@ -149,10 +150,12 @@ function PopoverFilter<P>({
   onChange,
   clearFilterLabel,
   applyFilterLabel,
+  disabled,
   ...props
 }: FilterBodyProps<P> & {
   clearFilterLabel: string;
   applyFilterLabel: string;
+  disabled?: boolean;
 }) {
   const { formattingLocale } = useI18n({});
   const { draft, setDraft, apply, clear, discard } = useFilterDraft(
@@ -167,6 +170,7 @@ function PopoverFilter<P>({
       onApply={apply}
       clearButtonLabel={clearFilterLabel}
       applyButtonLabel={applyFilterLabel}
+      disabled={disabled}
       onClear={clear}
       onDiscard={discard}
     >

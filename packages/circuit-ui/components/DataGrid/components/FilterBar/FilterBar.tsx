@@ -32,6 +32,7 @@ export interface FilterBarProps<P>
   isMobile?: boolean;
   activeFilters: FilterValues;
   searchQuery: string;
+  isLoading?: boolean;
 }
 
 const FilterBarComponent = <P,>({
@@ -44,6 +45,7 @@ const FilterBarComponent = <P,>({
   columnPickerConfig,
   activeFilters,
   filtersConfig,
+  isLoading,
 }: FilterBarProps<P>) => {
   const filterCountId = useId();
   const { label: searchLabel, onSearch, clearLabel } = searchBarConfig ?? {};
@@ -113,6 +115,7 @@ const FilterBarComponent = <P,>({
           <div className={classes.filters}>
             {columns.map(({ type, id, filter, label, filterConfig }) => (
               <Filter
+                disabled={isLoading}
                 key={`${id}-filter`}
                 labels={filterConfig?.labels}
                 applyFilterLabel={filtersConfig.applyFilterLabel}
@@ -127,6 +130,7 @@ const FilterBarComponent = <P,>({
           {activeFiltersCount > 0 && (
             <Button
               icon={Refresh}
+              disabled={isLoading}
               onClick={clearAllFilters}
               className={classes['clear-button']}
               size="s"
@@ -154,6 +158,7 @@ const FilterBarComponent = <P,>({
             {filtersConfig && (
               <>
                 <TriggerButton
+                  disabled={isLoading}
                   icon={FilterIcon}
                   onClick={() => setOpen(true)}
                   aria-describedby={filterCountId}
@@ -177,6 +182,7 @@ const FilterBarComponent = <P,>({
         {searchLabel && onSearch && (
           <SearchInput
             label={searchLabel}
+            disabled={isLoading}
             hideLabel
             placeholder={searchLabel}
             size="s"

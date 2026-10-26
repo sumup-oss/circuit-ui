@@ -74,11 +74,16 @@ export interface FilterShellProps extends Partial<I18nConfig> {
    */
   clearButtonLabel: string;
   className?: string;
+  disabled?: boolean;
 }
 
 const POPOVER_OFFSET = 12;
 
-const TriggerContext = createContext<{ label: string; className?: string }>({
+const TriggerContext = createContext<{
+  label: string;
+  className?: string;
+  disabled?: boolean;
+}>({
   label: '',
 });
 
@@ -87,7 +92,7 @@ const TriggerContext = createContext<{ label: string; className?: string }>({
  * button (and its focus) when the label changes.
  */
 function FilterTrigger(triggerProps: PopoverReferenceProps) {
-  const { label, className } = useContext(TriggerContext);
+  const { label, className, disabled } = useContext(TriggerContext);
 
   return (
     <Button
@@ -95,6 +100,7 @@ function FilterTrigger(triggerProps: PopoverReferenceProps) {
       type="button"
       variant="secondary"
       size="s"
+      disabled={disabled}
       navigationIcon={ChevronDown}
       className={clsx(classes.trigger, className)}
     >
@@ -109,6 +115,7 @@ function FilterTrigger(triggerProps: PopoverReferenceProps) {
  */
 export function FilterShell({
   label,
+  disabled,
   summary,
   children,
   onApply,
@@ -141,7 +148,7 @@ export function FilterShell({
   const triggerLabel = summary ? `${label} (${summary})` : label;
 
   return (
-    <TriggerContext value={{ label: triggerLabel, className }}>
+    <TriggerContext value={{ label: triggerLabel, className, disabled }}>
       <Popover
         isOpen={isOpen}
         onToggle={handleToggle}

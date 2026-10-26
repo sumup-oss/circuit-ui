@@ -4,6 +4,7 @@ import type { CustomAction } from './components/DefaultComponents/QuickActions/Q
 import type { ClickEvent } from '../../types/events.js';
 import type { FilterLabels } from './components/FilterBar/components/Filters/Filter/types.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
+import type { ButtonProps } from '../Button/index.js';
 
 export interface WithColumnPicker {
   columnPickerConfig?: {
@@ -115,6 +116,31 @@ export interface WithPagination {
    */
   pagination?: PaginationConfig;
 }
+export interface WithNoDataConfig {
+  noDataConfig?:
+    | {
+        /**
+         * Title to display when no data is available
+         */
+        label: string;
+        /**
+         * A short description to help users
+         */
+        description?: string;
+        action?: ButtonProps;
+        customScreen: never;
+      }
+    | {
+        label: never;
+        description?: never;
+        action: never;
+        /**
+         * A custom view to display when no data is available
+         */
+        customScreen: ReactNode;
+      };
+}
+
 export type BasicType =
   | string
   | string[]

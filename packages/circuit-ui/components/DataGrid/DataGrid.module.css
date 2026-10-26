@@ -24,6 +24,21 @@
   opacity: 1;
 }
 
+.no-data {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-mega);
+  align-items: center;
+}
+
+.no-data-title {
+  margin: 0;
+  font-family: var(--cui-font-stack-display);
+  font-size: var(--cui-headline-l-font-size);
+  font-weight: var(--cui-font-weight-bold);
+  line-height: var(--cui-headline-l-line-height);
+}
+
 .row:last-of-type th:first-of-type {
   border-bottom-left-radius: var(--cui-border-radius-mega);
 }

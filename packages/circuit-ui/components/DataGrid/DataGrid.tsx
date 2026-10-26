@@ -32,6 +32,7 @@ import type {
   MobileConfig,
   WithColumnPicker,
   WithFilters,
+  WithNoDataConfig,
   WithSearchBar,
   WithPagination,
 } from './types.js';
@@ -43,6 +44,9 @@ import { FilterBar } from './components/FilterBar/FilterBar.js';
 import { debounce } from '../../util/helpers.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 import { Pagination } from './components/Pagination/Pagination.js';
+import { Compact } from '../Compact/index.js';
+import { Button } from '../Button/index.js';
+import { Illustration } from '@sumup-oss/illustrations';
 
 import { MobileRow } from './components/MobileRow/MobileRow.js';
 import { isStringArray } from '../../util/type-check.js';
@@ -50,6 +54,7 @@ import { isStringArray } from '../../util/type-check.js';
 export interface DataGridProps<P>
   extends WithPagination,
     HTMLAttributes<HTMLTableElement>,
+    WithNoDataConfig,
     WithSearchBar,
     WithFilters,
     WithColumnPicker {
@@ -123,6 +128,7 @@ export function DataGrid<P>({
   columnPickerConfig,
   pagination,
   isLoading,
+  noDataConfig,
   ...props
 }: DataGridProps<P>) {
   const gridId = useId();
@@ -320,6 +326,27 @@ export function DataGrid<P>({
 
   const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
 
+  if (data.length === 0 && !isLoading && noDataConfig) {
+    const {
+      label: noDataLabel,
+      description,
+      action,
+      customScreen,
+    } = noDataConfig;
+    return customScreen ? (
+      customScreen
+    ) : (
+      <div className={clsx(utilClasses.center)}>
+        <Illustration name="empty-state-3" />
+        <div className={classes['no-data']}>
+          <p className={classes['no-data-title']}>{noDataLabel}</p>
+          {description && <Compact size="s">{description}</Compact>}
+          {action && <Button {...action} variant="primary" />}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={clsx(
@@ -329,6 +356,7 @@ export function DataGrid<P>({
     >
       {showFilterBar && (
         <FilterBar
+          isLoading={isLoading}
           searchBarConfig={
             searchBarConfig
               ? { ...searchBarConfig, onSearch: onSearchChange }

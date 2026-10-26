@@ -14,6 +14,7 @@ import {
   Nuts,
   Pause,
   Play,
+  Plus,
   Refresh,
   Remove,
   Send,
@@ -534,26 +535,50 @@ Loading.args = {
   isLoading: true,
 };
 
+export const NoData = (args: DataGridProps<Member>) => <DataGrid {...args} />;
+
+NoData.args = {
+  ...baseArgs,
+  mobileBreakpoint: 1280,
+  mobileConfig,
+  data: [],
+  noDataConfig: {
+    label: 'No data yet',
+    description: 'No members in your gym. New members will appear here.',
+    action: {
+      children: 'Create a new member',
+      icon: Plus,
+    },
+  },
+};
+
 export const WithSearchBar = (args: DataGridProps<Member>) => {
   const [records, setRecords] = useState(data);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   function onSearch(searchTerm: string) {
-    if (!searchTerm) {
-      setRecords(data);
-      return;
-    }
-    setRecords(
-      data.filter(
-        ({ firstName, lastName }) =>
-          firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          lastName.toLowerCase().includes(searchTerm.toLowerCase()),
-      ),
-    );
+    setIsLoading(true);
+    setTimeout(() => {
+      if (!searchTerm) {
+        setRecords(data);
+        setIsLoading(false);
+        return;
+      }
+      setRecords(
+        data.filter(
+          ({ firstName, lastName }) =>
+            firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            lastName.toLowerCase().includes(searchTerm.toLowerCase()),
+        ),
+      );
+      setIsLoading(false);
+    }, 1000);
   }
   return (
     <DataGrid
       {...args}
       data={records}
+      isLoading={isLoading}
       searchBarConfig={{
         label: 'Search everywhere...',
         clearLabel: 'Clear',
@@ -566,75 +591,82 @@ export const WithSearchBar = (args: DataGridProps<Member>) => {
 WithSearchBar.args = baseArgs;
 
 export const WithFilters = (args: DataGridProps<Member>) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [records, setRecords] = useState(data);
 
   function filterRecords(filters: Record<string, unknown>) {
+    setIsLoading(true);
     const entries = Object.entries(filters);
-    if (entries.length === 0) {
-      setRecords(data);
-      return;
-    }
+    setTimeout(() => {
+      if (entries.length === 0) {
+        setRecords(data);
+        setIsLoading(false);
+        return;
+      }
 
-    setRecords(
-      data.filter((member) =>
-        entries.every(([key, value]) => {
-          if (key === 'age') {
-            const { min, max } = value as { min?: number; max?: number };
-            return (
-              (min === undefined || member.age >= min) &&
-              (max === undefined || member.age <= max)
-            );
-          }
-          if (key === 'subscriptionPrice') {
-            const { min, max } = value as { min?: number; max?: number };
-            return (
-              (min === undefined || member.subscription.price >= min) &&
-              (max === undefined || member.subscription.price <= max)
-            );
-          }
-          if (key === 'dateOfBirth') {
-            const { from, to } = value as { from?: string; to?: string };
-            const birthDate = Temporal.ZonedDateTime.from(
-              member.dateOfBirth,
-            ).toPlainDate();
-            if (
-              from &&
-              Temporal.PlainDate.compare(
-                birthDate,
-                Temporal.PlainDate.from(from),
-              ) < 0
-            ) {
-              return false;
+      setRecords(
+        data.filter((member) =>
+          entries.every(([key, value]) => {
+            if (key === 'age') {
+              const { min, max } = value as { min?: number; max?: number };
+              return (
+                (min === undefined || member.age >= min) &&
+                (max === undefined || member.age <= max)
+              );
             }
-            if (
-              to &&
-              Temporal.PlainDate.compare(
-                birthDate,
-                Temporal.PlainDate.from(to),
-              ) > 0
-            ) {
-              return false;
+            if (key === 'subscriptionPrice') {
+              const { min, max } = value as { min?: number; max?: number };
+              return (
+                (min === undefined || member.subscription.price >= min) &&
+                (max === undefined || member.subscription.price <= max)
+              );
+            }
+            if (key === 'dateOfBirth') {
+              const { from, to } = value as { from?: string; to?: string };
+              const birthDate = Temporal.ZonedDateTime.from(
+                member.dateOfBirth,
+              ).toPlainDate();
+              if (
+                from &&
+                Temporal.PlainDate.compare(
+                  birthDate,
+                  Temporal.PlainDate.from(from),
+                ) < 0
+              ) {
+                return false;
+              }
+              if (
+                to &&
+                Temporal.PlainDate.compare(
+                  birthDate,
+                  Temporal.PlainDate.from(to),
+                ) > 0
+              ) {
+                return false;
+              }
+              return true;
+            }
+            if (key === 'activity') {
+              return (value as string[]).includes(
+                String(member.subscription.frequentMember),
+              );
+            }
+            if (key === 'allergies') {
+              return (value as string[]).every((allergy) =>
+                member.allergies?.includes(allergy as Allergy),
+              );
             }
             return true;
-          }
-          if (key === 'activity') {
-            return (value as string[]).includes(
-              String(member.subscription.frequentMember),
-            );
-          }
-          if (key === 'allergies') {
-            return (value as string[]).every((allergy) =>
-              member.allergies?.includes(allergy as Allergy),
-            );
-          }
-          return true;
-        }),
-      ),
-    );
+          }),
+        ),
+      );
+      setIsLoading(false);
+    }, 1000);
   }
   return (
     <DataGrid
       {...args}
+      isLoading={isLoading}
       data={records}
       filtersConfig={{
         onFilter: filterRecords,

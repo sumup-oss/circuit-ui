@@ -11,6 +11,7 @@ export interface ColumnPickerProps<P>
   onChange: (value: string[]) => void;
   columns: Column<P>[];
   visibleColumns: Column<P>[];
+  disabled?: boolean;
 }
 
 export const ColumnPicker = <P,>({
