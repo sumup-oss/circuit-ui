@@ -88,6 +88,10 @@ export interface DataGridProps<P>
    */
   mobileBreakpoint?: number;
   /**
+   * Whether the component is fetching data.
+   */
+  isLoading?: boolean;
+  /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
    * When passing an array, the first supported locale is used.
@@ -105,7 +109,7 @@ export interface DataGridProps<P>
  * edit, and act on records directly within the table.
  */
 export function DataGrid<P>({
-  data,
+  data = [],
   columns,
   getRowId,
   className,
@@ -118,6 +122,7 @@ export function DataGrid<P>({
   filtersConfig,
   columnPickerConfig,
   pagination,
+  isLoading,
   ...props
 }: DataGridProps<P>) {
   const gridId = useId();
@@ -346,9 +351,14 @@ export function DataGrid<P>({
       <div className={classes.table}>
         <table
           ref={applyMultipleRefs(ref, internalRef)}
-          className={clsx(classes.base, className)}
+          className={clsx(classes.base,
+            isLoading && classes.loading,
+            className
+          )}
           // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: grid is valid role for table
           role="grid"
+          inert={isLoading}
+          aria-busy={isLoading}
           {...props}
         >
           <caption className={utilClasses.hideVisually}>{label}</caption>

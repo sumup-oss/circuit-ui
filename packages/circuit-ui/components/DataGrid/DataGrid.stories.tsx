@@ -525,6 +525,15 @@ export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
 Base.args = baseArgs;
 
+export const Loading = (args: DataGridProps<Member>) => <DataGrid {...args} />;
+
+Loading.args = {
+  ...baseArgs,
+  mobileBreakpoint: 1280,
+  mobileConfig,
+  isLoading: true,
+};
+
 export const WithSearchBar = (args: DataGridProps<Member>) => {
   const [records, setRecords] = useState(data);
 

@@ -1,8 +1,27 @@
 .base {
+  position: relative;
   width: 100%;
   overflow: auto;
   border-spacing: 0;
   border-collapse: separate;
+}
+
+.base::after,
+.list::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  content: "";
+  background: rgb(255 255 255 / 50%);
+  opacity: 0;
+  transition: opacity var(--cui-transitions-default);
+}
+
+.loading::after {
+  opacity: 1;
 }
 
 .row:last-of-type th:first-of-type {
