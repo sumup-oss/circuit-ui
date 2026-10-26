@@ -16,12 +16,10 @@
 import { ESLintUtils, TSESTree, type TSESLint } from '@typescript-eslint/utils';
 
 import {
-  filterWhitespaceChildren,
   findAttribute,
   getAttributeValue,
   isAttributeTruthy,
   isStaticAttribute,
-  transformAttributeValueToChildren,
 } from '../utils/jsx.js';
 import type { RuleDocs } from '../utils/meta.js';
 
@@ -115,124 +113,6 @@ const configs: (Config & { components: string[] })[] = [
       byte: 's',
       kilo: 'm',
       giga: 'l',
-    },
-  },
-  {
-    type: 'custom',
-    components: ['IconButton'],
-    // children → icon
-    transform: (node, component, context) => {
-      const current = 'children';
-      const replacement = 'icon';
-
-      const iconAttribute = findAttribute(node, 'icon');
-
-      // Icon is passed as a prop as intended.
-      if (iconAttribute) {
-        return;
-      }
-
-      const children = filterWhitespaceChildren(node.children);
-      const child = children[0];
-
-      // Icon might be passed as children, however, these types of children
-      // can't be automatically replaced:
-      if (
-        // No or multiple children
-        children.length !== 1 ||
-        // Non-element child
-        child.type !== TSESTree.AST_NODE_TYPES.JSXElement ||
-        // Element with children
-        child.children.length > 0 ||
-        // Element with props other than `size`
-        child.openingElement.attributes.filter(
-          (attr) =>
-            attr.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
-            attr.name.name !== 'size',
-        ).length > 0
-      ) {
-        context.report({
-          node,
-          messageId: 'propName',
-          data: { component, current, replacement },
-        });
-        return;
-      }
-
-      const iconName = (child.openingElement.name as TSESTree.JSXIdentifier)
-        .name;
-
-      context.report({
-        node,
-        messageId: 'propName',
-        data: { component, current, replacement },
-        fix(fixer) {
-          const range: [number, number] = [
-            node.openingElement.range[1] - 1,
-            node.closingElement!.range[1],
-          ];
-          const prop = ` ${replacement}={${iconName}}`;
-
-          return [
-            fixer.insertTextBeforeRange(range, prop),
-            fixer.replaceTextRange(range, ' />'),
-          ];
-        },
-      });
-    },
-  },
-  {
-    type: 'custom',
-    components: ['IconButton'],
-    // label → children
-    transform: (node, component, context) => {
-      const current = 'label';
-      const replacement = 'children';
-
-      const labelAttribute = findAttribute(node, 'label');
-
-      if (!labelAttribute) {
-        return;
-      }
-
-      const labelValue = transformAttributeValueToChildren(
-        context.sourceCode,
-        labelAttribute,
-      );
-
-      if (
-        // Unable to transform the label value
-        !labelValue ||
-        // Shouldn't override existing children
-        node.children.length > 0
-      ) {
-        context.report({
-          node: labelAttribute,
-          messageId: 'propName',
-          data: { component, current, replacement },
-        });
-        return;
-      }
-
-      context.report({
-        node,
-        messageId: 'propName',
-        data: { component, current, replacement },
-        fix(fixer) {
-          const elementName = (
-            node.openingElement.name as TSESTree.JSXIdentifier
-          ).name;
-          const range: [number, number] = [
-            node.openingElement.range[1] - 2,
-            node.openingElement.range[1],
-          ];
-
-          return [
-            fixer.remove(labelAttribute),
-            fixer.replaceTextRange(range, `>${labelValue}</${elementName}>`),
-          ];
-        },
-      });
     },
   },
   {
