@@ -469,16 +469,23 @@ const baseArgs: DataGridProps<Member> = {
   label: 'Gym members 2026',
   columns,
   data,
-  searchBarConfig: {
-    label: 'Search everywhere...',
-    onSearch: action('onSearch'),
-  },
   formattingLocale,
 };
 
 export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
 Base.args = baseArgs;
+export const WithSearchBar = (args: DataGridProps<Member>) => (
+  <DataGrid {...args} />
+);
+
+WithSearchBar.args = {
+  ...baseArgs,
+  searchBarConfig: {
+    label: 'Search everywhere...',
+    onSearch: action('onSearch'),
+  },
+};
 
 export const VisibleColumns = (args: DataGridProps<Member>) => (
   <DataGrid {...args} />
