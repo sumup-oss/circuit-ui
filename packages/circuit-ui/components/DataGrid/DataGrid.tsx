@@ -244,14 +244,16 @@ export function DataGrid<P>({
 
   return (
     <div className={classes.wrapper}>
-      <FilterBar
-        searchBarConfig={searchBarConfig}
-        onVisibleColumnChange={onVisibleColumnChange}
-        columns={columns}
-        visibleColumns={visibleColumns}
-        isMobile={isMobile}
-        columnPickerConfig={columnPickerConfig}
-      />
+      {(searchBarConfig || columnPickerConfig) && (
+        <FilterBar
+          searchBarConfig={searchBarConfig}
+          onVisibleColumnChange={onVisibleColumnChange}
+          columns={columns}
+          visibleColumns={visibleColumns}
+          isMobile={isMobile}
+          columnPickerConfig={columnPickerConfig}
+        />
+      )}
       {isMobile && mobileConfig ? (
         <ListItemGroup
           ref={ref}
