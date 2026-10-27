@@ -133,6 +133,8 @@ export function ListItem({
   selected,
   menu,
   disabled,
+  onClick,
+  href,
   ref,
   ...props
 }: ListItemProps) {
@@ -162,10 +164,12 @@ export function ListItem({
 
   const { Link } = useComponents();
   let Element: AsPropType = 'div';
-  if (props.href) {
-    Element = Link as AsPropType;
-  } else if (props.onClick) {
-    Element = 'button';
+  if (variant !== 'menu') {
+    if (href) {
+      Element = Link as AsPropType;
+    } else if (onClick) {
+      Element = 'button';
+    }
   }
 
   const isNavigation = variant === 'navigation';
@@ -178,7 +182,9 @@ export function ListItem({
   return (
     <Element
       {...props}
-      aria-current={props.onClick || props.href ? selected : undefined}
+      aria-current={
+        variant !== 'menu' && (onClick || href) ? selected : undefined
+      }
       className={clsx(
         classes.base,
         isNavigation && classes.navigation,
@@ -187,6 +193,10 @@ export function ListItem({
       )}
       disabled={disabled}
       ref={ref}
+      {...(variant !== 'menu' && {
+        href,
+        onClick,
+      })}
     >
       {LeadingComponent && (
         <div className={classes.leading}>
@@ -264,11 +274,6 @@ export function ListItem({
                         {...btnProps}
                         icon={More}
                         disabled={disabled}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          event.preventDefault(); // to prevent navigation
-                          btnProps.onClick?.(event);
-                        }}
                         size="s"
                         variant="tertiary"
                       >

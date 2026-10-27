@@ -273,7 +273,7 @@ describe('ListItem', () => {
       expect(screen.getByRole('button', { name: 'View' })).toBeVisible();
     });
 
-    it('should not fire onClick action when trigger button is clicked', async () => {
+    it('should not render as button when onClick is provided', async () => {
       const onClick = vi.fn();
       render(
         <ListItem
@@ -281,31 +281,40 @@ describe('ListItem', () => {
           variant="menu"
           menu={menuProps}
           onClick={onClick}
+          data-testid="menu-list-item"
         />,
       );
-      const trigger = screen.getByRole('button', { name: 'Actions' });
-      expect(trigger).toBeVisible();
-      await userEvent.click(trigger);
+      expect(screen.getAllByRole('button')).toHaveLength(1);
+      const listItem = screen.getByTestId('menu-list-item');
+      expect(listItem).toBeVisible();
+      await userEvent.click(listItem);
       expect(onClick).not.toHaveBeenCalled();
     });
-    it('should not navigate when the menu trigger is clicked', async () => {
+    it('should not render as link when href is provided', async () => {
       render(
         <ListItem
           {...baseProps}
           variant="menu"
           menu={menuProps}
           href="/settings"
+          data-testid="menu-list-item"
         />,
       );
-
-      const trigger = screen.getByRole('button', { name: 'Actions' });
-      let clickEvent: MouseEvent | undefined;
-      trigger.addEventListener('click', (event) => {
-        clickEvent = event;
-      });
-
-      await userEvent.click(trigger);
-      expect(clickEvent?.defaultPrevented).toBe(true);
+      expect(screen.queryAllByRole('link')).toHaveLength(0);
+    });
+    it('should not render as selected when selected prop is provided', async () => {
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={menuProps}
+          selected
+          data-testid="menu-list-item"
+        />,
+      );
+      expect(screen.getByTestId('menu-list-item')).not.toHaveAttribute(
+        'aria-current',
+      );
     });
 
     it('should not render with menu when variant is menu and actions are missing', async () => {
@@ -328,9 +337,7 @@ describe('ListItem', () => {
           menu={{ ...menuProps, label: '' }}
         />,
       );
-      expect(
-        screen.queryByRole('button'),
-      ).not.toBeInTheDocument();
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
     });
   });
 

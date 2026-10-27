@@ -32,7 +32,7 @@ While the `ListItem` can be used on its own, in most cases the `ListItemGroup` c
 
 ### Variants
 
-In addition to the default `action` variant there is also the `navigation` and `menu` variants.
+In addition to the default `action` variant, there are also the `navigation` and `menu` variants.
 
 #### `navigation`
 
@@ -41,6 +41,7 @@ It renders a chevron icon in the trailing area of the `ListItem`, indicating to 
 #### `menu`
 
 It renders a menu button in the trailing area of the `ListItem`, indicating to the user that more actions are available for them by clicking on the menu trigger.
+A ListItem with the `"menu"` variant cannot be interactive. The `onClick` and `href` props are ignored and the component will render as a plain `<div/>`. The `selected` state is not applicable.
 
 <Story of={Stories.Variants} />
 

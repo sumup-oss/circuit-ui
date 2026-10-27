@@ -113,18 +113,18 @@ const baseArgs: ListItemProps = {
   menu: {
     actions: [
       {
-        onClick: action('Button Click'),
+        onClick: action('Menu action Click'),
         children: 'View Details',
         icon: View,
       },
       {
-        onClick: action('Button Click'),
+        onClick: action('Menu action Click'),
         children: 'Edit',
         icon: Edit,
       },
       { type: 'divider' },
       {
-        onClick: action('Button Click'),
+        onClick: action('Menu action Click'),
         children: 'Delete',
         icon: Delete,
         destructive: true,
@@ -226,12 +226,6 @@ export const Interactive = (args: ListItemProps) => (
     <ListItem
       {...args}
       variant="navigation"
-      href="https://sumup.com"
-      target="_blank"
-    />
-    <ListItem
-      {...args}
-      variant="menu"
       href="https://sumup.com"
       target="_blank"
     />
