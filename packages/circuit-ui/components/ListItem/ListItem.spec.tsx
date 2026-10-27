@@ -79,7 +79,7 @@ describe('ListItem', () => {
     vi.restoreAllMocks();
   });
 
-  it('should throw a CircuitError when using the "menu" viriant without the `menu` prop', () => {
+  it('should throw a CircuitError when using the "menu" variant without the `menu` prop', () => {
     // Silence the console.error output and switch to development mode to throw the error
     vi.spyOn(console, 'error').mockImplementation(() => undefined);
     process.env.NODE_ENV = 'development';
@@ -329,7 +329,7 @@ describe('ListItem', () => {
         />,
       );
       expect(
-        screen.queryByRole('button', { name: 'See actions' }),
+        screen.queryByRole('button'),
       ).not.toBeInTheDocument();
     });
   });
