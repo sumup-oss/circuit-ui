@@ -55,7 +55,7 @@ export const ColumnPicker = <P,>({
       isOpen={isOpen}
       onToggle={setIsOpen}
       hideCloseButton
-      offset={10}
+      offset={8}
       placement="bottom-end"
       contentClassName={classes.picker}
       aria-label={pickerLabel}

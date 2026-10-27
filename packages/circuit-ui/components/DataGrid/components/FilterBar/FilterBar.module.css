@@ -1,11 +1,10 @@
 .base {
   display: flex;
   justify-content: space-between;
-  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
+  padding: var(--cui-spacings-byte) 0;
 }
 
-.active-filters,
-.search-config {
+.section {
   display: flex;
   gap: var(--cui-spacings-kilo);
 }
@@ -25,10 +24,9 @@
   margin-bottom: var(--cui-spacings-mega);
 }
 
-.mobile-view .search-config,
+.mobile-view .section,
 .mobile-view .search {
   flex: 1;
-  width: unset;
 }
 
 .wrapper {

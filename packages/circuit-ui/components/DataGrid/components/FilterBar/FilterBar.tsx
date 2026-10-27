@@ -43,10 +43,8 @@ const FilterBarComponent = <P,>({
       role="toolbar"
       className={clsx(classes.base, isMobile && classes['mobile-view'])}
     >
-      {!isMobile && (
-        <div className={classes['active-filters']}>- Filters go here -</div>
-      )}
-      <div className={classes['search-config']}>
+      {!isMobile && <div className={classes.section}>- Filters go here -</div>}
+      <div className={classes.section}>
         {isMobile && (
           <div className={classes.wrapper}>
             {activeFiltersCount && (
