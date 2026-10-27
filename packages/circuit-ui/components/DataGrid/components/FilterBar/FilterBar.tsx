@@ -28,8 +28,7 @@ const FilterBarComponent = <P,>({
 }: FilterBarProps<P>) => {
   const filterCountId = useId();
   const { label: searchLabel, onSearch } = searchBarConfig ?? {};
-  const { activeFiltersCount: activeFiltersCountLabel, filtersLabel } =
-    useTranslations({ activeFiltersCount: '' }, translations);
+  const { filtersLabel } = useTranslations({}, translations);
   const activeFiltersCount = 3; // fake count
   const onChange = useCallback(
     debounce(
@@ -58,7 +57,7 @@ const FilterBarComponent = <P,>({
                 variant="dot"
                 color="special"
               >
-                {`${activeFiltersCount} ${activeFiltersCountLabel}`}
+                {`${activeFiltersCount} ${filtersLabel}`}
               </Status>
             )}
             <TriggerButton icon={Filter} aria-describedby={filterCountId}>
