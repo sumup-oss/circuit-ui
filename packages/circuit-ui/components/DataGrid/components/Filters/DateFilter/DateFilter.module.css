@@ -1,0 +1,17 @@
+.base {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--cui-spacings-bit);
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-kilo);
+}
