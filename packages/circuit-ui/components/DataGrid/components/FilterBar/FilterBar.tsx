@@ -13,6 +13,10 @@ import { Status } from '../../../Status/index.js';
 import type { FilterValue } from '../Filters/Filter/types.js';
 import { FilterWrapper } from '../Filters/Filter/index.js';
 import { Button } from '../../../Button/index.js';
+import {
+  FilterSheet,
+  type FilterValues,
+} from '../Filters/FilterSheet/index.js';
 
 export interface FilterBarProps<P> extends WithColumnPicker, WithSearchBar {
   onVisibleColumnChange: (value: string[]) => void;
@@ -33,10 +37,9 @@ const FilterBarComponent = <P,>({
 }: FilterBarProps<P>) => {
   const filterCountId = useId();
   const { label: searchLabel, onSearch } = searchBarConfig ?? {};
+  const [open, setOpen] = useState(false);
   const { filtersLabel } = useTranslations({}, translations);
-  const [value, setValue] = useState<Record<string, FilterValue | undefined>>(
-    {},
-  );
+  const [value, setValue] = useState<FilterValues>({});
   const activeFiltersCount = Object.keys(value).length;
 
   const onChange = useCallback(
@@ -60,6 +63,10 @@ const FilterBarComponent = <P,>({
     });
   };
 
+  function onMobileFiltersChange(filters: FilterValues) {
+    setValue(filters);
+    onFilter?.(filters);
+  }
   function clearAllFilters() {
     setValue({});
     onFilter?.({});
@@ -100,7 +107,7 @@ const FilterBarComponent = <P,>({
       <div className={classes.tools}>
         {isMobile && (
           <div className={classes.wrapper}>
-            {activeFiltersCount && (
+            {activeFiltersCount > 0 && (
               <Status
                 aria-hidden
                 id={filterCountId}
@@ -111,9 +118,22 @@ const FilterBarComponent = <P,>({
                 {`${activeFiltersCount} ${filtersLabel}`}
               </Status>
             )}
-            <TriggerButton icon={Filter} aria-describedby={filterCountId}>
+            <TriggerButton
+              icon={Filter}
+              onClick={() => setOpen(true)}
+              aria-describedby={filterCountId}
+            >
               {filtersLabel}
             </TriggerButton>
+            <FilterSheet
+              open={open}
+              onClose={() => setOpen(false)}
+              columns={visibleColumns}
+              values={value}
+              onApply={onMobileFiltersChange}
+              title={filtersLabel}
+              clearAllButtonLabel="Clear all"
+            />
           </div>
         )}
         {searchLabel && onSearch && (

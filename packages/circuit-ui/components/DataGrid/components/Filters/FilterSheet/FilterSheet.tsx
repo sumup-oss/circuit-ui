@@ -28,17 +28,15 @@ import {
   getFilterKind,
   normalizeFilterValue,
 } from '../Filter/FilterService.js';
-import type { FilterLabels, FilterValue } from '../Filter/types.js';
+import type { FilterValue } from '../Filter/types.js';
 import { FilterWrapper } from '../Filter/FilterWrapper.js';
 import { translations } from '../translations/index.js';
 
 import classes from './FilterSheet.module.css';
 
-type SheetColumn = Pick<Column<unknown>, 'id' | 'label' | 'type' | 'filter'>;
-
 export type FilterValues = Record<string, FilterValue | undefined>;
 
-export interface FilterSheetProps extends Partial<I18nConfig> {
+export interface FilterSheetProps<P> extends Partial<I18nConfig> {
   /**
    * Whether the sheet is open.
    */
@@ -51,12 +49,7 @@ export interface FilterSheetProps extends Partial<I18nConfig> {
   /**
    * The columns to filter. Columns without a filter are skipped.
    */
-  columns: SheetColumn[];
-  // TODO: Only require the labels of the filter types in use once the columns are hooked up.
-  /**
-   * The labels of the fields of the amount and date filters.
-   */
-  labels: FilterLabels;
+  columns: Column<P>[];
   /**
    * The applied values, by column id.
    */
@@ -86,12 +79,11 @@ export interface FilterSheetProps extends Partial<I18nConfig> {
  * Shows all the filters of a table in one modal, e.g. on mobile. Edits are
  * kept as a draft and only take effect once the user applies them.
  */
-export function FilterSheet(props: FilterSheetProps) {
+export function FilterSheet<P>(props: FilterSheetProps<P>) {
   const {
     open,
     onClose,
     columns,
-    labels,
     values,
     onApply,
     clearAllButtonLabel,
@@ -154,7 +146,7 @@ export function FilterSheet(props: FilterSheetProps) {
             <div key={column.id} className={classes.section}>
               <FilterWrapper
                 column={column}
-                labels={labels}
+                labels={column.filterConfig?.labels}
                 variant="inline"
                 value={draft[column.id]}
                 onChange={(value) =>

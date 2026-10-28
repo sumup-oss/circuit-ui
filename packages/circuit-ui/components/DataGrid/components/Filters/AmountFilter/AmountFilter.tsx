@@ -115,6 +115,7 @@ function AmountField({ amount, label, value, onChange }: AmountFieldProps) {
     size: 's',
     label,
     hideLabel: true,
+    className: classes.field,
     placeholder: label,
     value: value ?? '',
     onValueChange: (({ floatValue }, { event }) => {

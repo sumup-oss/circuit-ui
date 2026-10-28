@@ -27,6 +27,8 @@ import { clsx } from '../../styles/clsx.js';
 import { Compact, type CompactProps } from '../Compact/Compact.js';
 import { Status } from '../Status/index.js';
 import { screen, userEvent, within } from 'storybook/test';
+import { useState } from 'react';
+import { Temporal } from 'temporal-polyfill';
 
 export default {
   title: 'Components/DataGrid',
@@ -524,9 +526,54 @@ WithSearchBar.args = {
   },
 };
 
-export const WithFilters = (args: DataGridProps<Member>) => (
-  <DataGrid {...args} />
-);
+export const WithFilters = (args: DataGridProps<Member>) => {
+  const [records, setRecords] = useState(data);
+
+  function filterRecords(filters: Record<string, unknown>) {
+    const entries = Object.entries(filters);
+    if (entries.length === 0) {
+      setRecords(data);
+    }
+    entries.forEach(([key, value]) => {
+      let results: Member[] = data;
+      if (key === 'age' || key === 'subscriptionPrice') {
+        const { min, max } = value as { min: number; max: number };
+        results = results.filter(
+          ({ age }) => (min ? age >= min : true) && (max ? age <= max : true),
+        );
+      }
+      if (key === 'dateOfBirth') {
+        const { from, to } = value as { from: string; to: string };
+        results = results.filter(
+          ({ dateOfBirth }) =>
+            (from
+              ? Temporal.ZonedDateTime.compare(
+                  dateOfBirth,
+                  Temporal.PlainDate.from(from).toZonedDateTime(
+                    'Europe/Berlin',
+                  ),
+                ) > 0
+              : true) &&
+            (to
+              ? Temporal.ZonedDateTime.compare(
+                  dateOfBirth,
+                  Temporal.PlainDate.from(to).toZonedDateTime('Europe/Berlin'),
+                ) < 0
+              : true),
+        );
+      }
+      if (key === 'allergies') {
+        results = results.filter(({ allergies }) =>
+          (value as string[]).every((allergy) =>
+            allergies?.includes(allergy as Allergy),
+          ),
+        );
+      }
+      setRecords(results);
+    });
+  }
+  return <DataGrid {...args} data={records} onFilter={filterRecords} />;
+};
 
 WithFilters.args = {
   ...baseArgs,

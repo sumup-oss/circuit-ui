@@ -19,7 +19,6 @@ import { screen, userEvent, within } from 'storybook/test';
 import { Button } from '../../../../Button/index.js';
 import { modes } from '../../../../../../../.storybook/modes.js';
 import type { Column } from '../../../types.js';
-import type { FilterLabels } from '../Filter/types.js';
 
 import { FilterSheet, type FilterValues } from './index.js';
 
@@ -36,13 +35,6 @@ export default {
   parameters: {
     layout: 'padded',
   },
-};
-
-const labels: FilterLabels = {
-  min: 'Min',
-  max: 'Max',
-  from: 'From',
-  to: 'To',
 };
 
 const columns: Pick<Column<unknown>, 'id' | 'label' | 'type' | 'filter'>[] = [
@@ -101,7 +93,6 @@ export const Base = () => {
         columns={columns}
         values={values}
         onApply={setValues}
-        labels={labels}
         title="Filters"
         clearAllButtonLabel="Clear all"
       />

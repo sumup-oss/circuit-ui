@@ -226,7 +226,9 @@ describe('FilterWrapper', () => {
       />,
     );
 
-    expect(await userEvent.click(screen.getByRole('button', { name: 'Column' }))).not.toThrow();
+    expect(
+      await userEvent.click(screen.getByRole('button', { name: 'Column' })),
+    ).not.toThrow();
     process.env.NODE_ENV = 'test';
   });
 

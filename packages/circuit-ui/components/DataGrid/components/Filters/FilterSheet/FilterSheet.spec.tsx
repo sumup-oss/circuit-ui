@@ -29,12 +29,6 @@ describe('FilterSheet', () => {
   const baseProps = {
     open: true,
     title: 'Filters',
-    labels: {
-      min: 'Min',
-      max: 'Max',
-      from: 'From',
-      to: 'To',
-    },
     clearAllButtonLabel: 'Clear all',
     onClose: vi.fn(),
     onApply: vi.fn(),
@@ -60,7 +54,7 @@ describe('FilterSheet', () => {
       },
       { id: 'name', label: 'Name', filter: false, type: { name: 'text' } },
     ],
-  } satisfies FilterSheetProps;
+  } satisfies FilterSheetProps<unknown>;
 
   beforeEach(() => {
     vi.clearAllMocks();

@@ -153,7 +153,7 @@ export function FilterShell(props: FilterShellProps) {
         contentClassName={classes['popover-content']}
         hideCloseButton
       >
-        <div className={classes.content}>
+        <form className={classes.content}>
           {children}
           {onApply && (
             <div className={classes.footer}>
@@ -168,7 +168,7 @@ export function FilterShell(props: FilterShellProps) {
                 </Button>
               )}
               <Button
-                type="button"
+                type="submit"
                 size="s"
                 variant="primary"
                 onClick={handleApply}
@@ -177,7 +177,7 @@ export function FilterShell(props: FilterShellProps) {
               </Button>
             </div>
           )}
-        </div>
+        </form>
       </Popover>
     </TriggerContext>
   );

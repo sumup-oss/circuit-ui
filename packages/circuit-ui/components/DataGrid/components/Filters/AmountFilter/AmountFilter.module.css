@@ -5,6 +5,10 @@
   border: 0;
 }
 
+.field {
+  flex: 1;
+}
+
 .legend {
   padding: 0;
   margin-bottom: var(--cui-spacings-kilo);

@@ -10,6 +10,7 @@
   display: flex;
   flex-shrink: 0;
   gap: var(--cui-spacings-kilo);
+  align-items: center;
 }
 
 .filters-wrapper {
@@ -24,6 +25,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
+  padding: var(--cui-spacings-bit);
   overflow-x: auto;
   white-space: nowrap;
 }
@@ -40,7 +42,7 @@
 /* scroll indicator for overflowing filters */
 .filters::after {
   position: sticky;
-  right: 0;
+  right: calc(-1 * var(--cui-spacings-bit));
   display: block;
   flex-shrink: 0;
   width: var(--cui-spacings-mega);
@@ -65,7 +67,7 @@
   margin-bottom: var(--cui-spacings-mega);
 }
 
-.mobile-view .section,
+.mobile-view .tools,
 .mobile-view .search {
   flex: 1;
 }
