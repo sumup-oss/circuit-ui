@@ -20,9 +20,7 @@ import illustrationsManifest from '@sumup-oss/illustrations/manifest.json' with 
   type: 'json',
 };
 import { Unstyled } from '@storybook/addon-docs/blocks';
-import { I18nProvider } from '../../packages/circuit-ui/components/I18nContext/I18nContext.js';
 import { ToastProvider } from '../../packages/circuit-ui/components/ToastContext/index.js';
-import { FALLBACK_LOCALE } from '../../packages/circuit-ui/util/i18n.js';
 import { utilClasses } from '../../packages/circuit-ui/styles/utility.js';
 import { SearchInput } from '../../packages/circuit-ui/components/SearchInput/index.js';
 import { Select } from '../../packages/circuit-ui/components/Select/index.js';
@@ -173,51 +171,49 @@ export function Illustrations() {
 
   return (
     <Unstyled>
-      <I18nProvider locale={FALLBACK_LOCALE}>
-        <ToastProvider>
-          <fieldset className={classes.filters}>
-            <legend className={utilClasses.hideVisually}>
-              Illustration filters
-            </legend>
-            <SearchInput
-              label="Search by name or keyword"
-              placeholder="Search..."
-              value={search}
-              onChange={handleChange(setSearch)}
-              onClear={() => setSearch('')}
-              clearLabel="Clear"
-            />
-            <Select
-              label="Color scheme"
-              options={colorSchemeOptions}
-              value={colorScheme}
-              onChange={handleChange(setColorScheme)}
-            />
-          </fieldset>
+      <ToastProvider>
+        <fieldset className={classes.filters}>
+          <legend className={utilClasses.hideVisually}>
+            Illustration filters
+          </legend>
+          <SearchInput
+            label="Search by name or keyword"
+            placeholder="Search..."
+            value={search}
+            onChange={handleChange(setSearch)}
+            onClear={() => setSearch('')}
+            clearLabel="Clear"
+          />
+          <Select
+            label="Color scheme"
+            options={colorSchemeOptions}
+            value={colorScheme}
+            onChange={handleChange(setColorScheme)}
+          />
+        </fieldset>
 
-          {activeIllustrations.length <= 0 ? (
-            <Body>No illustrations found</Body>
-          ) : (
-            Object.entries<IllustrationManifest['illustrations']>(
-              groupByCategory(activeIllustrations),
-            ).map(([category, items]) => (
-              <section key={category} className={classes.category}>
-                <Headline as="h2" size="m" id={slugify(category)}>
-                  {category}
-                </Headline>
-                <div data-color-scheme={colorScheme} className={classes.list}>
-                  {sortByName(items).map((illustration) => (
-                    <IllustrationPreview
-                      key={`${illustration.name}-${illustration['color-scheme']}`}
-                      illustration={illustration}
-                    />
-                  ))}
-                </div>
-              </section>
-            ))
-          )}
-        </ToastProvider>
-      </I18nProvider>
+        {activeIllustrations.length <= 0 ? (
+          <Body>No illustrations found</Body>
+        ) : (
+          Object.entries<IllustrationManifest['illustrations']>(
+            groupByCategory(activeIllustrations),
+          ).map(([category, items]) => (
+            <section key={category} className={classes.category}>
+              <Headline as="h2" size="m" id={slugify(category)}>
+                {category}
+              </Headline>
+              <div data-color-scheme={colorScheme} className={classes.list}>
+                {sortByName(items).map((illustration) => (
+                  <IllustrationPreview
+                    key={`${illustration.name}-${illustration['color-scheme']}`}
+                    illustration={illustration}
+                  />
+                ))}
+              </div>
+            </section>
+          ))
+        )}
+      </ToastProvider>
     </Unstyled>
   );
 }
