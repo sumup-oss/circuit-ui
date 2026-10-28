@@ -36,18 +36,18 @@ import type {
   NumberRange,
 } from './types.js';
 import { useFilterDraft } from './useFilterDraft.js';
+import { CircuitError } from '../../../../../util/errors.js';
 
-export interface FilterWrapperProps {
+export interface FilterWrapperProps<P = unknown> {
   /**
    * The column to filter. A filter is only shown when `filter` is true and
    * the type of the column supports one.
    */
-  column: Pick<Column<unknown>, 'label' | 'type' | 'filter'>;
-  // TODO: Only require the labels of the filter types in use once the columns are hooked up.
+  column: Pick<Column<P>, 'label' | 'type' | 'filter'>;
   /**
-   * The labels of the fields of the amount and date filters.
+   * Labels the filter will need to render
    */
-  labels: FilterLabels;
+  labels?: FilterLabels;
   /**
    * The applied value. Its shape follows the type of the column.
    */
@@ -64,16 +64,16 @@ export interface FilterWrapperProps {
   variant?: 'popover' | 'inline';
 }
 
-interface FilterBodyProps {
-  type: ColumnType<unknown>;
+interface FilterBodyProps<P> {
+  type: ColumnType<P>;
   label: string;
-  labels: FilterLabels;
+  labels?: FilterLabels;
   hideLabel?: boolean;
   value?: FilterValue;
   onChange: (value: FilterValue | undefined) => void;
 }
 
-function FilterBody({ type, labels, value, ...props }: FilterBodyProps) {
+function FilterBody<P>({ type, labels, value, ...props }: FilterBodyProps<P>) {
   switch (type.name) {
     case 'singleSelection':
     case 'multiSelection':
@@ -85,36 +85,61 @@ function FilterBody({ type, labels, value, ...props }: FilterBodyProps) {
         />
       );
     case 'number':
-      return (
-        <AmountFilter
-          {...props}
-          amount={getAmountKind(type)}
-          minLabel={labels.min}
-          maxLabel={labels.max}
-          value={value as NumberRange | undefined}
-        />
-      );
+      if (labels && 'min' in labels && 'max' in labels) {
+        return (
+          <AmountFilter
+            {...props}
+            amount={getAmountKind(type)}
+            minLabel={labels.min}
+            maxLabel={labels.max}
+            value={value as NumberRange | undefined}
+          />
+        );
+      }
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test'
+      ) {
+        throw new CircuitError(
+          'DataGrid Filter',
+          `The "min" or "max"  labels for "${props.label}" is missing`,
+        );
+      }
+      return null;
+
     case 'date':
-      return (
-        <DateFilter
-          {...props}
-          fromLabel={labels.from}
-          toLabel={labels.to}
-          value={value as DateRange | undefined}
-        />
-      );
+      if (labels && 'from' in labels && 'to' in labels) {
+        return (
+          <DateFilter
+            {...props}
+            fromLabel={labels.from}
+            toLabel={labels.to}
+            value={value as DateRange | undefined}
+          />
+        );
+      }
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test'
+      ) {
+        throw new CircuitError(
+          'DataGrid Filter',
+          `The "from" or "to" labels for "${props.label}" is missing`,
+        );
+      }
+      return null;
     default:
       return null;
   }
 }
 
-function PopoverFilter({
+function PopoverFilter<P>({
   type,
   label,
   value,
   onChange,
   ...props
-}: FilterBodyProps) {
+}: FilterBodyProps<P>) {
   const { formattingLocale } = useI18n({});
   const { draft, setDraft, apply, clear, discard } = useFilterDraft(
     value,
@@ -145,11 +170,11 @@ function PopoverFilter({
  * Shows the filter that fits the type of a column, or nothing when the column
  * has no filter.
  */
-export function FilterWrapper({
+export function FilterWrapper<P>({
   column,
   variant = 'popover',
   ...props
-}: FilterWrapperProps) {
+}: FilterWrapperProps<P>) {
   const kind = getFilterKind(column);
 
   if (!kind) {

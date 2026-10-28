@@ -1,5 +1,10 @@
 .trigger.trigger {
+  background-color: var(--cui-bg-subtle);
   border-radius: var(--cui-border-radius-pill);
+}
+
+.trigger.trigger:hover {
+  background-color: var(--cui-bg-subtle-hovered);
 }
 
 .trigger.trigger[aria-expanded="true"] {

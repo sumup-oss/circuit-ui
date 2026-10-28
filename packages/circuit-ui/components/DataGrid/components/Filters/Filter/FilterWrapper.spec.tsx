@@ -17,12 +17,17 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   axe,
+  fireEvent,
   render,
   screen,
   userEvent,
 } from '../../../../../util/test-utils.js';
 
 import { FilterWrapper, type FilterWrapperProps } from './FilterWrapper.js';
+
+declare const process: {
+  env: { NODE_ENV: string };
+};
 
 interface Plan {
   id: number;
@@ -50,13 +55,7 @@ describe('FilterWrapper', () => {
     type: { name: 'multiSelection', options },
   };
 
-  const labels = {
-    min: 'Min',
-    max: 'Max',
-    from: 'From',
-    to: 'To',
-  };
-  const baseProps = { column: multiColumn, labels, onChange: vi.fn() };
+  const baseProps = { column: multiColumn, onChange: vi.fn() };
 
   it.each([
     ['text', { name: 'text' }],
@@ -201,6 +200,10 @@ describe('FilterWrapper', () => {
     render(
       <FilterWrapper
         {...baseProps}
+        labels={{
+          min: 'Min',
+          max: 'Max',
+        }}
         column={{ label: 'Amount', filter: true, type }}
       />,
     );
@@ -211,11 +214,48 @@ describe('FilterWrapper', () => {
     expect(screen.getByRole(role, { name: 'Min' })).toBeInTheDocument();
   });
 
+  it.each([
+    { name: 'singleSelection', options },
+    { name: 'multiSelection', options },
+  ] as const)('should not throw an error for missing labels with type %s', async (type) => {
+    process.env.NODE_ENV = 'development';
+    render(
+      <FilterWrapper
+        {...baseProps}
+        column={{ label: 'Column', filter: true, type }}
+      />,
+    );
+
+    expect(await userEvent.click(screen.getByRole('button', { name: 'Column' }))).not.toThrow();
+    process.env.NODE_ENV = 'test';
+  });
+
+  it.each([
+    { name: 'number' },
+    { name: 'date' },
+  ] as const)('should throw an error for missing labels with type %s', async (type) => {
+    process.env.NODE_ENV = 'development';
+    render(
+      <FilterWrapper
+        {...baseProps}
+        column={{ label: 'Column', filter: true, type }}
+      />,
+    );
+
+    expect(() => {
+      fireEvent.click(screen.getByRole('button', { name: 'Column' }));
+    }).toThrow();
+    process.env.NODE_ENV = 'test';
+  });
+
   it('should report the range in order when applying a reversed range', async () => {
     const onChange = vi.fn();
     render(
       <FilterWrapper
-        labels={labels}
+        labels={{
+          max: 'Max',
+          min: 'Min',
+        }}
         column={{ label: 'Quantity', filter: true, type: { name: 'number' } }}
         onChange={onChange}
       />,

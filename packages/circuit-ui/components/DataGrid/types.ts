@@ -2,6 +2,7 @@ import type { ActionMenuItemProps } from '../ActionMenu/index.js';
 import type { ReactNode } from 'react';
 import type { CustomAction } from './components/DefaultComponents/QuickActions/QuickActions.js';
 import type { ClickEvent } from '../../types/events.js';
+import type { FilterLabels } from './components/Filters/Filter/types.js';
 
 export interface WithColumnPicker {
   columnPickerConfig?: {
@@ -68,6 +69,12 @@ export type Column<P> = {
    * Depending on the column type, the filter may be a text input, a dropdown with single or multi selection, or a date range.
    */
   filter?: boolean;
+  /**
+   * Additional configuration for the filter
+   */
+  filterConfig?: {
+    labels: FilterLabels;
+  };
   /**
    * A sort function for the column.
    */

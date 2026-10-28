@@ -9,7 +9,7 @@ import {
   userEvent,
 } from '../../../../util/test-utils.js';
 
-import { columns, type Member } from '../../fixtures.js';
+import { columns, columnsWithFilters, type Member } from '../../fixtures.js';
 import { FilterBar, type FilterBarProps } from './FilterBar.js';
 
 /**
@@ -76,14 +76,6 @@ describe('FilterBar', () => {
     await settle();
   });
 
-  it('should show the active filters placeholder on desktop', async () => {
-    renderFilterBar();
-
-    expect(screen.getByText('- Filters go here -')).toBeVisible();
-
-    await settle();
-  });
-
   it('should hide the active filters placeholder on mobile', async () => {
     renderFilterBar({ isMobile: true });
 
@@ -92,7 +84,67 @@ describe('FilterBar', () => {
     await settle();
   });
 
-  describe('search', () => {
+  describe('Filters', () => {
+    it('should not show any filter if no visible column has filtering option', async () => {
+      renderFilterBar({ visibleColumns: columns.slice(0, 3) });
+      expect(screen.queryAllByRole('button').length).toBe(0);
+      await settle();
+    });
+    it('should render filter', async () => {
+      renderFilterBar({ visibleColumns: columnsWithFilters });
+      expect(
+        screen.getByRole('button', { name: columnsWithFilters[1].label }),
+      ).toBeVisible();
+      expect(
+        screen.getByRole('button', { name: columnsWithFilters[2].label }),
+      ).toBeVisible();
+      expect(
+        screen.getByRole('button', { name: columnsWithFilters[3].label }),
+      ).toBeVisible();
+    });
+    it('should call onFilter when a filter value changes', async () => {
+      const onFilter = vi.fn();
+      renderFilterBar({ visibleColumns: columnsWithFilters, onFilter });
+      await click(
+        screen.getByRole('button', { name: columnsWithFilters[2].label }),
+      );
+      await click(screen.getByRole('checkbox', { name: 'Active' }));
+      await click(screen.getByRole('button', { name: 'Apply' }));
+      expect(onFilter).toHaveBeenCalledTimes(1);
+      expect(onFilter).toHaveBeenCalledWith({
+        [columnsWithFilters[2].id]: ['active'],
+      });
+
+      await click(
+        screen.getByRole('button', {
+          name: `${columnsWithFilters[2].label} (1)`,
+        }),
+      );
+      await click(screen.getByRole('checkbox', { name: 'Active' }));
+      await click(screen.getByRole('button', { name: 'Apply' }));
+      expect(onFilter).toHaveBeenCalledTimes(2);
+      expect(onFilter).toHaveBeenCalledWith({});
+      await settle();
+    });
+    it("should call onFilter when 'Clear all' button is clicked", async () => {
+      const onFilter = vi.fn();
+      renderFilterBar({ visibleColumns: columnsWithFilters, onFilter });
+      await click(
+        screen.getByRole('button', { name: columnsWithFilters[2].label }),
+      );
+      await click(screen.getByRole('checkbox', { name: 'Active' }));
+      await click(screen.getByRole('button', { name: 'Apply' }));
+      expect(onFilter).toHaveBeenCalledWith({
+        [columnsWithFilters[2].id]: ['active'],
+      });
+      await click(screen.getByRole('button', { name: 'Clear all' }));
+      expect(onFilter).toHaveBeenCalledTimes(2);
+      expect(onFilter).toHaveBeenCalledWith({});
+      await settle();
+    });
+  });
+
+  describe('Search', () => {
     afterEach(() => {
       vi.useRealTimers();
     });
@@ -155,7 +207,7 @@ describe('FilterBar', () => {
     });
   });
 
-  describe('visibleColumns', () => {
+  describe('Visible Columns', () => {
     it('should not show the column picker when config is missing', () => {
       renderFilterBar();
       expect(

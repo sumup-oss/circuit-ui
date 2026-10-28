@@ -56,6 +56,10 @@ export interface DataGridProps<P>
    */
   data: P[];
   /**
+   * Callback fired when one of the filters changes
+   */
+  onFilter?: (value: Record<string, unknown>) => void;
+  /**
    * Label to be used as the table's caption.
    * Captions help screen reader users understand what the table is about
    * and decide if they want to read it.
@@ -94,6 +98,7 @@ export interface DataGridProps<P>
 export function DataGrid<P>({
   data,
   columns,
+  onFilter,
   className,
   label,
   mobileConfig,
@@ -242,15 +247,18 @@ export function DataGrid<P>({
     [columns, label],
   );
 
+  const hasFilters = columns.some(({ filter }) => filter);
+
   return (
     <div className={classes.wrapper}>
-      {(searchBarConfig || columnPickerConfig) && (
+      {(searchBarConfig || columnPickerConfig || hasFilters) && (
         <FilterBar
           searchBarConfig={searchBarConfig}
           onVisibleColumnChange={onVisibleColumnChange}
           columns={columns}
           visibleColumns={visibleColumns}
           isMobile={isMobile}
+          onFilter={onFilter}
           columnPickerConfig={columnPickerConfig}
         />
       )}

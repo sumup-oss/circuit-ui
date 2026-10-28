@@ -52,13 +52,16 @@ export type FilterValue = FilterValueMap[FilterKind];
 /**
  * The labels of the fields of the filters, to be translated by the parent.
  */
-export interface FilterLabels {
-  /** Label of the minimum field of an amount filter. */
-  min: string;
-  /** Label of the maximum field of an amount filter. */
-  max: string;
-  /** Label of the start date field of a date filter. */
-  from: string;
-  /** Label of the end date field of a date filter. */
-  to: string;
-}
+export type FilterLabels =
+  | {
+      /** Label of the minimum field of an amount filter. */
+      min: string;
+      /** Label of the maximum field of an amount filter. */
+      max: string;
+    }
+  | {
+      /** Label of the start date field of a date filter. */
+      from: string;
+      /** Label of the end date field of a date filter. */
+      to: string;
+    };

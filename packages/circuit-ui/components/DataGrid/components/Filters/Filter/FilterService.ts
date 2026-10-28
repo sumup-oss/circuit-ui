@@ -26,9 +26,12 @@ import type {
   NumberRange,
 } from './types.js';
 
-type FilterColumn = Pick<Column<unknown>, 'type' | 'filter'>;
+type FilterColumn<P = unknown> = Pick<Column<P>, 'type' | 'filter'>;
 
-type NumberColumnType = Extract<FilterColumn['type'], { name: 'number' }>;
+type NumberColumnType<P = unknown> = Extract<
+  FilterColumn<P>['type'],
+  { name: 'number' }
+>;
 
 export type AmountKind =
   | { kind: 'number' | 'percentage' }
@@ -37,9 +40,9 @@ export type AmountKind =
 /**
  * Derives the kind of amount filter for a number column from its formatting.
  */
-export function getAmountKind({
+export function getAmountKind<P>({
   formattingOptions,
-}: NumberColumnType): AmountKind {
+}: NumberColumnType<P>): AmountKind {
   if (formattingOptions?.style === 'currency' && formattingOptions.currency) {
     return { kind: 'currency', currency: formattingOptions.currency };
   }
@@ -53,10 +56,10 @@ export function getAmountKind({
  * Returns the kind of filter for a column, or `undefined` when the column has
  * no filter or its type does not support one.
  */
-export function getFilterKind({
+export function getFilterKind<P>({
   type,
   filter,
-}: FilterColumn): FilterKind | undefined {
+}: FilterColumn<P>): FilterKind | undefined {
   if (!filter) {
     return undefined;
   }
@@ -78,8 +81,8 @@ export function getFilterKind({
  * a start date after the end date) becomes a valid range. Other values are
  * returned as they are.
  */
-export function normalizeFilterValue(
-  { type }: Pick<FilterColumn, 'type'>,
+export function normalizeFilterValue<P>(
+  { type }: Pick<FilterColumn<P>, 'type'>,
   value: FilterValue | undefined,
 ): FilterValue | undefined {
   if (value === undefined) {
@@ -103,8 +106,8 @@ export function normalizeFilterValue(
   }
 }
 
-type SelectionColumnType = Extract<
-  FilterColumn['type'],
+type SelectionColumnType<P = unknown> = Extract<
+  FilterColumn<P>['type'],
   { name: 'singleSelection' | 'multiSelection' }
 >;
 
@@ -112,11 +115,11 @@ type SelectionColumnType = Extract<
  * Returns the options of a selection column as labelled values, also when they
  * are objects that are read with `getOptionLabel` and `getOptionValue`.
  */
-export function getSelectionOptions({
+export function getSelectionOptions<P>({
   options,
   getOptionLabel,
   getOptionValue,
-}: SelectionColumnType): Option[] {
+}: SelectionColumnType<P>): Option[] {
   if (getOptionLabel && getOptionValue) {
     return options.map((option) => ({
       label: getOptionLabel(option),
@@ -143,8 +146,8 @@ function formatRange(
  * Describes the applied value of a filter in a few words, to show on its
  * trigger: the number of selections, or the range of an amount or a date.
  */
-export function getFilterSummary(
-  { type }: Pick<FilterColumn, 'type'>,
+export function getFilterSummary<P>(
+  { type }: Pick<FilterColumn<P>, 'type'>,
   value: FilterValue | undefined,
   locale: Locale,
 ): string | undefined {

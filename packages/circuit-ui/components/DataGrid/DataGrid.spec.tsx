@@ -4,6 +4,7 @@ import { createRef } from 'react';
 import {
   act,
   axe,
+  fireEvent,
   render,
   screen,
   userEvent,
@@ -12,7 +13,12 @@ import {
 import { useMedia } from '../../hooks/useMedia/index.js';
 
 import { DataGrid, type DataGridProps } from './DataGrid.js';
-import { columns, type Member, members } from './fixtures.js';
+import {
+  columns,
+  columnsWithFilters,
+  type Member,
+  members,
+} from './fixtures.js';
 import type { MobileConfig } from './types.js';
 
 vi.mock('../../hooks/useMedia/index.js');
@@ -140,13 +146,23 @@ describe('DataGrid', () => {
       render(<DataGrid {...defaultProps} />);
       expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
     });
-    it('should render the FilterBar when at least one config is provided', () => {
-      render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
-      expect(screen.getByRole('toolbar')).toBeVisible();
-    });
-    describe('column visibility', () => {
+    describe('Column visibility', () => {
+      const columnPickerConfig = {
+        pickerLabel: 'Choose columns to display',
+        triggerLabel: 'Toggle column visibility',
+      };
       afterEach(() => {
         sessionStorage.clear();
+      });
+
+      it('should render the FilterBar when columnPickerConfig is provided', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            columnPickerConfig={columnPickerConfig}
+          />,
+        );
+        expect(screen.getByRole('toolbar')).toBeVisible();
       });
       it('should load visible columns stored in local storage for the same grid', () => {
         sessionStorage.setItem(
@@ -189,10 +205,6 @@ describe('DataGrid', () => {
         ).toBeVisible();
       });
       it('should store visible columns in session storage', async () => {
-        const columnPickerConfig = {
-          pickerLabel: 'Choose columns to display',
-          triggerLabel: 'Toggle column visibility',
-        };
         render(
           <DataGrid
             {...defaultProps}
@@ -214,7 +226,11 @@ describe('DataGrid', () => {
         ).toBe('full_name|age|subscriptionPrice|frequentMember');
       });
     });
-    describe('search bar', () => {
+    describe('Search bar', () => {
+      it('should render the FilterBar when searchBarConfig is provided', () => {
+        render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
+        expect(screen.getByRole('toolbar')).toBeVisible();
+      });
       it('should call the onSearch when user types a query', async () => {
         render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
         await userEvent.type(
@@ -226,6 +242,36 @@ describe('DataGrid', () => {
           vi.runAllTimers();
         });
         expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('P');
+      });
+    });
+    describe('Filters', () => {
+      it('should render the FilterBar when at least one column has filtering', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            columns={columnsWithFilters.slice(0, 2)}
+          />,
+        );
+        expect(screen.getByRole('toolbar')).toBeVisible();
+      });
+      it('should call the onFilter when a filter is set', async () => {
+        const age = columnsWithFilters[1];
+        const onFilter = vi.fn();
+        render(
+          <DataGrid
+            {...defaultProps}
+            columns={columnsWithFilters.slice(0, 2)}
+            onFilter={onFilter}
+          />,
+        );
+        await userEvent.click(screen.getByRole('button', { name: age.label }));
+        fireEvent.change(screen.getByRole('textbox', { name: 'Older than' }), {
+          target: { value: '18' },
+        });
+        await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
+        expect(onFilter).toHaveBeenCalledExactlyOnceWith({
+          [age.id]: { min: 18 },
+        });
       });
     });
   });

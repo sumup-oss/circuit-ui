@@ -291,6 +291,43 @@ const columns: Column<Member>[] = [
     },
   },
 ];
+
+const buildColumnsWithFilters = (): Column<Member>[] => {
+  const columnsWithFilters = [...columns];
+  columnsWithFilters[1] = {
+    ...columnsWithFilters[1],
+    filter: true,
+    filterConfig: {
+      labels: {
+        from: 'From',
+        to: 'To',
+      },
+    },
+  };
+  columnsWithFilters[2] = {
+    ...columnsWithFilters[2],
+    filter: true,
+    filterConfig: {
+      labels: {
+        min: 'Greater than',
+        max: 'Less than',
+      },
+    },
+  };
+  columnsWithFilters[3] = {
+    ...columnsWithFilters[3],
+    filter: true,
+    filterConfig: {
+      labels: {
+        min: 'Min',
+        max: 'Max',
+      },
+    },
+  };
+  columnsWithFilters[6] = { ...columnsWithFilters[6], filter: true };
+  return columnsWithFilters;
+};
+
 const data: Member[] = [
   {
     firstName: 'Elena',
@@ -485,6 +522,20 @@ WithSearchBar.args = {
     label: 'Search everywhere...',
     onSearch: action('onSearch'),
   },
+};
+
+export const WithFilters = (args: DataGridProps<Member>) => (
+  <DataGrid {...args} />
+);
+
+WithFilters.args = {
+  ...baseArgs,
+  onFilter: action('onFilter'),
+  searchBarConfig: {
+    label: 'Search everywhere...',
+    onSearch: action('onSearch'),
+  },
+  columns: buildColumnsWithFilters(),
 };
 
 export const VisibleColumns = (args: DataGridProps<Member>) => (

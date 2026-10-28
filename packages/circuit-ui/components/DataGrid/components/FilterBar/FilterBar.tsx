@@ -1,21 +1,25 @@
-import { memo, useCallback, useId, type ChangeEvent } from 'react';
+import { memo, useCallback, useId, useState, type ChangeEvent } from 'react';
 import classes from './FilterBar.module.css';
 import { SearchInput } from '../../../SearchInput/index.js';
 import { debounce } from '../../../../util/helpers.js';
 import { ColumnPicker } from './components/ColumnPicker/ColumnPicker.js';
 import type { Column, WithColumnPicker, WithSearchBar } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { Filter } from '@sumup-oss/icons';
+import { Filter, Refresh } from '@sumup-oss/icons';
 import { TriggerButton } from './components/TriggerButton/TriggerButton.js';
 import { useTranslations } from '../../../../hooks/useTranslations/useTranslations.js';
 import { translations } from './translations/index.js';
 import { Status } from '../../../Status/index.js';
+import type { FilterValue } from '../Filters/Filter/types.js';
+import { FilterWrapper } from '../Filters/Filter/index.js';
+import { Button } from '../../../Button/index.js';
 
 export interface FilterBarProps<P> extends WithColumnPicker, WithSearchBar {
   onVisibleColumnChange: (value: string[]) => void;
   columns: Column<P>[];
   visibleColumns: Column<P>[];
   isMobile?: boolean;
+  onFilter?: (value: Record<string, unknown>) => void;
 }
 
 const FilterBarComponent = <P,>({
@@ -25,11 +29,16 @@ const FilterBarComponent = <P,>({
   visibleColumns,
   searchBarConfig,
   columnPickerConfig,
+  onFilter,
 }: FilterBarProps<P>) => {
   const filterCountId = useId();
   const { label: searchLabel, onSearch } = searchBarConfig ?? {};
   const { filtersLabel } = useTranslations({}, translations);
-  const activeFiltersCount = 3; // fake count
+  const [value, setValue] = useState<Record<string, FilterValue | undefined>>(
+    {},
+  );
+  const activeFiltersCount = Object.keys(value).length;
+
   const onChange = useCallback(
     debounce(
       (event: ChangeEvent<HTMLInputElement>) => onSearch?.(event.target.value),
@@ -38,13 +47,57 @@ const FilterBarComponent = <P,>({
     [],
   );
 
+  const onFilterChange = (column: string, filter?: FilterValue) => {
+    setValue((prev) => {
+      const newValue = { ...prev };
+      if (filter === undefined) {
+        delete newValue[column];
+      } else {
+        newValue[column] = filter;
+      }
+      onFilter?.(newValue);
+      return newValue;
+    });
+  };
+
+  function clearAllFilters() {
+    setValue({});
+    onFilter?.({});
+  }
+
   return (
     <div
       role="toolbar"
       className={clsx(classes.base, isMobile && classes['mobile-view'])}
     >
-      {!isMobile && <div className={classes.section}>- Filters go here -</div>}
-      <div className={classes.section}>
+      {!isMobile && (
+        <div className={classes['filters-wrapper']}>
+          <div className={classes.filters}>
+            {visibleColumns.map(({ type, id, filter, label, filterConfig }) => (
+              <FilterWrapper
+                key={`${id}-filter`}
+                labels={filterConfig?.labels}
+                column={{ type, label, filter }}
+                value={value[id]}
+                variant="popover"
+                onChange={(filterValue) => onFilterChange(id, filterValue)}
+              />
+            ))}
+          </div>
+          {activeFiltersCount > 0 && (
+            <Button
+              icon={Refresh}
+              onClick={clearAllFilters}
+              className={classes['clear-button']}
+              size="s"
+              variant="tertiary"
+            >
+              Clear all
+            </Button>
+          )}
+        </div>
+      )}
+      <div className={classes.tools}>
         {isMobile && (
           <div className={classes.wrapper}>
             {activeFiltersCount && (
