@@ -26,7 +26,7 @@ import {
   type InputHTMLAttributes,
   type Ref,
 } from 'react';
-import { File as FileIcon, Upload } from '@sumup-oss/icons';
+import { ArrowUp, File as FileIcon, Upload } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
@@ -41,6 +41,7 @@ import {
   FieldValidationHint,
   FieldWrapper,
 } from '../Field/index.js';
+import { Button } from '../Button/index.js';
 import { I18nContext } from '../I18nContext/I18nContext.js';
 
 import classes from './FileInput.module.css';
@@ -199,6 +200,7 @@ export function FileInput({
   required,
   disabled,
   multiple,
+  tabIndex,
   className,
   style,
   onChange,
@@ -394,12 +396,12 @@ export function FileInput({
     onChange?.(event);
   };
 
-  const handleDragEnter = (event: DragEvent<HTMLLabelElement>) => {
+  const handleDragEnter = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setIsDragging(true);
   };
 
-  const handleDragLeave = (event: DragEvent<HTMLLabelElement>) => {
+  const handleDragLeave = (event: DragEvent<HTMLDivElement>) => {
     // Moving between the dropzone's children also fires `dragleave`.
     if (event.currentTarget.contains(event.relatedTarget as Node | null)) {
       return;
@@ -407,7 +409,7 @@ export function FileInput({
     setIsDragging(false);
   };
 
-  const handleDrop = (event: DragEvent<HTMLLabelElement>) => {
+  const handleDrop = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setIsDragging(false);
     addFiles(Array.from(event.dataTransfer.files));
@@ -431,6 +433,8 @@ export function FileInput({
           className={clsx(classes.input, utilClasses.hideVisually)}
           required={required}
           disabled={disabled}
+          // In the default variant, the button is the keyboard stop.
+          tabIndex={variant === 'default' ? -1 : tabIndex}
           onChange={handleChange}
           aria-invalid={invalid && 'true'}
           aria-labelledby={labelId}
@@ -448,7 +452,7 @@ export function FileInput({
               <span className={classes.icon}>
                 <FileIcon aria-hidden="true" size="24" />
                 <span className={classes.badge}>
-                  <Upload aria-hidden="true" size="16" />
+                  <ArrowUp aria-hidden="true" size="16" />
                 </span>
               </span>
               <span className={classes.title}>{buttonLabel}</span>
@@ -456,8 +460,8 @@ export function FileInput({
             {supportingText}
           </>
         ) : (
-          <FieldLabel
-            htmlFor={inputId}
+          // biome-ignore lint/a11y/noStaticElementInteractions: The dropzone is only a drag-and-drop target. The button inside it is the accessible way to select files.
+          <div
             className={clsx(
               classes.trigger,
               classes['variant-default'],
@@ -476,11 +480,19 @@ export function FileInput({
             </span>
             {dropLabel && <span className={classes.title}>{dropLabel}</span>}
             {supportingText}
-            <span className={classes.button}>
+            <Button
+              type="button"
+              size="s"
+              variant="secondary"
+              navigationIcon={Upload}
+              disabled={disabled}
+              aria-describedby={description ? supportingTextId : undefined}
+              onClick={() => inputRef.current?.click()}
+              className={classes.button}
+            >
               {buttonLabel}
-              <Upload aria-hidden="true" size="16" />
-            </span>
-          </FieldLabel>
+            </Button>
+          </div>
         )}
       </div>
       {selectedFiles.length > 0 && (
