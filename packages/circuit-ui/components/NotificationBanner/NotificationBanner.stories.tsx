@@ -65,7 +65,7 @@ CustomImage.args = {
   action: {
     onClick: action('Action clicked'),
     children: 'Update',
-    variant: 'primary',
+    variant: 'secondary',
   },
   image: {
     src: '/images/illustration-update.svg',

@@ -33,7 +33,6 @@ import { CloseButton } from '../CloseButton/index.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
 import { getElementHeight } from '../Notification/NotificationService.js';
 import { DEFAULT_HEIGHT } from '../Notification/constants.js';
 
@@ -96,7 +95,9 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
   body?: string;
   /**
    * A notification action to allow users to directly follow up on the
-   * communicated content. It can be a `primary` or `tertiary` button.
+   * communicated content. It accepts all Button variants and defaults to
+   * `primary`.
+   * @default 'primary'
    */
   action: Action;
   /**
@@ -175,13 +176,6 @@ export function NotificationBanner({
     });
   }, [isVisible, setAnimating]);
 
-  if (process.env.NODE_ENV !== 'production' && action.variant === 'tertiary') {
-    deprecate(
-      'NotificationBanner',
-      "The action's `tertiary` variant has been deprecated. Use the `primary` variant instead.",
-    );
-  }
-
   return (
     <div
       ref={applyMultipleRefs(ref, contentElement)}
@@ -203,7 +197,7 @@ export function NotificationBanner({
         </div>
         <Button
           {...action}
-          variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
+          variant={action.variant ?? 'primary'}
           className={clsx(action.className, classes.button)}
           size="s"
         />
