@@ -39,8 +39,10 @@ import { Select } from '../../packages/circuit-ui/components/Select/Select.js';
 import { SelectorGroup } from '../../packages/circuit-ui/components/SelectorGroup/SelectorGroup.js';
 import { Tooltip } from '../../packages/circuit-ui/components/Tooltip/Tooltip.js';
 import { IconButton } from '../../packages/circuit-ui/components/Button/IconButton.js';
+import { I18nProvider } from '../../packages/circuit-ui/components/I18nContext/I18nContext.js';
 import { ToastProvider } from '../../packages/circuit-ui/components/ToastContext/ToastContext.js';
 import { useNotificationToast } from '../../packages/circuit-ui/components/NotificationToast/NotificationToast.js';
+import { FALLBACK_LOCALE } from '../../packages/circuit-ui/util/i18n.js';
 import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
 import { utilClasses } from '../../packages/circuit-ui/styles/utility.js';
 import { slugify } from '../slugify.js';
@@ -130,61 +132,63 @@ export function Icons() {
 
   return (
     <Unstyled>
-      <ToastProvider>
-        <fieldset className={classes.filters}>
-          <legend className={utilClasses.hideVisually}>Icon filters</legend>
-          <SearchInput
-            label="Search by name or keyword"
-            placeholder="Search..."
-            value={search}
-            onChange={handleChange(setSearch)}
-            onClear={() => setSearch('')}
-            clearLabel="Clear"
-          />
-          <Select
-            label="Size"
-            options={sizeOptions}
-            value={size}
-            onChange={handleChange(setSize)}
-          />
-          <Select
-            label="Color"
-            options={colorOptions}
-            value={color}
-            onChange={handleChange(setColor)}
-          />
-          <SelectorGroup
-            label="Scale"
-            options={scaleOptions}
-            value={scale}
-            onChange={handleChange(setScale)}
-          />
-        </fieldset>
+      <I18nProvider locale={FALLBACK_LOCALE}>
+        <ToastProvider>
+          <fieldset className={classes.filters}>
+            <legend className={utilClasses.hideVisually}>Icon filters</legend>
+            <SearchInput
+              label="Search by name or keyword"
+              placeholder="Search..."
+              value={search}
+              onChange={handleChange(setSearch)}
+              onClear={() => setSearch('')}
+              clearLabel="Clear"
+            />
+            <Select
+              label="Size"
+              options={sizeOptions}
+              value={size}
+              onChange={handleChange(setSize)}
+            />
+            <Select
+              label="Color"
+              options={colorOptions}
+              value={color}
+              onChange={handleChange(setColor)}
+            />
+            <SelectorGroup
+              label="Scale"
+              options={scaleOptions}
+              value={scale}
+              onChange={handleChange(setScale)}
+            />
+          </fieldset>
 
-        {activeIcons.length <= 0 ? (
-          <Body>No icons found</Body>
-        ) : (
-          Object.entries<IconsManifest['icons']>(
-            groupBy(activeIcons, 'category'),
-          ).map(([category, items]) => (
-            <section key={category} className={classes.category}>
-              <Headline as="h2" size="m" id={slugify(category)}>
-                {category}
-              </Headline>
-              <div className={classes.list}>
-                {sortBy(items, 'name').map((icon) => (
-                  <Icon
-                    key={`${icon.name}-${icon.size}`}
-                    icon={icon}
-                    scale={scale}
-                    color={color}
-                  />
-                ))}
-              </div>
-            </section>
-          ))
-        )}
-      </ToastProvider>
+          {activeIcons.length <= 0 ? (
+            <Body>No icons found</Body>
+          ) : (
+            Object.entries<IconsManifest['icons']>(
+              groupBy(activeIcons, 'category'),
+            ).map(([category, items]) => (
+              <section key={category} className={classes.category}>
+                <Headline as="h2" size="m" id={slugify(category)}>
+                  {category}
+                </Headline>
+                <div className={classes.list}>
+                  {sortBy(items, 'name').map((icon) => (
+                    <Icon
+                      key={`${icon.name}-${icon.size}`}
+                      icon={icon}
+                      scale={scale}
+                      color={color}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))
+          )}
+        </ToastProvider>
+      </I18nProvider>
     </Unstyled>
   );
 }
