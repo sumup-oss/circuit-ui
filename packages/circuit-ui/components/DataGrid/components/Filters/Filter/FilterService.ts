@@ -64,6 +64,7 @@ export function getFilterKind<P>({
     return undefined;
   }
   switch (type.name) {
+    case 'boolean':
     case 'singleSelection':
     case 'multiSelection':
       return 'multi';
@@ -108,18 +109,28 @@ export function normalizeFilterValue<P>(
 
 type SelectionColumnType<P = unknown> = Extract<
   FilterColumn<P>['type'],
-  { name: 'singleSelection' | 'multiSelection' }
+  { name: 'singleSelection' } | { name: 'multiSelection' } | { name: 'boolean' }
 >;
 
 /**
  * Returns the options of a selection column as labelled values, also when they
  * are objects that are read with `getOptionLabel` and `getOptionValue`.
  */
-export function getSelectionOptions<P>({
-  options,
-  getOptionLabel,
-  getOptionValue,
-}: SelectionColumnType<P>): Option[] {
+export function getSelectionOptions<P>(args: SelectionColumnType<P>): Option[] {
+  if (args.name === 'boolean') {
+    const { accessibleLabel } = args;
+    return [
+      {
+        label: accessibleLabel(true),
+        value: 'true',
+      },
+      {
+        label: accessibleLabel(false),
+        value: 'false',
+      },
+    ];
+  }
+  const { options, getOptionLabel, getOptionValue } = args;
   if (getOptionLabel && getOptionValue) {
     return options.map((option) => ({
       label: getOptionLabel(option),
@@ -155,6 +166,7 @@ export function getFilterSummary<P>(
     return undefined;
   }
   switch (type.name) {
+    case 'boolean':
     case 'singleSelection':
     case 'multiSelection':
       return String((value as string[]).length);

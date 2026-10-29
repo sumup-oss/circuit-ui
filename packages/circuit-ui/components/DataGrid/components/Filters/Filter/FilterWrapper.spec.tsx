@@ -57,14 +57,11 @@ describe('FilterWrapper', () => {
 
   const baseProps = { column: multiColumn, onChange: vi.fn() };
 
-  it.each([
-    ['text', { name: 'text' }],
-    ['boolean', { name: 'boolean', accessibleLabel: () => 'Active' }],
-  ] as const)('should render nothing for a %s column', (_, type) => {
+  it('should render nothing for a text column', () => {
     const { container } = render(
       <FilterWrapper
         {...baseProps}
-        column={{ label: 'Notes', filter: true, type }}
+        column={{ label: 'Notes', filter: true, type: { name: 'text' } }}
       />,
     );
 
@@ -86,6 +83,7 @@ describe('FilterWrapper', () => {
     ['single selection', { name: 'singleSelection', options }],
     ['multi selection', { name: 'multiSelection', options }],
     ['number', { name: 'number' }],
+    ['boolean', { name: 'boolean', accessibleLabel: () => 'foo' }],
     ['date', { name: 'date' }],
   ] as const)('should render a trigger with the column label for a %s column', (_, type) => {
     render(
@@ -135,6 +133,25 @@ describe('FilterWrapper', () => {
     expect(
       screen.getByRole('button', { name: 'Quantity (5 – 20)' }),
     ).toBeInTheDocument();
+  });
+  it('should show a boolean type as a multi selection filter', async () => {
+    render(
+      <FilterWrapper
+        onChange={vi.fn()}
+        column={{
+          label: 'Boolean',
+          filter: true,
+          type: {
+            name: 'boolean',
+            accessibleLabel: (boolean) => (boolean ? 'True' : 'False'),
+          },
+        }}
+      />,
+    );
+    await userEvent.click(screen.getByRole('button', { name: 'Boolean' }));
+    const [truthyOption, falsyOption] = screen.getAllByRole('checkbox');
+    expect(truthyOption).toHaveAccessibleName('True');
+    expect(falsyOption).toHaveAccessibleName('False');
   });
 
   describe('when applying a multi choice filter', () => {
@@ -217,7 +234,7 @@ describe('FilterWrapper', () => {
   it.each([
     { name: 'singleSelection', options },
     { name: 'multiSelection', options },
-  ] as const)('should not throw an error for missing labels with type %s', async (type) => {
+  ] as const)('should not throw an error for missing labels with type %s', (type) => {
     process.env.NODE_ENV = 'development';
     render(
       <FilterWrapper
@@ -226,9 +243,9 @@ describe('FilterWrapper', () => {
       />,
     );
 
-    expect(
-      await userEvent.click(screen.getByRole('button', { name: 'Column' })),
-    ).not.toThrow();
+    expect(() => {
+      fireEvent.click(screen.getByRole('button', { name: 'Column' }));
+    }).not.toThrow();
     process.env.NODE_ENV = 'test';
   });
 

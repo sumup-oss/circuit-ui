@@ -209,6 +209,7 @@ const columns: Column<Member>[] = [
       accessibleLabel: (isActive: boolean) =>
         isActive ? 'Is an active member' : 'Is not an active member',
     },
+    filter: true,
   },
   {
     id: 'actions',
@@ -580,6 +581,15 @@ export const WithFilters = (args: DataGridProps<Member>) => {
                   Temporal.PlainDate.from(to).toZonedDateTime('Europe/Berlin'),
                 ) < 0
               : true),
+        );
+      }
+      if (key === 'activity') {
+        results = results.filter(({ subscription: { frequentMember } }) =>
+          frequentMember !== undefined
+            ? (value as string[]).some(
+                (val) => frequentMember.toString() === val,
+              )
+            : false,
         );
       }
       if (key === 'allergies') {

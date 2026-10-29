@@ -75,6 +75,7 @@ interface FilterBodyProps<P> {
 
 function FilterBody<P>({ type, labels, value, ...props }: FilterBodyProps<P>) {
   switch (type.name) {
+    case 'boolean':
     case 'singleSelection':
     case 'multiSelection':
       return (

@@ -34,11 +34,12 @@ interface Plan {
 
 describe('FilterService', () => {
   const options = [{ label: 'Paid', value: 'paid' }];
-
+  const accessibleLabel = (value: boolean) => (value ? 'Yes' : 'No');
   describe('getFilterKind', () => {
     it.each([
       [{ name: 'singleSelection', options }, 'multi'],
       [{ name: 'multiSelection', options }, 'multi'],
+      [{ name: 'boolean', options }, 'multi'],
       [{ name: 'number' }, 'number'],
       [{ name: 'date' }, 'date'],
     ] as [
@@ -138,6 +139,20 @@ describe('FilterService', () => {
   });
 
   describe('getSelectionOptions', () => {
+    it('should return the options for a boolean field', () => {
+      expect(getSelectionOptions({ name: 'boolean', accessibleLabel })).toEqual(
+        [
+          {
+            value: 'true',
+            label: 'Yes',
+          },
+          {
+            value: 'false',
+            label: 'No',
+          },
+        ],
+      );
+    });
     it('should return the options as they are when they are labelled values', () => {
       expect(getSelectionOptions({ name: 'multiSelection', options })).toBe(
         options,
@@ -169,6 +184,7 @@ describe('FilterService', () => {
     });
 
     it.each([
+      [{ name: 'boolean', accessibleLabel }],
       [{ name: 'singleSelection', options }],
       [{ name: 'multiSelection', options }],
     ] as [
