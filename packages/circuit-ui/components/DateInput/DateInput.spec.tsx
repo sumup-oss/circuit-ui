@@ -14,7 +14,7 @@
  */
 
 import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
-import { createRef } from 'react';
+import { createRef, useState } from 'react';
 import { waitFor } from '@testing-library/react';
 
 import { render, screen, axe, userEvent } from '../../util/test-utils.js';
@@ -248,6 +248,38 @@ describe('DateInput', () => {
       rerender(<DateInput {...props} ref={ref} value="" />);
 
       expect(ref.current).toHaveValue('');
+      expect(screen.getByLabelText(/day/i)).toHaveValue('');
+      expect(screen.getByLabelText(/month/i)).toHaveValue('');
+      expect(screen.getByLabelText(/year/i)).toHaveValue('');
+    });
+
+    it('should keep the day and month when only the year is cleared', async () => {
+      const ControlledDateInput = () => {
+        const [value, setValue] = useState('2000-01-12');
+        return (
+          <>
+            <DateInput
+              {...props}
+              value={value}
+              onChange={(event) => setValue(event.target.value)}
+            />
+            <button type="button" onClick={() => setValue('')}>
+              Reset
+            </button>
+          </>
+        );
+      };
+      render(<ControlledDateInput />);
+
+      await userEvent.clear(screen.getByLabelText(/year/i));
+
+      expect(screen.getByLabelText(/day/i)).toHaveValue('12');
+      expect(screen.getByLabelText(/month/i)).toHaveValue('1');
+      expect(screen.getByLabelText(/year/i)).toHaveValue('');
+
+      await userEvent.type(screen.getByLabelText(/year/i), '2001');
+      await userEvent.click(screen.getByRole('button', { name: 'Reset' }));
+
       expect(screen.getByLabelText(/day/i)).toHaveValue('');
       expect(screen.getByLabelText(/month/i)).toHaveValue('');
       expect(screen.getByLabelText(/year/i)).toHaveValue('');

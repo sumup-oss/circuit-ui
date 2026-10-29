@@ -29,6 +29,10 @@ import { Status } from '../Status/index.js';
 
 import { ListItem, type ListItemProps } from './ListItem.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('ListItem', () => {
   function renderListItem<T>(renderFn: RenderFn<T>, props: ListItemProps) {
     return renderFn(<ListItem {...props} />);
@@ -37,6 +41,54 @@ describe('ListItem', () => {
   const baseProps = {
     label: 'Label',
   };
+
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <ListItem {...baseProps} className={className} />,
+    );
+    const listItem = container.firstChild;
+    expect((listItem as HTMLElement)?.className).toContain(className);
+  });
+
+  it('should throw a CircuitError when props have trailingDetails but no trailingLabel', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      render(<ListItem {...baseProps} trailingDetails="Trailing details" />),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
+
+  it('should throw a CircuitError when props have trailingComponent and trailingLabel', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      render(
+        <ListItem
+          {...baseProps}
+          trailingComponent={<Status color="promo">Promo</Status>}
+          trailingLabel="Trailing label"
+        />,
+      ),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
+
+  it('should throw a CircuitError when using the "menu" variant without the `menu` prop', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() => render(<ListItem {...baseProps} variant="menu" />)).toThrow(
+      '[ListItem] The `menu` prop is required with the "menu" variant.',
+    );
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
 
   it('should render a ListItem with a leading icon', () => {
     const { container } = renderListItem(render, {
@@ -199,6 +251,93 @@ describe('ListItem', () => {
       const { container } = render(<ListItem {...baseProps} ref={ref} />);
       const listItem = container.firstChild;
       expect(ref.current).toBe(listItem);
+    });
+  });
+
+  describe('menu variant', () => {
+    const menuProps = {
+      actions: [
+        {
+          onClick: vi.fn(),
+          children: 'View',
+        },
+      ],
+      label: 'Actions',
+    };
+
+    it('should render as the menu variant', async () => {
+      render(<ListItem {...baseProps} variant="menu" menu={menuProps} />);
+      const trigger = screen.getByRole('button', { name: 'Actions' });
+      expect(trigger).toBeVisible();
+      await userEvent.click(trigger);
+      expect(screen.getByRole('button', { name: 'View' })).toBeVisible();
+    });
+
+    it('should not render as button when onClick is provided', async () => {
+      const onClick = vi.fn();
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={menuProps}
+          onClick={onClick}
+          data-testid="menu-list-item"
+        />,
+      );
+      expect(screen.getAllByRole('button')).toHaveLength(1);
+      const listItem = screen.getByTestId('menu-list-item');
+      expect(listItem).toBeVisible();
+      await userEvent.click(listItem);
+      expect(onClick).not.toHaveBeenCalled();
+    });
+    it('should not render as link when href is provided', async () => {
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={menuProps}
+          href="/settings"
+          data-testid="menu-list-item"
+        />,
+      );
+      expect(screen.queryAllByRole('link')).toHaveLength(0);
+    });
+    it('should not render as selected when selected prop is provided', async () => {
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={menuProps}
+          selected
+          data-testid="menu-list-item"
+        />,
+      );
+      expect(screen.getByTestId('menu-list-item')).not.toHaveAttribute(
+        'aria-current',
+      );
+    });
+
+    it('should not render with menu when variant is menu and actions are missing', async () => {
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={{ ...menuProps, actions: [] }}
+        />,
+      );
+      expect(
+        screen.queryByRole('button', { name: menuProps.label }),
+      ).not.toBeInTheDocument();
+    });
+    it('should not render with menu when variant is menu and menu label is not provided', async () => {
+      render(
+        <ListItem
+          {...baseProps}
+          variant="menu"
+          menu={{ ...menuProps, label: '' }}
+        />,
+      );
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
     });
   });
 

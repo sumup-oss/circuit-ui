@@ -72,14 +72,19 @@
     max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
   }
 
+  .country-code-autocomplete-shell {
+    flex-basis: 40%;
+
+    /* Keep searches readable without taking more than half of a narrow row. */
+    min-width: min(12rem, 50%);
+    max-width: 20rem;
+  }
+
   .country-code-autocomplete-shell .country-code {
-    width: fit-content;
+    width: 100%;
   }
 
   .country-code-autocomplete-shell .country-code-autocomplete-input {
-    field-sizing: content;
-    min-width: var(--cui-spacings-yotta);
-    max-width: min(20rem, 45vw);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

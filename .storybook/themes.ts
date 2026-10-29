@@ -2,6 +2,7 @@ import { create } from 'storybook/theming';
 import { GLOBALS_UPDATED } from 'storybook/internal/core-events';
 
 import { Link } from './components/Link.js';
+import { type Globals, parseGlobals } from './globals.js';
 
 const brand = {
   brandTitle: 'Circuit UI',
@@ -124,29 +125,13 @@ export const components = {
 type Theme = 'light' | 'dark' | 'consumer';
 
 type Context = {
-  globals: {
-    theme: string;
-  };
+  globals: Pick<Globals, 'theme'>;
 };
 
 type EventListener = (
   eventName: string,
   callback: (context: Context) => void,
 ) => void;
-
-function parseGlobals(queryParam: string | null | undefined) {
-  if (!queryParam) {
-    return {};
-  }
-  return queryParam.split(';').reduce(
-    (acc, global) => {
-      const [key, value] = global.split(':');
-      acc[key] = value;
-      return acc;
-    },
-    {} as Record<string, string>,
-  );
-}
 
 export function listenToTheme(
   eventEmitter: { on: EventListener; off: EventListener },
@@ -169,8 +154,7 @@ export function listenToTheme(
   };
 
   const initTheme = () => {
-    const globals = new URL(window.location.href).searchParams.get('globals');
-    const { theme } = parseGlobals(globals);
+    const { theme } = parseGlobals();
     handleGlobalsChange({ globals: { theme: theme || 'system' } });
   };
 

@@ -1,5 +1,11 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 8.0.1
+
+### Patch Changes
+
+- [#4000](https://github.com/sumup-oss/circuit-ui/pull/4000) [`db77aa3`](https://github.com/sumup-oss/circuit-ui/commit/db77aa36dcde98e65a9f93af3f4393b041984dae) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed obsolete rules for legacy IconButton props in the `no-renamed-props` ESlint rule.
+
 ## 8.0.0
 
 ### Major Changes

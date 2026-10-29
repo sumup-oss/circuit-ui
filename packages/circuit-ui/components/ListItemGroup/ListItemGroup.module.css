@@ -66,6 +66,10 @@
   border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
 }
 
+.offset div[data-variant="action"] {
+  margin-right: var(--cui-spacings-mega);
+}
+
 .interactive:hover:not(:first-of-type) > * > div:last-of-type::before,
 .interactive:hover + li:not(:first-of-type) > * > div:last-of-type::before {
   border-top-width: 0;

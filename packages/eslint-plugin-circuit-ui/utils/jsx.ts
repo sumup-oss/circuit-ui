@@ -71,18 +71,6 @@ export function isAttributeTruthy(attribute: TSESTree.JSXAttribute): boolean {
   return false;
 }
 
-export function filterWhitespaceChildren(
-  children: TSESTree.JSXChild[],
-): TSESTree.JSXChild[] {
-  return children.filter((child) => {
-    if (child.type !== TSESTree.AST_NODE_TYPES.JSXText) {
-      return true;
-    }
-    const nonWhiteSpaceText = child.value.trim();
-    return Boolean(nonWhiteSpaceText);
-  });
-}
-
 export function transformAttributeValueToChildren(
   sourceCode: TSESLint.SourceCode,
   attribute: TSESTree.JSXAttribute,

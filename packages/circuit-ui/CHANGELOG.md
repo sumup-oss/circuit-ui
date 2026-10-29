@@ -1,5 +1,36 @@
 # @sumup-oss/circuit-ui
 
+## 12.6.0
+
+### Minor Changes
+
+- [#3989](https://github.com/sumup-oss/circuit-ui/pull/3989) [`a1fc483`](https://github.com/sumup-oss/circuit-ui/commit/a1fc48332c39c19836df3f42a161d52e68793adb) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `"menu"` variant to the ListItem component. It displays an ActionMenu in the trailing section of the ListItem.
+
+- [#4003](https://github.com/sumup-oss/circuit-ui/pull/4003) [`9334bd7`](https://github.com/sumup-oss/circuit-ui/commit/9334bd7aedbc141201d0eba76a9f4e903cc7c7a1) Thanks [@missating](https://github.com/missating)! - Updated the NotificationBanner action to accept all Button variants (`primary`, `secondary` and `tertiary`) with default as `primary`.
+
+  Previously, the action's `tertiary` variant was remapped and rendered as a `secondary` button while every other value, including `secondary`, rendered as a `primary` button. The variant is no longer remapped, and the `tertiary` deprecation warning has been removed.
+
+  Now passing:
+  - `variant: 'tertiary'` renders a tertiary button. To keep the previous appearance, use `variant: 'secondary'`.
+  - `variant: 'secondary'` renders a secondary button instead of a primary one. To keep the previous appearance, use `variant: 'primary'` or omit the variant.
+  - `variant: 'primary'` or no variant still renders a primary button.
+
+## 12.5.0
+
+### Minor Changes
+
+- [#3964](https://github.com/sumup-oss/circuit-ui/pull/3964) [`1bc2963`](https://github.com/sumup-oss/circuit-ui/commit/1bc2963f182af5bd079a580560e39cfcbf214a56) Thanks [@connor-baer](https://github.com/connor-baer)! - Relax the requirement for the I18nProvider when the locale is passed directly as a prop. Wrapping your app in the I18nProvider remains the recommended way to set the locale and reduce boilerplate. Astro components, however, don't support React context, so passing the locale as a prop is easier in this case.
+
+### Patch Changes
+
+- [#3987](https://github.com/sumup-oss/circuit-ui/pull/3987) [`d93434e`](https://github.com/sumup-oss/circuit-ui/commit/d93434e03e8f29932e9f29960ce0227a96d0fbe8) Thanks [@missating](https://github.com/missating)! - Fixed the DateInput component clearing the day and month when only the year is cleared or invalid in controlled mode.
+
+- [#3986](https://github.com/sumup-oss/circuit-ui/pull/3986) [`4cfcb02`](https://github.com/sumup-oss/circuit-ui/commit/4cfcb02718883dd204e8ec5fd2fd99458ee41a7a) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed focus restoration issue in the Popover component when opened by an action different from `onClick`.
+
+- [#3992](https://github.com/sumup-oss/circuit-ui/pull/3992) [`d63b7c5`](https://github.com/sumup-oss/circuit-ui/commit/d63b7c52505b3e70f90fa4511acabb674f17527e) Thanks [@matoous](https://github.com/matoous)! - Fixed `passwordManagerIgnore` in `AutocompleteInput` and enabled it on the country code selector in `PhoneNumberInput` to prevent password manager suggestions on the prefix field.
+
+- [#3993](https://github.com/sumup-oss/circuit-ui/pull/3993) [`c790f9e`](https://github.com/sumup-oss/circuit-ui/commit/c790f9e257c25271d488566994f1caf0c3771cec) Thanks [@matoous](https://github.com/matoous)! - Give the PhoneNumberInput country autocomplete a stable, responsive width so clearing or typing a search keeps the country results readable.
+
 ## 12.4.0
 
 ### Minor Changes
