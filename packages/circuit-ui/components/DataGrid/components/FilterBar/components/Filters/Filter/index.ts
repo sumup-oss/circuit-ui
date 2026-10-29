@@ -13,5 +13,5 @@
  * limitations under the License.
  */
 
-export { FilterWrapper } from './FilterWrapper.js';
-export type { FilterWrapperProps } from './FilterWrapper.js';
+export { Filter } from './Filter.js';
+export type { FilterWrapperProps } from './Filter.js';

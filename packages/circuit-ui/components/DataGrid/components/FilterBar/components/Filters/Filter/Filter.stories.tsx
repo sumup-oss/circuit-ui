@@ -18,12 +18,12 @@ import { type ReactNode, useState } from 'react';
 import { modes } from '../../../../../../../../../.storybook/modes.js';
 import type { Option } from '../../../../../types.js';
 
-import { FilterWrapper, type FilterWrapperProps } from './index.js';
+import { Filter, type FilterWrapperProps } from './index.js';
 import type { FilterValue } from './types.js';
 
 export default {
   title: 'Components/DataGrid/Filter',
-  component: FilterWrapper,
+  component: Filter,
   tags: ['status:internal'],
   chromatic: {
     modes: {
@@ -45,7 +45,7 @@ const FilterStory = (args: FilterWrapperProps) => {
 
   return (
     <StoryWrapper>
-      <FilterWrapper {...args} value={value} onChange={setValue} />
+      <Filter {...args} value={value} onChange={setValue} />
     </StoryWrapper>
   );
 };

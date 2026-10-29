@@ -23,7 +23,7 @@ import {
   userEvent,
 } from '../../../../../../../util/test-utils.js';
 
-import { FilterWrapper, type FilterWrapperProps } from './FilterWrapper.js';
+import { Filter, type FilterWrapperProps } from './Filter.js';
 
 declare const process: {
   env: { NODE_ENV: string };
@@ -34,7 +34,7 @@ interface Plan {
   name: string;
 }
 
-describe('FilterWrapper', () => {
+describe('Filter', () => {
   beforeEach(() => {
     vi.useFakeTimers({ shouldAdvanceTime: true });
   });
@@ -59,7 +59,7 @@ describe('FilterWrapper', () => {
 
   it('should render nothing for a text column', () => {
     const { container } = render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         column={{ label: 'Notes', filter: true, type: { name: 'text' } }}
       />,
@@ -70,7 +70,7 @@ describe('FilterWrapper', () => {
 
   it('should render nothing when the column has no filter', () => {
     const { container } = render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         column={{ ...multiColumn, filter: false }}
       />,
@@ -87,7 +87,7 @@ describe('FilterWrapper', () => {
     ['date', { name: 'date' }],
   ] as const)('should render a trigger with the column label for a %s column', (_, type) => {
     render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         column={{ label: 'Column', filter: true, type }}
       />,
@@ -97,7 +97,7 @@ describe('FilterWrapper', () => {
   });
 
   it('should add the number of selections to the trigger', () => {
-    render(<FilterWrapper {...baseProps} value={['eggs', 'soy']} />);
+    render(<Filter {...baseProps} value={['eggs', 'soy']} />);
 
     expect(
       screen.getByRole('button', { name: 'Allergies (2)' }),
@@ -106,7 +106,7 @@ describe('FilterWrapper', () => {
 
   it('should offer checkboxes for a single selection column', async () => {
     render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         column={{
           label: 'Status',
@@ -123,7 +123,7 @@ describe('FilterWrapper', () => {
 
   it('should describe a range in the trigger', () => {
     render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         column={{ label: 'Quantity', filter: true, type: { name: 'number' } }}
         value={{ min: 5, max: 20 }}
@@ -136,7 +136,7 @@ describe('FilterWrapper', () => {
   });
   it('should show a boolean type as a multi selection filter', async () => {
     render(
-      <FilterWrapper
+      <Filter
         onChange={vi.fn()}
         column={{
           label: 'Boolean',
@@ -157,7 +157,7 @@ describe('FilterWrapper', () => {
   describe('when applying a multi choice filter', () => {
     it('should only report the selection when clicking Apply', async () => {
       const onChange = vi.fn();
-      render(<FilterWrapper {...baseProps} onChange={onChange} />);
+      render(<Filter {...baseProps} onChange={onChange} />);
 
       await userEvent.click(screen.getByRole('button', { name: 'Allergies' }));
       await userEvent.click(screen.getByRole('checkbox', { name: 'Eggs' }));
@@ -171,7 +171,7 @@ describe('FilterWrapper', () => {
 
     it('should discard the selection when closing without applying', async () => {
       const onChange = vi.fn();
-      render(<FilterWrapper {...baseProps} onChange={onChange} />);
+      render(<Filter {...baseProps} onChange={onChange} />);
       const trigger = screen.getByRole('button', { name: 'Allergies' });
 
       await userEvent.click(trigger);
@@ -186,7 +186,7 @@ describe('FilterWrapper', () => {
     it('should remove the filter and keep the popover open when clicking Clear', async () => {
       const onChange = vi.fn();
       render(
-        <FilterWrapper {...baseProps} value={['eggs']} onChange={onChange} />,
+        <Filter {...baseProps} value={['eggs']} onChange={onChange} />,
       );
       const trigger = screen.getByRole('button', { name: 'Allergies (1)' });
 
@@ -215,7 +215,7 @@ describe('FilterWrapper', () => {
     ['plain number', { name: 'number' }, 'textbox'],
   ] as const)('should show the fields of a %s column', async (_, type, role) => {
     render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         labels={{
           min: 'Min',
@@ -237,7 +237,7 @@ describe('FilterWrapper', () => {
   ] as const)('should not throw an error for missing labels with type %s', (type) => {
     process.env.NODE_ENV = 'development';
     render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         column={{ label: 'Column', filter: true, type }}
       />,
@@ -255,7 +255,7 @@ describe('FilterWrapper', () => {
   ] as const)('should throw an error for missing labels with type %s', async (type) => {
     process.env.NODE_ENV = 'development';
     render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         column={{ label: 'Column', filter: true, type }}
       />,
@@ -270,7 +270,7 @@ describe('FilterWrapper', () => {
   it('should report the range in order when applying a reversed range', async () => {
     const onChange = vi.fn();
     render(
-      <FilterWrapper
+      <Filter
         labels={{
           max: 'Max',
           min: 'Min',
@@ -290,7 +290,7 @@ describe('FilterWrapper', () => {
 
   it('should offer options that are read with the getters', async () => {
     render(
-      <FilterWrapper
+      <Filter
         {...baseProps}
         column={{
           label: 'Plan',
@@ -316,7 +316,7 @@ describe('FilterWrapper', () => {
 
   describe('when inline', () => {
     it('should render the controls without a trigger', () => {
-      render(<FilterWrapper {...baseProps} variant="inline" />);
+      render(<Filter {...baseProps} variant="inline" />);
 
       expect(
         screen.queryByRole('button', { name: 'Allergies' }),
@@ -330,7 +330,7 @@ describe('FilterWrapper', () => {
     it('should report changes right away', async () => {
       const onChange = vi.fn();
       render(
-        <FilterWrapper {...baseProps} variant="inline" onChange={onChange} />,
+        <Filter {...baseProps} variant="inline" onChange={onChange} />,
       );
 
       await userEvent.click(screen.getByRole('checkbox', { name: 'Eggs' }));
@@ -340,7 +340,7 @@ describe('FilterWrapper', () => {
   });
 
   it('should have no accessibility violations', async () => {
-    const { container } = render(<FilterWrapper {...baseProps} />);
+    const { container } = render(<Filter {...baseProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });

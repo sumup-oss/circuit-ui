@@ -4,13 +4,13 @@ import { SearchInput } from '../../../SearchInput/index.js';
 import { ColumnPicker } from './components/ColumnPicker/ColumnPicker.js';
 import type { Column, WithColumnPicker, WithSearchBar } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { Filter, Refresh } from '@sumup-oss/icons';
+import { Filter as FilterIcon, Refresh } from '@sumup-oss/icons';
 import { TriggerButton } from './components/TriggerButton/TriggerButton.js';
 import { useTranslations } from '../../../../hooks/useTranslations/useTranslations.js';
 import { translations } from './translations/index.js';
 import { Status } from '../../../Status/index.js';
 import type { FilterValue } from './components/Filters/Filter/types.js';
-import { FilterWrapper } from './components/Filters/Filter/index.js';
+import { Filter } from './components/Filters/Filter/index.js';
 import { Button } from '../../../Button/index.js';
 import {
   FilterSheet,
@@ -81,7 +81,7 @@ const FilterBarComponent = <P,>({
         <div className={classes['filters-wrapper']}>
           <div className={classes.filters}>
             {visibleColumns.map(({ type, id, filter, label, filterConfig }) => (
-              <FilterWrapper
+              <Filter
                 key={`${id}-filter`}
                 labels={filterConfig?.labels}
                 column={{ type, label, filter }}
@@ -119,7 +119,7 @@ const FilterBarComponent = <P,>({
               </Status>
             )}
             <TriggerButton
-              icon={Filter}
+              icon={FilterIcon}
               onClick={() => setOpen(true)}
               aria-describedby={filterCountId}
             >

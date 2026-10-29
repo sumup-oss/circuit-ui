@@ -28,7 +28,7 @@ import {
   normalizeFilterValue,
 } from '../Filter/FilterService.js';
 import type { FilterValue } from '../Filter/types.js';
-import { FilterWrapper } from '../Filter/index.js';
+import { Filter } from '../Filter/index.js';
 import { translations } from '../translations/index.js';
 
 import classes from './FilterSheet.module.css';
@@ -144,7 +144,7 @@ export function FilterSheet<P>(props: FilterSheetProps<P>) {
         {columns.map((column) =>
           getFilterKind(column) ? (
             <div key={column.id} className={classes.section}>
-              <FilterWrapper
+              <Filter
                 column={column}
                 labels={column.filterConfig?.labels}
                 variant="inline"

@@ -171,7 +171,7 @@ function PopoverFilter<P>({
  * Shows the filter that fits the type of a column, or nothing when the column
  * has no filter.
  */
-export function FilterWrapper<P>({
+export function Filter<P>({
   column,
   variant = 'popover',
   ...props
