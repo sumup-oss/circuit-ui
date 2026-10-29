@@ -209,7 +209,6 @@ const columns: Column<Member>[] = [
       accessibleLabel: (isActive: boolean) =>
         isActive ? 'Is an active member' : 'Is not an active member',
     },
-    filter: true,
   },
   {
     id: 'actions',
@@ -328,6 +327,7 @@ const buildColumnsWithFilters = (): Column<Member>[] => {
     },
   };
   columnsWithFilters[6] = { ...columnsWithFilters[6], filter: true };
+  columnsWithFilters[7] = { ...columnsWithFilters[7], filter: true };
   return columnsWithFilters;
 };
 
@@ -608,11 +608,6 @@ export const WithFilters = (args: DataGridProps<Member>) => {
 WithFilters.args = {
   ...baseArgs,
   onFilter: action('onFilter'),
-  searchBarConfig: {
-    label: 'Search everywhere...',
-    onSearch: action('onSearch'),
-    clearLabel: 'Clear',
-  },
   columns: buildColumnsWithFilters(),
 };
 
