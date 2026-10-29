@@ -39,7 +39,10 @@ const RowComponent = <P,>({
             maxWidth: `var(--${id}-col-max-width)`,
             minWidth: `var(--${id}-col-min-width)`,
           }}
-          className={maxWidth ? classes.overflow : undefined}
+          className={clsx(
+            maxWidth ? classes.overflow : undefined,
+            type.name === 'row-actions' && classes['align-right'],
+          )}
         >
           {type.name === 'custom'
             ? type.render?.(data)
