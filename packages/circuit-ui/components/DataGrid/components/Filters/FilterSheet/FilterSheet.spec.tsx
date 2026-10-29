@@ -50,6 +50,12 @@ describe('FilterSheet', () => {
         id: 'amount',
         label: 'Amount',
         filter: true,
+        filterConfig: {
+          labels: {
+            min: 'Min',
+            max: 'Max',
+          },
+        },
         type: { name: 'number' },
       },
       { id: 'name', label: 'Name', filter: false, type: { name: 'text' } },
@@ -82,10 +88,8 @@ describe('FilterSheet', () => {
   it('should show every column that has a filter', () => {
     render(<FilterSheet {...baseProps} />);
 
-    expect(
-      screen.getByRole('group', { name: 'Payment Status' }),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('group', { name: 'Amount' })).toBeInTheDocument();
+    expect(screen.getByRole('group', { name: 'Payment Status' })).toBeVisible();
+    expect(screen.getByRole('group', { name: 'Amount' })).toBeVisible();
     expect(screen.queryByText('Name')).not.toBeInTheDocument();
   });
 
