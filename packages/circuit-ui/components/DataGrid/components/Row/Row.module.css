@@ -1,0 +1,17 @@
+.base {
+  background-color: var(--cui-bg-normal);
+}
+
+.base:hover {
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.overflow {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.align-right {
+  text-align: right;
+}
