@@ -126,10 +126,8 @@ button.base:active {
 
 .trailing {
   display: flex;
-  flex: none;
-  flex-direction: column;
-  gap: var(--cui-spacings-bit);
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: flex-start;
   align-self: stretch;
   justify-content: center;
   margin-left: var(--cui-spacings-mega);
@@ -139,21 +137,31 @@ button.base:active {
   justify-content: flex-start;
 }
 
-.navigation .trailing {
-  margin-right: calc(-1 * var(--cui-spacings-bit));
+.trailing-content {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--cui-spacings-bit);
+  align-items: flex-end;
 }
 
-.chevron {
+.trailing-detail {
+  width: var(--cui-icon-sizes-mega);
+  height: var(--cui-icon-sizes-mega);
+  margin-right: calc(-1 * var(--cui-spacings-byte));
+}
+
+.trailing-label {
   display: flex;
   align-items: center;
 }
 
-/* When the chevron is preceded by other content */
-.navigation .chevron svg:not(:first-child) {
+/* When the trailing-label is preceded by other content */
+.navigation .trailing-label svg:not(:first-child) {
   margin-left: var(--cui-spacings-bit);
 }
 
-.navigation .trailing .details {
+.navigation .trailing .details,
+.menu .trailing .details {
   height: var(--cui-body-m-line-height);
-  margin-right: calc(var(--cui-spacings-mega) + var(--cui-spacings-bit));
 }
