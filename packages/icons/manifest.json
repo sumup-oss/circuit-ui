@@ -3130,6 +3130,11 @@
       "size": "24"
     },
     {
+      "name": "cvs_file",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "delivery_note",
       "category": "File",
       "size": "24"
@@ -3155,6 +3160,11 @@
       "size": "24"
     },
     {
+      "name": "file_spreadsheet",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "history",
       "category": "File",
       "size": "24"
@@ -3166,6 +3176,11 @@
     },
     {
       "name": "passport",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "pdf_file",
       "category": "File",
       "size": "24"
     },
