@@ -17,6 +17,7 @@ import { createRef } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import {
+  act,
   axe,
   fireEvent,
   render,
@@ -193,19 +194,27 @@ describe('FileInput', () => {
       successLabel: 'Uploaded',
       errorLabel: 'Upload failed',
       retryLabel: 'Retry upload',
+      menuLabel: 'More actions',
     };
 
     function createUpload() {
       const calls: {
         file: File;
         signal: AbortSignal;
+        onProgress: (progress: number) => void;
         resolve: () => void;
         reject: (reason: unknown) => void;
       }[] = [];
       const upload = vi.fn(
-        (file: File, { signal }: { signal: AbortSignal }) =>
+        (
+          file: File,
+          {
+            signal,
+            onProgress,
+          }: { signal: AbortSignal; onProgress: (progress: number) => void },
+        ) =>
           new Promise<void>((resolve, reject) => {
-            calls.push({ file, signal, resolve, reject });
+            calls.push({ file, signal, onProgress, resolve, reject });
           }),
       );
       return { upload, calls };
@@ -226,6 +235,22 @@ describe('FileInput', () => {
 
       expect(await screen.findByText('Uploaded')).toBeVisible();
       expect(screen.queryByText('Uploading…')).not.toBeInTheDocument();
+    });
+
+    it('shows the progress reported by the upload', async () => {
+      const { upload, calls } = createUpload();
+      render(<FileInput {...uploadProps} upload={upload} />);
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+
+      const getIcon = () =>
+        screen.getByText('march.pdf').closest('li')?.querySelector('span');
+
+      expect(getIcon()).not.toHaveStyle('--progress: 40');
+
+      act(() => calls[0].onProgress(40));
+
+      expect(getIcon()).toHaveStyle('--progress: 40');
     });
 
     it('emits an event whenever the state of a file changes', async () => {
@@ -302,7 +327,10 @@ describe('FileInput', () => {
 
       calls[0].reject(new Error('Network error'));
       await userEvent.click(
-        await screen.findByRole('button', { name: 'Retry upload' }),
+        await screen.findByRole('button', { name: 'More actions' }),
+      );
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Retry upload' }),
       );
 
       expect(upload).toHaveBeenCalledTimes(2);

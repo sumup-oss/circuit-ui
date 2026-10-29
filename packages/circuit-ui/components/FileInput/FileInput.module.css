@@ -163,6 +163,10 @@
   transform: scale(0.8);
 }
 
+.badge-error {
+  background-color: var(--cui-bg-danger-strong);
+}
+
 /* File list */
 
 .list {
@@ -175,65 +179,98 @@
 }
 
 .item {
-  --item-ring-color: var(--cui-border-accent);
+  list-style: none;
+}
 
+/* The rows keep the default ListItem look. The badge ring needs to match the
+   ListItem background to look cut out of the icon circle. */
+.item .row {
+  --badge-ring-color: var(--cui-bg-normal);
+}
+
+/* Finished uploads have a darker fill, with a status badge on top */
+.icon-finished {
+  background-color: var(--cui-bg-highlight);
+}
+
+/* Uploading: the fill is replaced by a progress ring centered on the edge */
+.icon-uploading {
+  --ring-width: 2.5px;
+
+  background-color: transparent;
+}
+
+.ring {
+  position: absolute;
+  inset: calc(var(--ring-width) / -2);
+  pointer-events: none;
+
+  /* A solid ring for browsers that don't support the gradient arc below */
+  border: var(--ring-width) solid #598ffa;
+  border-radius: inherit;
+}
+
+.arc {
+  display: none;
+}
+
+@supports (mask: radial-gradient(#000, transparent)) and
+  (background: conic-gradient(#000, #fff)) {
+  .ring {
+    border: 0;
+    mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - var(--ring-width)),
+      #000 calc(100% - var(--ring-width) + 1px)
+    );
+  }
+
+  /* The gradient is fixed to the circle and revealed from 12 o'clock */
+  .arc {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background: conic-gradient(from 0deg, #598ffa, #d673d9 50%, #d673d9);
+    mask: conic-gradient(
+      from 0deg,
+      #000 calc(var(--progress, 100) * 1%),
+      transparent 0
+    );
+  }
+
+  .indeterminate .arc {
+    --progress: 25;
+
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .indeterminate .arc {
+      --progress: 100;
+
+      animation: none;
+    }
+  }
+}
+
+.row-details {
   display: flex;
-  gap: var(--cui-spacings-mega);
-  align-items: center;
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
-  background-color: var(--cui-bg-subtle);
-  border-radius: var(--cui-border-radius-mega);
-}
-
-.item.error {
-  --item-ring-color: var(--cui-border-danger);
-}
-
-.item.uploading {
-  --item-ring-color: var(--cui-border-accent);
-}
-
-.item.success {
-  --item-ring-color: var(--cui-border-subtle);
-}
-
-.item-icon {
-  display: grid;
-  flex-shrink: 0;
-  place-items: center;
-  width: var(--cui-spacings-peta);
-  height: var(--cui-spacings-peta);
-  border: var(--cui-border-width-mega) solid var(--item-ring-color);
-  border-radius: var(--cui-border-radius-circle);
-}
-
-.item-text {
-  display: flex;
-  flex: 1;
   flex-direction: column;
-  min-width: 0;
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
 }
 
-.item-name {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* Body has no placeholder color. The selector outranks the color of Body. */
+.row-details .placeholder {
+  color: var(--cui-fg-placeholder);
 }
 
-.item-meta,
-.item-status {
-  color: var(--cui-fg-subtle);
-}
-
-.item.error .item-status {
-  color: var(--cui-fg-danger);
-}
-
-.item-actions {
+.row-actions {
   display: flex;
-  flex-shrink: 0;
   gap: var(--cui-spacings-bit);
   align-items: center;
 }

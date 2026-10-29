@@ -16,6 +16,8 @@
 import { Stack } from '../../../../.storybook/components/index.js';
 
 import { FileInput, type FileInputProps } from './FileInput.js';
+import classes from './FileInput.module.css';
+import { FileInputItem } from './FileInputItem.js';
 
 export default {
   title: 'Forms/FileInput',
@@ -42,21 +44,35 @@ const baseArgs = {
   description: 'PDF, JPG, PNG (max 10MB each)',
   removeLabel: 'Remove file',
   uploadingLabel: 'Uploading…',
+  successLabel: 'Upload complete',
   errorLabel: 'Upload failed',
   retryLabel: 'Retry upload',
-  // Simulates an upload that takes two seconds. Files with "fail" in their
-  // name are rejected.
-  upload: (file: File, { signal }: { signal: AbortSignal }) =>
+  menuLabel: 'More actions',
+  // Simulates an upload that takes two seconds and reports its progress.
+  // Files with "fail" in their name are rejected.
+  upload: (
+    file: File,
+    {
+      signal,
+      onProgress,
+    }: { signal: AbortSignal; onProgress: (progress: number) => void },
+  ) =>
     new Promise<void>((resolve, reject) => {
-      const timeout = setTimeout(() => {
-        if (file.name.includes('fail')) {
-          reject(new Error('Upload failed'));
-        } else {
-          resolve();
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 10;
+        onProgress(progress);
+        if (progress >= 100) {
+          clearInterval(interval);
+          if (file.name.includes('fail')) {
+            reject(new Error('Upload failed'));
+          } else {
+            resolve();
+          }
         }
-      }, 2000);
+      }, 200);
       signal.addEventListener('abort', () => {
-        clearTimeout(timeout);
+        clearInterval(interval);
         reject(new Error('Upload aborted'));
       });
     }),
@@ -64,7 +80,35 @@ const baseArgs = {
   multiple: true,
 };
 
-export const Base = (args: FileInputProps) => <FileInput {...args} />;
+// The component only renders list items for files the user selected, so the
+// finished states are shown with static samples below the input.
+export const Base = (args: FileInputProps) => (
+  <>
+    <FileInput {...args} />
+    <ul className={classes.list}>
+      <FileInputItem
+        name="receipt-march.pdf"
+        size={245_760}
+        status="success"
+        statusLabel={args.successLabel}
+        removeLabel={args.removeLabel}
+        menuLabel={args.menuLabel}
+        onRemove={() => {}}
+      />
+      <FileInputItem
+        name="receipt-april-fail.png"
+        size={3_145_728}
+        status="error"
+        statusLabel={args.errorLabel}
+        removeLabel={args.removeLabel}
+        retryLabel={args.retryLabel}
+        menuLabel={args.menuLabel}
+        onRemove={() => {}}
+        onRetry={() => {}}
+      />
+    </ul>
+  </>
+);
 
 Base.args = baseArgs;
 
@@ -91,7 +135,6 @@ export const Validations = (args: FileInputProps) => (
       validationHint="Select a file"
       invalid
     />
-    <FileInput {...args} validationHint="Files are stored securely" />
   </Stack>
 );
 

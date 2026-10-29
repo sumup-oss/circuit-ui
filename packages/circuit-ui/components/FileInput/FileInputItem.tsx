@@ -13,15 +13,32 @@
  * limitations under the License.
  */
 
-import { Delete, File as FileIcon, Refresh } from '@sumup-oss/icons';
+import { useState } from 'react';
+import {
+  Checkmark,
+  Close,
+  Delete,
+  File as FileIcon,
+  More,
+  Refresh,
+} from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
+import { ActionMenu } from '../ActionMenu/index.js';
+import { Body } from '../Body/index.js';
 import { IconButton } from '../Button/index.js';
+import { ListItem } from '../ListItem/index.js';
 
 import classes from './FileInput.module.css';
 import { formatFileSize } from './FileInputService.js';
 
 export type FileInputStatus = 'uploading' | 'success' | 'error';
+
+const statusColors = {
+  uploading: 'subtle',
+  success: 'success',
+  error: 'danger',
+} as const;
 
 export interface FileInputItemProps {
   /**
@@ -36,6 +53,11 @@ export interface FileInputItemProps {
    * The upload state of the file.
    */
   status?: FileInputStatus;
+  /**
+   * The upload progress between 0 and 100. When undefined while the file is
+   * uploading, the progress ring spins to indicate activity.
+   */
+  progress?: number;
   /**
    * A short description of the file's state, for example "Uploading…".
    */
@@ -53,6 +75,10 @@ export interface FileInputItemProps {
    */
   retryLabel?: string;
   /**
+   * Accessible label for the button that opens the menu of a finished upload.
+   */
+  menuLabel?: string;
+  /**
    * Called when the user wants to remove the file.
    */
   onRemove?: () => void;
@@ -69,57 +95,151 @@ export function FileInputItem({
   name,
   size,
   status,
+  progress,
   statusLabel,
   formattingLocale,
   removeLabel,
   retryLabel,
+  menuLabel,
   onRemove,
   onRetry,
 }: FileInputItemProps) {
   const showRetry = status === 'error' && onRetry && retryLabel;
   const showRemove = onRemove && removeLabel;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Finished uploads collapse their actions into a menu. This mirrors the
+  // upcoming "menu" variant of the ListItem and can be replaced by it.
+  const menuActions = [
+    ...(showRetry ? [{ children: retryLabel, onClick: () => onRetry() }] : []),
+    ...(showRemove
+      ? [
+          {
+            children: removeLabel,
+            onClick: () => onRemove(),
+            destructive: true,
+          },
+        ]
+      : []),
+  ];
+  const hasMenu =
+    (status === 'success' || status === 'error') &&
+    Boolean(menuLabel) &&
+    menuActions.length > 0;
 
   return (
-    <li className={clsx(classes.item, status && classes[status])}>
-      <span className={classes['item-icon']}>
-        <FileIcon aria-hidden="true" size="24" />
-      </span>
-      <div className={classes['item-text']}>
-        <span className={classes['item-name']}>{name}</span>
-        <span className={classes['item-meta']}>
-          {formatFileSize(size, formattingLocale)}
-        </span>
-        {statusLabel && (
-          <span className={classes['item-status']}>{statusLabel}</span>
-        )}
-      </div>
-      {(showRetry || showRemove) && (
-        <div className={classes['item-actions']}>
-          {showRetry && (
-            <IconButton
-              type="button"
-              size="s"
-              variant="tertiary"
-              icon={Refresh}
-              onClick={onRetry}
-            >
-              {retryLabel}
-            </IconButton>
-          )}
-          {showRemove && (
-            <IconButton
-              type="button"
-              size="s"
-              variant="tertiary"
-              destructive
-              icon={Delete}
-              onClick={onRemove}
-            >
-              {removeLabel}
-            </IconButton>
-          )}
-        </div>
-      )}
+    <li className={classes.item}>
+      <ListItem
+        className={classes.row}
+        leadingComponent={
+          <span
+            className={clsx(
+              classes.icon,
+              status === 'uploading' && classes['icon-uploading'],
+              (status === 'success' || status === 'error') &&
+                classes['icon-finished'],
+            )}
+            style={
+              status === 'uploading' && progress !== undefined
+                ? { '--progress': progress }
+                : undefined
+            }
+          >
+            <FileIcon aria-hidden="true" size="24" />
+            {(status === 'success' || status === 'error') && (
+              <span
+                className={clsx(
+                  classes.badge,
+                  status === 'error' && classes['badge-error'],
+                )}
+              >
+                {status === 'success' ? (
+                  <Checkmark aria-hidden="true" size="16" />
+                ) : (
+                  <Close aria-hidden="true" size="16" />
+                )}
+              </span>
+            )}
+            {status === 'uploading' && (
+              <span
+                aria-hidden="true"
+                className={clsx(
+                  classes.ring,
+                  progress === undefined && classes.indeterminate,
+                )}
+              >
+                <span className={classes.arc} />
+              </span>
+            )}
+          </span>
+        }
+        label={name}
+        details={
+          <div className={classes['row-details']}>
+            <Body size="s" color="subtle">
+              {formatFileSize(size, formattingLocale)}
+            </Body>
+            {statusLabel && (
+              <Body
+                size="s"
+                color={statusColors[status ?? 'uploading']}
+                className={
+                  status === 'uploading' ? classes.placeholder : undefined
+                }
+              >
+                {statusLabel}
+              </Body>
+            )}
+          </div>
+        }
+        trailingComponent={
+          hasMenu ? (
+            <ActionMenu
+              isOpen={isMenuOpen}
+              onToggle={setIsMenuOpen}
+              placement="bottom-end"
+              component={(buttonProps) => (
+                <IconButton
+                  {...buttonProps}
+                  icon={More}
+                  size="s"
+                  variant="tertiary"
+                >
+                  {menuLabel as string}
+                </IconButton>
+              )}
+              actions={menuActions}
+            />
+          ) : (
+            (showRetry || showRemove) && (
+              <div className={classes['row-actions']}>
+                {showRetry && (
+                  <IconButton
+                    type="button"
+                    size="s"
+                    variant="tertiary"
+                    icon={Refresh}
+                    onClick={onRetry}
+                  >
+                    {retryLabel}
+                  </IconButton>
+                )}
+                {showRemove && (
+                  <IconButton
+                    type="button"
+                    size="s"
+                    variant="tertiary"
+                    icon={Delete}
+                    onClick={onRemove}
+                  >
+                    {removeLabel}
+                  </IconButton>
+                )}
+              </div>
+            )
+          )
+        }
+      />
     </li>
   );
 }

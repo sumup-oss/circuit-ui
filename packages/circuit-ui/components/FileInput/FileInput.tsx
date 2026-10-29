@@ -84,6 +84,7 @@ interface SelectedFile {
   id: string;
   file: File;
   status?: FileInputStatus;
+  progress?: number;
 }
 
 export interface FileInputProps
@@ -124,12 +125,17 @@ export interface FileInputProps
    * Uploads a file. The component calls it for every selected file and
    * tracks the file's state: it is `uploading` until the returned promise
    * settles, then `success` if it resolves or `error` if it rejects. The
-   * signal is aborted when the file is removed from the list.
+   * signal is aborted when the file is removed from the list. Call
+   * `onProgress` with a value between 0 and 100 to fill the progress ring. If
+   * it is never called, the ring spins to indicate activity.
    *
    * When omitted, the component only collects files (for example for a form
    * submission) and doesn't track any upload state.
    */
-  upload?: (file: File, options: { signal: AbortSignal }) => Promise<unknown>;
+  upload?: (
+    file: File,
+    options: { signal: AbortSignal; onProgress: (progress: number) => void },
+  ) => Promise<unknown>;
   /**
    * Called whenever the state of a file changes, as it starts uploading and
    * when the upload succeeds or fails. Use it to decide when to move the user
@@ -161,6 +167,12 @@ export interface FileInputProps
    * passing the `upload` prop.
    */
   retryLabel?: string;
+  /**
+   * Accessible label for the menu button of finished uploads, which contains
+   * the actions to remove a file or retry a failed upload. Required when
+   * passing the `upload` prop.
+   */
+  menuLabel?: string;
   /**
    * A unique identifier for the input element. If not defined, a generated id
    * is used.
@@ -194,6 +206,7 @@ export function FileInput({
   successLabel,
   errorLabel,
   retryLabel,
+  menuLabel,
   id: customId,
   validationHint,
   invalid,
@@ -247,6 +260,7 @@ export function FileInput({
         uploadingLabel,
         errorLabel,
         retryLabel,
+        menuLabel,
       })) {
         if (!isSufficientlyLabelled(value)) {
           throw new AccessibilityError(
@@ -302,7 +316,9 @@ export function FileInput({
   ) => {
     setSelectedFiles((previous) =>
       previous.map((selected) =>
-        selected.id === fileId ? { ...selected, status } : selected,
+        selected.id === fileId
+          ? { ...selected, status, progress: undefined }
+          : selected,
       ),
     );
     latest.current.onFileStateChange?.({ id: fileId, file, status, error });
@@ -333,9 +349,24 @@ export function FileInput({
       updateStatus(fileId, file, status, error);
     };
 
+    const onProgress = (progress: number) => {
+      // Ignore updates of uploads that were removed, replaced or have settled.
+      if (controllers.current.get(fileId) !== controller) {
+        return;
+      }
+      const clamped = Math.min(Math.max(progress, 0), 100);
+      setSelectedFiles((previous) =>
+        previous.map((selected) =>
+          selected.id === fileId
+            ? { ...selected, progress: clamped }
+            : selected,
+        ),
+      );
+    };
+
     // Wrapping the call also catches errors thrown by non-async functions.
     new Promise((resolve) => {
-      resolve(upload(file, { signal: controller.signal }));
+      resolve(upload(file, { signal: controller.signal, onProgress }));
     }).then(
       () => settle('success'),
       (error: unknown) => settle('error', error),
@@ -497,16 +528,18 @@ export function FileInput({
       </div>
       {selectedFiles.length > 0 && (
         <ul className={classes.list}>
-          {selectedFiles.map(({ id: fileId, file, status }) => (
+          {selectedFiles.map(({ id: fileId, file, status, progress }) => (
             <FileInputItem
               key={fileId}
               name={file.name}
               size={file.size}
               status={status}
+              progress={progress}
               statusLabel={status && statusLabels[status]}
               formattingLocale={formattingLocale ?? undefined}
               removeLabel={removeLabel}
               retryLabel={retryLabel}
+              menuLabel={menuLabel}
               onRemove={() => removeFile(fileId)}
               onRetry={upload && (() => retryFile(fileId))}
             />
