@@ -15,9 +15,9 @@
 
 import { formatCurrency, formatDate, formatNumber } from '@sumup-oss/intl';
 
-import { toPlainDate } from '../../../../../util/date.js';
-import type { Locale } from '../../../../../util/i18n.js';
-import type { Column, Option } from '../../../types.js';
+import { toPlainDate } from '../../../../../../../util/date.js';
+import type { Locale } from '../../../../../../../util/i18n.js';
+import type { Column, Option } from '../../../../../types.js';
 
 import type {
   DateRange,

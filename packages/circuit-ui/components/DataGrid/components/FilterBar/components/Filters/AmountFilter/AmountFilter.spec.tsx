@@ -19,9 +19,9 @@ import {
   render,
   screen,
   userEvent,
-} from '../../../../../util/test-utils.js';
+} from '../../../../../../../util/test-utils.js';
 
-import { I18nProvider } from '../../../../I18nContext/I18nContext.js';
+import { I18nProvider } from '../../../../../../I18nContext/I18nContext.js';
 import { AmountFilter, type AmountFilterProps } from './AmountFilter.js';
 
 describe('AmountFilter', () => {

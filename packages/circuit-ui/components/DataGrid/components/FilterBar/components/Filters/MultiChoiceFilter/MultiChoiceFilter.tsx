@@ -17,8 +17,8 @@
 
 import { type ChangeEvent, useId } from 'react';
 
-import { CheckboxGroup } from '../../../../CheckboxGroup/index.js';
-import type { Option } from '../../../types.js';
+import { CheckboxGroup } from '../../../../../../CheckboxGroup/index.js';
+import type { Option } from '../../../../../types.js';
 
 import classes from './MultiChoiceFilter.module.css';
 

@@ -20,7 +20,7 @@ import {
   render,
   screen,
   userEvent,
-} from '../../../../../util/test-utils.js';
+} from '../../../../../../../util/test-utils.js';
 
 import { MultiChoiceFilter } from './MultiChoiceFilter.js';
 

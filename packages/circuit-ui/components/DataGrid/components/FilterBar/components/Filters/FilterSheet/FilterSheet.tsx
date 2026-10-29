@@ -17,22 +17,22 @@
 
 import { useId, useState } from 'react';
 
-import { Button } from '../../../../Button/index.js';
-import { Headline } from '../../../../Headline/index.js';
-import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
-import { Modal } from '../../../../Modal/index.js';
-import { useLatest } from '../../../../../hooks/useLatest/index.js';
-import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
-import type { Column } from '../../../types.js';
+import { Button } from '../../../../../../Button/index.js';
+import { Headline } from '../../../../../../Headline/index.js';
+import type { I18nConfig } from '../../../../../../I18nContext/I18nContext.js';
+import { Modal } from '../../../../../../Modal/index.js';
+import { useLatest } from '../../../../../../../hooks/useLatest/index.js';
+import { useTranslations } from '../../../../../../../hooks/useTranslations/useTranslations.js';
 import {
   getFilterKind,
   normalizeFilterValue,
 } from '../Filter/FilterService.js';
 import type { FilterValue } from '../Filter/types.js';
-import { FilterWrapper } from '../Filter/FilterWrapper.js';
+import { FilterWrapper } from '../Filter/index.js';
 import { translations } from '../translations/index.js';
 
 import classes from './FilterSheet.module.css';
+import type { Column } from '../../../../../types.js';
 
 export type FilterValues = Record<string, FilterValue | undefined>;
 

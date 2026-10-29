@@ -17,14 +17,14 @@
 
 import { resolveNumberFormat } from '@sumup-oss/intl';
 
-import { CurrencyInput } from '../../../../CurrencyInput/index.js';
-import { Input, type InputProps } from '../../../../Input/index.js';
-import { PercentageInput } from '../../../../PercentageInput/index.js';
-import { useI18n } from '../../../../../hooks/useI18n/useI18n.js';
-import { NumericFormat } from '../../../../../vendor/react-number-format/index.js';
-import type { OnValueChange } from '../../../../../vendor/react-number-format/types.js';
-import { clsx } from '../../../../../styles/clsx.js';
-import { utilClasses } from '../../../../../styles/utility.js';
+import { CurrencyInput } from '../../../../../../CurrencyInput/index.js';
+import { Input, type InputProps } from '../../../../../../Input/index.js';
+import { PercentageInput } from '../../../../../../PercentageInput/index.js';
+import { useI18n } from '../../../../../../../hooks/useI18n/useI18n.js';
+import { NumericFormat } from '../../../../../../../vendor/react-number-format/index.js';
+import type { OnValueChange } from '../../../../../../../vendor/react-number-format/types.js';
+import { clsx } from '../../../../../../../styles/clsx.js';
+import { utilClasses } from '../../../../../../../styles/utility.js';
 import type { AmountKind } from '../Filter/FilterService.js';
 import { compactRange } from '../Filter/range.js';
 import type { NumberRange } from '../Filter/types.js';

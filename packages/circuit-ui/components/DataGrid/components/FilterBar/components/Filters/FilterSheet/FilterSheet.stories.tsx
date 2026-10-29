@@ -16,9 +16,9 @@
 import { useState } from 'react';
 import { screen, userEvent, within } from 'storybook/test';
 
-import { Button } from '../../../../Button/index.js';
-import { modes } from '../../../../../../../.storybook/modes.js';
-import type { Column } from '../../../types.js';
+import { Button } from '../../../../../../Button/index.js';
+import { modes } from '../../../../../../../../../.storybook/modes.js';
+import type { Column } from '../../../../../types.js';
 
 import { FilterSheet, type FilterValues } from './index.js';
 

@@ -9,13 +9,13 @@ import { TriggerButton } from './components/TriggerButton/TriggerButton.js';
 import { useTranslations } from '../../../../hooks/useTranslations/useTranslations.js';
 import { translations } from './translations/index.js';
 import { Status } from '../../../Status/index.js';
-import type { FilterValue } from '../Filters/Filter/types.js';
-import { FilterWrapper } from '../Filters/Filter/index.js';
+import type { FilterValue } from './components/Filters/Filter/types.js';
+import { FilterWrapper } from './components/Filters/Filter/index.js';
 import { Button } from '../../../Button/index.js';
 import {
   FilterSheet,
   type FilterValues,
-} from '../Filters/FilterSheet/index.js';
+} from './components/Filters/FilterSheet/index.js';
 
 export interface FilterBarProps<P> extends WithColumnPicker, WithSearchBar {
   onVisibleColumnChange: (value: string[]) => void;

@@ -21,7 +21,7 @@ import {
   render,
   screen,
   userEvent,
-} from '../../../../../util/test-utils.js';
+} from '../../../../../../../util/test-utils.js';
 
 import { FilterWrapper, type FilterWrapperProps } from './FilterWrapper.js';
 

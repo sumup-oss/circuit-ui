@@ -24,14 +24,14 @@ import {
 } from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
 
-import { Button } from '../../../../Button/index.js';
+import { Button } from '../../../../../../Button/index.js';
 import {
   Popover,
   type PopoverReferenceProps,
-} from '../../../../Popover/Popover.js';
-import type { I18nConfig } from '../../../../I18nContext/I18nContext.js';
-import { clsx } from '../../../../../styles/clsx.js';
-import { useTranslations } from '../../../../../hooks/useTranslations/useTranslations.js';
+} from '../../../../../../Popover/Popover.js';
+import type { I18nConfig } from '../../../../../../I18nContext/I18nContext.js';
+import { clsx } from '../../../../../../../styles/clsx.js';
+import { useTranslations } from '../../../../../../../hooks/useTranslations/useTranslations.js';
 import { translations } from '../translations/index.js';
 
 import classes from './FilterShell.module.css';
