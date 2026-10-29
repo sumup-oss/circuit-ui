@@ -1,7 +1,6 @@
 import { memo, useCallback, useId, useState, type ChangeEvent } from 'react';
 import classes from './FilterBar.module.css';
 import { SearchInput } from '../../../SearchInput/index.js';
-import { debounce } from '../../../../util/helpers.js';
 import { ColumnPicker } from './components/ColumnPicker/ColumnPicker.js';
 import type { Column, WithColumnPicker, WithSearchBar } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
@@ -24,6 +23,7 @@ export interface FilterBarProps<P> extends WithColumnPicker, WithSearchBar {
   visibleColumns: Column<P>[];
   isMobile?: boolean;
   onFilter?: (value: Record<string, unknown>) => void;
+  searchQuery: string;
 }
 
 const FilterBarComponent = <P,>({
@@ -32,22 +32,22 @@ const FilterBarComponent = <P,>({
   isMobile,
   visibleColumns,
   searchBarConfig,
+  searchQuery,
   columnPickerConfig,
   onFilter,
 }: FilterBarProps<P>) => {
   const filterCountId = useId();
-  const { label: searchLabel, onSearch } = searchBarConfig ?? {};
+  const { label: searchLabel, onSearch, clearLabel } = searchBarConfig ?? {};
   const [open, setOpen] = useState(false);
   const { filtersLabel } = useTranslations({}, translations);
   const [value, setValue] = useState<FilterValues>({});
   const activeFiltersCount = Object.keys(value).length;
 
   const onChange = useCallback(
-    debounce(
-      (event: ChangeEvent<HTMLInputElement>) => onSearch?.(event.target.value),
-      300,
-    ),
-    [],
+    ({ target: { value: searchTerm } }: ChangeEvent<HTMLInputElement>) => {
+      onSearch?.(searchTerm);
+    },
+    [onSearch],
   );
 
   const onFilterChange = (column: string, filter?: FilterValue) => {
@@ -144,6 +144,9 @@ const FilterBarComponent = <P,>({
             size="s"
             onChange={onChange}
             className={classes.search}
+            clearLabel={clearLabel}
+            value={searchQuery}
+            onClear={() => onSearch('')}
           />
         )}
         {!isMobile && columnPickerConfig && (

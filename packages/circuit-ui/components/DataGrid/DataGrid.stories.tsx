@@ -514,17 +514,37 @@ const baseArgs: DataGridProps<Member> = {
 export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
 Base.args = baseArgs;
-export const WithSearchBar = (args: DataGridProps<Member>) => (
-  <DataGrid {...args} />
-);
 
-WithSearchBar.args = {
-  ...baseArgs,
-  searchBarConfig: {
-    label: 'Search everywhere...',
-    onSearch: action('onSearch'),
-  },
+export const WithSearchBar = (args: DataGridProps<Member>) => {
+  const [records, setRecords] = useState(data);
+
+  function onSearch(searchTerm: string) {
+    if (!searchTerm) {
+      setRecords(data);
+      return;
+    }
+    setRecords(
+      data.filter(
+        ({ firstName, lastName }) =>
+          firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          lastName.toLowerCase().includes(searchTerm.toLowerCase()),
+      ),
+    );
+  }
+  return (
+    <DataGrid
+      {...args}
+      data={records}
+      searchBarConfig={{
+        label: 'Search everywhere...',
+        clearLabel: 'Clear',
+        onSearch,
+      }}
+    />
+  );
 };
+
+WithSearchBar.args = baseArgs;
 
 export const WithFilters = (args: DataGridProps<Member>) => {
   const [records, setRecords] = useState(data);
@@ -581,6 +601,7 @@ WithFilters.args = {
   searchBarConfig: {
     label: 'Search everywhere...',
     onSearch: action('onSearch'),
+    clearLabel: 'Clear',
   },
   columns: buildColumnsWithFilters(),
 };

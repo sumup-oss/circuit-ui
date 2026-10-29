@@ -27,6 +27,10 @@ export interface WithSearchBar {
      * A callback fired when the main search bar query changes.
      */
     onSearch: (query: string) => void;
+    /**
+     * Provides a label to clear search button
+     */
+    clearLabel: string;
   };
 }
 

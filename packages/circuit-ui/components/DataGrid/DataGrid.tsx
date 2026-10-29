@@ -40,6 +40,7 @@ import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { utilClasses } from '../../styles/utility.js';
 import type { ClickEvent } from '../../types/events.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
+import { debounce } from '../../util/helpers.js';
 
 export interface DataGridProps<P>
   extends TableHTMLAttributes<HTMLDivElement>,
@@ -110,6 +111,7 @@ export function DataGrid<P>({
   ...props
 }: DataGridProps<P>) {
   const rowId = useId();
+  const [searchQuery, setSearchQuery] = useState('');
   const [visibleColumns, setVisibleColumns] = useState(() => {
     const savedInStorage = sessionStorage
       .getItem(`cui-grid-${label}-visible-columns`)
@@ -125,6 +127,23 @@ export function DataGrid<P>({
     formattingLocale: customFormattingLocale,
   });
   const internalRef = useRef<HTMLTableElement>(null);
+
+  const debouncedOnSearch = useCallback(
+    searchBarConfig?.onSearch
+      ? debounce(searchBarConfig.onSearch, 300)
+      : () => {},
+    [],
+  );
+
+  const onSearchChange = useCallback(
+    (query: string) => {
+      if (searchBarConfig) {
+        setSearchQuery(query);
+        debouncedOnSearch(query);
+      }
+    },
+    [debouncedOnSearch, searchBarConfig],
+  );
 
   const handleClickEvent = useCallback((event: MouseEvent) => {
     const table = internalRef.current;
@@ -247,18 +266,26 @@ export function DataGrid<P>({
     [columns, label],
   );
 
-  const hasFilters = columns.some(({ filter }) => filter);
+  const showFilterBar =
+    searchBarConfig ||
+    columnPickerConfig ||
+    columns.some(({ filter }) => filter);
 
   return (
     <div className={classes.wrapper}>
-      {(searchBarConfig || columnPickerConfig || hasFilters) && (
+      {showFilterBar && (
         <FilterBar
-          searchBarConfig={searchBarConfig}
+          searchBarConfig={
+            searchBarConfig
+              ? { ...searchBarConfig, onSearch: onSearchChange }
+              : undefined
+          }
           onVisibleColumnChange={onVisibleColumnChange}
           columns={columns}
           visibleColumns={visibleColumns}
           isMobile={isMobile}
           onFilter={onFilter}
+          searchQuery={searchQuery}
           columnPickerConfig={columnPickerConfig}
         />
       )}

@@ -3,7 +3,6 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   act,
   axe,
-  fireEvent,
   render,
   screen,
   userEvent,
@@ -48,12 +47,14 @@ const columnPickerConfig = {
 const searchBarConfig = {
   label: 'Search',
   onSearch: vi.fn(),
+  clearLabel: 'Clear',
 };
 
 const defaultProps = {
   columns,
   visibleColumns: [fullName, status],
   onVisibleColumnChange,
+  searchQuery: '',
 } satisfies FilterBarProps<Member>;
 
 describe('FilterBar', () => {
@@ -169,26 +170,6 @@ describe('FilterBar', () => {
   });
 
   describe('Search', () => {
-    afterEach(() => {
-      vi.useRealTimers();
-    });
-
-    async function renderFilterBarWithTimers() {
-      vi.useFakeTimers();
-      renderFilterBar({ searchBarConfig });
-      // Icon button tooltips position themselves on the next task. Flush that
-      // update before changing the search value.
-      await act(async () => {
-        await vi.runAllTimersAsync();
-      });
-    }
-
-    function changeSearch(value: string) {
-      fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), {
-        target: { value },
-      });
-    }
-
     it('should not show the search bar when search config is missing', () => {
       renderFilterBar();
       expect(
@@ -196,38 +177,25 @@ describe('FilterBar', () => {
       ).not.toBeInTheDocument();
     });
 
-    it('should call onSearch with the query after the debounce delay', async () => {
-      await renderFilterBarWithTimers();
+    it('should call onSearch', async () => {
+      renderFilterBar({ searchBarConfig });
 
-      changeSearch('ja');
-
-      expect(searchBarConfig.onSearch).not.toHaveBeenCalled();
-
-      act(() => {
-        vi.advanceTimersByTime(299);
-      });
-      expect(searchBarConfig.onSearch).not.toHaveBeenCalled();
-
-      act(() => {
-        vi.advanceTimersByTime(1);
-      });
-      expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('ja');
+      await userEvent.type(
+        screen.getByRole('searchbox', { name: 'Search' }),
+        'j',
+      );
+      expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('j');
     });
 
-    it('should call onSearch once with the latest query', async () => {
-      await renderFilterBarWithTimers();
-
-      changeSearch('j');
-      act(() => {
-        vi.advanceTimersByTime(200);
+    it('should clearSearch', async () => {
+      renderFilterBar({
+        searchBarConfig: { ...searchBarConfig, clearLabel: 'Clear' },
+        searchQuery: 'foo',
       });
 
-      changeSearch('jane');
-      act(() => {
-        vi.advanceTimersByTime(300);
-      });
-
-      expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('jane');
+      await click(screen.getByRole('button', { name: 'Clear' }));
+      expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('');
+      await settle();
     });
   });
 

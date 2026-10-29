@@ -36,6 +36,7 @@ const onSearch = vi.fn();
 const searchConfig = {
   label: 'Search',
   onSearch,
+  clearLabel: 'Clear',
 };
 
 const defaultProps = {
@@ -227,6 +228,24 @@ describe('DataGrid', () => {
       });
     });
     describe('Search bar', () => {
+      afterEach(() => {
+        vi.useRealTimers();
+      });
+      async function renderDataGridWithTimers() {
+        vi.useFakeTimers();
+        render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
+        // Icon button tooltips position themselves on the next task. Flush that
+        // update before changing the search value.
+        await act(async () => {
+          await vi.runAllTimersAsync();
+        });
+      }
+
+      function changeSearch(value: string) {
+        fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), {
+          target: { value },
+        });
+      }
       it('should render the FilterBar when searchBarConfig is provided', () => {
         render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
         expect(screen.getByRole('toolbar')).toBeVisible();
@@ -242,6 +261,39 @@ describe('DataGrid', () => {
           vi.runAllTimers();
         });
         expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('P');
+      });
+      it('should call onSearch with the query after the debounce delay', async () => {
+        await renderDataGridWithTimers();
+
+        changeSearch('ja');
+
+        expect(searchConfig.onSearch).not.toHaveBeenCalled();
+
+        act(() => {
+          vi.advanceTimersByTime(299);
+        });
+        expect(searchConfig.onSearch).not.toHaveBeenCalled();
+
+        act(() => {
+          vi.advanceTimersByTime(1);
+        });
+        expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('ja');
+      });
+
+      it('should call onSearch once with the latest query', async () => {
+        await renderDataGridWithTimers();
+
+        changeSearch('j');
+        act(() => {
+          vi.advanceTimersByTime(200);
+        });
+
+        changeSearch('jane');
+        act(() => {
+          vi.advanceTimersByTime(300);
+        });
+
+        expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('jane');
       });
     });
     describe('Filters', () => {
