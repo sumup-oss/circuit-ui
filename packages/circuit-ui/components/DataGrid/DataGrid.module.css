@@ -30,3 +30,7 @@
   flex-flow: row wrap;
   gap: var(--cui-spacings-bit);
 }
+
+.list ul {
+  background-color: var(--cui-bg-normal);
+}

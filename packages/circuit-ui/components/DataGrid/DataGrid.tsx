@@ -7,6 +7,7 @@ import {
   type TableHTMLAttributes,
   useId,
   type Ref,
+  useState,
 } from 'react';
 import { TableHeader } from './components/TableHeader/TableHeader.js';
 import { Row } from './components/Row/Row.js';
@@ -26,15 +27,24 @@ import classes from './DataGrid.module.css';
 import { clsx } from '../../styles/clsx.js';
 import { getListItemFragmentContent } from './DataGridService.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import type { Column, MobileConfig } from './types.js';
+import type {
+  Column,
+  MobileConfig,
+  WithColumnPicker,
+  WithSearchBar,
+} from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
 import type { Locale } from '../../util/i18n.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { utilClasses } from '../../styles/utility.js';
 import type { ClickEvent } from '../../types/events.js';
+import { FilterBar } from './components/FilterBar/FilterBar.js';
 
-export interface DataGridProps<P> extends TableHTMLAttributes<HTMLDivElement> {
+export interface DataGridProps<P>
+  extends TableHTMLAttributes<HTMLDivElement>,
+    WithSearchBar,
+    WithColumnPicker {
   /**
    * The columns to display, in order. Each column defines its header label,
    * data type, and how to read and render the cell value from a row.
@@ -89,10 +99,21 @@ export function DataGrid<P>({
   mobileConfig,
   formattingLocale: customFormattingLocale,
   mobileBreakpoint = 768,
+  searchBarConfig,
   ref,
+  columnPickerConfig,
   ...props
 }: DataGridProps<P>) {
   const rowId = useId();
+  const [visibleColumns, setVisibleColumns] = useState(() => {
+    const savedInStorage = sessionStorage
+      .getItem(`cui-grid-${label}-visible-columns`)
+      ?.split('|');
+
+    return savedInStorage
+      ? columns.filter(({ id }) => savedInStorage.includes(id))
+      : columns;
+  });
 
   const isMobile = useMedia(`(max-width: ${mobileBreakpoint}px)`);
   const { formattingLocale } = useI18n({
@@ -141,7 +162,7 @@ export function DataGrid<P>({
       if (isArrowDown(event) && currentY < data.length) {
         newY = currentY + 1;
       }
-      if (isArrowRight(event) && currentX < columns.length) {
+      if (isArrowRight(event) && currentX < visibleColumns.length) {
         newX = currentX + 1;
       }
       if (isArrowLeft(event) && currentX > 0) {
@@ -157,7 +178,7 @@ export function DataGrid<P>({
         newX = 0;
       }
       if (isEnd(event)) {
-        newX = columns.length - 1;
+        newX = visibleColumns.length - 1;
       }
       if (isControlHome(event)) {
         newY = 0;
@@ -165,7 +186,7 @@ export function DataGrid<P>({
       }
       if (isControlEnd(event)) {
         newY = data.length;
-        newX = columns.length - 1;
+        newX = visibleColumns.length - 1;
       }
       if (newX !== currentX || newY !== currentY) {
         const newActiveCell = table.querySelector(
@@ -177,7 +198,7 @@ export function DataGrid<P>({
         newActiveCell?.focus();
       }
     },
-    [data, columns],
+    [data, visibleColumns],
   );
 
   useEffect(() => {
@@ -190,8 +211,8 @@ export function DataGrid<P>({
   }, [handleKeyboardEvent, handleClickEvent]);
 
   useEffect(() => {
-    columns.forEach(({ maxWidth, minWidth, id }) => {
-      if (id === 'row-actions' || id === 'quick-actions') {
+    columns.forEach(({ maxWidth, minWidth, id, type }) => {
+      if (type.name === 'row-actions' || type.name === 'quick-actions') {
         return;
       }
       if (maxWidth) {
@@ -209,59 +230,80 @@ export function DataGrid<P>({
     });
   }, [columns]);
 
-  if (isMobile && mobileConfig) {
-    const { slots, hideLabel, onClick } = mobileConfig;
-    return (
-      <ListItemGroup
-        ref={ref}
-        label={label}
-        hideLabel={hideLabel}
-        items={data.map((value, index) => ({
-          key: `${rowId}-${index}`,
-          variant: 'action',
-          onClick: (event: ClickEvent) => onClick?.(event, value),
-          ...getListItemFragmentContent(
-            columns,
-            value,
-            formattingLocale,
-            slots,
-            `${rowId}-${index}`,
-          ),
-        }))}
-      />
-    );
-  }
+  const onVisibleColumnChange = useCallback(
+    (value: string[]) => {
+      const newValue = columns.filter(({ id }) => value.includes(id));
+      setVisibleColumns(newValue);
+      sessionStorage.setItem(
+        `cui-grid-${label}-visible-columns`,
+        value.join('|'),
+      );
+    },
+    [columns, label],
+  );
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.table}>
-        <table
-          ref={applyMultipleRefs(ref, internalRef)}
-          className={clsx(classes.base, className)}
-          // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: grid is valid role for table
-          role="grid"
-          aria-colcount={columns.length}
-          aria-rowcount={data.length}
-          {...props}
-        >
-          <caption className={utilClasses.hideVisually}>{label}</caption>
-          <TableHeader columns={columns} />
+      {(searchBarConfig || columnPickerConfig) && (
+        <FilterBar
+          searchBarConfig={searchBarConfig}
+          onVisibleColumnChange={onVisibleColumnChange}
+          columns={columns}
+          visibleColumns={visibleColumns}
+          isMobile={isMobile}
+          columnPickerConfig={columnPickerConfig}
+        />
+      )}
+      {isMobile && mobileConfig ? (
+        <ListItemGroup
+          ref={ref}
+          label={label}
+          className={classes.list}
+          hideLabel={mobileConfig.hideLabel}
+          items={data.map((value, index) => ({
+            key: `${rowId}-${index}`,
+            variant: 'action',
+            onClick: (event: ClickEvent) =>
+              mobileConfig.onClick?.(event, value),
+            ...getListItemFragmentContent(
+              columns,
+              value,
+              formattingLocale,
+              mobileConfig.slots,
+              `${rowId}-${index}`,
+            ),
+          }))}
+        />
+      ) : (
+        <div className={classes.table}>
+          <table
+            ref={applyMultipleRefs(ref, internalRef)}
+            className={clsx(classes.base, className)}
+            // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: grid is valid role for table
+            role="grid"
+            aria-colcount={columns.length}
+            aria-rowcount={data.length}
+            {...props}
+          >
+            <caption className={utilClasses.hideVisually}>{label}</caption>
+            <TableHeader columns={visibleColumns} />
 
-          <tbody>
-            {data.map((value, index) => (
-              <Row
-                rowIndex={index}
-                key={`${rowId}-${index}`}
-                columns={columns}
-                formattingLocale={formattingLocale}
-                data={value}
-                className={classes.row}
-                aria-rowindex={index + 1}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
+            <tbody>
+              {data.map((value, index) => (
+                <Row
+                  rowIndex={index}
+                  key={`${rowId}-${index}`}
+                  columns={visibleColumns}
+                  formattingLocale={formattingLocale}
+                  data={value}
+                  className={classes.row}
+                  aria-rowindex={index + 1}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
