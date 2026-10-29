@@ -11,3 +11,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.align-right {
+  text-align: right;
+}

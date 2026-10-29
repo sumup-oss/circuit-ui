@@ -1,0 +1,41 @@
+.base {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--cui-spacings-byte) 0;
+}
+
+.section {
+  display: flex;
+  gap: var(--cui-spacings-kilo);
+}
+
+.search {
+  width: 300px;
+}
+
+.search input {
+  border-radius: var(--cui-border-radius-pill);
+}
+
+.mobile-view {
+  justify-content: start;
+  width: 100%;
+  padding: 0;
+  margin-bottom: var(--cui-spacings-mega);
+}
+
+.mobile-view .section,
+.mobile-view .search {
+  flex: 1;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper .dot {
+  position: absolute;
+  top: calc(-1 * var(--cui-spacings-bit));
+  right: calc(-1 * var(--cui-spacings-bit));
+  z-index: 1;
+}
