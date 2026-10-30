@@ -24,6 +24,7 @@ import {
   isDelete,
   isEnter,
   isEscape,
+  isTab,
   isSpacebar,
 } from './key-codes.js';
 
@@ -74,7 +75,24 @@ describe('key codes', () => {
       key: 'Delete',
       code: 'Delete',
     }),
+    tab: new KeyboardEvent('keydown', {
+      keyCode: 9,
+      key: 'Tab',
+      code: 'Tab',
+    }),
   };
+
+  describe('isTab', () => {
+    it('should return true if the tab key was pressed', () => {
+      const actual = isTab(events.tab);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if the tab key was not pressed', () => {
+      const actual = isTab(events.enter);
+      expect(actual).toBeFalsy();
+    });
+  });
 
   describe('isEnter', () => {
     it('should return true if the enter key was pressed', () => {
