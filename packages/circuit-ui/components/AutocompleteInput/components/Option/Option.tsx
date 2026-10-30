@@ -38,6 +38,7 @@ export type OptionProps = HTMLAttributes<HTMLLIElement> & {
   isFocused: boolean;
   onOptionClick: (value: AutocompleteInputOption) => void;
   isNew?: boolean;
+  optionMedia?: 'avatar' | 'flag';
 };
 
 export const Option = ({
@@ -48,6 +49,7 @@ export const Option = ({
   onOptionClick,
   className,
   isNew,
+  optionMedia = 'avatar',
   ...props
 }: OptionProps) => {
   const { label, description, image, value } = option;
@@ -68,7 +70,7 @@ export const Option = ({
   return (
     // biome-ignore lint/a11y/useKeyWithClickEvents: The options is already keyboard-selectable.
     <li
-      tabIndex={0}
+      tabIndex={-1}
       {...props}
       ref={optionRef}
       // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
@@ -84,7 +86,14 @@ export const Option = ({
       onClick={() => onOptionClick(option)}
     >
       {(image || isNew) && (
-        <div className={classes.media}>
+        <div
+          className={clsx(
+            classes.media,
+            optionMedia === 'flag' && classes.flag,
+          )}
+          data-option-media={optionMedia}
+          data-testid={`option-media-${value}`}
+        >
           {Icon && (
             <div
               aria-hidden

@@ -454,6 +454,7 @@ export function PhoneNumberInput({
             value={countryCodeValue}
             options={filteredOptions}
             onSearch={handleCountryCodeSearch}
+            optionMedia="flag"
             onChange={handleCountryCodeChange}
             variant="contextual"
             ref={countryCode.ref}
