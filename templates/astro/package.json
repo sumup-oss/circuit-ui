@@ -15,20 +15,20 @@
     "lint:css": "stylelint '**/*.css' --quiet"
   },
   "dependencies": {
-    "@astrojs/react": "^7.0.0",
+    "@astrojs/react": "^7.1.1",
     "@sumup-oss/circuit-ui": "^12.6.0",
     "@sumup-oss/design-tokens": "^11.1.0",
     "@sumup-oss/icons": "^7.3.0",
     "@sumup-oss/intl": "^3.5.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "astro": "^7.3.4",
+    "astro": "^7.4.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "temporal-polyfill": "^1.0.4"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "^0.9.12",
     "@sumup-oss/eslint-plugin-circuit-ui": "^8.0.0",
     "@sumup-oss/foundry": "^10.2.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^5.0.0",
