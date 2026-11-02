@@ -32,7 +32,7 @@ import type {
   ActionMenuItemProps,
   ActionMenuProps,
 } from '../ActionMenu/index.js';
-import { Button, IconButton } from '../Button/index.js';
+import { IconButton } from '../Button/index.js';
 import { ListItem } from '../ListItem/index.js';
 
 import classes from './FileInput.module.css';
@@ -168,10 +168,8 @@ export function FileInputItem({
     items.length > 1 && menuLabel
       ? { label: menuLabel, actions: list }
       : undefined;
-  // Our own remove button has a default icon, the actions of consumers don't.
+  // The only action of a file is always the remove action.
   const single = items.length === 1 ? items[0] : undefined;
-  const singleIcon =
-    single?.icon ?? (single === removeAction[0] ? Delete : undefined);
 
   return (
     <li className={classes.item}>
@@ -230,31 +228,18 @@ export function FileInputItem({
           </div>
         }
         trailingComponent={
-          single &&
-          (singleIcon ? (
+          single && (
             <IconButton
               type="button"
               size="s"
               variant="tertiary"
-              icon={singleIcon}
-              destructive={single.destructive}
+              icon={Delete}
               disabled={single.disabled}
               onClick={single.onClick}
             >
               {single.children}
             </IconButton>
-          ) : (
-            <Button
-              type="button"
-              size="s"
-              variant="tertiary"
-              destructive={single.destructive}
-              disabled={single.disabled}
-              onClick={single.onClick}
-            >
-              {single.children}
-            </Button>
-          ))
+          )
         }
       />
     </li>

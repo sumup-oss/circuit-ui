@@ -392,15 +392,6 @@ export function FileInput({
     }
   };
 
-  const retryFile = (fileId: string) => {
-    const retried = selectedFiles.find(
-      ({ id: selected }) => selected === fileId,
-    );
-    if (retried) {
-      handleFile(fileId, retried.file);
-    }
-  };
-
   const removeFile = (fileId: string) => {
     discardFiles(
       selectedFiles.filter(({ id: selected }) => selected === fileId),
@@ -530,7 +521,7 @@ export function FileInput({
               retryLabel={retryLabel}
               actions={trailingActions?.(file)}
               menuLabel={menuLabel}
-              onRetry={() => retryFile(fileId)}
+              onRetry={() => handleFile(fileId, file)}
               onRemove={() => removeFile(fileId)}
             />
           ))}

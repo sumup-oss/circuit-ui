@@ -14,7 +14,7 @@
  */
 
 import { createRef } from 'react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import {
   axe,
@@ -25,7 +25,7 @@ import {
 } from '../../util/test-utils.js';
 
 import { FileInput, type FileInputProps } from './FileInput.js';
-import { formatFileSize } from './FileInputService.js';
+import { formatFileSize, setInputFiles } from './FileInputService.js';
 
 type Options = { signal: AbortSignal };
 
@@ -188,6 +188,18 @@ describe('FileInput', () => {
       });
 
       expect(screen.getByText('march.pdf')).toBeVisible();
+    });
+
+    it('ignores a drop without files', () => {
+      const onChange = vi.fn();
+      render(<FileInput {...baseProps} onChange={onChange} />);
+
+      fireEvent.drop(getDropzone() as HTMLElement, {
+        dataTransfer: { files: [] },
+      });
+
+      expect(screen.queryByRole('list')).not.toBeInTheDocument();
+      expect(onChange).not.toHaveBeenCalled();
     });
 
     it('only keeps the first dropped file when multiple is not set', () => {
@@ -493,5 +505,65 @@ describe('formatFileSize', () => {
     [3_200_000_000, '3.2 GB'],
   ])('formats %d bytes as %s', (bytes, expected) => {
     expect(formatFileSize(bytes, 'en-US')).toBe(expected);
+  });
+});
+
+describe('setInputFiles', () => {
+  const file = new File(['march'], 'march.pdf', { type: 'application/pdf' });
+
+  // jsdom doesn't implement `DataTransfer` or let scripts assign a `FileList`
+  class FakeDataTransfer {
+    files: File[] = [];
+
+    items = {
+      add: (added: File) => {
+        this.files.push(added);
+      },
+    };
+  }
+
+  const createInput = (files: File[] = []) =>
+    ({ files }) as unknown as HTMLInputElement;
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('replaces the files of the input', () => {
+    vi.stubGlobal('DataTransfer', FakeDataTransfer);
+    const input = createInput();
+
+    setInputFiles(input, [file]);
+
+    expect(input.files).toEqual([file]);
+  });
+
+  it('clears the input when the last file is removed', () => {
+    vi.stubGlobal('DataTransfer', FakeDataTransfer);
+    const input = createInput([file]);
+
+    setInputFiles(input, []);
+
+    expect(input.files).toEqual([]);
+  });
+
+  it('leaves an empty input untouched', () => {
+    vi.stubGlobal('DataTransfer', FakeDataTransfer);
+    const input = createInput();
+    const { files } = input;
+
+    setInputFiles(input, []);
+
+    expect(input.files).toBe(files);
+  });
+
+  it('does nothing in environments without DataTransfer', () => {
+    vi.stubGlobal('DataTransfer', undefined);
+    const input = createInput();
+    const { files } = input;
+
+    setInputFiles(input, [file]);
+
+    expect(input.files).toBe(files);
   });
 });

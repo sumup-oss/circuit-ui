@@ -135,7 +135,7 @@
   color: var(--cui-fg-normal);
 
   /* TODO: check with design color matches with row */
-  background-color: var(--cui-bg-subtle);
+  background-color: var(--cui-bg-highlight);
   border-radius: var(--cui-border-radius-pill);
   transition: background-color var(--cui-transitions-default);
 }
@@ -221,7 +221,7 @@
   --ring-width: calc(var(--cui-border-width-mega) * 1.25);
 
   /* TODO: check with design color matches with row */
-  background-color: transparent;
+  background-color: var(--cui-bg-highlight);
 }
 
 .ring {
