@@ -36,6 +36,7 @@ import {
 } from '../../util/errors.js';
 import { idx } from '../../util/idx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import type { ActionMenuProps } from '../ActionMenu/index.js';
 import {
   FieldLabel,
   FieldValidationHint,
@@ -50,32 +51,13 @@ import { setInputFiles } from './FileInputService.js';
 
 export type { FileInputStatus };
 
-export interface FileInputStateEvent {
-  /**
-   * The unique identifier of the file within the component.
-   */
-  id: string;
-  /**
-   * The file whose state changed.
-   */
-  file: File;
-  /**
-   * The new state of the file.
-   */
-  status: FileInputStatus;
-  /**
-   * The reason why the upload failed. Only set when the status is `error`.
-   */
-  error?: unknown;
-}
-
 export interface FileInputRemoveEvent {
   /**
-   * The unique identifier of the file within the component.
+   * The unique identifier of the file.
    */
   id: string;
   /**
-   * The file that was removed from the list.
+   * The file that was removed.
    */
   file: File;
 }
@@ -84,19 +66,26 @@ interface SelectedFile {
   id: string;
   file: File;
   status?: FileInputStatus;
-  progress?: number;
+  error?: unknown;
+}
+
+function isPromiseLike(value: unknown): value is PromiseLike<unknown> {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    typeof (value as PromiseLike<unknown>).then === 'function'
+  );
 }
 
 export interface FileInputProps
   extends Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'type' | 'value' | 'defaultValue' | 'children'
+    'size' | 'type' | 'value' | 'defaultValue' | 'children' | 'onChange'
   > {
   ref?: Ref<HTMLInputElement>;
   /**
-   * A clear and concise description of the input's purpose, for example
-   * "Receipts". It is the accessible name of the input and is not displayed
-   * visually.
+   * A clear and concise description of the input's purpose. It is not
+   * displayed visually.
    */
   label: string;
   /**
@@ -109,68 +98,52 @@ export interface FileInputProps
    */
   variant?: 'default' | 'button';
   /**
-   * The call to action, displayed in the dropzone, for example
-   * "Drop your files or click to upload".
+   * The call to action displayed in the dropzone.
    */
   dropLabel?: string;
   /**
-   * Supporting text, for example the accepted file types and size limits.
+   * Supporting text, such as the accepted file types and sizes.
    */
   description?: string;
   /**
-   * Accessible label for the buttons that remove files from the list.
+   * Called for every selected file. Return a promise to show the file as
+   * uploading until it settles, then as successful or failed. The `signal` is
+   * aborted when the file is removed. Without a promise, the file is only
+   * listed, for example to submit it with a form.
    */
-  removeLabel: string;
+  onChange?: (file: File, options: { signal: AbortSignal }) => unknown;
   /**
-   * Uploads a file. The component calls it for every selected file and
-   * tracks the file's state: it is `uploading` until the returned promise
-   * settles, then `success` if it resolves or `error` if it rejects. The
-   * signal is aborted when the file is removed from the list. Call
-   * `onProgress` with a value between 0 and 100 to fill the progress ring. If
-   * it is never called, the ring spins to indicate activity.
-   *
-   * When omitted, the component only collects files (for example for a form
-   * submission) and doesn't track any upload state.
-   */
-  upload?: (
-    file: File,
-    options: { signal: AbortSignal; onProgress: (progress: number) => void },
-  ) => Promise<unknown>;
-  /**
-   * Called whenever the state of a file changes, as it starts uploading and
-   * when the upload succeeds or fails. Use it to decide when to move the user
-   * forward, for example once all files have been uploaded.
-   */
-  onFileStateChange?: (event: FileInputStateEvent) => void;
-  /**
-   * Called when a file is removed from the list, either by the user or
-   * because a new file replaced it. Pending uploads of the file are aborted.
+   * Called when a file is removed or replaced. Use it to delete the file from
+   * your service.
    */
   onRemove?: (event: FileInputRemoveEvent) => void;
   /**
-   * The status text of files that are being uploaded, for example
-   * "Uploading…". Required when passing the `upload` prop.
+   * An accessible label for the button that removes a file.
+   */
+  removeLabel: string;
+  /**
+   * The status text of files that are uploading. Required when files are
+   * uploaded.
    */
   uploadingLabel?: string;
   /**
-   * The status text of files that were uploaded successfully. It is shown and
-   * announced to assistive technology when provided.
+   * The status text of uploaded files. Required when files are uploaded.
    */
   successLabel?: string;
   /**
-   * The status text of files that failed to upload, for example "Upload
-   * failed". Required when passing the `upload` prop.
+   * The status text of files that failed to upload. Pass a function to return
+   * a message based on the reason the upload failed. Required when files are
+   * uploaded.
    */
-  errorLabel?: string;
+  errorLabel?: string | ((error: unknown) => string);
   /**
-   * Accessible label for the buttons that retry failed uploads. Required when
-   * passing the `upload` prop.
+   * Returns additional actions for a file. They are shown in a menu, before
+   * the remove action.
    */
-  retryLabel?: string;
+  trailingActions?: (file: File) => ActionMenuProps['actions'] | undefined;
   /**
-   * Accessible label for the menu button of finished uploads, which contains
-   * the actions to remove a file or retry a failed upload. Required when
-   * passing the `upload` prop.
+   * An accessible label for the menu button. Required when passing the
+   * `trailingActions` prop.
    */
   menuLabel?: string;
   /**
@@ -189,8 +162,8 @@ export interface FileInputProps
 }
 
 /**
- * The FileInput component allows users to select files from their device by
- * browsing or, in the default variant, by dragging them onto a dropzone.
+ * The FileInput component allows users to select files by browsing or
+ * dropping them, and shows the state of their uploads.
  */
 export function FileInput({
   label,
@@ -198,14 +171,13 @@ export function FileInput({
   variant = 'default',
   dropLabel,
   description,
-  removeLabel,
-  upload,
-  onFileStateChange,
+  onChange,
   onRemove,
+  removeLabel,
   uploadingLabel,
   successLabel,
   errorLabel,
-  retryLabel,
+  trailingActions,
   menuLabel,
   id: customId,
   validationHint,
@@ -216,7 +188,6 @@ export function FileInput({
   tabIndex,
   className,
   style,
-  onChange,
   'aria-describedby': descriptionId,
   ref,
   ...props
@@ -224,6 +195,7 @@ export function FileInput({
   const id = useId();
   const inputId = customId || id;
   const labelId = useId();
+  const buttonTextId = useId();
   const supportingTextId = useId();
   const validationHintId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -255,32 +227,54 @@ export function FileInput({
         'The `removeLabel` prop is missing or invalid.',
       );
     }
-    if (upload) {
-      for (const [name, value] of Object.entries({
-        uploadingLabel,
-        errorLabel,
-        retryLabel,
-        menuLabel,
-      })) {
-        if (!isSufficientlyLabelled(value)) {
-          throw new AccessibilityError(
-            'FileInput',
-            `The \`${name}\` prop is missing or invalid. It is required when passing the \`upload\` prop.`,
-          );
-        }
-      }
+    if (
+      selectedFiles.some(({ status }) => status === 'uploading') &&
+      !isSufficientlyLabelled(uploadingLabel)
+    ) {
+      throw new AccessibilityError(
+        'FileInput',
+        'The `uploadingLabel` prop is missing or invalid. It is required when files are uploaded.',
+      );
+    }
+    if (
+      selectedFiles.some(({ status }) => status === 'success') &&
+      !isSufficientlyLabelled(successLabel)
+    ) {
+      throw new AccessibilityError(
+        'FileInput',
+        'The `successLabel` prop is missing or invalid. It is required when files are uploaded.',
+      );
+    }
+    if (
+      selectedFiles.some(({ status }) => status === 'error') &&
+      typeof errorLabel !== 'function' &&
+      !isSufficientlyLabelled(errorLabel)
+    ) {
+      throw new AccessibilityError(
+        'FileInput',
+        'The `errorLabel` prop is missing or invalid. It is required when files are uploaded.',
+      );
+    }
+    if (trailingActions && !isSufficientlyLabelled(menuLabel)) {
+      throw new AccessibilityError(
+        'FileInput',
+        'The `menuLabel` prop is missing or invalid. It is required when passing the `trailingActions` prop.',
+      );
     }
   }
 
-  const statusLabels: Partial<Record<FileInputStatus, string>> = {
-    uploading: uploadingLabel,
-    success: successLabel,
-    error: errorLabel,
+  // The error label can be a function of the reason the upload failed, which
+  // the component passes through without looking at it.
+  const getStatusLabel = (status: FileInputStatus, error?: unknown) => {
+    if (status === 'error') {
+      return typeof errorLabel === 'function' ? errorLabel(error) : errorLabel;
+    }
+    return status === 'success' ? successLabel : uploadingLabel;
   };
 
   // The callbacks run after asynchronous uploads, so they must not be stale.
-  const latest = useRef({ onFileStateChange, onRemove, statusLabels });
-  latest.current = { onFileStateChange, onRemove, statusLabels };
+  const latest = useRef({ onRemove, getStatusLabel });
+  latest.current = { onRemove, getStatusLabel };
 
   // The native input only holds the files of the latest selection, so the
   // list is the source of truth and the input is kept in sync with it. This
@@ -316,29 +310,23 @@ export function FileInput({
   ) => {
     setSelectedFiles((previous) =>
       previous.map((selected) =>
-        selected.id === fileId
-          ? { ...selected, status, progress: undefined }
-          : selected,
+        selected.id === fileId ? { ...selected, status, error } : selected,
       ),
     );
-    latest.current.onFileStateChange?.({ id: fileId, file, status, error });
-
-    const statusLabel = latest.current.statusLabels[status];
+    const statusLabel = latest.current.getStatusLabel(status, error);
     if (statusLabel) {
       setAnnouncement(`${file.name}: ${statusLabel}`);
     }
   };
 
-  const startUpload = (fileId: string, file: File) => {
-    if (!upload) {
+  const handleFile = (fileId: string, file: File) => {
+    if (!onChange) {
       return;
     }
 
     // eslint-disable-next-line compat/compat
     const controller = new AbortController();
     controllers.current.set(fileId, controller);
-
-    updateStatus(fileId, file, 'uploading');
 
     const settle = (status: FileInputStatus, error?: unknown) => {
       // The file was removed in the meantime, so its result is irrelevant.
@@ -349,25 +337,22 @@ export function FileInput({
       updateStatus(fileId, file, status, error);
     };
 
-    const onProgress = (progress: number) => {
-      // Ignore updates of uploads that were removed, replaced or have settled.
-      if (controllers.current.get(fileId) !== controller) {
-        return;
-      }
-      const clamped = Math.min(Math.max(progress, 0), 100);
-      setSelectedFiles((previous) =>
-        previous.map((selected) =>
-          selected.id === fileId
-            ? { ...selected, progress: clamped }
-            : selected,
-        ),
-      );
-    };
+    let result: unknown;
+    try {
+      result = onChange(file, { signal: controller.signal });
+    } catch (error) {
+      settle('error', error);
+      return;
+    }
 
-    // Wrapping the call also catches errors thrown by non-async functions.
-    new Promise((resolve) => {
-      resolve(upload(file, { signal: controller.signal, onProgress }));
-    }).then(
+    if (!isPromiseLike(result)) {
+      // Nothing to track, the file is only listed.
+      controllers.current.delete(fileId);
+      return;
+    }
+
+    updateStatus(fileId, file, 'uploading');
+    result.then(
       () => settle('success'),
       (error: unknown) => settle('error', error),
     );
@@ -395,44 +380,34 @@ export function FileInput({
       discardFiles(selectedFiles);
     }
 
-    setSelectedFiles(multiple ? [...selectedFiles, ...added] : added);
+    // New files appear at the top of the list.
+    setSelectedFiles(multiple ? [...added, ...selectedFiles] : added);
 
     for (const { id: fileId, file } of added) {
-      startUpload(fileId, file);
+      handleFile(fileId, file);
     }
   };
 
   const removeFile = (fileId: string) => {
-    const removed = selectedFiles.filter(
-      ({ id: selected }) => selected === fileId,
+    discardFiles(
+      selectedFiles.filter(({ id: selected }) => selected === fileId),
     );
-    discardFiles(removed);
     setSelectedFiles((previous) =>
       previous.filter(({ id: selected }) => selected !== fileId),
     );
   };
 
-  const retryFile = (fileId: string) => {
-    const retried = selectedFiles.find(
-      ({ id: selected }) => selected === fileId,
-    );
-    if (retried) {
-      startUpload(fileId, retried.file);
-    }
-  };
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     // The `FileList` is live, so copy it before the input is synced.
     addFiles(Array.from(event.target.files ?? []));
-    onChange?.(event);
   };
 
-  const handleDragEnter = (event: DragEvent<HTMLDivElement>) => {
+  const handleDragEnter = (event: DragEvent<HTMLLabelElement>) => {
     event.preventDefault();
     setIsDragging(true);
   };
 
-  const handleDragLeave = (event: DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = (event: DragEvent<HTMLLabelElement>) => {
     // Moving between the dropzone's children also fires `dragleave`.
     if (event.currentTarget.contains(event.relatedTarget as Node | null)) {
       return;
@@ -440,7 +415,7 @@ export function FileInput({
     setIsDragging(false);
   };
 
-  const handleDrop = (event: DragEvent<HTMLDivElement>) => {
+  const handleDrop = (event: DragEvent<HTMLLabelElement>) => {
     event.preventDefault();
     setIsDragging(false);
     addFiles(Array.from(event.dataTransfer.files));
@@ -465,10 +440,11 @@ export function FileInput({
           required={required}
           disabled={disabled}
           // In the default variant, the button is the keyboard stop.
-          tabIndex={variant === 'default' ? -1 : tabIndex}
+          tabIndex={tabIndex}
           onChange={handleChange}
           aria-invalid={invalid && 'true'}
-          aria-labelledby={labelId}
+          // The visible button text is part of the name for voice control.
+          aria-labelledby={idx(labelId, buttonTextId)}
           aria-describedby={descriptionIds}
         />
         {variant === 'button' ? (
@@ -486,13 +462,15 @@ export function FileInput({
                   <ArrowUp aria-hidden="true" size="16" />
                 </span>
               </span>
-              <span className={classes.title}>{buttonLabel}</span>
+              <span id={buttonTextId} className={classes.title}>
+                {buttonLabel}
+              </span>
             </FieldLabel>
             {supportingText}
           </>
         ) : (
-          // biome-ignore lint/a11y/noStaticElementInteractions: The dropzone is only a drag-and-drop target. The button inside it is the accessible way to select files.
-          <div
+          <FieldLabel
+            htmlFor={inputId}
             className={clsx(
               classes.trigger,
               classes['variant-default'],
@@ -511,37 +489,37 @@ export function FileInput({
             </span>
             {dropLabel && <span className={classes.title}>{dropLabel}</span>}
             {supportingText}
+            {/* The label opens the picker, so the button is only a visual cue. */}
             <Button
-              type="button"
+              as="span"
+              id={buttonTextId}
+              aria-hidden="true"
               size="s"
               variant="secondary"
               navigationIcon={Upload}
               disabled={disabled}
-              aria-describedby={description ? supportingTextId : undefined}
-              onClick={() => inputRef.current?.click()}
               className={classes.button}
             >
               {buttonLabel}
             </Button>
-          </div>
+          </FieldLabel>
         )}
       </div>
       {selectedFiles.length > 0 && (
         <ul className={classes.list}>
-          {selectedFiles.map(({ id: fileId, file, status, progress }) => (
+          {selectedFiles.map(({ id: fileId, file, status, error }) => (
             <FileInputItem
               key={fileId}
               name={file.name}
+              type={file.type}
               size={file.size}
               status={status}
-              progress={progress}
-              statusLabel={status && statusLabels[status]}
+              statusLabel={status && getStatusLabel(status, error)}
               formattingLocale={formattingLocale ?? undefined}
               removeLabel={removeLabel}
-              retryLabel={retryLabel}
+              actions={trailingActions?.(file)}
               menuLabel={menuLabel}
               onRemove={() => removeFile(fileId)}
-              onRetry={upload && (() => retryFile(fileId))}
             />
           ))}
         </ul>

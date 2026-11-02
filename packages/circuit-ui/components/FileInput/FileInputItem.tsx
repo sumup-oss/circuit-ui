@@ -13,20 +13,25 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
 import {
   Checkmark,
   Close,
+  CvsFile,
   Delete,
   File as FileIcon,
-  More,
-  Refresh,
+  FileSpreadsheet,
+  Image as ImageIcon,
+  Invoice,
+  PdfFile,
 } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
-import { ActionMenu } from '../ActionMenu/index.js';
 import { Body } from '../Body/index.js';
-import { IconButton } from '../Button/index.js';
+import type {
+  ActionMenuItemProps,
+  ActionMenuProps,
+} from '../ActionMenu/index.js';
+import { Button, IconButton } from '../Button/index.js';
 import { ListItem } from '../ListItem/index.js';
 
 import classes from './FileInput.module.css';
@@ -40,11 +45,48 @@ const statusColors = {
   error: 'danger',
 } as const;
 
+const iconsByExtension = new Map([
+  ['pdf', PdfFile],
+  ['csv', CvsFile],
+  ['cvs', CvsFile],
+  ['xls', FileSpreadsheet],
+  ['xlsx', FileSpreadsheet],
+  ['ods', FileSpreadsheet],
+  ['jpg', ImageIcon],
+  ['jpeg', ImageIcon],
+  ['png', ImageIcon],
+  ['gif', ImageIcon],
+  ['webp', ImageIcon],
+  ['doc', Invoice],
+  ['docx', Invoice],
+  ['odt', Invoice],
+  ['rtf', Invoice],
+  ['txt', Invoice],
+]);
+
+/**
+ * Picks the icon of a file by its extension, or by its MIME type for images
+ * with another extension. Other files get the generic file icon.
+ */
+function getFileIcon(name: string, type?: string) {
+  const extension = name.split('.').pop()?.toLowerCase() ?? '';
+  const icon = iconsByExtension.get(extension);
+  if (icon) {
+    return icon;
+  }
+  return type?.startsWith('image/') ? ImageIcon : FileIcon;
+}
+
 export interface FileInputItemProps {
   /**
    * The name of the file, including its extension.
    */
   name: string;
+  /**
+   * The MIME type of the file. Used to pick the icon when the extension is
+   * unknown.
+   */
+  type?: string;
   /**
    * The size of the file in bytes.
    */
@@ -54,12 +96,7 @@ export interface FileInputItemProps {
    */
   status?: FileInputStatus;
   /**
-   * The upload progress between 0 and 100. When undefined while the file is
-   * uploading, the progress ring spins to indicate activity.
-   */
-  progress?: number;
-  /**
-   * A short description of the file's state, for example "Uploading…".
+   * A short description of the file's state.
    */
   statusLabel?: string;
   /**
@@ -67,25 +104,22 @@ export interface FileInputItemProps {
    */
   formattingLocale?: Intl.LocalesArgument;
   /**
-   * Accessible label for the button that removes the file.
+   * An accessible label for the button that removes the file.
    */
   removeLabel?: string;
   /**
-   * Accessible label for the button that retries a failed upload.
+   * Additional actions, shown in a menu before the remove action. Files that
+   * are uploading only show the remove button.
    */
-  retryLabel?: string;
+  actions?: ActionMenuProps['actions'];
   /**
-   * Accessible label for the button that opens the menu of a finished upload.
+   * An accessible label for the menu button.
    */
   menuLabel?: string;
   /**
    * Called when the user wants to remove the file.
    */
   onRemove?: () => void;
-  /**
-   * Called when the user wants to retry a failed upload.
-   */
-  onRetry?: () => void;
 }
 
 /**
@@ -93,44 +127,43 @@ export interface FileInputItemProps {
  */
 export function FileInputItem({
   name,
+  type,
   size,
   status,
-  progress,
   statusLabel,
   formattingLocale,
   removeLabel,
-  retryLabel,
+  actions,
   menuLabel,
   onRemove,
-  onRetry,
 }: FileInputItemProps) {
-  const showRetry = status === 'error' && onRetry && retryLabel;
-  const showRemove = onRemove && removeLabel;
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Finished uploads collapse their actions into a menu. This mirrors the
-  // upcoming "menu" variant of the ListItem and can be replaced by it.
-  const menuActions = [
-    ...(showRetry ? [{ children: retryLabel, onClick: () => onRetry() }] : []),
-    ...(showRemove
-      ? [
-          {
-            children: removeLabel,
-            onClick: () => onRemove(),
-            destructive: true,
-          },
-        ]
-      : []),
-  ];
-  const hasMenu =
-    (status === 'success' || status === 'error') &&
-    Boolean(menuLabel) &&
-    menuActions.length > 0;
+  const isUploading = status === 'uploading';
+  const Icon = getFileIcon(name, type);
+  const removeAction: ActionMenuProps['actions'] =
+    onRemove && removeLabel
+      ? [{ children: removeLabel, onClick: () => onRemove() }]
+      : [];
+  const list: ActionMenuProps['actions'] = isUploading
+    ? removeAction
+    : [...(actions ?? []), ...removeAction];
+  const items = list.filter(
+    (action): action is ActionMenuItemProps => !('type' in action),
+  );
+  const menu =
+    items.length > 1 && menuLabel
+      ? { label: menuLabel, actions: list }
+      : undefined;
+  // Our own remove button has a default icon, the actions of consumers don't.
+  const single = items.length === 1 ? items[0] : undefined;
+  const singleIcon =
+    single?.icon ?? (single === removeAction[0] ? Delete : undefined);
 
   return (
     <li className={classes.item}>
       <ListItem
         className={classes.row}
+        variant={menu ? 'menu' : 'action'}
+        menu={menu}
         leadingComponent={
           <span
             className={clsx(
@@ -139,13 +172,8 @@ export function FileInputItem({
               (status === 'success' || status === 'error') &&
                 classes['icon-finished'],
             )}
-            style={
-              status === 'uploading' && progress !== undefined
-                ? { '--progress': progress }
-                : undefined
-            }
           >
-            <FileIcon aria-hidden="true" size="24" />
+            <Icon aria-hidden="true" size="24" />
             {(status === 'success' || status === 'error') && (
               <span
                 className={clsx(
@@ -161,13 +189,7 @@ export function FileInputItem({
               </span>
             )}
             {status === 'uploading' && (
-              <span
-                aria-hidden="true"
-                className={clsx(
-                  classes.ring,
-                  progress === undefined && classes.indeterminate,
-                )}
-              >
+              <span aria-hidden="true" className={classes.ring}>
                 <span className={classes.arc} />
               </span>
             )}
@@ -193,51 +215,31 @@ export function FileInputItem({
           </div>
         }
         trailingComponent={
-          hasMenu ? (
-            <ActionMenu
-              isOpen={isMenuOpen}
-              onToggle={setIsMenuOpen}
-              placement="bottom-end"
-              component={(buttonProps) => (
-                <IconButton
-                  {...buttonProps}
-                  icon={More}
-                  size="s"
-                  variant="tertiary"
-                >
-                  {menuLabel as string}
-                </IconButton>
-              )}
-              actions={menuActions}
-            />
+          single &&
+          (singleIcon ? (
+            <IconButton
+              type="button"
+              size="s"
+              variant="tertiary"
+              icon={singleIcon}
+              destructive={single.destructive}
+              disabled={single.disabled}
+              onClick={single.onClick}
+            >
+              {single.children}
+            </IconButton>
           ) : (
-            (showRetry || showRemove) && (
-              <div className={classes['row-actions']}>
-                {showRetry && (
-                  <IconButton
-                    type="button"
-                    size="s"
-                    variant="tertiary"
-                    icon={Refresh}
-                    onClick={onRetry}
-                  >
-                    {retryLabel}
-                  </IconButton>
-                )}
-                {showRemove && (
-                  <IconButton
-                    type="button"
-                    size="s"
-                    variant="tertiary"
-                    icon={Delete}
-                    onClick={onRemove}
-                  >
-                    {removeLabel}
-                  </IconButton>
-                )}
-              </div>
-            )
-          )
+            <Button
+              type="button"
+              size="s"
+              variant="tertiary"
+              destructive={single.destructive}
+              disabled={single.disabled}
+              onClick={single.onClick}
+            >
+              {single.children}
+            </Button>
+          ))
         }
       />
     </li>

@@ -17,7 +17,6 @@ import { createRef } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import {
-  act,
   axe,
   fireEvent,
   render,
@@ -27,6 +26,8 @@ import {
 
 import { FileInput, type FileInputProps } from './FileInput.js';
 import { formatFileSize } from './FileInputService.js';
+
+type Options = { signal: AbortSignal };
 
 describe('FileInput', () => {
   const baseProps: FileInputProps = {
@@ -72,27 +73,33 @@ describe('FileInput', () => {
     it('opens the picker when the button is clicked', async () => {
       render(<FileInput {...baseProps} />);
 
-      const click = vi.spyOn(screen.getByLabelText('Receipts'), 'click');
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Upload files' }),
-      );
+      const onClick = vi.fn();
+      screen.getByLabelText('Receipts').addEventListener('click', onClick);
+      await userEvent.click(screen.getByText('Upload files'));
 
-      expect(click).toHaveBeenCalledTimes(1);
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('does not open the picker when the dropzone is clicked', async () => {
+    it('opens the picker when the dropzone is clicked', async () => {
       render(<FileInput {...baseProps} />);
 
-      const click = vi.spyOn(screen.getByLabelText('Receipts'), 'click');
+      const onClick = vi.fn();
+      screen.getByLabelText('Receipts').addEventListener('click', onClick);
       await userEvent.click(
         screen.getByText('Drop your files or click to upload'),
       );
 
-      expect(click).not.toHaveBeenCalled();
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
-  });
 
-  describe('selecting files', () => {
+    it('includes the button text in the accessible name', () => {
+      render(<FileInput {...baseProps} />);
+
+      expect(screen.getByLabelText('Receipts')).toHaveAccessibleName(
+        'Receipts Upload files',
+      );
+    });
+
     it('lists the name and size of the selected file', async () => {
       render(<FileInput {...baseProps} />);
 
@@ -103,13 +110,33 @@ describe('FileInput', () => {
       expect(screen.getByText('5 B')).toBeVisible();
     });
 
-    it('calls the onChange handler when files are picked', async () => {
+    it('calls onChange for every selected file', async () => {
       const onChange = vi.fn();
-      render(<FileInput {...baseProps} onChange={onChange} />);
+      render(<FileInput {...baseProps} multiple onChange={onChange} />);
 
-      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+      await userEvent.upload(screen.getByLabelText('Receipts'), [march, april]);
 
-      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledTimes(2);
+      expect(onChange).toHaveBeenCalledWith(
+        march,
+        expect.objectContaining({ signal: expect.any(AbortSignal) }),
+      );
+      expect(onChange).toHaveBeenCalledWith(april, expect.anything());
+    });
+
+    it('lists new files above the existing ones', async () => {
+      render(<FileInput {...baseProps} multiple />);
+
+      const input = screen.getByLabelText('Receipts');
+      await userEvent.upload(input, march);
+      await userEvent.upload(input, april);
+
+      const names = screen
+        .getAllByRole('listitem')
+        .map((item) => item.textContent);
+
+      expect(names[0]).toContain('april.jpg');
+      expect(names[1]).toContain('march.pdf');
     });
 
     it('replaces the selected file when multiple is not set', async () => {
@@ -132,22 +159,23 @@ describe('FileInput', () => {
       await userEvent.upload(input, may);
 
       expect(screen.getAllByRole('listitem')).toHaveLength(3);
-      expect(screen.getByText('march.pdf')).toBeVisible();
-      expect(screen.getByText('april.jpg')).toBeVisible();
-      expect(screen.getByText('may.png')).toBeVisible();
     });
 
-    it('removes a file from the list', async () => {
-      render(<FileInput {...baseProps} multiple />);
+    it('removes a file from the list and calls onRemove', async () => {
+      const onRemove = vi.fn();
+      render(<FileInput {...baseProps} multiple onRemove={onRemove} />);
 
       await userEvent.upload(screen.getByLabelText('Receipts'), [march, april]);
       await userEvent.click(
         screen.getAllByRole('button', { name: 'Remove file' })[0],
       );
 
-      expect(screen.getAllByRole('listitem')).toHaveLength(1);
       expect(screen.queryByText('march.pdf')).not.toBeInTheDocument();
       expect(screen.getByText('april.jpg')).toBeVisible();
+      expect(onRemove).toHaveBeenCalledWith({
+        id: expect.any(String),
+        file: march,
+      });
     });
   });
 
@@ -193,42 +221,29 @@ describe('FileInput', () => {
       uploadingLabel: 'Uploading…',
       successLabel: 'Uploaded',
       errorLabel: 'Upload failed',
-      retryLabel: 'Retry upload',
-      menuLabel: 'More actions',
     };
 
     function createUpload() {
-      const calls: {
+      const calls: (Options & {
         file: File;
-        signal: AbortSignal;
-        onProgress: (progress: number) => void;
         resolve: () => void;
         reject: (reason: unknown) => void;
-      }[] = [];
+      })[] = [];
       const upload = vi.fn(
-        (
-          file: File,
-          {
-            signal,
-            onProgress,
-          }: { signal: AbortSignal; onProgress: (progress: number) => void },
-        ) =>
+        (file: File, options: Options) =>
           new Promise<void>((resolve, reject) => {
-            calls.push({ file, signal, onProgress, resolve, reject });
+            calls.push({ file, ...options, resolve, reject });
           }),
       );
       return { upload, calls };
     }
 
-    it('uploads the selected file and shows its state', async () => {
+    it('shows the state of the upload', async () => {
       const { upload, calls } = createUpload();
-      render(<FileInput {...uploadProps} upload={upload} />);
+      render(<FileInput {...uploadProps} onChange={upload} />);
 
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
 
-      expect(upload).toHaveBeenCalledTimes(1);
-      expect(calls[0].file).toBe(march);
-      expect(calls[0].signal.aborted).toBe(false);
       expect(screen.getByText('Uploading…')).toBeVisible();
 
       calls[0].resolve();
@@ -237,122 +252,65 @@ describe('FileInput', () => {
       expect(screen.queryByText('Uploading…')).not.toBeInTheDocument();
     });
 
-    it('shows the progress reported by the upload', async () => {
-      const { upload, calls } = createUpload();
-      render(<FileInput {...uploadProps} upload={upload} />);
+    it('does not track a state when onChange does not return a promise', async () => {
+      render(<FileInput {...uploadProps} onChange={() => {}} />);
 
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
 
-      const getIcon = () =>
-        screen.getByText('march.pdf').closest('li')?.querySelector('span');
-
-      expect(getIcon()).not.toHaveStyle('--progress: 40');
-
-      act(() => calls[0].onProgress(40));
-
-      expect(getIcon()).toHaveStyle('--progress: 40');
+      expect(screen.queryByText('Uploading…')).not.toBeInTheDocument();
     });
 
-    it('emits an event whenever the state of a file changes', async () => {
+    it('shows an error when the upload fails', async () => {
       const { upload, calls } = createUpload();
-      const onFileStateChange = vi.fn();
-      render(
-        <FileInput
-          {...uploadProps}
-          upload={upload}
-          onFileStateChange={onFileStateChange}
-        />,
-      );
+      render(<FileInput {...uploadProps} onChange={upload} />);
 
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
-
-      expect(onFileStateChange).toHaveBeenCalledTimes(1);
-      expect(onFileStateChange).toHaveBeenLastCalledWith({
-        id: expect.any(String),
-        file: march,
-        status: 'uploading',
-        error: undefined,
-      });
-
-      calls[0].resolve();
-      await screen.findByText('Uploaded');
-
-      expect(onFileStateChange).toHaveBeenCalledTimes(2);
-      expect(onFileStateChange).toHaveBeenLastCalledWith(
-        expect.objectContaining({ file: march, status: 'success' }),
-      );
-    });
-
-    it('shows an error and emits the reason when the upload fails', async () => {
-      const { upload, calls } = createUpload();
-      const onFileStateChange = vi.fn();
-      const reason = new Error('Network error');
-      render(
-        <FileInput
-          {...uploadProps}
-          upload={upload}
-          onFileStateChange={onFileStateChange}
-        />,
-      );
-
-      await userEvent.upload(screen.getByLabelText('Receipts'), march);
-      calls[0].reject(reason);
-
-      expect(await screen.findByText('Upload failed')).toBeVisible();
-      expect(onFileStateChange).toHaveBeenLastCalledWith(
-        expect.objectContaining({ status: 'error', error: reason }),
-      );
-    });
-
-    it('treats an upload function that throws as a failed upload', async () => {
-      const upload = vi.fn(() => {
-        throw new Error('Synchronous error');
-      });
-      render(<FileInput {...uploadProps} upload={upload} />);
-
-      await userEvent.upload(screen.getByLabelText('Receipts'), march);
-
-      expect(await screen.findByText('Upload failed')).toBeVisible();
-    });
-
-    it('retries a failed upload', async () => {
-      const { upload, calls } = createUpload();
-      render(<FileInput {...uploadProps} upload={upload} />);
-
-      await userEvent.upload(screen.getByLabelText('Receipts'), march);
-
-      expect(
-        screen.queryByRole('button', { name: 'Retry upload' }),
-      ).not.toBeInTheDocument();
-
       calls[0].reject(new Error('Network error'));
-      await userEvent.click(
-        await screen.findByRole('button', { name: 'More actions' }),
+
+      expect(await screen.findByText('Upload failed')).toBeVisible();
+    });
+
+    it('shows the error message that the consumer derives from the reason', async () => {
+      const { upload, calls } = createUpload();
+      render(
+        <FileInput
+          {...uploadProps}
+          multiple
+          onChange={upload}
+          errorLabel={(error) =>
+            error instanceof RangeError
+              ? 'The file is too large'
+              : 'Upload failed'
+          }
+        />,
       );
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Retry upload' }),
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), [march, april]);
+      calls[0].reject(new RangeError('Too large'));
+      calls[1].reject(new Error('Network error'));
+
+      expect(await screen.findByText('The file is too large')).toBeVisible();
+      expect(screen.getByText('Upload failed')).toBeVisible();
+    });
+
+    it('treats an onChange that throws as a failed upload', async () => {
+      render(
+        <FileInput
+          {...uploadProps}
+          onChange={() => {
+            throw new Error('Synchronous error');
+          }}
+        />,
       );
 
-      expect(upload).toHaveBeenCalledTimes(2);
-      expect(screen.getByText('Uploading…')).toBeVisible();
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
 
-      calls[1].resolve();
-
-      expect(await screen.findByText('Uploaded')).toBeVisible();
+      expect(await screen.findByText('Upload failed')).toBeVisible();
     });
 
     it('aborts the upload when the file is removed', async () => {
       const { upload, calls } = createUpload();
-      const onRemove = vi.fn();
-      const onFileStateChange = vi.fn();
-      render(
-        <FileInput
-          {...uploadProps}
-          upload={upload}
-          onRemove={onRemove}
-          onFileStateChange={onFileStateChange}
-        />,
-      );
+      render(<FileInput {...uploadProps} onChange={upload} />);
 
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
       await userEvent.click(
@@ -360,10 +318,6 @@ describe('FileInput', () => {
       );
 
       expect(calls[0].signal.aborted).toBe(true);
-      expect(onRemove).toHaveBeenCalledWith({
-        id: expect.any(String),
-        file: march,
-      });
 
       calls[0].resolve();
       await new Promise((resolve) => {
@@ -371,15 +325,11 @@ describe('FileInput', () => {
       });
 
       expect(screen.queryByRole('list')).not.toBeInTheDocument();
-      expect(onFileStateChange).toHaveBeenCalledTimes(1);
     });
 
     it('aborts the upload of a file that is replaced', async () => {
       const { upload, calls } = createUpload();
-      const onRemove = vi.fn();
-      render(
-        <FileInput {...uploadProps} upload={upload} onRemove={onRemove} />,
-      );
+      render(<FileInput {...uploadProps} onChange={upload} />);
 
       const input = screen.getByLabelText('Receipts');
       await userEvent.upload(input, march);
@@ -387,15 +337,12 @@ describe('FileInput', () => {
 
       expect(calls[0].signal.aborted).toBe(true);
       expect(calls[1].signal.aborted).toBe(false);
-      expect(onRemove).toHaveBeenCalledWith(
-        expect.objectContaining({ file: march }),
-      );
     });
 
     it('aborts pending uploads when unmounted', async () => {
       const { upload, calls } = createUpload();
       const { unmount } = render(
-        <FileInput {...uploadProps} upload={upload} />,
+        <FileInput {...uploadProps} onChange={upload} />,
       );
 
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
@@ -406,7 +353,7 @@ describe('FileInput', () => {
 
     it('announces state changes to assistive technology', async () => {
       const { upload, calls } = createUpload();
-      render(<FileInput {...uploadProps} upload={upload} />);
+      render(<FileInput {...uploadProps} onChange={upload} />);
 
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
 
@@ -422,15 +369,83 @@ describe('FileInput', () => {
     it('has no accessibility violations', async () => {
       const { upload, calls } = createUpload();
       const { container } = render(
-        <FileInput {...uploadProps} upload={upload} multiple />,
+        <FileInput {...uploadProps} multiple onChange={upload} />,
       );
 
-      await userEvent.upload(screen.getByLabelText('Receipts'), [march, april]);
-      calls[0].reject(new Error('Network error'));
+      await userEvent.upload(screen.getByLabelText('Receipts'), [
+        march,
+        april,
+        may,
+      ]);
+      calls[0].resolve();
+      calls[1].reject(new Error('Network error'));
       await screen.findByText('Upload failed');
 
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
+    });
+  });
+
+  describe('trailing actions', () => {
+    it('shows the remove button by default', async () => {
+      render(<FileInput {...baseProps} />);
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+
+      expect(
+        screen.getByRole('button', { name: 'Remove file' }),
+      ).toBeInTheDocument();
+    });
+
+    it('shows additional actions in a menu, followed by the remove action', async () => {
+      const onDownload = vi.fn();
+      render(
+        <FileInput
+          {...baseProps}
+          menuLabel="More actions"
+          trailingActions={(file: File) => [
+            { children: `Download ${file.name}`, onClick: onDownload },
+          ]}
+        />,
+      );
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+
+      expect(
+        screen.queryByRole('button', { name: 'Remove file' }),
+      ).not.toBeInTheDocument();
+
+      await userEvent.click(
+        screen.getByRole('button', { name: 'More actions' }),
+      );
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Download march.pdf' }),
+      );
+
+      expect(onDownload).toHaveBeenCalledTimes(1);
+    });
+
+    it('removes the file from the menu', async () => {
+      const onRemove = vi.fn();
+      render(
+        <FileInput
+          {...baseProps}
+          onRemove={onRemove}
+          menuLabel="More actions"
+          trailingActions={() => [{ children: 'Download' }]}
+        />,
+      );
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+      await userEvent.click(
+        screen.getByRole('button', { name: 'More actions' }),
+      );
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Remove file' }),
+      );
+
+      expect(screen.queryByText('march.pdf')).not.toBeInTheDocument();
+      expect(onRemove).toHaveBeenCalledTimes(1);
     });
   });
 });

@@ -17,7 +17,8 @@
     border-color var(--cui-transitions-default);
 }
 
-.base .trigger.dragging {
+.base .trigger.dragging,
+.input:not(:disabled) + .variant-default:hover {
   background-color: var(--cui-bg-subtle-hovered);
 }
 
@@ -56,7 +57,7 @@
   justify-content: center;
   padding: var(--cui-spacings-giga) var(--cui-spacings-mega);
   text-align: center;
-  cursor: default;
+  cursor: pointer;
   border-color: var(--cui-border-strong);
   border-style: dashed;
   border-radius: var(--cui-border-radius-giga);
@@ -141,6 +142,11 @@
   margin-bottom: var(--cui-spacings-mega);
 }
 
+/* Hovering the trigger highlights the icon circle in both variants */
+.input:not(:disabled) + .trigger:hover .icon {
+  background-color: var(--cui-bg-highlight);
+}
+
 .badge {
   position: absolute;
   right: calc(-1 * var(--cui-spacings-bit) / 2);
@@ -172,7 +178,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: var(--cui-spacings-byte);
+  gap: var(--cui-spacings-bit);
   padding: 0;
   margin: var(--cui-spacings-byte) 0 0;
   list-style: none;
@@ -182,10 +188,15 @@
   list-style: none;
 }
 
-/* The rows keep the default ListItem look. The badge ring needs to match the
-   ListItem background to look cut out of the icon circle. */
+/* The rows override the default ListItem look with the design's values. The
+   badge ring needs to match the row background to look cut out of the icon
+   circle. */
 .item .row {
-  --badge-ring-color: var(--cui-bg-normal);
+  --badge-ring-color: var(--cui-bg-subtle);
+
+  justify-content: space-between;
+  padding: var(--cui-spacings-kilo);
+  background-color: var(--cui-bg-subtle);
 }
 
 /* Finished uploads have a darker fill, with a status badge on top */
@@ -193,7 +204,7 @@
   background-color: var(--cui-bg-highlight);
 }
 
-/* Uploading: the fill is replaced by a progress ring centered on the edge */
+/* Uploading: the fill is replaced by a spinning ring centered on the edge */
 .icon-uploading {
   --ring-width: 2.5px;
 
@@ -225,22 +236,13 @@
     );
   }
 
-  /* The gradient is fixed to the circle and revealed from 12 o'clock */
+  /* A quarter of the gradient, which is fixed to the circle, spins */
   .arc {
     position: absolute;
     inset: 0;
     display: block;
     background: conic-gradient(from 0deg, #598ffa, #d673d9 50%, #d673d9);
-    mask: conic-gradient(
-      from 0deg,
-      #000 calc(var(--progress, 100) * 1%),
-      transparent 0
-    );
-  }
-
-  .indeterminate .arc {
-    --progress: 25;
-
+    mask: conic-gradient(from 0deg, #000 25%, transparent 0);
     animation: spin 1s linear infinite;
   }
 
@@ -251,9 +253,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .indeterminate .arc {
-      --progress: 100;
-
+    .arc {
+      mask: none;
       animation: none;
     }
   }

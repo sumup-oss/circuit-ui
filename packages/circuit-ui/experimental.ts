@@ -20,6 +20,5 @@ export { FileInput } from './components/FileInput/FileInput.js';
 export type {
   FileInputProps,
   FileInputStatus,
-  FileInputStateEvent,
   FileInputRemoveEvent,
 } from './components/FileInput/FileInput.js';

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { useState } from 'react';
+
 import { Stack } from '../../../../.storybook/components/index.js';
 
 import { FileInput, type FileInputProps } from './FileInput.js';
@@ -37,6 +39,22 @@ export default {
   },
 };
 
+// The error messages are up to the consumer: the component passes the reason
+// of a failed upload to `errorLabel` and displays the text it returns. This
+// example maps the errors of an imaginary upload service to messages.
+class UploadError extends Error {
+  constructor(public reason: 'too-large' | 'network') {
+    super(reason);
+  }
+}
+
+const getErrorMessage = (error: unknown) => {
+  if (error instanceof UploadError && error.reason === 'too-large') {
+    return 'The file is too large. Choose a file below 10MB.';
+  }
+  return 'The upload failed. Please try again.';
+};
+
 const baseArgs = {
   label: 'Receipts',
   buttonLabel: 'Upload files',
@@ -45,34 +63,24 @@ const baseArgs = {
   removeLabel: 'Remove file',
   uploadingLabel: 'Uploading…',
   successLabel: 'Upload complete',
-  errorLabel: 'Upload failed',
-  retryLabel: 'Retry upload',
+  errorLabel: getErrorMessage,
   menuLabel: 'More actions',
-  // Simulates an upload that takes two seconds and reports its progress.
-  // Files with "fail" in their name are rejected.
-  upload: (
-    file: File,
-    {
-      signal,
-      onProgress,
-    }: { signal: AbortSignal; onProgress: (progress: number) => void },
-  ) =>
+  // Simulates an upload that takes two seconds. Files with "large" in their
+  // name are rejected as too large, and files with "fail" in their name fail
+  // with a network error.
+  onChange: (file: File, { signal }: { signal: AbortSignal }) =>
     new Promise<void>((resolve, reject) => {
-      let progress = 0;
-      const interval = setInterval(() => {
-        progress += 10;
-        onProgress(progress);
-        if (progress >= 100) {
-          clearInterval(interval);
-          if (file.name.includes('fail')) {
-            reject(new Error('Upload failed'));
-          } else {
-            resolve();
-          }
+      const timeout = setTimeout(() => {
+        if (file.name.includes('large')) {
+          reject(new UploadError('too-large'));
+        } else if (file.name.includes('fail')) {
+          reject(new UploadError('network'));
+        } else {
+          resolve();
         }
-      }, 200);
+      }, 2000);
       signal.addEventListener('abort', () => {
-        clearInterval(interval);
+        clearTimeout(timeout);
         reject(new Error('Upload aborted'));
       });
     }),
@@ -80,35 +88,53 @@ const baseArgs = {
   multiple: true,
 };
 
-// The component only renders list items for files the user selected, so the
-// finished states are shown with static samples below the input.
-export const Base = (args: FileInputProps) => (
-  <>
-    <FileInput {...args} />
-    <ul className={classes.list}>
-      <FileInputItem
-        name="receipt-march.pdf"
-        size={245_760}
-        status="success"
-        statusLabel={args.successLabel}
-        removeLabel={args.removeLabel}
-        menuLabel={args.menuLabel}
-        onRemove={() => {}}
-      />
-      <FileInputItem
-        name="receipt-april-fail.png"
-        size={3_145_728}
-        status="error"
-        statusLabel={args.errorLabel}
-        removeLabel={args.removeLabel}
-        retryLabel={args.retryLabel}
-        menuLabel={args.menuLabel}
-        onRemove={() => {}}
-        onRetry={() => {}}
-      />
-    </ul>
-  </>
-);
+// The component only lists the files that the user selects, so the finished
+// states are shown with static samples below the input. They can be removed.
+export const Base = (args: FileInputProps) => {
+  const [samples, setSamples] = useState(['march', 'april', 'may']);
+  const remove = (sample: string) => () =>
+    setSamples((previous) => previous.filter((item) => item !== sample));
+
+  return (
+    <>
+      <FileInput {...args} />
+      <ul className={classes.list}>
+        {samples.includes('march') && (
+          <FileInputItem
+            name="receipt-march.pdf"
+            size={245_760}
+            status="success"
+            statusLabel={args.successLabel}
+            removeLabel={args.removeLabel}
+            onRemove={remove('march')}
+          />
+        )}
+        {samples.includes('april') && (
+          <FileInputItem
+            name="receipt-april-fail.png"
+            size={3_145_728}
+            status="error"
+            statusLabel={getErrorMessage(new UploadError('network'))}
+            removeLabel={args.removeLabel}
+            onRemove={remove('april')}
+          />
+        )}
+        {samples.includes('may') && (
+          <FileInputItem
+            name="receipt-may.pdf"
+            size={1_048_576}
+            status="success"
+            statusLabel={args.successLabel}
+            removeLabel={args.removeLabel}
+            menuLabel={args.menuLabel}
+            actions={[{ children: 'Download', onClick: () => {} }]}
+            onRemove={remove('may')}
+          />
+        )}
+      </ul>
+    </>
+  );
+};
 
 Base.args = baseArgs;
 

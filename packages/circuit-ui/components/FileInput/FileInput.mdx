@@ -1,0 +1,145 @@
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./FileInput.stories";
+
+<Meta of={Stories} />
+
+# FileInput
+
+<Status variant="experimental" />
+
+An input field that allows users to select one or many files from their device, by browsing or by dragging and dropping them. It shows the selected files and the state of their uploads.
+
+<Story of={Stories.Base} />
+<Props of={Stories.Base} />
+
+## When to use
+
+Use the FileInput component when you want users to provide files. Common use cases:
+
+- Documents for verification
+- Paper receipts or invoices
+
+For a single image that is displayed as an avatar, consider using the [ImageInput](Forms/ImageInput/Docs) component instead.
+
+## How to use
+
+The FileInput component works with any upload service: it doesn't upload files itself. Like the [ImageInput](Forms/ImageInput/Docs) component, you handle the upload and the component shows the state and reports what happens.
+
+- Use the `onChange` prop to upload the selected files. It is called once for every file, whether the user browsed or dropped it, and receives the file and an `AbortSignal` in an options object. Return the promise of your upload: the file is shown as uploading until the promise settles, then as successful if it resolves or as failed if it rejects. If `onChange` doesn't return a promise, the file is only listed, for example to be submitted with a form.
+- While a file is uploading, a ring spins around its icon to indicate activity.
+- Use the `onRemove` prop to delete a file from your service. The component removes the file from the list and aborts its upload by itself.
+- Pass the `uploadingLabel`, `successLabel` and `errorLabel` props to describe the state of the files. These texts are generic and the same for every file, for example "Uploading…" and "Upload complete". Successful files are also marked with a check icon.
+- To tell users why an upload failed, pass a function to the `errorLabel` prop. It receives the reason your promise rejected with, which the component doesn't inspect, and returns the message to display for that file. Your code knows what the errors of your service mean, so you decide the messages. Keep them short and actionable, and translate them if necessary.
+- Describe the accepted file types and sizes to users using the `description` prop. The `accept` prop only filters the file picker, so always validate the files you receive and reject the promise for files that are not accepted.
+- New files appear at the top of the list.
+- Without the `multiple` prop, selecting a file replaces the current file and aborts its upload.
+
+## Variants
+
+<Story of={Stories.Variants} />
+
+- The default variant displays a dropzone with a call to action, supporting text and a button. Use the `dropLabel` and `description` props to customise the texts.
+- The `button` variant displays a compact button. Use it when space is limited, such as on narrow viewports or next to other fields in a form.
+
+Both variants adapt to the width of their container. The component doesn't display a title. Add your own heading or instructions above it.
+
+## Validations
+
+<Story of={Stories.Validations} />
+
+Use the `validationHint` prop to communicate the expected response to users, and the `invalid` prop to indicate that the user needs to change the files to proceed.
+
+## Customisation
+
+- Every file can be removed. By default, a file shows a button to remove it, labelled by the `removeLabel` prop.
+- Use the `trailingActions` prop to add more actions to a file. It is a function that receives the file and returns its additional actions, or nothing for files without. Each action can have its own text, icon and `destructive` state, just like the items of the ListItem component.
+- A file with additional actions shows a menu instead of the remove button, so make sure to pass the `menuLabel` prop to label the menu button. The menu lists the additional actions, followed by the remove action.
+- Files that are uploading always show the remove button, so users can cancel the upload.
+
+In the story at the top of this page, the examples below the input show the states of a file and a menu created with the `trailingActions` prop.
+
+## Using the component
+
+The following example uploads the files with `fetch`. The `signal` that `onChange` receives is passed on, so the request is cancelled when the user removes the file. Using any other service only changes the `onChange` function.
+
+```tsx
+import { FileInput } from "@sumup-oss/circuit-ui/experimental";
+
+class UploadError extends Error {
+  constructor(public status: number) {
+    super(`The upload failed with status ${status}`);
+  }
+}
+
+const getErrorMessage = (error: unknown) =>
+  error instanceof UploadError && error.status === 413
+    ? "The file is too large. Choose a file below 10MB."
+    : "The upload failed. Please try again.";
+
+const MyComponent = () => {
+  const handleChange = async (
+    file: File,
+    { signal }: { signal: AbortSignal },
+  ) => {
+    const response = await fetch("https://my-upload-api.com/receipts", {
+      method: "POST",
+      body: file,
+      signal,
+    });
+    if (!response.ok) {
+      // Rejecting the promise shows the file as failed
+      throw new UploadError(response.status);
+    }
+  };
+
+  return (
+    <FileInput
+      label="Receipts"
+      buttonLabel="Upload files"
+      dropLabel="Drop your files or click to upload"
+      description="PDF, JPG, PNG (max 10MB each)"
+      removeLabel="Remove file"
+      uploadingLabel="Uploading…"
+      successLabel="Upload complete"
+      errorLabel={getErrorMessage}
+      accept=".pdf,.jpg,.jpeg,.png"
+      multiple
+      onChange={handleChange}
+    />
+  );
+};
+```
+
+## Using the component in a form
+
+The FileInput component is built on top of the native [file input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file), so it works in forms without any JavaScript upload logic.
+
+- Pass the `name` prop to submit the files with the surrounding form. The component keeps the native input in sync with its list, so the form submits the files the user sees. Files that failed to upload are not submitted.
+- The `required` prop works as with any native input: the form can't be submitted without files.
+- Resetting the form doesn't clear the list of files. To start over, for example after a successful submit, change the `key` of the component to remount it.
+- Upload the files either as the user selects them or when the form is submitted, but not both. Don't pass the `name` prop if `onChange` uploads the files, to avoid sending them twice.
+
+## Accessibility
+
+The FileInput component is built on the native file input and designed to be accessible.
+
+The `label` prop is required. It is the accessible name of the input and isn't displayed visually. Describe the purpose of the input, for example "Receipts".
+
+### Keyboard navigation
+
+- Tab key: Focuses the file input. In the default variant, the focus ring is shown around the dropzone.
+- Enter or Space key: Opens the file picker.
+- Tab key: Moves to the remove button or the menu button of each file. Menus follow the keyboard interactions of the ActionMenu component.
+
+Dragging and dropping is never required. Clicking anywhere in the dropzone, or on the button, opens the native file picker, which works on every device and without JavaScript.
+
+### Screen reader support
+
+- The input is described by the `description` and the `validationHint`.
+- Changes of a file's status, such as "march.pdf: Upload complete", are announced to assistive technologies.
+- The status of a file is also communicated with text and not by color alone.
+- Make sure the labels of the remove and menu buttons describe their purpose.
+
+### Focus management
+
+The component doesn't move the focus. When a file is removed, consider moving the focus to a sensible element in your screen, such as the file input.
