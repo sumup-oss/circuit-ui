@@ -6,6 +6,10 @@
   padding-bottom: var(--cui-spacings-byte);
 }
 
+.flex-end {
+  justify-content: flex-end;
+}
+
 .tools {
   display: flex;
   flex-shrink: 0;

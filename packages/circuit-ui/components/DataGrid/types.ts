@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import type { CustomAction } from './components/DefaultComponents/QuickActions/QuickActions.js';
 import type { ClickEvent } from '../../types/events.js';
 import type { FilterLabels } from './components/FilterBar/components/Filters/Filter/types.js';
+import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 
 export interface WithColumnPicker {
   columnPickerConfig?: {
@@ -18,11 +19,11 @@ export interface WithColumnPicker {
 }
 
 export interface WithFilters {
-  filters?: {
+  filtersConfig?: {
     /**
      * Callback fired when one of the filters changes
      */
-    onFilter: (value: Record<string, unknown>) => void;
+    onFilter: (value: FilterValues) => void;
     /**
      * A Label for the action applying a given filter
      */

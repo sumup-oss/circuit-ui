@@ -30,6 +30,7 @@ export interface FilterBarProps<P>
   columns: Column<P>[];
   visibleColumns: Column<P>[];
   isMobile?: boolean;
+  activeFilters: FilterValues;
   searchQuery: string;
 }
 
@@ -41,58 +42,65 @@ const FilterBarComponent = <P,>({
   searchBarConfig,
   searchQuery,
   columnPickerConfig,
-  filters,
+  activeFilters,
+  filtersConfig,
 }: FilterBarProps<P>) => {
   const filterCountId = useId();
   const { label: searchLabel, onSearch, clearLabel } = searchBarConfig ?? {};
   const [open, setOpen] = useState(false);
   const { filtersLabel } = useTranslations({}, translations);
-  const [activeFilters, setActiveFilters] = useState<FilterValues>({});
   const activeFiltersCount = Object.keys(activeFilters).length;
 
   const onChange = useCallback(
     ({ target: { value: searchTerm } }: ChangeEvent<HTMLInputElement>) => {
       onSearch?.(searchTerm);
+      if (filtersConfig) {
+        filtersConfig?.onFilter?.({});
+      }
     },
-    [onSearch],
+    [onSearch, filtersConfig],
   );
+  const onClear = useCallback(() => {
+    onSearch?.('');
+    if (filtersConfig) {
+      filtersConfig.onFilter?.({});
+    }
+  }, [onSearch, filtersConfig]);
 
   const onFilterChange = (column: string, filter?: FilterValue) => {
-    setActiveFilters((prev) => {
-      const newValue = { ...prev };
-      if (filter === undefined) {
-        delete newValue[column];
-      } else {
-        newValue[column] = filter;
-      }
-      filters?.onFilter?.(newValue);
-      return newValue;
-    });
+    const newValue = { ...activeFilters };
+    if (filter === undefined) {
+      delete newValue[column];
+    } else {
+      newValue[column] = filter;
+    }
+    filtersConfig?.onFilter(newValue);
   };
 
   function onMobileFiltersChange(value: FilterValues) {
-    setActiveFilters(value);
-      filters?.onFilter?.(value);
-
+    filtersConfig?.onFilter?.(value);
   }
   function clearAllFilters() {
-    setActiveFilters({});
-    filters?.onFilter?.({});
+    filtersConfig?.onFilter?.({});
   }
- return (
+  return (
     <div
       role="toolbar"
-      className={clsx(classes.base, isMobile && classes['mobile-view'])}
+      className={clsx(
+        classes.base,
+        isMobile && classes['mobile-view'],
+        (searchBarConfig || columnPickerConfig) && !filtersConfig && classes['flex-end'],
+      )}
     >
-      {!isMobile && filters && (
+      {!isMobile && filtersConfig && (
         <div className={classes['filters-wrapper']}>
           <div className={classes.filters}>
             {visibleColumns.map(({ type, id, filter, label, filterConfig }) => (
               <Filter
                 key={`${id}-filter`}
                 labels={filterConfig?.labels}
-                applyFilterLabel={filters.applyFilterLabel}
-                clearFilterLabel={filters.clearFilterLabel}
+                applyFilterLabel={filtersConfig.applyFilterLabel}
+                clearFilterLabel={filtersConfig.clearFilterLabel}
                 column={{ type, label, filter }}
                 value={activeFilters[id]}
                 variant="popover"
@@ -108,7 +116,7 @@ const FilterBarComponent = <P,>({
               size="s"
               variant="tertiary"
             >
-              {filters.clearAllLabel}
+              {filtersConfig.clearAllLabel}
             </Button>
           )}
         </div>
@@ -127,14 +135,16 @@ const FilterBarComponent = <P,>({
                 {`${activeFiltersCount} ${filtersLabel}`}
               </Status>
             )}
-            <TriggerButton
-              icon={FilterIcon}
-              onClick={() => setOpen(true)}
-              aria-describedby={filterCountId}
-            >
-              {filtersLabel}
-            </TriggerButton>
-            {filters && (
+            {filtersConfig && (
+              <TriggerButton
+                icon={FilterIcon}
+                onClick={() => setOpen(true)}
+                aria-describedby={filterCountId}
+              >
+                {filtersLabel}
+              </TriggerButton>
+            )}
+            {filtersConfig && (
               <FilterSheet
                 open={open}
                 onClose={() => setOpen(false)}
@@ -142,8 +152,8 @@ const FilterBarComponent = <P,>({
                 values={activeFilters}
                 onApply={onMobileFiltersChange}
                 title={filtersLabel}
-                clearAllButtonLabel={filters.clearAllLabel}
-                applyButtonLabel={filters.applyFilterLabel}
+                clearAllButtonLabel={filtersConfig.clearAllLabel}
+                applyButtonLabel={filtersConfig.applyFilterLabel}
               />
             )}
           </div>
@@ -158,7 +168,7 @@ const FilterBarComponent = <P,>({
             className={classes.search}
             clearLabel={clearLabel}
             value={searchQuery}
-            onClear={() => onSearch('')}
+            onClear={onClear}
           />
         )}
         {!isMobile && columnPickerConfig && (

@@ -38,6 +38,14 @@ const searchConfig = {
   onSearch,
   clearLabel: 'Clear',
 };
+const onFilter = vi.fn();
+
+const filtersConfig = {
+  onFilter,
+  clearFilterLabel: 'Clear',
+  applyFilterLabel: 'Apply',
+  clearAllLabel: 'Clear all',
+};
 
 const defaultProps = {
   columns,
@@ -251,7 +259,13 @@ describe('DataGrid', () => {
         expect(screen.getByRole('toolbar')).toBeVisible();
       });
       it('should call the onSearch when user types a query', async () => {
-        render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
+        render(
+          <DataGrid
+            {...defaultProps}
+            searchBarConfig={searchConfig}
+            filtersConfig={filtersConfig}
+          />,
+        );
         await userEvent.type(
           screen.getByRole('searchbox', { name: 'Search' }),
           'P',
@@ -261,6 +275,7 @@ describe('DataGrid', () => {
           vi.runAllTimers();
         });
         expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('P');
+        expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({});
       });
       it('should call onSearch with the query after the debounce delay', async () => {
         await renderDataGridWithTimers();
@@ -308,12 +323,11 @@ describe('DataGrid', () => {
       });
       it('should call the onFilter when a filter is set', async () => {
         const age = columnsWithFilters[1];
-        const onFilter = vi.fn();
         render(
           <DataGrid
             {...defaultProps}
             columns={columnsWithFilters.slice(0, 2)}
-            filters={{onFilter, clearFilterLabel: "Clear", applyFilterLabel: "Apply",clearAllLabel: "Clear all"}}
+            filtersConfig={filtersConfig}
           />,
         );
         await userEvent.click(screen.getByRole('button', { name: age.label }));

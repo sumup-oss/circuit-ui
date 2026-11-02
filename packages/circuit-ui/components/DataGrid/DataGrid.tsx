@@ -42,6 +42,7 @@ import { utilClasses } from '../../styles/utility.js';
 import type { ClickEvent } from '../../types/events.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
 import { debounce } from '../../util/helpers.js';
+import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 
 export interface DataGridProps<P>
   extends TableHTMLAttributes<HTMLDivElement>,
@@ -104,12 +105,13 @@ export function DataGrid<P>({
   mobileBreakpoint = 768,
   searchBarConfig,
   ref,
-  filters,
+  filtersConfig,
   columnPickerConfig,
   ...props
 }: DataGridProps<P>) {
   const rowId = useId();
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilters, setActiveFilters] = useState<FilterValues>({});
   const [visibleColumns, setVisibleColumns] = useState(() => {
     const savedInStorage = sessionStorage
       .getItem(`cui-grid-${label}-visible-columns`)
@@ -141,6 +143,14 @@ export function DataGrid<P>({
       }
     },
     [debouncedOnSearch, searchBarConfig],
+  );
+
+  const onActiveFiltersChange = useCallback(
+    (filters: FilterValues) => {
+      setActiveFilters(filters);
+      filtersConfig?.onFilter(filters);
+    },
+    [filtersConfig],
   );
 
   const handleClickEvent = useCallback((event: MouseEvent) => {
@@ -282,7 +292,12 @@ export function DataGrid<P>({
           columns={columns}
           visibleColumns={visibleColumns}
           isMobile={isMobile}
-          filters={filters}
+          activeFilters={activeFilters}
+          filtersConfig={
+            filtersConfig
+              ? { ...filtersConfig, onFilter: onActiveFiltersChange }
+              : undefined
+          }
           searchQuery={searchQuery}
           columnPickerConfig={columnPickerConfig}
         />

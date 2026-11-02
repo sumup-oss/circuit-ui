@@ -47,7 +47,7 @@ const columnPickerConfig = {
 const searchBarConfig = {
   label: 'Search',
   onSearch: vi.fn(),
-  clearLabel: 'Clear',
+  clearLabel: 'Clear search',
 };
 
 const defaultProps = {
@@ -55,16 +55,17 @@ const defaultProps = {
   visibleColumns: [fullName, status],
   onVisibleColumnChange,
   searchQuery: '',
+  activeFilters: {},
 } satisfies FilterBarProps<Member>;
 
 describe('FilterBar', () => {
   const onFilter = vi.fn();
-  const filters= {
+  const filtersConfig = {
     onFilter,
     applyFilterLabel: 'Apply',
     clearFilterLabel: 'Clear',
     clearAllLabel: 'Clear all',
-  }
+  };
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -96,7 +97,7 @@ describe('FilterBar', () => {
       await settle();
     });
     it('should render filter', async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, filters });
+      renderFilterBar({ visibleColumns: columnsWithFilters, filtersConfig });
       expect(
         screen.getByRole('button', { name: columnsWithFilters[1].label }),
       ).toBeVisible();
@@ -108,7 +109,7 @@ describe('FilterBar', () => {
       ).toBeVisible();
     });
     it('should call onFilter when a filter value changes', async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, filters });
+      renderFilterBar({ visibleColumns: columnsWithFilters, filtersConfig });
       await click(
         screen.getByRole('button', { name: columnsWithFilters[2].label }),
       );
@@ -118,65 +119,98 @@ describe('FilterBar', () => {
       expect(onFilter).toHaveBeenCalledWith({
         [columnsWithFilters[2].id]: ['active'],
       });
-
+      await settle();
+    });
+    it('should call onFilter when a filter is cleared', async () => {
+      renderFilterBar({
+        visibleColumns: columnsWithFilters,
+        filtersConfig,
+        activeFilters: {
+          [columnsWithFilters[2].id]: ['active'],
+        },
+      });
       await click(
         screen.getByRole('button', {
           name: `${columnsWithFilters[2].label} (1)`,
         }),
       );
-      await click(screen.getByRole('checkbox', { name: 'Active' }));
-      await click(screen.getByRole('button', { name: 'Apply' }));
-      expect(onFilter).toHaveBeenCalledTimes(2);
+      await click(screen.getByRole('button', { name: 'Clear' }));
+      expect(onFilter).toHaveBeenCalledTimes(1);
       expect(onFilter).toHaveBeenCalledWith({});
+
       await settle();
     });
     it("should call onFilter when 'Clear all' button is clicked", async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, filters });
-      await click(
-        screen.getByRole('button', { name: columnsWithFilters[2].label }),
-      );
-      await click(screen.getByRole('checkbox', { name: 'Active' }));
-      await click(screen.getByRole('button', { name: 'Apply' }));
-      expect(onFilter).toHaveBeenCalledWith({
-        [columnsWithFilters[2].id]: ['active'],
-      });
-      await click(screen.getByRole('button', { name: 'Clear all' }));
-      expect(onFilter).toHaveBeenCalledTimes(2);
-      expect(onFilter).toHaveBeenCalledWith({});
-      await settle();
-    });
-    it('should render filters in a modal on mobile', async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, isMobile: true, filters });
-      expect(
-        screen.queryByRole('button', { name: columnsWithFilters[2].label }),
-      ).not.toBeInTheDocument();
-      const filtersTrigger = screen.getByRole('button', { name: 'Filters' });
-      expect(filtersTrigger).toBeVisible();
-      await click(filtersTrigger);
-      expect(screen.getByRole('dialog', { name: 'Filters' })).toBeVisible();
-      screen.getByRole('group', { name: age.label });
-      screen.getByRole('group', { name: status.label });
-      screen.getByRole('group', { name: subscriptionPrice.label });
-      await settle();
-    });
-    it('should apply a filter and call onFilter', async () => {
       renderFilterBar({
         visibleColumns: columnsWithFilters,
-        isMobile: true,
-        filters,
+        filtersConfig,
+        activeFilters: {
+          [columnsWithFilters[2].id]: ['active'],
+        },
       });
-      expect(
-        screen.queryByRole('button', { name: columnsWithFilters[2].label }),
-      ).not.toBeInTheDocument();
-      const filtersTrigger = screen.getByRole('button', { name: 'Filters' });
-      expect(filtersTrigger).toBeVisible();
-      await click(filtersTrigger);
-      expect(screen.getByRole('dialog', { name: 'Filters' })).toBeVisible();
-      await click(screen.getByRole('checkbox', { name: 'Active' }));
-      await click(screen.getByRole('button', { name: 'Apply' }));
-      expect(onFilter).toHaveBeenCalledExactlyOnceWith({ status: ['active'] });
-      expect(filtersTrigger).toHaveAccessibleDescription('1 Filters');
+      await click(
+        screen.getByRole('button', {
+          name: `${columnsWithFilters[2].label} (1)`,
+        }),
+      );
+
+      await click(screen.getByRole('button', { name: 'Clear all' }));
+      expect(onFilter).toHaveBeenCalledExactlyOnceWith({});
       await settle();
+    });
+    describe('On mobile', () => {
+      it('should render with active filters', async () => {
+        renderFilterBar({
+          visibleColumns: columnsWithFilters,
+          isMobile: true,
+          filtersConfig,
+          activeFilters: {
+            [columnsWithFilters[2].id]: ['active'],
+          },
+        });
+        expect(
+          screen.getByRole('button', { name: 'Filters' }),
+        ).toHaveAccessibleDescription('1 Filters');
+        await settle();
+      });
+      it('should render filters in a modal on mobile', async () => {
+        renderFilterBar({
+          visibleColumns: columnsWithFilters,
+          isMobile: true,
+          filtersConfig,
+        });
+        expect(
+          screen.queryByRole('button', { name: columnsWithFilters[2].label }),
+        ).not.toBeInTheDocument();
+        const filtersTrigger = screen.getByRole('button', { name: 'Filters' });
+        expect(filtersTrigger).toBeVisible();
+        await click(filtersTrigger);
+        expect(screen.getByRole('dialog', { name: 'Filters' })).toBeVisible();
+        screen.getByRole('group', { name: age.label });
+        screen.getByRole('group', { name: status.label });
+        screen.getByRole('group', { name: subscriptionPrice.label });
+        await settle();
+      });
+      it('should apply a filter and call onFilter', async () => {
+        renderFilterBar({
+          visibleColumns: columnsWithFilters,
+          isMobile: true,
+          filtersConfig,
+        });
+        expect(
+          screen.queryByRole('button', { name: columnsWithFilters[2].label }),
+        ).not.toBeInTheDocument();
+        const filtersTrigger = screen.getByRole('button', { name: 'Filters' });
+        expect(filtersTrigger).toBeVisible();
+        await click(filtersTrigger);
+        expect(screen.getByRole('dialog', { name: 'Filters' })).toBeVisible();
+        await click(screen.getByRole('checkbox', { name: 'Active' }));
+        await click(screen.getByRole('button', { name: 'Apply' }));
+        expect(onFilter).toHaveBeenCalledExactlyOnceWith({
+          status: ['active'],
+        });
+        await settle();
+      });
     });
   });
 
@@ -206,6 +240,42 @@ describe('FilterBar', () => {
 
       await click(screen.getByRole('button', { name: 'Clear' }));
       expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('');
+      await settle();
+    });
+    it('should reset active filters when user types a search term', async () => {
+      renderFilterBar({
+        searchBarConfig,
+        visibleColumns: columnsWithFilters,
+        filtersConfig,
+        activeFilters: { age: { min: 18 } },
+      });
+      expect(screen.getByRole('button', { name: 'Age (≥ 18)' })).toBeVisible();
+
+      await userEvent.type(
+        screen.getByRole('searchbox', { name: 'Search' }),
+        'j',
+      );
+
+      expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('j');
+      expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({});
+
+    });
+    it('should reset active filters when the search field is cleared', async () => {
+      renderFilterBar({
+        searchQuery: 'foo',
+        searchBarConfig,
+        visibleColumns: columnsWithFilters,
+        filtersConfig,
+        activeFilters: { age: { min: 18 } },
+      });
+      expect(screen.getByRole('button', { name: 'Age (≥ 18)' })).toBeVisible();
+
+      await click(
+        screen.getByRole('button', { name: searchBarConfig.clearLabel }),
+      );
+
+      expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('');
+      expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({});
       await settle();
     });
   });

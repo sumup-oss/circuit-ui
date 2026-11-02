@@ -618,7 +618,7 @@ export const WithFilters = (args: DataGridProps<Member>) => {
     <DataGrid
       {...args}
       data={records}
-      filters={{
+      filtersConfig={{
         onFilter: filterRecords,
         clearAllLabel: 'Clear all',
         applyFilterLabel: 'Apply',
