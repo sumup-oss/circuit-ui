@@ -70,7 +70,7 @@ export interface FilterSheetProps<P> extends Partial<I18nConfig> {
   /**
    * Label for the Apply button.
    */
-  applyButtonLabel?: string;
+  applyButtonLabel: string;
 }
 
 /**
@@ -161,7 +161,7 @@ export function FilterSheet<P>({
           {clearAllButtonLabel}
         </Button>
         <Button
-          type="button"
+          type="submit"
           variant="primary"
           className={classes.apply}
           onClick={handleApply}

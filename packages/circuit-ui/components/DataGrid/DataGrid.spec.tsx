@@ -254,7 +254,7 @@ describe('DataGrid', () => {
           target: { value },
         });
       }
-      it('should render the FilterBar when searchBarConfig is provided', () => {
+      it('should render the search bar when searchBarConfig is provided', () => {
         render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
         expect(screen.getByRole('toolbar')).toBeVisible();
       });
@@ -312,10 +312,20 @@ describe('DataGrid', () => {
       });
     });
     describe('Filters', () => {
+      it('should not render the FilterBar when filtersConfig is omitted', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            columns={columnsWithFilters.slice(0, 2)}
+          />,
+        );
+        expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
+      });
       it('should render the FilterBar when at least one column has filtering', () => {
         render(
           <DataGrid
             {...defaultProps}
+            filtersConfig={filtersConfig}
             columns={columnsWithFilters.slice(0, 2)}
           />,
         );

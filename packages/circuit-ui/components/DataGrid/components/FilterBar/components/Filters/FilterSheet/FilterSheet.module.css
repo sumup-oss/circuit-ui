@@ -14,14 +14,12 @@
   position: sticky;
   right: 0;
   left: 0;
-  z-index: 2;
   display: block;
   flex-shrink: 0;
   height: var(--cui-spacings-giga);
   pointer-events: none;
   content: "";
   background: linear-gradient(
-    180deg,
     color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent),
     color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
     color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
@@ -30,6 +28,7 @@
 
 .filters::before {
   top: 0;
+  transform: rotate(180deg);
 }
 
 .filters::after {

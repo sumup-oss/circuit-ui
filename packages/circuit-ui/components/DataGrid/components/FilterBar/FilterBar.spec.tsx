@@ -89,12 +89,10 @@ describe('FilterBar', () => {
     it('should not show any filter if no visible column has filtering option', async () => {
       renderFilterBar({ visibleColumns: columns.slice(0, 3) });
       expect(screen.queryAllByRole('button').length).toBe(0);
-      await settle();
     });
     it('should not show any filter if filters prop is not provided', async () => {
       renderFilterBar({ visibleColumns: columnsWithFilters });
       expect(screen.queryAllByRole('button').length).toBe(0);
-      await settle();
     });
     it('should render filter', async () => {
       renderFilterBar({ visibleColumns: columnsWithFilters, filtersConfig });
@@ -191,7 +189,8 @@ describe('FilterBar', () => {
         screen.getByRole('group', { name: subscriptionPrice.label });
         await settle();
       });
-      it('should apply a filter and call onFilter', async () => {
+      it('should apply a filter, call onFilter and close the modal', async () => {
+        vi.useFakeTimers({ shouldAdvanceTime: true });
         renderFilterBar({
           visibleColumns: columnsWithFilters,
           isMobile: true,
@@ -209,6 +208,11 @@ describe('FilterBar', () => {
         expect(onFilter).toHaveBeenCalledExactlyOnceWith({
           status: ['active'],
         });
+        vi.runAllTimers();
+        expect(
+          screen.queryByRole('dialog', { name: 'Filters' }),
+        ).not.toBeInTheDocument();
+        vi.useRealTimers();
         await settle();
       });
     });
@@ -258,7 +262,6 @@ describe('FilterBar', () => {
 
       expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('j');
       expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({});
-
     });
     it('should reset active filters when the search field is cleared', async () => {
       renderFilterBar({

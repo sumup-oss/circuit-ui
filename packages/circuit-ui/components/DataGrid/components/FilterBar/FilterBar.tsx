@@ -89,7 +89,9 @@ const FilterBarComponent = <P,>({
       className={clsx(
         classes.base,
         isMobile && classes['mobile-view'],
-        (searchBarConfig || columnPickerConfig) && !filtersConfig && classes['flex-end'],
+        (searchBarConfig || columnPickerConfig) &&
+          !filtersConfig &&
+          classes['flex-end'],
       )}
     >
       {!isMobile && filtersConfig && (
@@ -136,25 +138,25 @@ const FilterBarComponent = <P,>({
               </Status>
             )}
             {filtersConfig && (
-              <TriggerButton
-                icon={FilterIcon}
-                onClick={() => setOpen(true)}
-                aria-describedby={filterCountId}
-              >
-                {filtersLabel}
-              </TriggerButton>
-            )}
-            {filtersConfig && (
-              <FilterSheet
-                open={open}
-                onClose={() => setOpen(false)}
-                columns={visibleColumns}
-                values={activeFilters}
-                onApply={onMobileFiltersChange}
-                title={filtersLabel}
-                clearAllButtonLabel={filtersConfig.clearAllLabel}
-                applyButtonLabel={filtersConfig.applyFilterLabel}
-              />
+              <>
+                <TriggerButton
+                  icon={FilterIcon}
+                  onClick={() => setOpen(true)}
+                  aria-describedby={filterCountId}
+                >
+                  {filtersLabel}
+                </TriggerButton>
+                <FilterSheet
+                  open={open}
+                  onClose={() => setOpen(false)}
+                  columns={visibleColumns}
+                  values={activeFilters}
+                  onApply={onMobileFiltersChange}
+                  title={filtersLabel}
+                  clearAllButtonLabel={filtersConfig.clearAllLabel}
+                  applyButtonLabel={filtersConfig.applyFilterLabel}
+                />
+              </>
             )}
           </div>
         )}

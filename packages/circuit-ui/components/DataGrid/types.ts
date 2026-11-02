@@ -25,15 +25,15 @@ export interface WithFilters {
      */
     onFilter: (value: FilterValues) => void;
     /**
-     * A Label for the action applying a given filter
+     * A Label for the action of applying a given filter
      */
     applyFilterLabel: string;
     /**
-     * A Label for the action clearing a given filter
+     * A Label for the action of clearing a given filter
      */
     clearFilterLabel: string;
     /**
-     * A label for the action clearing all filters
+     * A label for the action of clearing all filters
      */
     clearAllLabel: string;
   };
@@ -50,7 +50,8 @@ export interface WithSearchBar {
      */
     onSearch: (query: string) => void;
     /**
-     * Provides a label to clear search button
+     * Visually hidden text label on the clear button for screen readers.
+     * Crucial for accessibility.
      */
     clearLabel: string;
   };

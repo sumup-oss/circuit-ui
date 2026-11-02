@@ -274,10 +274,7 @@ export function DataGrid<P>({
     [columns, label],
   );
 
-  const showFilterBar =
-    searchBarConfig ||
-    columnPickerConfig ||
-    columns.some(({ filter }) => filter);
+  const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
 
   return (
     <div className={classes.wrapper}>

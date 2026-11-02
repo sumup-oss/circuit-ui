@@ -109,7 +109,7 @@ export function normalizeFilterValue<P>(
 
 type SelectionColumnType<P = unknown> = Extract<
   FilterColumn<P>['type'],
-  { name: 'singleSelection' } | { name: 'multiSelection' } | { name: 'boolean' }
+  { name: 'singleSelection' | 'multiSelection' | 'boolean' }
 >;
 
 /**

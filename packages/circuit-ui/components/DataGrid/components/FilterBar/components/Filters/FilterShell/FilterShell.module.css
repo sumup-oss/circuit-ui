@@ -1,13 +1,13 @@
-.trigger.trigger {
+.trigger {
   background-color: var(--cui-bg-subtle);
   border-radius: var(--cui-border-radius-pill);
 }
 
-.trigger.trigger:hover {
+.trigger:hover {
   background-color: var(--cui-bg-subtle-hovered);
 }
 
-.trigger.trigger[aria-expanded="true"] {
+.trigger[aria-expanded="true"] {
   background-color: var(--cui-bg-highlight);
   border-color: transparent;
 }

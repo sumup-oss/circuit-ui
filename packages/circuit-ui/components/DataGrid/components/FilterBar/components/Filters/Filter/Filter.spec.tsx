@@ -235,6 +235,7 @@ describe('Filter', () => {
 
   it.each([
     { name: 'singleSelection', options },
+    { name: 'boolean', accessibleLabel: () => 'foo' },
     { name: 'multiSelection', options },
   ] as const)('should not throw an error for missing labels with type %s', (type) => {
     process.env.NODE_ENV = 'development';
