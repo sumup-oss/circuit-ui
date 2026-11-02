@@ -94,6 +94,9 @@ export function ListItemGroup({
       'The `label` prop, `aria-label` or `aria-labelledby` is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
     );
   }
+  const offsetItems = items.some(
+    (item) => item.variant === 'navigation' || item.variant === 'menu',
+  );
 
   return (
     <div
@@ -123,6 +126,7 @@ export function ListItemGroup({
             className={clsx(
               classes.item,
               isInteractive && classes.interactive,
+              offsetItems && classes.offset,
               focusedItemKey === key && classes.focused,
               item.selected && classes.selected,
             )}

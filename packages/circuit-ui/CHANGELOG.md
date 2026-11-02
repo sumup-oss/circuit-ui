@@ -1,5 +1,20 @@
 # @sumup-oss/circuit-ui
 
+## 12.6.0
+
+### Minor Changes
+
+- [#3989](https://github.com/sumup-oss/circuit-ui/pull/3989) [`a1fc483`](https://github.com/sumup-oss/circuit-ui/commit/a1fc48332c39c19836df3f42a161d52e68793adb) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `"menu"` variant to the ListItem component. It displays an ActionMenu in the trailing section of the ListItem.
+
+- [#4003](https://github.com/sumup-oss/circuit-ui/pull/4003) [`9334bd7`](https://github.com/sumup-oss/circuit-ui/commit/9334bd7aedbc141201d0eba76a9f4e903cc7c7a1) Thanks [@missating](https://github.com/missating)! - Updated the NotificationBanner action to accept all Button variants (`primary`, `secondary` and `tertiary`) with default as `primary`.
+
+  Previously, the action's `tertiary` variant was remapped and rendered as a `secondary` button while every other value, including `secondary`, rendered as a `primary` button. The variant is no longer remapped, and the `tertiary` deprecation warning has been removed.
+
+  Now passing:
+  - `variant: 'tertiary'` renders a tertiary button. To keep the previous appearance, use `variant: 'secondary'`.
+  - `variant: 'secondary'` renders a secondary button instead of a primary one. To keep the previous appearance, use `variant: 'primary'` or omit the variant.
+  - `variant: 'primary'` or no variant still renders a primary button.
+
 ## 12.5.0
 
 ### Minor Changes
