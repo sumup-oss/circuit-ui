@@ -22,14 +22,12 @@ import { Headline } from '../../../../../../Headline/index.js';
 import type { I18nConfig } from '../../../../../../I18nContext/I18nContext.js';
 import { Modal } from '../../../../../../Modal/index.js';
 import { useLatest } from '../../../../../../../hooks/useLatest/index.js';
-import { useTranslations } from '../../../../../../../hooks/useTranslations/useTranslations.js';
 import {
   getFilterKind,
   normalizeFilterValue,
 } from '../Filter/FilterService.js';
 import type { FilterValue } from '../Filter/types.js';
 import { Filter } from '../Filter/index.js';
-import { translations } from '../translations/index.js';
 
 import classes from './FilterSheet.module.css';
 import type { Column } from '../../../../../types.js';
@@ -79,17 +77,16 @@ export interface FilterSheetProps<P> extends Partial<I18nConfig> {
  * Shows all the filters of a table in one modal, e.g. on mobile. Edits are
  * kept as a draft and only take effect once the user applies them.
  */
-export function FilterSheet<P>(props: FilterSheetProps<P>) {
-  const {
-    open,
-    onClose,
-    columns,
-    values,
-    onApply,
-    clearAllButtonLabel,
-    title,
-    applyButtonLabel,
-  } = useTranslations(props, translations);
+export function FilterSheet<P>({
+  open,
+  onClose,
+  columns,
+  values,
+  onApply,
+  clearAllButtonLabel,
+  title,
+  applyButtonLabel,
+}: FilterSheetProps<P>) {
   const titleId = useId();
   const openRef = useLatest(open);
   const [draft, setDraft] = useState<FilterValues>(values);
@@ -145,6 +142,8 @@ export function FilterSheet<P>(props: FilterSheetProps<P>) {
           getFilterKind(column) ? (
             <div key={column.id} className={classes.section}>
               <Filter
+                applyFilterLabel=""
+                clearFilterLabel=""
                 column={column}
                 labels={column.filterConfig?.labels}
                 variant="inline"

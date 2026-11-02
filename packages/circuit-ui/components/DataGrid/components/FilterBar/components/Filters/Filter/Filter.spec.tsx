@@ -23,7 +23,7 @@ import {
   userEvent,
 } from '../../../../../../../util/test-utils.js';
 
-import { Filter, type FilterWrapperProps } from './Filter.js';
+import { Filter, type FilterProps } from './Filter.js';
 
 declare const process: {
   env: { NODE_ENV: string };
@@ -49,13 +49,19 @@ describe('Filter', () => {
     { label: 'Soy', value: 'soy' },
   ];
 
-  const multiColumn: FilterWrapperProps['column'] = {
+  const multiColumn: FilterProps['column'] = {
     label: 'Allergies',
     filter: true,
     type: { name: 'multiSelection', options },
   };
 
-  const baseProps = { column: multiColumn, onChange: vi.fn() };
+  const baseProps = {
+    column: multiColumn,
+    onChange: vi.fn(),
+    applyFilterLabel: 'Apply',
+    clearFilterLabel: 'Clear',
+    clearAllFilters: 'Clear all',
+  };
 
   it('should render nothing for a text column', () => {
     const { container } = render(
@@ -70,10 +76,7 @@ describe('Filter', () => {
 
   it('should render nothing when the column has no filter', () => {
     const { container } = render(
-      <Filter
-        {...baseProps}
-        column={{ ...multiColumn, filter: false }}
-      />,
+      <Filter {...baseProps} column={{ ...multiColumn, filter: false }} />,
     );
 
     expect(container).toBeEmptyDOMElement();
@@ -137,6 +140,7 @@ describe('Filter', () => {
   it('should show a boolean type as a multi selection filter', async () => {
     render(
       <Filter
+        {...baseProps}
         onChange={vi.fn()}
         column={{
           label: 'Boolean',
@@ -185,9 +189,7 @@ describe('Filter', () => {
 
     it('should remove the filter and keep the popover open when clicking Clear', async () => {
       const onChange = vi.fn();
-      render(
-        <Filter {...baseProps} value={['eggs']} onChange={onChange} />,
-      );
+      render(<Filter {...baseProps} value={['eggs']} onChange={onChange} />);
       const trigger = screen.getByRole('button', { name: 'Allergies (1)' });
 
       await userEvent.click(trigger);
@@ -271,6 +273,7 @@ describe('Filter', () => {
     const onChange = vi.fn();
     render(
       <Filter
+        {...baseProps}
         labels={{
           max: 'Max',
           min: 'Min',
@@ -329,9 +332,7 @@ describe('Filter', () => {
 
     it('should report changes right away', async () => {
       const onChange = vi.fn();
-      render(
-        <Filter {...baseProps} variant="inline" onChange={onChange} />,
-      );
+      render(<Filter {...baseProps} variant="inline" onChange={onChange} />);
 
       await userEvent.click(screen.getByRole('checkbox', { name: 'Eggs' }));
 

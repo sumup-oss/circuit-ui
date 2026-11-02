@@ -38,7 +38,7 @@ import type {
 import { useFilterDraft } from './useFilterDraft.js';
 import { CircuitError } from '../../../../../../../util/errors.js';
 
-export interface FilterWrapperProps<P = unknown> {
+export interface FilterProps<P = unknown> {
   /**
    * The column to filter. A filter is only shown when `filter` is true and
    * the type of the column supports one.
@@ -62,6 +62,14 @@ export interface FilterWrapperProps<P = unknown> {
    * @default 'popover'
    */
   variant?: 'popover' | 'inline';
+  /**
+   * Label for the Apply button.
+   */
+  applyFilterLabel: string;
+  /**
+   * Label for the Clear button.
+   */
+  clearFilterLabel: string;
 }
 
 interface FilterBodyProps<P> {
@@ -139,8 +147,13 @@ function PopoverFilter<P>({
   label,
   value,
   onChange,
+  clearFilterLabel,
+  applyFilterLabel,
   ...props
-}: FilterBodyProps<P>) {
+}: FilterBodyProps<P> & {
+  clearFilterLabel: string;
+  applyFilterLabel: string;
+}) {
   const { formattingLocale } = useI18n({});
   const { draft, setDraft, apply, clear, discard } = useFilterDraft(
     value,
@@ -152,6 +165,8 @@ function PopoverFilter<P>({
       label={label}
       summary={getFilterSummary({ type }, value, formattingLocale)}
       onApply={apply}
+      clearButtonLabel={clearFilterLabel}
+      applyButtonLabel={applyFilterLabel}
       onClear={clear}
       onDiscard={discard}
     >
@@ -175,7 +190,7 @@ export function Filter<P>({
   column,
   variant = 'popover',
   ...props
-}: FilterWrapperProps<P>) {
+}: FilterProps<P>) {
   const kind = getFilterKind(column);
 
   if (!kind) {

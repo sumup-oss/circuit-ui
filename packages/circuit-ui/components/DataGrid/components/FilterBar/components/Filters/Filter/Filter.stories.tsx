@@ -18,7 +18,7 @@ import { type ReactNode, useState } from 'react';
 import { modes } from '../../../../../../../../../.storybook/modes.js';
 import type { Option } from '../../../../../types.js';
 
-import { Filter, type FilterWrapperProps } from './index.js';
+import { Filter, type FilterProps } from './index.js';
 import type { FilterValue } from './types.js';
 
 export default {
@@ -40,7 +40,7 @@ function StoryWrapper({ children }: { children: ReactNode }) {
   return <div style={{ minHeight: '400px' }}>{children}</div>;
 }
 
-const FilterStory = (args: FilterWrapperProps) => {
+const FilterStory = (args: FilterProps) => {
   const [value, setValue] = useState<FilterValue | undefined>();
 
   return (
@@ -63,41 +63,37 @@ const paymentStatusOptions: Option[] = [
   { label: 'Revoked', value: 'revoked' },
 ];
 
-const multiChoiceColumn: FilterWrapperProps['column'] = {
+const multiChoiceColumn: FilterProps['column'] = {
   label: 'Payment Status',
   filter: true,
   type: { name: 'multiSelection', options: paymentStatusOptions },
 };
 
-export const MultiChoice = (args: FilterWrapperProps) => (
-  <FilterStory {...args} />
-);
+export const MultiChoice = (args: FilterProps) => <FilterStory {...args} />;
 
 MultiChoice.args = { column: multiChoiceColumn, labels };
 
-const quantityColumn: FilterWrapperProps['column'] = {
+const quantityColumn: FilterProps['column'] = {
   label: 'Quantity',
   filter: true,
   type: { name: 'number' },
 };
 
-export const Quantity = (args: FilterWrapperProps) => <FilterStory {...args} />;
+export const Quantity = (args: FilterProps) => <FilterStory {...args} />;
 
 Quantity.args = { column: quantityColumn, labels };
 
-const percentageColumn: FilterWrapperProps['column'] = {
+const percentageColumn: FilterProps['column'] = {
   label: 'VAT',
   filter: true,
   type: { name: 'number', formattingOptions: { style: 'percent' } },
 };
 
-export const Percentage = (args: FilterWrapperProps) => (
-  <FilterStory {...args} />
-);
+export const Percentage = (args: FilterProps) => <FilterStory {...args} />;
 
 Percentage.args = { column: percentageColumn, labels };
 
-const currencyColumn: FilterWrapperProps['column'] = {
+const currencyColumn: FilterProps['column'] = {
   label: 'Amount',
   filter: true,
   type: {
@@ -106,18 +102,16 @@ const currencyColumn: FilterWrapperProps['column'] = {
   },
 };
 
-export const Currency = (args: FilterWrapperProps) => <FilterStory {...args} />;
+export const Currency = (args: FilterProps) => <FilterStory {...args} />;
 
 Currency.args = { column: currencyColumn, labels };
 
-const dateColumn: FilterWrapperProps['column'] = {
+const dateColumn: FilterProps['column'] = {
   label: 'Date',
   filter: true,
   type: { name: 'date' },
 };
 
-export const DateRange = (args: FilterWrapperProps) => (
-  <FilterStory {...args} />
-);
+export const DateRange = (args: FilterProps) => <FilterStory {...args} />;
 
 DateRange.args = { column: dateColumn, labels };

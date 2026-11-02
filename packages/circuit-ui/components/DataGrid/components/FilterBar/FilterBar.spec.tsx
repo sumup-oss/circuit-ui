@@ -59,6 +59,12 @@ const defaultProps = {
 
 describe('FilterBar', () => {
   const onFilter = vi.fn();
+  const filters= {
+    onFilter,
+    applyFilterLabel: 'Apply',
+    clearFilterLabel: 'Clear',
+    clearAllLabel: 'Clear all',
+  }
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -84,8 +90,13 @@ describe('FilterBar', () => {
       expect(screen.queryAllByRole('button').length).toBe(0);
       await settle();
     });
-    it('should render filter', async () => {
+    it('should not show any filter if filters prop is not provided', async () => {
       renderFilterBar({ visibleColumns: columnsWithFilters });
+      expect(screen.queryAllByRole('button').length).toBe(0);
+      await settle();
+    });
+    it('should render filter', async () => {
+      renderFilterBar({ visibleColumns: columnsWithFilters, filters });
       expect(
         screen.getByRole('button', { name: columnsWithFilters[1].label }),
       ).toBeVisible();
@@ -97,7 +108,7 @@ describe('FilterBar', () => {
       ).toBeVisible();
     });
     it('should call onFilter when a filter value changes', async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, onFilter });
+      renderFilterBar({ visibleColumns: columnsWithFilters, filters });
       await click(
         screen.getByRole('button', { name: columnsWithFilters[2].label }),
       );
@@ -120,7 +131,7 @@ describe('FilterBar', () => {
       await settle();
     });
     it("should call onFilter when 'Clear all' button is clicked", async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, onFilter });
+      renderFilterBar({ visibleColumns: columnsWithFilters, filters });
       await click(
         screen.getByRole('button', { name: columnsWithFilters[2].label }),
       );
@@ -135,7 +146,7 @@ describe('FilterBar', () => {
       await settle();
     });
     it('should render filters in a modal on mobile', async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, isMobile: true });
+      renderFilterBar({ visibleColumns: columnsWithFilters, isMobile: true, filters });
       expect(
         screen.queryByRole('button', { name: columnsWithFilters[2].label }),
       ).not.toBeInTheDocument();
@@ -152,7 +163,7 @@ describe('FilterBar', () => {
       renderFilterBar({
         visibleColumns: columnsWithFilters,
         isMobile: true,
-        onFilter,
+        filters,
       });
       expect(
         screen.queryByRole('button', { name: columnsWithFilters[2].label }),

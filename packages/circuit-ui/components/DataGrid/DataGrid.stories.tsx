@@ -554,55 +554,78 @@ export const WithFilters = (args: DataGridProps<Member>) => {
     const entries = Object.entries(filters);
     if (entries.length === 0) {
       setRecords(data);
+      return;
     }
-    entries.forEach(([key, value]) => {
-      let results: Member[] = data;
-      if (key === 'age' || key === 'subscriptionPrice') {
-        const { min, max } = value as { min: number; max: number };
-        results = results.filter(
-          ({ age }) => (min ? age >= min : true) && (max ? age <= max : true),
-        );
-      }
-      if (key === 'dateOfBirth') {
-        const { from, to } = value as { from: string; to: string };
-        results = results.filter(
-          ({ dateOfBirth }) =>
-            (from
-              ? Temporal.ZonedDateTime.compare(
-                  dateOfBirth,
-                  Temporal.PlainDate.from(from).toZonedDateTime(
-                    'Europe/Berlin',
-                  ),
-                ) > 0
-              : true) &&
-            (to
-              ? Temporal.ZonedDateTime.compare(
-                  dateOfBirth,
-                  Temporal.PlainDate.from(to).toZonedDateTime('Europe/Berlin'),
-                ) < 0
-              : true),
-        );
-      }
-      if (key === 'activity') {
-        results = results.filter(({ subscription: { frequentMember } }) =>
-          frequentMember !== undefined
-            ? (value as string[]).some(
-                (val) => frequentMember.toString() === val,
-              )
-            : false,
-        );
-      }
-      if (key === 'allergies') {
-        results = results.filter(({ allergies }) =>
-          (value as string[]).every((allergy) =>
-            allergies?.includes(allergy as Allergy),
-          ),
-        );
-      }
-      setRecords(results);
-    });
+
+    setRecords(
+      data.filter((member) =>
+        entries.every(([key, value]) => {
+          if (key === 'age') {
+            const { min, max } = value as { min?: number; max?: number };
+            return (
+              (min === undefined || member.age >= min) &&
+              (max === undefined || member.age <= max)
+            );
+          }
+          if (key === 'subscriptionPrice') {
+            const { min, max } = value as { min?: number; max?: number };
+            return (
+              (min === undefined || member.subscription.price >= min) &&
+              (max === undefined || member.subscription.price <= max)
+            );
+          }
+          if (key === 'dateOfBirth') {
+            const { from, to } = value as { from?: string; to?: string };
+            const birthDate = Temporal.ZonedDateTime.from(
+              member.dateOfBirth,
+            ).toPlainDate();
+            if (
+              from &&
+              Temporal.PlainDate.compare(
+                birthDate,
+                Temporal.PlainDate.from(from),
+              ) < 0
+            ) {
+              return false;
+            }
+            if (
+              to &&
+              Temporal.PlainDate.compare(
+                birthDate,
+                Temporal.PlainDate.from(to),
+              ) > 0
+            ) {
+              return false;
+            }
+            return true;
+          }
+          if (key === 'activity') {
+            return (value as string[]).includes(
+              String(member.subscription.frequentMember),
+            );
+          }
+          if (key === 'allergies') {
+            return (value as string[]).every((allergy) =>
+              member.allergies?.includes(allergy as Allergy),
+            );
+          }
+          return true;
+        }),
+      ),
+    );
   }
-  return <DataGrid {...args} data={records} onFilter={filterRecords} />;
+  return (
+    <DataGrid
+      {...args}
+      data={records}
+      filters={{
+        onFilter: filterRecords,
+        clearAllLabel: 'Clear all',
+        applyFilterLabel: 'Apply',
+        clearFilterLabel: 'Clear',
+      }}
+    />
+  );
 };
 
 WithFilters.args = {

@@ -37,6 +37,8 @@ describe('FilterShell', () => {
   const baseProps = {
     label: 'Amount',
     children: <p>Filter controls</p>,
+    applyButtonLabel: 'Apply',
+    clearButtonLabel: 'Clear',
   };
 
   it('should label the trigger with the filter name', () => {

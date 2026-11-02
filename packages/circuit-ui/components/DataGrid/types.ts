@@ -17,6 +17,27 @@ export interface WithColumnPicker {
   };
 }
 
+export interface WithFilters {
+  filters?: {
+    /**
+     * Callback fired when one of the filters changes
+     */
+    onFilter: (value: Record<string, unknown>) => void;
+    /**
+     * A Label for the action applying a given filter
+     */
+    applyFilterLabel: string;
+    /**
+     * A Label for the action clearing a given filter
+     */
+    clearFilterLabel: string;
+    /**
+     * A label for the action clearing all filters
+     */
+    clearAllLabel: string;
+  };
+}
+
 export interface WithSearchBar {
   searchBarConfig?: {
     /**

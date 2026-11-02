@@ -30,6 +30,7 @@ describe('FilterSheet', () => {
     open: true,
     title: 'Filters',
     clearAllButtonLabel: 'Clear all',
+    applyButtonLabel: 'Apply',
     onClose: vi.fn(),
     onApply: vi.fn(),
     values: {},

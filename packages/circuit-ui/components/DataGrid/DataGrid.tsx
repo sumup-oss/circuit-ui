@@ -31,6 +31,7 @@ import type {
   Column,
   MobileConfig,
   WithColumnPicker,
+  WithFilters,
   WithSearchBar,
 } from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
@@ -45,6 +46,7 @@ import { debounce } from '../../util/helpers.js';
 export interface DataGridProps<P>
   extends TableHTMLAttributes<HTMLDivElement>,
     WithSearchBar,
+    WithFilters,
     WithColumnPicker {
   /**
    * The columns to display, in order. Each column defines its header label,
@@ -56,10 +58,6 @@ export interface DataGridProps<P>
    * render their cell values.
    */
   data: P[];
-  /**
-   * Callback fired when one of the filters changes
-   */
-  onFilter?: (value: Record<string, unknown>) => void;
   /**
    * Label to be used as the table's caption.
    * Captions help screen reader users understand what the table is about
@@ -99,7 +97,6 @@ export interface DataGridProps<P>
 export function DataGrid<P>({
   data,
   columns,
-  onFilter,
   className,
   label,
   mobileConfig,
@@ -107,6 +104,7 @@ export function DataGrid<P>({
   mobileBreakpoint = 768,
   searchBarConfig,
   ref,
+  filters,
   columnPickerConfig,
   ...props
 }: DataGridProps<P>) {
@@ -284,7 +282,7 @@ export function DataGrid<P>({
           columns={columns}
           visibleColumns={visibleColumns}
           isMobile={isMobile}
-          onFilter={onFilter}
+          filters={filters}
           searchQuery={searchQuery}
           columnPickerConfig={columnPickerConfig}
         />

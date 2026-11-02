@@ -31,8 +31,6 @@ import {
 } from '../../../../../../Popover/Popover.js';
 import type { I18nConfig } from '../../../../../../I18nContext/I18nContext.js';
 import { clsx } from '../../../../../../../styles/clsx.js';
-import { useTranslations } from '../../../../../../../hooks/useTranslations/useTranslations.js';
-import { translations } from '../translations/index.js';
 
 import classes from './FilterShell.module.css';
 
@@ -69,11 +67,11 @@ export interface FilterShellProps extends Partial<I18nConfig> {
   /**
    * Label for the Apply button.
    */
-  applyButtonLabel?: string;
+  applyButtonLabel: string;
   /**
    * Label for the Clear button.
    */
-  clearButtonLabel?: string;
+  clearButtonLabel: string;
   className?: string;
 }
 
@@ -108,18 +106,17 @@ function FilterTrigger(triggerProps: PopoverReferenceProps) {
  * The popover shell shared by all filter types: a trigger button, the
  * filter controls and, optionally, Apply and Clear actions.
  */
-export function FilterShell(props: FilterShellProps) {
-  const {
-    label,
-    summary,
-    children,
-    onApply,
-    onClear,
-    onDiscard,
-    applyButtonLabel,
-    clearButtonLabel,
-    className,
-  } = useTranslations(props, translations);
+export function FilterShell({
+  label,
+  summary,
+  children,
+  onApply,
+  onClear,
+  onDiscard,
+  applyButtonLabel,
+  clearButtonLabel,
+  className,
+}: FilterShellProps) {
   const [isOpen, setOpen] = useState(false);
 
   const handleToggle = useCallback(

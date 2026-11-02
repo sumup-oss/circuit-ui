@@ -313,7 +313,7 @@ describe('DataGrid', () => {
           <DataGrid
             {...defaultProps}
             columns={columnsWithFilters.slice(0, 2)}
-            onFilter={onFilter}
+            filters={{onFilter, clearFilterLabel: "Clear", applyFilterLabel: "Apply",clearAllLabel: "Clear all"}}
           />,
         );
         await userEvent.click(screen.getByRole('button', { name: age.label }));
