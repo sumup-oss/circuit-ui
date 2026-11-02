@@ -27,7 +27,7 @@ The FileInput component works with any upload service: it doesn't upload files i
 
 - Use the `onChange` prop to upload the selected files. It is called once for every file, whether the user browsed or dropped it, and receives the file and an `AbortSignal` in an options object. Return the promise of your upload: the file is shown as uploading until the promise settles, then as successful if it resolves or as failed if it rejects. If `onChange` doesn't return a promise, the file is only listed, for example to be submitted with a form.
 - While a file is uploading, a ring spins around its icon to indicate activity.
-- Use the `onRemove` prop to delete a file from your service. The component removes the file from the list and aborts its upload by itself.
+- Use the `onRemove` prop to delete a file from your service. It receives the removed file. The component removes the file from the list and aborts its upload by itself.
 - Pass the `uploadingLabel`, `successLabel` and `errorLabel` props to describe the state of the files. These texts are generic and the same for every file, for example "Uploading…" and "Upload complete". Successful files are also marked with a check icon.
 - To tell users why an upload failed, pass a function to the `errorLabel` prop. It receives the reason your promise rejected with, which the component doesn't inspect, and returns the message to display for that file. Your code knows what the errors of your service mean, so you decide the messages. Keep them short and actionable, and translate them if necessary.
 - Describe the accepted file types and sizes to users using the `description` prop. The `accept` prop only filters the file picker, so always validate the files you receive and reject the promise for files that are not accepted.
@@ -56,7 +56,7 @@ Use the `validationHint` prop to communicate the expected response to users, and
 - A file with more than one action shows a menu instead of a button, so make sure to pass the `menuLabel` prop to label the menu button. The menu lists the additional actions, followed by the retry and remove actions.
 - Files that failed to upload offer a retry action, labelled by the `retryLabel` prop, next to the remove action. Retrying calls `onChange` again with the same file, so the upload runs through the same code as the first attempt. The component doesn't retry by itself.
 - Files that are uploading always show the remove button, so users can cancel the upload.
-- Files show an icon that matches their type: PDF, spreadsheet or CSV, image, document, or a generic file icon for any other type.
+- Files show an icon that matches their type: PDF, spreadsheet or CSV, image, document, ZIP archive, or a generic file icon for any other type.
 
 In the story at the top of this page, the examples below the input show the states of a file and a menu created with the `trailingActions` prop.
 

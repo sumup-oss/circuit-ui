@@ -133,6 +133,8 @@
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
   color: var(--cui-fg-normal);
+
+  /* TODO: check with design color matches with row */
   background-color: var(--cui-bg-subtle);
   border-radius: var(--cui-border-radius-pill);
   transition: background-color var(--cui-transitions-default);
@@ -184,10 +186,6 @@
   list-style: none;
 }
 
-.item {
-  list-style: none;
-}
-
 /* The rows override the default ListItem look with the design's values. The
    badge ring needs to match the row background to look cut out of the icon
    circle. */
@@ -220,8 +218,9 @@
 
 /* Uploading: the fill is replaced by a spinning ring centered on the edge */
 .icon-uploading {
-  --ring-width: 2.5px;
+  --ring-width: calc(var(--cui-border-width-mega) * 1.25);
 
+  /* TODO: check with design color matches with row */
   background-color: transparent;
 }
 
@@ -230,7 +229,8 @@
   inset: calc(var(--ring-width) / -2);
   pointer-events: none;
 
-  /* A solid ring for browsers that don't support the gradient arc below */
+  /* The gradient colors are from the design and have no tokens. A solid ring
+     is used by browsers that don't support the gradient arc below. */
   border: var(--ring-width) solid #598ffa;
   border-radius: inherit;
 }
@@ -246,16 +246,16 @@
     mask: radial-gradient(
       farthest-side,
       transparent calc(100% - var(--ring-width)),
-      #000 calc(100% - var(--ring-width) + 1px)
+      #000 calc(100% - var(--ring-width) + var(--cui-border-width-kilo))
     );
   }
 
-  /* A quarter of the gradient, which is fixed to the circle, spins */
+  /* The visible quarter of the circle spins, with the full gradient on it */
   .arc {
     position: absolute;
     inset: 0;
     display: block;
-    background: conic-gradient(from 0deg, #598ffa, #d673d9 50%, #d673d9);
+    background: conic-gradient(from 0deg, #598ffa, #d673d9 12.5%, #598ffa 25%);
     mask: conic-gradient(from 0deg, #000 25%, transparent 0);
     animation: spin 1s linear infinite;
   }
@@ -282,10 +282,4 @@
 /* Body has no placeholder color. The selector outranks the color of Body. */
 .row-details .placeholder {
   color: var(--cui-fg-placeholder);
-}
-
-.row-actions {
-  display: flex;
-  gap: var(--cui-spacings-bit);
-  align-items: center;
 }

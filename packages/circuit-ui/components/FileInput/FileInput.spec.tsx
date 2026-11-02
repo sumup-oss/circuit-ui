@@ -172,10 +172,7 @@ describe('FileInput', () => {
 
       expect(screen.queryByText('march.pdf')).not.toBeInTheDocument();
       expect(screen.getByText('april.jpg')).toBeVisible();
-      expect(onRemove).toHaveBeenCalledWith({
-        id: expect.any(String),
-        file: march,
-      });
+      expect(onRemove).toHaveBeenCalledWith(march);
     });
   });
 

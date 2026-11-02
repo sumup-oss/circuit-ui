@@ -49,19 +49,6 @@ import classes from './FileInput.module.css';
 import { FileInputItem, type FileInputStatus } from './FileInputItem.js';
 import { setInputFiles } from './FileInputService.js';
 
-export type { FileInputStatus };
-
-export interface FileInputRemoveEvent {
-  /**
-   * The unique identifier of the file.
-   */
-  id: string;
-  /**
-   * The file that was removed.
-   */
-  file: File;
-}
-
 interface SelectedFile {
   id: string;
   file: File;
@@ -116,7 +103,7 @@ export interface FileInputProps
    * Called when a file is removed or replaced. Use it to delete the file from
    * your service.
    */
-  onRemove?: (event: FileInputRemoveEvent) => void;
+  onRemove?: (file: File) => void;
   /**
    * An accessible label for the button that removes a file.
    */
@@ -188,10 +175,8 @@ export function FileInput({
   id: customId,
   validationHint,
   invalid,
-  required,
   disabled,
   multiple,
-  tabIndex,
   className,
   style,
   'aria-describedby': descriptionId,
@@ -381,7 +366,7 @@ export function FileInput({
     for (const { id: fileId, file } of discarded) {
       controllers.current.get(fileId)?.abort();
       controllers.current.delete(fileId);
-      latest.current.onRemove?.({ id: fileId, file });
+      latest.current.onRemove?.(file);
     }
   };
 
@@ -465,10 +450,7 @@ export function FileInput({
           type="file"
           multiple={multiple}
           className={clsx(classes.input, utilClasses.hideVisually)}
-          required={required}
           disabled={disabled}
-          // In the default variant, the button is the keyboard stop.
-          tabIndex={tabIndex}
           onChange={handleChange}
           aria-invalid={invalid && 'true'}
           // The visible button text is part of the name for voice control.

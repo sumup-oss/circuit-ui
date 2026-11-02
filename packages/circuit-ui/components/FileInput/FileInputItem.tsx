@@ -16,13 +16,14 @@
 import {
   Checkmark,
   Close,
-  CvsFile,
+  CsvFile,
   Delete,
   File as FileIcon,
   FileSpreadsheet,
   Image as ImageIcon,
   Invoice,
   PdfFile,
+  ZipFile,
 } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
@@ -47,8 +48,7 @@ const statusColors = {
 
 const iconsByExtension = new Map([
   ['pdf', PdfFile],
-  ['csv', CvsFile],
-  ['cvs', CvsFile],
+  ['csv', CsvFile],
   ['xls', FileSpreadsheet],
   ['xlsx', FileSpreadsheet],
   ['ods', FileSpreadsheet],
@@ -62,6 +62,7 @@ const iconsByExtension = new Map([
   ['odt', Invoice],
   ['rtf', Invoice],
   ['txt', Invoice],
+  ['zip', ZipFile],
 ]);
 
 /**
