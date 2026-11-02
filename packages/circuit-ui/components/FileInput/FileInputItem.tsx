@@ -108,14 +108,22 @@ export interface FileInputItemProps {
    */
   removeLabel?: string;
   /**
-   * Additional actions, shown in a menu before the remove action. Files that
-   * are uploading only show the remove button.
+   * An accessible label for the action that retries a failed upload.
+   */
+  retryLabel?: string;
+  /**
+   * Additional actions, shown in a menu before the retry and remove actions.
+   * Files that are uploading only show the remove button.
    */
   actions?: ActionMenuProps['actions'];
   /**
    * An accessible label for the menu button.
    */
   menuLabel?: string;
+  /**
+   * Called when the user wants to retry a failed upload.
+   */
+  onRetry?: () => void;
   /**
    * Called when the user wants to remove the file.
    */
@@ -133,8 +141,10 @@ export function FileInputItem({
   statusLabel,
   formattingLocale,
   removeLabel,
+  retryLabel,
   actions,
   menuLabel,
+  onRetry,
   onRemove,
 }: FileInputItemProps) {
   const isUploading = status === 'uploading';
@@ -143,9 +153,13 @@ export function FileInputItem({
     onRemove && removeLabel
       ? [{ children: removeLabel, onClick: () => onRemove() }]
       : [];
+  const retryAction: ActionMenuProps['actions'] =
+    status === 'error' && onRetry && retryLabel
+      ? [{ children: retryLabel, onClick: () => onRetry() }]
+      : [];
   const list: ActionMenuProps['actions'] = isUploading
     ? removeAction
-    : [...(actions ?? []), ...removeAction];
+    : [...(actions ?? []), ...retryAction, ...removeAction];
   const items = list.filter(
     (action): action is ActionMenuItemProps => !('type' in action),
   );

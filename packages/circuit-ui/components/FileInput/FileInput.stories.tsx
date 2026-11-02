@@ -61,6 +61,7 @@ const baseArgs = {
   dropLabel: 'Drop your files or click to upload',
   description: 'PDF, JPG, PNG (max 10MB each)',
   removeLabel: 'Remove file',
+  retryLabel: 'Retry',
   uploadingLabel: 'Uploading…',
   successLabel: 'Upload complete',
   errorLabel: getErrorMessage,
@@ -116,6 +117,9 @@ export const Base = (args: FileInputProps) => {
             status="error"
             statusLabel={getErrorMessage(new UploadError('network'))}
             removeLabel={args.removeLabel}
+            retryLabel={args.retryLabel}
+            menuLabel={args.menuLabel}
+            onRetry={() => {}}
             onRemove={remove('april')}
           />
         )}
@@ -165,3 +169,91 @@ export const Validations = (args: FileInputProps) => (
 );
 
 Validations.args = baseArgs;
+
+export const Disabled = (args: FileInputProps) => (
+  <Stack vertical>
+    <FileInput {...args} disabled />
+    <FileInput {...args} variant="button" disabled />
+  </Stack>
+);
+
+Disabled.args = baseArgs;
+
+const noop = () => {};
+
+// The states of the files are only reached while uploading, so they are
+// shown with static samples.
+export const States = (args: FileInputProps) => {
+  const itemProps = {
+    size: 245_760,
+    removeLabel: args.removeLabel,
+    retryLabel: args.retryLabel,
+    menuLabel: args.menuLabel,
+    onRetry: noop,
+    onRemove: noop,
+  };
+
+  return (
+    <ul className={classes.list}>
+      <FileInputItem name="listed.pdf" {...itemProps} />
+      <FileInputItem
+        name="uploading.pdf"
+        status="uploading"
+        statusLabel={args.uploadingLabel}
+        {...itemProps}
+      />
+      <FileInputItem
+        name="success.pdf"
+        status="success"
+        statusLabel={args.successLabel}
+        {...itemProps}
+      />
+      <FileInputItem
+        name="success-with-actions.pdf"
+        status="success"
+        statusLabel={args.successLabel}
+        actions={[{ children: 'Download', onClick: noop }]}
+        {...itemProps}
+      />
+      <FileInputItem
+        name="error.pdf"
+        status="error"
+        statusLabel={getErrorMessage(new UploadError('network'))}
+        {...itemProps}
+      />
+      <FileInputItem
+        name="a-very-long-file-name-that-does-not-fit-in-the-row-and-gets-truncated.pdf"
+        status="success"
+        statusLabel={args.successLabel}
+        {...itemProps}
+      />
+    </ul>
+  );
+};
+
+States.args = baseArgs;
+
+export const FileTypes = (args: FileInputProps) => (
+  <ul className={classes.list}>
+    {[
+      'document.pdf',
+      'table.csv',
+      'sheet.xlsx',
+      'photo.jpg',
+      'letter.docx',
+      'archive.zip',
+    ].map((name) => (
+      <FileInputItem
+        key={name}
+        name={name}
+        size={245_760}
+        status="success"
+        statusLabel={args.successLabel}
+        removeLabel={args.removeLabel}
+        onRemove={noop}
+      />
+    ))}
+  </ul>
+);
+
+FileTypes.args = baseArgs;

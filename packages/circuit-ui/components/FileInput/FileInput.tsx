@@ -122,6 +122,11 @@ export interface FileInputProps
    */
   removeLabel: string;
   /**
+   * An accessible label for the action that retries a failed upload. Required
+   * when uploaded files fail.
+   */
+  retryLabel?: string;
+  /**
    * The status text of files that are uploading. Required when files are
    * uploaded.
    */
@@ -142,8 +147,8 @@ export interface FileInputProps
    */
   trailingActions?: (file: File) => ActionMenuProps['actions'] | undefined;
   /**
-   * An accessible label for the menu button. Required when passing the
-   * `trailingActions` prop.
+   * An accessible label for the menu button. Required when uploaded files fail
+   * and when passing the `trailingActions` prop.
    */
   menuLabel?: string;
   /**
@@ -174,6 +179,7 @@ export function FileInput({
   onChange,
   onRemove,
   removeLabel,
+  retryLabel,
   uploadingLabel,
   successLabel,
   errorLabel,
@@ -255,10 +261,23 @@ export function FileInput({
         'The `errorLabel` prop is missing or invalid. It is required when files are uploaded.',
       );
     }
-    if (trailingActions && !isSufficientlyLabelled(menuLabel)) {
+    if (
+      selectedFiles.some(({ status }) => status === 'error') &&
+      !isSufficientlyLabelled(retryLabel)
+    ) {
       throw new AccessibilityError(
         'FileInput',
-        'The `menuLabel` prop is missing or invalid. It is required when passing the `trailingActions` prop.',
+        'The `retryLabel` prop is missing or invalid. It is required when uploaded files fail.',
+      );
+    }
+    if (
+      (trailingActions ||
+        selectedFiles.some(({ status }) => status === 'error')) &&
+      !isSufficientlyLabelled(menuLabel)
+    ) {
+      throw new AccessibilityError(
+        'FileInput',
+        'The `menuLabel` prop is missing or invalid. It is required when uploaded files fail and when passing the `trailingActions` prop.',
       );
     }
   }
@@ -385,6 +404,15 @@ export function FileInput({
 
     for (const { id: fileId, file } of added) {
       handleFile(fileId, file);
+    }
+  };
+
+  const retryFile = (fileId: string) => {
+    const retried = selectedFiles.find(
+      ({ id: selected }) => selected === fileId,
+    );
+    if (retried) {
+      handleFile(fileId, retried.file);
     }
   };
 
@@ -517,8 +545,10 @@ export function FileInput({
               statusLabel={status && getStatusLabel(status, error)}
               formattingLocale={formattingLocale ?? undefined}
               removeLabel={removeLabel}
+              retryLabel={retryLabel}
               actions={trailingActions?.(file)}
               menuLabel={menuLabel}
+              onRetry={() => retryFile(fileId)}
               onRemove={() => removeFile(fileId)}
             />
           ))}

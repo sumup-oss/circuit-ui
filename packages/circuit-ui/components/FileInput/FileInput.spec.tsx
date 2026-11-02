@@ -221,6 +221,8 @@ describe('FileInput', () => {
       uploadingLabel: 'Uploading…',
       successLabel: 'Uploaded',
       errorLabel: 'Upload failed',
+      retryLabel: 'Retry',
+      menuLabel: 'More actions',
     };
 
     function createUpload() {
@@ -268,6 +270,40 @@ describe('FileInput', () => {
       calls[0].reject(new Error('Network error'));
 
       expect(await screen.findByText('Upload failed')).toBeVisible();
+    });
+
+    it('offers to retry or remove a failed file in a menu', async () => {
+      const { upload, calls } = createUpload();
+      render(<FileInput {...uploadProps} onChange={upload} />);
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+      calls[0].reject(new Error('Network error'));
+      await userEvent.click(
+        await screen.findByRole('button', { name: 'More actions' }),
+      );
+
+      expect(screen.getByRole('button', { name: 'Retry' })).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Remove file' })).toBeVisible();
+    });
+
+    it('uploads the file again when the retry action is chosen', async () => {
+      const { upload, calls } = createUpload();
+      render(<FileInput {...uploadProps} onChange={upload} />);
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+      calls[0].reject(new Error('Network error'));
+      await userEvent.click(
+        await screen.findByRole('button', { name: 'More actions' }),
+      );
+      await userEvent.click(screen.getByRole('button', { name: 'Retry' }));
+
+      expect(upload).toHaveBeenCalledTimes(2);
+      expect(calls[1].file).toBe(march);
+      expect(await screen.findByText('Uploading…')).toBeVisible();
+
+      calls[1].resolve();
+
+      expect(await screen.findByText('Uploaded')).toBeVisible();
     });
 
     it('shows the error message that the consumer derives from the reason', async () => {

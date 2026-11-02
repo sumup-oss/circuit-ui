@@ -199,6 +199,20 @@
   background-color: var(--cui-bg-subtle);
 }
 
+/* ListItem aligns its trailing content to the top. The design centers it. */
+.item .row [data-variant] {
+  align-items: center;
+}
+
+/* The menu button is wider than ListItem's trailing slot, which pulls it out
+   by a negative margin. Sizing the slot to the button aligns it with the
+   remove button. */
+.item .row [data-variant="menu"] > div {
+  width: auto;
+  height: auto;
+  margin-right: 0;
+}
+
 /* Finished uploads have a darker fill, with a status badge on top */
 .icon-finished {
   background-color: var(--cui-bg-highlight);

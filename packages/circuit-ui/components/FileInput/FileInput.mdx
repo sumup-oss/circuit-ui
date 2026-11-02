@@ -38,7 +38,7 @@ The FileInput component works with any upload service: it doesn't upload files i
 
 <Story of={Stories.Variants} />
 
-- The default variant displays a dropzone with a call to action, supporting text and a button. Use the `dropLabel` and `description` props to customise the texts.
+- The default variant displays a dropzone with a call to action, supporting text and a button. Users can click anywhere in the dropzone to open the file picker. Use the `dropLabel` and `description` props to customise the texts.
 - The `button` variant displays a compact button. Use it when space is limited, such as on narrow viewports or next to other fields in a form.
 
 Both variants adapt to the width of their container. The component doesn't display a title. Add your own heading or instructions above it.
@@ -51,10 +51,12 @@ Use the `validationHint` prop to communicate the expected response to users, and
 
 ## Customisation
 
-- Every file can be removed. By default, a file shows a button to remove it, labelled by the `removeLabel` prop.
+- Every file can be removed. A file that was uploaded shows a button to remove it, labelled by the `removeLabel` prop.
 - Use the `trailingActions` prop to add more actions to a file. It is a function that receives the file and returns its additional actions, or nothing for files without. Each action can have its own text, icon and `destructive` state, just like the items of the ListItem component.
-- A file with additional actions shows a menu instead of the remove button, so make sure to pass the `menuLabel` prop to label the menu button. The menu lists the additional actions, followed by the remove action.
+- A file with more than one action shows a menu instead of a button, so make sure to pass the `menuLabel` prop to label the menu button. The menu lists the additional actions, followed by the retry and remove actions.
+- Files that failed to upload offer a retry action, labelled by the `retryLabel` prop, next to the remove action. Retrying calls `onChange` again with the same file, so the upload runs through the same code as the first attempt. The component doesn't retry by itself.
 - Files that are uploading always show the remove button, so users can cancel the upload.
+- Files show an icon that matches their type: PDF, spreadsheet or CSV, image, document, or a generic file icon for any other type.
 
 In the story at the top of this page, the examples below the input show the states of a file and a menu created with the `trailingActions` prop.
 
@@ -99,6 +101,8 @@ const MyComponent = () => {
       dropLabel="Drop your files or click to upload"
       description="PDF, JPG, PNG (max 10MB each)"
       removeLabel="Remove file"
+      retryLabel="Retry"
+      menuLabel="More actions"
       uploadingLabel="Uploading…"
       successLabel="Upload complete"
       errorLabel={getErrorMessage}
@@ -123,7 +127,7 @@ The FileInput component is built on top of the native [file input element](https
 
 The FileInput component is built on the native file input and designed to be accessible.
 
-The `label` prop is required. It is the accessible name of the input and isn't displayed visually. Describe the purpose of the input, for example "Receipts".
+The `label` prop is required. It isn't displayed visually. Describe the purpose of the input, for example "Receipts". The accessible name of the input is the `label` followed by the `buttonLabel`, for example "Receipts Upload files", so it matches the text users see.
 
 ### Keyboard navigation
 
@@ -131,7 +135,7 @@ The `label` prop is required. It is the accessible name of the input and isn't d
 - Enter or Space key: Opens the file picker.
 - Tab key: Moves to the remove button or the menu button of each file. Menus follow the keyboard interactions of the ActionMenu component.
 
-Dragging and dropping is never required. Clicking anywhere in the dropzone, or on the button, opens the native file picker, which works on every device and without JavaScript.
+Dragging and dropping is never required. Clicking anywhere in the dropzone, or on the button, opens the native file picker, which works on every device. The dropzone is a label of the native input, so the browser opens the picker itself.
 
 ### Screen reader support
 
