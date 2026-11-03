@@ -47,12 +47,50 @@ const filtersConfig = {
   clearAllLabel: 'Clear all',
 };
 
+const noResultsConfig = {
+  title: 'No results',
+  description: 'No results found.',
+  action: {
+    children: 'Try again',
+    onClick: vi.fn(),
+  },
+};
+
+const noDataConfig = {
+  title: 'No data',
+  description: 'No data found.',
+  action: {
+    children: 'Try again',
+    onClick: vi.fn(),
+  },
+};
+
 const defaultProps = {
   columns,
   data: members.slice(0, 2),
   label: 'Members',
   formattingLocale: 'en-US',
+  noResultsConfig,
+  noDataConfig,
 } satisfies DataGridProps<Member>;
+
+async function renderDataGridWithTimers(
+  additionalProps?: Partial<DataGridProps<Member>>,
+) {
+  vi.useFakeTimers();
+  render(<DataGrid {...defaultProps} {...additionalProps} />);
+  // Icon button tooltips position themselves on the next task. Flush that
+  // update before changing the search value.
+  await act(async () => {
+    await vi.runAllTimersAsync();
+  });
+}
+
+function changeSearch(value: string) {
+  fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), {
+    target: { value },
+  });
+}
 
 describe('DataGrid', () => {
   beforeEach(() => {
@@ -105,6 +143,49 @@ describe('DataGrid', () => {
     );
 
     expect(screen.getByText('39,99 €')).toBeVisible();
+  });
+
+  describe('States', () => {
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+    it('should show the no data state when no data is present', () => {
+      render(<DataGrid {...defaultProps} data={[]} />);
+      expect(
+        screen.queryByRole('grid', { name: 'Members' }),
+      ).not.toBeInTheDocument();
+      expect(screen.getByText(noDataConfig.title)).toBeVisible();
+      expect(screen.getByText(noDataConfig.description)).toBeVisible();
+      expect(
+        screen.getByRole('button', { name: noDataConfig.action.children }),
+      ).toBeVisible();
+    });
+    it('should show the no data state when loading', () => {
+      render(<DataGrid {...defaultProps} data={[]} isLoading={true} />);
+      expect(screen.getByRole('grid', { name: 'Members' })).toBeVisible();
+      expect(screen.queryByText(noDataConfig.title)).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(noDataConfig.description),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', { name: noDataConfig.action.children }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should show the no results state when no results are found', async () => {
+      const { rerender } = render(
+        <DataGrid {...defaultProps} searchBarConfig={searchConfig} />,
+      );
+      changeSearch('ja');
+      rerender(<DataGrid {...defaultProps} data={[]} />);
+      vi.runAllTimers();
+      expect(screen.getByText(noResultsConfig.title)).toBeVisible();
+      expect(screen.getByText(noResultsConfig.description)).toBeVisible();
+      expect(
+        screen.getByRole('button', { name: noResultsConfig.action.children }),
+      ).toBeVisible();
+      expect(screen.getByRole('grid', { name: 'Members' })).toBeVisible();
+    });
   });
 
   describe('Tabular content', () => {
@@ -244,21 +325,7 @@ describe('DataGrid', () => {
       afterEach(() => {
         vi.useRealTimers();
       });
-      async function renderDataGridWithTimers() {
-        vi.useFakeTimers();
-        render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
-        // Icon button tooltips position themselves on the next task. Flush that
-        // update before changing the search value.
-        await act(async () => {
-          await vi.runAllTimersAsync();
-        });
-      }
 
-      function changeSearch(value: string) {
-        fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), {
-          target: { value },
-        });
-      }
       it('should render the search bar when searchBarConfig is provided', () => {
         render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
         expect(screen.getByRole('toolbar')).toBeVisible();
@@ -282,7 +349,7 @@ describe('DataGrid', () => {
         expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('P');
       });
       it('should call onSearch with the query after the debounce delay', async () => {
-        await renderDataGridWithTimers();
+        await renderDataGridWithTimers({ searchBarConfig: searchConfig });
 
         changeSearch('ja');
 
@@ -300,7 +367,7 @@ describe('DataGrid', () => {
       });
 
       it('should call onSearch once with the latest query', async () => {
-        await renderDataGridWithTimers();
+        await renderDataGridWithTimers({ searchBarConfig: searchConfig });
 
         changeSearch('j');
         act(() => {

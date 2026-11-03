@@ -1,8 +1,11 @@
 'use client';
 
 import {
+  type Ref,
+  type TableHTMLAttributes,
   useCallback,
   useEffect,
+  useId,
   useRef,
   type HTMLAttributes,
   useId,
@@ -33,6 +36,7 @@ import type {
   WithColumnPicker,
   WithFilters,
   WithNoDataConfig,
+  WithNoResultsConfig,
   WithSearchBar,
   WithPagination,
 } from './types.js';
@@ -44,9 +48,7 @@ import { FilterBar } from './components/FilterBar/FilterBar.js';
 import { debounce } from '../../util/helpers.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 import { Pagination } from './components/Pagination/Pagination.js';
-import { Compact } from '../Compact/index.js';
-import { Button } from '../Button/index.js';
-import { Illustration } from '@sumup-oss/illustrations';
+import { StateScreen } from './components/StateScreen/StateScreen.js';
 
 import { MobileRow } from './components/MobileRow/MobileRow.js';
 import { isStringArray } from '../../util/type-check.js';
@@ -55,6 +57,7 @@ export interface DataGridProps<P>
   extends WithPagination,
     HTMLAttributes<HTMLTableElement>,
     WithNoDataConfig,
+    WithNoResultsConfig,
     WithSearchBar,
     WithFilters,
     WithColumnPicker {
@@ -129,6 +132,7 @@ export function DataGrid<P>({
   pagination,
   isLoading,
   noDataConfig,
+  noResultsConfig,
   ...props
 }: DataGridProps<P>) {
   const gridId = useId();
@@ -326,24 +330,18 @@ export function DataGrid<P>({
 
   const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
 
-  if (data.length === 0 && !isLoading && noDataConfig) {
-    const {
-      label: noDataLabel,
-      description,
-      action,
-      customScreen,
-    } = noDataConfig;
-    return customScreen ? (
-      customScreen
-    ) : (
-      <div className={clsx(utilClasses.center)}>
-        <Illustration name="empty-state-3" />
-        <div className={classes['no-data']}>
-          <p className={classes['no-data-title']}>{noDataLabel}</p>
-          {description && <Compact size="s">{description}</Compact>}
-          {action && <Button {...action} variant="primary" />}
-        </div>
-      </div>
+  if (
+    data.length === 0 &&
+    !isLoading &&
+    !(searchQuery || Object.keys(activeFilters).length > 0)
+  ) {
+    return (
+      <StateScreen
+        isLoading={isLoading}
+        isMobile={isMobile}
+        type="empty"
+        {...noDataConfig}
+      />
     );
   }
 
@@ -413,13 +411,19 @@ export function DataGrid<P>({
                   data={value}
                   className={classes.row}
                 />
-              ),
+              ),)}
+            </tbody>
+          </table>
+          {(searchQuery || Object.keys(activeFilters).length > 0) &&
+            data.length === 0 && (
+              <StateScreen
+                isLoading={isLoading}
+                isMobile={isMobile}
+                type="no-results"
+                {...noResultsConfig}
+              />
             )}
-          </tbody>
-        </table>
-      </div>
-
-      {pagination && data.length > 0 && <Pagination {...pagination} />}
+        </div>{pagination && data.length > 0 && <Pagination {...pagination} />}
     </div>
   );
 }

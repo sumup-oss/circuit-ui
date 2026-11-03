@@ -5,6 +5,7 @@ import type { ClickEvent } from '../../types/events.js';
 import type { FilterLabels } from './components/FilterBar/components/Filters/Filter/types.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 import type { ButtonProps } from '../Button/index.js';
+import type { IllustrationProps } from '@sumup-oss/illustrations';
 
 export interface WithColumnPicker {
   columnPickerConfig?: {
@@ -116,29 +117,37 @@ export interface WithPagination {
    */
   pagination?: PaginationConfig;
 }
+export type StateScreenConfig =
+  | {
+      /**
+       * Title to display when no data is available
+       */
+      title: string;
+      /**
+       * A short description to help users
+       */
+      description?: string;
+      action?: ButtonProps;
+      illustration?: IllustrationProps['name'];
+      customScreen?: never;
+    }
+  | {
+      title?: never;
+      description?: never;
+      illustration?: never;
+      action?: never;
+      /**
+       * A custom view to display when no data is available
+       */
+      customScreen: ReactNode;
+    };
+
 export interface WithNoDataConfig {
-  noDataConfig?:
-    | {
-        /**
-         * Title to display when no data is available
-         */
-        label: string;
-        /**
-         * A short description to help users
-         */
-        description?: string;
-        action?: ButtonProps;
-        customScreen: never;
-      }
-    | {
-        label: never;
-        description?: never;
-        action: never;
-        /**
-         * A custom view to display when no data is available
-         */
-        customScreen: ReactNode;
-      };
+  noDataConfig: StateScreenConfig;
+}
+
+export interface WithNoResultsConfig {
+  noResultsConfig: StateScreenConfig;
 }
 
 export type BasicType =

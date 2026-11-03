@@ -471,6 +471,16 @@ const openColumnPicker =
     await userEvent.click(button);
     screen.getByLabelText(columnPickerConfig.triggerLabel);
   };
+const search =
+  () =>
+  async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+    const canvas = within(canvasElement);
+    const searchBar = canvas.getByRole('searchbox', {
+      name: 'Search everywhere...',
+    });
+
+    await userEvent.type(searchBar, 'X');
+  };
 
 const columnPickerConfig = {
   triggerLabel: 'Toggle column visibility',
@@ -520,6 +530,22 @@ const baseArgs: DataGridProps<Member> = {
   columns,
   data: members.slice(0, 10),
   formattingLocale,
+  noDataConfig: {
+    title: 'No data yet',
+    description: 'No members in your gym. New members will appear here.',
+    action: {
+      children: 'Create a new member',
+      icon: Plus,
+    },
+  },
+  noResultsConfig: {
+    title: 'No Results',
+    description: 'We couldn’t find a match for your search criteria.',
+    action: {
+      children: 'Try again',
+      variant: 'tertiary',
+    },
+  },
 };
 
 export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
@@ -542,15 +568,39 @@ NoData.args = {
   mobileBreakpoint: 1280,
   mobileConfig,
   data: [],
-  noDataConfig: {
-    label: 'No data yet',
-    description: 'No members in your gym. New members will appear here.',
-    action: {
-      children: 'Create a new member',
-      icon: Plus,
-    },
-  },
 };
+
+export const NoResults = (args: DataGridProps<Member>) => {
+  const [records, setRecords] = useState(data);
+
+  function onSearch(searchTerm: string) {
+    if (!searchTerm) {
+      setRecords(data);
+      return;
+    }
+    setRecords(
+      data.filter(
+        ({ firstName, lastName }) =>
+          firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          lastName.toLowerCase().includes(searchTerm.toLowerCase()),
+      ),
+    );
+  }
+  return (
+    <DataGrid
+      {...args}
+      data={records}
+      searchBarConfig={{
+        label: 'Search everywhere...',
+        clearLabel: 'Clear',
+        onSearch,
+      }}
+    />
+  );
+};
+
+NoResults.args = baseArgs;
+NoResults.play = search();
 
 export const WithSearchBar = (args: DataGridProps<Member>) => {
   const [records, setRecords] = useState(data);
