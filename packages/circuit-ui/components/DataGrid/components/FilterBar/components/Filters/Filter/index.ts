@@ -14,4 +14,3 @@
  */
 
 export { Filter } from './Filter.js';
-export type { FilterProps } from './Filter.js';
