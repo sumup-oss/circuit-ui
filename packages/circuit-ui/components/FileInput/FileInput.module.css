@@ -217,7 +217,7 @@
 /* Uploading: a spinning ring is centered on the edge of the icon circle */
 .icon-uploading {
   --ring-width: calc(var(--cui-border-width-mega) * 1.25);
-  
+
   background-color: var(--cui-bg-highlight);
 }
 
