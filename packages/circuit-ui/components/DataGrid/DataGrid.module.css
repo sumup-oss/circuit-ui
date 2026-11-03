@@ -14,13 +14,17 @@
   bottom: 0;
   left: 0;
   display: block;
-  content: "";
   background: rgb(255 255 255 / 50%);
   opacity: 0;
   transition: opacity var(--cui-transitions-default);
 }
 
+.list::after {
+  content: "";
+}
+
 .loading::after {
+  content: "";
   opacity: 1;
 }
 

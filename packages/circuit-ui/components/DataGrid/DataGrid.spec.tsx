@@ -149,6 +149,14 @@ describe('DataGrid', () => {
     afterEach(() => {
       vi.useRealTimers();
     });
+    it('should initially load with skeletons', () => {
+      render(<DataGrid {...defaultProps} data={[]} isLoading />);
+      const grid = screen.getByRole('grid', { name: 'Members' });
+      expect(grid).toBeVisible();
+      expect(grid).toHaveAttribute('aria-busy', 'true');
+      expect(screen.getAllByRole('row').length).toBe(11);
+      expect(screen.getAllByTestId('skeleton-row').length).toBe(10);
+    });
     it('should show the no data state when no data is present', () => {
       render(<DataGrid {...defaultProps} data={[]} />);
       expect(

@@ -1,0 +1,22 @@
+.cell {
+  padding: var(--cui-spacings-mega) var(--cui-spacings-kilo);
+  background-color: var(--cui-bg-normal);
+}
+
+.bar {
+  display: block;
+  height: var(--cui-body-s-line-height);
+}
+
+.skeleton {
+  width: 100%;
+  height: var(--cui-body-s-line-height);
+}
+
+.row:last-of-type .cell:first-of-type {
+  border-bottom-left-radius: var(--cui-border-radius-mega);
+}
+
+.row:last-of-type .cell:last-of-type {
+  border-bottom-right-radius: var(--cui-border-radius-mega);
+}

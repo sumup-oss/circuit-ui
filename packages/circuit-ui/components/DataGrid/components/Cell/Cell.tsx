@@ -16,7 +16,7 @@ export interface CellProps
 }
 
 export const Cell = memo(
-  ({ as: Element = 'td', className, ...props }: CellProps) => {
+  ({ as: Element = 'td', className, style, children, ...props }: CellProps) => {
     const ref = useRef<HTMLTableCellElement>(null);
 
     useEffect(() => {
@@ -53,7 +53,9 @@ export const Cell = memo(
         onBlur={onCellBlurred}
         className={clsx(classes.base, className)}
         {...props}
-      />
+      >
+        <div style={style}>{children}</div>
+      </Element>
     );
   },
 );

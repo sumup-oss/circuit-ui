@@ -83,7 +83,6 @@ const columns: Column<Member>[] = [
   {
     id: 'subscriptionPrice',
     getValue: ({ subscription }: Member) => subscription.price,
-    maxWidth: 150,
     type: {
       name: 'number',
       formattingOptions: {
@@ -551,6 +550,12 @@ const baseArgs: DataGridProps<Member> = {
 export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
 Base.args = baseArgs;
+
+export const InitialLoad = (args: DataGridProps<Member>) => (
+  <DataGrid {...args} data={[]} isLoading={true} />
+);
+
+InitialLoad.args = { ...baseArgs, isLoading: true, data: [] };
 
 export const Loading = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 

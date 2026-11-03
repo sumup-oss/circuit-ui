@@ -49,6 +49,7 @@ import { debounce } from '../../util/helpers.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 import { Pagination } from './components/Pagination/Pagination.js';
 import { StateScreen } from './components/StateScreen/StateScreen.js';
+import { SkeletonGrid } from './components/SkeletonGrid/SkeletonGrid.js';
 
 import { MobileRow } from './components/MobileRow/MobileRow.js';
 import { isStringArray } from '../../util/type-check.js';
@@ -130,7 +131,7 @@ export function DataGrid<P>({
   filtersConfig,
   columnPickerConfig,
   pagination,
-  isLoading,
+  isLoading = false,
   noDataConfig,
   noResultsConfig,
   ...props
@@ -391,7 +392,16 @@ export function DataGrid<P>({
           {!isMobileView && <TableHeader columns={visibleColumns} />}
 
           <tbody>
-            {data.map((value, index) =>
+          {!(searchQuery || Object.keys(activeFilters).length > 0) &&
+          isLoading &&
+          data.length === 0 ? (
+            <SkeletonGrid
+              gridId={gridId}
+              itemsPerPage={10}
+              columns={visibleColumns.map(({ id }) => id)}
+            />
+          ) : (
+            data.map((value, index) =>
               isMobileView ? (
                 <MobileRow
                   columns={columns}
@@ -411,7 +421,7 @@ export function DataGrid<P>({
                   data={value}
                   className={classes.row}
                 />
-              ),)}
+              )))}
             </tbody>
           </table>
           {(searchQuery || Object.keys(activeFilters).length > 0) &&
