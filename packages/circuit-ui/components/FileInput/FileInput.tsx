@@ -77,7 +77,8 @@ export interface FileInputProps
    */
   label: string;
   /**
-   * Visually hide the label. Default: `true`.
+   * Visually hide the label.
+   * @default true
    */
   hideLabel?: boolean;
   /**
@@ -86,8 +87,7 @@ export interface FileInputProps
    */
   optionalLabel?: string;
   /**
-   * The text of the button that opens the file picker. Defaults to a
-   * translated "Upload files".
+   * The text of the button that opens the file picker.
    */
   buttonLabel?: string;
   /**
@@ -96,8 +96,7 @@ export interface FileInputProps
    */
   variant?: 'default' | 'button';
   /**
-   * The call to action displayed in the dropzone. Defaults to a translated
-   * "Drop your files or click to upload".
+   * The call to action displayed in the dropzone.
    */
   dropLabel?: string;
   /**
@@ -105,42 +104,34 @@ export interface FileInputProps
    */
   description?: string;
   /**
-   * Called for every selected file. Return a promise to show the file as
-   * uploading until it settles, then as successful or failed. The `signal` is
-   * aborted when the file is removed or replaced, and when the component
-   * unmounts. Without a promise, the file is only
-   * listed, for example to submit it with a form.
+   * A callback function fired for every selected file. Use it to upload the
+   * file and return the promise of the upload.
    */
   onChange?: (file: File, options: { signal: AbortSignal }) => unknown;
   /**
-   * Called when a file is removed or replaced. Use it to delete the file from
-   * your service.
+   * A callback function fired when a file is removed or replaced.
    */
   onRemove?: (file: File) => void;
   /**
    * The label of the action that removes a file. It is also the accessible
-   * name of the remove button. Defaults to a translated "Delete".
+   * name of the remove button.
    */
   removeLabel?: string;
   /**
-   * A label for the action that retries a failed upload. Defaults to a
-   * translated "Retry".
+   * A label for the action that retries a failed upload.
    */
   retryLabel?: string;
   /**
-   * The status text of files that are uploading. Defaults to a translated
-   * "Uploading…".
+   * The status text of files that are uploading.
    */
   uploadingLabel?: string;
   /**
-   * The status text of uploaded files. Defaults to a translated "Upload
-   * complete".
+   * The status text of uploaded files.
    */
   successLabel?: string;
   /**
-   * The status text of files that failed to upload. Pass a function to return
-   * a message based on the reason the upload failed. Defaults to a translated
-   * "Upload failed".
+   * The status text of files that failed to upload. Pass a function to base
+   * the message on the error.
    */
   errorLabel?: string | ((error: unknown) => string);
   /**
@@ -149,8 +140,7 @@ export interface FileInputProps
    */
   trailingActions?: (file: File) => ActionMenuProps['actions'] | undefined;
   /**
-   * An accessible label for the menu button. Defaults to a translated "More
-   * actions".
+   * An accessible label for the menu button.
    */
   menuLabel?: string;
   /**
