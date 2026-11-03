@@ -1,0 +1,10 @@
+{
+  "buttonLabel": "Prenesi datoteke",
+  "dropLabel": "Ispustite datoteke ili kliknite za prijenos",
+  "removeLabel": "Izbriši",
+  "retryLabel": "Pokušaj ponovno",
+  "menuLabel": "Više radnji",
+  "uploadingLabel": "Prijenos…",
+  "successLabel": "Prijenos dovršen",
+  "errorLabel": "Prijenos nije uspio"
+}

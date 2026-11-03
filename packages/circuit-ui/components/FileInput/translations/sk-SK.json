@@ -1,0 +1,10 @@
+{
+  "buttonLabel": "Nahrať súbory",
+  "dropLabel": "Presuňte súbory sem alebo kliknutím ich nahrajte",
+  "removeLabel": "Odstrániť",
+  "retryLabel": "Skúsiť znova",
+  "menuLabel": "Ďalšie akcie",
+  "uploadingLabel": "Nahrávanie…",
+  "successLabel": "Nahrávanie dokončené",
+  "errorLabel": "Nahrávanie zlyhalo"
+}

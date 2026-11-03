@@ -16,7 +16,6 @@
 'use client';
 
 import {
-  useContext,
   useEffect,
   useId,
   useRef,
@@ -34,20 +33,23 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import type { Locale } from '../../util/i18n.js';
 import { idx } from '../../util/idx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import type { ActionMenuProps } from '../ActionMenu/index.js';
 import {
   FieldLabel,
+  FieldLabelText,
   FieldValidationHint,
   FieldWrapper,
 } from '../Field/index.js';
 import { Button } from '../Button/index.js';
-import { I18nContext } from '../I18nContext/I18nContext.js';
 
 import classes from './FileInput.module.css';
 import { FileInputItem, type FileInputStatus } from './FileInputItem.js';
 import { setInputFiles } from './FileInputService.js';
+import { translations } from './translations/index.js';
 
 interface SelectedFile {
   id: string;
@@ -71,21 +73,31 @@ export interface FileInputProps
   > {
   ref?: Ref<HTMLInputElement>;
   /**
-   * A clear and concise description of the input's purpose. It is not
-   * displayed visually.
+   * A clear and concise description of the input's purpose.
    */
   label: string;
   /**
-   * The text of the button that opens the file picker.
+   * Visually hide the label. Default: `true`.
    */
-  buttonLabel: string;
+  hideLabel?: boolean;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
+  /**
+   * The text of the button that opens the file picker. Defaults to a
+   * translated "Upload files".
+   */
+  buttonLabel?: string;
   /**
    * Choose between a dropzone with a button and a compact button.
    * @default 'default'
    */
   variant?: 'default' | 'button';
   /**
-   * The call to action displayed in the dropzone.
+   * The call to action displayed in the dropzone. Defaults to a translated
+   * "Drop your files or click to upload".
    */
   dropLabel?: string;
   /**
@@ -95,7 +107,8 @@ export interface FileInputProps
   /**
    * Called for every selected file. Return a promise to show the file as
    * uploading until it settles, then as successful or failed. The `signal` is
-   * aborted when the file is removed. Without a promise, the file is only
+   * aborted when the file is removed or replaced, and when the component
+   * unmounts. Without a promise, the file is only
    * listed, for example to submit it with a form.
    */
   onChange?: (file: File, options: { signal: AbortSignal }) => unknown;
@@ -105,39 +118,48 @@ export interface FileInputProps
    */
   onRemove?: (file: File) => void;
   /**
-   * An accessible label for the button that removes a file.
+   * The label of the action that removes a file. It is also the accessible
+   * name of the remove button. Defaults to a translated "Delete".
    */
-  removeLabel: string;
+  removeLabel?: string;
   /**
-   * An accessible label for the action that retries a failed upload. Required
-   * when uploaded files fail.
+   * A label for the action that retries a failed upload. Defaults to a
+   * translated "Retry".
    */
   retryLabel?: string;
   /**
-   * The status text of files that are uploading. Required when files are
-   * uploaded.
+   * The status text of files that are uploading. Defaults to a translated
+   * "Uploading…".
    */
   uploadingLabel?: string;
   /**
-   * The status text of uploaded files. Required when files are uploaded.
+   * The status text of uploaded files. Defaults to a translated "Upload
+   * complete".
    */
   successLabel?: string;
   /**
    * The status text of files that failed to upload. Pass a function to return
-   * a message based on the reason the upload failed. Required when files are
-   * uploaded.
+   * a message based on the reason the upload failed. Defaults to a translated
+   * "Upload failed".
    */
   errorLabel?: string | ((error: unknown) => string);
   /**
    * Returns additional actions for a file. They are shown in a menu, before
-   * the remove action.
+   * the retry and remove actions.
    */
   trailingActions?: (file: File) => ActionMenuProps['actions'] | undefined;
   /**
-   * An accessible label for the menu button. Required when uploaded files fail
-   * and when passing the `trailingActions` prop.
+   * An accessible label for the menu button. Defaults to a translated "More
+   * actions".
    */
   menuLabel?: string;
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to the locale of the `I18nProvider`.
+   */
+  locale?: Locale;
   /**
    * A unique identifier for the input element. If not defined, a generated id
    * is used.
@@ -159,22 +181,26 @@ export interface FileInputProps
  */
 export function FileInput({
   label,
-  buttonLabel,
+  hideLabel = true,
+  optionalLabel,
+  buttonLabel: customButtonLabel,
   variant = 'default',
-  dropLabel,
+  dropLabel: customDropLabel,
   description,
   onChange,
   onRemove,
-  removeLabel,
-  retryLabel,
-  uploadingLabel,
-  successLabel,
-  errorLabel,
+  removeLabel: customRemoveLabel,
+  retryLabel: customRetryLabel,
+  uploadingLabel: customUploadingLabel,
+  successLabel: customSuccessLabel,
+  errorLabel: customErrorLabel,
   trailingActions,
-  menuLabel,
+  menuLabel: customMenuLabel,
+  locale,
   id: customId,
   validationHint,
   invalid,
+  required,
   disabled,
   multiple,
   className,
@@ -195,7 +221,31 @@ export function FileInput({
   const controllers = useRef(new Map<string, AbortController>());
   const [isDragging, setIsDragging] = useState(false);
   const [announcement, setAnnouncement] = useState('');
-  const { formattingLocale } = useContext(I18nContext);
+  const {
+    buttonLabel,
+    dropLabel,
+    removeLabel,
+    retryLabel,
+    menuLabel,
+    uploadingLabel,
+    successLabel,
+    errorLabel,
+    formattingLocale,
+  } = useTranslations(
+    {
+      locale,
+      buttonLabel: customButtonLabel,
+      dropLabel: customDropLabel,
+      removeLabel: customRemoveLabel,
+      retryLabel: customRetryLabel,
+      menuLabel: customMenuLabel,
+      uploadingLabel: customUploadingLabel,
+      successLabel: customSuccessLabel,
+      errorLabel:
+        typeof customErrorLabel === 'string' ? customErrorLabel : undefined,
+    },
+    translations,
+  );
   const descriptionIds = idx(
     descriptionId,
     description && supportingTextId,
@@ -212,66 +262,16 @@ export function FileInput({
         'The `label` prop is missing or invalid.',
       );
     }
-    if (!isSufficientlyLabelled(removeLabel)) {
-      throw new AccessibilityError(
-        'FileInput',
-        'The `removeLabel` prop is missing or invalid.',
-      );
-    }
-    if (
-      selectedFiles.some(({ status }) => status === 'uploading') &&
-      !isSufficientlyLabelled(uploadingLabel)
-    ) {
-      throw new AccessibilityError(
-        'FileInput',
-        'The `uploadingLabel` prop is missing or invalid. It is required when files are uploaded.',
-      );
-    }
-    if (
-      selectedFiles.some(({ status }) => status === 'success') &&
-      !isSufficientlyLabelled(successLabel)
-    ) {
-      throw new AccessibilityError(
-        'FileInput',
-        'The `successLabel` prop is missing or invalid. It is required when files are uploaded.',
-      );
-    }
-    if (
-      selectedFiles.some(({ status }) => status === 'error') &&
-      typeof errorLabel !== 'function' &&
-      !isSufficientlyLabelled(errorLabel)
-    ) {
-      throw new AccessibilityError(
-        'FileInput',
-        'The `errorLabel` prop is missing or invalid. It is required when files are uploaded.',
-      );
-    }
-    if (
-      selectedFiles.some(({ status }) => status === 'error') &&
-      !isSufficientlyLabelled(retryLabel)
-    ) {
-      throw new AccessibilityError(
-        'FileInput',
-        'The `retryLabel` prop is missing or invalid. It is required when uploaded files fail.',
-      );
-    }
-    if (
-      (trailingActions ||
-        selectedFiles.some(({ status }) => status === 'error')) &&
-      !isSufficientlyLabelled(menuLabel)
-    ) {
-      throw new AccessibilityError(
-        'FileInput',
-        'The `menuLabel` prop is missing or invalid. It is required when uploaded files fail and when passing the `trailingActions` prop.',
-      );
-    }
   }
 
   // The error label can be a function of the reason the upload failed, which
-  // the component passes through without looking at it.
+  // the component passes through without looking at it. The generic label is
+  // used when the function doesn't return a message.
   const getStatusLabel = (status: FileInputStatus, error?: unknown) => {
     if (status === 'error') {
-      return typeof errorLabel === 'function' ? errorLabel(error) : errorLabel;
+      return typeof customErrorLabel === 'function'
+        ? customErrorLabel(error) || errorLabel
+        : errorLabel;
     }
     return status === 'success' ? successLabel : uploadingLabel;
   };
@@ -333,7 +333,8 @@ export function FileInput({
     controllers.current.set(fileId, controller);
 
     const settle = (status: FileInputStatus, error?: unknown) => {
-      // The file was removed in the meantime, so its result is irrelevant.
+      // The file was removed or replaced in the meantime, so its result is
+      // irrelevant.
       if (controller.signal.aborted) {
         return;
       }
@@ -402,7 +403,6 @@ export function FileInput({
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // The `FileList` is live, so copy it before the input is synced.
     addFiles(Array.from(event.target.files ?? []));
   };
 
@@ -433,6 +433,13 @@ export function FileInput({
 
   return (
     <FieldWrapper className={className} style={style} disabled={disabled}>
+      <FieldLabelText
+        label={label}
+        hideLabel={hideLabel}
+        optionalLabel={optionalLabel}
+        required={required}
+        aria-hidden="true"
+      />
       <div className={classes.base}>
         <input
           {...props}
@@ -441,6 +448,7 @@ export function FileInput({
           type="file"
           multiple={multiple}
           className={clsx(classes.input, utilClasses.hideVisually)}
+          required={required}
           disabled={disabled}
           onChange={handleChange}
           aria-invalid={invalid && 'true'}
@@ -488,7 +496,7 @@ export function FileInput({
             <span className={classes.icon}>
               <FileIcon aria-hidden="true" size="24" />
             </span>
-            {dropLabel && <span className={classes.title}>{dropLabel}</span>}
+            <span className={classes.title}>{dropLabel}</span>
             {supportingText}
             {/* The label opens the picker, so the button is only a visual cue. */}
             <Button
@@ -516,7 +524,7 @@ export function FileInput({
               size={file.size}
               status={status}
               statusLabel={status && getStatusLabel(status, error)}
-              formattingLocale={formattingLocale ?? undefined}
+              formattingLocale={formattingLocale}
               removeLabel={removeLabel}
               retryLabel={retryLabel}
               actions={trailingActions?.(file)}

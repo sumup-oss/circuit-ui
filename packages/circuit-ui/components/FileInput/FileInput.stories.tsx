@@ -29,13 +29,41 @@ export default {
     layout: 'padded',
   },
   argTypes: {
+    // Input
+    label: { table: { category: 'Input' } },
+    hideLabel: { table: { category: 'Input' } },
+    optionalLabel: { table: { category: 'Input' } },
+    description: { table: { category: 'Input' } },
+    validationHint: { table: { category: 'Input' } },
+    id: { table: { category: 'Input' } },
+    accept: { table: { category: 'Input' } },
+    invalid: { table: { category: 'Input' } },
+    disabled: { control: 'boolean', table: { category: 'Input' } },
+    required: { control: 'boolean', table: { category: 'Input' } },
+    // Behavior & Appearance
     variant: {
       options: ['default', 'button'],
       control: { type: 'select' },
+      table: { category: 'Behavior & Appearance' },
     },
-    disabled: { control: 'boolean' },
-    required: { control: 'boolean' },
-    multiple: { control: 'boolean' },
+    multiple: {
+      control: 'boolean',
+      table: { category: 'Behavior & Appearance' },
+    },
+    // Customisation
+    locale: { table: { category: 'Customisation' } },
+    buttonLabel: { table: { category: 'Customisation' } },
+    dropLabel: { table: { category: 'Customisation' } },
+    uploadingLabel: { table: { category: 'Customisation' } },
+    successLabel: { table: { category: 'Customisation' } },
+    errorLabel: { table: { category: 'Customisation' } },
+    retryLabel: { table: { category: 'Customisation' } },
+    removeLabel: { table: { category: 'Customisation' } },
+    menuLabel: { table: { category: 'Customisation' } },
+    trailingActions: { table: { category: 'Customisation' } },
+    // Value & change handling
+    onChange: { table: { category: 'Value & change handling' } },
+    onRemove: { table: { category: 'Value & change handling' } },
   },
 };
 
@@ -60,7 +88,7 @@ const baseArgs = {
   buttonLabel: 'Upload files',
   dropLabel: 'Drop your files or click to upload',
   description: 'PDF, JPG, PNG (max 10MB each)',
-  removeLabel: 'Remove file',
+  removeLabel: 'Delete',
   retryLabel: 'Retry',
   uploadingLabel: 'Uploading…',
   successLabel: 'Upload complete',
@@ -150,6 +178,20 @@ export const Variants = (args: FileInputProps) => (
 );
 
 Variants.args = baseArgs;
+
+export const Labels = (args: FileInputProps) => (
+  <Stack vertical>
+    <FileInput {...args} hideLabel={false} />
+    <FileInput
+      {...args}
+      variant="button"
+      hideLabel={false}
+      optionalLabel="optional"
+    />
+  </Stack>
+);
+
+Labels.args = baseArgs;
 
 export const Validations = (args: FileInputProps) => (
   <Stack vertical>

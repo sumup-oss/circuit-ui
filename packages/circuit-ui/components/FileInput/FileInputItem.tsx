@@ -23,6 +23,7 @@ import {
   Image as ImageIcon,
   Invoice,
   PdfFile,
+  Refresh,
   ZipFile,
 } from '@sumup-oss/icons';
 
@@ -105,7 +106,8 @@ export interface FileInputItemProps {
    */
   formattingLocale?: Intl.LocalesArgument;
   /**
-   * An accessible label for the button that removes the file.
+   * The label of the action that removes the file. It is also the accessible
+   * name of the remove button.
    */
   removeLabel?: string;
   /**
@@ -152,11 +154,11 @@ export function FileInputItem({
   const Icon = getFileIcon(name, type);
   const removeAction: ActionMenuProps['actions'] =
     onRemove && removeLabel
-      ? [{ children: removeLabel, onClick: () => onRemove() }]
+      ? [{ children: removeLabel, icon: Delete, onClick: () => onRemove() }]
       : [];
   const retryAction: ActionMenuProps['actions'] =
     status === 'error' && onRetry && retryLabel
-      ? [{ children: retryLabel, onClick: () => onRetry() }]
+      ? [{ children: retryLabel, icon: Refresh, onClick: () => onRetry() }]
       : [];
   const list: ActionMenuProps['actions'] = isUploading
     ? removeAction
@@ -168,7 +170,7 @@ export function FileInputItem({
     items.length > 1 && menuLabel
       ? { label: menuLabel, actions: list }
       : undefined;
-  // The only action of a file is always the remove action.
+  // A file with a single action only has the remove action.
   const single = items.length === 1 ? items[0] : undefined;
 
   return (

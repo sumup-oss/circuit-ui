@@ -1,0 +1,10 @@
+{
+  "buttonLabel": "Dateien hochladen",
+  "dropLabel": "Dateien hierher ziehen oder klicken zum Hochladen",
+  "removeLabel": "Löschen",
+  "retryLabel": "Erneut versuchen",
+  "menuLabel": "Weitere Aktionen",
+  "uploadingLabel": "Wird hochgeladen…",
+  "successLabel": "Hochladen abgeschlossen",
+  "errorLabel": "Hochladen fehlgeschlagen"
+}

@@ -1,0 +1,10 @@
+{
+  "buttonLabel": "Carregar ficheiros",
+  "dropLabel": "Largue os seus ficheiros ou clique para carregar",
+  "removeLabel": "Eliminar",
+  "retryLabel": "Tentar novamente",
+  "menuLabel": "Mais ações",
+  "uploadingLabel": "A carregar…",
+  "successLabel": "Carregamento concluído",
+  "errorLabel": "Falha no carregamento"
+}

@@ -1,0 +1,10 @@
+{
+  "buttonLabel": "Enviar arquivos",
+  "dropLabel": "Solte seus arquivos ou clique para enviar",
+  "removeLabel": "Excluir",
+  "retryLabel": "Tentar novamente",
+  "menuLabel": "Mais ações",
+  "uploadingLabel": "Enviando…",
+  "successLabel": "Envio concluído",
+  "errorLabel": "Falha no envio"
+}

@@ -133,8 +133,6 @@
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
   color: var(--cui-fg-normal);
-
-  /* TODO: check with design color matches with row */
   background-color: var(--cui-bg-highlight);
   border-radius: var(--cui-border-radius-pill);
   transition: background-color var(--cui-transitions-default);
@@ -166,7 +164,7 @@
   transition: box-shadow var(--cui-transitions-default);
 }
 
-/* The arrow is smaller than the 16px icon box to leave space around it */
+/* The icon is smaller than the 16px icon box to leave space around it */
 .badge svg {
   transform: scale(0.8);
 }
@@ -211,16 +209,15 @@
   margin-right: 0;
 }
 
-/* Finished uploads have a darker fill, with a status badge on top */
+/* Finished uploads have a status badge on top of the icon circle */
 .icon-finished {
   background-color: var(--cui-bg-highlight);
 }
 
-/* Uploading: the fill is replaced by a spinning ring centered on the edge */
+/* Uploading: a spinning ring is centered on the edge of the icon circle */
 .icon-uploading {
   --ring-width: calc(var(--cui-border-width-mega) * 1.25);
-
-  /* TODO: check with design color matches with row */
+  
   background-color: var(--cui-bg-highlight);
 }
 

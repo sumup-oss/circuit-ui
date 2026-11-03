@@ -1,0 +1,10 @@
+{
+  "buttonLabel": "Upload files",
+  "dropLabel": "Drop your files or click to upload",
+  "removeLabel": "Delete",
+  "retryLabel": "Retry",
+  "menuLabel": "More actions",
+  "uploadingLabel": "Uploading…",
+  "successLabel": "Upload complete",
+  "errorLabel": "Upload failed"
+}

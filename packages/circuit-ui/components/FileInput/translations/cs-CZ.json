@@ -1,0 +1,10 @@
+{
+  "buttonLabel": "Nahrát soubory",
+  "dropLabel": "Přetáhněte soubory nebo klikněte pro nahrání",
+  "removeLabel": "Smazat",
+  "retryLabel": "Zkusit znovu",
+  "menuLabel": "Další akce",
+  "uploadingLabel": "Nahrávání…",
+  "successLabel": "Nahrávání dokončeno",
+  "errorLabel": "Nahrávání se nezdařilo"
+}

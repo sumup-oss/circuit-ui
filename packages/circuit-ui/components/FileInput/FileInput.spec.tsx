@@ -32,10 +32,7 @@ type Options = { signal: AbortSignal };
 describe('FileInput', () => {
   const baseProps: FileInputProps = {
     label: 'Receipts',
-    buttonLabel: 'Upload files',
-    dropLabel: 'Drop your files or click to upload',
     description: 'PDF, JPG, PNG (max 10MB each)',
-    removeLabel: 'Remove file',
   };
 
   const march = new File(['march'], 'march.pdf', { type: 'application/pdf' });
@@ -59,6 +56,27 @@ describe('FileInput', () => {
     const { container } = render(<FileInput {...baseProps} className="foo" />);
 
     expect(container.firstChild).toHaveClass('foo');
+  });
+
+  it('displays the optional label when the input is not required', () => {
+    render(
+      <FileInput {...baseProps} hideLabel={false} optionalLabel="optional" />,
+    );
+
+    expect(screen.getByText('(optional)')).toBeInTheDocument();
+  });
+
+  it('does not display the optional label when the input is required', () => {
+    render(
+      <FileInput
+        {...baseProps}
+        hideLabel={false}
+        optionalLabel="optional"
+        required
+      />,
+    );
+
+    expect(screen.queryByText('(optional)')).not.toBeInTheDocument();
   });
 
   it('describes the input with the description and validation hint', () => {
@@ -167,7 +185,7 @@ describe('FileInput', () => {
 
       await userEvent.upload(screen.getByLabelText('Receipts'), [march, april]);
       await userEvent.click(
-        screen.getAllByRole('button', { name: 'Remove file' })[0],
+        screen.getAllByRole('button', { name: 'Delete' })[0],
       );
 
       expect(screen.queryByText('march.pdf')).not.toBeInTheDocument();
@@ -221,6 +239,73 @@ describe('FileInput', () => {
       });
 
       expect(screen.getAllByRole('listitem')).toHaveLength(2);
+    });
+  });
+
+  describe('translations', () => {
+    it('falls back to the default labels', () => {
+      render(<FileInput {...baseProps} />);
+
+      expect(screen.getByText('Upload files')).toBeVisible();
+      expect(
+        screen.getByText('Drop your files or click to upload'),
+      ).toBeVisible();
+    });
+
+    it('prefers custom labels over the translations', () => {
+      render(
+        <FileInput
+          {...baseProps}
+          locale="de-DE"
+          buttonLabel="Add receipts"
+          dropLabel="Drop receipts here"
+        />,
+      );
+
+      expect(screen.getByText('Add receipts')).toBeVisible();
+      expect(screen.getByText('Drop receipts here')).toBeVisible();
+      expect(screen.queryByText('Dateien hochladen')).not.toBeInTheDocument();
+    });
+
+    it('translates the labels of the files', async () => {
+      const onChange = vi.fn().mockRejectedValue(new Error('Too large'));
+      render(<FileInput {...baseProps} locale="de-DE" onChange={onChange} />);
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+
+      expect(await screen.findByText('Hochladen fehlgeschlagen')).toBeVisible();
+      expect(
+        await screen.findByRole('button', { name: 'Weitere Aktionen' }),
+      ).toBeVisible();
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Weitere Aktionen' }),
+      );
+      expect(
+        screen.getByRole('button', { name: 'Erneut versuchen' }),
+      ).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Löschen' })).toBeVisible();
+    });
+  });
+
+  describe('error labels', () => {
+    it('shows a generic message when the upload fails', async () => {
+      const onChange = vi.fn().mockRejectedValue(new Error('Too large'));
+      render(<FileInput {...baseProps} onChange={onChange} />);
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+
+      expect(await screen.findByText('Upload failed')).toBeVisible();
+    });
+
+    it('falls back to the generic message when the function returns none', async () => {
+      const onChange = vi.fn().mockRejectedValue(new Error('Unknown'));
+      render(
+        <FileInput {...baseProps} errorLabel={() => ''} onChange={onChange} />,
+      );
+
+      await userEvent.upload(screen.getByLabelText('Receipts'), march);
+
+      expect(await screen.findByText('Upload failed')).toBeVisible();
     });
   });
 
@@ -292,7 +377,7 @@ describe('FileInput', () => {
       );
 
       expect(screen.getByRole('button', { name: 'Retry' })).toBeVisible();
-      expect(screen.getByRole('button', { name: 'Remove file' })).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Delete' })).toBeVisible();
     });
 
     it('uploads the file again when the retry action is chosen', async () => {
@@ -358,9 +443,7 @@ describe('FileInput', () => {
       render(<FileInput {...uploadProps} onChange={upload} />);
 
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Remove file' }),
-      );
+      await userEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
       expect(calls[0].signal.aborted).toBe(true);
 
@@ -438,7 +521,7 @@ describe('FileInput', () => {
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
 
       expect(
-        screen.getByRole('button', { name: 'Remove file' }),
+        screen.getByRole('button', { name: 'Delete' }),
       ).toBeInTheDocument();
     });
 
@@ -457,7 +540,7 @@ describe('FileInput', () => {
       await userEvent.upload(screen.getByLabelText('Receipts'), march);
 
       expect(
-        screen.queryByRole('button', { name: 'Remove file' }),
+        screen.queryByRole('button', { name: 'Delete' }),
       ).not.toBeInTheDocument();
 
       await userEvent.click(
@@ -485,9 +568,7 @@ describe('FileInput', () => {
       await userEvent.click(
         screen.getByRole('button', { name: 'More actions' }),
       );
-      await userEvent.click(
-        screen.getByRole('button', { name: 'Remove file' }),
-      );
+      await userEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
       expect(screen.queryByText('march.pdf')).not.toBeInTheDocument();
       expect(onRemove).toHaveBeenCalledTimes(1);
