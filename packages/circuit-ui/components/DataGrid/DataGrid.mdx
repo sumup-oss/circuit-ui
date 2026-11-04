@@ -308,7 +308,7 @@ The grid throws when a present value does not match its column type (`custom` be
 ### General Search
 
 Pass a `searchBarConfig` prop to render a search bar above the grid. Use this feature to carry out flexible searches on the entirety of the data set, instead of filtering by a specific column.
-This search will reset all active [filters](#filtering).
+Changes to the search bar will result into clearing any active [filters](#filtering) and firing the `onFilter` method. If both `onSearch` and `onFilter` call the same underlying search function, it's best to debounce it to avoid duplicate calls.
 
 ```tsx
 <DataGrid
@@ -328,9 +328,6 @@ This search will reset all active [filters](#filtering).
 ### Filtering
 
 Allow users to refine their search results with filters.
-
-<Story of={Stories.WithFilters} />
-
 Filters are configured on both column and component levels:
 
 - <strong>On columns</strong>: Set `filter: true` on a column to add a filter
@@ -365,7 +362,9 @@ Filters are configured on both column and component levels:
 
 - <strong>On the component:</strong>
   Pass a `filtersConfig` object to configure the filtering behavior. This prop
-  is required for the filters' rendering.
+  is required for the filters' rendering. When used with the [General
+  Search](#general-search) feature, `onFilter` will be called with the current
+  search query alongside the active selection of filters.
 
 ```tsx
 <DataGrid
@@ -390,6 +389,8 @@ Filters are configured on both column and component levels:
     </span>
   }
 />
+
+<Story of={Stories.WithFilters} />
 
 ### Responsiveness
 
