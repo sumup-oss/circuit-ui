@@ -8,6 +8,7 @@ import { Body } from '../../../Body/index.js';
 import { useTranslations } from '../../../../hooks/useTranslations/useTranslations.js';
 import { translations } from './translations/index.js';
 import { CircuitError } from '../../../../util/errors.js';
+import { useMedia } from '../../../../hooks/useMedia/index.js';
 
 const DEFAULT_OPTIONS = [
   {
@@ -36,6 +37,7 @@ export function Pagination({
   options,
 }: PaginationConfig) {
   const { of } = useTranslations({}, translations);
+  const isMobile = useMedia('(max-width: 767px)', true);
   const isValueInOptions = (options ?? DEFAULT_OPTIONS).some(
     (option) => option.value === itemsPerPage,
   );
@@ -43,6 +45,7 @@ export function Pagination({
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
+    !isMobile &&
     !isValueInOptions
   ) {
     throw new CircuitError(
