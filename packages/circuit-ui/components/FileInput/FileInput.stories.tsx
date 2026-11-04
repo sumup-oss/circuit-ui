@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
-
 import { Stack } from '../../../../.storybook/components/index.js';
 
 import { FileInput, type FileInputProps } from './FileInput.js';
@@ -26,7 +24,7 @@ export default {
   component: FileInput,
   tags: ['status:experimental'],
   parameters: {
-    layout: 'padded',
+    layout: 'padded', 
   },
   argTypes: {
     // Input
@@ -117,56 +115,7 @@ const baseArgs = {
   multiple: true,
 };
 
-// The component only lists the files that the user selects, so the finished
-// states are shown with static samples below the input. They can be removed.
-export const Base = (args: FileInputProps) => {
-  const [samples, setSamples] = useState(['march', 'april', 'may']);
-  const remove = (sample: string) => () =>
-    setSamples((previous) => previous.filter((item) => item !== sample));
-
-  return (
-    <>
-      <FileInput {...args} />
-      <ul className={classes.list}>
-        {samples.includes('march') && (
-          <FileInputItem
-            name="receipt-march.pdf"
-            size={245_760}
-            status="success"
-            statusLabel={args.successLabel}
-            removeLabel={args.removeLabel}
-            onRemove={remove('march')}
-          />
-        )}
-        {samples.includes('april') && (
-          <FileInputItem
-            name="receipt-april-fail.png"
-            size={3_145_728}
-            status="error"
-            statusLabel={getErrorMessage(new UploadError('network'))}
-            removeLabel={args.removeLabel}
-            retryLabel={args.retryLabel}
-            menuLabel={args.menuLabel}
-            onRetry={() => {}}
-            onRemove={remove('april')}
-          />
-        )}
-        {samples.includes('may') && (
-          <FileInputItem
-            name="receipt-may.pdf"
-            size={1_048_576}
-            status="success"
-            statusLabel={args.successLabel}
-            removeLabel={args.removeLabel}
-            menuLabel={args.menuLabel}
-            actions={[{ children: 'Download', onClick: () => {} }]}
-            onRemove={remove('may')}
-          />
-        )}
-      </ul>
-    </>
-  );
-};
+export const Base = (args: FileInputProps) => <FileInput {...args} />;
 
 Base.args = baseArgs;
 
@@ -223,8 +172,8 @@ Disabled.args = baseArgs;
 
 const noop = () => {};
 
-// The states of the files are only reached while uploading, so they are
-// shown with static samples.
+// Simulates the states of the uploaded files.
+// `FileInputItem` is internal and not exported
 export const States = (args: FileInputProps) => {
   const itemProps = {
     size: 245_760,
