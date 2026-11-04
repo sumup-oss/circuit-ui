@@ -24,7 +24,7 @@ export default {
   component: FileInput,
   tags: ['status:experimental'],
   parameters: {
-    layout: 'padded', 
+    layout: 'padded',
   },
   argTypes: {
     // Input
