@@ -275,7 +275,6 @@ describe('DataGrid', () => {
           vi.runAllTimers();
         });
         expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('P');
-        expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({});
       });
       it('should call onSearch with the query after the debounce delay', async () => {
         await renderDataGridWithTimers();

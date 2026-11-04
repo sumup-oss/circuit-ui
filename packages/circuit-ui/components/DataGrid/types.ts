@@ -22,8 +22,11 @@ export interface WithFilters {
   filtersConfig?: {
     /**
      * Callback fired when one of the filters changes
+     * with an object containing the currently active filters.
+     * If the grid is configured with a search bar, a second parameter
+     * will contain the current search query.
      */
-    onFilter: (value: FilterValues) => void;
+    onFilter: (value: FilterValues, query?: string) => void;
     /**
      * A Label for the action of applying a given filter
      */
@@ -47,6 +50,8 @@ export interface WithSearchBar {
     label: string;
     /**
      * A callback fired when the main search bar query changes.
+     * If the grid has active filters, they will be reset when
+     * the search query changes or is cleared.
      */
     onSearch: (query: string) => void;
     /**

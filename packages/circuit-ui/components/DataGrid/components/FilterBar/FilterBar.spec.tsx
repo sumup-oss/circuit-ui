@@ -156,6 +156,71 @@ describe('FilterBar', () => {
       expect(onFilter).toHaveBeenCalledExactlyOnceWith({});
       await settle();
     });
+    describe('With search', () => {
+      const searchQuery = 'foo';
+      it('should call onFilter with current search term when a filter value changes', async () => {
+        renderFilterBar({
+          visibleColumns: columnsWithFilters,
+          filtersConfig,
+          searchQuery,
+          searchBarConfig,
+        });
+        await click(
+          screen.getByRole('button', { name: columnsWithFilters[2].label }),
+        );
+        await click(screen.getByRole('checkbox', { name: 'Active' }));
+        await click(screen.getByRole('button', { name: 'Apply' }));
+        expect(onFilter).toHaveBeenCalledTimes(1);
+        expect(onFilter).toHaveBeenCalledWith(
+          {
+            [columnsWithFilters[2].id]: ['active'],
+          },
+          searchQuery,
+        );
+        await settle();
+      });
+      it('should call onFilter with current search term when a filter is cleared', async () => {
+        renderFilterBar({
+          visibleColumns: columnsWithFilters,
+          filtersConfig,
+          activeFilters: {
+            [columnsWithFilters[2].id]: ['active'],
+          },
+          searchQuery,
+          searchBarConfig,
+        });
+        await click(
+          screen.getByRole('button', {
+            name: `${columnsWithFilters[2].label} (1)`,
+          }),
+        );
+        await click(screen.getByRole('button', { name: 'Clear' }));
+        expect(onFilter).toHaveBeenCalledTimes(1);
+        expect(onFilter).toHaveBeenCalledWith({}, searchQuery);
+
+        await settle();
+      });
+      it("should call onFilter with current search term when 'Clear all' button is clicked", async () => {
+        renderFilterBar({
+          visibleColumns: columnsWithFilters,
+          filtersConfig,
+          activeFilters: {
+            [columnsWithFilters[2].id]: ['active'],
+          },
+          searchQuery,
+          searchBarConfig,
+        });
+        await click(
+          screen.getByRole('button', {
+            name: `${columnsWithFilters[2].label} (1)`,
+          }),
+        );
+
+        await click(screen.getByRole('button', { name: 'Clear all' }));
+        expect(onFilter).toHaveBeenCalledExactlyOnceWith({}, searchQuery);
+        await settle();
+      });
+    });
     describe('On mobile', () => {
       it('should render with active filters', async () => {
         renderFilterBar({
@@ -195,6 +260,8 @@ describe('FilterBar', () => {
           visibleColumns: columnsWithFilters,
           isMobile: true,
           filtersConfig,
+          searchQuery: 'foo',
+          searchBarConfig,
         });
         expect(
           screen.queryByRole('button', { name: columnsWithFilters[2].label }),
@@ -205,9 +272,12 @@ describe('FilterBar', () => {
         expect(screen.getByRole('dialog', { name: 'Filters' })).toBeVisible();
         await click(screen.getByRole('checkbox', { name: 'Active' }));
         await click(screen.getByRole('button', { name: 'Apply' }));
-        expect(onFilter).toHaveBeenCalledExactlyOnceWith({
-          status: ['active'],
-        });
+        expect(onFilter).toHaveBeenCalledExactlyOnceWith(
+          {
+            status: ['active'],
+          },
+          'foo',
+        );
         vi.runAllTimers();
         expect(
           screen.queryByRole('dialog', { name: 'Filters' }),
@@ -261,7 +331,7 @@ describe('FilterBar', () => {
       );
 
       expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('j');
-      expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({});
+      expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({}, 'j');
     });
     it('should reset active filters when the search field is cleared', async () => {
       renderFilterBar({
@@ -278,7 +348,7 @@ describe('FilterBar', () => {
       );
 
       expect(searchBarConfig.onSearch).toHaveBeenCalledExactlyOnceWith('');
-      expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({});
+      expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({}, '');
       await settle();
     });
   });

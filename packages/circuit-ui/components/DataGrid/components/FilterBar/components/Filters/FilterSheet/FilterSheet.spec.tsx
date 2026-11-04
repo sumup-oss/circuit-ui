@@ -99,9 +99,11 @@ describe('FilterSheet', () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Clear all' }));
 
-    expect(baseProps.onApply).toHaveBeenCalledWith({});
-    expect(screen.getByRole('checkbox', { name: 'Paid' })).not.toBeChecked();
+    expect(baseProps.onApply).not.toHaveBeenCalled();
     expect(baseProps.onClose).not.toHaveBeenCalled();
+    expect(screen.getByRole('checkbox', { name: 'Paid' })).not.toBeChecked();
+    await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
+    expect(baseProps.onApply).toHaveBeenCalledExactlyOnceWith({});
   });
 
   it('should apply the values of all filters at once and close once', async () => {

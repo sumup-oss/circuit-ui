@@ -122,7 +122,6 @@ export function FilterSheet<P>({
 
   const handleClearAll = () => {
     setDraft({});
-    onApply({});
   };
 
   return (

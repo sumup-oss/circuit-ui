@@ -145,10 +145,13 @@ export function DataGrid<P>({
     [debouncedOnSearch, searchBarConfig],
   );
 
-  const onActiveFiltersChange = useCallback(
-    (filters: FilterValues) => {
+  const onActiveFiltersChange: NonNullable<
+    WithFilters['filtersConfig']
+  >['onFilter'] = useCallback(
+    (...args) => {
+      const [filters] = args;
       setActiveFilters(filters);
-      filtersConfig?.onFilter(filters);
+      filtersConfig?.onFilter(...args);
     },
     [filtersConfig],
   );

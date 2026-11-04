@@ -54,18 +54,20 @@ const FilterBarComponent = <P,>({
   const onChange = useCallback(
     ({ target: { value: searchTerm } }: ChangeEvent<HTMLInputElement>) => {
       onSearch?.(searchTerm);
-      if (filtersConfig) {
-        filtersConfig?.onFilter?.({});
+      // reset active filters if there are any
+      if (filtersConfig && activeFiltersCount > 0) {
+        filtersConfig?.onFilter?.({}, searchTerm);
       }
     },
-    [onSearch, filtersConfig],
+    [onSearch, filtersConfig, activeFiltersCount],
   );
   const onClear = useCallback(() => {
     onSearch?.('');
-    if (filtersConfig) {
-      filtersConfig.onFilter?.({});
+    // reset active filters if there are any
+    if (filtersConfig && activeFiltersCount > 0) {
+      filtersConfig.onFilter?.({}, '');
     }
-  }, [onSearch, filtersConfig]);
+  }, [onSearch, filtersConfig, activeFiltersCount]);
 
   const onFilterChange = (column: string, filter?: FilterValue) => {
     const newValue = { ...activeFilters };
@@ -74,13 +76,25 @@ const FilterBarComponent = <P,>({
     } else {
       newValue[column] = filter;
     }
+    if (searchBarConfig) {
+      filtersConfig?.onFilter(newValue, searchQuery);
+      return;
+    }
     filtersConfig?.onFilter(newValue);
   };
 
   function onMobileFiltersChange(value: FilterValues) {
+    if (searchBarConfig) {
+      filtersConfig?.onFilter(value, searchQuery);
+      return;
+    }
     filtersConfig?.onFilter?.(value);
   }
   function clearAllFilters() {
+    if (searchBarConfig) {
+      filtersConfig?.onFilter({}, searchQuery);
+      return;
+    }
     filtersConfig?.onFilter?.({});
   }
   return (
