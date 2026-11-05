@@ -16,15 +16,44 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render } from '../../util/test-utils.js';
+import { axe, render, screen } from '../../util/test-utils.js';
 
 import { Body } from './Body.js';
+import classes from './Body.module.css';
 
 declare const process: {
   env: { NODE_ENV: string };
 };
 
 describe('Body', () => {
+  it('should preserve font inheritance when the font prop is omitted', () => {
+    render(<Body as="code">Reference</Body>);
+    const element = screen.getByText('Reference');
+    expect(element.tagName).toBe('CODE');
+    expect(element).not.toHaveClass(classes['font-default']);
+    expect(element).not.toHaveClass(classes['font-mono']);
+  });
+
+  it.each([
+    'default',
+    'mono',
+  ] as const)('should select the "%s" font without forwarding the prop or changing semantics', (font) => {
+    render(
+      <Body font={font} size="s" weight="bold" color="subtle">
+        Reference
+      </Body>,
+    );
+    const element = screen.getByText('Reference');
+    expect(element.tagName).toBe('P');
+    expect(element).toHaveClass(
+      classes[`font-${font}`],
+      classes.s,
+      classes.bold,
+      classes.subtle,
+    );
+    expect(element).not.toHaveAttribute('font');
+  });
+
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     const { container } = render(<Body className={className}>Body</Body>);

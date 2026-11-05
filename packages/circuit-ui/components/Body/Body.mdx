@@ -28,6 +28,20 @@ The Body component comes in three weights. Use the default `regular` weight in m
 
 <Story of={Stories.Weights} />
 
+### Fonts
+
+Use `font="mono"` for content such as transaction references or identifiers where characters should have equal widths. The font can be combined with any size, weight, or color.
+
+When `font` is omitted, Body inherits its font family. Use `font="default"` to explicitly select the standard body font, including inside monospace content.
+
+Use the `as` prop to render the component as the `code` HTML element when the content represents code. The `font` prop only changes its appearance.
+
+<Story of={Stories.Fonts} />
+
+The monospace font is available in all three sizes and weights:
+
+<Story of={Stories.Monospace} />
+
 ### Decorations
 
 The Body component supports a strikethrough style. Use the `as` prop to render the component as the `del` HTML element if appropriate.

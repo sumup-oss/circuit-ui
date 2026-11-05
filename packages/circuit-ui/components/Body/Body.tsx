@@ -48,6 +48,10 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
    */
   weight?: 'regular' | 'semibold' | 'bold';
   /**
+   * Choose the `default` or `mono` font stack. Inherits the font family when omitted.
+   */
+  font?: 'default' | 'mono';
+  /**
    * Choose a style or text decoration. Underline is reserved for hyperlinks.
    *
    * Use the `as` prop to render the component as the `em` or `del` HTML
@@ -110,6 +114,7 @@ export function Body({
   as,
   size: legacySize = 'm',
   weight = getDefaultWeight(as),
+  font,
   decoration,
   color = 'normal',
   variant,
@@ -157,6 +162,7 @@ export function Body({
         classes.base,
         classes[size],
         classes[weight],
+        font && classes[`font-${font}`],
         classes[color],
         decoration === 'strikethrough' && classes.strikethrough,
         variant && classes[variant],

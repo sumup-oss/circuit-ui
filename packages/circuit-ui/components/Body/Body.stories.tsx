@@ -14,6 +14,7 @@
  */
 
 import type { BodyProps } from './Body.js';
+import { Matrix } from '../../../../.storybook/components/index.js';
 
 import { Body } from './index.js';
 
@@ -55,6 +56,29 @@ export const Weights = (args: BodyProps) =>
       This is the {weight} weight. {content}
     </Body>
   ));
+
+const fonts = ['default', 'mono'] as const;
+
+export const Fonts = (args: BodyProps) =>
+  fonts.map((font) => (
+    <Body key={font} {...args} font={font}>
+      This is the {font} font. Reference: INV-2026-001234.
+    </Body>
+  ));
+
+export const Monospace = (args: BodyProps) => (
+  <Matrix
+    component={Body}
+    args={args}
+    horizontal={{ prop: 'size', values: sizes }}
+    vertical={{ prop: 'weight', values: weights }}
+  />
+);
+
+Monospace.args = {
+  font: 'mono',
+  children: 'INV-2026-001234',
+};
 
 export const Decorations = (args: BodyProps) => (
   <Body {...args} decoration="strikethrough">

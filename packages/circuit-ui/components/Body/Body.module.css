@@ -20,6 +20,16 @@
   line-height: var(--cui-body-s-line-height);
 }
 
+/* Fonts */
+
+.font-default {
+  font-family: var(--cui-font-stack-default);
+}
+
+.font-mono {
+  font-family: var(--cui-font-stack-mono);
+}
+
 /* Weights */
 
 .regular {
