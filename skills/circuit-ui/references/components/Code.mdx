@@ -1,0 +1,21 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Code.stories';
+
+<Meta of={Stories} />
+
+# Code
+
+<Status variant="stable" />
+
+The Code component presents inline code, such as commands, file names, and variable names.
+
+<Story of={Stories.Base} />
+<Props of={Stories.Base} />
+
+## Usage guidelines
+
+Use Code within text to distinguish code from the surrounding content. It renders a semantic `<code>` element with a monospace font, a subtle background, and a border.
+
+<Story of={Stories.Inline} />
+
+Code accepts standard HTML attributes and supports custom styles through the `className` and `style` props.
