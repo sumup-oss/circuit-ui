@@ -111,7 +111,7 @@ const FilterBarComponent = <P,>({
       {!isMobile && filtersConfig && (
         <div className={classes['filters-wrapper']}>
           <div className={classes.filters}>
-            {visibleColumns.map(({ type, id, filter, label, filterConfig }) => (
+            {columns.map(({ type, id, filter, label, filterConfig }) => (
               <Filter
                 key={`${id}-filter`}
                 labels={filterConfig?.labels}
@@ -163,7 +163,7 @@ const FilterBarComponent = <P,>({
                 <FilterSheet
                   open={open}
                   onClose={() => setOpen(false)}
-                  columns={visibleColumns}
+                  columns={columns}
                   values={activeFilters}
                   onApply={onMobileFiltersChange}
                   title={filtersLabel}
