@@ -30,6 +30,11 @@ void (async () => {
   try {
     const browser = await puppeteer.launch({
       headless: 'new',
+      // Ubuntu's AppArmor policy blocks the user namespaces that Chrome's
+      // sandbox needs, see https://github.com/puppeteer/puppeteer/issues/12818.
+      // This script only loads our own template on localhost, so it is safe
+      // to run without the sandbox.
+      args: ['--no-sandbox'],
     });
     const page = await browser.newPage();
 
