@@ -104,6 +104,7 @@
 | --- | --- | --- | --- | --- |
 | `Anchor` | `stable` | `@sumup-oss/circuit-ui` | `./components/Anchor/index.js` | [Read MDX reference](components/Anchor.mdx) |
 | `Body` | `stable` | `@sumup-oss/circuit-ui` | `./components/Body/index.js` | [Read MDX reference](components/Body.mdx) |
+| `Code` | `stable` | `@sumup-oss/circuit-ui` | `./components/Code/index.js` | [Read MDX reference](components/Code.mdx) |
 | `Compact` | `stable` | `@sumup-oss/circuit-ui` | `./components/Compact/index.js` | [Read MDX reference](components/Compact.mdx) |
 | `Display` | `stable` | `@sumup-oss/circuit-ui` | `./components/Display/index.js` | [Read MDX reference](components/Display.mdx) |
 | `Headline` | `stable` | `@sumup-oss/circuit-ui` | `./components/Headline/index.js` | [Read MDX reference](components/Headline.mdx) |
