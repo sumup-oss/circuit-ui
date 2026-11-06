@@ -1,0 +1,28 @@
+.allergy {
+  padding: var(--cui-spacings-bit);
+  border-radius: var(--cui-border-radius-pill);
+}
+
+.soy {
+  background-color: var(--cui-fg-normal);
+}
+
+.dairy {
+  background-color: var(--cui-bg-promo);
+}
+
+.nuts {
+  background-color: var(--cui-bg-warning);
+}
+
+.shellfish {
+  background-color: var(--cui-bg-success);
+}
+
+.gluten {
+  background-color: var(--cui-bg-neutral);
+}
+
+.eggs {
+  background-color: var(--cui-bg-danger);
+}

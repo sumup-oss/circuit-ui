@@ -21,9 +21,15 @@ import {
   isArrowRight,
   isArrowUp,
   isBackspace,
+  isControlEnd,
+  isControlHome,
   isDelete,
+  isEnd,
   isEnter,
   isEscape,
+  isHome,
+  isPageDown,
+  isPageUp,
   isSpacebar,
 } from './key-codes.js';
 
@@ -73,6 +79,38 @@ describe('key codes', () => {
       keyCode: 46,
       key: 'Delete',
       code: 'Delete',
+    }),
+    pageDown: new KeyboardEvent('keydown', {
+      keyCode: 34,
+      key: 'PageDown',
+      code: 'PageDown',
+    }),
+    pageUp: new KeyboardEvent('keydown', {
+      keyCode: 33,
+      key: 'PageUp',
+      code: 'PageUp',
+    }),
+    home: new KeyboardEvent('keydown', {
+      keyCode: 36,
+      key: 'Home',
+      code: 'Home',
+    }),
+    end: new KeyboardEvent('keydown', {
+      keyCode: 35,
+      key: 'End',
+      code: 'End',
+    }),
+    controlHome: new KeyboardEvent('keydown', {
+      keyCode: 36,
+      key: 'Home',
+      code: 'Home',
+      ctrlKey: true,
+    }),
+    controlEnd: new KeyboardEvent('keydown', {
+      keyCode: 35,
+      key: 'End',
+      code: 'End',
+      ctrlKey: true,
     }),
   };
 
@@ -180,6 +218,88 @@ describe('key codes', () => {
 
     it('should return false if another key was pressed', () => {
       const actual = isDelete(events.backspace);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isPageDown', () => {
+    it('should return true if the page down key was pressed', () => {
+      const actual = isPageDown(events.pageDown);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if another key was pressed', () => {
+      const actual = isPageDown(events.pageUp);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isPageUp', () => {
+    it('should return true if the page up key was pressed', () => {
+      const actual = isPageUp(events.pageUp);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if another key was pressed', () => {
+      const actual = isPageUp(events.pageDown);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isHome', () => {
+    it('should return true if the home key was pressed', () => {
+      const actual = isHome(events.home);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if another key was pressed', () => {
+      const actual = isHome(events.end);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false if control and home were pressed', () => {
+      const actual = isHome(events.controlHome);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isEnd', () => {
+    it('should return true if the end key was pressed', () => {
+      const actual = isEnd(events.end);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if another key was pressed', () => {
+      const actual = isEnd(events.home);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false if control and end were pressed', () => {
+      const actual = isEnd(events.controlEnd);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isControlHome', () => {
+    it('should return true if control and home were pressed', () => {
+      const actual = isControlHome(events.controlHome);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if home was pressed without control', () => {
+      const actual = isControlHome(events.home);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isControlEnd', () => {
+    it('should return true if control and end were pressed', () => {
+      const actual = isControlEnd(events.controlEnd);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if end was pressed without control', () => {
+      const actual = isControlEnd(events.end);
       expect(actual).toBeFalsy();
     });
   });
