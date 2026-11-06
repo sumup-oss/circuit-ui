@@ -167,7 +167,7 @@ export interface FileInputProps
 
 /**
  * The FileInput component allows users to select files by browsing or
- * dropping them, and shows the state of their uploads.
+ * dropping them, and showing the state of their uploads.
  */
 export function FileInput({
   label,
