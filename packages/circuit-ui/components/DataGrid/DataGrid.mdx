@@ -341,9 +341,9 @@ Filters are configured on both column and component levels:
 | ----------------- | --------------------- | ---------------- | -------------------------------------------------------------------- |
 | `number`          | min/max number inputs | `"min"`, `"max"` | `{ min?: number; max?: number }`.                                    |
 | `date`            | from/to date inputs   | `"from"`, `"to"` | `{ from?: string; to?: string }`, each a `YYYY-MM-DD` calendar date. |
-| `boolean`         | Checkbox group        |                  | `string[]` of the selected option values.                            |
-| `singleSelection` | Checkbox group        |                  | `string[]` of the selected option values.                            |
-| `multiSelection`  | Checkbox group        |                  | `string[]` of the selected option values.                            |
+| `boolean`         | Checkbox group        |                  | `string[]`: `["true"]`, `["false]` or both                           |
+| `singleSelection` | Checkbox group        |                  | `string[]`: the selected option values, as strings.                  |
+| `multiSelection`  | Checkbox group        |                  | `string[]`: the selected option values, as strings.                  |
 
 ```tsx
 {
