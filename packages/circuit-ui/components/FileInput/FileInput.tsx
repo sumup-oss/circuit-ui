@@ -138,7 +138,7 @@ export interface FileInputProps
    * Returns additional actions for a file. They are shown in a menu, before
    * the retry and remove actions.
    */
-  trailingActions?: (file: File) => ActionMenuProps['actions'] | undefined;
+  trailingActions?: (file: File) => ActionMenuProps['actions'];
   /**
    * An accessible label for the menu button.
    */
