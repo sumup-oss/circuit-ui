@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Fájlok feltöltése",
-  "dropLabel": "Húzza ide a fájlokat, vagy kattintson a feltöltéshez",
-  "removeLabel": "Törlés",
-  "retryLabel": "Újra",
-  "menuLabel": "További műveletek",
-  "uploadingLabel": "Feltöltés…",
-  "successLabel": "Feltöltés kész",
-  "errorLabel": "A feltöltés sikertelen"
+  "dropLabel": "Húzza ide a fájlokat, vagy kattintson a feltöltéshez"
 }

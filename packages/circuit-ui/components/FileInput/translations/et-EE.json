@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Laadi failid üles",
-  "dropLabel": "Lohistage failid siia või klõpsake üleslaadimiseks",
-  "removeLabel": "Kustuta",
-  "retryLabel": "Proovi uuesti",
-  "menuLabel": "Rohkem toiminguid",
-  "uploadingLabel": "Üleslaadimine…",
-  "successLabel": "Üleslaadimine lõpetatud",
-  "errorLabel": "Üleslaadimine ebaõnnestus"
+  "dropLabel": "Lohistage failid siia või klõpsake üleslaadimiseks"
 }

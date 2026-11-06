@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Last opp filer",
-  "dropLabel": "Slipp filene dine her, eller klikk for å laste opp",
-  "removeLabel": "Slett",
-  "retryLabel": "Prøv igjen",
-  "menuLabel": "Flere handlinger",
-  "uploadingLabel": "Laster opp…",
-  "successLabel": "Opplasting fullført",
-  "errorLabel": "Opplastingen mislyktes"
+  "dropLabel": "Slipp filene dine her, eller klikk for å laste opp"
 }

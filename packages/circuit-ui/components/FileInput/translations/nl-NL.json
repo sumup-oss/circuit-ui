@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Bestanden uploaden",
-  "dropLabel": "Sleep je bestanden hierheen of klik om te uploaden",
-  "removeLabel": "Verwijderen",
-  "retryLabel": "Opnieuw proberen",
-  "menuLabel": "Meer acties",
-  "uploadingLabel": "Uploaden…",
-  "successLabel": "Upload voltooid",
-  "errorLabel": "Upload mislukt"
+  "dropLabel": "Sleep je bestanden hierheen of klik om te uploaden"
 }

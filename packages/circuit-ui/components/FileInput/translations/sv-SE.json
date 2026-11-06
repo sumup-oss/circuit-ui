@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Ladda upp filer",
-  "dropLabel": "Släpp dina filer här eller klicka för att ladda upp",
-  "removeLabel": "Ta bort",
-  "retryLabel": "Försök igen",
-  "menuLabel": "Fler åtgärder",
-  "uploadingLabel": "Laddar upp…",
-  "successLabel": "Uppladdningen är klar",
-  "errorLabel": "Uppladdningen misslyckades"
+  "dropLabel": "Släpp dina filer här eller klicka för att ladda upp"
 }

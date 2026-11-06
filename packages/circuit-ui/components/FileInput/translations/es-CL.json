@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Subir archivos",
-  "dropLabel": "Suelta tus archivos o haz clic para subirlos",
-  "removeLabel": "Eliminar",
-  "retryLabel": "Reintentar",
-  "menuLabel": "Más acciones",
-  "uploadingLabel": "Subiendo…",
-  "successLabel": "Subida completada",
-  "errorLabel": "Error al subir el archivo"
+  "dropLabel": "Suelta tus archivos o haz clic para subirlos"
 }

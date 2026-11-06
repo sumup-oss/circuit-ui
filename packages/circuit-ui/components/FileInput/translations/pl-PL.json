@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Prześlij pliki",
-  "dropLabel": "Upuść pliki lub kliknij, aby je przesłać",
-  "removeLabel": "Usuń",
-  "retryLabel": "Spróbuj ponownie",
-  "menuLabel": "Więcej akcji",
-  "uploadingLabel": "Przesyłanie…",
-  "successLabel": "Przesyłanie zakończone",
-  "errorLabel": "Przesyłanie nie powiodło się"
+  "dropLabel": "Upuść pliki lub kliknij, aby je przesłać"
 }

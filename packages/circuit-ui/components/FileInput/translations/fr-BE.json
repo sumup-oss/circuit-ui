@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Importer des fichiers",
-  "dropLabel": "Déposez vos fichiers ou cliquez pour les importer",
-  "removeLabel": "Supprimer",
-  "retryLabel": "Réessayer",
-  "menuLabel": "Plus d'actions",
-  "uploadingLabel": "Importation en cours…",
-  "successLabel": "Importation terminée",
-  "errorLabel": "Échec de l'importation"
+  "dropLabel": "Déposez vos fichiers ou cliquez pour les importer"
 }

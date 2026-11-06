@@ -28,6 +28,7 @@ import {
 } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
+import { utilClasses } from '../../styles/utility.js';
 import { Body } from '../Body/index.js';
 import type {
   ActionMenuItemProps,
@@ -219,11 +220,13 @@ export function FileInputItem({
             {statusLabel && (
               <Body
                 size="s"
+                role="status"
                 color={statusColors[status ?? 'uploading']}
                 className={
                   status === 'uploading' ? classes.placeholder : undefined
                 }
               >
+                <span className={utilClasses.hideVisually}>{name}: </span>
                 {statusLabel}
               </Body>
             )}

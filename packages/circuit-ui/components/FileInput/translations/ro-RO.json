@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Încarcă fișiere",
-  "dropLabel": "Trageți fișierele aici sau faceți clic pentru a încărca",
-  "removeLabel": "Șterge",
-  "retryLabel": "Reîncearcă",
-  "menuLabel": "Mai multe acțiuni",
-  "uploadingLabel": "Se încarcă…",
-  "successLabel": "Încărcare finalizată",
-  "errorLabel": "Încărcarea a eșuat"
+  "dropLabel": "Trageți fișierele aici sau faceți clic pentru a încărca"
 }

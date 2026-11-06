@@ -130,13 +130,9 @@ Variants.args = baseArgs;
 
 export const Labels = (args: FileInputProps) => (
   <Stack vertical>
-    <FileInput {...args} hideLabel={false} />
-    <FileInput
-      {...args}
-      variant="button"
-      hideLabel={false}
-      optionalLabel="optional"
-    />
+    <FileInput {...args} />
+    <FileInput {...args} variant="button" optionalLabel="optional" />
+    <FileInput {...args} variant="button" hideLabel />
   </Stack>
 );
 

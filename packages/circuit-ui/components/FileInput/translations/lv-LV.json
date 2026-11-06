@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Augšupielādēt failus",
-  "dropLabel": "Velciet failus šeit vai noklikšķiniet, lai augšupielādētu",
-  "removeLabel": "Dzēst",
-  "retryLabel": "Mēģināt vēlreiz",
-  "menuLabel": "Citas darbības",
-  "uploadingLabel": "Notiek augšupielāde…",
-  "successLabel": "Augšupielāde pabeigta",
-  "errorLabel": "Augšupielāde neizdevās"
+  "dropLabel": "Velciet failus šeit vai noklikšķiniet, lai augšupielādētu"
 }

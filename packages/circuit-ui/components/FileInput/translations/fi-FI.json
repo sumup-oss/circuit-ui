@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Lataa tiedostoja",
-  "dropLabel": "Pudota tiedostot tähän tai lataa napsauttamalla",
-  "removeLabel": "Poista",
-  "retryLabel": "Yritä uudelleen",
-  "menuLabel": "Lisää toimintoja",
-  "uploadingLabel": "Ladataan…",
-  "successLabel": "Lataus valmis",
-  "errorLabel": "Lataus epäonnistui"
+  "dropLabel": "Pudota tiedostot tähän tai lataa napsauttamalla"
 }

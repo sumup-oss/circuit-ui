@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Carica file",
-  "dropLabel": "Trascina i file qui o clicca per caricarli",
-  "removeLabel": "Elimina",
-  "retryLabel": "Riprova",
-  "menuLabel": "Altre azioni",
-  "uploadingLabel": "Caricamento in corso…",
-  "successLabel": "Caricamento completato",
-  "errorLabel": "Caricamento non riuscito"
+  "dropLabel": "Trascina i file qui o clicca per caricarli"
 }

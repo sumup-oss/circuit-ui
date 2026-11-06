@@ -226,10 +226,23 @@
   inset: calc(var(--ring-width) / -2);
   pointer-events: none;
 
-  /* The gradient colors are from the design and have no tokens. A solid ring
-     is used by browsers that don't support the gradient arc below. */
+  /* The gradient colors are from the design and have no tokens. A pulsing solid
+     ring is used by browsers that don't support the gradient arc below. */
   border: var(--ring-width) solid #598ffa;
   border-radius: inherit;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring {
+    animation: none;
+  }
 }
 
 .arc {
@@ -245,6 +258,7 @@
       transparent calc(100% - var(--ring-width)),
       #000 calc(100% - var(--ring-width) + var(--cui-border-width-kilo))
     );
+    animation: none;
   }
 
   /* The visible quarter of the circle spins, with the full gradient on it */

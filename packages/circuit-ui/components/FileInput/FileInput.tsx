@@ -58,6 +58,14 @@ interface SelectedFile {
   error?: unknown;
 }
 
+// Other drags, such as a link dragged into the page, can also reach the
+// dropzone, so the event is only handled when it carries files.
+function isFileDrag({ dataTransfer }: DragEvent) {
+  return Array.from(dataTransfer.items ?? []).some(
+    ({ kind }) => kind === 'file',
+  );
+}
+
 function isPromiseLike(value: unknown): value is PromiseLike<unknown> {
   return (
     typeof value === 'object' &&
@@ -77,8 +85,7 @@ export interface FileInputProps
    */
   label: string;
   /**
-   * Visually hide the label.
-   * @default true
+   * Visually hide the label. It remains available to assistive technologies.
    */
   hideLabel?: boolean;
   /**
@@ -109,29 +116,31 @@ export interface FileInputProps
    */
   onChange?: (file: File, options: { signal: AbortSignal }) => unknown;
   /**
-   * A callback function fired when a file is removed or replaced.
+   * A callback function fired when a file that is done uploading is removed
+   * or replaced.
    */
   onRemove?: (file: File) => void;
   /**
    * The label of the action that removes a file. It is also the accessible
    * name of the remove button.
    */
-  removeLabel?: string;
+  removeLabel: string;
   /**
    * A label for the action that retries a failed upload.
    */
-  retryLabel?: string;
+  retryLabel: string;
   /**
-   * The status text of files that are uploading.
+   * The status text of files that are uploading. Required when `onChange` is
+   * provided.
    */
   uploadingLabel?: string;
   /**
-   * The status text of uploaded files.
+   * The status text of uploaded files. Required when `onChange` is provided.
    */
   successLabel?: string;
   /**
    * The status text of files that failed to upload. Pass a function to base
-   * the message on the error.
+   * the message on the error. Required when `onChange` is provided.
    */
   errorLabel?: string | ((error: unknown) => string);
   /**
@@ -142,7 +151,7 @@ export interface FileInputProps
   /**
    * An accessible label for the menu button.
    */
-  menuLabel?: string;
+  menuLabel: string;
   /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
@@ -171,7 +180,7 @@ export interface FileInputProps
  */
 export function FileInput({
   label,
-  hideLabel = true,
+  hideLabel,
   optionalLabel,
   buttonLabel: customButtonLabel,
   variant = 'default',
@@ -179,13 +188,13 @@ export function FileInput({
   description,
   onChange,
   onRemove,
-  removeLabel: customRemoveLabel,
-  retryLabel: customRetryLabel,
-  uploadingLabel: customUploadingLabel,
-  successLabel: customSuccessLabel,
-  errorLabel: customErrorLabel,
+  removeLabel,
+  retryLabel,
+  uploadingLabel,
+  successLabel,
+  errorLabel,
   trailingActions,
-  menuLabel: customMenuLabel,
+  menuLabel,
   locale,
   id: customId,
   validationHint,
@@ -210,29 +219,11 @@ export function FileInput({
   const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([]);
   const controllers = useRef(new Map<string, AbortController>());
   const [isDragging, setIsDragging] = useState(false);
-  const [announcement, setAnnouncement] = useState('');
-  const {
-    buttonLabel,
-    dropLabel,
-    removeLabel,
-    retryLabel,
-    menuLabel,
-    uploadingLabel,
-    successLabel,
-    errorLabel,
-    formattingLocale,
-  } = useTranslations(
+  const { buttonLabel, dropLabel, formattingLocale } = useTranslations(
     {
       locale,
       buttonLabel: customButtonLabel,
       dropLabel: customDropLabel,
-      removeLabel: customRemoveLabel,
-      retryLabel: customRetryLabel,
-      menuLabel: customMenuLabel,
-      uploadingLabel: customUploadingLabel,
-      successLabel: customSuccessLabel,
-      errorLabel:
-        typeof customErrorLabel === 'string' ? customErrorLabel : undefined,
     },
     translations,
   );
@@ -252,23 +243,28 @@ export function FileInput({
         'The `label` prop is missing or invalid.',
       );
     }
+    // Without status texts, the outcome of an upload is only communicated
+    // visually and isn't announced to assistive technologies.
+    if (onChange && !(uploadingLabel && successLabel && errorLabel)) {
+      throw new AccessibilityError(
+        'FileInput',
+        'The `uploadingLabel`, `successLabel` and `errorLabel` props are required when `onChange` is provided.',
+      );
+    }
   }
 
   // The error label can be a function of the reason the upload failed, which
-  // the component passes through without looking at it. The generic label is
-  // used when the function doesn't return a message.
+  // the component passes through without looking at it.
   const getStatusLabel = (status: FileInputStatus, error?: unknown) => {
     if (status === 'error') {
-      return typeof customErrorLabel === 'function'
-        ? customErrorLabel(error) || errorLabel
-        : errorLabel;
+      return typeof errorLabel === 'function' ? errorLabel(error) : errorLabel;
     }
     return status === 'success' ? successLabel : uploadingLabel;
   };
 
-  // The callbacks run after asynchronous uploads, so they must not be stale.
-  const latest = useRef({ onRemove, getStatusLabel });
-  latest.current = { onRemove, getStatusLabel };
+  // The callback runs after asynchronous uploads, so it must not be stale.
+  const latest = useRef({ onRemove });
+  latest.current = { onRemove };
 
   // The native input only holds the files of the latest selection, so the
   // list is the source of truth and the input is kept in sync with it. This
@@ -298,7 +294,6 @@ export function FileInput({
 
   const updateStatus = (
     fileId: string,
-    file: File,
     status: FileInputStatus,
     error?: unknown,
   ) => {
@@ -307,10 +302,6 @@ export function FileInput({
         selected.id === fileId ? { ...selected, status, error } : selected,
       ),
     );
-    const statusLabel = latest.current.getStatusLabel(status, error);
-    if (statusLabel) {
-      setAnnouncement(`${file.name}: ${statusLabel}`);
-    }
   };
 
   const handleFile = (fileId: string, file: File) => {
@@ -329,7 +320,7 @@ export function FileInput({
         return;
       }
       controllers.current.delete(fileId);
-      updateStatus(fileId, file, status, error);
+      updateStatus(fileId, status, error);
     };
 
     let result: unknown;
@@ -346,7 +337,7 @@ export function FileInput({
       return;
     }
 
-    updateStatus(fileId, file, 'uploading');
+    updateStatus(fileId, 'uploading');
     result.then(
       () => settle('success'),
       (error: unknown) => settle('error', error),
@@ -354,10 +345,13 @@ export function FileInput({
   };
 
   const discardFiles = (discarded: SelectedFile[]) => {
-    for (const { id: fileId, file } of discarded) {
+    for (const { id: fileId, file, status } of discarded) {
       controllers.current.get(fileId)?.abort();
       controllers.current.delete(fileId);
-      latest.current.onRemove?.(file);
+      // Cancelling an upload is communicated by aborting its signal.
+      if (status !== 'uploading') {
+        latest.current.onRemove?.(file);
+      }
     }
   };
 
@@ -397,6 +391,9 @@ export function FileInput({
   };
 
   const handleDragEnter = (event: DragEvent<HTMLLabelElement>) => {
+    if (!isFileDrag(event)) {
+      return;
+    }
     event.preventDefault();
     setIsDragging(true);
   };
@@ -410,6 +407,9 @@ export function FileInput({
   };
 
   const handleDrop = (event: DragEvent<HTMLLabelElement>) => {
+    if (!isFileDrag(event)) {
+      return;
+    }
     event.preventDefault();
     setIsDragging(false);
     addFiles(Array.from(event.dataTransfer.files));
@@ -525,9 +525,6 @@ export function FileInput({
           ))}
         </ul>
       )}
-      <div role="status" className={utilClasses.hideVisually}>
-        {announcement}
-      </div>
       <FieldValidationHint
         id={validationHintId}
         disabled={disabled}

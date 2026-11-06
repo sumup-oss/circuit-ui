@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Upload filer",
-  "dropLabel": "Træk dine filer hertil, eller klik for at uploade",
-  "removeLabel": "Slet",
-  "retryLabel": "Prøv igen",
-  "menuLabel": "Flere handlinger",
-  "uploadingLabel": "Uploader…",
-  "successLabel": "Upload fuldført",
-  "errorLabel": "Upload mislykkedes"
+  "dropLabel": "Træk dine filer hertil, eller klik for at uploade"
 }

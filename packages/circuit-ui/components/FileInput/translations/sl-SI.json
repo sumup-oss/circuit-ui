@@ -1,10 +1,4 @@
 {
   "buttonLabel": "Naloži datoteke",
-  "dropLabel": "Spustite datoteke ali kliknite za nalaganje",
-  "removeLabel": "Izbriši",
-  "retryLabel": "Poskusi znova",
-  "menuLabel": "Več dejanj",
-  "uploadingLabel": "Nalaganje …",
-  "successLabel": "Nalaganje je končano",
-  "errorLabel": "Nalaganje ni uspelo"
+  "dropLabel": "Spustite datoteke ali kliknite za nalaganje"
 }
