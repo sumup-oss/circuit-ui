@@ -86,33 +86,7 @@ const baseArgs = {
   buttonLabel: 'Upload files',
   dropLabel: 'Drop your files or click to upload',
   description: 'PDF, JPG, PNG (max 10MB each)',
-  removeLabel: 'Delete',
-  retryLabel: 'Retry',
-  uploadingLabel: 'Uploading…',
-  successLabel: 'Upload complete',
-  errorLabel: getErrorMessage,
-  menuLabel: 'More actions',
-  // Simulates an upload that takes two seconds. Files with "large" in their
-  // name are rejected as too large, and files with "fail" in their name fail
-  // with a network error.
-  onChange: (file: File, { signal }: { signal: AbortSignal }) =>
-    new Promise<void>((resolve, reject) => {
-      const timeout = setTimeout(() => {
-        if (file.name.includes('large')) {
-          reject(new UploadError('too-large'));
-        } else if (file.name.includes('fail')) {
-          reject(new UploadError('network'));
-        } else {
-          resolve();
-        }
-      }, 2000);
-      signal.addEventListener('abort', () => {
-        clearTimeout(timeout);
-        reject(new Error('Upload aborted'));
-      });
-    }),
-  accept: '.pdf,.jpg,.jpeg,.png',
-  multiple: true,
+  onChange: action('onChange') // storybook action
 };
 
 export const Base = (args: FileInputProps) => <FileInput {...args} />;
