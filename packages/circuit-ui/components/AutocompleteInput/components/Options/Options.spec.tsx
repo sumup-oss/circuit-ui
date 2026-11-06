@@ -73,7 +73,7 @@ describe('Options', () => {
     );
 
     const availableOptions = screen.getAllByRole('option');
-    expect(availableOptions[0]).toHaveAttribute('tabIndex', '0');
+    expect(availableOptions[0]).toHaveAttribute('tabIndex', '-1');
     expect(availableOptions[1]).toHaveAttribute('tabIndex', '-1');
     expect(availableOptions[2]).toHaveAttribute('tabindex', '-1');
 
@@ -82,7 +82,7 @@ describe('Options', () => {
     );
     expect(availableOptions[0]).toHaveAttribute('tabIndex', '-1');
     expect(availableOptions[1]).toHaveAttribute('tabIndex', '-1');
-    expect(availableOptions[2]).toHaveAttribute('tabindex', '0');
+    expect(availableOptions[2]).toHaveAttribute('tabindex', '-1');
   });
 
   it('should show a button in loading state when isLoadingMore is true', () => {

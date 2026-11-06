@@ -51,7 +51,9 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 
 ### Debouncing
 
-The component's `onSearch` callback is debounced by default to avoid excessive calls while the user types. The debounce delay is set to 300 ms.
+The component's `onSearch` callback is debounced by default to avoid excessive calls while the user types. The debounce delay is 300 ms. Pass `searchDebounceMs={0}` for an in-memory list so the options track typing on the same turn. A pending call is cancelled when the list closes.
+
+Option images are circular avatars by default. Pass `optionMedia="flag"` for a 4:3 rectangle, such as a country flag.
 
 ### Paginated results
 
