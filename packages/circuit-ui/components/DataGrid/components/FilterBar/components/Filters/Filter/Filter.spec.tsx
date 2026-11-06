@@ -60,7 +60,6 @@ describe('Filter', () => {
     onChange: vi.fn(),
     applyFilterLabel: 'Apply',
     clearFilterLabel: 'Clear',
-    clearAllFilters: 'Clear all',
   };
 
   it('should render nothing for a text column', () => {
@@ -233,41 +232,54 @@ describe('Filter', () => {
     expect(screen.getByRole(role, { name: 'Min' })).toBeInTheDocument();
   });
 
-  it.each([
-    { name: 'singleSelection', options },
-    { name: 'boolean', accessibleLabel: () => 'foo' },
-    { name: 'multiSelection', options },
-  ] as const)('should not throw an error for missing labels with type %s', (type) => {
-    process.env.NODE_ENV = 'development';
-    render(
-      <Filter
-        {...baseProps}
-        column={{ label: 'Column', filter: true, type }}
-      />,
-    );
+  describe('Labels', () => {
+    beforeAll(() => {
+      process.env.NODE_ENV = 'development';
+    });
+    afterAll(() => {
+      process.env.NODE_ENV = 'test';
+    });
 
-    expect(() => {
-      fireEvent.click(screen.getByRole('button', { name: 'Column' }));
-    }).not.toThrow();
-    process.env.NODE_ENV = 'test';
-  });
+    it('should throw an error for missing popover labels', async () => {
+      expect(() => {
+        render(<Filter {...baseProps} applyFilterLabel={undefined} />);
+      }).toThrow(
+        '[DataGrid Filter] The "clearFilterLabel" or "applyFilterLabel" is missing',
+      );
+    });
 
-  it.each([
-    { name: 'number' },
-    { name: 'date' },
-  ] as const)('should throw an error for missing labels with type %s', async (type) => {
-    process.env.NODE_ENV = 'development';
-    render(
-      <Filter
-        {...baseProps}
-        column={{ label: 'Column', filter: true, type }}
-      />,
-    );
+    it.each([
+      { name: 'singleSelection', options },
+      { name: 'boolean', accessibleLabel: () => 'foo' },
+      { name: 'multiSelection', options },
+    ] as const)('should not throw an error for missing labels with type %s', (type) => {
+      render(
+        <Filter
+          {...baseProps}
+          column={{ label: 'Column', filter: true, type }}
+        />,
+      );
 
-    expect(() => {
-      fireEvent.click(screen.getByRole('button', { name: 'Column' }));
-    }).toThrow();
-    process.env.NODE_ENV = 'test';
+      expect(() => {
+        fireEvent.click(screen.getByRole('button', { name: 'Column' }));
+      }).not.toThrow();
+    });
+
+    it.each([
+      { name: 'number' },
+      { name: 'date' },
+    ] as const)('should throw an error for missing labels with type %s', async (type) => {
+      render(
+        <Filter
+          {...baseProps}
+          column={{ label: 'Column', filter: true, type }}
+        />,
+      );
+
+      expect(() => {
+        fireEvent.click(screen.getByRole('button', { name: 'Column' }));
+      }).toThrow();
+    });
   });
 
   it('should report the range in order when applying a reversed range', async () => {

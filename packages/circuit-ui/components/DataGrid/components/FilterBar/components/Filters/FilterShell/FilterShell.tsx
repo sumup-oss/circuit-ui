@@ -18,6 +18,7 @@
 import {
   createContext,
   type ReactNode,
+  type SubmitEventHandler,
   useCallback,
   useContext,
   useState,
@@ -131,7 +132,8 @@ export function FilterShell({
     [isOpen, onDiscard],
   );
 
-  const handleApply = () => {
+  const handleApply: SubmitEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
     onApply?.();
     setOpen(false);
   };
@@ -150,7 +152,7 @@ export function FilterShell({
         contentClassName={classes['popover-content']}
         hideCloseButton
       >
-        <form className={classes.content}>
+        <form className={classes.content} onSubmit={handleApply}>
           {children}
           {onApply && (
             <div className={classes.footer}>
@@ -164,12 +166,7 @@ export function FilterShell({
                   {clearButtonLabel}
                 </Button>
               )}
-              <Button
-                type="submit"
-                size="s"
-                variant="primary"
-                onClick={handleApply}
-              >
+              <Button type="submit" size="s" variant="primary">
                 {applyButtonLabel}
               </Button>
             </div>

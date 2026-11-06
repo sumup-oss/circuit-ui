@@ -141,8 +141,6 @@ export function FilterSheet<P>({
           getFilterKind(column) ? (
             <div key={column.id} className={classes.section}>
               <Filter
-                applyFilterLabel=""
-                clearFilterLabel=""
                 column={column}
                 labels={column.filterConfig?.labels}
                 variant="inline"

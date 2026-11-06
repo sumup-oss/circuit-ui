@@ -630,7 +630,6 @@ export const WithFilters = (args: DataGridProps<Member>) => {
 
 WithFilters.args = {
   ...baseArgs,
-  onFilter: action('onFilter'),
   columns: buildColumnsWithFilters(),
 };
 

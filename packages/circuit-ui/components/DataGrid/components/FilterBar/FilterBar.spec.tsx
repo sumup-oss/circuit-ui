@@ -87,15 +87,15 @@ describe('FilterBar', () => {
 
   describe('Filters', () => {
     it('should not show any filter if no visible column has filtering option', async () => {
-      renderFilterBar({ visibleColumns: columns.slice(0, 3) });
+      renderFilterBar({ columns: columns.slice(0, 3) });
       expect(screen.queryAllByRole('button').length).toBe(0);
     });
     it('should not show any filter if filters prop is not provided', async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters });
+      renderFilterBar({ columns: columnsWithFilters });
       expect(screen.queryAllByRole('button').length).toBe(0);
     });
     it('should render filter', async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, filtersConfig });
+      renderFilterBar({ columns: columnsWithFilters, filtersConfig });
       expect(
         screen.getByRole('button', { name: columnsWithFilters[1].label }),
       ).toBeVisible();
@@ -107,7 +107,7 @@ describe('FilterBar', () => {
       ).toBeVisible();
     });
     it('should call onFilter when a filter value changes', async () => {
-      renderFilterBar({ visibleColumns: columnsWithFilters, filtersConfig });
+      renderFilterBar({ columns: columnsWithFilters, filtersConfig });
       await click(
         screen.getByRole('button', { name: columnsWithFilters[2].label }),
       );
@@ -121,7 +121,7 @@ describe('FilterBar', () => {
     });
     it('should call onFilter when a filter is cleared', async () => {
       renderFilterBar({
-        visibleColumns: columnsWithFilters,
+        columns: columnsWithFilters,
         filtersConfig,
         activeFilters: {
           [columnsWithFilters[2].id]: ['active'],
@@ -140,7 +140,7 @@ describe('FilterBar', () => {
     });
     it("should call onFilter when 'Clear all' button is clicked", async () => {
       renderFilterBar({
-        visibleColumns: columnsWithFilters,
+        columns: columnsWithFilters,
         filtersConfig,
         activeFilters: {
           [columnsWithFilters[2].id]: ['active'],
@@ -160,7 +160,7 @@ describe('FilterBar', () => {
       const searchQuery = 'foo';
       it('should call onFilter with current search term when a filter value changes', async () => {
         renderFilterBar({
-          visibleColumns: columnsWithFilters,
+          columns: columnsWithFilters,
           filtersConfig,
           searchQuery,
           searchBarConfig,
@@ -181,7 +181,7 @@ describe('FilterBar', () => {
       });
       it('should call onFilter with current search term when a filter is cleared', async () => {
         renderFilterBar({
-          visibleColumns: columnsWithFilters,
+          columns: columnsWithFilters,
           filtersConfig,
           activeFilters: {
             [columnsWithFilters[2].id]: ['active'],
@@ -202,7 +202,7 @@ describe('FilterBar', () => {
       });
       it("should call onFilter with current search term when 'Clear all' button is clicked", async () => {
         renderFilterBar({
-          visibleColumns: columnsWithFilters,
+          columns: columnsWithFilters,
           filtersConfig,
           activeFilters: {
             [columnsWithFilters[2].id]: ['active'],
@@ -224,7 +224,7 @@ describe('FilterBar', () => {
     describe('On mobile', () => {
       it('should render with active filters', async () => {
         renderFilterBar({
-          visibleColumns: columnsWithFilters,
+          columns: columnsWithFilters,
           isMobile: true,
           filtersConfig,
           activeFilters: {
@@ -238,7 +238,7 @@ describe('FilterBar', () => {
       });
       it('should render filters in a modal on mobile', async () => {
         renderFilterBar({
-          visibleColumns: columnsWithFilters,
+          columns: columnsWithFilters,
           isMobile: true,
           filtersConfig,
         });
@@ -257,7 +257,7 @@ describe('FilterBar', () => {
       it('should apply a filter, call onFilter and close the modal', async () => {
         vi.useFakeTimers({ shouldAdvanceTime: true });
         renderFilterBar({
-          visibleColumns: columnsWithFilters,
+          columns: columnsWithFilters,
           isMobile: true,
           filtersConfig,
           searchQuery: 'foo',
@@ -319,7 +319,7 @@ describe('FilterBar', () => {
     it('should reset active filters when user types a search term', async () => {
       renderFilterBar({
         searchBarConfig,
-        visibleColumns: columnsWithFilters,
+        columns: columnsWithFilters,
         filtersConfig,
         activeFilters: { age: { min: 18 } },
       });
@@ -337,7 +337,7 @@ describe('FilterBar', () => {
       renderFilterBar({
         searchQuery: 'foo',
         searchBarConfig,
-        visibleColumns: columnsWithFilters,
+        columns: columnsWithFilters,
         filtersConfig,
         activeFilters: { age: { min: 18 } },
       });

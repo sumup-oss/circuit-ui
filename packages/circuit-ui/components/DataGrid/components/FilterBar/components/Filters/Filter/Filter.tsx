@@ -65,11 +65,11 @@ export interface FilterProps<P = unknown> {
   /**
    * Label for the Apply button.
    */
-  applyFilterLabel: string;
+  applyFilterLabel?: string;
   /**
    * Label for the Clear button.
    */
-  clearFilterLabel: string;
+  clearFilterLabel?: string;
 }
 
 interface FilterBodyProps<P> {
@@ -183,12 +183,14 @@ function PopoverFilter<P>({
 }
 
 /**
- * Shows the filter that fits the type of a column, or nothing when the column
+ * Shows the filter that fits the type of column, or nothing when the column
  * has no filter.
  */
 export function Filter<P>({
   column,
   variant = 'popover',
+  clearFilterLabel,
+  applyFilterLabel,
   ...props
 }: FilterProps<P>) {
   const kind = getFilterKind(column);
@@ -201,5 +203,24 @@ export function Filter<P>({
     return <FilterBody {...props} type={column.type} label={column.label} />;
   }
 
-  return <PopoverFilter {...props} type={column.type} label={column.label} />;
+  if (clearFilterLabel && applyFilterLabel) {
+    return (
+      <PopoverFilter
+        {...props}
+        applyFilterLabel={applyFilterLabel}
+        clearFilterLabel={clearFilterLabel}
+        type={column.type}
+        label={column.label}
+      />
+    );
+  }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    throw new CircuitError(
+      'DataGrid Filter',
+      `The "clearFilterLabel" or "applyFilterLabel" is missing`,
+    );
+  }
 }
