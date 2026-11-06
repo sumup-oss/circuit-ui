@@ -59,7 +59,7 @@ Use the `validationHint` prop to communicate the expected response to users, and
 - Every file can be removed. A file that was uploaded shows a button to remove it, labelled "Delete" by default. Use the `removeLabel` prop to change it.
 - Use the `trailingActions` prop to add more actions to a file. It is a function that receives the file and returns its additional actions, or nothing for files without. Each action can have its own text, icon and `destructive` state, just like the items of the ListItem component.
 - A file with more than one action shows a menu instead of a button, and the `menuLabel` prop labels the menu button. The menu lists the additional actions, followed by the retry and remove actions.
-- Files that failed to upload offer a retry action, labelled "Retry" by default, next to the remove action. Retrying calls `onChange` again with the same file, so the upload runs through the same code as the first attempt. The component doesn't retry by itself.
+- Files that failed to upload offer a retry action, labelled "Retry" by default, in addition to the remove action. Retrying calls `onChange` again with the same file, so the upload runs through the same code as the first attempt. The component doesn't retry by itself.
 - Files that are uploading always show the remove button, so users can cancel the upload.
 - Files show an icon that matches their type: PDF, spreadsheet or CSV, image, document, ZIP archive, or a generic file icon for any other type.
 
