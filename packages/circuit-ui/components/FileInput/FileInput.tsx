@@ -370,7 +370,9 @@ export function FileInput({
     }
 
     // New files appear at the top of the list.
-    setSelectedFiles(previous => multiple ? [...added, ...previous] : added);
+    setSelectedFiles((previous) =>
+      multiple ? [...added, ...previous] : added,
+    );
 
     for (const { id: fileId, file } of added) {
       handleFile(fileId, file);

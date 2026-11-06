@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { within } from 'storybook/test';
+
 import { Stack } from '../../../../.storybook/components/index.js';
 
 import { FileInput, type FileInputProps } from './FileInput.js';
@@ -81,12 +83,22 @@ const getErrorMessage = (error: unknown) => {
   return 'The upload failed. Please try again.';
 };
 
+// The props that are required to render the component.
 const baseArgs = {
   label: 'Receipts',
   buttonLabel: 'Upload files',
   dropLabel: 'Drop your files or click to upload',
   description: 'PDF, JPG, PNG (max 10MB each)',
-  onChange: action('onChange') // storybook action
+  removeLabel: 'Delete',
+  retryLabel: 'Retry',
+  menuLabel: 'More actions',
+};
+
+// The status texts are required when the component handles uploads.
+const statusArgs = {
+  uploadingLabel: 'Uploading…',
+  successLabel: 'Upload complete',
+  errorLabel: getErrorMessage,
 };
 
 export const Base = (args: FileInputProps) => <FileInput {...args} />;
@@ -102,15 +114,56 @@ export const Variants = (args: FileInputProps) => (
 
 Variants.args = baseArgs;
 
-export const Labels = (args: FileInputProps) => (
-  <Stack vertical>
-    <FileInput {...args} />
-    <FileInput {...args} variant="button" optionalLabel="optional" />
-    <FileInput {...args} variant="button" hideLabel />
-  </Stack>
+// Simulates an upload that takes two seconds. Files above 10MB are too large,
+// and files with "fail" in their name fail with a network error.
+const simulateUpload = (file: File, { signal }: { signal: AbortSignal }) =>
+  new Promise<void>((resolve, reject) => {
+    const timeout = setTimeout(() => {
+      if (file.size > 10_000_000) {
+        reject(new UploadError('too-large'));
+      } else if (file.name.includes('fail')) {
+        reject(new UploadError('network'));
+      } else {
+        resolve();
+      }
+    }, 2000);
+    signal.addEventListener('abort', () => {
+      clearTimeout(timeout);
+      reject(new Error('The upload was cancelled'));
+    });
+  });
+
+export const Uploads = (args: FileInputProps) => (
+  <FileInput {...args} onChange={simulateUpload} />
 );
 
-Labels.args = baseArgs;
+Uploads.args = {
+  ...baseArgs,
+  ...statusArgs,
+  description: 'PDF, JPG, PNG (max 10MB each)',
+  accept: '.pdf,.jpg,.jpeg,.png',
+  multiple: true,
+};
+
+// `userEvent.upload` makes the input's `files` read-only, so the file is set natively.
+Uploads.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+  const input = canvasElement.querySelector('input[type="file"]');
+  if (!input) {
+    return;
+  }
+  const dataTransfer = new DataTransfer();
+  dataTransfer.items.add(
+    new File(['march'], 'march-receipt.pdf', { type: 'application/pdf' }),
+  );
+  (input as HTMLInputElement).files = dataTransfer.files;
+  input.dispatchEvent(new Event('change', { bubbles: true }));
+
+  await within(canvasElement).findByText(
+    statusArgs.successLabel,
+    {},
+    { timeout: 5000 },
+  );
+};
 
 export const Validations = (args: FileInputProps) => (
   <Stack vertical>
@@ -123,6 +176,14 @@ export const Validations = (args: FileInputProps) => (
     <FileInput
       {...args}
       variant="button"
+      optionalLabel="optional"
+      validationHint="Select a file"
+      invalid
+    />
+    <FileInput
+      {...args}
+      variant="button"
+      hideLabel
       validationHint="Select a file"
       invalid
     />
@@ -160,19 +221,19 @@ export const States = (args: FileInputProps) => {
       <FileInputItem
         name="uploading.pdf"
         status="uploading"
-        statusLabel={args.uploadingLabel}
+        statusLabel={statusArgs.uploadingLabel}
         {...itemProps}
       />
       <FileInputItem
         name="success.pdf"
         status="success"
-        statusLabel={args.successLabel}
+        statusLabel={statusArgs.successLabel}
         {...itemProps}
       />
       <FileInputItem
         name="success-with-actions.pdf"
         status="success"
-        statusLabel={args.successLabel}
+        statusLabel={statusArgs.successLabel}
         actions={[{ children: 'Download', onClick: noop }]}
         {...itemProps}
       />
@@ -185,7 +246,7 @@ export const States = (args: FileInputProps) => {
       <FileInputItem
         name="a-very-long-file-name-that-does-not-fit-in-the-row-and-gets-truncated.pdf"
         status="success"
-        statusLabel={args.successLabel}
+        statusLabel={statusArgs.successLabel}
         {...itemProps}
       />
     </ul>
@@ -209,7 +270,7 @@ export const FileTypes = (args: FileInputProps) => (
         name={name}
         size={245_760}
         status="success"
-        statusLabel={args.successLabel}
+        statusLabel={statusArgs.successLabel}
         removeLabel={args.removeLabel}
         onRemove={noop}
       />

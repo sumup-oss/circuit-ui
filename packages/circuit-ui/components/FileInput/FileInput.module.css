@@ -130,8 +130,8 @@
   display: grid;
   flex-shrink: 0;
   place-items: center;
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
+  width: var(--cui-icon-sizes-xl);
+  height: var(--cui-icon-sizes-xl);
   color: var(--cui-fg-normal);
   background-color: var(--cui-bg-highlight);
   border-radius: var(--cui-border-radius-pill);
