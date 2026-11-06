@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 11.1.1
+
+### Patch Changes
+
+- [#4030](https://github.com/sumup-oss/circuit-ui/pull/4030) [`b9b61bb`](https://github.com/sumup-oss/circuit-ui/commit/b9b61bb2ea173100da948498d874b66ab7ed394e) Thanks [@felixjung](https://github.com/felixjung)! - Fixed the `unicode-range` of the SumUp font faces so that browsers download only the font files needed to display the page.
+
 ## 11.1.0
 
 ### Minor Changes
