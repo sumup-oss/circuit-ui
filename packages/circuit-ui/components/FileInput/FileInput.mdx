@@ -23,7 +23,7 @@ For a single image that is displayed as an avatar, consider using the [ImageInpu
 
 ## How to use
 
-The FileInput component works with any upload service: it doesn't upload files itself. Like the [ImageInput](Forms/ImageInput/Docs) component, you handle the upload and the component shows the state and reports what happens.
+The FileInput component works with any upload service: it doesn't upload files itself. Like the [ImageInput](Forms/ImageInput/Docs) component, consumers are responsible for handling the upload, while the component reports its progress.
 
 - Use the `onChange` prop to upload the selected files. It is called once for every file, whether the user browsed or dropped it, and receives the file and an `AbortSignal`. Return the promise of your upload: the component shows the file as uploading until the promise settles, then as successful if it resolves or as failed if it rejects. If `onChange` doesn't return a promise, the file is only listed, for example to be submitted with a form.
 - Pass the `signal` on to your request. It is aborted when the user removes or replaces the file, and when the component unmounts.
