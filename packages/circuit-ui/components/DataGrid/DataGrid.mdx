@@ -1,5 +1,6 @@
-import { Meta, Status, Props, Story } from '../../../../.storybook/components';
-import * as Stories from './DataGrid.stories';
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./DataGrid.stories";
+import { Callout } from "../Callout/index.tsx";
 
 <Meta of={Stories} />
 
@@ -19,11 +20,13 @@ It provides intuitive, spreadsheet-like interactions: users can move between cel
 Common actions include cell editing, row selection, search and filtering.
 
 Good fit for DataGrid::
+
 - Lists of records, such as employees, where users need quick access to row actions like editing or deleting.
 - Product catalogs with nested rows and bulk actions.
 - Data with interactive content, such as links and menus.
 
 DataGrid may not be the best choice when::
+
 - The data is static and only needs tabular layout: use the [Table component](Components/Table/Docs)
 - Each row is an entry point to another view, such as a modal dialog, a new page, or a side panel: use the [ListItemGroup component](Components/ListItem/ListItemGroup/Docs)
 
@@ -37,49 +40,51 @@ For smaller viewports, the DataGrid will render as a ListItemGroup component bas
 
 Each entry in `columns` describes one column. The grid reads a value from each row, then formats it according to the column `type`.
 
-| Property | Description |
-| --- | --- |
-| `id` | Unique column id. Also the default key used to read the cell value from the row (`row[id]`). |
-| `label` | Column header. Keep it short and use sentence case. |
-| `type` | How the value is interpreted and formatted. See [column types](#column-types). |
-| `getValue` | Reads a nested or computed value from the row. Used when the value does not live at `row[id]`. |
-| `isRowHeader` | Renders the cell as the row header (`th` with the `rowheader` role). Set this on the column that identifies the row, usually the first column. |
+| Property       | Description                                                                                                                                    |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`           | Unique column id. Also the default key used to read the cell value from the row (`row[id]`).                                                   |
+| `label`        | Column header. Keep it short and use sentence case.                                                                                            |
+| `type`         | How the value is interpreted and formatted. See [column types](#column-types).                                                                 |
+| `getValue`     | Reads a nested or computed value from the row. Used when the value does not live at `row[id]`.                                                 |
+| `isRowHeader`  | Renders the cell as the row header (`th` with the `rowheader` role). Set this on the column that identifies the row, usually the first column. |
+| `filter`       | Shows a filter for this column. See [filtering](#filtering).                                                                                   |
+| `filterConfig` | Field labels for a number or date filter.                                                                                                      |
 
 ```tsx
-import { DataGrid, type Column } from '@sumup-oss/circuit-ui';
+import { DataGrid, type Column } from "@sumup-oss/circuit-ui";
 
 type Member = {
   firstName: string;
   lastName: string;
   age: number;
   subscription: {
-    status: 'active' | 'canceled';
+    status: "active" | "canceled";
     price: number;
   };
 };
 
 const columns: Column<Member>[] = [
   {
-    id: 'full_name',
-    label: 'Full name',
-    type: { name: 'text' },
+    id: "full_name",
+    label: "Full name",
+    type: { name: "text" },
     isRowHeader: true,
     getValue: ({ firstName, lastName }) => `${firstName} ${lastName}`,
   },
   {
-    id: 'age',
-    label: 'Age',
-    type: { name: 'number' },
+    id: "age",
+    label: "Age",
+    type: { name: "number" },
   },
   {
-    id: 'subscriptionPrice',
-    label: 'Monthly price',
+    id: "subscriptionPrice",
+    label: "Monthly price",
     getValue: ({ subscription }) => subscription.price,
     type: {
-      name: 'number',
+      name: "number",
       formattingOptions: {
-        style: 'currency',
-        currency: 'EUR',
+        style: "currency",
+        currency: "EUR",
       },
     },
   },
@@ -105,7 +110,7 @@ const columns: Column<Member>[] = [
 `{ name: 'date', formatStyle?, includeTime? }` displays an absolute date. The value is a [zoned date-time](https://tc39.es/proposal-temporal/docs/zoneddatetime.html) string: an [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) date-time plus an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), the same format the [Timestamp](Components/Timestamp/Docs) component accepts.
 
 ```tsx
-dateOfBirth: '1996-05-21T00:00[Europe/Berlin]';
+dateOfBirth: "1996-05-21T00:00[Europe/Berlin]";
 ```
 
 `formatStyle` controls the verbosity: `'long'`, `'short'` (the default), or `'narrow'`. Set `includeTime` to `true` to append the time. The default is `false`.
@@ -131,7 +136,6 @@ dateOfBirth: '1996-05-21T00:00[Europe/Berlin]';
 
 When the options are not `{ label, value }` objects, pass `getOptionLabel` and `getOptionValue` to read those fields from each option.
 
-
 ```tsx
 {
   id: 'status',
@@ -153,7 +157,7 @@ When the options are not `{ label, value }` objects, pass `getOptionLabel` and `
 
 ```tsx
 render: ({ value, label }) => (
-  <Status variant="line" color={value === 'active' ? 'confirm' : 'neutral'}>
+  <Status variant="line" color={value === "active" ? "confirm" : "neutral"}>
     {label}
   </Status>
 );
@@ -256,16 +260,15 @@ To display the column picker, pass a `columnPickerConfig` prop. The prop is an o
   columns={columns}
   data={members}
   columnPickerConfig={{
-    triggerLabel: 'Toggle column visibility',
-    pickerLabel: 'Choose the columns you want to display on this table',
+    triggerLabel: "Toggle column visibility",
+    pickerLabel: "Choose the columns you want to display on this table",
   }}
 />
 ```
+
 In responsive mode, the picker is not available.
 
-
 <Story of={Stories.VisibleColumns} />
-
 
 The selection is saved in `sessionStorage` and restored when the grid mounts in the same browser tab. It is scoped to the grid `label`: grids that share a `label` share a selection.
 
@@ -281,16 +284,16 @@ Missing values (`null` or `undefined`) render an empty cell. Action columns (`qu
 
 #### Default formatting
 
-| Type | Value | Displayed as |
-| --- | --- | --- |
-| `text` | `string` | The string, in a small Body. |
-| `number` | `number` or numeric `string` | The number, formatted with `formattingLocale` and `formattingOptions`, in a small Body. |
-| `boolean` | `boolean` `"true"/"false"` | A success checkmark or a danger close icon. |
-| `date` | Zoned date-time `string` | An absolute date label. `formatStyle` defaults to `'short'`. |
-| `singleSelection` | `string or number` | The label of the matching option, in a small Body. |
-| `multiSelection` | `string[] or number []` | The selected labels, joined with a comma. |
-| `quick-actions` | — | Icon buttons. |
-| `row-actions` | — | A more-actions menu. |
+| Type              | Value                        | Displayed as                                                                            |
+| ----------------- | ---------------------------- | --------------------------------------------------------------------------------------- |
+| `text`            | `string`                     | The string, in a small Body.                                                            |
+| `number`          | `number` or numeric `string` | The number, formatted with `formattingLocale` and `formattingOptions`, in a small Body. |
+| `boolean`         | `boolean` `"true"/"false"`   | A success checkmark or a danger close icon.                                             |
+| `date`            | Zoned date-time `string`     | An absolute date label. `formatStyle` defaults to `'short'`.                            |
+| `singleSelection` | `string or number`           | The label of the matching option, in a small Body.                                      |
+| `multiSelection`  | `string[] or number []`      | The selected labels, joined with a comma.                                               |
+| `quick-actions`   | —                            | Icon buttons.                                                                           |
+| `row-actions`     | —                            | A more-actions menu.                                                                    |
 
 On the [mobile list layout](#responsiveness), text, number, date, and single-selection values are plain text so they fit the styles of a [ListItem](Components/ListItem/Docs) slot.
 
@@ -302,19 +305,106 @@ The grid throws when a present value does not match its column type (`custom` be
 - A single-selection value that is not a string or number, or a multiple-selection value that is not an array of strings or numbers.
 - Selection `options` that are not `{ label, value }` objects and are missing `getOptionLabel` or `getOptionValue`.
 
+### General Search
+
+Pass a `searchBarConfig` prop to render a search bar above the grid. Use this feature to carry out flexible searches on the entirety of the data set, instead of filtering by a specific column.
+Changes to the search bar will result into clearing any active [filters](#filtering) and firing the `onFilter` method. If both `onSearch` and `onFilter` call the same underlying search function, it's best to debounce it to avoid duplicate calls.
+
+```tsx
+<DataGrid
+  label="Gym members"
+  columns={columns}
+  data={filterMembers(filters)}
+  searchBarConfig={{
+    label: "Search everywhere...",
+    clearLabel: "Clear",
+    onSearch: searchRecords,
+  }}
+/>
+```
+
+<Story of={Stories.WithSearchBar} />
+
+### Filtering
+
+Allow users to refine their search results with filters.
+Filters are configured on both column and component levels:
+
+- <strong>On columns</strong>: Set `filter: true` on a column to add a filter
+  for it. Only columns of type `boolean`, `date`, `number`, `singleSelection`
+  and `multiSelection` support filtering. Filters are not available on
+  `quick-actions` and `row-actions` columns. For other column types, use the
+  [general search](#general-search ) feature. Use `filterConfig` to provide
+  other additional configuration data, such as labels.
+
+| Type              | Filter                | Required labels  | Applied value                                                        |
+| ----------------- | --------------------- | ---------------- | -------------------------------------------------------------------- |
+| `number`          | min/max number inputs | `"min"`, `"max"` | `{ min?: number; max?: number }`.                                    |
+| `date`            | from/to date inputs   | `"from"`, `"to"` | `{ from?: string; to?: string }`, each a `YYYY-MM-DD` calendar date. |
+| `boolean`         | Checkbox group        |                  | `string[]`: `["true"]`, `["false]` or both                           |
+| `singleSelection` | Checkbox group        |                  | `string[]`: the selected option values, as strings.                  |
+| `multiSelection`  | Checkbox group        |                  | `string[]`: the selected option values, as strings.                  |
+
+```tsx
+{
+  id: 'age',
+  label: 'Age',
+  type: { name: 'number' },
+  filter: true,
+  filterConfig: {
+    labels: {
+      min: 'Min',
+      max: 'Max',
+    },
+  },
+},
+```
+
+- <strong>On the component:</strong>
+  Pass a `filtersConfig` object to configure the filtering behavior. This prop
+  is required for the filters' rendering. When used with the [General
+  Search](#general-search) feature, `onFilter` will be called with the current
+  search query alongside the active selection of filters.
+
+```tsx
+<DataGrid
+  label="Gym members"
+  columns={columns}
+  data={filterMembers(filters)}
+  filtersConfig={{
+    onFilter: searchRecords,
+    clearAllLabel: "Reset filters",
+    applyFilterLabel: "Apply",
+    clearFilterLabel: "Clear",
+  }}
+/>
+```
+
+<Callout
+  body={
+    <span>
+      Note that the displayed filter controls correspond the selection of
+      currently <a href="#column-visibility">visible columns</a> when using the
+      column visibility control.
+    </span>
+  }
+/>
+
+<Story of={Stories.WithFilters} />
+
 ### Responsiveness
 
 At widths up to `mobileBreakpoint` (768px by default), a `mobileConfig` renders the data as a [ListItemGroup](Components/ListItem/ListItemGroup/Docs). Each row becomes a list item with the `action` variant. The grid `label` becomes the list label and is visible, add an optional `hideLabel` property to `mobileConfig` to hide it.
 
 `mobileConfig.slots` maps column ids onto ListItem slots. `label` is required. The other slots are optional:
 
-| Slot | Role |
-| --- | --- |
-| `label` (required) | Primary text. |
-| `leadingComponent` | Leading visual, such as an avatar or icon column. |
-| `details` | Secondary line under the label. |
-| `trailingLabel` | Trailing primary text. |
-| `trailingDetails` | Trailing secondary text. Pair it with `trailingLabel`. |
+| Slot               | Role                                                   |
+| ------------------ | ------------------------------------------------------ |
+| `label` (required) | Primary text.                                          |
+| `leadingComponent` | Leading visual, such as an avatar or icon column.      |
+| `details`          | Secondary line under the label.                        |
+| `trailingLabel`    | Trailing primary text.                                 |
+| `trailingDetails`  | Trailing secondary text. Pair it with `trailingLabel`. |
 
 Separate several column ids with a semicolon to place them in the same slot. The grid joins them with a middot (`·`).
 
@@ -326,10 +416,10 @@ Separate several column ids with a semicolon to place them in the same slot. The
   mobileBreakpoint={1024}
   mobileConfig={{
     slots: {
-    label: 'full_name',
-    details: 'age;allergies',
-    trailingLabel: 'subscriptionPrice',
-    }
+      label: "full_name",
+      details: "age;allergies",
+      trailingLabel: "subscriptionPrice",
+    },
   }}
 />
 ```
@@ -340,7 +430,7 @@ Avoid rendering interactive content in the responsive view and prefer using the 
 
 When `mobileConfig` is omitted, the table stays in place at every viewport width. The table scrolls horizontally when the columns are wider than the container.
 
-### Accessibility
+## Accessibility
 
 The grid follows the [WAI-ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/). The table has `role="grid"`, exposes `aria-colcount` and `aria-rowcount`, and renders column headers. Body cells expose `aria-colindex`, and each data row exposes `aria-rowindex`.
 
@@ -355,15 +445,15 @@ Describe the data set so screen reader users can decide whether to read the grid
 
 One cell is in the tab sequence at a time. The first column header is the initial tab stop.
 
-| Key | Action |
-| --- | --- |
-| `Tab` | Moves focus into the grid, onto the active cell. From a focused cell, `Tab` moves through interactive content inside that cell, then leaves the grid. |
-| `Shift` + `Tab` | Moves focus back through interactive content of a cell, then out of the grid. |
-| `ArrowRight` / `ArrowLeft` | Moves focus one cell right or left. Focus stops at the first and last column. |
-| `ArrowDown` / `ArrowUp` | Moves focus one cell down or up, including between the header and the first row. Focus stops at the header and the last row. |
-| `PageDown` / `PageUp` | Moves focus five rows down or up in the same column. Focus stops at the header and the last row. |
-| `Home` / `End` | Moves focus to the first or last cell in the current row. |
-| `Control` + `Home` / `Control` + `End` | Moves focus to the first cell in the header row, or to the last cell in the last row. |
+| Key                                    | Action                                                                                                                                                |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Tab`                                  | Moves focus into the grid, onto the active cell. From a focused cell, `Tab` moves through interactive content inside that cell, then leaves the grid. |
+| `Shift` + `Tab`                        | Moves focus back through interactive content of a cell, then out of the grid.                                                                         |
+| `ArrowRight` / `ArrowLeft`             | Moves focus one cell right or left. Focus stops at the first and last column.                                                                         |
+| `ArrowDown` / `ArrowUp`                | Moves focus one cell down or up, including between the header and the first row. Focus stops at the header and the last row.                          |
+| `PageDown` / `PageUp`                  | Moves focus five rows down or up in the same column. Focus stops at the header and the last row.                                                      |
+| `Home` / `End`                         | Moves focus to the first or last cell in the current row.                                                                                             |
+| `Control` + `Home` / `Control` + `End` | Moves focus to the first cell in the header row, or to the last cell in the last row.                                                                 |
 
 Clicking a cell moves focus to that cell. Clicking a control inside a cell leaves focus on that control.
 
