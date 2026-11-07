@@ -15,7 +15,13 @@
 
 'use client';
 
-import { useState, type HTMLAttributes, type ReactNode, type Ref } from 'react';
+import {
+  useState,
+  type CSSProperties,
+  type HTMLAttributes,
+  type ReactNode,
+  type Ref,
+} from 'react';
 
 import {
   AccessibilityError,
@@ -39,6 +45,11 @@ interface BaseProps {
    * dividers) variant. Defaults to 'inset'.
    */
   variant?: Variant;
+  /**
+   * Maximum height of the items, excluding the group header. Numbers are
+   * interpreted as pixels. Overflowing items scroll with a fade at the bottom.
+   */
+  maxHeight?: CSSProperties['maxHeight'];
   /**
    * List of ListItem prop objects to render as a group. Each item needs to
    * have a unique `key`.
@@ -70,6 +81,7 @@ export type ListItemGroupProps = BaseProps &
  */
 export function ListItemGroup({
   variant = 'inset',
+  maxHeight,
   items,
   label,
   hideLabel,
@@ -100,7 +112,12 @@ export function ListItemGroup({
 
   return (
     <div
-      className={clsx(classes.base, isPlain && classes.plain, className)}
+      className={clsx(
+        classes.base,
+        isPlain && classes.plain,
+        maxHeight !== undefined && classes.scrollable,
+        className,
+      )}
       {...props}
     >
       <div className={classes.header}>
@@ -120,7 +137,11 @@ export function ListItemGroup({
           </div>
         )}
       </div>
-      <ul className={classes.items}>
+      <ul
+        className={classes.items}
+        style={{ maxHeight }}
+        tabIndex={maxHeight !== undefined && !isInteractive ? 0 : undefined}
+      >
         {items.map(({ key, ...item }) => (
           <li
             className={clsx(

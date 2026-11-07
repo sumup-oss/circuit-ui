@@ -96,3 +96,54 @@ li .child {
   bottom: calc(-1 * var(--cui-border-width-kilo));
   left: 0;
 }
+
+.scrollable {
+  position: relative;
+}
+
+.scrollable .items {
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.scrollable:not(.plain) .items {
+  clip-path: inset(0 round var(--cui-border-radius-mega));
+}
+
+.scrollable .items::-webkit-scrollbar {
+  width: var(--cui-spacings-byte);
+}
+
+.scrollable .items::-webkit-scrollbar-thumb {
+  background-color: var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-pill);
+}
+
+.scrollable::after {
+  position: absolute;
+  right: var(--cui-border-width-mega);
+  bottom: var(--cui-border-width-mega);
+  left: var(--cui-border-width-mega);
+  z-index: 2;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+  );
+  border-radius: 0 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega);
+}
+
+.plain.scrollable::after {
+  border-radius: 0;
+}
+
+.scrollable .child:focus {
+  outline-offset: calc(-1 * var(--cui-border-width-mega));
+}
+
+.scrollable .child[aria-current="true"]::after {
+  inset: 0;
+}

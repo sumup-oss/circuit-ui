@@ -29,6 +29,14 @@ The `ListItemGroup` component offers a `plain` variant, which can be used for fu
 
 <Story of={Stories.Variants} />
 
+### Scrolling
+
+Set `maxHeight` to limit the height of the items while keeping the group header visible.
+Numbers are interpreted as pixels; CSS lengths such as `"20rem"` are also supported.
+Overflowing items scroll inside the group with a thin scrollbar. A small bottom fade is shown whenever `maxHeight` is set, including at the end of the list.
+
+<Story of={Stories.Scrollable} />
+
 ### Elements
 
 The `ListItemGroup` should always have a `label` in order to be accessible. If necessary the label can be visually hidden through the `hideLabel` prop.

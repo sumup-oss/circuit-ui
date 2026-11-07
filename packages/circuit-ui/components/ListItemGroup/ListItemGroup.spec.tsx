@@ -16,7 +16,13 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { screen, render, axe, type RenderFn } from '../../util/test-utils.js';
+import {
+  screen,
+  render,
+  userEvent,
+  axe,
+  type RenderFn,
+} from '../../util/test-utils.js';
 import { Body } from '../Body/index.js';
 
 import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup.js';
@@ -86,7 +92,7 @@ describe('ListItemGroup', () => {
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<any>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<ListItemGroup {...baseProps} ref={ref} />);
     const listItemGroup = container.firstChild;
     expect(ref.current).toBe(listItemGroup);
@@ -100,6 +106,22 @@ describe('ListItemGroup', () => {
     });
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
+  });
+
+  it.each([
+    240,
+    '20rem',
+  ])('should accept a maximum item height of %s', (maxHeight) => {
+    render(<ListItemGroup {...baseProps} maxHeight={maxHeight} />);
+    expect(screen.getByRole('list').style.maxHeight).toBe(
+      typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight,
+    );
+  });
+
+  it('should allow keyboard users to focus a scrollable list of static items', async () => {
+    render(<ListItemGroup {...baseProps} maxHeight={100} />);
+    await userEvent.tab();
+    expect(screen.getByRole('list')).toHaveFocus();
   });
 
   it('should throw accessibility error when there is no aria attribute or label', () => {
