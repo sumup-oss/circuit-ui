@@ -39,6 +39,7 @@ export default {
   argTypes: {
     label: { control: 'text' },
     details: { control: 'text' },
+    maxHeight: { control: 'number' },
   },
 };
 
@@ -126,13 +127,16 @@ const baseArgs: ListItemGroupProps = {
   hideLabel: undefined,
   details: undefined,
 };
-export const Base = (args: ListItemGroupProps) => {
+const TransactionList = ({
+  transactions,
+  ...args
+}: ListItemGroupProps & { transactions: Item[] }) => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
     <ListItemGroup
       {...args}
-      items={items.map((item) => ({
+      items={transactions.map((item) => ({
         key: item.id,
         variant: item.variant,
         leadingComponent: SumUpCard,
@@ -157,6 +161,9 @@ export const Base = (args: ListItemGroupProps) => {
     />
   );
 };
+export const Base = (args: ListItemGroupProps) => (
+  <TransactionList {...args} transactions={items} />
+);
 Base.args = {
   ...baseArgs,
   items: [],
@@ -193,4 +200,18 @@ export const Variants = (args: ListItemGroupProps) => (
 Variants.args = {
   ...baseArgs,
   details: '€26.20',
+} as ListItemGroupProps;
+
+const scrollableItems: Item[] = Array.from({ length: 12 }, (_, index) => ({
+  ...items[index % items.length],
+  id: index,
+}));
+
+export const Scrollable = (args: ListItemGroupProps) => (
+  <TransactionList {...args} transactions={scrollableItems} />
+);
+Scrollable.args = {
+  ...baseArgs,
+  maxHeight: 240,
+  details: '€104.80',
 } as ListItemGroupProps;

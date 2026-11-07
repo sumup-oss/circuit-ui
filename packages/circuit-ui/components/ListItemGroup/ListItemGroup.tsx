@@ -15,7 +15,14 @@
 
 'use client';
 
-import { useState, type HTMLAttributes, type ReactNode, type Ref } from 'react';
+import {
+  useRef,
+  useState,
+  type CSSProperties,
+  type HTMLAttributes,
+  type ReactNode,
+  type Ref,
+} from 'react';
 
 import {
   AccessibilityError,
@@ -26,6 +33,7 @@ import { ListItem, type ListItemProps } from '../ListItem/index.js';
 import { isString } from '../../util/type-check.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
+import { useComponentSize } from '../../hooks/useComponentSize/useComponentSize.js';
 
 import classes from './ListItemGroup.module.css';
 
@@ -39,6 +47,11 @@ interface BaseProps {
    * dividers) variant. Defaults to 'inset'.
    */
   variant?: Variant;
+  /**
+   * Maximum height of the items, excluding the group header. Numbers are
+   * interpreted as pixels. Overflowing items scroll with a fade at the bottom.
+   */
+  maxHeight?: CSSProperties['maxHeight'];
   /**
    * List of ListItem prop objects to render as a group. Each item needs to
    * have a unique `key`.
@@ -70,6 +83,7 @@ export type ListItemGroupProps = BaseProps &
  */
 export function ListItemGroup({
   variant = 'inset',
+  maxHeight,
   items,
   label,
   hideLabel,
@@ -80,6 +94,16 @@ export function ListItemGroup({
   const [focusedItemKey, setFocusedItemKey] = useState<ItemProps['key'] | null>(
     null,
   );
+
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const itemsRef = useRef<HTMLUListElement>(null);
+  const viewportSize = useComponentSize(viewportRef);
+  const itemsSize = useComponentSize(itemsRef);
+  const [scrollTop, setScrollTop] = useState(0);
+  const canScroll =
+    maxHeight !== undefined && itemsSize.height > viewportSize.height;
+  const canScrollDown =
+    canScroll && scrollTop + viewportSize.height < itemsSize.height - 1;
 
   const isPlain = variant === 'plain';
   const isInteractive = items.some((item) => !!item.href || !!item.onClick);
@@ -120,35 +144,51 @@ export function ListItemGroup({
           </div>
         )}
       </div>
-      <ul className={classes.items}>
-        {items.map(({ key, ...item }) => (
-          <li
-            className={clsx(
-              classes.item,
-              isInteractive && classes.interactive,
-              offsetItems && classes.offset,
-              focusedItemKey === key && classes.focused,
-              item.selected && classes.selected,
-            )}
-            key={key}
-          >
-            <ListItem
-              {...item}
-              className={classes.child}
-              onFocus={(event) => {
-                try {
-                  if (event.currentTarget.matches(':focus-visible')) {
-                    setFocusedItemKey(key);
-                  }
-                } catch (_error) {
-                  setFocusedItemKey(key);
-                }
-              }}
-              onBlur={() => setFocusedItemKey(null)}
-            />
-          </li>
-        ))}
-      </ul>
+      <div
+        className={clsx(
+          classes.wrapper,
+          maxHeight !== undefined && classes.scrollable,
+        )}
+      >
+        <div
+          ref={viewportRef}
+          className={classes.viewport}
+          style={{ maxHeight }}
+          onScroll={(event) => setScrollTop(event.currentTarget.scrollTop)}
+          tabIndex={canScroll && !isInteractive ? 0 : undefined}
+        >
+          <ul ref={itemsRef} className={classes.items}>
+            {items.map(({ key, ...item }) => (
+              <li
+                className={clsx(
+                  classes.item,
+                  isInteractive && classes.interactive,
+                  offsetItems && classes.offset,
+                  focusedItemKey === key && classes.focused,
+                  item.selected && classes.selected,
+                )}
+                key={key}
+              >
+                <ListItem
+                  {...item}
+                  className={classes.child}
+                  onFocus={(event) => {
+                    try {
+                      if (event.currentTarget.matches(':focus-visible')) {
+                        setFocusedItemKey(key);
+                      }
+                    } catch (_error) {
+                      setFocusedItemKey(key);
+                    }
+                  }}
+                  onBlur={() => setFocusedItemKey(null)}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+        {canScrollDown && <span className={classes.fade} aria-hidden="true" />}
+      </div>
     </div>
   );
 }
