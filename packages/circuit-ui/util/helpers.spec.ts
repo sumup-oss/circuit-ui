@@ -215,6 +215,17 @@ describe('helpers', () => {
       vi.advanceTimersByTime(50);
       expect(fn).toHaveBeenCalledExactlyOnceWith('bar');
     });
+
+    it('should not invoke the function after cancel', () => {
+      const fn = vi.fn();
+      const debouncedFn = debounce(fn, 100);
+
+      debouncedFn('foo');
+      debouncedFn.cancel();
+
+      vi.advanceTimersByTime(100);
+      expect(fn).not.toHaveBeenCalled();
+    });
   });
 
   describe('chunk', () => {

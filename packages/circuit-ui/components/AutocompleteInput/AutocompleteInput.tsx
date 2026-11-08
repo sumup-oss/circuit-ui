@@ -45,6 +45,7 @@ import {
   isArrowUp,
   isBackspace,
   isEnter,
+  isTab,
 } from '../../util/key-codes.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { debounce } from '../../util/helpers.js';
@@ -129,6 +130,18 @@ export type AutocompleteInputProps = Omit<
      * A custom label for the "Load more" button.
      */
     loadMoreLabel?: ResultsProps['loadMoreLabel'];
+    /**
+     * Delay before `onSearch` runs, in milliseconds.
+     * Use `0` for in-memory lists so the options track typing immediately.
+     * A pending call is cancelled when the list closes.
+     * @default 300
+     */
+    searchDebounceMs?: number;
+    /**
+     * Shape of option images. `avatar` is circular. `flag` is a 4:3 rectangle.
+     * @default 'avatar'
+     */
+    optionMedia?: 'avatar' | 'flag';
   };
 const boundaryPadding = 8;
 
@@ -165,6 +178,8 @@ export function AutocompleteInput({
   size = 'm',
   'aria-setsize': ariaSetSize,
   multiple = false,
+  searchDebounceMs = 300,
+  optionMedia = 'avatar',
   ref,
   ...props
 }: AutocompleteInputProps) {
@@ -247,7 +262,24 @@ export function AutocompleteInput({
     }
   }, [isLoading]);
 
+  const debouncedOnSearch = useMemo(() => {
+    const run = (changeEvent: ChangeEvent<HTMLInputElement>) =>
+      onSearch?.(changeEvent.target.value);
+
+    if (searchDebounceMs === 0) {
+      const immediate = (changeEvent: ChangeEvent<HTMLInputElement>) =>
+        run(changeEvent);
+      immediate.cancel = () => undefined;
+      return immediate;
+    }
+
+    return debounce(run, searchDebounceMs);
+  }, [onSearch, searchDebounceMs]);
+
+  useEffect(() => () => debouncedOnSearch.cancel(), [debouncedOnSearch]);
+
   const closeResults = useCallback(() => {
+    debouncedOnSearch.cancel();
     if (supportsPopover && popoverRef.current?.matches(':popover-open')) {
       popoverRef.current.hidePopover();
     }
@@ -262,17 +294,7 @@ export function AutocompleteInput({
     }
 
     setActiveOption(undefined);
-  }, [onSearch, searchText, value, supportsPopover]);
-
-  const debouncedOnSearch = useMemo(
-    () =>
-      debounce(
-        (changeEvent: ChangeEvent<HTMLInputElement>) =>
-          onSearch?.(changeEvent.target.value),
-        300,
-      ),
-    [onSearch],
-  );
+  }, [debouncedOnSearch, onSearch, searchText, value, supportsPopover]);
 
   const onComboboxChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -304,10 +326,14 @@ export function AutocompleteInput({
     [onClear],
   );
 
-  const onPresentationFieldKeyDown = useCallback(() => {
-    setIsOpen(true);
-    setActiveOption(0);
-  }, []);
+  const onPresentationFieldKeyDown: KeyboardEventHandler<HTMLInputElement> =
+    useCallback((event) => {
+      if (isTab(event)) {
+        return;
+      }
+      setIsOpen(true);
+      setActiveOption(0);
+    }, []);
 
   const onPresentationFieldClick = useCallback(() => {
     setIsOpen(true);
@@ -398,6 +424,12 @@ export function AutocompleteInput({
 
   const onComboboxKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
     (event) => {
+      if (isTab(event)) {
+        if (isOpen && activeOption !== undefined) {
+          onOptionClick(getOptionByValue(options, optionValues[activeOption]));
+        }
+        return;
+      }
       if (isOpen) {
         if (isArrowDown(event) || isArrowUp(event)) {
           event.preventDefault();
@@ -428,6 +460,8 @@ export function AutocompleteInput({
             onOptionClick(
               getOptionByValue(options, optionValues[activeOption]),
             );
+          } else if (optionValues[0]) {
+            onOptionClick(getOptionByValue(options, optionValues[0]));
           }
           if (!activeOption || !searchText) {
             closeResults();
@@ -537,6 +571,7 @@ export function AutocompleteInput({
         searchText={searchText}
         resultsSummary={`${optionValues.length} ${resultsFound}.`}
         isImmersive={isImmersive}
+        optionMedia={optionMedia}
         aria-setsize={ariaSetSize}
         multiple={multiple}
       />

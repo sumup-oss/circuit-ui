@@ -71,12 +71,17 @@ type Fn<Args extends unknown[]> = (...args: Args) => void;
 export function debounce<Args extends unknown[]>(
   fn: Fn<Args>,
   wait: number,
-): Fn<Args> {
-  let timeoutId: ReturnType<typeof setTimeout>;
-  return (...args: Args) => {
+): Fn<Args> & { cancel: () => void } {
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  const debounced = (...args: Args) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => fn(...args), wait);
   };
+  debounced.cancel = () => {
+    clearTimeout(timeoutId);
+    timeoutId = undefined;
+  };
+  return debounced;
 }
 
 /**

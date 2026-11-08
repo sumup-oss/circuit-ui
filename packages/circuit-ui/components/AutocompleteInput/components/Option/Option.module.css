@@ -66,6 +66,13 @@
   border-radius: var(--cui-border-radius-circle);
 }
 
+.media.flag img {
+  width: 1.5rem;
+  height: 1.125rem;
+  object-fit: cover;
+  border-radius: var(--cui-border-radius-bit);
+}
+
 .media .icon {
   display: flex;
   width: 32px;
@@ -101,6 +108,11 @@
   .media .icon {
     width: 40px;
     height: 40px;
+  }
+
+  .media.flag img {
+    width: 1.5rem;
+    height: 1.125rem;
   }
 
   .has-media {
