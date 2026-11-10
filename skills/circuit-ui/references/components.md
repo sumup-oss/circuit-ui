@@ -7,6 +7,7 @@
 | `Button` | `stable` | `@sumup-oss/circuit-ui` | `./components/Button/index.js` | [Read MDX reference](components/Button.mdx) |
 | `ButtonGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/ButtonGroup/index.js` | [Read MDX reference](components/ButtonGroup.mdx) |
 | `CloseButton` | `stable` | `@sumup-oss/circuit-ui` | `./components/CloseButton/index.js` | Not available |
+| `CopyButton` | `experimental` | `@sumup-oss/circuit-ui` | `./components/CopyButton/index.js` | [Read MDX reference](components/CopyButton.mdx) |
 | `IconButton` | `stable` | `@sumup-oss/circuit-ui` | `./components/Button/index.js` | [Read MDX reference](components/IconButton.mdx) |
 | `SelectorGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/SelectorGroup/index.js` | [Read MDX reference](components/SelectorGroup.mdx) |
 | `Toggle` | `stable` | `@sumup-oss/circuit-ui` | `./components/Toggle/index.js` | [Read MDX reference](components/Toggle.mdx) |
