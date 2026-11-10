@@ -1,4 +1,4 @@
-import { useId, useRef } from 'react';
+import { memo, useId, useRef } from 'react';
 import classes from './QuickActions.module.css';
 import { RowActionButton } from '../RowActions/RowActionButton/RowActionButton.js';
 import type { IconButtonProps } from '../../../../Button/index.js';
@@ -18,13 +18,13 @@ export type CustomAction<P> = Omit<
   onClick: (event: ClickEvent, value: P) => void;
 };
 
-export function QuickActions<P>({
+const QuickActionsComponent = <P,>({
   actions,
   value,
 }: {
   actions: CustomAction<P>[];
   value: P;
-}) {
+}) => {
   const id = useId();
   const ref = useRef<HTMLDivElement>(null);
 
@@ -40,4 +40,8 @@ export function QuickActions<P>({
       ))}
     </div>
   );
-}
+};
+
+export const QuickActions = memo(
+  QuickActionsComponent,
+) as typeof QuickActionsComponent;
