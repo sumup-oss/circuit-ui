@@ -30,6 +30,7 @@ import { screen, userEvent, within } from 'storybook/test';
 import { useState } from 'react';
 import { Temporal } from 'temporal-polyfill';
 import { type Allergy, members, type Member } from './fixtures.js';
+import { modes } from '../../../../.storybook/modes.js';
 
 export default {
   title: 'Components/DataGrid',
@@ -651,7 +652,27 @@ VisibleColumns.play = openColumnPicker();
 export const ResponsiveView = (args: DataGridProps<Member>) => (
   <DataGrid {...args} />
 );
-ResponsiveView.args = { ...baseArgs, mobileBreakpoint: 1280, mobileConfig };
+ResponsiveView.args = { ...baseArgs, mobileBreakpoint: 4098, mobileConfig };
+ResponsiveView.parameters = {
+  chromatic: {
+    cropToViewport: true,
+    modes: {
+      // only test the small mobile view
+      light: {
+        ...modes.light,
+        ...modes.tablet,
+      },
+      dark: {
+        ...modes.dark,
+        ...modes.tablet,
+      },
+      consumer: {
+        ...modes.consumer,
+        ...modes.tablet,
+      },
+    },
+  },
+};
 
 export const WithPagination = (args: DataGridProps<Member>) => {
   const [currentPage, setCurrentPage] = useState(1);
