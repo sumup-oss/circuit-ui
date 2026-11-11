@@ -421,6 +421,40 @@ In responsive mode, the page size selector is omitted and `itemsPerPage` will be
 
 <Story of={Stories.WithPagination} />
 
+### Sorting
+
+Mark a column as `sortable` and pass a `sortConfig` to let users sort the data. The grid renders the data in the order it is provided and does not sort it itself. Use `onSort` to sort the data and update `data` accordingly.
+
+Sortable columns show a sort icon when users hover over the header. Clicking the header cycles through ascending order, descending order and no sorting. `onSort` receives `{ columnId, direction }`, with `direction` being either `"ascending"` or `"descending"`, or `undefined` when the sorting is cleared, which renders the data in its original order. The sorted header exposes `aria-sort`.
+
+In the responsive view, a sort button next to the filters opens a sheet where users choose the column and the direction to sort by. Describe the directions of each column with `sortLabels`, such as "A to Z" and "Z to A" for names or "Earliest to latest" and "Latest to earliest" for dates. They are required for sortable columns.
+
+```tsx
+<DataGrid
+  {...props}
+  columns={[
+    {
+      id: "name",
+      label: "Name",
+      type: { name: "text" },
+      sortable: true,
+      sortLabels: { ascending: "A to Z", descending: "Z to A" },
+    },
+  ]}
+  sortConfig={{
+    onSort: sortData,
+    title: "Sort by",
+    description: "Choose how you want to see your members",
+    parametersLabel: "Parameters",
+    orderLabel: "Order",
+    applyLabel: "Apply",
+    clearLabel: "Clear",
+  }}
+/>
+```
+
+<Story of={Stories.WithSorting} />
+
 ### Responsiveness
 
 At widths up to `mobileBreakpoint` (768px by default), a `mobileConfig` renders the data as a [ListItemGroup](Components/ListItem/ListItemGroup/Docs). Each row becomes a list item with the `action` variant. The grid `label` becomes the list label and is visible, add an optional `hideLabel` property to `mobileConfig` to hide it.

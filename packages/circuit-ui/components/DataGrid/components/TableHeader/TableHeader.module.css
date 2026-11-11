@@ -19,3 +19,45 @@
 .base th:last-of-type {
   border-top-right-radius: var(--cui-border-radius-mega);
 }
+
+/* The sort button fills the cell so the whole header is clickable. */
+.base .sortable {
+  padding: 0;
+}
+
+.base .sortable:hover,
+.base .sorted {
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.sort-button {
+  display: flex;
+  gap: var(--cui-spacings-bit);
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: var(--cui-spacings-kilo);
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.sort-button .title {
+  min-width: 0;
+}
+
+/* The icon is revealed on hover and focus, and stays visible while sorted. */
+.sort-icon {
+  flex-shrink: 0;
+  color: var(--cui-fg-subtle);
+  opacity: 0;
+}
+
+.base .sortable:hover .sort-icon,
+.base .sortable:focus-within .sort-icon,
+.base .sorted .sort-icon {
+  opacity: 1;
+}

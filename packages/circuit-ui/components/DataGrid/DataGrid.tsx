@@ -30,10 +30,12 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import type {
   Column,
   MobileConfig,
+  SortValue,
   WithColumnPicker,
   WithFilters,
   WithSearchBar,
   WithPagination,
+  WithSorting,
 } from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
@@ -51,6 +53,7 @@ export interface DataGridProps<P>
     TableHTMLAttributes<HTMLDivElement>,
     WithSearchBar,
     WithFilters,
+    WithSorting,
     WithColumnPicker {
   /**
    * The columns to display, in order. Each column defines its header label,
@@ -109,6 +112,7 @@ export function DataGrid<P>({
   searchBarConfig,
   ref,
   filtersConfig,
+  sortConfig,
   columnPickerConfig,
   pagination,
   ...props
@@ -116,6 +120,7 @@ export function DataGrid<P>({
   const rowId = useId();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<FilterValues>({});
+  const [sort, setSort] = useState<SortValue>();
   const [visibleColumns, setVisibleColumns] = useState(() => {
     const savedInStorage = sessionStorage
       .getItem(`cui-grid-${label}-visible-columns`)
@@ -158,6 +163,14 @@ export function DataGrid<P>({
       filtersConfig?.onFilter(...args);
     },
     [filtersConfig],
+  );
+
+  const onSortChange = useCallback(
+    (value?: SortValue) => {
+      setSort(value);
+      sortConfig?.onSort(value);
+    },
+    [sortConfig],
   );
 
   const handleClickEvent = useCallback((event: MouseEvent) => {
@@ -281,7 +294,11 @@ export function DataGrid<P>({
     [columns, label],
   );
 
-  const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
+  const showFilterBar =
+    filtersConfig ||
+    searchBarConfig ||
+    columnPickerConfig ||
+    (isMobile && sortConfig);
 
   return (
     <div className={classes.wrapper}>
@@ -304,6 +321,8 @@ export function DataGrid<P>({
           }
           searchQuery={searchQuery}
           columnPickerConfig={columnPickerConfig}
+          sortConfig={sortConfig && { ...sortConfig, onSort: onSortChange }}
+          sort={sort}
         />
       )}
       {isMobile && mobileConfig ? (
@@ -338,7 +357,11 @@ export function DataGrid<P>({
             {...props}
           >
             <caption className={utilClasses.hideVisually}>{label}</caption>
-            <TableHeader columns={visibleColumns} />
+            <TableHeader
+              columns={visibleColumns}
+              sort={sort}
+              onSortChange={sortConfig && !isMobile ? onSortChange : undefined}
+            />
 
             <tbody>
               {data.map((value, index) => (
