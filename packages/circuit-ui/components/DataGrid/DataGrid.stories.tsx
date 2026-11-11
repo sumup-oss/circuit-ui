@@ -27,6 +27,8 @@ import { clsx } from '../../styles/clsx.js';
 import { Compact, type CompactProps } from '../Compact/Compact.js';
 import { Status } from '../Status/index.js';
 import { screen, userEvent, within } from 'storybook/test';
+import { useState } from 'react';
+import { Temporal } from 'temporal-polyfill';
 
 export default {
   title: 'Components/DataGrid',
@@ -291,6 +293,44 @@ const columns: Column<Member>[] = [
     },
   },
 ];
+
+const buildColumnsWithFilters = (): Column<Member>[] => {
+  const columnsWithFilters = [...columns];
+  columnsWithFilters[1] = {
+    ...columnsWithFilters[1],
+    filter: true,
+    filterConfig: {
+      labels: {
+        from: 'From',
+        to: 'To',
+      },
+    },
+  };
+  columnsWithFilters[2] = {
+    ...columnsWithFilters[2],
+    filter: true,
+    filterConfig: {
+      labels: {
+        min: 'Greater than',
+        max: 'Less than',
+      },
+    },
+  };
+  columnsWithFilters[3] = {
+    ...columnsWithFilters[3],
+    filter: true,
+    filterConfig: {
+      labels: {
+        min: 'Min',
+        max: 'Max',
+      },
+    },
+  };
+  columnsWithFilters[6] = { ...columnsWithFilters[6], filter: true };
+  columnsWithFilters[7] = { ...columnsWithFilters[7], filter: true };
+  return columnsWithFilters;
+};
+
 const data: Member[] = [
   {
     firstName: 'Elena',
@@ -475,16 +515,122 @@ const baseArgs: DataGridProps<Member> = {
 export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
 Base.args = baseArgs;
-export const WithSearchBar = (args: DataGridProps<Member>) => (
-  <DataGrid {...args} />
-);
 
-WithSearchBar.args = {
+export const WithSearchBar = (args: DataGridProps<Member>) => {
+  const [records, setRecords] = useState(data);
+
+  function onSearch(searchTerm: string) {
+    if (!searchTerm) {
+      setRecords(data);
+      return;
+    }
+    setRecords(
+      data.filter(
+        ({ firstName, lastName }) =>
+          firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          lastName.toLowerCase().includes(searchTerm.toLowerCase()),
+      ),
+    );
+  }
+  return (
+    <DataGrid
+      {...args}
+      data={records}
+      searchBarConfig={{
+        label: 'Search everywhere...',
+        clearLabel: 'Clear',
+        onSearch,
+      }}
+    />
+  );
+};
+
+WithSearchBar.args = baseArgs;
+
+export const WithFilters = (args: DataGridProps<Member>) => {
+  const [records, setRecords] = useState(data);
+
+  function filterRecords(filters: Record<string, unknown>) {
+    const entries = Object.entries(filters);
+    if (entries.length === 0) {
+      setRecords(data);
+      return;
+    }
+
+    setRecords(
+      data.filter((member) =>
+        entries.every(([key, value]) => {
+          if (key === 'age') {
+            const { min, max } = value as { min?: number; max?: number };
+            return (
+              (min === undefined || member.age >= min) &&
+              (max === undefined || member.age <= max)
+            );
+          }
+          if (key === 'subscriptionPrice') {
+            const { min, max } = value as { min?: number; max?: number };
+            return (
+              (min === undefined || member.subscription.price >= min) &&
+              (max === undefined || member.subscription.price <= max)
+            );
+          }
+          if (key === 'dateOfBirth') {
+            const { from, to } = value as { from?: string; to?: string };
+            const birthDate = Temporal.ZonedDateTime.from(
+              member.dateOfBirth,
+            ).toPlainDate();
+            if (
+              from &&
+              Temporal.PlainDate.compare(
+                birthDate,
+                Temporal.PlainDate.from(from),
+              ) < 0
+            ) {
+              return false;
+            }
+            if (
+              to &&
+              Temporal.PlainDate.compare(
+                birthDate,
+                Temporal.PlainDate.from(to),
+              ) > 0
+            ) {
+              return false;
+            }
+            return true;
+          }
+          if (key === 'activity') {
+            return (value as string[]).includes(
+              String(member.subscription.frequentMember),
+            );
+          }
+          if (key === 'allergies') {
+            return (value as string[]).every((allergy) =>
+              member.allergies?.includes(allergy as Allergy),
+            );
+          }
+          return true;
+        }),
+      ),
+    );
+  }
+  return (
+    <DataGrid
+      {...args}
+      data={records}
+      filtersConfig={{
+        onFilter: filterRecords,
+        clearAllLabel: 'Clear all',
+        applyFilterLabel: 'Apply',
+        clearFilterLabel: 'Clear',
+      }}
+    />
+  );
+};
+
+WithFilters.args = {
   ...baseArgs,
-  searchBarConfig: {
-    label: 'Search everywhere...',
-    onSearch: action('onSearch'),
-  },
+  columns: buildColumnsWithFilters(),
 };
 
 export const VisibleColumns = (args: DataGridProps<Member>) => (

@@ -31,6 +31,7 @@ import type {
   Column,
   MobileConfig,
   WithColumnPicker,
+  WithFilters,
   WithSearchBar,
 } from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
@@ -40,10 +41,13 @@ import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { utilClasses } from '../../styles/utility.js';
 import type { ClickEvent } from '../../types/events.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
+import { debounce } from '../../util/helpers.js';
+import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 
 export interface DataGridProps<P>
   extends TableHTMLAttributes<HTMLDivElement>,
     WithSearchBar,
+    WithFilters,
     WithColumnPicker {
   /**
    * The columns to display, in order. Each column defines its header label,
@@ -101,10 +105,13 @@ export function DataGrid<P>({
   mobileBreakpoint = 768,
   searchBarConfig,
   ref,
+  filtersConfig,
   columnPickerConfig,
   ...props
 }: DataGridProps<P>) {
   const rowId = useId();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilters, setActiveFilters] = useState<FilterValues>({});
   const [visibleColumns, setVisibleColumns] = useState(() => {
     const savedInStorage = sessionStorage
       .getItem(`cui-grid-${label}-visible-columns`)
@@ -120,6 +127,34 @@ export function DataGrid<P>({
     formattingLocale: customFormattingLocale,
   });
   const internalRef = useRef<HTMLTableElement>(null);
+
+  const debouncedOnSearch = useCallback(
+    searchBarConfig?.onSearch
+      ? debounce(searchBarConfig.onSearch, 300)
+      : () => {},
+    [],
+  );
+
+  const onSearchChange = useCallback(
+    (query: string) => {
+      if (searchBarConfig) {
+        setSearchQuery(query);
+        debouncedOnSearch(query);
+      }
+    },
+    [debouncedOnSearch, searchBarConfig],
+  );
+
+  const onActiveFiltersChange: NonNullable<
+    WithFilters['filtersConfig']
+  >['onFilter'] = useCallback(
+    (...args) => {
+      const [filters] = args;
+      setActiveFilters(filters);
+      filtersConfig?.onFilter(...args);
+    },
+    [filtersConfig],
+  );
 
   const handleClickEvent = useCallback((event: MouseEvent) => {
     const table = internalRef.current;
@@ -242,15 +277,28 @@ export function DataGrid<P>({
     [columns, label],
   );
 
+  const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
+
   return (
     <div className={classes.wrapper}>
-      {(searchBarConfig || columnPickerConfig) && (
+      {showFilterBar && (
         <FilterBar
-          searchBarConfig={searchBarConfig}
+          searchBarConfig={
+            searchBarConfig
+              ? { ...searchBarConfig, onSearch: onSearchChange }
+              : undefined
+          }
           onVisibleColumnChange={onVisibleColumnChange}
           columns={columns}
           visibleColumns={visibleColumns}
           isMobile={isMobile}
+          activeFilters={activeFilters}
+          filtersConfig={
+            filtersConfig
+              ? { ...filtersConfig, onFilter: onActiveFiltersChange }
+              : undefined
+          }
+          searchQuery={searchQuery}
           columnPickerConfig={columnPickerConfig}
         />
       )}

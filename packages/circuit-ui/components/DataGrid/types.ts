@@ -2,6 +2,8 @@ import type { ActionMenuItemProps } from '../ActionMenu/index.js';
 import type { ReactNode } from 'react';
 import type { CustomAction } from './components/DefaultComponents/QuickActions/QuickActions.js';
 import type { ClickEvent } from '../../types/events.js';
+import type { FilterLabels } from './components/FilterBar/components/Filters/Filter/types.js';
+import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 
 export interface WithColumnPicker {
   columnPickerConfig?: {
@@ -16,6 +18,30 @@ export interface WithColumnPicker {
   };
 }
 
+export interface WithFilters {
+  filtersConfig?: {
+    /**
+     * Callback fired when one of the filters changes
+     * with an object containing the currently active filters.
+     * If the grid is configured with a search bar, a second parameter
+     * will contain the current search query.
+     */
+    onFilter: (value: FilterValues, query?: string) => void;
+    /**
+     * A Label for the action of applying a given filter
+     */
+    applyFilterLabel: string;
+    /**
+     * A Label for the action of clearing a given filter
+     */
+    clearFilterLabel: string;
+    /**
+     * A label for the action of clearing all filters
+     */
+    clearAllLabel: string;
+  };
+}
+
 export interface WithSearchBar {
   searchBarConfig?: {
     /**
@@ -24,8 +50,15 @@ export interface WithSearchBar {
     label: string;
     /**
      * A callback fired when the main search bar query changes.
+     * If the grid has active filters, they will be reset when
+     * the search query changes or is cleared.
      */
     onSearch: (query: string) => void;
+    /**
+     * Visually hidden text label on the clear button for screen readers.
+     * Crucial for accessibility.
+     */
+    clearLabel: string;
   };
 }
 
@@ -68,6 +101,12 @@ export type Column<P> = {
    * Depending on the column type, the filter may be a text input, a dropdown with single or multi selection, or a date range.
    */
   filter?: boolean;
+  /**
+   * Additional configuration for the filter
+   */
+  filterConfig?: {
+    labels: FilterLabels;
+  };
   /**
    * A sort function for the column.
    */

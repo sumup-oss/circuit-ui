@@ -87,3 +87,66 @@ export const columns: Column<Member>[] = [
     },
   },
 ];
+export const columnsWithFilters: Column<Member>[] = [
+  {
+    id: 'full_name',
+    label: 'Full Name',
+    type: { name: 'text' },
+    getValue: ({ firstName, lastName }) => `${firstName} ${lastName}`,
+  },
+  {
+    id: 'age',
+    label: 'Age',
+    type: { name: 'number' },
+    filter: true,
+    filterConfig: {
+      labels: {
+        min: 'Older than',
+        max: 'Younger than',
+      },
+    },
+  },
+  {
+    id: 'status',
+    label: 'Subscription status',
+    getValue: ({ subscription }) => subscription.status,
+    type: {
+      name: 'singleSelection',
+      options: [
+        { label: 'Active', value: 'active' },
+        { label: 'Cancelled', value: 'canceled' },
+        { label: 'Suspended', value: 'suspended' },
+      ],
+    },
+    filter: true,
+  },
+  {
+    id: 'subscriptionPrice',
+    label: 'Subscription Price',
+    getValue: ({ subscription }) => subscription.price,
+    type: {
+      name: 'number',
+      formattingOptions: {
+        style: 'currency',
+        currency: 'EUR',
+        minimumFractionDigits: 1,
+      },
+    },
+    filter: true,
+    filterConfig: {
+      labels: {
+        min: 'Min',
+        max: 'Max',
+      },
+    },
+  },
+  {
+    id: 'frequentMember',
+    label: 'Frequent Member',
+    getValue: ({ subscription }) => subscription.frequentMember,
+    type: {
+      name: 'boolean',
+      accessibleLabel: (value) => (value ? 'Yes' : 'No'),
+    },
+  },
+];
