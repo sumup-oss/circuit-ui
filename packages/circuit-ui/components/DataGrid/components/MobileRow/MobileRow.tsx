@@ -89,7 +89,6 @@ const MobileRowComponent = <P,>({
       <Cell
         tabIndex={rowIndex === 0 ? 0 : -1}
         role="gridcell"
-        aria-colindex={1}
         data-x={0}
         data-y={rowIndex}
         className={classes.cell}

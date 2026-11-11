@@ -4,10 +4,11 @@ import {
   useCallback,
   useEffect,
   useRef,
-  type TableHTMLAttributes,
+  type HTMLAttributes,
   useId,
   type Ref,
   useState,
+  useMemo,
 } from 'react';
 import { TableHeader } from './components/TableHeader/TableHeader.js';
 import { Row } from './components/Row/Row.js';
@@ -25,7 +26,6 @@ import {
 } from '../../util/key-codes.js';
 import classes from './DataGrid.module.css';
 import { clsx } from '../../styles/clsx.js';
-import { getListItemFragmentContent } from './DataGridService.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import type {
   Column,
@@ -36,19 +36,20 @@ import type {
   WithPagination,
 } from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
-import { ListItemGroup } from '../ListItemGroup/index.js';
 import type { Locale } from '../../util/i18n.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { utilClasses } from '../../styles/utility.js';
-import type { ClickEvent } from '../../types/events.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
 import { debounce } from '../../util/helpers.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 import { Pagination } from './components/Pagination/Pagination.js';
 
+import { MobileRow } from './components/MobileRow/MobileRow.js';
+import { isStringArray } from '../../util/type-check.js';
+
 export interface DataGridProps<P>
   extends WithPagination,
-    TableHTMLAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLTableElement>,
     WithSearchBar,
     WithFilters,
     WithColumnPicker {
@@ -62,6 +63,11 @@ export interface DataGridProps<P>
    * render their cell values.
    */
   data: P[];
+  /**
+   * A function that computes a unique id per record.
+   * Recommended for optimizing performance
+   */
+  getRowId?: (row: P) => string;
   /**
    * Label to be used as the table's caption.
    * Captions help screen reader users understand what the table is about
@@ -101,6 +107,7 @@ export interface DataGridProps<P>
 export function DataGrid<P>({
   data,
   columns,
+  getRowId,
   className,
   label,
   mobileConfig,
@@ -113,38 +120,49 @@ export function DataGrid<P>({
   pagination,
   ...props
 }: DataGridProps<P>) {
-  const rowId = useId();
+  const gridId = useId();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<FilterValues>({});
-  const [visibleColumns, setVisibleColumns] = useState(() => {
-    const savedInStorage = sessionStorage
-      .getItem(`cui-grid-${label}-visible-columns`)
-      ?.split('|');
+  const [visibleColumns, setVisibleColumns] = useState(columns);
 
-    return savedInStorage
-      ? columns.filter(({ id }) => savedInStorage.includes(id))
-      : columns;
-  });
+  useEffect(() => {
+    const storedColumns = sessionStorage
+      .getItem(`cui-grid-${columnPickerConfig?.gridId}-visible-columns`)
+      ?.split('|');
+    const isValid = isStringArray(storedColumns) && storedColumns.length > 0;
+    setVisibleColumns(
+      isValid
+        ? columns.filter(({ id }) => storedColumns.includes(id))
+        : columns,
+    );
+  }, [columns, columnPickerConfig?.gridId]);
 
   const isMobile = useMedia(`(max-width: ${mobileBreakpoint}px)`);
+  const isMobileView = isMobile && mobileConfig;
   const { formattingLocale } = useI18n({
     formattingLocale: customFormattingLocale,
   });
   const internalRef = useRef<HTMLTableElement>(null);
 
-  const debouncedOnSearch = useCallback(
-    searchBarConfig?.onSearch
-      ? debounce(searchBarConfig.onSearch, 300)
-      : () => {},
-    [],
+  const debouncedOnSearch = useMemo(
+    () =>
+      searchBarConfig?.onSearch
+        ? debounce(searchBarConfig.onSearch, 300)
+        : undefined,
+    [searchBarConfig?.onSearch],
   );
 
   const onSearchChange = useCallback(
     (query: string) => {
       if (searchBarConfig) {
         setSearchQuery(query);
-        debouncedOnSearch(query);
+        debouncedOnSearch?.(query);
       }
+      return () => {
+        if (debouncedOnSearch) {
+          debouncedOnSearch.cancel();
+        }
+      };
     },
     [debouncedOnSearch, searchBarConfig],
   );
@@ -166,7 +184,7 @@ export function DataGrid<P>({
     if (!target || !table) {
       return;
     }
-    const activeCell = table?.querySelector('[tabindex="0"]');
+    const activeCell = table?.querySelector(':is(td, th)[tabindex="0"]');
     const currentX = Number(activeCell?.getAttribute('data-x'));
     const currentY = Number(activeCell?.getAttribute('data-y'));
     const newX = Number(target?.getAttribute('data-x'));
@@ -190,7 +208,13 @@ export function DataGrid<P>({
       if (!table) {
         return;
       }
-      const activeCell = table?.querySelector('[tabindex="0"]');
+      const totalRows = isMobileView ? data.length - 1 : data.length;
+      const activeCell = table?.querySelector(':is(td, th)[tabindex="0"]');
+      // ignore event when navigating inside a built-in interactive cell elements
+      // that use `useFocusList`, like row actions.
+      if ((event.target as HTMLElement).hasAttribute('data-focus-list')) {
+        return;
+      }
       const currentX = Number(activeCell?.getAttribute('data-x'));
       const currentY = Number(activeCell?.getAttribute('data-y'));
       let newX = currentX;
@@ -198,34 +222,38 @@ export function DataGrid<P>({
       if (isArrowUp(event) && currentY > 0) {
         newY = currentY - 1;
       }
-      if (isArrowDown(event) && currentY < data.length) {
+      if (isArrowDown(event) && currentY < totalRows) {
         newY = currentY + 1;
       }
-      if (isArrowRight(event) && currentX < visibleColumns.length) {
-        newX = currentX + 1;
+      if (!isMobileView) {
+        if (isArrowRight(event) && currentX < visibleColumns.length - 1) {
+          newX = currentX + 1;
+        }
+        if (isArrowLeft(event) && currentX > 0) {
+          newX = currentX - 1;
+        }
+        if (isHome(event)) {
+          newX = 0;
+        }
+        if (isEnd(event)) {
+          newX = visibleColumns.length - 1;
+        }
       }
-      if (isArrowLeft(event) && currentX > 0) {
-        newX = currentX - 1;
-      }
+
       if (isPageUp(event)) {
         newY = Math.max(0, currentY - 5);
       }
       if (isPageDown(event)) {
-        newY = Math.min(data.length, currentY + 5);
+        newY = Math.min(totalRows, currentY + 5);
       }
-      if (isHome(event)) {
-        newX = 0;
-      }
-      if (isEnd(event)) {
-        newX = visibleColumns.length - 1;
-      }
+
       if (isControlHome(event)) {
         newY = 0;
         newX = 0;
       }
       if (isControlEnd(event)) {
-        newY = data.length;
-        newX = visibleColumns.length - 1;
+        newY = totalRows;
+        newX = isMobileView ? 1 : visibleColumns.length - 1;
       }
       if (newX !== currentX || newY !== currentY) {
         const newActiveCell = table.querySelector(
@@ -237,7 +265,7 @@ export function DataGrid<P>({
         newActiveCell?.focus();
       }
     },
-    [data, visibleColumns],
+    [data, visibleColumns, isMobileView],
   );
 
   useEffect(() => {
@@ -274,17 +302,22 @@ export function DataGrid<P>({
       const newValue = columns.filter(({ id }) => value.includes(id));
       setVisibleColumns(newValue);
       sessionStorage.setItem(
-        `cui-grid-${label}-visible-columns`,
+        `cui-grid-${columnPickerConfig?.gridId}-visible-columns`,
         value.join('|'),
       );
     },
-    [columns, label],
+    [columns, columnPickerConfig?.gridId],
   );
 
   const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
 
   return (
-    <div className={classes.wrapper}>
+    <div
+      className={clsx(
+        classes.wrapper,
+        isMobileView && classes['mobile-wrapper'],
+      )}
+    >
       {showFilterBar && (
         <FilterBar
           searchBarConfig={
@@ -306,57 +339,47 @@ export function DataGrid<P>({
           columnPickerConfig={columnPickerConfig}
         />
       )}
-      {isMobile && mobileConfig ? (
-        <ListItemGroup
-          ref={ref}
-          label={label}
-          className={classes.list}
-          hideLabel={mobileConfig.hideLabel}
-          items={data.map((value, index) => ({
-            key: `${rowId}-${index}`,
-            variant: 'action',
-            onClick: (event: ClickEvent) =>
-              mobileConfig.onClick?.(event, value),
-            ...getListItemFragmentContent(
-              columns,
-              value,
-              formattingLocale,
-              mobileConfig.slots,
-              `${rowId}-${index}`,
-            ),
-          }))}
-        />
-      ) : (
-        <div className={classes.table}>
-          <table
-            ref={applyMultipleRefs(ref, internalRef)}
-            className={clsx(classes.base, className)}
-            // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: grid is valid role for table
-            role="grid"
-            aria-colcount={columns.length}
-            aria-rowcount={data.length}
-            {...props}
-          >
-            <caption className={utilClasses.hideVisually}>{label}</caption>
-            <TableHeader columns={visibleColumns} />
+      <div className={classes.table}>
+        <table
+          ref={applyMultipleRefs(ref, internalRef)}
+          className={clsx(classes.base, className)}
+          // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: grid is valid role for table
+          role="grid"
+          {...props}
+        >
+          <caption className={utilClasses.hideVisually}>{label}</caption>
+          {!isMobileView && <TableHeader columns={visibleColumns} />}
 
-            <tbody>
-              {data.map((value, index) => (
+          <tbody>
+            {data.map((value, index) =>
+              isMobileView ? (
+                <MobileRow
+                  columns={columns}
+                  formattingLocale={formattingLocale}
+                  key={getRowId ? getRowId(value) : `${gridId}-${index}`}
+                  rowIndex={index}
+                  rowId={getRowId ? getRowId(value) : `${gridId}-${index}`}
+                  data={value}
+                  mobileConfig={mobileConfig}
+                />
+              ) : (
                 <Row
                   rowIndex={index}
-                  key={`${rowId}-${index}`}
+                  key={getRowId ? getRowId(value) : `${gridId}-${index}`}
                   columns={visibleColumns}
                   formattingLocale={formattingLocale}
                   data={value}
                   className={classes.row}
-                  aria-rowindex={index + 1}
                 />
-              ))}
-            </tbody>
-          </table>
-        </div>
+              ),
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {pagination && pagination.totalPages > 1 && (
+        <Pagination {...pagination} />
       )}
-      {pagination && data.length > 0 && <Pagination {...pagination} />}
     </div>
   );
 }
