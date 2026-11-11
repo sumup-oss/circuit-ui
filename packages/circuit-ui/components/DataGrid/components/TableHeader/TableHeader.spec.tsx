@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import type { ReactElement } from 'react';
 
-import { axe, render, screen } from '../../../../util/test-utils.js';
+import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 import { utilClasses } from '../../../../styles/utility.js';
 
 import { TableHeader, type TableHeaderProps } from './TableHeader.js';
@@ -74,6 +74,84 @@ describe('TableHeader', () => {
     );
     const label = screen.getByText('Actions');
     expect(label.className).toContain(utilClasses.hideVisually);
+  });
+
+  describe('Sorting', () => {
+    const sortableColumns: TableHeaderProps<Data>['columns'] = [
+      { ...columns[0], sortable: true },
+      columns[1],
+    ];
+
+    it('should render a sort button for sortable columns only', () => {
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          onSortChange={vi.fn()}
+        />,
+      );
+
+      expect(screen.getAllByRole('button')).toHaveLength(1);
+      expect(screen.getByRole('button', { name: 'Name' })).toBeVisible();
+    });
+
+    it('should not render a sort button without onSortChange', () => {
+      renderTableHeader(
+        <TableHeader {...defaultProps} columns={sortableColumns} />,
+      );
+
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    });
+
+    it('should mark only the sorted column with aria-sort', () => {
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          sort={{ columnId: 'name', direction: 'descending' }}
+          onSortChange={vi.fn()}
+        />,
+      );
+
+      expect(
+        screen.getByRole('columnheader', { name: 'Name' }),
+      ).toHaveAttribute('aria-sort', 'descending');
+      expect(
+        screen.getByRole('columnheader', { name: 'Age' }),
+      ).not.toHaveAttribute('aria-sort');
+    });
+
+    it('should call onSortChange with the next sorting when clicking the button', async () => {
+      const onSortChange = vi.fn();
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          sort={{ columnId: 'name', direction: 'ascending' }}
+          onSortChange={onSortChange}
+        />,
+      );
+
+      await userEvent.click(screen.getByRole('button', { name: 'Name' }));
+
+      expect(onSortChange).toHaveBeenCalledWith({
+        columnId: 'name',
+        direction: 'descending',
+      });
+    });
+
+    it('should meet accessibility guidelines', async () => {
+      const { container } = renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          sort={{ columnId: 'name', direction: 'ascending' }}
+          onSortChange={vi.fn()}
+        />,
+      );
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
   });
 
   it('should meet accessibility guidelines', async () => {

@@ -1,0 +1,125 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-bit);
+  padding: 0 var(--cui-spacings-peta) var(--cui-spacings-byte) 0;
+}
+
+/* Same fade as the filter sheet. It also adds the 24px below the header. */
+.sections::before,
+.sections::after {
+  position: sticky;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: block;
+  flex-shrink: 0;
+  height: var(--cui-spacings-giga);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+  );
+}
+
+.sections::before {
+  top: 0;
+  transform: rotate(180deg);
+}
+
+.sections::after {
+  bottom: 0;
+}
+
+.sections {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding-inline: var(--cui-spacings-bit);
+  margin-inline: calc(-1 * var(--cui-spacings-bit));
+  overflow-y: auto;
+}
+
+.section + .section {
+  padding-top: var(--cui-spacings-mega);
+  margin-top: var(--cui-spacings-mega);
+  border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+}
+
+/* The order section only mounts once a parameter is chosen. */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.order {
+  animation: fade-in var(--cui-transitions-slow) ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .order {
+    animation: none;
+  }
+}
+
+.section > fieldset > legend {
+  font-size: var(--cui-body-m-font-size);
+  font-weight: var(--cui-font-weight-bold);
+  line-height: var(--cui-body-m-line-height);
+  color: var(--cui-fg-normal);
+}
+
+/*
+ * The field's label text would otherwise shrink the legend to 15px. The
+ * attribute selectors raise the specificity above the field's own rule.
+ */
+.section > fieldset[class] > legend > span[class] {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Matches the rows of the multi choice filter. */
+.list {
+  /* The rows carry their own 8px, so the list starts 12px from the edge */
+  margin-top: calc(var(--cui-border-width-kilo) - var(--cui-spacings-bit));
+}
+
+.list > div {
+  gap: 0;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+
+  /* 24px content height plus the byte spacing above and below */
+  min-height: calc(var(--cui-spacings-giga) + 2 * var(--cui-spacings-byte));
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: none;
+  gap: var(--cui-spacings-mega);
+  padding-top: var(--cui-spacings-mega);
+}
+
+.apply {
+  flex: 1;
+}
