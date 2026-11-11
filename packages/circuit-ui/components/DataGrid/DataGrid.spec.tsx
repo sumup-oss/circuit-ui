@@ -4,6 +4,7 @@ import { createRef } from 'react';
 import {
   act,
   axe,
+  fireEvent,
   render,
   screen,
   userEvent,
@@ -12,7 +13,12 @@ import {
 import { useMedia } from '../../hooks/useMedia/index.js';
 
 import { DataGrid, type DataGridProps } from './DataGrid.js';
-import { columns, type Member, members } from './fixtures.js';
+import {
+  columns,
+  columnsWithFilters,
+  type Member,
+  members,
+} from './fixtures.js';
 import type { MobileConfig } from './types.js';
 
 vi.mock('../../hooks/useMedia/index.js');
@@ -30,6 +36,15 @@ const onSearch = vi.fn();
 const searchConfig = {
   label: 'Search',
   onSearch,
+  clearLabel: 'Clear',
+};
+const onFilter = vi.fn();
+
+const filtersConfig = {
+  onFilter,
+  clearFilterLabel: 'Clear',
+  applyFilterLabel: 'Apply',
+  clearAllLabel: 'Clear all',
 };
 
 const defaultProps = {
@@ -140,13 +155,23 @@ describe('DataGrid', () => {
       render(<DataGrid {...defaultProps} />);
       expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
     });
-    it('should render the FilterBar when at least one config is provided', () => {
-      render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
-      expect(screen.getByRole('toolbar')).toBeVisible();
-    });
-    describe('column visibility', () => {
+    describe('Column visibility', () => {
+      const columnPickerConfig = {
+        pickerLabel: 'Choose columns to display',
+        triggerLabel: 'Toggle column visibility',
+      };
       afterEach(() => {
         sessionStorage.clear();
+      });
+
+      it('should render the FilterBar when columnPickerConfig is provided', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            columnPickerConfig={columnPickerConfig}
+          />,
+        );
+        expect(screen.getByRole('toolbar')).toBeVisible();
       });
       it('should load visible columns stored in local storage for the same grid', () => {
         sessionStorage.setItem(
@@ -189,10 +214,6 @@ describe('DataGrid', () => {
         ).toBeVisible();
       });
       it('should store visible columns in session storage', async () => {
-        const columnPickerConfig = {
-          pickerLabel: 'Choose columns to display',
-          triggerLabel: 'Toggle column visibility',
-        };
         render(
           <DataGrid
             {...defaultProps}
@@ -214,9 +235,37 @@ describe('DataGrid', () => {
         ).toBe('full_name|age|subscriptionPrice|frequentMember');
       });
     });
-    describe('search bar', () => {
-      it('should call the onSearch when user types a query', async () => {
+    describe('Search bar', () => {
+      afterEach(() => {
+        vi.useRealTimers();
+      });
+      async function renderDataGridWithTimers() {
+        vi.useFakeTimers();
         render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
+        // Icon button tooltips position themselves on the next task. Flush that
+        // update before changing the search value.
+        await act(async () => {
+          await vi.runAllTimersAsync();
+        });
+      }
+
+      function changeSearch(value: string) {
+        fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), {
+          target: { value },
+        });
+      }
+      it('should render the search bar when searchBarConfig is provided', () => {
+        render(<DataGrid {...defaultProps} searchBarConfig={searchConfig} />);
+        expect(screen.getByRole('toolbar')).toBeVisible();
+      });
+      it('should call the onSearch when user types a query', async () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            searchBarConfig={searchConfig}
+            filtersConfig={filtersConfig}
+          />,
+        );
         await userEvent.type(
           screen.getByRole('searchbox', { name: 'Search' }),
           'P',
@@ -226,6 +275,78 @@ describe('DataGrid', () => {
           vi.runAllTimers();
         });
         expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('P');
+      });
+      it('should call onSearch with the query after the debounce delay', async () => {
+        await renderDataGridWithTimers();
+
+        changeSearch('ja');
+
+        expect(searchConfig.onSearch).not.toHaveBeenCalled();
+
+        act(() => {
+          vi.advanceTimersByTime(299);
+        });
+        expect(searchConfig.onSearch).not.toHaveBeenCalled();
+
+        act(() => {
+          vi.advanceTimersByTime(1);
+        });
+        expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('ja');
+      });
+
+      it('should call onSearch once with the latest query', async () => {
+        await renderDataGridWithTimers();
+
+        changeSearch('j');
+        act(() => {
+          vi.advanceTimersByTime(200);
+        });
+
+        changeSearch('jane');
+        act(() => {
+          vi.advanceTimersByTime(300);
+        });
+
+        expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('jane');
+      });
+    });
+    describe('Filters', () => {
+      it('should not render the FilterBar when filtersConfig is omitted', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            columns={columnsWithFilters.slice(0, 2)}
+          />,
+        );
+        expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
+      });
+      it('should render the FilterBar when at least one column has filtering', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            filtersConfig={filtersConfig}
+            columns={columnsWithFilters.slice(0, 2)}
+          />,
+        );
+        expect(screen.getByRole('toolbar')).toBeVisible();
+      });
+      it('should call the onFilter when a filter is set', async () => {
+        const age = columnsWithFilters[1];
+        render(
+          <DataGrid
+            {...defaultProps}
+            columns={columnsWithFilters.slice(0, 2)}
+            filtersConfig={filtersConfig}
+          />,
+        );
+        await userEvent.click(screen.getByRole('button', { name: age.label }));
+        fireEvent.change(screen.getByRole('textbox', { name: 'Older than' }), {
+          target: { value: '18' },
+        });
+        await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
+        expect(onFilter).toHaveBeenCalledExactlyOnceWith({
+          [age.id]: { min: 18 },
+        });
       });
     });
   });
