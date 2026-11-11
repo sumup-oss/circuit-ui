@@ -29,6 +29,7 @@ import { Status } from '../Status/index.js';
 import { screen, userEvent, within } from 'storybook/test';
 import { useState } from 'react';
 import { Temporal } from 'temporal-polyfill';
+import { type Allergy, members, type Member } from './fixtures.js';
 
 export default {
   title: 'Components/DataGrid',
@@ -37,27 +38,6 @@ export default {
   parameters: {
     layout: 'padded',
   },
-};
-
-type Allergy = 'eggs' | 'soy' | 'shellfish' | 'gluten' | 'nuts' | 'dairy';
-
-type Member = {
-  firstName: string;
-  lastName: string;
-  dateOfBirth: string;
-  age: number;
-  address: {
-    city: string;
-    country: string;
-    countryCode: string;
-  };
-  subscription: {
-    status: 'active' | 'canceled' | 'suspended';
-    startDate: string;
-    price: number;
-    frequentMember?: boolean;
-  };
-  allergies?: Allergy[];
 };
 
 const formattingLocale = 'fr-FR';
@@ -508,7 +488,7 @@ const mobileConfig = {
 const baseArgs: DataGridProps<Member> = {
   label: 'Gym members 2026',
   columns,
-  data,
+  data: members.slice(0, 10),
   formattingLocale,
 };
 
@@ -644,3 +624,38 @@ export const ResponsiveView = (args: DataGridProps<Member>) => (
   <DataGrid {...args} />
 );
 ResponsiveView.args = { ...baseArgs, mobileBreakpoint: 1280, mobileConfig };
+
+export const WithPagination = (args: DataGridProps<Member>) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  function onPageChange(page: number) {
+    setCurrentPage(page);
+  }
+
+  function onItemsPerPageChange(page: number) {
+    setItemsPerPage(page);
+    setCurrentPage(1);
+  }
+  return (
+    <DataGrid
+      {...args}
+      data={members.slice(
+        itemsPerPage * (currentPage - 1),
+        itemsPerPage * (currentPage - 1) + itemsPerPage,
+      )}
+      pagination={{
+        totalPages: Math.ceil(members.length / itemsPerPage),
+        itemsPerPage,
+        nextPageLabel: 'Next page',
+        previousPageLabel: 'Previous page',
+        itemsPerPageLabel: 'Items per page',
+        currentPage,
+        onPageChange,
+        onItemsPerPageChange,
+      }}
+    />
+  );
+};
+
+WithPagination.args = baseArgs;

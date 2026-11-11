@@ -392,6 +392,35 @@ Filters are configured on both column and component levels:
 
 <Story of={Stories.WithFilters} />
 
+### Pagination
+
+Pass a `pagination` object to add pagination capabilities to the grid.
+By default, the grid will show 10 items per page, and have `10`, `25` and `50` as page size options.
+If the value of `itemsPerPage` is not in the option set, the component will throw an error in development time.
+
+Use `onPageChange` and `onItemsPerPageChange` to respond to navigation events and update `currentPage` and `itemsPerPage` respectively, and the set of visible data.
+
+```tsx
+<DataGrid
+  {...props}
+  pagination={{
+    total: 10,
+    itemsPerPage: 20,
+    nextPageLabel: "Next page",
+    previousPageLabel: "Previous page",
+    itemsPerPageLabel: "Items per page",
+    currentPage: 1,
+    onPageChange: updateCurrentPage,
+    onItemsPerPageChange: updateItemsPerPage,
+    options: [{label: "10", value: 10}, {label: "20", value: 20}, {label: "50", value: 50}, {label: "100", value: 100}],
+  }}
+/>
+```
+
+In responsive mode, the page size selector is omitted and `itemsPerPage` will be used as page size.
+
+<Story of={Stories.WithPagination} />
+
 ### Responsiveness
 
 At widths up to `mobileBreakpoint` (768px by default), a `mobileConfig` renders the data as a [ListItemGroup](Components/ListItem/ListItemGroup/Docs). Each row becomes a list item with the `action` variant. The grid `label` becomes the list label and is visible, add an optional `hideLabel` property to `mobileConfig` to hide it.
