@@ -17,10 +17,10 @@ describe('TableHeaderService', () => {
       ).toEqual({ columnId: 'name', direction: 'descending' });
     });
 
-    it('should sort in ascending order again after descending order', () => {
+    it('should clear the sorting after descending order', () => {
       expect(
         getNextSort('name', { columnId: 'name', direction: 'descending' }),
-      ).toEqual({ columnId: 'name', direction: 'ascending' });
+      ).toBeUndefined();
     });
 
     it('should start over in ascending order for a different column', () => {

@@ -465,7 +465,7 @@ describe('DataGrid', () => {
       expect(screen.getByRole('button', { name: 'Sort by' })).toBeVisible();
     });
 
-    it('should toggle between ascending and descending when clicking a header', async () => {
+    it('should cycle through ascending, descending and no sorting when clicking a header', async () => {
       render(
         <DataGrid
           {...defaultProps}
@@ -491,6 +491,10 @@ describe('DataGrid', () => {
         direction: 'descending',
       });
       expect(header).toHaveAttribute('aria-sort', 'descending');
+
+      await userEvent.click(button);
+      expect(onSort).toHaveBeenLastCalledWith(undefined);
+      expect(header).not.toHaveAttribute('aria-sort');
 
       await userEvent.click(button);
       expect(onSort).toHaveBeenLastCalledWith({
