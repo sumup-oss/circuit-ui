@@ -87,7 +87,7 @@ export interface PaginationConfig {
   /**
    * The total number of pages
    */
-  total: number;
+  totalPages: number;
   /**
    * Options of the selector of items per page
    * @default 10 - 25 - 50 options
@@ -95,14 +95,13 @@ export interface PaginationConfig {
   options?: { label: string; value: number }[];
   /**
    * Callback fired when the page number changes
-   * Fired on next/previous buttons or when the
-   * itemsPerPage parameter changes
+   * Fired when next/previous page buttons are clicked
    */
   onPageChange: (page: number) => void;
   /**
    * Callback fired when the itemsPerPage parameter changes
    */
-  onItemsPerPageChange: (page: number) => void;
+  onItemsPerPageChange: (size: number) => void;
 }
 
 export interface WithPagination {

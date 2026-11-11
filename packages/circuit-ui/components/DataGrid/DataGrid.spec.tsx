@@ -364,7 +364,7 @@ describe('DataGrid', () => {
   describe('Pagination', () => {
     const paginationConfig = {
       currentPage: 1,
-      total: 3,
+      totalPages: 3,
       nextPageLabel: 'next',
       previousPageLabel: 'previous',
       onItemsPerPageChange: vi.fn(),

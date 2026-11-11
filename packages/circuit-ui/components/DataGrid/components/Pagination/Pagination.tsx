@@ -33,7 +33,7 @@ export function Pagination({
   previousPageLabel,
   onPageChange,
   onItemsPerPageChange,
-  total,
+  totalPages,
   options,
 }: PaginationConfig) {
   const { of } = useTranslations({}, translations);
@@ -87,7 +87,7 @@ export function Pagination({
       </div>
       <div className={classes.controls}>
         <Body role="status" aria-live="polite" size="s" color="subtle">
-          {currentPage} {of} {total}
+          {currentPage} {of} {totalPages}
         </Body>
         <IconButton
           className={classes.previous}
@@ -100,7 +100,7 @@ export function Pagination({
         </IconButton>
         <IconButton
           className={classes.next}
-          disabled={currentPage === total}
+          disabled={currentPage === totalPages}
           onClick={onNextPageClick}
           icon={ChevronRight}
           size="s"
