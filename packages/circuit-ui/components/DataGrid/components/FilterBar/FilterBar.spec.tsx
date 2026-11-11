@@ -382,6 +382,56 @@ describe('FilterBar', () => {
     });
   });
 
+  describe('Sorting', () => {
+    const onSort = vi.fn();
+    const sortConfig = {
+      onSort,
+      title: 'Sort by',
+      parametersLabel: 'Parameters',
+      orderLabel: 'Order',
+      applyLabel: 'Apply',
+      clearLabel: 'Clear',
+    };
+    const sortableColumns = columns.map((column) => ({
+      ...column,
+      sortable: column.id === 'age',
+      sortLabels: { ascending: 'Lowest', descending: 'Highest' },
+    }));
+
+    it('should not render the sort button on desktop', () => {
+      renderFilterBar({ columns: sortableColumns, sortConfig });
+
+      expect(
+        screen.queryByRole('button', { name: 'Sort by' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should open the sort sheet from the sort button on mobile', async () => {
+      renderFilterBar({ columns: sortableColumns, sortConfig, isMobile: true });
+
+      await click(screen.getByRole('button', { name: 'Sort by' }));
+
+      expect(screen.getByRole('dialog', { name: 'Sort by' })).toBeVisible();
+      expect(screen.getByRole('radio', { name: age.label })).toBeVisible();
+      await settle();
+    });
+
+    it('should call onSort and close the sheet when applying', async () => {
+      renderFilterBar({ columns: sortableColumns, sortConfig, isMobile: true });
+
+      await click(screen.getByRole('button', { name: 'Sort by' }));
+      await click(screen.getByRole('radio', { name: age.label }));
+      await click(screen.getByRole('radio', { name: 'Highest' }));
+      await click(screen.getByRole('button', { name: 'Apply' }));
+
+      expect(onSort).toHaveBeenCalledExactlyOnceWith({
+        columnId: age.id,
+        direction: 'descending',
+      });
+      await settle();
+    });
+  });
+
   it('should meet accessibility guidelines', async () => {
     const { container } = renderFilterBar();
 

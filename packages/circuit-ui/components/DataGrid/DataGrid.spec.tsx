@@ -411,6 +411,99 @@ describe('DataGrid', () => {
     });
   });
 
+  describe('Sorting', () => {
+    const onSort = vi.fn();
+    const sortConfig = {
+      onSort,
+      title: 'Sort by',
+      parametersLabel: 'Parameters',
+      orderLabel: 'Order',
+      applyLabel: 'Apply',
+      clearLabel: 'Clear',
+    };
+    const sortableColumns = columns.map((column) => ({
+      ...column,
+      sortable: column.id === 'age',
+      sortLabels: { ascending: 'Lowest', descending: 'Highest' },
+    }));
+
+    it('should not render sort buttons without a sort config', () => {
+      render(<DataGrid {...defaultProps} columns={sortableColumns} />);
+
+      expect(
+        screen.queryByRole('button', { name: 'Age' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should sort from the sheet instead of the headers on narrow viewports', () => {
+      (useMedia as Mock).mockReturnValue(true);
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={sortableColumns}
+          sortConfig={sortConfig}
+        />,
+      );
+
+      expect(
+        screen.queryByRole('button', { name: 'Age' }),
+      ).not.toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Sort by' })).toBeVisible();
+    });
+
+    it('should toggle between ascending and descending when clicking a header', async () => {
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={sortableColumns}
+          sortConfig={sortConfig}
+        />,
+      );
+      const header = screen.getByRole('columnheader', { name: 'Age' });
+      const button = screen.getByRole('button', { name: 'Age' });
+
+      expect(header).not.toHaveAttribute('aria-sort');
+
+      await userEvent.click(button);
+      expect(onSort).toHaveBeenLastCalledWith({
+        columnId: 'age',
+        direction: 'ascending',
+      });
+      expect(header).toHaveAttribute('aria-sort', 'ascending');
+
+      await userEvent.click(button);
+      expect(onSort).toHaveBeenLastCalledWith({
+        columnId: 'age',
+        direction: 'descending',
+      });
+      expect(header).toHaveAttribute('aria-sort', 'descending');
+
+      await userEvent.click(button);
+      expect(onSort).toHaveBeenLastCalledWith({
+        columnId: 'age',
+        direction: 'ascending',
+      });
+      expect(header).toHaveAttribute('aria-sort', 'ascending');
+    });
+
+    it('should render the data in the order it is provided', async () => {
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={sortableColumns}
+          sortConfig={sortConfig}
+        />,
+      );
+      const before = screen.getAllByRole('row').map((row) => row.textContent);
+
+      await userEvent.click(screen.getByRole('button', { name: 'Age' }));
+
+      expect(screen.getAllByRole('row').map((row) => row.textContent)).toEqual(
+        before,
+      );
+    });
+  });
+
   describe('User interactions', () => {
     it('should place initial tab focus on the first header cell', async () => {
       render(<DataGrid {...defaultProps} />);

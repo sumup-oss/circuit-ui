@@ -4,12 +4,14 @@ import { SearchInput } from '../../../SearchInput/index.js';
 import { ColumnPicker } from './components/ColumnPicker/ColumnPicker.js';
 import type {
   Column,
+  SortValue,
   WithColumnPicker,
   WithFilters,
   WithSearchBar,
+  WithSorting,
 } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { Filter as FilterIcon, Refresh } from '@sumup-oss/icons';
+import { Filter as FilterIcon, Refresh, Sort } from '@sumup-oss/icons';
 import { TriggerButton } from './components/TriggerButton/TriggerButton.js';
 import { useTranslations } from '../../../../hooks/useTranslations/useTranslations.js';
 import { translations } from './translations/index.js';
@@ -21,17 +23,20 @@ import {
   FilterSheet,
   type FilterValues,
 } from './components/Filters/FilterSheet/index.js';
+import { SortSheet } from './components/SortSheet/index.js';
 
 export interface FilterBarProps<P>
   extends WithColumnPicker,
     WithSearchBar,
-    WithFilters {
+    WithFilters,
+    WithSorting {
   onVisibleColumnChange: (value: string[]) => void;
   columns: Column<P>[];
   visibleColumns: Column<P>[];
   isMobile?: boolean;
   activeFilters: FilterValues;
   searchQuery: string;
+  sort?: SortValue;
 }
 
 const FilterBarComponent = <P,>({
@@ -44,10 +49,13 @@ const FilterBarComponent = <P,>({
   columnPickerConfig,
   activeFilters,
   filtersConfig,
+  sortConfig,
+  sort,
 }: FilterBarProps<P>) => {
   const filterCountId = useId();
   const { label: searchLabel, onSearch, clearLabel } = searchBarConfig ?? {};
   const [open, setOpen] = useState(false);
+  const [sortOpen, setSortOpen] = useState(false);
   const { filtersLabel } = useTranslations({}, translations);
   const activeFiltersCount = Object.keys(activeFilters).length;
 
@@ -173,6 +181,26 @@ const FilterBarComponent = <P,>({
               </>
             )}
           </div>
+        )}
+        {isMobile && sortConfig && (
+          <>
+            <TriggerButton icon={Sort} onClick={() => setSortOpen(true)}>
+              {sortConfig.title}
+            </TriggerButton>
+            <SortSheet
+              open={sortOpen}
+              onClose={() => setSortOpen(false)}
+              columns={columns}
+              value={sort}
+              onApply={sortConfig.onSort}
+              title={sortConfig.title}
+              description={sortConfig.description}
+              parametersLabel={sortConfig.parametersLabel}
+              orderLabel={sortConfig.orderLabel}
+              applyLabel={sortConfig.applyLabel}
+              clearLabel={sortConfig.clearLabel}
+            />
+          </>
         )}
         {searchLabel && onSearch && (
           <SearchInput
