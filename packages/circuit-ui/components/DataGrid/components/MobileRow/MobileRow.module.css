@@ -1,0 +1,21 @@
+.base td {
+  padding: 0;
+  background-color: var(--cui-bg-normal);
+}
+
+.base .cell {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-byte);
+}
+
+.base .item {
+  padding: 0;
+  margin: var(--cui-spacings-bit) 0;
+  border: none;
+  border-radius: unset;
+}
+
+.menu {
+  margin: var(--cui-spacings-bit);
+}
