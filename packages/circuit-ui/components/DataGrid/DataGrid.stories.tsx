@@ -646,7 +646,7 @@ export const WithPagination = (args: DataGridProps<Member>) => {
         itemsPerPage * (currentPage - 1) + itemsPerPage,
       )}
       pagination={{
-        total: Math.ceil(members.length / itemsPerPage),
+        totalPages: Math.ceil(members.length / itemsPerPage),
         itemsPerPage,
         nextPageLabel: 'Next page',
         previousPageLabel: 'Previous page',

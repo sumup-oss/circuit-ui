@@ -19,7 +19,7 @@ const defaultProps = {
   itemsPerPageLabel: 'Items per page',
   nextPageLabel: 'Next page',
   previousPageLabel: 'Previous page',
-  total: 5,
+  totalPages: 5,
   onPageChange,
   onItemsPerPageChange,
 } satisfies PaginationConfig;
@@ -96,7 +96,9 @@ describe('Pagination', () => {
   });
 
   it('should disable the next button on the last page', async () => {
-    render(<Pagination {...defaultProps} currentPage={defaultProps.total} />);
+    render(
+      <Pagination {...defaultProps} currentPage={defaultProps.totalPages} />,
+    );
 
     const nextButton = screen.getByRole('button', {
       name: defaultProps.nextPageLabel,
