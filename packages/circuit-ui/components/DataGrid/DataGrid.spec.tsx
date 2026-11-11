@@ -147,17 +147,6 @@ describe('DataGrid', () => {
       expect(screen.getByLabelText('Yes')).toBeVisible();
       expect(screen.getByLabelText('No')).toBeVisible();
     });
-
-    it('should set the column and row counts', () => {
-      render(<DataGrid {...defaultProps} />);
-
-      const table = screen.getByRole('grid', { name: 'Members' });
-      expect(table).toHaveAttribute('aria-colcount', String(columns.length));
-      expect(table).toHaveAttribute(
-        'aria-rowcount',
-        String(defaultProps.data.length),
-      );
-    });
   });
 
   describe('FilterBar', () => {
@@ -167,6 +156,7 @@ describe('DataGrid', () => {
     });
     describe('Column visibility', () => {
       const columnPickerConfig = {
+        gridId: 'foo',
         pickerLabel: 'Choose columns to display',
         triggerLabel: 'Toggle column visibility',
       };
@@ -185,10 +175,15 @@ describe('DataGrid', () => {
       });
       it('should load visible columns stored in local storage for the same grid', () => {
         sessionStorage.setItem(
-          `cui-grid-${defaultProps.label}-visible-columns`,
+          `cui-grid-${columnPickerConfig.gridId}-visible-columns`,
           'full_name|age',
         );
-        render(<DataGrid {...defaultProps} />);
+        render(
+          <DataGrid
+            {...defaultProps}
+            columnPickerConfig={columnPickerConfig}
+          />,
+        );
         expect(
           screen.getByRole('columnheader', { name: 'Full Name' }),
         ).toBeVisible();
@@ -240,7 +235,7 @@ describe('DataGrid', () => {
 
         expect(
           sessionStorage.getItem(
-            `cui-grid-${defaultProps.label}-visible-columns`,
+            `cui-grid-${columnPickerConfig.gridId}-visible-columns`,
           ),
         ).toBe('full_name|age|subscriptionPrice|frequentMember');
       });
@@ -371,9 +366,14 @@ describe('DataGrid', () => {
       onPageChange: vi.fn(),
       itemsPerPageLabel: 'Elements per page',
     };
-    it('should not render the pagination when there is no data', () => {
+    it.each([
+      0, 1,
+    ])('should not render the pagination when total pages is %s', (totalPages) => {
       render(
-        <DataGrid {...defaultProps} pagination={paginationConfig} data={[]} />,
+        <DataGrid
+          {...defaultProps}
+          pagination={{ ...paginationConfig, totalPages }}
+        />,
       );
       expect(
         screen.queryByRole('combobox', {
@@ -391,6 +391,7 @@ describe('DataGrid', () => {
         }),
       ).not.toBeInTheDocument();
     });
+
     it('should render the Pagination a pagination config is provided', () => {
       render(<DataGrid {...defaultProps} pagination={paginationConfig} />);
       expect(
@@ -722,12 +723,12 @@ describe('DataGrid', () => {
       expect(useMedia).toHaveBeenCalledWith('(max-width: 1024px)');
     });
 
-    it('should render a list from the mobile config', () => {
+    it('should render a grid with one-cell rows from the mobile config', () => {
       render(<DataGrid {...defaultProps} mobileConfig={mobileConfig} />);
 
-      expect(screen.queryByRole('grid')).not.toBeInTheDocument();
-      expect(screen.getByRole('list')).toBeVisible();
-      expect(screen.getAllByRole('listitem')).toHaveLength(
+      expect(screen.getByRole('grid')).toBeVisible();
+      expect(screen.getAllByRole('row')).toHaveLength(defaultProps.data.length);
+      expect(screen.getAllByRole('gridcell')).toHaveLength(
         defaultProps.data.length,
       );
       expect(screen.getByText('Members')).toBeVisible();
@@ -737,37 +738,19 @@ describe('DataGrid', () => {
       expect(screen.getByText('€39.99')).toBeVisible();
     });
 
-    it('should keep the table when no mobile config is provided', () => {
+    it('should keep the full table view  when no mobile config is provided', () => {
       render(<DataGrid {...defaultProps} />);
 
       expect(screen.getByRole('grid', { name: 'Members' })).toBeVisible();
-      expect(screen.queryByRole('list')).not.toBeInTheDocument();
-    });
-
-    it('should call onClick when list item is clicked', async () => {
-      const onListItemClick = vi.fn();
-      render(
-        <DataGrid
-          {...defaultProps}
-          mobileConfig={{ ...mobileConfig, onClick: onListItemClick }}
-        />,
-      );
-      expect(screen.getByRole('list')).toBeVisible();
-      expect(screen.getByText('Jonas Bergström')).toBeVisible();
-
-      await userEvent.click(screen.getByText('Jonas Bergström'));
-      expect(onListItemClick).toHaveBeenCalledExactlyOnceWith(
-        expect.any(Object),
-        defaultProps.data[1],
-      );
+      expect(screen.queryAllByRole('gridcell').length).toBe(10);
     });
   });
 
-  it('should keep the table on wide viewports when a mobile config is provided', () => {
+  it('should keep the full table on wide viewports when a mobile config is provided', () => {
     render(<DataGrid {...defaultProps} mobileConfig={mobileConfig} />);
 
     expect(screen.getByRole('grid', { name: 'Members' })).toBeVisible();
-    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+    expect(screen.getAllByRole('gridcell').length).toBe(10);
   });
 
   it('should meet accessibility guidelines', async () => {

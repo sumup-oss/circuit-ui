@@ -8,6 +8,11 @@ import type { FilterValues } from './components/FilterBar/components/Filters/Fil
 export interface WithColumnPicker {
   columnPickerConfig?: {
     /**
+     * A unique identifier to the grid
+     * used to save the visibility settings in the session storage
+     */
+    gridId: string;
+    /**
      * Label for the column picker trigger button
      */
     triggerLabel: string;
@@ -172,8 +177,14 @@ export type MobileSlots = {
 
 export type MobileConfig<P> = {
   slots: MobileSlots;
-  hideLabel?: boolean;
   onClick?: (event: ClickEvent, item: P) => void;
+  menu?: {
+    label: string;
+    labelDescription: (value: P) => string;
+    actions:
+      | CustomActionMenuActions<P>[]
+      | ((value: P) => CustomActionMenuActions<P>[]);
+  };
 };
 
 type RowActions<P> = {

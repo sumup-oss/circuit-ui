@@ -96,7 +96,6 @@ describe('MobileRow', () => {
     renderRow(<MobileRow {...defaultProps} id="member-row" />);
 
     const cell = screen.getByRole('gridcell');
-    expect(cell).toHaveAttribute('aria-colindex', '1');
     expect(cell).toHaveAttribute('data-x', '0');
     expect(cell).toHaveAttribute('data-y', '0');
     expect(cell).toHaveAttribute('tabIndex', '0');

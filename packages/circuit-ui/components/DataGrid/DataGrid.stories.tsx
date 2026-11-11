@@ -202,14 +202,14 @@ const columns: Column<Member>[] = [
               `Send payment reminder to ${member.firstName} ${member.lastName}`,
             children: 'Send payment reminder',
             icon: Send,
-            onClick: action('Copy'),
+            onClick: action('Send'),
           },
           {
             'aria-description': (member: Member) =>
               `Cancel subscription of ${member.firstName} ${member.lastName}`,
             children: 'Cancel subscription',
             icon: Remove,
-            onClick: action('Instagram'),
+            onClick: action('Cancel'),
           },
         ];
         if (value.subscription.status === 'suspended') {
@@ -481,8 +481,36 @@ const mobileConfig = {
     details: 'age;allergies',
     trailingLabel: 'subscriptionPrice',
   },
-  hideLabel: true,
-  onClick: action('onListItemClick'),
+  onClick: action('responsiveClick'),
+  menu: {
+    label: 'Actions',
+    labelDescription: (member: Member) =>
+      `More actions for ${member.firstName} ${member.lastName}`,
+    actions: [
+      {
+        onClick: action('View'),
+        'aria-description': (member: Member) =>
+          `View details of ${member.firstName} ${member.lastName}`,
+        children: 'View',
+        icon: View,
+      },
+      {
+        onClick: action('Edit'),
+        'aria-description': (member: Member) =>
+          `Edit details of ${member.firstName} ${member.lastName}`,
+        children: 'Edit',
+        icon: Edit,
+      },
+      {
+        onClick: action('Delete'),
+        'aria-description': (member: Member) =>
+          `Delete member ${member.firstName} ${member.lastName}`,
+        children: 'Delete',
+        icon: Delete,
+        destructive: true,
+      },
+    ],
+  },
 };
 
 const baseArgs: DataGridProps<Member> = {
