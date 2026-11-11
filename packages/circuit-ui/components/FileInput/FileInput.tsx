@@ -126,7 +126,8 @@ export interface FileInputProps
    */
   removeLabel: string;
   /**
-   * A label for the action that retries a failed upload.
+   * A label for the action that retries a failed upload. It is also the accessible
+   * name of the retry button.
    */
   retryLabel: string;
   /**
@@ -150,8 +151,9 @@ export interface FileInputProps
   trailingActions?: (file: File) => ActionMenuProps['actions'];
   /**
    * An accessible label for the menu button.
+   * Required when a file has more than one action.
    */
-  menuLabel: string;
+  menuLabel?: string;
   /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.

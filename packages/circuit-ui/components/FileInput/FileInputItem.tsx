@@ -29,6 +29,10 @@ import {
 
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { Body } from '../Body/index.js';
 import type {
   ActionMenuItemProps,
@@ -155,7 +159,14 @@ export function FileInputItem({
   const Icon = getFileIcon(name, type);
   const removeAction: ActionMenuProps['actions'] =
     onRemove && removeLabel
-      ? [{ children: removeLabel, icon: Delete, onClick: () => onRemove() }]
+      ? [
+          {
+            children: removeLabel,
+            // Removing a file that is uploading cancels the upload.
+            icon: isUploading ? Close : Delete,
+            onClick: () => onRemove(),
+          },
+        ]
       : [];
   const retryAction: ActionMenuProps['actions'] =
     status === 'error' && onRetry && retryLabel
@@ -167,6 +178,19 @@ export function FileInputItem({
   const items = list.filter(
     (action): action is ActionMenuItemProps => !('type' in action),
   );
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    items.length > 1 &&
+    !isSufficientlyLabelled(menuLabel)
+  ) {
+    throw new AccessibilityError(
+      'FileInput',
+      'The `menuLabel` prop is required when a file has more than one action.',
+    );
+  }
+
   const menu =
     items.length > 1 && menuLabel
       ? { label: menuLabel, actions: list }
@@ -238,7 +262,7 @@ export function FileInputItem({
               type="button"
               size="s"
               variant="tertiary"
-              icon={Delete}
+              icon={isUploading ? Close : Delete}
               disabled={single.disabled}
               onClick={single.onClick}
             >

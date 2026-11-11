@@ -89,7 +89,7 @@ const baseArgs = {
   buttonLabel: 'Upload files',
   dropLabel: 'Drop your files or click to upload',
   description: 'PDF, JPG, PNG (max 10MB each)',
-  removeLabel: 'Delete',
+  removeLabel: 'Remove',
   retryLabel: 'Retry',
   menuLabel: 'More actions',
 };

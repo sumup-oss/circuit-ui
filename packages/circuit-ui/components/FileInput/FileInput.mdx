@@ -112,7 +112,7 @@ Use the `validationHint` prop to communicate the expected response to users, and
 - Every file can be removed. A file that was uploaded shows a button to remove it, which is labelled with the `removeLabel` prop.
 - Use the `trailingActions` prop to add more actions to a file. It is a function that receives the file and returns its additional actions, or nothing for files without. Each action can have its own text, icon and `destructive` state, just like the items of the ListItem component. Files with additional actions show a menu instead of a button. The menu lists the additional actions, followed by the retry and remove actions, and the `menuLabel` prop labels the menu button.
 - Files that failed to upload offer a retry action, labelled with the `retryLabel` prop, in addition to the remove action. Retrying calls `onChange` again with the same file, so the upload runs through the same code as the first attempt. The component doesn't retry by itself.
-- Files that are uploading always show the remove button, so users can cancel the upload.
+- Files that are uploading always show the close icon, so users can cancel the upload. It reuses the `removeLabel`, so no extra label is needed.
 
 ## Accessibility
 
@@ -133,7 +133,7 @@ Dragging and dropping is never required. Clicking anywhere in the dropzone, or o
 - The input is described by the `description` and the `validationHint`.
 - Changes of a file's status, such as "march.pdf: Upload complete", are added to a live region of the file, so screen readers can announce the status of each file separately.
 - The status of a file is also communicated with text and not by color alone.
-- The `removeLabel`, `retryLabel` and `menuLabel` props are required because they name icon-only buttons. Make sure they describe the purpose of the buttons.
+- The `removeLabel` and `retryLabel` props are required because they name icon-only buttons. The `menuLabel` prop is required as soon as a file can have more than one action, such as when `trailingActions` returns actions or when a failed upload offers both the retry and remove actions. In that case, an accessibility error is thrown in development if it is missing. Make sure the labels describe the purpose of the buttons.
 
 ### Focus management
 
