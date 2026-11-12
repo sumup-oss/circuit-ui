@@ -28,7 +28,7 @@ import { clsx } from '../../styles/clsx.js';
 import { Compact, type CompactProps } from '../Compact/Compact.js';
 import { Status } from '../Status/index.js';
 import { screen, userEvent, within } from 'storybook/test';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Temporal } from 'temporal-polyfill';
 import { type Allergy, members, type Member } from './fixtures.js';
 import { modes } from '../../../../.storybook/modes.js';
@@ -545,6 +545,162 @@ const baseArgs: DataGridProps<Member> = {
       variant: 'tertiary',
     },
   },
+};
+
+export const Full = (args: DataGridProps<Member>) => {
+  const [records, setRecords] = useState<Member[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setRecords(members);
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+  function onPageChange(page: number) {
+    setCurrentPage(page);
+  }
+
+  function onItemsPerPageChange(size: number) {
+    setItemsPerPage(size);
+    setCurrentPage(1);
+  }
+
+  function filterRecords(filters: Record<string, unknown>) {
+    setIsLoading(true);
+    const entries = Object.entries(filters);
+    setTimeout(() => {
+      if (entries.length === 0) {
+        setRecords(members);
+        setIsLoading(false);
+        setCurrentPage(1);
+        return;
+      }
+
+      setRecords(
+        members.filter((member) =>
+          entries.every(([key, value]) => {
+            if (key === 'age') {
+              const { min, max } = value as { min?: number; max?: number };
+              return (
+                (min === undefined || member.age >= min) &&
+                (max === undefined || member.age <= max)
+              );
+            }
+            if (key === 'subscriptionPrice') {
+              const { min, max } = value as { min?: number; max?: number };
+              return (
+                (min === undefined || member.subscription.price >= min) &&
+                (max === undefined || member.subscription.price <= max)
+              );
+            }
+            if (key === 'dateOfBirth') {
+              const { from, to } = value as { from?: string; to?: string };
+              const birthDate = Temporal.ZonedDateTime.from(
+                member.dateOfBirth,
+              ).toPlainDate();
+              if (
+                from &&
+                Temporal.PlainDate.compare(
+                  birthDate,
+                  Temporal.PlainDate.from(from),
+                ) < 0
+              ) {
+                return false;
+              }
+              if (
+                to &&
+                Temporal.PlainDate.compare(
+                  birthDate,
+                  Temporal.PlainDate.from(to),
+                ) > 0
+              ) {
+                return false;
+              }
+              return true;
+            }
+            if (key === 'activity') {
+              return (value as string[]).includes(
+                String(member.subscription.frequentMember),
+              );
+            }
+            if (key === 'allergies') {
+              return (value as string[]).every((allergy) =>
+                member.allergies?.includes(allergy as Allergy),
+              );
+            }
+            return true;
+          }),
+        ),
+      );
+      setCurrentPage(1);
+      setIsLoading(false);
+    }, 1000);
+  }
+
+  function onSearch(searchTerm: string) {
+    setIsLoading(true);
+    setTimeout(() => {
+      if (!searchTerm) {
+        setRecords(members);
+        setIsLoading(false);
+        return;
+      }
+      setRecords(
+        data.filter(
+          ({ firstName, lastName }) =>
+            firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            lastName.toLowerCase().includes(searchTerm.toLowerCase()),
+        ),
+      );
+      setIsLoading(false);
+    });
+  }
+  console.log(records.length);
+
+  return (
+    <DataGrid
+      {...args}
+      isLoading={isLoading}
+      data={records.slice(
+        itemsPerPage * (currentPage - 1),
+        itemsPerPage * (currentPage - 1) + itemsPerPage,
+      )}
+      pagination={{
+        totalPages: Math.ceil(records.length / itemsPerPage),
+        itemsPerPage,
+        nextPageLabel: 'Next page',
+        previousPageLabel: 'Previous page',
+        itemsPerPageLabel: 'Items per page',
+        currentPage,
+        onPageChange,
+        onItemsPerPageChange,
+      }}
+      filtersConfig={{
+        onFilter: filterRecords,
+        clearAllLabel: 'Clear all',
+        applyFilterLabel: 'Apply',
+        clearFilterLabel: 'Clear',
+      }}
+      searchBarConfig={{
+        label: 'Search everywhere...',
+        clearLabel: 'Clear',
+        onSearch,
+      }}
+    />
+  );
+};
+
+Full.args = {
+  ...baseArgs,
+  columns: buildColumnsWithFilters(),
+  columnPickerConfig,
+  mobileBreakpoint: 1280,
+  mobileConfig,
 };
 
 export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
