@@ -1,0 +1,15 @@
+.base {
+  padding: 0;
+  border: none;
+  border-radius: var(--cui-border-radius-circle);
+}
+
+.base:active,
+.base[aria-expanded="true"],
+.base[aria-pressed="true"] {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.base:hover {
+  background-color: var(--cui-bg-normal-hovered);
+}

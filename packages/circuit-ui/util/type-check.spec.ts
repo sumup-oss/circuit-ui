@@ -22,9 +22,11 @@ import {
   isHTMLElement,
   isNil,
   isNumber,
+  isNumberArray,
   isObject,
   isReactComponent,
   isString,
+  isStringArray,
   isTextLabel,
 } from './type-check.js';
 
@@ -121,6 +123,75 @@ describe('type check', () => {
 
     it('should return false for undefined', () => {
       const actual = isString(undefined);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isStringArray', () => {
+    it('should return true for a array of an empty string', () => {
+      const actual = isStringArray(['']);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return true for an array of strings', () => {
+      const actual = isStringArray(['foo', 'bar']);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false for an mixed type array', () => {
+      const actual = isStringArray([1, 'foo']);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for an object', () => {
+      const actual = isStringArray({ foo: 'bar' });
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for null', () => {
+      const actual = isStringArray(null);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for undefined', () => {
+      const actual = isStringArray(undefined);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isNumberArray', () => {
+    it('should return true for an array of zero', () => {
+      const actual = isNumberArray([0]);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return true for an array of numbers', () => {
+      const actual = isNumberArray([1, 2.5, -3]);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false for a mixed type array', () => {
+      const actual = isNumberArray([1, 'foo']);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for an array of strings', () => {
+      const actual = isNumberArray(['foo', 'bar']);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for an object', () => {
+      const actual = isNumberArray({ foo: 'bar' });
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for null', () => {
+      const actual = isNumberArray(null);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for undefined', () => {
+      const actual = isNumberArray(undefined);
       expect(actual).toBeFalsy();
     });
   });

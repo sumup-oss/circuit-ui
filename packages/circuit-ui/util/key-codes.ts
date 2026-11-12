@@ -47,3 +47,24 @@ export const isBackspace = (
 
 export const isDelete = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
   event.key === 'Delete';
+
+export const isPageDown = (
+  event: KeyboardEvent | React.KeyboardEvent,
+): boolean => event.key === 'PageDown';
+
+export const isPageUp = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
+  event.key === 'PageUp';
+
+export const isHome = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
+  event.key === 'Home' && !event.ctrlKey;
+
+export const isEnd = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
+  event.key === 'End' && !event.ctrlKey;
+
+export const isControlHome = (
+  event: KeyboardEvent | React.KeyboardEvent,
+): boolean => event.ctrlKey && event.key === 'Home';
+
+export const isControlEnd = (
+  event: KeyboardEvent | React.KeyboardEvent,
+): boolean => event.ctrlKey && event.key === 'End';

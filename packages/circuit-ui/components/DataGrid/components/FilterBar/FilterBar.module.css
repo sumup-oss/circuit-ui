@@ -1,0 +1,88 @@
+.base {
+  display: flex;
+  gap: var(--cui-spacings-giga);
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: var(--cui-spacings-byte);
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.tools {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--cui-spacings-kilo);
+  align-items: center;
+}
+
+.filters-wrapper {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.filters {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: var(--cui-spacings-bit);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.filters > button:not(:first-of-type) {
+  margin-left: var(--cui-spacings-kilo);
+}
+
+.clear-button {
+  margin-left: var(--cui-spacings-bit);
+  white-space: nowrap;
+}
+
+/* scroll indicator for overflowing filters */
+.filters::after {
+  position: sticky;
+  right: calc(-1 * var(--cui-spacings-bit));
+  display: block;
+  flex-shrink: 0;
+  width: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    color-mix(in sRGB, var(--cui-bg-subtle) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-subtle) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-subtle) 100%, transparent)
+  );
+}
+
+.search input {
+  border-radius: var(--cui-border-radius-pill);
+}
+
+.mobile-view {
+  justify-content: start;
+  width: 100%;
+  padding: 0;
+  margin-bottom: var(--cui-spacings-mega);
+}
+
+.mobile-view .tools,
+.mobile-view .search {
+  flex: 1;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper .dot {
+  position: absolute;
+  top: calc(-1 * var(--cui-spacings-bit));
+  right: calc(-1 * var(--cui-spacings-bit));
+  z-index: 1;
+}
