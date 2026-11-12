@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import {
   ActionMenu,
   type ActionMenuProps,
@@ -6,14 +6,14 @@ import {
 import { More } from '@sumup-oss/icons';
 import { RowActionButton } from './RowActionButton/RowActionButton.js';
 
-export function RowActions({
+const RowActionsComponent = ({
   label,
   labelDescription,
   ...props
 }: Pick<ActionMenuProps, 'actions'> & {
   label: string;
   labelDescription: string;
-}) {
+}) => {
   const [open, setOpen] = useState(false);
   return (
     <ActionMenu
@@ -35,4 +35,6 @@ export function RowActions({
       {...props}
     />
   );
-}
+};
+
+export const RowActions = memo(RowActionsComponent);

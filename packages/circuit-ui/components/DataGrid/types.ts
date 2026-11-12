@@ -8,6 +8,11 @@ import type { FilterValues } from './components/FilterBar/components/Filters/Fil
 export interface WithColumnPicker {
   columnPickerConfig?: {
     /**
+     * A unique identifier to the grid
+     * used to save the visibility settings in the session storage
+     */
+    gridId: string;
+    /**
      * Label for the column picker trigger button
      */
     triggerLabel: string;
@@ -62,6 +67,54 @@ export interface WithSearchBar {
   };
 }
 
+export interface PaginationConfig {
+  /**
+   * The currently displayed page
+   */
+  currentPage: number;
+  /**
+   * The number of rows per page
+   * @default 10
+   */
+  itemsPerPage?: number;
+  /**
+   * Label for the selector of items per page
+   */
+  itemsPerPageLabel: string;
+  /**
+   * Label for the next page button
+   */
+  nextPageLabel: string;
+  /**
+   * Label for the previous page button
+   */
+  previousPageLabel: string;
+  /**
+   * The total number of pages
+   */
+  totalPages: number;
+  /**
+   * Options of the selector of items per page
+   * @default 10 - 25 - 50 options
+   */
+  options?: { label: string; value: number }[];
+  /**
+   * Callback fired when the page number changes
+   * Fired when next/previous page buttons are clicked
+   */
+  onPageChange: (page: number) => void;
+  /**
+   * Callback fired when the itemsPerPage parameter changes
+   */
+  onItemsPerPageChange: (size: number) => void;
+}
+
+export interface WithPagination {
+  /**
+   * Configuration properties for pagination
+   */
+  pagination?: PaginationConfig;
+}
 export type BasicType =
   | string
   | string[]
@@ -124,8 +177,14 @@ export type MobileSlots = {
 
 export type MobileConfig<P> = {
   slots: MobileSlots;
-  hideLabel?: boolean;
   onClick?: (event: ClickEvent, item: P) => void;
+  menu?: {
+    label: string;
+    labelDescription: (value: P) => string;
+    actions:
+      | CustomActionMenuActions<P>[]
+      | ((value: P) => CustomActionMenuActions<P>[]);
+  };
 };
 
 type RowActions<P> = {

@@ -1,4 +1,5 @@
 import {
+  type FocusEventHandler,
   type HTMLAttributes,
   memo,
   useCallback,
@@ -33,7 +34,11 @@ export const Cell = memo(
       });
     }, []);
 
-    const onCellBlurred = useCallback(() => {
+    const onCellBlurred: FocusEventHandler = useCallback((event) => {
+      // ignore if the event originated from within the cell
+      if (event.currentTarget.contains(event.relatedTarget)) {
+        return;
+      }
       const focusableElements = getAllFocusableElements(ref.current);
       focusableElements.forEach((element) => {
         element.setAttribute('tabindex', '-1');

@@ -7,7 +7,7 @@ import type { Column, WithColumnPicker } from '../../../../types.js';
 import { TriggerButton } from '../TriggerButton/TriggerButton.js';
 
 export interface ColumnPickerProps<P>
-  extends NonNullable<WithColumnPicker['columnPickerConfig']> {
+  extends Omit<NonNullable<WithColumnPicker['columnPickerConfig']>, 'gridId'> {
   onChange: (value: string[]) => void;
   columns: Column<P>[];
   visibleColumns: Column<P>[];

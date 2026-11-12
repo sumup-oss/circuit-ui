@@ -1,5 +1,6 @@
 import { Meta, Status, Props, Story } from "../../../../.storybook/components";
 import * as Stories from "./DataGrid.stories";
+import { SlotDemo } from "../ListItem/ListItem.stories.tsx";
 import { Callout } from "../Callout/index.tsx";
 
 <Meta of={Stories} />
@@ -51,7 +52,7 @@ Each entry in `columns` describes one column. The grid reads a value from each r
 | `filterConfig` | Field labels for a number or date filter.                                                                                                      |
 
 ```tsx
-import { DataGrid, type Column } from "@sumup-oss/circuit-ui";
+import type { Column } from "@sumup-oss/circuit-ui";
 
 type Member = {
   firstName: string;
@@ -295,8 +296,6 @@ Missing values (`null` or `undefined`) render an empty cell. Action columns (`qu
 | `quick-actions`   | —                            | Icon buttons.                                                                           |
 | `row-actions`     | —                            | A more-actions menu.                                                                    |
 
-On the [mobile list layout](#responsiveness), text, number, date, and single-selection values are plain text so they fit the styles of a [ListItem](Components/ListItem/Docs) slot.
-
 The grid throws when a present value does not match its column type (`custom` being the exception):
 
 - A `boolean` column type with a value that is not an actual boolean or `"true"`/`"false"` strings.
@@ -392,11 +391,48 @@ Filters are configured on both column and component levels:
 
 <Story of={Stories.WithFilters} />
 
+### Pagination
+
+Pass a `pagination` object to add pagination capabilities to the grid.
+By default, the grid will show 10 items per page, and have `10`, `25` and `50` as page size options.
+If the value of `itemsPerPage` is not in the option set, the component will throw an error in development time.
+
+Use `onPageChange` and `onItemsPerPageChange` to respond to navigation events and update `currentPage` and `itemsPerPage` respectively, and the set of visible data.
+
+```tsx
+<DataGrid
+  {...props}
+  pagination={{
+    total: 10,
+    itemsPerPage: 20,
+    nextPageLabel: "Next page",
+    previousPageLabel: "Previous page",
+    itemsPerPageLabel: "Items per page",
+    currentPage: 1,
+    onPageChange: updateCurrentPage,
+    onItemsPerPageChange: updateItemsPerPage,
+    options: [{label: "10", value: 10}, {label: "20", value: 20}, {label: "50", value: 50}, {label: "100", value: 100}],
+  }}
+/>
+```
+
+In responsive mode, the page size selector is omitted and `itemsPerPage` will be used as page size.
+
+<Story of={Stories.WithPagination} />
+
 ### Responsiveness
 
-At widths up to `mobileBreakpoint` (768px by default), a `mobileConfig` renders the data as a [ListItemGroup](Components/ListItem/ListItemGroup/Docs). Each row becomes a list item with the `action` variant. The grid `label` becomes the list label and is visible, add an optional `hideLabel` property to `mobileConfig` to hide it.
+At widths up to `mobileBreakpoint` (768px by default), the grid renders in a list-like layout if a `mobileConfig` object is provided.
+When `mobileConfig` is omitted, the full grid is displayed. The grid scrolls horizontally when the columns are wider than the container.
 
-`mobileConfig.slots` maps column ids onto ListItem slots. `label` is required. The other slots are optional:
+<Story of={Stories.ResponsiveView} />
+Each row contains a single cell that should display a subset of the record data
+with the same layout as a [ListItem](Components/ListItem/Docs), accompanied,
+optionally, by an action menu. Use `mobileConfig.onClick` to perform an action
+that allows users to explore the entirety of the record data in a separate view,
+such as a modal dialog or a side panel.
+
+`mobileConfig.slots` maps column ids onto [ListItem](Components/ListItem/Docs) slots. `label` is required. The other slots are optional:
 
 | Slot               | Role                                                   |
 | ------------------ | ------------------------------------------------------ |
@@ -406,7 +442,21 @@ At widths up to `mobileBreakpoint` (768px by default), a `mobileConfig` renders 
 | `trailingLabel`    | Trailing primary text.                                 |
 | `trailingDetails`  | Trailing secondary text. Pair it with `trailingLabel`. |
 
-Separate several column ids with a semicolon to place them in the same slot. The grid joins them with a middot (`·`).
+Below is a demonstration of how slots map inside a grid cell:
+
+<Story of={SlotDemo} />
+
+<Callout
+  body="
+Avoid rendering interactive content in the responsive view and prefer using the item's menu to perform actions.
+  "
+/>
+
+Separate several column ids with a semicolon to place them in the same slot. For example: `details: "age;allergies"`.
+The grid joins them with a middot (`·`).
+The same formatting and rendering rules apply on the columns in the responsive view.
+
+When present, `mobileConfig.menu` will render a list of actions as a trailing menu, exactly as [row actions](#row-actions). If your grid has both quick actions and row actions, it is possible to group them under `mobileConfig.menu.actions`.
 
 ```tsx
 <DataGrid
@@ -420,15 +470,17 @@ Separate several column ids with a semicolon to place them in the same slot. The
       details: "age;allergies",
       trailingLabel: "subscriptionPrice",
     },
+    menu: {
+      label: "Actions",
+      labelDescription: (member: Member) =>
+        `More actions for ${member.firstName} ${member.lastName}`,
+      actions: (member: Member) => [
+        // your actions here
+      ],
+    },
   }}
 />
 ```
-
-The same formatting and rendering rules apply on the columns in the responsive view.
-
-Avoid rendering interactive content in the responsive view and prefer using the ListItem's click action to open a detailed view of the selected item.
-
-When `mobileConfig` is omitted, the table stays in place at every viewport width. The table scrolls horizontally when the columns are wider than the container.
 
 ## Accessibility
 

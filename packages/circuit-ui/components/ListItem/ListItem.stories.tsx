@@ -134,6 +134,22 @@ const baseArgs: ListItemProps = {
   },
 };
 
+export const SlotDemo = (args: ListItemProps) => <ListItem {...args} />;
+SlotDemo.args = {
+  label: 'label',
+  leadingComponent: 'leadingComponent',
+  details: 'details',
+  trailingLabel: 'trailingLabel',
+  trailingDetails: 'trailingDetails',
+} as ListItemProps;
+
+SlotDemo.tags = ['!dev']; // hide story, used for docs only.
+SlotDemo.parameters = {
+  chromatic: {
+    disableSnapshot: true,
+  },
+};
+
 export const Base = (args: ListItemProps) => (
   <ListItem {...args} leadingComponent={SumUpCard} details={Details} />
 );
