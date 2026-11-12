@@ -330,6 +330,7 @@ describe('DataGrid', () => {
         );
         expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
       });
+
       it('should render the FilterBar when at least one column has filtering', () => {
         render(
           <DataGrid
@@ -340,6 +341,30 @@ describe('DataGrid', () => {
         );
         expect(screen.getByRole('toolbar')).toBeVisible();
       });
+
+      it('should not render the FilterBar when no column has filtering', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            filtersConfig={filtersConfig}
+            columns={columns}
+          />,
+        );
+        expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
+      });
+
+      it('should still render the search bar when no column has filtering', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            filtersConfig={filtersConfig}
+            searchBarConfig={searchConfig}
+            columns={columns}
+          />,
+        );
+        expect(screen.getByRole('searchbox', { name: 'Search' })).toBeVisible();
+      });
+
       it('should call the onFilter when a filter is set', async () => {
         const age = columnsWithFilters[1];
         render(
@@ -433,6 +458,19 @@ describe('DataGrid', () => {
       expect(
         screen.queryByRole('button', { name: 'Age' }),
       ).not.toBeInTheDocument();
+    });
+
+    it('should not render the FilterBar on narrow viewports when no column is sortable', () => {
+      (useMedia as Mock).mockReturnValue(true);
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={columns}
+          sortConfig={sortConfig}
+        />,
+      );
+
+      expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
     });
 
     it('should sort from the sheet instead of the headers on narrow viewports', () => {

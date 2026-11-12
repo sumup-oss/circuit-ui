@@ -44,6 +44,7 @@ import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { utilClasses } from '../../styles/utility.js';
 import type { ClickEvent } from '../../types/events.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
+import { getFilterKind } from './components/FilterBar/components/Filters/Filter/FilterService.js';
 import { debounce } from '../../util/helpers.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 import { Pagination } from './components/Pagination/Pagination.js';
@@ -294,11 +295,19 @@ export function DataGrid<P>({
     [columns, label],
   );
 
+  const hasFilters = Boolean(
+    filtersConfig && visibleColumns.some((column) => getFilterKind(column)),
+  );
+
+  const hasSorting = Boolean(
+    sortConfig && columns.some(({ sortable }) => sortable),
+  );
+
   const showFilterBar =
-    filtersConfig ||
+    hasFilters ||
     searchBarConfig ||
     columnPickerConfig ||
-    (isMobile && sortConfig);
+    (isMobile && hasSorting);
 
   return (
     <div className={classes.wrapper}>
@@ -315,13 +324,17 @@ export function DataGrid<P>({
           isMobile={isMobile}
           activeFilters={activeFilters}
           filtersConfig={
-            filtersConfig
+            filtersConfig && hasFilters
               ? { ...filtersConfig, onFilter: onActiveFiltersChange }
               : undefined
           }
           searchQuery={searchQuery}
           columnPickerConfig={columnPickerConfig}
-          sortConfig={sortConfig && { ...sortConfig, onSort: onSortChange }}
+          sortConfig={
+            sortConfig && hasSorting
+              ? { ...sortConfig, onSort: onSortChange }
+              : undefined
+          }
           sort={sort}
         />
       )}
