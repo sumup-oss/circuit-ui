@@ -6,8 +6,7 @@
   border-collapse: separate;
 }
 
-.base::after,
-.list::after {
+.base::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -17,10 +16,6 @@
   background: rgb(255 255 255 / 50%);
   opacity: 0;
   transition: opacity var(--cui-transitions-default);
-}
-
-.list::after {
-  content: "";
 }
 
 .loading::after {

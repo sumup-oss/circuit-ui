@@ -2,14 +2,11 @@
 
 import {
   type Ref,
-  type TableHTMLAttributes,
   useCallback,
   useEffect,
   useId,
   useRef,
   type HTMLAttributes,
-  useId,
-  type Ref,
   useState,
   useMemo,
 } from 'react';
@@ -378,9 +375,10 @@ export function DataGrid<P>({
       <div className={classes.table}>
         <table
           ref={applyMultipleRefs(ref, internalRef)}
-          className={clsx(classes.base,
+          className={clsx(
+            classes.base,
             isLoading && classes.loading,
-            className
+            className,
           )}
           // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: grid is valid role for table
           role="grid"
@@ -392,48 +390,51 @@ export function DataGrid<P>({
           {!isMobileView && <TableHeader columns={visibleColumns} />}
 
           <tbody>
-          {!(searchQuery || Object.keys(activeFilters).length > 0) &&
-          isLoading &&
-          data.length === 0 ? (
-            <SkeletonGrid
-              gridId={gridId}
-              itemsPerPage={10}
-              columns={visibleColumns.map(({ id }) => id)}
-            />
-          ) : (
-            data.map((value, index) =>
-              isMobileView ? (
-                <MobileRow
-                  columns={columns}
-                  formattingLocale={formattingLocale}
-                  key={getRowId ? getRowId(value) : `${gridId}-${index}`}
-                  rowIndex={index}
-                  rowId={getRowId ? getRowId(value) : `${gridId}-${index}`}
-                  data={value}
-                  mobileConfig={mobileConfig}
-                />
-              ) : (
-                <Row
-                  rowIndex={index}
-                  key={getRowId ? getRowId(value) : `${gridId}-${index}`}
-                  columns={visibleColumns}
-                  formattingLocale={formattingLocale}
-                  data={value}
-                  className={classes.row}
-                />
-              )))}
-            </tbody>
-          </table>
-          {(searchQuery || Object.keys(activeFilters).length > 0) &&
-            data.length === 0 && (
-              <StateScreen
-                isLoading={isLoading}
-                isMobile={isMobile}
-                type="no-results"
-                {...noResultsConfig}
+            {!(searchQuery || Object.keys(activeFilters).length > 0) &&
+            isLoading &&
+            data.length === 0 ? (
+              <SkeletonGrid
+                gridId={gridId}
+                itemsPerPage={10}
+                columns={visibleColumns.map(({ id }) => id)}
               />
+            ) : (
+              data.map((value, index) =>
+                isMobileView ? (
+                  <MobileRow
+                    columns={columns}
+                    formattingLocale={formattingLocale}
+                    key={getRowId ? getRowId(value) : `${gridId}-${index}`}
+                    rowIndex={index}
+                    rowId={getRowId ? getRowId(value) : `${gridId}-${index}`}
+                    data={value}
+                    mobileConfig={mobileConfig}
+                  />
+                ) : (
+                  <Row
+                    rowIndex={index}
+                    key={getRowId ? getRowId(value) : `${gridId}-${index}`}
+                    columns={visibleColumns}
+                    formattingLocale={formattingLocale}
+                    data={value}
+                    className={classes.row}
+                  />
+                ),
+              )
             )}
-        </div>{pagination && data.length > 0 && <Pagination {...pagination} />}
+          </tbody>
+        </table>
+        {(searchQuery || Object.keys(activeFilters).length > 0) &&
+          data.length === 0 && (
+            <StateScreen
+              isLoading={isLoading}
+              isMobile={isMobile}
+              type="no-results"
+              {...noResultsConfig}
+            />
+          )}
+      </div>
+      {pagination && data.length > 0 && <Pagination {...pagination} />}
     </div>
   );
 }

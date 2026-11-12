@@ -561,8 +561,6 @@ export const Loading = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
 Loading.args = {
   ...baseArgs,
-  mobileBreakpoint: 1280,
-  mobileConfig,
   isLoading: true,
 };
 
