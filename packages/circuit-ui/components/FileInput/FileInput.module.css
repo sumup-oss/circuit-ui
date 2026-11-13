@@ -1,0 +1,296 @@
+.base {
+  position: relative;
+}
+
+/* Trigger (dropzone or button) */
+
+.base .trigger {
+  display: flex;
+  align-items: center;
+  color: var(--cui-fg-normal);
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  border-width: var(--cui-border-width-kilo);
+  transition:
+    background-color var(--cui-transitions-default),
+    border-color var(--cui-transitions-default);
+}
+
+.base .trigger.dragging,
+.input:not(:disabled) + .variant-default:hover {
+  background-color: var(--cui-bg-subtle-hovered);
+}
+
+.input:focus-visible + .trigger {
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
+}
+
+.input[aria-invalid="true"] + .trigger {
+  border-color: var(--cui-border-danger);
+}
+
+.input:disabled + .trigger {
+  color: var(--cui-fg-normal-disabled);
+  cursor: not-allowed;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+}
+
+.description {
+  font-size: var(--cui-compact-s-font-size);
+  font-weight: var(--cui-font-weight-regular);
+  line-height: var(--cui-compact-s-line-height);
+  color: var(--cui-fg-subtle);
+}
+
+.input:disabled + .trigger .description,
+.input:disabled + .trigger + .description {
+  color: var(--cui-fg-subtle-disabled);
+}
+
+/* Default variant: dropzone */
+
+.base .variant-default {
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--cui-spacings-giga) var(--cui-spacings-mega);
+  text-align: center;
+  cursor: pointer;
+  border-color: var(--cui-border-strong);
+  border-style: dashed;
+  border-radius: var(--cui-border-radius-giga);
+}
+
+.variant-default .title + .description {
+  margin-top: var(--cui-spacings-byte);
+}
+
+.variant-default .title {
+  font-size: var(--cui-body-m-font-size);
+  font-weight: var(--cui-font-weight-semibold);
+  line-height: var(--cui-body-m-line-height);
+}
+
+.variant-default .button {
+  margin-top: var(--cui-spacings-giga);
+}
+
+/* Button variant */
+
+.base .variant-button {
+  --badge-ring-color: var(--cui-bg-normal);
+
+  gap: var(--cui-spacings-mega);
+  justify-content: center;
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  border-style: solid;
+  border-radius: var(--cui-border-radius-mega);
+}
+
+/* The hover and pressed states match the secondary Button */
+
+.base .variant-button:hover {
+  --badge-ring-color: var(--cui-bg-subtle-hovered);
+
+  color: var(--cui-fg-normal-hovered);
+  background-color: var(--cui-bg-subtle-hovered);
+  border-color: var(--cui-border-normal-hovered);
+}
+
+.base .variant-button:active {
+  --badge-ring-color: var(--cui-bg-subtle-pressed);
+
+  color: var(--cui-fg-normal-pressed);
+  background-color: var(--cui-bg-subtle-pressed);
+  border-color: var(--cui-border-normal-pressed);
+}
+
+.input[aria-invalid="true"] + .variant-button:hover {
+  border-color: var(--cui-border-danger-hovered);
+}
+
+.variant-button .title {
+  font-size: var(--cui-body-m-font-size);
+  font-weight: var(--cui-font-weight-semibold);
+  line-height: var(--cui-body-m-line-height);
+}
+
+.base > .description {
+  display: block;
+  margin-top: var(--cui-spacings-bit);
+  text-align: center;
+}
+
+/* Shared */
+
+.icon {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: var(--cui-icon-sizes-xl);
+  height: var(--cui-icon-sizes-xl);
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-highlight);
+  border-radius: var(--cui-border-radius-pill);
+  transition: background-color var(--cui-transitions-default);
+}
+
+.variant-default .icon {
+  margin-bottom: var(--cui-spacings-mega);
+}
+
+/* Hovering the trigger highlights the icon circle in both variants */
+.input:not(:disabled) + .trigger:hover .icon {
+  background-color: var(--cui-bg-highlight);
+}
+
+.badge {
+  position: absolute;
+  right: calc(-1 * var(--cui-spacings-bit) / 2);
+  bottom: calc(-1 * var(--cui-spacings-bit) / 2);
+  display: grid;
+  place-items: center;
+  width: var(--cui-icon-sizes-s);
+  height: var(--cui-icon-sizes-s);
+  color: var(--cui-fg-on-strong);
+  background-color: var(--cui-bg-strong);
+  border-radius: var(--cui-border-radius-circle);
+
+  /* A ring in the color of the surface cuts the badge out of the icon circle */
+  box-shadow: 0 0 0 var(--cui-border-width-mega) var(--badge-ring-color);
+  transition: box-shadow var(--cui-transitions-default);
+}
+
+/* The icon is smaller than the 16px icon box to leave space around it */
+.badge svg {
+  transform: scale(0.8);
+}
+
+.badge-error {
+  background-color: var(--cui-bg-danger-strong);
+}
+
+/* File list */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-bit);
+  padding: 0;
+  margin: var(--cui-spacings-byte) 0 0;
+  list-style: none;
+}
+
+/* The rows override the default ListItem look with the design's values. The
+   badge ring needs to match the row background to look cut out of the icon
+   circle. */
+.item .row {
+  --badge-ring-color: var(--cui-bg-subtle);
+
+  justify-content: space-between;
+  padding: var(--cui-spacings-kilo);
+  background-color: var(--cui-bg-subtle);
+}
+
+/* ListItem aligns its trailing content to the top. The design centers it. */
+.item .row [data-variant] {
+  align-items: center;
+}
+
+/* The menu button is wider than ListItem's trailing slot, which pulls it out
+   by a negative margin. Sizing the slot to the button aligns it with the
+   remove button. */
+.item .row [data-variant="menu"] > div {
+  width: auto;
+  height: auto;
+  margin-right: 0;
+}
+
+/* Finished uploads have a status badge on top of the icon circle */
+.icon-finished {
+  background-color: var(--cui-bg-highlight);
+}
+
+/* Uploading: a spinning ring is centered on the edge of the icon circle */
+.icon-uploading {
+  --ring-width: calc(var(--cui-border-width-mega) * 1.25);
+
+  background-color: var(--cui-bg-highlight);
+}
+
+.ring {
+  position: absolute;
+  inset: calc(var(--ring-width) / -2);
+  pointer-events: none;
+
+  /* The gradient colors are from the design and have no tokens. A pulsing solid
+     ring is used by browsers that don't support the gradient arc below. */
+  border: var(--ring-width) solid #598ffa;
+  border-radius: inherit;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring {
+    animation: none;
+  }
+}
+
+.arc {
+  display: none;
+}
+
+@supports (mask: radial-gradient(#000, transparent)) and
+  (background: conic-gradient(#000, #fff)) {
+  .ring {
+    border: 0;
+    mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - var(--ring-width)),
+      #000 calc(100% - var(--ring-width) + var(--cui-border-width-kilo))
+    );
+    animation: none;
+  }
+
+  /* The visible quarter of the circle spins, with the full gradient on it */
+  .arc {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background: conic-gradient(from 0deg, #598ffa, #d673d9 12.5%, #598ffa 25%);
+    mask: conic-gradient(from 0deg, #000 25%, transparent 0);
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .arc {
+      mask: none;
+      animation: none;
+    }
+  }
+}
+
+.row-details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Body has no placeholder color. The selector outranks the color of Body. */
+.row-details .placeholder {
+  color: var(--cui-fg-placeholder);
+}
