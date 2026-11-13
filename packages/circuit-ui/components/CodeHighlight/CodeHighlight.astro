@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import type { CodeHighlightOptions } from './types.js';
+import { renderCodeHighlight } from './server.js';
+import { codeHighlightClasses as classes } from './styles.js';
+
+interface Props
+  extends CodeHighlightOptions,
+    Omit<HTMLAttributes<'div'>, 'children' | 'set:html' | 'set:text'> {}
+
+const {
+  code,
+  language,
+  filename,
+  lineNumbers,
+  wrap,
+  highlightedLines,
+  class: className,
+  ...props
+} = Astro.props;
+const html = await renderCodeHighlight({
+  code,
+  language,
+  filename,
+  lineNumbers,
+  wrap,
+  highlightedLines,
+});
+---
+
+<div {...props} class:list={[classes.base, className]}>
+  <diffs-container>
+    <template shadowrootmode="open" set:html={html} />
+  </diffs-container>
+</div>

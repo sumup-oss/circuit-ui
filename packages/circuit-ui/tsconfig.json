@@ -31,6 +31,8 @@
     "util/**/*",
     "vendor/**/*",
     "index.ts",
+    "code.ts",
+    "code-ssr.ts",
     "legacy.ts",
     "experimental.ts",
     "internal.ts"

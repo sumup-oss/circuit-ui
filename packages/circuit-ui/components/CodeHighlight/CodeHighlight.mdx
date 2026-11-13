@@ -1,0 +1,189 @@
+import { Meta, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './CodeHighlight.stories';
+
+<Meta of={Stories} />
+
+# CodeHighlight
+
+Display read-only code with syntax highlighting, line numbers, and emphasized
+lines. The block follows Circuit's color scheme, using GitHub Light for light
+pages and GitHub Dark for dark pages.
+
+<Story of={Stories.Base} />
+
+## Setup
+
+Code highlighting is included with Circuit UI. No additional package installation
+is needed.
+
+Import from the dedicated `code` entry point. No provider is required.
+Continue loading Circuit's design tokens and component styles as usual:
+
+```tsx
+import { CodeHighlight } from '@sumup-oss/circuit-ui/code';
+import '@sumup-oss/design-tokens/light.css';
+import '@sumup-oss/circuit-ui/styles.css';
+
+<CodeHighlight code="const total = 42;" language="typescript" />
+```
+
+The component inherits the surrounding color scheme. Use Circuit's `dynamic.css`
+tokens for automatic system light/dark mode and theme switching, or `light.css`
+and `dark.css` for a fixed theme. Scoped themes using `data-color-scheme` work
+too. Both syntax palettes are included in server-rendered HTML, so theme changes
+work without JavaScript in Astro.
+
+## Examples
+
+### Line numbers
+
+Line numbers are hidden by default. Set `lineNumbers` to show them, starting at
+1, when readers need to refer to specific parts of a longer example.
+
+<Story of={Stories.LineNumbers} />
+
+Omit `lineNumbers` for short snippets or shell commands that readers may want
+to copy.
+
+### Highlighted lines
+
+Pass one-based line numbers in `highlightedLines` to draw attention to a step,
+condition, or return value. Consecutive and separate lines can be highlighted in
+the same block:
+
+```tsx
+<CodeHighlight
+  code={source}
+  language="typescript"
+  highlightedLines={[3, 4, 6]}
+/>
+```
+
+<Story of={Stories.HighlightedLines} />
+
+Highlights work with hidden line numbers too. Duplicate, fractional, negative,
+and out-of-range line numbers are ignored. Blank lines count toward numbering;
+a leading newline makes the first visible statement line 2.
+
+### Long lines
+
+Long lines scroll horizontally by default. Set `wrap` to keep the code within its
+container. Wrapped continuations keep the original source line number.
+
+<Story of={Stories.Wrapped} />
+
+### Languages
+
+Use `language` to select syntax explicitly. For example, use `typescript`, `tsx`,
+`json`, `bash`, `css`, or `html`. Pierre loads the requested grammar on demand.
+
+Alternatively, provide a filename to infer the language from its extension:
+
+```tsx
+<CodeHighlight code={source} filename="example.ts" />
+```
+
+The filename is metadata and is never displayed. An explicit `language` takes
+precedence over filename inference. If both are omitted, the code is plain text.
+Use `language="text"` to disable syntax highlighting explicitly.
+
+## React server rendering
+
+Use the SSR entry point when code should arrive already highlighted, including
+before JavaScript loads. Preload on the server, then spread the result into the
+SSR component. This follows [Pierre's SSR workflow](https://diffs.com/docs#ssr):
+
+```tsx
+// An async server component, for example a Next.js App Router page.
+import { preloadCodeHighlight } from '@sumup-oss/circuit-ui/code/server';
+import { CodeHighlight } from '@sumup-oss/circuit-ui/code/ssr';
+
+export default async function Example() {
+  const highlighted = await preloadCodeHighlight({
+    code: 'const total = 42;\nconsole.log(total);',
+    language: 'typescript',
+    highlightedLines: [2],
+    wrap: true,
+  });
+
+  return <CodeHighlight {...highlighted} />;
+}
+```
+
+For frameworks with server loaders, call `preloadCodeHighlight` in the loader
+and pass its serializable result to the SSR component in the route. Keep the
+`code/server` import in server code.
+
+The initial HTML contains highlighted code in declarative Shadow DOM. Pierre
+hydrates that markup in the browser and handles later source and option updates.
+Pass the entire preload result unchanged for the initial render: the source,
+language, line numbers, wrapping, and highlighted lines must match the generated
+HTML. Add layout attributes such as `className` separately.
+
+The SSR entry loads the renderer with the component for hydration. Use the
+standard `code` entry for deferred client highlighting, or the native Astro
+component below when no client JavaScript is needed.
+
+## Astro
+
+Use the native Astro component to highlight at build time, or on the server for
+on-demand routes. It accepts the same highlighting options as React:
+
+```astro
+---
+import CodeHighlight from '@sumup-oss/circuit-ui/code/astro';
+import '@sumup-oss/design-tokens/light.css';
+import '@sumup-oss/circuit-ui/styles.css';
+
+const source = 'const total = 42;\nconsole.log(total);';
+---
+
+<CodeHighlight
+  code={source}
+  language="typescript"
+  highlightedLines={[2]}
+  lineNumbers
+/>
+```
+
+Use Astro's `class` attribute for custom layout styles. Do not add a `client:*`
+directive. The native component emits declarative Shadow DOM and needs no
+browser JavaScript, React runtime, or client highlighter. Browsers must support
+declarative Shadow DOM to display it.
+
+## Loading and bundle size
+
+The standard React `code` entry renders escaped plain code on the server and
+during the initial client render. After mounting, it loads the renderer and
+applies syntax and line highlighting. If the renderer cannot be loaded, the plain code remains visible.
+Use `onHighlightError` to report this failure:
+
+```tsx
+<CodeHighlight
+  code={source}
+  language="typescript"
+  onHighlightError={(error) => reportError(error)}
+/>
+```
+
+The highlighter is shared by Pierre across blocks. No application-wide provider
+or manual grammar registration is needed for bundled languages. Actual download
+size depends on the language and your application's bundler. Pages importing
+only other Circuit components do not load Pierre or Shiki. The native Astro
+component keeps highlighting dependencies entirely on the server.
+
+## Accessibility
+
+Keep source indentation and whitespace intact. Give the surrounding example a
+heading or explanation so readers understand its purpose. Explain the meaning
+of highlighted lines in nearby text; color alone does not communicate that
+meaning to everyone.
+
+Use `aria-label` or `aria-labelledby` when a block needs an accessible name.
+Both components accept standard HTML attributes on their outer `div`. The React
+component also forwards a ref to that element. Source code is displayed as text,
+including HTML tags.
+
+## Props
+
+<Props of={Stories.Base} />

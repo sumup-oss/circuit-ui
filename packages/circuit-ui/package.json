@@ -22,7 +22,20 @@
       "types": "./dist/internal.d.ts",
       "default": "./dist/internal.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./code": {
+      "types": "./dist/code.d.ts",
+      "default": "./dist/code.js"
+    },
+    "./code/server": {
+      "types": "./dist/components/CodeHighlight/server.d.ts",
+      "default": "./dist/components/CodeHighlight/server.js"
+    },
+    "./code/astro": "./dist/components/CodeHighlight/CodeHighlight.astro",
+    "./code/ssr": {
+      "types": "./dist/code-ssr.d.ts",
+      "default": "./dist/code-ssr.js"
+    }
   },
   "typesVersions": {
     "*": {
@@ -34,6 +47,15 @@
       ],
       "internal": [
         "./dist/internal.d.ts"
+      ],
+      "code": [
+        "./dist/code.d.ts"
+      ],
+      "code/server": [
+        "./dist/components/CodeHighlight/server.d.ts"
+      ],
+      "code/ssr": [
+        "./dist/code-ssr.d.ts"
       ]
     }
   },
@@ -63,6 +85,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.9",
     "@nanostores/react": "^2.0.1",
+    "@pierre/diffs": "^1.6.4",
     "@sumup-oss/illustrations": "^1.0.0",
     "nanostores": "^1.5.5"
   },
@@ -94,10 +117,16 @@
     "@sumup-oss/intl": "^3.1.1",
     "react": ">=19.0.0 <20.0.0",
     "react-dom": ">=19.0.0 <20.0.0",
-    "temporal-polyfill": ">=0.2.0 <2.0.0"
+    "temporal-polyfill": ">=0.2.0 <2.0.0",
+    "astro": ">=5.0.0"
   },
   "engines": {
     "node": ">=24",
     "typescript": ">=4.1"
+  },
+  "peerDependenciesMeta": {
+    "astro": {
+      "optional": true
+    }
   }
 }

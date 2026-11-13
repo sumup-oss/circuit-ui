@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import fs from 'node:fs';
 import path from 'node:path';
 
 import { defineConfig, type ViteUserConfig } from 'vitest/config';
@@ -41,7 +42,25 @@ const isExternal = (id: string) =>
 
 export default defineConfig({
   css,
-  plugins: [reorderUtilityCssVitePlugin(`${stylesFileName}.css`)],
+  plugins: [
+    reorderUtilityCssVitePlugin(`${stylesFileName}.css`),
+    {
+      name: 'copy-astro-components',
+      apply: 'build',
+      generateBundle() {
+        const files = ['components/CodeHighlight/CodeHighlight.astro'];
+        for (const fileName of files) {
+          this.emitFile({
+            type: 'asset',
+            fileName,
+            source: fs.readFileSync(
+              path.resolve(import.meta.dirname, fileName),
+            ),
+          });
+        }
+      },
+    },
+  ],
   build: {
     target: ['es2019'],
     lib: {
@@ -50,6 +69,10 @@ export default defineConfig({
         path.resolve(import.meta.dirname, 'internal.ts'),
         path.resolve(import.meta.dirname, 'experimental.ts'),
         path.resolve(import.meta.dirname, 'legacy.ts'),
+        path.resolve(import.meta.dirname, 'code.ts'),
+        path.resolve(import.meta.dirname, 'code-ssr.ts'),
+        path.resolve(import.meta.dirname, 'components/CodeHighlight/styles.ts'),
+        path.resolve(import.meta.dirname, 'components/CodeHighlight/server.ts'),
       ],
       formats: ['es'],
       fileName: (_, entryName: string) => `${entryName}.js`,
