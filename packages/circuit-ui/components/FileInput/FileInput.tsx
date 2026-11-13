@@ -103,6 +103,17 @@ export interface FileInputProps
    */
   variant?: 'default' | 'button';
   /**
+   * Allow users to select and upload more than one file. When falsy, selecting
+   * a new file replaces the current one.
+   * @default false
+   */
+  multiple?: boolean;
+  /**
+   * A comma-separated list of accepted file types, such as `.pdf,image/*`. It
+   * only filters the file picker, so always validate the files you receive.
+   */
+  accept?: string;
+  /**
    * The call to action displayed in the dropzone.
    */
   dropLabel?: string;
@@ -161,11 +172,6 @@ export interface FileInputProps
    * Defaults to the locale of the `I18nProvider`.
    */
   locale?: Locale;
-  /**
-   * A unique identifier for the input element. If not defined, a generated id
-   * is used.
-   */
-  id?: string;
   /**
    * An information or error message, displayed below the input.
    */

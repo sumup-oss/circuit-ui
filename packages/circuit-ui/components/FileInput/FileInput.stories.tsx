@@ -35,11 +35,9 @@ export default {
     optionalLabel: { table: { category: 'Input' } },
     description: { table: { category: 'Input' } },
     validationHint: { table: { category: 'Input' } },
-    id: { table: { category: 'Input' } },
     accept: { table: { category: 'Input' } },
     invalid: { table: { category: 'Input' } },
     disabled: { control: 'boolean', table: { category: 'Input' } },
-    required: { control: 'boolean', table: { category: 'Input' } },
     // Behavior & Appearance
     variant: {
       options: ['default', 'button'],
