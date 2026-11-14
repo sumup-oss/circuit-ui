@@ -43,7 +43,7 @@
     "tsx": "^4.23.13",
     "typescript": "^5.9.3",
     "vitest": "^4.1.11",
-    "fast-xml-parser": "^5.11.1"
+    "fast-xml-parser": "^5.12.1"
   },
   "peerDependencies": {
     "react": ">=16.0.0 <20.0.0"
