@@ -133,7 +133,7 @@ Dragging and dropping is never required. Clicking anywhere in the dropzone, or o
 - The input is described by the `description` and the `validationHint`.
 - Changes of a file's status, such as "march.pdf: Upload complete", are added to a live region of the file, so screen readers can announce the status of each file separately.
 - The status of a file is also communicated with text and not by color alone.
-- The `removeLabel` and `retryLabel` props are required because they name icon-only buttons. The `menuLabel` prop is required as soon as a file can have more than one action, such as when `trailingActions` returns actions or when a failed upload offers both the retry and remove actions. In that case, an accessibility error is thrown in development if it is missing. Make sure the labels describe the purpose of the buttons.
+- The `removeLabel`, `retryLabel` and `menuLabel` props are required because they name icon-only buttons. A file can show a menu whenever it has more than one action, for example after a failed upload. Make sure the labels describe the purpose of the buttons.
 
 ### Focus management
 

@@ -29,10 +29,6 @@ import {
 
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
-import {
-  AccessibilityError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
 import { Body } from '../Body/index.js';
 import type {
   ActionMenuItemProps,
@@ -178,18 +174,6 @@ export function FileInputItem({
   const items = list.filter(
     (action): action is ActionMenuItemProps => !('type' in action),
   );
-
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    items.length > 1 &&
-    !isSufficientlyLabelled(menuLabel)
-  ) {
-    throw new AccessibilityError(
-      'FileInput',
-      'The `menuLabel` prop is required when a file has more than one action.',
-    );
-  }
 
   const menu =
     items.length > 1 && menuLabel
