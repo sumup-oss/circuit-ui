@@ -33,6 +33,7 @@ import type {
   WithColumnPicker,
   WithFilters,
   WithSearchBar,
+  WithPagination,
 } from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
@@ -43,9 +44,11 @@ import type { ClickEvent } from '../../types/events.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
 import { debounce } from '../../util/helpers.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
+import { Pagination } from './components/Pagination/Pagination.js';
 
 export interface DataGridProps<P>
-  extends TableHTMLAttributes<HTMLDivElement>,
+  extends WithPagination,
+    TableHTMLAttributes<HTMLDivElement>,
     WithSearchBar,
     WithFilters,
     WithColumnPicker {
@@ -107,6 +110,7 @@ export function DataGrid<P>({
   ref,
   filtersConfig,
   columnPickerConfig,
+  pagination,
   ...props
 }: DataGridProps<P>) {
   const rowId = useId();
@@ -352,6 +356,7 @@ export function DataGrid<P>({
           </table>
         </div>
       )}
+      {pagination && data.length > 0 && <Pagination {...pagination} />}
     </div>
   );
 }
