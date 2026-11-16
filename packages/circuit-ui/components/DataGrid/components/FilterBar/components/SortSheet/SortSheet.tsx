@@ -65,7 +65,7 @@ export interface SortSheetProps<P>
   value?: SortValue;
   /**
    * Called with the chosen sorting when the user applies it, or with
-   * `undefined` when they apply a cleared sorting.
+   * `undefined` when sorting is cleared.
    */
   onApply: (value?: SortValue) => void;
 }
@@ -93,7 +93,6 @@ export function SortSheet<P>({
   const [draft, setDraft] = useState<SortValue | undefined>(value);
   const [wasOpen, setWasOpen] = useState(open);
 
-  // Start every session from the applied sorting.
   if (open !== wasOpen) {
     setWasOpen(open);
     if (open) {
@@ -141,8 +140,6 @@ export function SortSheet<P>({
     onClose();
   };
 
-  // Applying already asked to close. The modal reports it again once it has
-  // finished closing, which is only news when the user closed it themselves.
   const handleModalClose = () => {
     if (openRef.current) {
       onClose();

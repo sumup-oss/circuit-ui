@@ -85,8 +85,7 @@
 }
 
 /*
- * The field's label text would otherwise shrink the legend to 15px. The
- * attribute selectors raise the specificity above the field's own rule.
+ * The attribute selectors raise the specificity above the field's own rule.
  */
 .section > fieldset[class] > legend > span[class] {
   font-size: inherit;
