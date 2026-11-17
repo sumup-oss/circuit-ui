@@ -1,9 +1,16 @@
-.base th {
-  min-height: 48px;
-  padding: var(--cui-spacings-kilo);
+.cell {
+  padding: var(--cui-spacings-mega);
   text-align: left;
   background-color: var(--cui-bg-normal);
   border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+}
+
+.cell:focus {
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
+}
+
+.align-right {
+  text-align: right;
 }
 
 .title {

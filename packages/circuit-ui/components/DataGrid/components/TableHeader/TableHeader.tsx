@@ -1,4 +1,3 @@
-import { Cell } from '../Cell/Cell.js';
 import { Body } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
@@ -15,13 +14,16 @@ function TableHeaderComponent<P>({ columns, ...rest }: TableHeaderProps<P>) {
     <thead>
       <tr className={classes.base} {...rest}>
         {columns.map(({ label, id, type }, index) => (
-          <Cell
-            as="th"
+          <th
             role="columnheader"
             key={`${id}-col-header`}
             data-x={index}
             data-y={0}
             tabIndex={index === 0 ? 0 : -1}
+            className={clsx(
+              classes.cell,
+              type.name === 'quick-actions' && classes['align-right'],
+            )}
             style={{
               maxWidth: `var(--${id}-col-max-width)`,
               minWidth: `var(--${id}-col-min-width)`,
@@ -29,7 +31,7 @@ function TableHeaderComponent<P>({ columns, ...rest }: TableHeaderProps<P>) {
           >
             <Body
               size="s"
-              weight="semibold"
+              weight="bold"
               color="subtle"
               className={clsx(
                 type.name === 'row-actions' && utilClasses.hideVisually,
@@ -39,7 +41,7 @@ function TableHeaderComponent<P>({ columns, ...rest }: TableHeaderProps<P>) {
             >
               {label}
             </Body>
-          </Cell>
+          </th>
         ))}
       </tr>
     </thead>
