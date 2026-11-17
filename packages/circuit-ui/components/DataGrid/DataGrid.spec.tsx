@@ -385,14 +385,9 @@ describe('DataGrid', () => {
       onPageChange: vi.fn(),
       itemsPerPageLabel: 'Elements per page',
     };
-    it.each([
-      0, 1,
-    ])('should not render the pagination when total pages is %s', (totalPages) => {
+    it('should not render the pagination when there is no data', () => {
       render(
-        <DataGrid
-          {...defaultProps}
-          pagination={{ ...paginationConfig, totalPages }}
-        />,
+        <DataGrid {...defaultProps} pagination={paginationConfig} data={[]} />,
       );
       expect(
         screen.queryByRole('combobox', {
@@ -410,7 +405,6 @@ describe('DataGrid', () => {
         }),
       ).not.toBeInTheDocument();
     });
-
     it('should render the Pagination a pagination config is provided', () => {
       render(<DataGrid {...defaultProps} pagination={paginationConfig} />);
       expect(
