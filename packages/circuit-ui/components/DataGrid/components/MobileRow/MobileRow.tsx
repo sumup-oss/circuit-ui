@@ -68,6 +68,7 @@ const MobileRowComponent = <P,>({
         return;
       }
       if (isEnter(event) || isSpacebar(event)) {
+        event.preventDefault();
         mobileConfig.onClick?.(event, data);
       }
     },

@@ -158,13 +158,17 @@ export function DataGrid<P>({
         setSearchQuery(query);
         debouncedOnSearch?.(query);
       }
-      return () => {
-        if (debouncedOnSearch) {
-          debouncedOnSearch.cancel();
-        }
-      };
     },
     [debouncedOnSearch, searchBarConfig],
+  );
+
+  useEffect(
+    () => () => {
+      if (debouncedOnSearch) {
+        debouncedOnSearch.cancel();
+      }
+    },
+    [debouncedOnSearch],
   );
 
   const onActiveFiltersChange: NonNullable<
@@ -253,7 +257,7 @@ export function DataGrid<P>({
       }
       if (isControlEnd(event)) {
         newY = totalRows;
-        newX = isMobileView ? 1 : visibleColumns.length - 1;
+        newX = isMobileView ? 0 : visibleColumns.length - 1;
       }
       if (newX !== currentX || newY !== currentY) {
         const newActiveCell = table.querySelector(
@@ -377,9 +381,7 @@ export function DataGrid<P>({
         </table>
       </div>
 
-      {pagination && pagination.totalPages > 1 && (
-        <Pagination {...pagination} />
-      )}
+      {pagination && data.length > 0 && <Pagination {...pagination} />}
     </div>
   );
 }

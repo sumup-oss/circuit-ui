@@ -314,6 +314,25 @@ describe('DataGrid', () => {
 
         expect(searchConfig.onSearch).toHaveBeenCalledExactlyOnceWith('jane');
       });
+
+      it('should cancel a pending search when unmounting', async () => {
+        vi.useFakeTimers();
+        const { unmount } = render(
+          <DataGrid {...defaultProps} searchBarConfig={searchConfig} />,
+        );
+        await act(async () => {
+          await vi.runAllTimersAsync();
+        });
+
+        changeSearch('pending');
+        unmount();
+
+        act(() => {
+          vi.advanceTimersByTime(300);
+        });
+
+        expect(searchConfig.onSearch).not.toHaveBeenCalled();
+      });
     });
     describe('Filters', () => {
       it('should not render the FilterBar when filtersConfig is omitted', () => {
