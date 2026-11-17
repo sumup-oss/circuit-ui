@@ -15,3 +15,6 @@
 
 export { TimeInput } from './components/TimeInput/TimeInput.js';
 export type { TimeInputProps } from './components/TimeInput/TimeInput.js';
+
+export { FileInput } from './components/FileInput/FileInput.js';
+export type { FileInputProps } from './components/FileInput/FileInput.js';
