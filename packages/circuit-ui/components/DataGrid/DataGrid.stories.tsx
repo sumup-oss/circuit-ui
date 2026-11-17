@@ -103,8 +103,9 @@ const columns: Column<Member>[] = [
             size="s"
             alt={country}
             countryCode={countryCode as FlagProps['countryCode']}
-          />{' '}
-          {city}{' '}
+          />
+          &nbsp;
+          {city}
         </>
       ),
     },
@@ -341,7 +342,7 @@ const columnPickerConfig = {
 const mobileConfig = {
   slots: {
     label: 'full_name',
-    details: 'age;allergies',
+    details: 'age;address',
     trailingLabel: 'subscriptionPrice',
   },
   onClick: action('responsiveClick'),
@@ -446,10 +447,14 @@ export const Base = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 Base.args = baseArgs;
 
 export const InitialLoad = (args: DataGridProps<Member>) => (
-  <DataGrid {...args} data={[]} isLoading={true} />
+  <DataGrid {...args} />
 );
 
-InitialLoad.args = { ...baseArgs, isLoading: true, data: [] };
+InitialLoad.args = {
+  ...baseArgs,
+  isLoading: true,
+  data: [],
+};
 
 export const Loading = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
@@ -462,8 +467,6 @@ export const NoData = (args: DataGridProps<Member>) => <DataGrid {...args} />;
 
 NoData.args = {
   ...baseArgs,
-  mobileBreakpoint: 1280,
-  mobileConfig,
   data: [],
 };
 

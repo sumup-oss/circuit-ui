@@ -15,12 +15,14 @@ export interface SkeletonGridProps {
    */
   columns: string[];
   gridId: string;
+  isMobile?: boolean;
 }
 
 const SkeletonGridComponent = ({
   itemsPerPage,
   columns,
   gridId,
+  isMobile,
 }: SkeletonGridProps) => (
   <>
     {Array.from({ length: itemsPerPage }, (_row, rowIndex) => (
@@ -29,25 +31,46 @@ const SkeletonGridComponent = ({
         key={`${gridId}-skeleton-row-${rowIndex}`}
         className={classes.row}
       >
-        {columns.map((column, cellIndex) => (
+        {isMobile ? (
           <td
-            key={`${gridId}-skeleton-row-${rowIndex}-cell-${cellIndex}`}
-            className={clsx(classes.cell)}
+            className={clsx(isMobile ? classes['mobile-cell'] : classes.cell)}
           >
-            <div
-              style={{
-                maxWidth: `var(--${column}-col-max-width)`,
-                minWidth: `var(--${column}-col-min-width)`,
-              }}
-            >
-              <SkeletonContainer isLoading>
-                <Skeleton className={classes.skeleton}>
-                  <span className={classes.bar} />
+            <SkeletonContainer isLoading className={classes.container}>
+              <div className={classes.labels}>
+                <Skeleton className={classes.title}>
+                  <span />
                 </Skeleton>
-              </SkeletonContainer>
-            </div>
+                <Skeleton className={classes.subtitle}>
+                  <span />
+                </Skeleton>
+              </div>
+
+              <Skeleton className={classes.trailing}>
+                <span />
+              </Skeleton>
+            </SkeletonContainer>
           </td>
-        ))}
+        ) : (
+          columns.map((column, cellIndex) => (
+            <td
+              key={`${gridId}-skeleton-row-${rowIndex}-cell-${cellIndex}`}
+              className={clsx(classes.cell)}
+            >
+              <div
+                style={{
+                  maxWidth: `var(--${column}-col-max-width)`,
+                  minWidth: `var(--${column}-col-min-width)`,
+                }}
+              >
+                <SkeletonContainer isLoading>
+                  <Skeleton className={classes.skeleton}>
+                    <span className={classes.bar} />
+                  </Skeleton>
+                </SkeletonContainer>
+              </div>
+            </td>
+          ))
+        )}
       </tr>
     ))}
   </>

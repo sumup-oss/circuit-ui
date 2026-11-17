@@ -151,7 +151,7 @@ export function DataGrid<P>({
   }, [columns, columnPickerConfig?.gridId]);
 
   const isMobile = useMedia(`(max-width: ${mobileBreakpoint}px)`);
-  const isMobileView = isMobile && mobileConfig;
+  const isMobileView = isMobile && mobileConfig !== undefined;
   const { formattingLocale } = useI18n({
     formattingLocale: customFormattingLocale,
   });
@@ -402,6 +402,7 @@ export function DataGrid<P>({
             {isInitialLoadingState ? (
               <SkeletonGrid
                 gridId={gridId}
+                isMobile={isMobileView}
                 itemsPerPage={10}
                 columns={visibleColumns.map(({ id }) => id)}
               />
@@ -434,7 +435,7 @@ export function DataGrid<P>({
         {isEmptyResults && (
           <StateScreen
             isLoading={isLoading}
-            isMobile={isMobile}
+            isMobile={isMobileView}
             type="no-results"
             {...noResultsConfig}
           />

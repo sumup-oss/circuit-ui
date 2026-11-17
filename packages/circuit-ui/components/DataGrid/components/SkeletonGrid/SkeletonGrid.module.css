@@ -3,9 +3,43 @@
   background-color: var(--cui-bg-normal);
 }
 
+.mobile-cell {
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-byte);
+  background-color: var(--cui-bg-normal);
+}
+
 .bar {
   display: block;
   height: var(--cui-body-s-line-height);
+}
+
+.container {
+  display: flex;
+  padding: var(--cui-spacings-bit) 0;
+}
+
+.labels {
+  width: 100%;
+}
+
+.title,
+.subtitle,
+.trailing {
+  display: block;
+  height: var(--cui-body-m-line-height);
+}
+
+.title {
+  width: 70%;
+}
+
+.subtitle {
+  width: 50%;
+  margin-top: var(--cui-spacings-bit);
+}
+
+.trailing {
+  width: 48px;
 }
 
 .skeleton {
