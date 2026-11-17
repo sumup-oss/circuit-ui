@@ -328,11 +328,20 @@ export function DataGrid<P>({
 
   const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
 
-  if (
+  const isInitialLoadingState =
+    data.length === 0 &&
+    isLoading &&
+    !(searchQuery || Object.keys(activeFilters).length > 0);
+  const isEmptyState =
     data.length === 0 &&
     !isLoading &&
-    !(searchQuery || Object.keys(activeFilters).length > 0)
-  ) {
+    !(searchQuery || Object.keys(activeFilters).length > 0);
+  const isEmptyResults =
+    data.length === 0 &&
+    !isLoading &&
+    (searchQuery || Object.keys(activeFilters).length > 0);
+
+  if (isEmptyState) {
     return (
       <StateScreen
         isLoading={isLoading}
@@ -390,9 +399,7 @@ export function DataGrid<P>({
           {!isMobileView && <TableHeader columns={visibleColumns} />}
 
           <tbody>
-            {!(searchQuery || Object.keys(activeFilters).length > 0) &&
-            isLoading &&
-            data.length === 0 ? (
+            {isInitialLoadingState ? (
               <SkeletonGrid
                 gridId={gridId}
                 itemsPerPage={10}
@@ -424,17 +431,18 @@ export function DataGrid<P>({
             )}
           </tbody>
         </table>
-        {(searchQuery || Object.keys(activeFilters).length > 0) &&
-          data.length === 0 && (
-            <StateScreen
-              isLoading={isLoading}
-              isMobile={isMobile}
-              type="no-results"
-              {...noResultsConfig}
-            />
-          )}
+        {isEmptyResults && (
+          <StateScreen
+            isLoading={isLoading}
+            isMobile={isMobile}
+            type="no-results"
+            {...noResultsConfig}
+          />
+        )}
       </div>
-      {pagination && data.length > 0 && <Pagination {...pagination} />}
+      {!isInitialLoadingState && pagination && data.length > 0 && (
+        <Pagination {...pagination} isLoading={isLoading} />
+      )}
     </div>
   );
 }

@@ -28,9 +28,8 @@ import { clsx } from '../../styles/clsx.js';
 import { Compact, type CompactProps } from '../Compact/Compact.js';
 import { Status } from '../Status/index.js';
 import { screen, userEvent, within } from 'storybook/test';
-import { useEffect, useState } from 'react';
-import { Temporal } from 'temporal-polyfill';
 import { type Allergy, members, type Member } from './fixtures.js';
+import { useFakeMembersApi } from './fixtures.js';
 import { modes } from '../../../../.storybook/modes.js';
 
 export default {
@@ -312,153 +311,6 @@ const buildColumnsWithFilters = (): Column<Member>[] => {
   return columnsWithFilters;
 };
 
-const data: Member[] = [
-  {
-    firstName: 'Elena',
-    lastName: 'Martínez',
-    age: 30,
-    address: {
-      city: 'Madrid',
-      country: 'Spain',
-      countryCode: 'es',
-    },
-    dateOfBirth: '1996-05-21T00:00[Europe/Berlin]',
-    allergies: ['soy', 'shellfish'],
-    subscription: {
-      status: 'active',
-      startDate: '2023-01-15T00:00[Europe/Berlin]',
-      price: 39.99,
-      frequentMember: true,
-    },
-  },
-  {
-    firstName: 'Jonas',
-    lastName: 'Bergström',
-    age: 23,
-    address: {
-      city: 'Stockholm',
-      country: 'Sweden',
-      countryCode: 'se',
-    },
-    dateOfBirth: '2002-11-12T00:00[Europe/Berlin]',
-    allergies: [],
-    subscription: {
-      status: 'canceled',
-      startDate: '2022-06-01T00:00[Europe/Berlin]',
-      price: 19.99,
-      frequentMember: false,
-    },
-  },
-  {
-    firstName: 'Amira',
-    lastName: 'Benali',
-    age: 29,
-    address: {
-      city: 'Paris',
-      country: 'France',
-      countryCode: 'fr',
-    },
-    dateOfBirth: '1996-10-06T00:00[Europe/Berlin]',
-    allergies: ['shellfish', 'gluten'],
-    subscription: {
-      status: 'active',
-      startDate: '2024-03-10T00:00[Europe/Berlin]',
-      price: 39.99,
-      frequentMember: true,
-    },
-  },
-  {
-    firstName: 'Luca',
-    lastName: 'Rossi',
-    age: 22,
-    address: {
-      city: 'Milan',
-      country: 'Italy',
-      countryCode: 'it',
-    },
-    dateOfBirth: '2004-02-11T00:00[Europe/Berlin]',
-    allergies: ['nuts'],
-    subscription: {
-      status: 'active',
-      startDate: '2023-09-20T00:00[Europe/Berlin]',
-      price: 39.99,
-      frequentMember: true,
-    },
-  },
-  {
-    firstName: 'Sophie',
-    lastName: 'Dubois',
-    age: 29,
-    address: {
-      city: 'Brussels',
-      country: 'Belgium',
-      countryCode: 'be',
-    },
-    dateOfBirth: '1996-12-30T00:00[Europe/Berlin]',
-    allergies: ['dairy', 'soy', 'shellfish', 'eggs', 'gluten', 'nuts'],
-    subscription: {
-      status: 'canceled',
-      startDate: '2021-11-05T00:00[Europe/Berlin]',
-      price: 19.99,
-      frequentMember: false,
-    },
-  },
-  {
-    firstName: 'Marco',
-    lastName: 'Silva',
-    age: 24,
-    address: {
-      city: 'Lisbon',
-      country: 'Portugal',
-      countryCode: 'pt',
-    },
-    dateOfBirth: '2001-09-17T00:00[Europe/Berlin]',
-    allergies: [],
-    subscription: {
-      status: 'active',
-      startDate: '2024-01-08T00:00[Europe/Berlin]',
-      price: 19.99,
-      frequentMember: true,
-    },
-  },
-  {
-    firstName: 'Greta',
-    lastName: 'Hoffmann',
-    age: 26,
-    address: {
-      city: 'Berlin',
-      country: 'Germany',
-      countryCode: 'de',
-    },
-    dateOfBirth: '1999-12-05T00:00[Europe/Berlin]',
-    allergies: ['dairy'],
-    subscription: {
-      status: 'suspended',
-      startDate: '2022-04-12T00:00[Europe/Berlin]',
-      price: 19.99,
-      frequentMember: false,
-    },
-  },
-  {
-    firstName: 'Nikos',
-    lastName: 'Papadopoulos',
-    age: 28,
-    address: {
-      city: 'Athens',
-      country: 'Greece',
-      countryCode: 'gr',
-    },
-    dateOfBirth: '1998-04-28T00:00[Europe/Berlin]',
-    allergies: ['eggs', 'soy'],
-    subscription: {
-      status: 'active',
-      startDate: '2023-07-22T00:00[Europe/Berlin]',
-      price: 39.99,
-      frequentMember: true,
-    },
-  },
-];
-
 const openColumnPicker =
   () =>
   async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
@@ -470,7 +322,7 @@ const openColumnPicker =
     await userEvent.click(button);
     screen.getByLabelText(columnPickerConfig.triggerLabel);
   };
-const search =
+const searchFn =
   () =>
   async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
     const canvas = within(canvasElement);
@@ -478,7 +330,7 @@ const search =
       name: 'Search everywhere...',
     });
 
-    await userEvent.type(searchBar, 'X');
+    await userEvent.type(searchBar, 'XX');
   };
 
 const columnPickerConfig = {
@@ -528,6 +380,7 @@ const baseArgs: DataGridProps<Member> = {
   label: 'Gym members 2026',
   columns,
   data: members.slice(0, 10),
+  getRowId: ({ id }) => id,
   formattingLocale,
   noDataConfig: {
     title: 'No data yet',
@@ -548,140 +401,25 @@ const baseArgs: DataGridProps<Member> = {
 };
 
 export const Full = (args: DataGridProps<Member>) => {
-  const [records, setRecords] = useState<Member[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setRecords(members);
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-  function onPageChange(page: number) {
-    setCurrentPage(page);
-  }
-
-  function onItemsPerPageChange(size: number) {
-    setItemsPerPage(size);
-    setCurrentPage(1);
-  }
-
-  function filterRecords(filters: Record<string, unknown>) {
-    setIsLoading(true);
-    const entries = Object.entries(filters);
-    setTimeout(() => {
-      if (entries.length === 0) {
-        setRecords(members);
-        setIsLoading(false);
-        setCurrentPage(1);
-        return;
-      }
-
-      setRecords(
-        members.filter((member) =>
-          entries.every(([key, value]) => {
-            if (key === 'age') {
-              const { min, max } = value as { min?: number; max?: number };
-              return (
-                (min === undefined || member.age >= min) &&
-                (max === undefined || member.age <= max)
-              );
-            }
-            if (key === 'subscriptionPrice') {
-              const { min, max } = value as { min?: number; max?: number };
-              return (
-                (min === undefined || member.subscription.price >= min) &&
-                (max === undefined || member.subscription.price <= max)
-              );
-            }
-            if (key === 'dateOfBirth') {
-              const { from, to } = value as { from?: string; to?: string };
-              const birthDate = Temporal.ZonedDateTime.from(
-                member.dateOfBirth,
-              ).toPlainDate();
-              if (
-                from &&
-                Temporal.PlainDate.compare(
-                  birthDate,
-                  Temporal.PlainDate.from(from),
-                ) < 0
-              ) {
-                return false;
-              }
-              if (
-                to &&
-                Temporal.PlainDate.compare(
-                  birthDate,
-                  Temporal.PlainDate.from(to),
-                ) > 0
-              ) {
-                return false;
-              }
-              return true;
-            }
-            if (key === 'activity') {
-              return (value as string[]).includes(
-                String(member.subscription.frequentMember),
-              );
-            }
-            if (key === 'allergies') {
-              return (value as string[]).every((allergy) =>
-                member.allergies?.includes(allergy as Allergy),
-              );
-            }
-            return true;
-          }),
-        ),
-      );
-      setCurrentPage(1);
-      setIsLoading(false);
-    }, 1000);
-  }
-
-  function onSearch(searchTerm: string) {
-    setIsLoading(true);
-    setTimeout(() => {
-      if (!searchTerm) {
-        setRecords(members);
-        setIsLoading(false);
-        return;
-      }
-      setRecords(
-        data.filter(
-          ({ firstName, lastName }) =>
-            firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            lastName.toLowerCase().includes(searchTerm.toLowerCase()),
-        ),
-      );
-      setIsLoading(false);
-    });
-  }
-  console.log(records.length);
+  const { isLoading, data, pagination, search } = useFakeMembersApi();
 
   return (
     <DataGrid
       {...args}
       isLoading={isLoading}
-      data={records.slice(
-        itemsPerPage * (currentPage - 1),
-        itemsPerPage * (currentPage - 1) + itemsPerPage,
-      )}
+      data={data}
       pagination={{
-        totalPages: Math.ceil(records.length / itemsPerPage),
-        itemsPerPage,
+        totalPages: pagination.total,
+        itemsPerPage: pagination.size,
         nextPageLabel: 'Next page',
         previousPageLabel: 'Previous page',
         itemsPerPageLabel: 'Items per page',
-        currentPage,
-        onPageChange,
-        onItemsPerPageChange,
+        currentPage: pagination.currentPage,
+        onPageChange: (page) => search({ page }),
+        onItemsPerPageChange: (size) => search({ page: 1, size }),
       }}
       filtersConfig={{
-        onFilter: filterRecords,
+        onFilter: (filters, query) => search({ filters, query }),
         clearAllLabel: 'Clear all',
         applyFilterLabel: 'Apply',
         clearFilterLabel: 'Clear',
@@ -689,7 +427,7 @@ export const Full = (args: DataGridProps<Member>) => {
       searchBarConfig={{
         label: 'Search everywhere...',
         clearLabel: 'Clear',
-        onSearch,
+        onSearch: (query) => search({ query, page: 1 }),
       }}
     />
   );
@@ -730,68 +468,36 @@ NoData.args = {
 };
 
 export const NoResults = (args: DataGridProps<Member>) => {
-  const [records, setRecords] = useState(data);
+  const { isLoading, data, search } = useFakeMembersApi({ delay: 0 });
 
-  function onSearch(searchTerm: string) {
-    if (!searchTerm) {
-      setRecords(data);
-      return;
-    }
-    setRecords(
-      data.filter(
-        ({ firstName, lastName }) =>
-          firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          lastName.toLowerCase().includes(searchTerm.toLowerCase()),
-      ),
-    );
-  }
   return (
     <DataGrid
       {...args}
-      data={records}
+      data={data}
+      isLoading={isLoading}
       searchBarConfig={{
         label: 'Search everywhere...',
         clearLabel: 'Clear',
-        onSearch,
+        onSearch: (query) => search({ query }),
       }}
     />
   );
 };
 
 NoResults.args = baseArgs;
-NoResults.play = search();
+NoResults.play = searchFn();
 
 export const WithSearchBar = (args: DataGridProps<Member>) => {
-  const [records, setRecords] = useState(data);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  function onSearch(searchTerm: string) {
-    setIsLoading(true);
-    setTimeout(() => {
-      if (!searchTerm) {
-        setRecords(data);
-        setIsLoading(false);
-        return;
-      }
-      setRecords(
-        data.filter(
-          ({ firstName, lastName }) =>
-            firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            lastName.toLowerCase().includes(searchTerm.toLowerCase()),
-        ),
-      );
-      setIsLoading(false);
-    }, 1000);
-  }
+  const { isLoading, data, search } = useFakeMembersApi();
   return (
     <DataGrid
       {...args}
-      data={records}
+      data={data}
       isLoading={isLoading}
       searchBarConfig={{
         label: 'Search everywhere...',
         clearLabel: 'Clear',
-        onSearch,
+        onSearch: (query) => search({ query }),
       }}
     />
   );
@@ -800,85 +506,14 @@ export const WithSearchBar = (args: DataGridProps<Member>) => {
 WithSearchBar.args = baseArgs;
 
 export const WithFilters = (args: DataGridProps<Member>) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [records, setRecords] = useState(data);
-
-  function filterRecords(filters: Record<string, unknown>) {
-    setIsLoading(true);
-    const entries = Object.entries(filters);
-    setTimeout(() => {
-      if (entries.length === 0) {
-        setRecords(data);
-        setIsLoading(false);
-        return;
-      }
-
-      setRecords(
-        data.filter((member) =>
-          entries.every(([key, value]) => {
-            if (key === 'age') {
-              const { min, max } = value as { min?: number; max?: number };
-              return (
-                (min === undefined || member.age >= min) &&
-                (max === undefined || member.age <= max)
-              );
-            }
-            if (key === 'subscriptionPrice') {
-              const { min, max } = value as { min?: number; max?: number };
-              return (
-                (min === undefined || member.subscription.price >= min) &&
-                (max === undefined || member.subscription.price <= max)
-              );
-            }
-            if (key === 'dateOfBirth') {
-              const { from, to } = value as { from?: string; to?: string };
-              const birthDate = Temporal.ZonedDateTime.from(
-                member.dateOfBirth,
-              ).toPlainDate();
-              if (
-                from &&
-                Temporal.PlainDate.compare(
-                  birthDate,
-                  Temporal.PlainDate.from(from),
-                ) < 0
-              ) {
-                return false;
-              }
-              if (
-                to &&
-                Temporal.PlainDate.compare(
-                  birthDate,
-                  Temporal.PlainDate.from(to),
-                ) > 0
-              ) {
-                return false;
-              }
-              return true;
-            }
-            if (key === 'activity') {
-              return (value as string[]).includes(
-                String(member.subscription.frequentMember),
-              );
-            }
-            if (key === 'allergies') {
-              return (value as string[]).every((allergy) =>
-                member.allergies?.includes(allergy as Allergy),
-              );
-            }
-            return true;
-          }),
-        ),
-      );
-      setIsLoading(false);
-    }, 1000);
-  }
+  const { isLoading, data, search } = useFakeMembersApi();
   return (
     <DataGrid
       {...args}
       isLoading={isLoading}
-      data={records}
+      data={data}
       filtersConfig={{
-        onFilter: filterRecords,
+        onFilter: (filters) => search({ filters }),
         clearAllLabel: 'Clear all',
         applyFilterLabel: 'Apply',
         clearFilterLabel: 'Clear',
@@ -925,33 +560,21 @@ ResponsiveView.parameters = {
 };
 
 export const WithPagination = (args: DataGridProps<Member>) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-
-  function onPageChange(page: number) {
-    setCurrentPage(page);
-  }
-
-  function onItemsPerPageChange(page: number) {
-    setItemsPerPage(page);
-    setCurrentPage(1);
-  }
+  const { isLoading, data, pagination, search } = useFakeMembersApi();
   return (
     <DataGrid
       {...args}
-      data={members.slice(
-        itemsPerPage * (currentPage - 1),
-        itemsPerPage * (currentPage - 1) + itemsPerPage,
-      )}
+      data={data}
+      isLoading={isLoading}
       pagination={{
-        totalPages: Math.ceil(members.length / itemsPerPage),
-        itemsPerPage,
+        totalPages: pagination.total,
+        itemsPerPage: pagination.size,
         nextPageLabel: 'Next page',
         previousPageLabel: 'Previous page',
         itemsPerPageLabel: 'Items per page',
-        currentPage,
-        onPageChange,
-        onItemsPerPageChange,
+        currentPage: pagination.currentPage,
+        onPageChange: (page) => search({ page }),
+        onItemsPerPageChange: (size) => search({ page: 1, size }),
       }}
     />
   );

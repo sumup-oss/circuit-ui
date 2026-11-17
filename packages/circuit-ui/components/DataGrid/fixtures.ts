@@ -1,5 +1,186 @@
 import type { Column } from './types.js';
+import { useCallback, useEffect, useState } from 'react';
+import { Temporal } from 'temporal-polyfill';
 
+const API_DELAY_MS = 1000;
+
+export type UseFakeMembersApiOptions = {
+  initialPageSize?: number;
+  delay?: number;
+};
+
+export type FakeMembersApiResult = {
+  isLoading: boolean;
+  data: Member[];
+  pagination: {
+    total: number;
+    size: number;
+    currentPage: number;
+  };
+  search: (params: {
+    query?: string;
+    filters?: Record<string, unknown>;
+    page?: number;
+    size?: number;
+  }) => void;
+};
+
+function memberMatchesFilter(
+  member: Member,
+  key: string,
+  value: unknown,
+): boolean {
+  if (key === 'age') {
+    const { min, max } = value as { min?: number; max?: number };
+    return (
+      (min === undefined || member.age >= min) &&
+      (max === undefined || member.age <= max)
+    );
+  }
+  if (key === 'subscriptionPrice') {
+    const { min, max } = value as { min?: number; max?: number };
+    return (
+      (min === undefined || member.subscription.price >= min) &&
+      (max === undefined || member.subscription.price <= max)
+    );
+  }
+  if (key === 'dateOfBirth') {
+    const { from, to } = value as { from?: string; to?: string };
+    const birthDate = Temporal.ZonedDateTime.from(
+      member.dateOfBirth,
+    ).toPlainDate();
+    if (
+      from &&
+      Temporal.PlainDate.compare(birthDate, Temporal.PlainDate.from(from)) < 0
+    ) {
+      return false;
+    }
+    if (
+      to &&
+      Temporal.PlainDate.compare(birthDate, Temporal.PlainDate.from(to)) > 0
+    ) {
+      return false;
+    }
+    return true;
+  }
+  if (key === 'activity') {
+    return (value as string[]).includes(
+      String(member.subscription.frequentMember),
+    );
+  }
+  if (key === 'allergies') {
+    return (value as string[]).every((allergy) =>
+      member.allergies?.includes(allergy as Allergy),
+    );
+  }
+  return true;
+}
+
+function filterMembers(
+  filters: Record<string, unknown>,
+  search: string,
+): Member[] {
+  const filterEntries = Object.entries(filters);
+  let result = members;
+
+  if (search) {
+    const term = search.toLowerCase();
+    result = result.filter(
+      ({ firstName, lastName }) =>
+        firstName.toLowerCase().includes(term) ||
+        lastName.toLowerCase().includes(term),
+    );
+  }
+
+  if (filterEntries.length > 0) {
+    result = result.filter((member) =>
+      filterEntries.every(([key, value]) =>
+        memberMatchesFilter(member, key, value),
+      ),
+    );
+  }
+
+  return result;
+}
+
+export function useFakeMembersApi(
+  options: UseFakeMembersApiOptions = {},
+): FakeMembersApiResult {
+  const initialPageSize = options.initialPageSize ?? 10;
+
+  const [filters, setFilters] = useState<Record<string, unknown>>({});
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(initialPageSize);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState<Member[]>([]);
+  const [resultPagination, setResultPagination] = useState({
+    total: 1,
+    size: initialPageSize,
+    currentPage: 1,
+  });
+
+  const filtersKey = JSON.stringify(filters);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we are watching filtersKey
+  useEffect(() => {
+    setIsLoading(true);
+    const timeoutId = window.setTimeout(() => {
+      const filtered = filterMembers(filters, searchTerm);
+      const totalPages = Math.max(
+        1,
+        Math.ceil(filtered.length / pageSize) || 1,
+      );
+      const safePage = Math.min(currentPage, totalPages);
+      const start = pageSize * (safePage - 1);
+      setData(filtered.slice(start, start + pageSize));
+      setResultPagination({
+        total: totalPages,
+        size: pageSize,
+        currentPage: safePage,
+      });
+      setIsLoading(false);
+    }, options.delay ?? API_DELAY_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [filtersKey, searchTerm, currentPage, pageSize, options.delay]);
+
+  const search = useCallback(
+    ({
+      query,
+      filters: nextFilters,
+      page,
+      size,
+    }: {
+      query?: string;
+      filters?: Record<string, unknown>;
+      page?: number;
+      size?: number;
+    }) => {
+      if (query !== undefined) {
+        setSearchTerm(query);
+      }
+      if (nextFilters !== undefined) {
+        setFilters(nextFilters);
+      }
+      if (size) {
+        setPageSize(size);
+      }
+      if (page) {
+        setCurrentPage(page);
+      }
+    },
+    [],
+  );
+
+  return {
+    isLoading,
+    data,
+    pagination: resultPagination,
+    search,
+  };
+}
 export type Allergy =
   | 'eggs'
   | 'soy'
@@ -9,6 +190,7 @@ export type Allergy =
   | 'dairy';
 
 export type Member = {
+  id: string;
   firstName: string;
   lastName: string;
   dateOfBirth: string;
@@ -141,6 +323,7 @@ export const columnsWithFilters: Column<Member>[] = [
 
 export const members: Member[] = [
   {
+    id: 'mbr-0001',
     firstName: 'Elena',
     lastName: 'Martínez',
     age: 30,
@@ -159,6 +342,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0002',
     firstName: 'Jonas',
     lastName: 'Bergström',
     age: 23,
@@ -177,6 +361,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0003',
     firstName: 'Amira',
     lastName: 'Benali',
     age: 29,
@@ -195,6 +380,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0004',
     firstName: 'Luca',
     lastName: 'Rossi',
     age: 22,
@@ -213,6 +399,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0005',
     firstName: 'Sophie',
     lastName: 'Dubois',
     age: 29,
@@ -231,6 +418,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0006',
     firstName: 'Marco',
     lastName: 'Silva',
     age: 24,
@@ -249,6 +437,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0007',
     firstName: 'Greta',
     lastName: 'Hoffmann',
     age: 26,
@@ -267,6 +456,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0008',
     firstName: 'Nikos',
     lastName: 'Papadopoulos',
     age: 28,
@@ -285,6 +475,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0009',
     firstName: 'Ingrid',
     lastName: 'Nilsen',
     age: 34,
@@ -303,6 +494,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0010',
     firstName: 'Mateo',
     lastName: 'Herrera',
     age: 41,
@@ -321,6 +513,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0011',
     firstName: 'Aisha',
     lastName: 'Khan',
     age: 27,
@@ -339,6 +532,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0012',
     firstName: 'Pieter',
     lastName: 'de Vries',
     age: 45,
@@ -357,6 +551,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0013',
     firstName: 'Clara',
     lastName: 'Moreau',
     age: 31,
@@ -375,6 +570,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0014',
     firstName: 'Andreas',
     lastName: 'Keller',
     age: 38,
@@ -393,6 +589,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0015',
     firstName: 'Freya',
     lastName: 'Olsen',
     age: 21,
@@ -411,6 +608,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0016',
     firstName: 'Tomasz',
     lastName: 'Kowalski',
     age: 33,
@@ -429,6 +627,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0017',
     firstName: 'Chiara',
     lastName: 'Bianchi',
     age: 36,
@@ -447,6 +646,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0018',
     firstName: 'Liam',
     lastName: 'Murphy',
     age: 25,
@@ -465,6 +665,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0019',
     firstName: 'Helena',
     lastName: 'Novak',
     age: 42,
@@ -483,6 +684,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0020',
     firstName: 'Rafael',
     lastName: 'Costa',
     age: 29,
@@ -501,6 +703,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0021',
     firstName: 'Maja',
     lastName: 'Lindqvist',
     age: 24,
@@ -519,6 +722,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0022',
     firstName: 'Hugo',
     lastName: 'Lambert',
     age: 47,
@@ -537,6 +741,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0023',
     firstName: 'Noor',
     lastName: 'El Amrani',
     age: 32,
@@ -555,6 +760,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0024',
     firstName: 'Felix',
     lastName: 'Wagner',
     age: 39,
@@ -573,6 +779,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0025',
     firstName: 'Sofia',
     lastName: 'Petrov',
     age: 26,
@@ -591,6 +798,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0026',
     firstName: 'Elias',
     lastName: 'Virtanen',
     age: 44,
@@ -609,6 +817,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0027',
     firstName: 'Ana',
     lastName: 'Popescu',
     age: 35,
@@ -627,6 +836,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0028',
     firstName: 'Owen',
     lastName: 'Clarke',
     age: 23,
@@ -645,6 +855,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0029',
     firstName: 'Leila',
     lastName: 'Haddad',
     age: 40,
@@ -663,6 +874,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0030',
     firstName: 'Karl',
     lastName: 'Schneider',
     age: 52,
@@ -681,6 +893,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0031',
     firstName: 'Ivana',
     lastName: 'Horvat',
     age: 28,
@@ -699,6 +912,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0032',
     firstName: 'Daniel',
     lastName: 'Santos',
     age: 37,
@@ -717,6 +931,7 @@ export const members: Member[] = [
     },
   },
   {
+    id: 'mbr-0033',
     firstName: 'Eva',
     lastName: 'Jensen',
     age: 30,

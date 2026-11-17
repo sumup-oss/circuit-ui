@@ -35,7 +35,8 @@ export function Pagination({
   onItemsPerPageChange,
   totalPages,
   options,
-}: PaginationConfig) {
+  isLoading,
+}: PaginationConfig & { isLoading?: boolean }) {
   const { of } = useTranslations({}, translations);
   const isMobile = useMedia('(max-width: 767px)', true);
   const isValueInOptions = (options ?? DEFAULT_OPTIONS).some(
@@ -72,6 +73,7 @@ export function Pagination({
         <Select
           label={itemsPerPageLabel}
           size="s"
+          disabled={isLoading}
           hideLabel
           onChange={onChange}
           options={options ?? DEFAULT_OPTIONS}
@@ -91,7 +93,7 @@ export function Pagination({
         </Body>
         <IconButton
           className={classes.previous}
-          disabled={currentPage === 1}
+          disabled={currentPage === 1 || isLoading}
           onClick={onPreviousPageClick}
           icon={ChevronLeft}
           size="s"
@@ -100,7 +102,7 @@ export function Pagination({
         </IconButton>
         <IconButton
           className={classes.next}
-          disabled={currentPage === totalPages}
+          disabled={currentPage === totalPages || isLoading}
           onClick={onNextPageClick}
           icon={ChevronRight}
           size="s"
