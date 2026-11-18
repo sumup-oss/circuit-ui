@@ -185,13 +185,9 @@ export type Column<P> = {
    */
   type: ColumnType<P>;
   /**
-   * The maximum column width
+   * Sets a fixed width to the column, expressed in pixels
    */
-  maxWidth?: number;
-  /**
-   * The minimum column width
-   */
-  minWidth?: number;
+  width?: number;
   /**
    * Custom function to retrieve the value for the cell from the data object.
    * if a render function is provided, `getValue()` will not be used.

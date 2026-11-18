@@ -294,20 +294,14 @@ export function DataGrid<P>({
   }, [handleKeyboardEvent, handleClickEvent]);
 
   useEffect(() => {
-    columns.forEach(({ maxWidth, minWidth, id, type }) => {
+    columns.forEach(({ width, id, type }) => {
       if (type.name === 'row-actions' || type.name === 'quick-actions') {
         return;
       }
-      if (maxWidth) {
+      if (width) {
         internalRef.current?.style.setProperty(
-          `--${id}-col-max-width`,
-          `${maxWidth}px`,
-        );
-      }
-      if (minWidth) {
-        internalRef.current?.style.setProperty(
-          `--${id}-col-min-width`,
-          `${minWidth}px`,
+          `--${id}-col-width`,
+          `${width}px`,
         );
       }
     });
@@ -414,7 +408,7 @@ export function DataGrid<P>({
               <SkeletonGrid
                 gridId={gridId}
                 isMobile={isMobileView}
-                itemsPerPage={10}
+                itemsPerPage={pagination?.itemsPerPage ?? 10}
                 columns={visibleColumns.map(({ id, type: { name } }) => ({
                   id,
                   type: name,

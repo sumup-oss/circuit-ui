@@ -182,6 +182,7 @@ const ToolbarComponent = <P,>({
         {searchLabel && onSearch && (
           <SearchInput
             label={searchLabel}
+            disabled={!searchQuery && isLoading}
             hideLabel
             placeholder={searchLabel}
             size="s"

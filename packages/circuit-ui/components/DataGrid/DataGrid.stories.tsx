@@ -150,7 +150,7 @@ const columns: Column<Member>[] = [
   },
   {
     id: 'allergies',
-    maxWidth: 300,
+    width: 300,
     type: {
       name: 'multiSelection',
       options: [

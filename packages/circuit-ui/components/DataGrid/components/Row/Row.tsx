@@ -22,7 +22,7 @@ const RowComponent = <P,>({
   ...props
 }: RowProps<P>) => (
   <tr className={clsx(classes.base, className)} {...props}>
-    {columns.map(({ id, type, getValue, isRowHeader, maxWidth }, index) => {
+    {columns.map(({ id, type, getValue, isRowHeader, width }, index) => {
       const value = getValue
         ? getValue?.(data)
         : (data[id as keyof P] as BasicType);
@@ -36,11 +36,10 @@ const RowComponent = <P,>({
           as={isRowHeader ? 'th' : 'td'}
           role={isRowHeader ? 'rowheader' : 'gridcell'}
           style={{
-            maxWidth: `var(--${id}-col-max-width)`,
-            minWidth: `var(--${id}-col-min-width)`,
+            width: `var(--${id}-col-width)`,
           }}
           className={clsx(
-            maxWidth ? classes.overflow : undefined,
+            width ? classes.overflow : undefined,
             type.name === 'row-actions' && classes['align-right'],
           )}
         >

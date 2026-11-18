@@ -18,7 +18,7 @@ function TableHeaderComponent<P>({ columns, ...rest }: TableHeaderProps<P>) {
             key={`${id}-col}`}
             span={1}
             style={{
-              width: `var(--${id}-col-max-width)`,
+              width: `var(--${id}-col-width)`,
             }}
           />
         ))}
@@ -37,8 +37,7 @@ function TableHeaderComponent<P>({ columns, ...rest }: TableHeaderProps<P>) {
                 type.name === 'quick-actions' && classes['align-right'],
               )}
               style={{
-                maxWidth: `var(--${id}-col-max-width)`,
-                minWidth: `var(--${id}-col-min-width)`,
+                width: `var(--${id}-col-width)`,
               }}
             >
               <Body

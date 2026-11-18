@@ -57,6 +57,10 @@
   border-radius: var(--cui-border-radius-circle);
 }
 
+.quick-actions {
+  display: flex;
+}
+
 .circle {
   width: var(--cui-body-s-line-height);
   height: var(--cui-body-s-line-height);

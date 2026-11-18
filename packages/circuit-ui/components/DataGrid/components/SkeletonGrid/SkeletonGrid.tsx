@@ -55,12 +55,11 @@ const SkeletonGridComponent = ({
             <td
               key={`${gridId}-skeleton-row-${rowIndex}-cell-${cellIndex}`}
               className={clsx(classes.cell)}
+              style={{
+                width: `var(--${id}-col-width)`,
+              }}
             >
               <div
-                style={{
-                  maxWidth: `var(--${id}-col-max-width)`,
-                  minWidth: `var(--${id}-col-min-width)`,
-                }}
                 className={clsx(
                   (type === 'row-actions' || type === 'quick-actions') &&
                     classes['align-right'],
@@ -68,7 +67,7 @@ const SkeletonGridComponent = ({
               >
                 <SkeletonContainer isLoading>
                   {type === 'quick-actions' ? (
-                    <>
+                    <div className={classes['quick-actions']}>
                       <Skeleton className={clsx(classes.circle)}>
                         <span />
                       </Skeleton>
@@ -78,7 +77,7 @@ const SkeletonGridComponent = ({
                       <Skeleton className={clsx(classes.circle)}>
                         <span />
                       </Skeleton>
-                    </>
+                    </div>
                   ) : (
                     <Skeleton
                       className={clsx(
