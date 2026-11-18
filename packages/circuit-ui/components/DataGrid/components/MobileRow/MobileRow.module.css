@@ -3,6 +3,14 @@
   background-color: var(--cui-bg-normal);
 }
 
+.base td:hover {
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.base td:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
 .base .cell {
   display: flex;
   align-items: flex-start;
@@ -12,6 +20,7 @@
 .base .item {
   padding: 0;
   margin: var(--cui-spacings-bit) 0;
+  background-color: inherit;
   border: none;
   border-radius: unset;
 }
