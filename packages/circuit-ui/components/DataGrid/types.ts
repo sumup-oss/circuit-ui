@@ -7,66 +7,71 @@ import type { FilterValues } from './components/Toolbar/components/Filters/Filte
 import type { ButtonProps } from '../Button/index.js';
 import type { IllustrationProps } from '@sumup-oss/illustrations';
 
-export interface WithColumnPicker {
-  columnPickerConfig?: {
-    /**
-     * A unique identifier to the grid
-     * used to save the visibility settings in the session storage
-     */
-    gridId: string;
-    /**
-     * Label for the column picker trigger button
-     */
-    triggerLabel: string;
-    /**
-     * Label for the column selection popover
-     */
-    pickerLabel: string;
-  };
+export type ColumnPickerConfig = {
+  /**
+   * A unique identifier to the grid
+   * used to save the visibility settings in the session storage
+   */
+  gridId: string;
+  /**
+   * Label for the column picker trigger button
+   */
+  triggerLabel: string;
+  /**
+   * Label for the column selection popover
+   */
+  pickerLabel: string;
 }
+export interface WithColumnPicker {
+  columnPickerConfig?: ColumnPickerConfig;
+}
+
+export type FiltersConfig =  {
+  /**
+   * Callback fired when one of the filters changes
+   * with an object containing the currently active filters.
+   * If the grid is configured with a search bar, a second parameter
+   * will contain the current search query.
+   */
+  onFilter: (value: FilterValues, query?: string) => void;
+  /**
+   * A Label for the action of applying a given filter
+   */
+  applyFilterLabel: string;
+  /**
+   * A Label for the action of clearing a given filter
+   */
+  clearFilterLabel: string;
+  /**
+   * A label for the action of clearing all filters
+   */
+  clearAllLabel: string;
+};
 
 export interface WithFilters {
-  filtersConfig?: {
-    /**
-     * Callback fired when one of the filters changes
-     * with an object containing the currently active filters.
-     * If the grid is configured with a search bar, a second parameter
-     * will contain the current search query.
-     */
-    onFilter: (value: FilterValues, query?: string) => void;
-    /**
-     * A Label for the action of applying a given filter
-     */
-    applyFilterLabel: string;
-    /**
-     * A Label for the action of clearing a given filter
-     */
-    clearFilterLabel: string;
-    /**
-     * A label for the action of clearing all filters
-     */
-    clearAllLabel: string;
-  };
+  filtersConfig?: FiltersConfig
 }
 
+export type SearchBarConfig = {
+  /**
+   * Label for the search bar
+   */
+  label: string;
+  /**
+   * A callback fired when the main search bar query changes.
+   * If the grid has active filters, they will be reset when
+   * the search query changes or is cleared.
+   */
+  onSearch: (query: string) => void;
+  /**
+   * Visually hidden text label on the clear button for screen readers.
+   * Crucial for accessibility.
+   */
+  clearLabel: string;
+};
+
 export interface WithSearchBar {
-  searchBarConfig?: {
-    /**
-     * Label for the search bar
-     */
-    label: string;
-    /**
-     * A callback fired when the main search bar query changes.
-     * If the grid has active filters, they will be reset when
-     * the search query changes or is cleared.
-     */
-    onSearch: (query: string) => void;
-    /**
-     * Visually hidden text label on the clear button for screen readers.
-     * Crucial for accessibility.
-     */
-    clearLabel: string;
-  };
+  searchBarConfig?: SearchBarConfig
 }
 
 export interface PaginationConfig {
@@ -127,7 +132,15 @@ export type StateScreenConfig =
        * A short description to help users
        */
       description?: string;
+      /**
+       * An optional action to perform
+       * when users encounter this screen
+       */
       action?: ButtonProps;
+      /**
+       * Choose one of the illustrations from https://circuit.sumup.com/?path=/docs/features-illustrations--docs
+       * @default `empty-state-1` for empty state, `empty-state-3` for empty search results
+       */
       illustration?: IllustrationProps['name'];
       customScreen?: never;
     }

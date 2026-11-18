@@ -36,6 +36,7 @@ import type {
   WithNoResultsConfig,
   WithSearchBar,
   WithPagination,
+  FiltersConfig,
 } from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import type { Locale } from '../../util/i18n.js';
@@ -184,9 +185,7 @@ export function DataGrid<P>({
     [debouncedOnSearch],
   );
 
-  const onActiveFiltersChange: NonNullable<
-    WithFilters['filtersConfig']
-  >['onFilter'] = useCallback(
+  const onActiveFiltersChange: FiltersConfig['onFilter'] = useCallback(
     (...args) => {
       const [filters] = args;
       setActiveFilters(filters);

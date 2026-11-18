@@ -3,11 +3,11 @@ import { Popover } from '../../../../../Popover/Popover.js';
 import { WeekView } from '@sumup-oss/icons';
 import classes from './ColumnPicker.module.css';
 import { CheckboxGroup } from '../../../../../CheckboxGroup/index.js';
-import type { Column, WithColumnPicker } from '../../../../types.js';
+import type { Column, ColumnPickerConfig } from '../../../../types.js';
 import { TriggerButton } from '../TriggerButton/TriggerButton.js';
 
 export interface ColumnPickerProps<P>
-  extends Omit<NonNullable<WithColumnPicker['columnPickerConfig']>, 'gridId'> {
+  extends Omit<ColumnPickerConfig, 'gridId'> {
   onChange: (value: string[]) => void;
   columns: Column<P>[];
   visibleColumns: Column<P>[];

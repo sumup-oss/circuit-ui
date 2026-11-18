@@ -26,4 +26,9 @@ export type {
   Column,
   ColumnType,
   MobileConfig,
+  PaginationConfig,
+  StateScreenConfig,
+  ColumnPickerConfig,
+  FiltersConfig,
+  SearchBarConfig
 } from './components/DataGrid/types.js';
