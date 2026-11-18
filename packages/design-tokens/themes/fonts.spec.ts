@@ -23,9 +23,10 @@ const UNICODE_RANGE = /^U\+[0-9A-F?]{1,6}(-[0-9A-F]{1,6})?$/i;
 describe('fonts', () => {
   describe('sumup', () => {
     it.each(
-      sumup
-        .filter((fontFace) => fontFace['unicode-range'])
-        .map((fontFace) => [fontFace.src, fontFace['unicode-range']]),
+      sumup.flatMap((fontFace) => {
+        const range = fontFace['unicode-range'];
+        return range ? [[fontFace.src, range] as const] : [];
+      }),
     )('should declare a valid unicode range for %s', (_src, unicodeRange) => {
       const invalid = unicodeRange
         .split(',')
