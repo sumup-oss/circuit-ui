@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.7.0
+
+### Minor Changes
+
+- [#4024](https://github.com/sumup-oss/circuit-ui/pull/4024) [`597222b`](https://github.com/sumup-oss/circuit-ui/commit/597222b30c64520cff6553047d7911d8a1d01282) Thanks [@missating](https://github.com/missating)! - Added a new experimental FileInput component based on the native input[type="file"] element with a default dropzone and compact button variants.
+
 ## 12.6.0
 
 ### Minor Changes

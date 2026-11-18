@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 7.4.0
+
+### Minor Changes
+
+- [#4024](https://github.com/sumup-oss/circuit-ui/pull/4024) [`597222b`](https://github.com/sumup-oss/circuit-ui/commit/597222b30c64520cff6553047d7911d8a1d01282) Thanks [@missating](https://github.com/missating)! - Added `csv_file`, `file_spreadsheet` and `pdf_file` icons all in size 24.
+
 ## 7.3.0
 
 ### Minor Changes
