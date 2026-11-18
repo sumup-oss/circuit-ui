@@ -48,6 +48,7 @@ Each entry in `columns` describes one column. The grid reads a value from each r
 | `type`         | How the value is interpreted and formatted. See [column types](#column-types).                                                                 |
 | `getValue`     | Reads a nested or computed value from the row. Used when the value does not live at `row[id]`.                                                 |
 | `isRowHeader`  | Renders the cell as the row header (`th` with the `rowheader` role). Set this on the column that identifies the row, usually the first column. |
+| `width`        | Fixes the width of the column to the given value, expressed in pixels                                                                          |
 | `filter`       | Shows a filter for this column. See [filtering](#filtering).                                                                                   |
 | `filterConfig` | Field labels for a number or date filter.                                                                                                      |
 
@@ -411,7 +412,12 @@ Use `onPageChange` and `onItemsPerPageChange` to respond to navigation events an
     currentPage: 1,
     onPageChange: updateCurrentPage,
     onItemsPerPageChange: updateItemsPerPage,
-    options: [{label: "10", value: 10}, {label: "20", value: 20}, {label: "50", value: 50}, {label: "100", value: 100}],
+    options: [
+      { label: "10", value: 10 },
+      { label: "20", value: 20 },
+      { label: "50", value: 50 },
+      { label: "100", value: 100 },
+    ],
   }}
 />
 ```
@@ -481,6 +487,87 @@ When present, `mobileConfig.menu` will render a list of actions as a trailing me
   }}
 />
 ```
+
+### Customization
+
+Use `isLoading`, `noDataConfig`, and `noResultsConfig` to cover loading, empty data, and empty search results.
+
+`noDataConfig` and `noResultsConfig` are required, you can provide either a structured screen or a `customScreen`.
+
+| Field              | Description                                                                                                                                                       |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title` (required) | Heading of a structured screen. Required.                                                                                                                         |
+| `description`      | Supporting text under the heading.                                                                                                                                |
+| `illustration`     | Illustration name from the [Illustration](Features/Illustrations/Docs) library. Empty data defaults to `empty-state-1`. Empty results default to `empty-state-3`. |
+| `action`           | A [Button](Components/Button/Docs) rendered under the text.                                                                                                       |
+| `customScreen`     | Custom content in place of the structured screen. Pass it as the only field.                                                                                      |
+
+#### Empty data
+
+When loading has finished, `data` is empty, and there is no search query or active filter, the grid renders `noDataConfig`.
+Only the state screen is rendered, so put the primary next step on `action`, such as creating the first record.
+
+```tsx
+<DataGrid
+  label="Gym members"
+  columns={columns}
+  data={members}
+  noDataConfig={{
+    title: "No members yet",
+    description: "New members will appear here.",
+    action: {
+      children: "Add a member",
+      onClick: addMember,
+    },
+  }}
+  noResultsConfig={{
+    title: "No results",
+    description: "Try a different search or clear the filters.",
+  }}
+/>
+```
+
+Pass `customScreen` as the only field to supply your own content:
+
+```tsx
+noDataConfig={{
+  customScreen: <EmptyMembers onAdd={addMember} />,
+}}
+```
+
+<Story of={Stories.NoData} />
+
+#### Empty search results
+
+When users search for data using the search bar or the filters, and there are no results to be displayed, the grid renders `noResultsConfig` in the table body.
+The toolbar stays available, so the user can edit the search or clear the filters.
+`noResultsConfig` uses the same shape as `noDataConfig`.
+
+```tsx
+noResultsConfig={{
+  title: "No results",
+  description: "Try a different search or clear the filters.",
+  action: {
+    children: "Contact support",
+    variant: "tertiary",
+    onClick: openSupportChat,
+  }
+}}
+```
+
+#### Loading
+
+Set `isLoading` while a request is in flight.
+The grid exposes `aria-busy` and is inert for the duration of the request, so cells cannot be focused or activated.
+Filters, pagination and the search field are disabled.
+
+On the first load, when `data` is empty and there is no search query or active filter, the body shows skeleton rows that follow the column layout.
+
+<Story of={Stories.InitialLoad} />
+
+When `data` already contains rows, those rows stay on screen under a translucent overlay until the request finishes.
+
+<Story of={Stories.Loading} />
 
 ## Accessibility
 
