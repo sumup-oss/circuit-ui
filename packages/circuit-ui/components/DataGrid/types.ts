@@ -2,8 +2,8 @@ import type { ActionMenuItemProps } from '../ActionMenu/index.js';
 import type { ReactNode } from 'react';
 import type { CustomAction } from './components/DefaultComponents/QuickActions/QuickActions.js';
 import type { ClickEvent } from '../../types/events.js';
-import type { FilterLabels } from './components/FilterBar/components/Filters/Filter/types.js';
-import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
+import type { FilterLabels } from './components/Toolbar/components/Filters/Filter/types.js';
+import type { FilterValues } from './components/Toolbar/components/Filters/FilterSheet/index.js';
 import type { ButtonProps } from '../Button/index.js';
 import type { IllustrationProps } from '@sumup-oss/illustrations';
 

@@ -238,8 +238,8 @@ describe('DataGrid', () => {
     });
   });
 
-  describe('FilterBar', () => {
-    it('should not render the FilterBar when no config is provided', () => {
+  describe('Toolbar', () => {
+    it('should not render the Toolbar when no config is provided', () => {
       render(<DataGrid {...defaultProps} />);
       expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
     });
@@ -253,7 +253,7 @@ describe('DataGrid', () => {
         sessionStorage.clear();
       });
 
-      it('should render the FilterBar when columnPickerConfig is provided', () => {
+      it('should render the Toolbar when columnPickerConfig is provided', () => {
         render(
           <DataGrid
             {...defaultProps}
@@ -410,7 +410,7 @@ describe('DataGrid', () => {
       });
     });
     describe('Filters', () => {
-      it('should not render the FilterBar when filtersConfig is omitted', () => {
+      it('should not render the Toolbar when filtersConfig is omitted', () => {
         render(
           <DataGrid
             {...defaultProps}
@@ -419,7 +419,7 @@ describe('DataGrid', () => {
         );
         expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
       });
-      it('should render the FilterBar when at least one column has filtering', () => {
+      it('should render the Toolbar when at least one column has filtering', () => {
         render(
           <DataGrid
             {...defaultProps}

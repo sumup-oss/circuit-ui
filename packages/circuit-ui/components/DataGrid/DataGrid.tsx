@@ -41,9 +41,9 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import type { Locale } from '../../util/i18n.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { utilClasses } from '../../styles/utility.js';
-import { FilterBar } from './components/FilterBar/FilterBar.js';
+import { Toolbar } from './components/Toolbar/Toolbar.js';
 import { debounce } from '../../util/helpers.js';
-import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
+import type { FilterValues } from './components/Toolbar/components/Filters/FilterSheet/index.js';
 import { Pagination } from './components/Pagination/Pagination.js';
 import { StateScreen } from './components/StateScreen/StateScreen.js';
 import { SkeletonGrid } from './components/SkeletonGrid/SkeletonGrid.js';
@@ -326,7 +326,7 @@ export function DataGrid<P>({
     [columns, columnPickerConfig?.gridId],
   );
 
-  const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
+  const showToolbar = filtersConfig || searchBarConfig || columnPickerConfig;
 
   const isInitialLoadingState =
     data.length === 0 &&
@@ -359,8 +359,8 @@ export function DataGrid<P>({
         isMobileView && classes['mobile-wrapper'],
       )}
     >
-      {showFilterBar && (
-        <FilterBar
+      {showToolbar && (
+        <Toolbar
           isLoading={isLoading}
           searchBarConfig={
             searchBarConfig

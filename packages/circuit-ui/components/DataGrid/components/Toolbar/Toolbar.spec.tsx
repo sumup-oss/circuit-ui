@@ -9,7 +9,7 @@ import {
 } from '../../../../util/test-utils.js';
 
 import { columns, columnsWithFilters, type Member } from '../../fixtures.js';
-import { FilterBar, type FilterBarProps } from './FilterBar.js';
+import { Toolbar, type ToolbarProps } from './Toolbar.js';
 
 /**
  * `userEvent` turns the act() environment off while it dispatches events, then
@@ -57,9 +57,9 @@ const defaultProps = {
   onVisibleColumnChange,
   searchQuery: '',
   activeFilters: {},
-} satisfies FilterBarProps<Member>;
+} satisfies ToolbarProps<Member>;
 
-describe('FilterBar', () => {
+describe('Toolbar', () => {
   const onFilter = vi.fn();
   const filtersConfig = {
     onFilter,
@@ -71,12 +71,12 @@ describe('FilterBar', () => {
     vi.clearAllMocks();
   });
 
-  function renderFilterBar(props: Partial<FilterBarProps<Member>> = {}) {
-    return render(<FilterBar {...defaultProps} {...props} />);
+  function renderToolbar(props: Partial<ToolbarProps<Member>> = {}) {
+    return render(<Toolbar {...defaultProps} {...props} />);
   }
 
   it('should render the search field, filter button, and column picker', async () => {
-    renderFilterBar({ searchBarConfig, columnPickerConfig });
+    renderToolbar({ searchBarConfig, columnPickerConfig });
 
     expect(screen.getByRole('searchbox', { name: 'Search' })).toBeVisible();
     expect(
@@ -88,15 +88,15 @@ describe('FilterBar', () => {
 
   describe('Filters', () => {
     it('should not show any filter if no visible column has filtering option', async () => {
-      renderFilterBar({ columns: columns.slice(0, 3) });
+      renderToolbar({ columns: columns.slice(0, 3) });
       expect(screen.queryAllByRole('button').length).toBe(0);
     });
     it('should not show any filter if filters prop is not provided', async () => {
-      renderFilterBar({ columns: columnsWithFilters });
+      renderToolbar({ columns: columnsWithFilters });
       expect(screen.queryAllByRole('button').length).toBe(0);
     });
     it('should render filter', async () => {
-      renderFilterBar({ columns: columnsWithFilters, filtersConfig });
+      renderToolbar({ columns: columnsWithFilters, filtersConfig });
       expect(
         screen.getByRole('button', { name: columnsWithFilters[1].label }),
       ).toBeVisible();
@@ -108,7 +108,7 @@ describe('FilterBar', () => {
       ).toBeVisible();
     });
     it('should call onFilter when a filter value changes', async () => {
-      renderFilterBar({ columns: columnsWithFilters, filtersConfig });
+      renderToolbar({ columns: columnsWithFilters, filtersConfig });
       await click(
         screen.getByRole('button', { name: columnsWithFilters[2].label }),
       );
@@ -121,7 +121,7 @@ describe('FilterBar', () => {
       await settle();
     });
     it('should call onFilter when a filter is cleared', async () => {
-      renderFilterBar({
+      renderToolbar({
         columns: columnsWithFilters,
         filtersConfig,
         activeFilters: {
@@ -140,7 +140,7 @@ describe('FilterBar', () => {
       await settle();
     });
     it("should call onFilter when 'Clear all' button is clicked", async () => {
-      renderFilterBar({
+      renderToolbar({
         columns: columnsWithFilters,
         filtersConfig,
         activeFilters: {
@@ -160,7 +160,7 @@ describe('FilterBar', () => {
     describe('With search', () => {
       const searchQuery = 'foo';
       it('should call onFilter with current search term when a filter value changes', async () => {
-        renderFilterBar({
+        renderToolbar({
           columns: columnsWithFilters,
           filtersConfig,
           searchQuery,
@@ -181,7 +181,7 @@ describe('FilterBar', () => {
         await settle();
       });
       it('should call onFilter with current search term when a filter is cleared', async () => {
-        renderFilterBar({
+        renderToolbar({
           columns: columnsWithFilters,
           filtersConfig,
           activeFilters: {
@@ -202,7 +202,7 @@ describe('FilterBar', () => {
         await settle();
       });
       it("should call onFilter with current search term when 'Clear all' button is clicked", async () => {
-        renderFilterBar({
+        renderToolbar({
           columns: columnsWithFilters,
           filtersConfig,
           activeFilters: {
@@ -224,7 +224,7 @@ describe('FilterBar', () => {
     });
     describe('On mobile', () => {
       it('should render with active filters', async () => {
-        renderFilterBar({
+        renderToolbar({
           columns: columnsWithFilters,
           isMobile: true,
           filtersConfig,
@@ -238,7 +238,7 @@ describe('FilterBar', () => {
         await settle();
       });
       it('should render filters in a modal on mobile', async () => {
-        renderFilterBar({
+        renderToolbar({
           columns: columnsWithFilters,
           isMobile: true,
           filtersConfig,
@@ -257,7 +257,7 @@ describe('FilterBar', () => {
       });
       it('should apply a filter, call onFilter and close the modal', async () => {
         vi.useFakeTimers({ shouldAdvanceTime: true });
-        renderFilterBar({
+        renderToolbar({
           columns: columnsWithFilters,
           isMobile: true,
           filtersConfig,
@@ -291,14 +291,14 @@ describe('FilterBar', () => {
 
   describe('Search', () => {
     it('should not show the search bar when search config is missing', () => {
-      renderFilterBar();
+      renderToolbar();
       expect(
         screen.queryByRole('searchbox', { name: 'Search' }),
       ).not.toBeInTheDocument();
     });
 
     it('should call onSearch', async () => {
-      renderFilterBar({ searchBarConfig });
+      renderToolbar({ searchBarConfig });
 
       await userEvent.type(
         screen.getByRole('searchbox', { name: 'Search' }),
@@ -308,7 +308,7 @@ describe('FilterBar', () => {
     });
 
     it('should clearSearch', async () => {
-      renderFilterBar({
+      renderToolbar({
         searchBarConfig: { ...searchBarConfig, clearLabel: 'Clear' },
         searchQuery: 'foo',
       });
@@ -318,7 +318,7 @@ describe('FilterBar', () => {
       await settle();
     });
     it('should reset active filters when user types a search term', async () => {
-      renderFilterBar({
+      renderToolbar({
         searchBarConfig,
         columns: columnsWithFilters,
         filtersConfig,
@@ -335,7 +335,7 @@ describe('FilterBar', () => {
       expect(filtersConfig.onFilter).toHaveBeenCalledExactlyOnceWith({}, 'j');
     });
     it('should reset active filters when the search field is cleared', async () => {
-      renderFilterBar({
+      renderToolbar({
         searchQuery: 'foo',
         searchBarConfig,
         columns: columnsWithFilters,
@@ -356,19 +356,19 @@ describe('FilterBar', () => {
 
   describe('Visible Columns', () => {
     it('should not show the column picker when config is missing', () => {
-      renderFilterBar();
+      renderToolbar();
       expect(
         screen.queryByRole('button', { name: columnPickerConfig.triggerLabel }),
       ).not.toBeInTheDocument();
     });
     it('should not show the column picker in responsive view', () => {
-      renderFilterBar({ columnPickerConfig, isMobile: true });
+      renderToolbar({ columnPickerConfig, isMobile: true });
       expect(
         screen.queryByRole('button', { name: columnPickerConfig.triggerLabel }),
       ).not.toBeInTheDocument();
     });
     it('should forward visible column changes from the column picker', async () => {
-      renderFilterBar({ columnPickerConfig });
+      renderToolbar({ columnPickerConfig });
 
       await click(
         screen.getByRole('button', { name: columnPickerConfig.triggerLabel }),
@@ -384,7 +384,7 @@ describe('FilterBar', () => {
   });
 
   it('should meet accessibility guidelines', async () => {
-    const { container } = renderFilterBar();
+    const { container } = renderToolbar();
 
     await act(async () => {
       const actual = await axe(container);

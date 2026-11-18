@@ -1,5 +1,5 @@
 import { memo, useCallback, useId, useState, type ChangeEvent } from 'react';
-import classes from './FilterBar.module.css';
+import classes from './Toolbar.module.css';
 import { SearchInput } from '../../../SearchInput/index.js';
 import { ColumnPicker } from './components/ColumnPicker/ColumnPicker.js';
 import type {
@@ -22,7 +22,7 @@ import {
   type FilterValues,
 } from './components/Filters/FilterSheet/index.js';
 
-export interface FilterBarProps<P>
+export interface ToolbarProps<P>
   extends WithColumnPicker,
     WithSearchBar,
     WithFilters {
@@ -35,7 +35,7 @@ export interface FilterBarProps<P>
   isLoading?: boolean;
 }
 
-const FilterBarComponent = <P,>({
+const ToolbarComponent = <P,>({
   onVisibleColumnChange,
   columns,
   isMobile,
@@ -46,7 +46,7 @@ const FilterBarComponent = <P,>({
   activeFilters,
   filtersConfig,
   isLoading,
-}: FilterBarProps<P>) => {
+}: ToolbarProps<P>) => {
   const filterCountId = useId();
   const { label: searchLabel, onSearch, clearLabel } = searchBarConfig ?? {};
   const [open, setOpen] = useState(false);
@@ -182,7 +182,6 @@ const FilterBarComponent = <P,>({
         {searchLabel && onSearch && (
           <SearchInput
             label={searchLabel}
-            disabled={isLoading}
             hideLabel
             placeholder={searchLabel}
             size="s"
@@ -206,4 +205,4 @@ const FilterBarComponent = <P,>({
   );
 };
 
-export const FilterBar = memo(FilterBarComponent) as typeof FilterBarComponent;
+export const Toolbar = memo(ToolbarComponent) as typeof ToolbarComponent;
