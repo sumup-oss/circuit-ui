@@ -30,5 +30,5 @@ export type {
   StateScreenConfig,
   ColumnPickerConfig,
   FiltersConfig,
-  SearchBarConfig
+  SearchBarConfig,
 } from './components/DataGrid/types.js';

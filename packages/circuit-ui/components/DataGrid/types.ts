@@ -21,12 +21,12 @@ export type ColumnPickerConfig = {
    * Label for the column selection popover
    */
   pickerLabel: string;
-}
+};
 export interface WithColumnPicker {
   columnPickerConfig?: ColumnPickerConfig;
 }
 
-export type FiltersConfig =  {
+export type FiltersConfig = {
   /**
    * Callback fired when one of the filters changes
    * with an object containing the currently active filters.
@@ -49,7 +49,7 @@ export type FiltersConfig =  {
 };
 
 export interface WithFilters {
-  filtersConfig?: FiltersConfig
+  filtersConfig?: FiltersConfig;
 }
 
 export type SearchBarConfig = {
@@ -71,7 +71,7 @@ export type SearchBarConfig = {
 };
 
 export interface WithSearchBar {
-  searchBarConfig?: SearchBarConfig
+  searchBarConfig?: SearchBarConfig;
 }
 
 export interface PaginationConfig {
