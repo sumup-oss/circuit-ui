@@ -642,38 +642,19 @@ WithFilters.args = {
   columns: buildColumnsWithFilters(),
 };
 
+const sortableColumnIds = [
+  'full_name',
+  'dateOfBirth',
+  'age',
+  'subscriptionPrice',
+];
+
 const buildColumnsWithSorting = (): Column<Member>[] =>
-  columns.map((column) => {
-    switch (column.id) {
-      case 'full_name':
-        return {
-          ...column,
-          sortable: true,
-          sortLabels: { ascending: 'A to Z', descending: 'Z to A' },
-        };
-      case 'dateOfBirth':
-        return {
-          ...column,
-          sortable: true,
-          sortLabels: {
-            ascending: 'Earliest to latest',
-            descending: 'Latest to earliest',
-          },
-        };
-      case 'age':
-      case 'subscriptionPrice':
-        return {
-          ...column,
-          sortable: true,
-          sortLabels: {
-            ascending: 'Lowest to highest',
-            descending: 'Highest to lowest',
-          },
-        };
-      default:
-        return column;
-    }
-  });
+  columns.map((column) =>
+    sortableColumnIds.includes(column.id)
+      ? { ...column, sortable: true }
+      : column,
+  );
 
 const compareMembers = (a: Member, b: Member, columnId: string) => {
   switch (columnId) {
@@ -718,6 +699,7 @@ export const WithSorting = (args: DataGridProps<Member>) => {
         description: 'Choose how you want to see your members',
         parametersLabel: 'Parameters',
         orderLabel: 'Order',
+        sortLabels: { ascending: 'Ascending', descending: 'Descending' },
         applyLabel: 'Apply',
         clearLabel: 'Clear',
       }}

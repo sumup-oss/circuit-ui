@@ -197,6 +197,7 @@ const FilterBarComponent = <P,>({
               description={sortConfig.description}
               parametersLabel={sortConfig.parametersLabel}
               orderLabel={sortConfig.orderLabel}
+              sortLabels={sortConfig.sortLabels}
               applyLabel={sortConfig.applyLabel}
               clearLabel={sortConfig.clearLabel}
             />

@@ -82,7 +82,7 @@ describe('TableHeader', () => {
       columns[1],
     ];
 
-    it('should render a sort button for sortable columns only', () => {
+    it('should make sortable columns sortable without a nested button', () => {
       renderTableHeader(
         <TableHeader
           {...defaultProps}
@@ -91,16 +91,23 @@ describe('TableHeader', () => {
         />,
       );
 
-      expect(screen.getAllByRole('button')).toHaveLength(1);
-      expect(screen.getByRole('button', { name: 'Name' })).toBeVisible();
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+      expect(
+        screen.getByRole('columnheader', { name: 'Name' }),
+      ).toHaveAttribute('aria-sort', 'none');
+      expect(
+        screen.getByRole('columnheader', { name: 'Age' }),
+      ).not.toHaveAttribute('aria-sort');
     });
 
-    it('should not render a sort button without onSortChange', () => {
+    it('should not be sortable without onSortChange', () => {
       renderTableHeader(
         <TableHeader {...defaultProps} columns={sortableColumns} />,
       );
 
-      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+      expect(
+        screen.getByRole('columnheader', { name: 'Name' }),
+      ).not.toHaveAttribute('aria-sort');
     });
 
     it('should mark only the sorted column with aria-sort', () => {
@@ -121,7 +128,7 @@ describe('TableHeader', () => {
       ).not.toHaveAttribute('aria-sort');
     });
 
-    it('should call onSortChange with the next sorting when clicking the button', async () => {
+    it('should call onSortChange with the next sorting when clicking the header', async () => {
       const onSortChange = vi.fn();
       renderTableHeader(
         <TableHeader
@@ -132,12 +139,50 @@ describe('TableHeader', () => {
         />,
       );
 
-      await userEvent.click(screen.getByRole('button', { name: 'Name' }));
+      await userEvent.click(screen.getByRole('columnheader', { name: 'Name' }));
 
       expect(onSortChange).toHaveBeenCalledWith({
         columnId: 'name',
         direction: 'descending',
       });
+    });
+
+    it.each([
+      '{Enter}',
+      ' ',
+    ])('should call onSortChange when pressing %j on the focused header', async (key) => {
+      const onSortChange = vi.fn();
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          onSortChange={onSortChange}
+        />,
+      );
+
+      screen.getByRole('columnheader', { name: 'Name' }).focus();
+      await userEvent.keyboard(key);
+
+      expect(onSortChange).toHaveBeenCalledWith({
+        columnId: 'name',
+        direction: 'ascending',
+      });
+    });
+
+    it('should not call onSortChange for other keys', async () => {
+      const onSortChange = vi.fn();
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          onSortChange={onSortChange}
+        />,
+      );
+
+      screen.getByRole('columnheader', { name: 'Name' }).focus();
+      await userEvent.keyboard('a');
+
+      expect(onSortChange).not.toHaveBeenCalled();
     });
 
     it('should meet accessibility guidelines', async () => {

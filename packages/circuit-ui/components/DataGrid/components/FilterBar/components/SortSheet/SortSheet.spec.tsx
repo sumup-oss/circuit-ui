@@ -24,10 +24,6 @@ import {
 
 import { SortSheet, type SortSheetProps } from './SortSheet.js';
 
-declare const process: {
-  env: { NODE_ENV: string };
-};
-
 describe('SortSheet', () => {
   const baseProps = {
     open: true,
@@ -35,6 +31,7 @@ describe('SortSheet', () => {
     description: 'Choose how you want to see your members',
     parametersLabel: 'Parameters',
     orderLabel: 'Order',
+    sortLabels: { ascending: 'Ascending', descending: 'Descending' },
     applyLabel: 'Apply',
     clearLabel: 'Clear',
     onClose: vi.fn(),
@@ -44,14 +41,12 @@ describe('SortSheet', () => {
         id: 'name',
         label: 'Name',
         sortable: true,
-        sortLabels: { ascending: 'A to Z', descending: 'Z to A' },
         type: { name: 'text' },
       },
       {
         id: 'joined',
         label: 'Joined',
         sortable: true,
-        sortLabels: { ascending: 'Earliest', descending: 'Latest' },
         type: { name: 'text' },
       },
       { id: 'notes', label: 'Notes', type: { name: 'text' } },
@@ -85,14 +80,14 @@ describe('SortSheet', () => {
     expect(screen.queryByRole('radiogroup', { name: 'Order' })).toBeNull();
   });
 
-  it('should show the order labels of the chosen column in ascending order', async () => {
+  it('should show the order in ascending order once a column is chosen', async () => {
     render(<SortSheet {...baseProps} />);
 
     await userEvent.click(screen.getByRole('radio', { name: 'Joined' }));
 
     expect(screen.getByRole('radiogroup', { name: 'Order' })).toBeVisible();
-    expect(screen.getByRole('radio', { name: 'Earliest' })).toBeChecked();
-    expect(screen.getByRole('radio', { name: 'Latest' })).not.toBeChecked();
+    expect(screen.getByRole('radio', { name: 'Ascending' })).toBeChecked();
+    expect(screen.getByRole('radio', { name: 'Descending' })).not.toBeChecked();
   });
 
   it('should start from the applied sorting', () => {
@@ -104,14 +99,14 @@ describe('SortSheet', () => {
     );
 
     expect(screen.getByRole('radio', { name: 'Name' })).toBeChecked();
-    expect(screen.getByRole('radio', { name: 'Z to A' })).toBeChecked();
+    expect(screen.getByRole('radio', { name: 'Descending' })).toBeChecked();
   });
 
   it('should apply the chosen sorting and close', async () => {
     render(<SortSheet {...baseProps} />);
 
     await userEvent.click(screen.getByRole('radio', { name: 'Name' }));
-    await userEvent.click(screen.getByRole('radio', { name: 'Z to A' }));
+    await userEvent.click(screen.getByRole('radio', { name: 'Descending' }));
     await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
 
     expect(baseProps.onApply).toHaveBeenCalledTimes(1);
@@ -126,7 +121,7 @@ describe('SortSheet', () => {
     render(<SortSheet {...baseProps} />);
 
     await userEvent.click(screen.getByRole('radio', { name: 'Name' }));
-    await userEvent.click(screen.getByRole('radio', { name: 'Z to A' }));
+    await userEvent.click(screen.getByRole('radio', { name: 'Descending' }));
     await userEvent.click(screen.getByRole('radio', { name: 'Joined' }));
     await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
 
@@ -152,28 +147,6 @@ describe('SortSheet', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
 
     expect(baseProps.onApply).toHaveBeenCalledWith(undefined);
-  });
-
-  it('should throw an error for a sortable column without sort labels', () => {
-    process.env.NODE_ENV = 'development';
-
-    expect(() =>
-      render(
-        <SortSheet
-          {...baseProps}
-          columns={[
-            {
-              id: 'name',
-              label: 'Name',
-              sortable: true,
-              type: { name: 'text' },
-            },
-          ]}
-        />,
-      ),
-    ).toThrow('The "sortLabels" of the sortable column "name" are missing.');
-
-    process.env.NODE_ENV = 'test';
   });
 
   it('should meet accessibility guidelines', async () => {

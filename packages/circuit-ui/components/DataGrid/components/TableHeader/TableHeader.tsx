@@ -1,9 +1,10 @@
-import { Sort } from '@sumup-oss/icons';
+import { ArrowDown, ArrowUp, Sort } from '@sumup-oss/icons';
 import { Cell } from '../Cell/Cell.js';
 import { Body } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
-import { memo, type HTMLAttributes } from 'react';
+import { memo, type HTMLAttributes, type KeyboardEvent } from 'react';
+import { isEnter, isSpacebar } from '../../../../util/key-codes.js';
 import type { Column, SortValue } from '../../types.js';
 import { getNextSort } from './TableHeaderService.js';
 import classes from './TableHeader.module.css';
@@ -24,6 +25,8 @@ export type TableHeaderProps<P> = Omit<
   onSortChange?: (sort?: SortValue) => void;
 };
 
+const SORT_ICONS = { ascending: ArrowUp, descending: ArrowDown };
+
 function TableHeaderComponent<P>({
   columns,
   sort,
@@ -36,6 +39,19 @@ function TableHeaderComponent<P>({
         {columns.map(({ label, id, type, sortable }, index) => {
           const isSortable = Boolean(sortable && onSortChange);
           const direction = sort?.columnId === id ? sort.direction : undefined;
+          const SortIcon = direction ? SORT_ICONS[direction] : Sort;
+          const handleSort = () => onSortChange?.(getNextSort(id, sort));
+          const sortProps = isSortable
+            ? {
+                onClick: handleSort,
+                onKeyDown: (event: KeyboardEvent<HTMLTableCellElement>) => {
+                  if (isEnter(event) || isSpacebar(event)) {
+                    event.preventDefault();
+                    handleSort();
+                  }
+                },
+              }
+            : undefined;
           const title = (
             <Body
               as="span"
@@ -60,7 +76,7 @@ function TableHeaderComponent<P>({
               data-x={index}
               data-y={0}
               tabIndex={index === 0 ? 0 : -1}
-              aria-sort={direction}
+              aria-sort={isSortable ? (direction ?? 'none') : undefined}
               className={clsx(
                 classes.cell,
                 type.name === 'quick-actions' && classes['align-right'],
@@ -71,23 +87,17 @@ function TableHeaderComponent<P>({
                 maxWidth: `var(--${id}-col-max-width)`,
                 minWidth: `var(--${id}-col-min-width)`,
               }}
+              {...sortProps}
             >
               {isSortable ? (
-                <button
-                  type="button"
-                  className={clsx(
-                    classes['sort-button'],
-                    utilClasses.focusVisible,
-                  )}
-                  onClick={() => onSortChange?.(getNextSort(id, sort))}
-                >
+                <div className={classes['sort-content']}>
                   {title}
-                  <Sort
+                  <SortIcon
                     aria-hidden="true"
                     size="16"
                     className={classes['sort-icon']}
                   />
-                </button>
+                </div>
               ) : (
                 title
               )}

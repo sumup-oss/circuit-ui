@@ -88,6 +88,11 @@ export interface WithSorting {
      */
     orderLabel: string;
     /**
+     * Labels for the sort directions in the sort sheet, such as "Ascending"
+     * and "Descending"
+     */
+    sortLabels: SortLabels;
+    /**
      * Label for the button that applies the sorting
      */
     applyLabel: string;
@@ -216,12 +221,6 @@ export type Column<P> = {
    * Requires `sortConfig` on the grid.
    */
   sortable?: boolean;
-  /**
-   * Labels describing the sort directions of this column in the
-   * responsive view, such as "A to Z" and "Z to A" for names.
-   * Required for sortable columns.
-   */
-  sortLabels?: SortLabels;
   isRowHeader?: boolean;
 };
 

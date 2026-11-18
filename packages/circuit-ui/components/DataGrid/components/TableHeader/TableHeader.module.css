@@ -27,9 +27,9 @@
   border-top-right-radius: var(--cui-border-radius-mega);
 }
 
-/* The sort button fills the cell so the whole header is clickable. */
 .base .sortable {
-  padding: 0;
+  cursor: pointer;
+  user-select: none;
 }
 
 .base .sortable:hover,
@@ -37,22 +37,13 @@
   background-color: var(--cui-bg-normal-hovered);
 }
 
-.sort-button {
+.sort-content {
   display: flex;
   gap: var(--cui-spacings-bit);
   align-items: center;
-  width: 100%;
-  min-height: 48px;
-  padding: var(--cui-spacings-kilo);
-  font: inherit;
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
-  background: none;
-  border: none;
 }
 
-.sort-button .title {
+.sort-content .title {
   min-width: 0;
 }
 

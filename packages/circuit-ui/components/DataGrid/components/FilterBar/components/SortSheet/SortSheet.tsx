@@ -24,7 +24,6 @@ import { Modal } from '../../../../../Modal/index.js';
 import { RadioButtonGroup } from '../../../../../RadioButtonGroup/index.js';
 import { clsx } from '../../../../../../styles/clsx.js';
 import { useLatest } from '../../../../../../hooks/useLatest/index.js';
-import { CircuitError } from '../../../../../../util/errors.js';
 import type {
   Column,
   SortDirection,
@@ -43,6 +42,7 @@ export interface SortSheetProps<P>
     | 'description'
     | 'parametersLabel'
     | 'orderLabel'
+    | 'sortLabels'
     | 'applyLabel'
     | 'clearLabel'
   > {
@@ -85,6 +85,7 @@ export function SortSheet<P>({
   description,
   parametersLabel,
   orderLabel,
+  sortLabels,
   applyLabel,
   clearLabel,
 }: SortSheetProps<P>) {
@@ -101,23 +102,6 @@ export function SortSheet<P>({
   }
 
   const sortableColumns = columns.filter(({ sortable }) => sortable);
-
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test'
-  ) {
-    const column = sortableColumns.find(({ sortLabels }) => !sortLabels);
-    if (column) {
-      throw new CircuitError(
-        'DataGrid SortSheet',
-        `The "sortLabels" of the sortable column "${column.id}" are missing.`,
-      );
-    }
-  }
-
-  const selectedLabels = sortableColumns.find(
-    ({ id }) => id === draft?.columnId,
-  )?.sortLabels;
 
   const handleColumnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setDraft({
@@ -177,7 +161,7 @@ export function SortSheet<P>({
             }))}
           />
         </div>
-        {selectedLabels && (
+        {draft && (
           <div className={clsx(classes.section, classes.order)}>
             <RadioButtonGroup
               label={orderLabel}
@@ -185,7 +169,7 @@ export function SortSheet<P>({
               onChange={handleDirectionChange}
               options={(['ascending', 'descending'] as const).map(
                 (direction) => ({
-                  label: selectedLabels[direction],
+                  label: sortLabels[direction],
                   value: direction,
                   checked: draft?.direction === direction,
                   className: classes.option,

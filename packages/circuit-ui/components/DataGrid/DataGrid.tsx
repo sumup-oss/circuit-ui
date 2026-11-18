@@ -3,6 +3,7 @@
 import {
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   type HTMLAttributes,
   useId,
@@ -327,19 +328,33 @@ export function DataGrid<P>({
     [columns, columnPickerConfig?.gridId],
   );
 
-  const hasFilters = Boolean(
-    filtersConfig && visibleColumns.some((column) => getFilterKind(column)),
+  const filterBarFiltersConfig = useMemo(
+    () =>
+      filtersConfig && visibleColumns.some((column) => getFilterKind(column))
+        ? { ...filtersConfig, onFilter: onActiveFiltersChange }
+        : undefined,
+    [filtersConfig, visibleColumns, onActiveFiltersChange],
   );
 
-  const hasSorting = Boolean(
-    sortConfig && columns.some(({ sortable }) => sortable),
+  const filterBarSortConfig = useMemo(
+    () =>
+      sortConfig && columns.some(({ sortable }) => sortable)
+        ? { ...sortConfig, onSort: onSortChange }
+        : undefined,
+    [sortConfig, columns, onSortChange],
   );
+
+  const sortedColumn = sort && columns.find(({ id }) => id === sort.columnId);
+  const sortAnnouncement =
+    sortConfig && sort && sortedColumn
+      ? `${sortConfig.title}: ${sortedColumn.label}, ${sortConfig.sortLabels[sort.direction]}`
+      : '';
 
   const showFilterBar =
-    hasFilters ||
+    filterBarFiltersConfig ||
     searchBarConfig ||
     columnPickerConfig ||
-    (isMobile && hasSorting);
+    (isMobile && filterBarSortConfig);
 
   return (
     <div
@@ -360,18 +375,10 @@ export function DataGrid<P>({
           visibleColumns={visibleColumns}
           isMobile={isMobile}
           activeFilters={activeFilters}
-          filtersConfig={
-            filtersConfig && hasFilters
-              ? { ...filtersConfig, onFilter: onActiveFiltersChange }
-              : undefined
-          }
+          filtersConfig={filterBarFiltersConfig}
           searchQuery={searchQuery}
           columnPickerConfig={columnPickerConfig}
-          sortConfig={
-            sortConfig && hasSorting
-              ? { ...sortConfig, onSort: onSortChange }
-              : undefined
-          }
+          sortConfig={filterBarSortConfig}
           sort={sort}
         />
       )}
@@ -420,6 +427,13 @@ export function DataGrid<P>({
       </div>
 
       {pagination && data.length > 0 && <Pagination {...pagination} />}
+      <div
+        role="status"
+        aria-live="polite"
+        className={utilClasses.hideVisually}
+      >
+        {sortAnnouncement}
+      </div>
     </div>
   );
 }

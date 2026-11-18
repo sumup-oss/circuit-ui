@@ -390,13 +390,13 @@ describe('FilterBar', () => {
       title: 'Sort by',
       parametersLabel: 'Parameters',
       orderLabel: 'Order',
+      sortLabels: { ascending: 'Ascending', descending: 'Descending' },
       applyLabel: 'Apply',
       clearLabel: 'Clear',
     };
     const sortableColumns = columns.map((column) => ({
       ...column,
       sortable: column.id === 'age',
-      sortLabels: { ascending: 'Lowest', descending: 'Highest' },
     }));
 
     it('should not render the sort button on desktop', () => {
@@ -422,7 +422,7 @@ describe('FilterBar', () => {
 
       await click(screen.getByRole('button', { name: 'Sort by' }));
       await click(screen.getByRole('radio', { name: age.label }));
-      await click(screen.getByRole('radio', { name: 'Highest' }));
+      await click(screen.getByRole('radio', { name: 'Descending' }));
       await click(screen.getByRole('button', { name: 'Apply' }));
 
       expect(onSort).toHaveBeenCalledExactlyOnceWith({

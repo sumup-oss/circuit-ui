@@ -457,21 +457,21 @@ describe('DataGrid', () => {
       title: 'Sort by',
       parametersLabel: 'Parameters',
       orderLabel: 'Order',
+      sortLabels: { ascending: 'Ascending', descending: 'Descending' },
       applyLabel: 'Apply',
       clearLabel: 'Clear',
     };
     const sortableColumns = columns.map((column) => ({
       ...column,
       sortable: column.id === 'age',
-      sortLabels: { ascending: 'Lowest', descending: 'Highest' },
     }));
 
-    it('should not render sort buttons without a sort config', () => {
+    it('should not make headers sortable without a sort config', () => {
       render(<DataGrid {...defaultProps} columns={sortableColumns} />);
 
       expect(
-        screen.queryByRole('button', { name: 'Age' }),
-      ).not.toBeInTheDocument();
+        screen.getByRole('columnheader', { name: 'Age' }),
+      ).not.toHaveAttribute('aria-sort');
     });
 
     it('should not render the FilterBar on narrow viewports when no column is sortable', () => {
@@ -498,8 +498,8 @@ describe('DataGrid', () => {
       );
 
       expect(
-        screen.queryByRole('button', { name: 'Age' }),
-      ).not.toBeInTheDocument();
+        screen.getByRole('columnheader', { name: 'Age' }),
+      ).not.toHaveAttribute('aria-sort');
       expect(screen.getByRole('button', { name: 'Sort by' })).toBeVisible();
     });
 
@@ -512,34 +512,56 @@ describe('DataGrid', () => {
         />,
       );
       const header = screen.getByRole('columnheader', { name: 'Age' });
-      const button = screen.getByRole('button', { name: 'Age' });
 
-      expect(header).not.toHaveAttribute('aria-sort');
+      expect(header).toHaveAttribute('aria-sort', 'none');
 
-      await userEvent.click(button);
+      await userEvent.click(header);
       expect(onSort).toHaveBeenLastCalledWith({
         columnId: 'age',
         direction: 'ascending',
       });
       expect(header).toHaveAttribute('aria-sort', 'ascending');
 
-      await userEvent.click(button);
+      await userEvent.click(header);
       expect(onSort).toHaveBeenLastCalledWith({
         columnId: 'age',
         direction: 'descending',
       });
       expect(header).toHaveAttribute('aria-sort', 'descending');
 
-      await userEvent.click(button);
+      await userEvent.click(header);
       expect(onSort).toHaveBeenLastCalledWith(undefined);
-      expect(header).not.toHaveAttribute('aria-sort');
+      expect(header).toHaveAttribute('aria-sort', 'none');
 
-      await userEvent.click(button);
+      await userEvent.click(header);
       expect(onSort).toHaveBeenLastCalledWith({
         columnId: 'age',
         direction: 'ascending',
       });
       expect(header).toHaveAttribute('aria-sort', 'ascending');
+    });
+
+    it('should announce the current sorting', async () => {
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={sortableColumns}
+          sortConfig={sortConfig}
+        />,
+      );
+      const status = screen.getByRole('status');
+      const header = screen.getByRole('columnheader', { name: 'Age' });
+
+      expect(status).toBeEmptyDOMElement();
+
+      await userEvent.click(header);
+      expect(status).toHaveTextContent('Sort by: Age, Ascending');
+
+      await userEvent.click(header);
+      expect(status).toHaveTextContent('Sort by: Age, Descending');
+
+      await userEvent.click(header);
+      expect(status).toBeEmptyDOMElement();
     });
 
     it('should render the data in the order it is provided', async () => {
@@ -552,7 +574,7 @@ describe('DataGrid', () => {
       );
       const before = screen.getAllByRole('row').map((row) => row.textContent);
 
-      await userEvent.click(screen.getByRole('button', { name: 'Age' }));
+      await userEvent.click(screen.getByRole('columnheader', { name: 'Age' }));
 
       expect(screen.getAllByRole('row').map((row) => row.textContent)).toEqual(
         before,

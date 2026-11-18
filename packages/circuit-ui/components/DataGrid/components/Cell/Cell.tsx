@@ -20,11 +20,13 @@ export const Cell = memo(
     const ref = useRef<HTMLTableCellElement>(null);
 
     useEffect(() => {
-      const focusableElements = getAllFocusableElements(ref.current);
-      focusableElements.forEach((element) => {
-        element.setAttribute('tabindex', '-1');
+      const tabIndex = ref.current?.contains(document.activeElement)
+        ? '0'
+        : '-1';
+      getAllFocusableElements(ref.current).forEach((element) => {
+        element.setAttribute('tabindex', tabIndex);
       });
-    }, []);
+    });
 
     const onCellFocused = useCallback(() => {
       const focusableElements = getAllFocusableElements(ref.current);
