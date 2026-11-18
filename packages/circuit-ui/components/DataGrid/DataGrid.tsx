@@ -404,7 +404,10 @@ export function DataGrid<P>({
                 gridId={gridId}
                 isMobile={isMobileView}
                 itemsPerPage={10}
-                columns={visibleColumns.map(({ id }) => id)}
+                columns={visibleColumns.map(({ id, type: { name } }) => ({
+                  id,
+                  type: name,
+                }))}
               />
             ) : (
               data.map((value, index) =>

@@ -6,7 +6,12 @@ import { SkeletonGrid, type SkeletonGridProps } from './SkeletonGrid.js';
 
 const defaultProps = {
   itemsPerPage: 3,
-  columns: ['name', 'age', 'dateOfBirth', 'allergies'],
+  columns: [
+    { id: 'name', type: 'text' },
+    { id: 'age', type: 'text' },
+    { id: 'dateOfBirth', type: 'text' },
+    { id: 'allergies', type: 'text' },
+  ],
   gridId: 'foo',
 } satisfies SkeletonGridProps;
 

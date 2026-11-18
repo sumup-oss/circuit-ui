@@ -8,11 +8,6 @@
   background-color: var(--cui-bg-normal);
 }
 
-.bar {
-  display: block;
-  height: var(--cui-body-s-line-height);
-}
-
 .container {
   display: flex;
   padding: var(--cui-spacings-bit) 0;
@@ -42,8 +37,8 @@
   width: 48px;
 }
 
-.skeleton {
-  width: 100%;
+.bar {
+  width: 80%;
   height: var(--cui-body-s-line-height);
 }
 
@@ -53,4 +48,22 @@
 
 .row:last-of-type .cell:last-of-type {
   border-bottom-right-radius: var(--cui-border-radius-mega);
+}
+
+.row-actions {
+  float: right;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--cui-border-radius-circle);
+}
+
+.circle {
+  width: var(--cui-body-s-line-height);
+  height: var(--cui-body-s-line-height);
+  margin-left: var(--cui-spacings-byte);
+  border-radius: var(--cui-border-radius-circle);
+}
+
+.align-right {
+  float: right;
 }

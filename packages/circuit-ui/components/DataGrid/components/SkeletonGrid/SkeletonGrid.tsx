@@ -13,7 +13,7 @@ export interface SkeletonGridProps {
   /**
    * The number of skeleton columns to render.
    */
-  columns: string[];
+  columns: { id: string; type: string }[];
   gridId: string;
   isMobile?: boolean;
 }
@@ -51,21 +51,43 @@ const SkeletonGridComponent = ({
             </SkeletonContainer>
           </td>
         ) : (
-          columns.map((column, cellIndex) => (
+          columns.map(({ id, type }, cellIndex) => (
             <td
               key={`${gridId}-skeleton-row-${rowIndex}-cell-${cellIndex}`}
               className={clsx(classes.cell)}
             >
               <div
                 style={{
-                  maxWidth: `var(--${column}-col-max-width)`,
-                  minWidth: `var(--${column}-col-min-width)`,
+                  maxWidth: `var(--${id}-col-max-width)`,
+                  minWidth: `var(--${id}-col-min-width)`,
                 }}
+                className={clsx(
+                  (type === 'row-actions' || type === 'quick-actions') &&
+                    classes['align-right'],
+                )}
               >
                 <SkeletonContainer isLoading>
-                  <Skeleton className={classes.skeleton}>
-                    <span className={classes.bar} />
-                  </Skeleton>
+                  {type === 'quick-actions' ? (
+                    <>
+                      <Skeleton className={clsx(classes.circle)}>
+                        <span />
+                      </Skeleton>
+                      <Skeleton className={clsx(classes.circle)}>
+                        <span />
+                      </Skeleton>
+                      <Skeleton className={clsx(classes.circle)}>
+                        <span />
+                      </Skeleton>
+                    </>
+                  ) : (
+                    <Skeleton
+                      className={clsx(
+                        type === 'row-actions' ? classes.circle : classes.bar,
+                      )}
+                    >
+                      <span />
+                    </Skeleton>
+                  )}
                 </SkeletonContainer>
               </div>
             </td>
