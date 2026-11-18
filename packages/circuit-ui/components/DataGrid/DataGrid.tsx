@@ -398,6 +398,18 @@ export function DataGrid<P>({
           {!isMobileView && <TableHeader columns={visibleColumns} />}
 
           <tbody>
+            {isEmptyResults && (
+              <tr>
+                <td colSpan={visibleColumns.length}>
+                  <StateScreen
+                    isLoading={isLoading}
+                    isMobile={isMobileView}
+                    type="no-results"
+                    {...noResultsConfig}
+                  />
+                </td>
+              </tr>
+            )}
             {isInitialLoadingState ? (
               <SkeletonGrid
                 gridId={gridId}
@@ -434,14 +446,6 @@ export function DataGrid<P>({
             )}
           </tbody>
         </table>
-        {isEmptyResults && (
-          <StateScreen
-            isLoading={isLoading}
-            isMobile={isMobileView}
-            type="no-results"
-            {...noResultsConfig}
-          />
-        )}
       </div>
       {!isInitialLoadingState && pagination && data.length > 0 && (
         <Pagination {...pagination} isLoading={isLoading} />
