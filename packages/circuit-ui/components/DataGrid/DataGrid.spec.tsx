@@ -168,16 +168,19 @@ describe('DataGrid', () => {
         screen.getByRole('button', { name: noDataConfig.action.children }),
       ).toBeVisible();
     });
-    it('should show the no data state when loading', () => {
-      render(<DataGrid {...defaultProps} data={[]} isLoading={true} />);
-      expect(screen.getByRole('grid', { name: 'Members' })).toBeVisible();
-      expect(screen.queryByText(noDataConfig.title)).not.toBeInTheDocument();
+
+    it('should show a custom no data screen when no data is present', () => {
+      render(
+        <DataGrid
+          {...defaultProps}
+          data={[]}
+          noDataConfig={{ customScreen: <p>No data</p> }}
+        />,
+      );
       expect(
-        screen.queryByText(noDataConfig.description),
+        screen.queryByRole('grid', { name: 'Members' }),
       ).not.toBeInTheDocument();
-      expect(
-        screen.queryByRole('button', { name: noDataConfig.action.children }),
-      ).not.toBeInTheDocument();
+      expect(screen.getByText('No data')).toBeVisible();
     });
 
     it('should show the no results state when no results are found', async () => {
@@ -185,7 +188,9 @@ describe('DataGrid', () => {
         <DataGrid {...defaultProps} searchBarConfig={searchConfig} />,
       );
       changeSearch('ja');
-      rerender(<DataGrid {...defaultProps} data={[]} />);
+      rerender(
+        <DataGrid {...defaultProps} searchBarConfig={searchConfig} data={[]} />,
+      );
       vi.runAllTimers();
       expect(screen.getByText(noResultsConfig.title)).toBeVisible();
       expect(screen.getByText(noResultsConfig.description)).toBeVisible();
@@ -193,6 +198,22 @@ describe('DataGrid', () => {
         screen.getByRole('button', { name: noResultsConfig.action.children }),
       ).toBeVisible();
       expect(screen.getByRole('grid', { name: 'Members' })).toBeVisible();
+    });
+
+    it('should show a custom no results screen when no data is present', async () => {
+      const { rerender } = render(
+        <DataGrid
+          {...defaultProps}
+          searchBarConfig={searchConfig}
+          noResultsConfig={{ customScreen: <p>No results</p> }}
+        />,
+      );
+      changeSearch('ja');
+      rerender(<DataGrid {...defaultProps} data={[]} />);
+      vi.runAllTimers();
+      expect(screen.getByRole('grid', { name: 'Members' })).toBeVisible();
+
+      expect(screen.getByText('No results')).toBeVisible();
     });
   });
 
@@ -824,6 +845,22 @@ describe('DataGrid', () => {
       expect(screen.getByText('Jonas Bergström')).toBeVisible();
       expect(screen.getByText('30')).toBeVisible();
       expect(screen.getByText('€39.99')).toBeVisible();
+    });
+
+    it('should initially load with skeletons', () => {
+      render(
+        <DataGrid
+          {...defaultProps}
+          mobileConfig={mobileConfig}
+          data={[]}
+          isLoading
+        />,
+      );
+      const grid = screen.getByRole('grid', { name: 'Members' });
+      expect(grid).toBeVisible();
+      expect(grid).toHaveAttribute('aria-busy', 'true');
+      expect(screen.getAllByRole('row').length).toBe(10);
+      expect(screen.getAllByTestId('skeleton-row').length).toBe(10);
     });
 
     it('should keep the full table view  when no mobile config is provided', () => {

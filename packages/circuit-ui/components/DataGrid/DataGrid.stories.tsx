@@ -538,9 +538,11 @@ VisibleColumns.args = { ...baseArgs, columnPickerConfig };
 
 VisibleColumns.play = openColumnPicker();
 
-export const ResponsiveView = (args: DataGridProps<Member>) => (
-  <DataGrid {...args} />
-);
+export const ResponsiveView = (args: DataGridProps<Member>) => {
+  const { isLoading, data } = useFakeMembersApi();
+
+  return <DataGrid {...args} isLoading={isLoading} data={data} />;
+};
 ResponsiveView.args = { ...baseArgs, mobileBreakpoint: 4098, mobileConfig };
 ResponsiveView.parameters = {
   chromatic: {
