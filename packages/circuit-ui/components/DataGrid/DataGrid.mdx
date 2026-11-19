@@ -424,9 +424,11 @@ In responsive mode, the page size selector is omitted and `itemsPerPage` will be
 
 Mark a column as `sortable` and pass a `sortConfig` to enable sorting. The grid renders the data in the order it is provided and does not sort it itself. Use `onSort` to sort and update `data` accordingly.
 
-Sortable columns show a sort icon when users hover over the header. Clicking the header cycles through ascending order, descending order and no sorting. `onSort` receives `{ columnId, direction }`, with `direction` being either `"ascending"` or `"descending"`, or `undefined` when the sorting is cleared, which renders the data in its original order. The grid also announces the current sorting to assistive technology, such as "Sort by: Name, Ascending", using the `title` and `sortLabels` of the `sortConfig`.
+Sortable columns show a sort icon when users hover over the header. Clicking the header cycles through ascending order, descending order and no sorting. `onSort` receives `{ columnId, direction }`, with `direction` being either `"ascending"` or `"descending"`, or `undefined` when the sorting is cleared, which renders the data in its original order.
 
-In the responsive view, sort options are displayed in a modal sheet, accessible from the toolbar above the grid. Describe the sort directions with `sortLabels` in the `sortConfig`, such as "Ascending" and "Descending". They apply to every sortable column.
+Describe the sort directions with `sortLabels` in the `sortConfig`, such as "Ascending" and "Descending". They apply to every sortable column.
+
+In the responsive view (a `mobileConfig` at widths up to `mobileBreakpoint`), the column headers are not rendered. Sort options are displayed in a modal sheet instead, accessible from the toolbar above the grid. Provide its labels with `mobileConfig.sort`. Without a `mobileConfig`, the table keeps its headers and scrolls horizontally on narrow screens, so users keep sorting from the headers.
 
 ```tsx
 <DataGrid
@@ -442,12 +444,17 @@ In the responsive view, sort options are displayed in a modal sheet, accessible 
   sortConfig={{
     onSort: sortData,
     title: "Sort by",
-    description: "Choose how you want to see your members",
-    parametersLabel: "Parameters",
-    orderLabel: "Order",
     sortLabels: { ascending: "Ascending", descending: "Descending" },
-    applyLabel: "Apply",
-    clearLabel: "Clear",
+  }}
+  mobileConfig={{
+    slots: { label: "name" },
+    sort: {
+      description: "Choose how you want to see your members",
+      parametersLabel: "Parameters",
+      orderLabel: "Order",
+      applyLabel: "Apply",
+      clearLabel: "Clear",
+    },
   }}
 />
 ```
@@ -544,6 +551,10 @@ One cell is in the tab sequence at a time. The first column header is the initia
 Clicking a cell moves focus to that cell. Clicking a control inside a cell leaves focus on that control.
 
 Interactive elements inside a cell (buttons, links, inputs) stay out of the tab sequence until their cell is focused. They return to that state when the cell loses focus, so arrow-key navigation remains on the cells.
+
+#### Sorting
+
+The grid announces the current sorting to assistive technology, such as "Sort by: Name, Ascending", using the `title` and `sortLabels` of the `sortConfig`.
 
 #### Labeling interactive cell content
 

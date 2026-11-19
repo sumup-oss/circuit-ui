@@ -696,12 +696,7 @@ export const WithSorting = (args: DataGridProps<Member>) => {
       sortConfig={{
         onSort: sortRecords,
         title: 'Sort by',
-        description: 'Choose how you want to see your members',
-        parametersLabel: 'Parameters',
-        orderLabel: 'Order',
         sortLabels: { ascending: 'Ascending', descending: 'Descending' },
-        applyLabel: 'Apply',
-        clearLabel: 'Clear',
       }}
     />
   );
@@ -710,6 +705,16 @@ export const WithSorting = (args: DataGridProps<Member>) => {
 WithSorting.args = {
   ...baseArgs,
   columns: buildColumnsWithSorting(),
+  mobileConfig: {
+    ...mobileConfig,
+    sort: {
+      description: 'Choose how you want to see your members',
+      parametersLabel: 'Parameters',
+      orderLabel: 'Order',
+      applyLabel: 'Apply',
+      clearLabel: 'Clear',
+    },
+  },
 };
 
 export const VisibleColumns = (args: DataGridProps<Member>) => (

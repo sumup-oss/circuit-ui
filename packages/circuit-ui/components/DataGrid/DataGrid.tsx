@@ -45,6 +45,7 @@ import { utilClasses } from '../../styles/utility.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
 import { getFilterKind } from './components/FilterBar/components/Filters/Filter/FilterService.js';
 import { debounce } from '../../util/helpers.js';
+import { CircuitError } from '../../util/errors.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 import { Pagination } from './components/Pagination/Pagination.js';
 
@@ -336,13 +337,28 @@ export function DataGrid<P>({
     [filtersConfig, visibleColumns, onActiveFiltersChange],
   );
 
+  const mobileSortConfig = mobileConfig?.sort;
   const filterBarSortConfig = useMemo(
     () =>
-      sortConfig && columns.some(({ sortable }) => sortable)
-        ? { ...sortConfig, onSort: onSortChange }
+      sortConfig && mobileSortConfig && columns.some(({ sortable }) => sortable)
+        ? { ...sortConfig, ...mobileSortConfig, onSort: onSortChange }
         : undefined,
-    [sortConfig, columns, onSortChange],
+    [sortConfig, mobileSortConfig, columns, onSortChange],
   );
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    sortConfig &&
+    mobileConfig &&
+    !mobileConfig.sort &&
+    columns.some(({ sortable }) => sortable)
+  ) {
+    throw new CircuitError(
+      'DataGrid',
+      'The `mobileConfig` is missing the `sort` labels. They are required to sort in the responsive view when the grid has a `sortConfig`.',
+    );
+  }
 
   const sortedColumn = sort && columns.find(({ id }) => id === sort.columnId);
   const sortAnnouncement =
@@ -395,7 +411,7 @@ export function DataGrid<P>({
             <TableHeader
               columns={visibleColumns}
               sort={sort}
-              onSortChange={sortConfig && !isMobile ? onSortChange : undefined}
+              onSortChange={sortConfig ? onSortChange : undefined}
             />
           )}
 

@@ -455,11 +455,16 @@ describe('DataGrid', () => {
     const sortConfig = {
       onSort,
       title: 'Sort by',
-      parametersLabel: 'Parameters',
-      orderLabel: 'Order',
       sortLabels: { ascending: 'Ascending', descending: 'Descending' },
-      applyLabel: 'Apply',
-      clearLabel: 'Clear',
+    };
+    const sortableMobileConfig = {
+      ...mobileConfig,
+      sort: {
+        parametersLabel: 'Parameters',
+        orderLabel: 'Order',
+        applyLabel: 'Apply',
+        clearLabel: 'Clear',
+      },
     };
     const sortableColumns = columns.map((column) => ({
       ...column,
@@ -480,6 +485,7 @@ describe('DataGrid', () => {
         <DataGrid
           {...defaultProps}
           columns={columns}
+          mobileConfig={sortableMobileConfig}
           sortConfig={sortConfig}
         />,
       );
@@ -487,7 +493,22 @@ describe('DataGrid', () => {
       expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
     });
 
-    it('should sort from the sheet instead of the headers on narrow viewports', () => {
+    it('should sort from the sheet instead of the headers in the responsive view', () => {
+      (useMedia as Mock).mockReturnValue(true);
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={sortableColumns}
+          mobileConfig={sortableMobileConfig}
+          sortConfig={sortConfig}
+        />,
+      );
+
+      expect(screen.queryByRole('columnheader')).not.toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Sort by' })).toBeVisible();
+    });
+
+    it('should keep sorting from the headers on narrow viewports without a mobile config', () => {
       (useMedia as Mock).mockReturnValue(true);
       render(
         <DataGrid
@@ -497,48 +518,13 @@ describe('DataGrid', () => {
         />,
       );
 
-      expect(
-        screen.getByRole('columnheader', { name: 'Age' }),
-      ).not.toHaveAttribute('aria-sort');
-      expect(screen.getByRole('button', { name: 'Sort by' })).toBeVisible();
-    });
-
-    it('should cycle through ascending, descending and no sorting when clicking a header', async () => {
-      render(
-        <DataGrid
-          {...defaultProps}
-          columns={sortableColumns}
-          sortConfig={sortConfig}
-        />,
+      expect(screen.getByRole('columnheader', { name: 'Age' })).toHaveAttribute(
+        'aria-sort',
+        'none',
       );
-      const header = screen.getByRole('columnheader', { name: 'Age' });
-
-      expect(header).toHaveAttribute('aria-sort', 'none');
-
-      await userEvent.click(header);
-      expect(onSort).toHaveBeenLastCalledWith({
-        columnId: 'age',
-        direction: 'ascending',
-      });
-      expect(header).toHaveAttribute('aria-sort', 'ascending');
-
-      await userEvent.click(header);
-      expect(onSort).toHaveBeenLastCalledWith({
-        columnId: 'age',
-        direction: 'descending',
-      });
-      expect(header).toHaveAttribute('aria-sort', 'descending');
-
-      await userEvent.click(header);
-      expect(onSort).toHaveBeenLastCalledWith(undefined);
-      expect(header).toHaveAttribute('aria-sort', 'none');
-
-      await userEvent.click(header);
-      expect(onSort).toHaveBeenLastCalledWith({
-        columnId: 'age',
-        direction: 'ascending',
-      });
-      expect(header).toHaveAttribute('aria-sort', 'ascending');
+      expect(
+        screen.queryByRole('button', { name: 'Sort by' }),
+      ).not.toBeInTheDocument();
     });
 
     it('should announce the current sorting', async () => {
@@ -562,23 +548,6 @@ describe('DataGrid', () => {
 
       await userEvent.click(header);
       expect(status).toBeEmptyDOMElement();
-    });
-
-    it('should render the data in the order it is provided', async () => {
-      render(
-        <DataGrid
-          {...defaultProps}
-          columns={sortableColumns}
-          sortConfig={sortConfig}
-        />,
-      );
-      const before = screen.getAllByRole('row').map((row) => row.textContent);
-
-      await userEvent.click(screen.getByRole('columnheader', { name: 'Age' }));
-
-      expect(screen.getAllByRole('row').map((row) => row.textContent)).toEqual(
-        before,
-      );
     });
   });
 

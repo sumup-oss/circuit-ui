@@ -29,6 +29,7 @@ import type {
   SortDirection,
   SortValue,
   WithSorting,
+  MobileSortConfig,
 } from '../../../../types.js';
 
 import classes from './SortSheet.module.css';
@@ -36,16 +37,8 @@ import classes from './SortSheet.module.css';
 type SortConfig = NonNullable<WithSorting['sortConfig']>;
 
 export interface SortSheetProps<P>
-  extends Pick<
-    SortConfig,
-    | 'title'
-    | 'description'
-    | 'parametersLabel'
-    | 'orderLabel'
-    | 'sortLabels'
-    | 'applyLabel'
-    | 'clearLabel'
-  > {
+  extends Pick<SortConfig, 'title' | 'sortLabels'>,
+    MobileSortConfig {
   /**
    * Whether the sheet is open.
    */
@@ -91,37 +84,35 @@ export function SortSheet<P>({
 }: SortSheetProps<P>) {
   const titleId = useId();
   const openRef = useLatest(open);
-  const [draft, setDraft] = useState<SortValue | undefined>(value);
+  const [columnId, setColumnId] = useState(value?.columnId);
+  const [direction, setDirection] = useState(value?.direction);
   const [wasOpen, setWasOpen] = useState(open);
 
   if (open !== wasOpen) {
     setWasOpen(open);
     if (open) {
-      setDraft(value);
+      setColumnId(value?.columnId);
+      setDirection(value?.direction);
     }
   }
 
   const sortableColumns = columns.filter(({ sortable }) => sortable);
 
   const handleColumnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setDraft({
-      columnId: event.target.value,
-      direction: draft?.direction ?? 'ascending',
-    });
-  };
-
-  const handleDirectionChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (draft) {
-      setDraft({
-        columnId: draft.columnId,
-        direction: event.target.value as SortDirection,
-      });
-    }
+    setColumnId(event.target.value);
+    setDirection((current) => current ?? 'ascending');
   };
 
   const handleApply = () => {
-    onApply(draft);
+    onApply(
+      columnId ? { columnId, direction: direction ?? 'ascending' } : undefined,
+    );
     onClose();
+  };
+
+  const handleClear = () => {
+    setColumnId(undefined);
+    setDirection(undefined);
   };
 
   const handleModalClose = () => {
@@ -156,35 +147,29 @@ export function SortSheet<P>({
             options={sortableColumns.map(({ id, label }) => ({
               label,
               value: id,
-              checked: draft?.columnId === id,
+              checked: columnId === id,
               className: classes.option,
             }))}
           />
         </div>
-        {draft && (
-          <div className={clsx(classes.section, classes.order)}>
-            <RadioButtonGroup
-              label={orderLabel}
-              className={classes.list}
-              onChange={handleDirectionChange}
-              options={(['ascending', 'descending'] as const).map(
-                (direction) => ({
-                  label: sortLabels[direction],
-                  value: direction,
-                  checked: draft?.direction === direction,
-                  className: classes.option,
-                }),
-              )}
-            />
-          </div>
-        )}
+        <div className={clsx(classes.section, classes.order)}>
+          <RadioButtonGroup
+            label={orderLabel}
+            className={classes.list}
+            onChange={(event) =>
+              setDirection(event.target.value as SortDirection)
+            }
+            options={(['ascending', 'descending'] as const).map((option) => ({
+              label: sortLabels[option],
+              value: option,
+              checked: direction === option,
+              className: classes.option,
+            }))}
+          />
+        </div>
       </div>
       <div className={classes.footer}>
-        <Button
-          type="button"
-          variant="secondary"
-          onClick={() => setDraft(undefined)}
-        >
+        <Button type="button" variant="secondary" onClick={handleClear}>
           {clearLabel}
         </Button>
         <Button

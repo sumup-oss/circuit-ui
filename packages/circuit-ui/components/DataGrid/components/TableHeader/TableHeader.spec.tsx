@@ -82,7 +82,7 @@ describe('TableHeader', () => {
       columns[1],
     ];
 
-    it('should make sortable columns sortable without a nested button', () => {
+    it('should make columns sortable', () => {
       renderTableHeader(
         <TableHeader
           {...defaultProps}
@@ -100,7 +100,7 @@ describe('TableHeader', () => {
       ).not.toHaveAttribute('aria-sort');
     });
 
-    it('should not be sortable without onSortChange', () => {
+    it('should not make column sortable without onSortChange', () => {
       renderTableHeader(
         <TableHeader {...defaultProps} columns={sortableColumns} />,
       );

@@ -71,37 +71,41 @@ export interface WithSorting {
      */
     onSort: (sort?: SortValue) => void;
     /**
-     * Label for the sort button and title of the sort sheet in the
-     * responsive view
+     * Announced with the current sorting to assistive technology. Also the
+     * label of the sort button and the title of the sort sheet in the
+     * responsive view.
      */
     title: string;
     /**
-     * Description shown under the title of the sort sheet
-     */
-    description?: string;
-    /**
-     * Label for the group of sortable columns in the sort sheet
-     */
-    parametersLabel: string;
-    /**
-     * Label for the group of sort directions in the sort sheet
-     */
-    orderLabel: string;
-    /**
-     * Labels for the sort directions in the sort sheet, such as "Ascending"
-     * and "Descending"
+     * Labels for the sort directions, such as "Ascending" and "Descending".
+     * They apply to every sortable column.
      */
     sortLabels: SortLabels;
-    /**
-     * Label for the button that applies the sorting
-     */
-    applyLabel: string;
-    /**
-     * Label for the button that clears the sorting
-     */
-    clearLabel: string;
   };
 }
+
+export type MobileSortConfig = {
+  /**
+   * Description shown under the title of the sort sheet
+   */
+  description?: string;
+  /**
+   * Label for the group of sortable columns in the sort sheet
+   */
+  parametersLabel: string;
+  /**
+   * Label for the group of sort directions in the sort sheet
+   */
+  orderLabel: string;
+  /**
+   * Label for the button that applies the sorting
+   */
+  applyLabel: string;
+  /**
+   * Label for the button that clears the sorting
+   */
+  clearLabel: string;
+};
 
 export interface WithSearchBar {
   searchBarConfig?: {
@@ -242,6 +246,11 @@ export type MobileConfig<P> = {
       | CustomActionMenuActions<P>[]
       | ((value: P) => CustomActionMenuActions<P>[]);
   };
+  /**
+   * Labels for the sort sheet. Required to sort in the responsive view
+   * when the grid has a `sortConfig`.
+   */
+  sort?: MobileSortConfig;
 };
 
 type RowActions<P> = {

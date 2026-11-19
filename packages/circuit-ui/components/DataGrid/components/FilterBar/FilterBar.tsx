@@ -4,6 +4,7 @@ import { SearchInput } from '../../../SearchInput/index.js';
 import { ColumnPicker } from './components/ColumnPicker/ColumnPicker.js';
 import type {
   Column,
+  MobileSortConfig,
   SortValue,
   WithColumnPicker,
   WithFilters,
@@ -28,14 +29,17 @@ import { SortSheet } from './components/SortSheet/index.js';
 export interface FilterBarProps<P>
   extends WithColumnPicker,
     WithSearchBar,
-    WithFilters,
-    WithSorting {
+    WithFilters {
   onVisibleColumnChange: (value: string[]) => void;
   columns: Column<P>[];
   visibleColumns: Column<P>[];
   isMobile?: boolean;
   activeFilters: FilterValues;
   searchQuery: string;
+  /**
+   * The sort configuration, with the labels of the sort sheet.
+   */
+  sortConfig?: NonNullable<WithSorting['sortConfig']> & MobileSortConfig;
   sort?: SortValue;
 }
 
@@ -192,14 +196,8 @@ const FilterBarComponent = <P,>({
               onClose={() => setSortOpen(false)}
               columns={columns}
               value={sort}
+              {...sortConfig}
               onApply={sortConfig.onSort}
-              title={sortConfig.title}
-              description={sortConfig.description}
-              parametersLabel={sortConfig.parametersLabel}
-              orderLabel={sortConfig.orderLabel}
-              sortLabels={sortConfig.sortLabels}
-              applyLabel={sortConfig.applyLabel}
-              clearLabel={sortConfig.clearLabel}
             />
           </>
         )}
