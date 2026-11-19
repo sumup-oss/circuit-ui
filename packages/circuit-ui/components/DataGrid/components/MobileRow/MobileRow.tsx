@@ -8,7 +8,7 @@ import type { Locale } from '../../../../util/i18n.js';
 import { isEnter, isSpacebar } from '../../../../util/key-codes.js';
 import { RowActions } from '../DefaultComponents/RowActions/RowActions.js';
 import type { ClickEvent } from '../../../../types/events.js';
-import { clsx } from '../../../../index.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 type MobileRowProps<P> = HTMLAttributes<HTMLTableRowElement> & {
   rowIndex: number;
