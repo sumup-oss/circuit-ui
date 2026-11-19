@@ -9,6 +9,10 @@
   background-color: var(--cui-bg-normal-hovered);
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .clickable:active {
   background-color: var(--cui-bg-normal-pressed);
 }
