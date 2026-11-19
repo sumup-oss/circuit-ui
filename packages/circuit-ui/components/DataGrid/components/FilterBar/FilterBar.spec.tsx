@@ -40,6 +40,7 @@ const [fullName, age, status, subscriptionPrice] = columns;
 const onVisibleColumnChange = vi.fn();
 
 const columnPickerConfig = {
+  gridId: 'foo',
   triggerLabel: 'Toggle columns visibility',
   pickerLabel: 'Choose columns to display',
 };

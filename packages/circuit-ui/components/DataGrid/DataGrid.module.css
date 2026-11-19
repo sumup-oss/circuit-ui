@@ -19,6 +19,20 @@
   border-radius: var(--cui-border-radius-giga);
 }
 
+.mobile-wrapper {
+  padding: var(--cui-spacings-bit);
+}
+
+.mobile-wrapper tr:first-of-type td {
+  border-top-left-radius: var(--cui-border-radius-mega);
+  border-top-right-radius: var(--cui-border-radius-mega);
+}
+
+.mobile-wrapper tr:last-of-type td {
+  border-bottom-right-radius: var(--cui-border-radius-mega);
+  border-bottom-left-radius: var(--cui-border-radius-mega);
+}
+
 .table {
   padding: var(--cui-spacings-bit);
   overflow-x: auto;
@@ -29,8 +43,4 @@
   display: inline-flex;
   flex-flow: row wrap;
   gap: var(--cui-spacings-bit);
-}
-
-.list ul {
-  background-color: var(--cui-bg-normal);
 }
