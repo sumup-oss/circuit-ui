@@ -22,7 +22,6 @@ import { Hr } from '../Hr/index.js';
 import { useFocusList } from '../../hooks/useFocusList/index.js';
 import { Popover, type PopoverProps } from '../Popover/Popover.js';
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
-import { useMedia } from '../../hooks/useMedia/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import {
@@ -54,7 +53,6 @@ export function ActionMenu({
   ...props
 }: ActionMenuProps) {
   const triggerKey = useRef<TriggerKey | null>(null);
-  const isMobile = useMedia('(max-width: 479px)');
 
   const focusProps = useFocusList();
 
@@ -82,7 +80,7 @@ export function ActionMenu({
     <Popover
       className={clsx(className, classes.base)}
       contentClassName={classes.content}
-      hideCloseButton={!isMobile || props.disableModalOnMobile}
+      hideCloseButton
       onToggle={onToggle}
       component={(refProps) => (
         <Component {...refProps} onKeyDown={handleTriggerKeyDown} />
