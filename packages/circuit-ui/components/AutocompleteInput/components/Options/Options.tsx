@@ -79,6 +79,7 @@ export interface OptionsProps extends HTMLAttributes<HTMLUListElement> {
   allowNewItems?: boolean;
   hasAction?: boolean;
   isImmersive?: boolean;
+  optionMedia?: 'avatar' | 'flag';
 }
 
 export const Options = ({
@@ -97,6 +98,7 @@ export const Options = ({
   isImmersive,
   allowNewItems,
   searchText,
+  optionMedia = 'avatar',
   'aria-setsize': ariaSetSize,
   ...rest
 }: OptionsProps) => {
@@ -173,7 +175,8 @@ export const Options = ({
                         )}
                         id={`option-${optionIdPrefix}-${optionValues.indexOf(optionFromGroup.value)}`}
                         isFocused={isFocused}
-                        tabIndex={!isLoading && isFocused ? 0 : -1}
+                        optionMedia={optionMedia}
+                        tabIndex={-1}
                         aria-setsize={
                           ariaSetSize ?? 0 + (showsNewOption ? 1 : 0)
                         }
@@ -198,7 +201,8 @@ export const Options = ({
               isSelectable={multiple}
               id={`option-${optionIdPrefix}-${optionValues.indexOf(option.value)}`}
               isFocused={isFocused}
-              tabIndex={!isLoading && isFocused ? 0 : -1}
+              optionMedia={optionMedia}
+              tabIndex={-1}
               aria-setsize={ariaSetSize ?? 0 + (showsNewOption ? 1 : 0)}
             />
           );
@@ -217,11 +221,8 @@ export const Options = ({
             isSelectable={multiple}
             id={`option-${optionIdPrefix}-${optionValues.length}`}
             isFocused={activeOption === optionValues.length}
-            tabIndex={
-              !isLoading && activeOption && activeOption === optionValues.length
-                ? 0
-                : -1
-            }
+            optionMedia={optionMedia}
+            tabIndex={-1}
             aria-setsize={ariaSetSize ?? 0 + (showsNewOption ? 1 : 0)}
           />
         )}

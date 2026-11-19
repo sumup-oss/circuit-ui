@@ -266,6 +266,115 @@ describe('AutocompleteInput', () => {
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
+  it('should select the first option on Enter when nothing is highlighted', async () => {
+    render(<AutocompleteInput {...props} />);
+    const input = screen.getByRole('combobox', { name: props.label });
+
+    await userEvent.click(input);
+    expect(input).not.toHaveAttribute('aria-activedescendant');
+
+    await userEvent.keyboard('{Enter}');
+
+    expect(props.onChange).toHaveBeenCalledWith(options[0]);
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+  });
+
+  it('should move focus to the next form control on Tab without opening the list', async () => {
+    render(
+      <form>
+        <AutocompleteInput {...props} />
+        <Button>Next field</Button>
+      </form>,
+    );
+    screen.getByRole('combobox', { name: props.label }).focus();
+
+    await userEvent.tab();
+
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Next field' })).toHaveFocus();
+  });
+
+  it('should commit the highlighted option on Tab and move focus to the next control', async () => {
+    render(
+      <form>
+        <AutocompleteInput {...props} />
+        <Button>Next field</Button>
+      </form>,
+    );
+    const input = screen.getByRole('combobox', { name: props.label });
+    await userEvent.click(input);
+    await userEvent.keyboard('{ArrowDown}');
+
+    expect(screen.getAllByRole('option')[0]).toHaveAttribute('tabIndex', '-1');
+
+    await userEvent.tab();
+
+    expect(props.onChange).toHaveBeenCalledWith(options[0]);
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Next field' })).toHaveFocus();
+  });
+
+  it('should move focus out of a dialog on Tab without focusing an option', async () => {
+    render(
+      <div role="dialog">
+        <AutocompleteInput {...props} />
+        <Button>Next field</Button>
+      </div>,
+    );
+    const input = screen.getByRole('combobox', { name: props.label });
+    await userEvent.click(input);
+    await userEvent.keyboard('{ArrowDown}');
+
+    await userEvent.tab();
+
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Next field' })).toHaveFocus();
+  });
+
+  it('should call onSearch immediately when searchDebounceMs is 0', async () => {
+    render(<AutocompleteInput {...props} searchDebounceMs={0} />);
+
+    await userEvent.type(screen.getByRole('combobox'), 'f');
+
+    expect(props.onSearch).toHaveBeenCalledWith('f');
+  });
+
+  it('should cancel a pending onSearch when the list closes', async () => {
+    render(
+      <AutocompleteInput {...props} value={{ label: 'Foo', value: 'bar' }} />,
+    );
+    const input = screen.getByRole('combobox', { name: props.label });
+
+    await userEvent.type(input, 'z');
+    expect(props.onSearch).not.toHaveBeenCalled();
+
+    await userEvent.click(document.body);
+    expect(props.onSearch).toHaveBeenCalledWith('');
+
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+
+    expect(props.onSearch).not.toHaveBeenCalledWith('Fooz');
+  });
+
+  it('should render flag option media as rectangular images', async () => {
+    const { rerender } = render(<AutocompleteInput {...props} />);
+    await userEvent.click(screen.getByRole('combobox', { name: props.label }));
+
+    expect(screen.getByTestId('option-media-mochi')).toHaveAttribute(
+      'data-option-media',
+      'avatar',
+    );
+
+    rerender(<AutocompleteInput {...props} optionMedia="flag" />);
+
+    expect(screen.getByTestId('option-media-mochi')).toHaveAttribute(
+      'data-option-media',
+      'flag',
+    );
+  });
+
   it('should call onChange with the full option object, including additional data', async () => {
     render(<AutocompleteInput {...props} options={[pepper]} />);
     await userEvent.click(screen.getByRole('combobox', { name: props.label }));
@@ -630,6 +739,20 @@ describe('AutocompleteInput', () => {
     });
     afterAll(() => {
       (useMedia as Mock).mockReturnValue(false);
+    });
+
+    it('should not open the modal when Tab focuses the field', async () => {
+      render(
+        <>
+          <AutocompleteInput {...props} variant="immersive" />
+          <Button>Next field</Button>
+        </>,
+      );
+
+      await userEvent.tab();
+
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+      expect(screen.getByLabelText(props.label)).toHaveFocus();
     });
 
     it('should open in a modal dialog on (any) key press', async () => {

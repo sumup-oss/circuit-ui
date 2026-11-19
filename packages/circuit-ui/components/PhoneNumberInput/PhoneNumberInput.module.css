@@ -16,12 +16,6 @@
   transform: translateY(-1px);
 }
 
-.country-code-autocomplete-shell [role="option"] img {
-  width: 1.5rem;
-  height: 1.125rem;
-  border-radius: var(--cui-border-radius-bit);
-}
-
 @media (max-width: 479px) {
   .wrapper {
     flex-direction: column;
