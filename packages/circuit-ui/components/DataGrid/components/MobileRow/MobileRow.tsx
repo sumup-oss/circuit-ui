@@ -8,6 +8,7 @@ import type { Locale } from '../../../../util/i18n.js';
 import { isEnter, isSpacebar } from '../../../../util/key-codes.js';
 import { RowActions } from '../DefaultComponents/RowActions/RowActions.js';
 import type { ClickEvent } from '../../../../types/events.js';
+import { clsx } from '../../../../index.js';
 
 type MobileRowProps<P> = HTMLAttributes<HTMLTableRowElement> & {
   rowIndex: number;
@@ -86,15 +87,18 @@ const MobileRowComponent = <P,>({
   );
 
   return (
-    <tr {...props} className={classes.base}>
+    <tr {...props}>
       <Cell
         tabIndex={rowIndex === 0 ? 0 : -1}
         role="gridcell"
         data-x={0}
         data-y={rowIndex}
-        className={classes.cell}
-        onKeyDown={handleKeydown}
-        onClick={handleOnClick}
+        className={clsx(
+          classes.cell,
+          mobileConfig.onClick && classes.clickable,
+        )}
+        onKeyDown={mobileConfig.onClick ? handleKeydown : undefined}
+        onClick={mobileConfig.onClick ? handleOnClick : undefined}
       >
         <ListItem className={classes.item} {...cellData} />
         {mobileConfig.menu && accessibleActions.length > 0 && (

@@ -1,23 +1,19 @@
-.base td {
-  padding: 0;
-  background-color: var(--cui-bg-normal);
-}
-
-.base td:hover {
-  background-color: var(--cui-bg-normal-hovered);
-}
-
-.base td:active {
-  background-color: var(--cui-bg-normal-pressed);
-}
-
-.base .cell {
+.cell {
   display: flex;
   align-items: flex-start;
   padding: var(--cui-spacings-kilo) var(--cui-spacings-byte);
+  background-color: var(--cui-bg-normal);
 }
 
-.base .item {
+.cell:hover {
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.clickable:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.item {
   padding: 0;
   margin: var(--cui-spacings-bit) 0;
   background-color: inherit;
