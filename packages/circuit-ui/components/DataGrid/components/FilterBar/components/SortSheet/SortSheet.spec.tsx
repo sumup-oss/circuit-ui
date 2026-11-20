@@ -74,10 +74,20 @@ describe('SortSheet', () => {
     expect(screen.queryByRole('radio', { name: 'Notes' })).toBeNull();
   });
 
-  it('should show the order in ascending order before a column is chosen', () => {
+  it('should not preselect a column or an order', () => {
     render(<SortSheet {...baseProps} />);
 
     expect(screen.getByRole('radiogroup', { name: 'Order' })).toBeVisible();
+    expect(screen.getByRole('radio', { name: 'Name' })).not.toBeChecked();
+    expect(screen.getByRole('radio', { name: 'Ascending' })).not.toBeChecked();
+    expect(screen.getByRole('radio', { name: 'Descending' })).not.toBeChecked();
+  });
+
+  it('should select the ascending order when a column is chosen', async () => {
+    render(<SortSheet {...baseProps} />);
+
+    await userEvent.click(screen.getByRole('radio', { name: 'Joined' }));
+
     expect(screen.getByRole('radio', { name: 'Ascending' })).toBeChecked();
     expect(screen.getByRole('radio', { name: 'Descending' })).not.toBeChecked();
   });
@@ -157,6 +167,7 @@ describe('SortSheet', () => {
 
     expect(baseProps.onApply).not.toHaveBeenCalled();
     expect(screen.getByRole('radio', { name: 'Name' })).not.toBeChecked();
+    expect(screen.getByRole('radio', { name: 'Ascending' })).not.toBeChecked();
 
     await userEvent.click(screen.getByRole('button', { name: 'Apply' }));
 
