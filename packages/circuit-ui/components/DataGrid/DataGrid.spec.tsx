@@ -344,6 +344,7 @@ describe('DataGrid', () => {
         );
         expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
       });
+
       it('should render the FilterBar when at least one column has filtering', () => {
         render(
           <DataGrid
@@ -354,6 +355,30 @@ describe('DataGrid', () => {
         );
         expect(screen.getByRole('toolbar')).toBeVisible();
       });
+
+      it('should not render the FilterBar when no column has filtering', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            filtersConfig={filtersConfig}
+            columns={columns}
+          />,
+        );
+        expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
+      });
+
+      it('should still render the search bar when no column has filtering', () => {
+        render(
+          <DataGrid
+            {...defaultProps}
+            filtersConfig={filtersConfig}
+            searchBarConfig={searchConfig}
+            columns={columns}
+          />,
+        );
+        expect(screen.getByRole('searchbox', { name: 'Search' })).toBeVisible();
+      });
+
       it('should call the onFilter when a filter is set', async () => {
         const age = columnsWithFilters[1];
         render(
@@ -422,6 +447,107 @@ describe('DataGrid', () => {
       ).toBeVisible();
       const [_, pageLiveRegion] = screen.queryAllByRole('status');
       expect(pageLiveRegion).toHaveTextContent('1 of 3');
+    });
+  });
+
+  describe('Sorting', () => {
+    const onSort = vi.fn();
+    const sortConfig = {
+      onSort,
+      title: 'Sort by',
+      sortLabels: { ascending: 'Ascending', descending: 'Descending' },
+    };
+    const sortableMobileConfig = {
+      ...mobileConfig,
+      sort: {
+        parametersLabel: 'Parameters',
+        orderLabel: 'Order',
+        applyLabel: 'Apply',
+        clearLabel: 'Clear',
+      },
+    };
+    const sortableColumns = columns.map((column) => ({
+      ...column,
+      sortable: column.id === 'age',
+    }));
+
+    it('should not make headers sortable without a sort config', () => {
+      render(<DataGrid {...defaultProps} columns={sortableColumns} />);
+
+      expect(
+        screen.getByRole('columnheader', { name: 'Age' }),
+      ).not.toHaveAttribute('aria-sort');
+    });
+
+    it('should not render the FilterBar on narrow viewports when no column is sortable', () => {
+      (useMedia as Mock).mockReturnValue(true);
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={columns}
+          mobileConfig={sortableMobileConfig}
+          sortConfig={sortConfig}
+        />,
+      );
+
+      expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
+    });
+
+    it('should sort from the sheet instead of the headers in the responsive view', () => {
+      (useMedia as Mock).mockReturnValue(true);
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={sortableColumns}
+          mobileConfig={sortableMobileConfig}
+          sortConfig={sortConfig}
+        />,
+      );
+
+      expect(screen.queryByRole('columnheader')).not.toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Sort by' })).toBeVisible();
+    });
+
+    it('should keep sorting from the headers on narrow viewports without a mobile config', () => {
+      (useMedia as Mock).mockReturnValue(true);
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={sortableColumns}
+          sortConfig={sortConfig}
+        />,
+      );
+
+      expect(screen.getByRole('columnheader', { name: 'Age' })).toHaveAttribute(
+        'aria-sort',
+        'none',
+      );
+      expect(
+        screen.queryByRole('button', { name: 'Sort by' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should announce the current sorting', async () => {
+      render(
+        <DataGrid
+          {...defaultProps}
+          columns={sortableColumns}
+          sortConfig={sortConfig}
+        />,
+      );
+      const status = screen.getByRole('status');
+      const header = screen.getByRole('columnheader', { name: 'Age' });
+
+      expect(status).toBeEmptyDOMElement();
+
+      await userEvent.click(header);
+      expect(status).toHaveTextContent('Sort by: Age, Ascending');
+
+      await userEvent.click(header);
+      expect(status).toHaveTextContent('Sort by: Age, Descending');
+
+      await userEvent.click(header);
+      expect(status).toBeEmptyDOMElement();
     });
   });
 

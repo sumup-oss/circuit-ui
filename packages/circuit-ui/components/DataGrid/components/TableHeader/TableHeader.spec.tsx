@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import type { ReactElement } from 'react';
 
-import { axe, render, screen } from '../../../../util/test-utils.js';
+import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 import { utilClasses } from '../../../../styles/utility.js';
 
 import { TableHeader, type TableHeaderProps } from './TableHeader.js';
@@ -74,6 +74,129 @@ describe('TableHeader', () => {
     );
     const label = screen.getByText('Actions');
     expect(label.className).toContain(utilClasses.hideVisually);
+  });
+
+  describe('Sorting', () => {
+    const sortableColumns: TableHeaderProps<Data>['columns'] = [
+      { ...columns[0], sortable: true },
+      columns[1],
+    ];
+
+    it('should make columns sortable', () => {
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          onSortChange={vi.fn()}
+        />,
+      );
+
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+      expect(
+        screen.getByRole('columnheader', { name: 'Name' }),
+      ).toHaveAttribute('aria-sort', 'none');
+      expect(
+        screen.getByRole('columnheader', { name: 'Age' }),
+      ).not.toHaveAttribute('aria-sort');
+    });
+
+    it('should not make column sortable without onSortChange', () => {
+      renderTableHeader(
+        <TableHeader {...defaultProps} columns={sortableColumns} />,
+      );
+
+      expect(
+        screen.getByRole('columnheader', { name: 'Name' }),
+      ).not.toHaveAttribute('aria-sort');
+    });
+
+    it('should mark only the sorted column with aria-sort', () => {
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          sort={{ columnId: 'name', direction: 'descending' }}
+          onSortChange={vi.fn()}
+        />,
+      );
+
+      expect(
+        screen.getByRole('columnheader', { name: 'Name' }),
+      ).toHaveAttribute('aria-sort', 'descending');
+      expect(
+        screen.getByRole('columnheader', { name: 'Age' }),
+      ).not.toHaveAttribute('aria-sort');
+    });
+
+    it('should call onSortChange with the next sorting when clicking the header', async () => {
+      const onSortChange = vi.fn();
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          sort={{ columnId: 'name', direction: 'ascending' }}
+          onSortChange={onSortChange}
+        />,
+      );
+
+      await userEvent.click(screen.getByRole('columnheader', { name: 'Name' }));
+
+      expect(onSortChange).toHaveBeenCalledWith({
+        columnId: 'name',
+        direction: 'descending',
+      });
+    });
+
+    it.each([
+      '{Enter}',
+      ' ',
+    ])('should call onSortChange when pressing %j on the focused header', async (key) => {
+      const onSortChange = vi.fn();
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          onSortChange={onSortChange}
+        />,
+      );
+
+      screen.getByRole('columnheader', { name: 'Name' }).focus();
+      await userEvent.keyboard(key);
+
+      expect(onSortChange).toHaveBeenCalledWith({
+        columnId: 'name',
+        direction: 'ascending',
+      });
+    });
+
+    it('should not call onSortChange for other keys', async () => {
+      const onSortChange = vi.fn();
+      renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          onSortChange={onSortChange}
+        />,
+      );
+
+      screen.getByRole('columnheader', { name: 'Name' }).focus();
+      await userEvent.keyboard('a');
+
+      expect(onSortChange).not.toHaveBeenCalled();
+    });
+
+    it('should meet accessibility guidelines', async () => {
+      const { container } = renderTableHeader(
+        <TableHeader
+          {...defaultProps}
+          columns={sortableColumns}
+          sort={{ columnId: 'name', direction: 'ascending' }}
+          onSortChange={vi.fn()}
+        />,
+      );
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
   });
 
   it('should meet accessibility guidelines', async () => {

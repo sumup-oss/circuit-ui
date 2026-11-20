@@ -30,17 +30,21 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import type {
   Column,
   MobileConfig,
+  SortValue,
   WithColumnPicker,
   WithFilters,
   WithSearchBar,
   WithPagination,
+  WithSorting,
 } from './types.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import type { Locale } from '../../util/i18n.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { utilClasses } from '../../styles/utility.js';
 import { FilterBar } from './components/FilterBar/FilterBar.js';
+import { getFilterKind } from './components/FilterBar/components/Filters/Filter/FilterService.js';
 import { debounce } from '../../util/helpers.js';
+import { CircuitError } from '../../util/errors.js';
 import type { FilterValues } from './components/FilterBar/components/Filters/FilterSheet/index.js';
 import { Pagination } from './components/Pagination/Pagination.js';
 
@@ -52,6 +56,7 @@ export interface DataGridProps<P>
     HTMLAttributes<HTMLTableElement>,
     WithSearchBar,
     WithFilters,
+    WithSorting,
     WithColumnPicker {
   /**
    * The columns to display, in order. Each column defines its header label,
@@ -116,6 +121,7 @@ export function DataGrid<P>({
   searchBarConfig,
   ref,
   filtersConfig,
+  sortConfig,
   columnPickerConfig,
   pagination,
   ...props
@@ -123,6 +129,7 @@ export function DataGrid<P>({
   const gridId = useId();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<FilterValues>({});
+  const [sort, setSort] = useState<SortValue>();
   const [visibleColumns, setVisibleColumns] = useState(columns);
 
   useEffect(() => {
@@ -180,6 +187,14 @@ export function DataGrid<P>({
       filtersConfig?.onFilter(...args);
     },
     [filtersConfig],
+  );
+
+  const onSortChange = useCallback(
+    (value?: SortValue) => {
+      setSort(value);
+      sortConfig?.onSort(value);
+    },
+    [sortConfig],
   );
 
   const handleClickEvent = useCallback((event: MouseEvent) => {
@@ -313,7 +328,48 @@ export function DataGrid<P>({
     [columns, columnPickerConfig?.gridId],
   );
 
-  const showFilterBar = filtersConfig || searchBarConfig || columnPickerConfig;
+  const filterBarFiltersConfig = useMemo(
+    () =>
+      filtersConfig && visibleColumns.some((column) => getFilterKind(column))
+        ? { ...filtersConfig, onFilter: onActiveFiltersChange }
+        : undefined,
+    [filtersConfig, visibleColumns, onActiveFiltersChange],
+  );
+
+  const mobileSortConfig = mobileConfig?.sort;
+  const filterBarSortConfig = useMemo(
+    () =>
+      sortConfig && mobileSortConfig && columns.some(({ sortable }) => sortable)
+        ? { ...sortConfig, ...mobileSortConfig, onSort: onSortChange }
+        : undefined,
+    [sortConfig, mobileSortConfig, columns, onSortChange],
+  );
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    sortConfig &&
+    mobileConfig &&
+    !mobileConfig.sort &&
+    columns.some(({ sortable }) => sortable)
+  ) {
+    throw new CircuitError(
+      'DataGrid',
+      'The `mobileConfig` is missing the `sort` labels. They are required to sort in the responsive view when the grid has a `sortConfig`.',
+    );
+  }
+
+  const sortedColumn = sort && columns.find(({ id }) => id === sort.columnId);
+  const sortAnnouncement =
+    sortConfig && sort && sortedColumn
+      ? `${sortConfig.title}: ${sortedColumn.label}, ${sortConfig.sortLabels[sort.direction]}`
+      : '';
+
+  const showFilterBar =
+    filterBarFiltersConfig ||
+    searchBarConfig ||
+    columnPickerConfig ||
+    (isMobile && filterBarSortConfig);
 
   return (
     <div
@@ -334,13 +390,11 @@ export function DataGrid<P>({
           visibleColumns={visibleColumns}
           isMobile={isMobile}
           activeFilters={activeFilters}
-          filtersConfig={
-            filtersConfig
-              ? { ...filtersConfig, onFilter: onActiveFiltersChange }
-              : undefined
-          }
+          filtersConfig={filterBarFiltersConfig}
           searchQuery={searchQuery}
           columnPickerConfig={columnPickerConfig}
+          sortConfig={filterBarSortConfig}
+          sort={sort}
         />
       )}
       <div className={classes.table}>
@@ -352,7 +406,13 @@ export function DataGrid<P>({
           {...props}
         >
           <caption className={utilClasses.hideVisually}>{label}</caption>
-          {!isMobileView && <TableHeader columns={visibleColumns} />}
+          {!isMobileView && (
+            <TableHeader
+              columns={visibleColumns}
+              sort={sort}
+              onSortChange={sortConfig ? onSortChange : undefined}
+            />
+          )}
 
           <tbody>
             {data.map((value, index) =>
@@ -382,6 +442,13 @@ export function DataGrid<P>({
       </div>
 
       {pagination && data.length > 0 && <Pagination {...pagination} />}
+      <div
+        role="status"
+        aria-live="polite"
+        className={utilClasses.hideVisually}
+      >
+        {sortAnnouncement}
+      </div>
     </div>
   );
 }

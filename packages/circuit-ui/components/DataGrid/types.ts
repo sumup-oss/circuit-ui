@@ -47,6 +47,66 @@ export interface WithFilters {
   };
 }
 
+export type SortDirection = 'ascending' | 'descending';
+
+export type SortValue = {
+  /**
+   * The id of the column the data is sorted by.
+   */
+  columnId: string;
+  /**
+   * The direction the data is sorted in.
+   */
+  direction: SortDirection;
+};
+
+type SortLabels = Record<SortDirection, string>;
+
+export interface WithSorting {
+  sortConfig?: {
+    /**
+     * Callback fired when the user changes the sorting, with the column and
+     * direction to sort by, or `undefined` when the sorting is cleared.
+     * The grid does not sort the data, sort it according to the value.
+     */
+    onSort: (sort?: SortValue) => void;
+    /**
+     * Announced with the current sorting to assistive technology. Also the
+     * label of the sort button and the title of the sort sheet in the
+     * responsive view.
+     */
+    title: string;
+    /**
+     * Labels for the sort directions, such as "Ascending" and "Descending".
+     * They apply to every sortable column.
+     */
+    sortLabels: SortLabels;
+  };
+}
+
+export type MobileSortConfig = {
+  /**
+   * Description shown under the title of the sort sheet
+   */
+  description?: string;
+  /**
+   * Label for the group of sortable columns in the sort sheet
+   */
+  parametersLabel: string;
+  /**
+   * Label for the group of sort directions in the sort sheet
+   */
+  orderLabel: string;
+  /**
+   * Label for the button that applies the sorting
+   */
+  applyLabel: string;
+  /**
+   * Label for the button that clears the sorting
+   */
+  clearLabel: string;
+};
+
 export interface WithSearchBar {
   searchBarConfig?: {
     /**
@@ -161,9 +221,10 @@ export type Column<P> = {
     labels: FilterLabels;
   };
   /**
-   * A sort function for the column.
+   * Whether users can sort the data by this column.
+   * Requires `sortConfig` on the grid.
    */
-  sortFn?: (a: P, b: P) => number;
+  sortable?: boolean;
   isRowHeader?: boolean;
 };
 
@@ -185,6 +246,11 @@ export type MobileConfig<P> = {
       | CustomActionMenuActions<P>[]
       | ((value: P) => CustomActionMenuActions<P>[]);
   };
+  /**
+   * Labels for the sort sheet. Required to sort in the responsive view
+   * when the grid has a `sortConfig`.
+   */
+  sort?: MobileSortConfig;
 };
 
 type RowActions<P> = {
