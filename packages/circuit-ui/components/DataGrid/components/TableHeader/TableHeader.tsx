@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp, Sort } from '@sumup-oss/icons';
+import { Sort, SortAscending, SortDescending } from '@sumup-oss/icons';
 import { Cell } from '../Cell/Cell.js';
 import { Body } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
@@ -25,7 +25,7 @@ export type TableHeaderProps<P> = Omit<
   onSortChange?: (sort?: SortValue) => void;
 };
 
-const SORT_ICONS = { ascending: ArrowUp, descending: ArrowDown };
+const SORT_ICONS = { ascending: SortAscending, descending: SortDescending };
 
 function TableHeaderComponent<P>({
   columns,
