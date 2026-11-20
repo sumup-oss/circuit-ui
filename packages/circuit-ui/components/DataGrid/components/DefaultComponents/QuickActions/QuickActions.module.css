@@ -1,0 +1,5 @@
+.base {
+  display: flex;
+  gap: var(--cui-spacings-byte);
+  justify-content: end;
+}

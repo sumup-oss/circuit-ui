@@ -1,0 +1,75 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.header {
+  position: relative;
+  padding: 0 var(--cui-spacings-peta) var(--cui-spacings-byte) 0;
+}
+
+.filters::before,
+.filters::after {
+  position: sticky;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: block;
+  flex-shrink: 0;
+  height: var(--cui-spacings-giga);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+  );
+}
+
+.filters::before {
+  top: 0;
+  transform: rotate(180deg);
+}
+
+.filters::after {
+  bottom: 0;
+}
+
+.filters {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding-inline: var(--cui-spacings-bit);
+  margin-inline: calc(-1 * var(--cui-spacings-bit));
+  overflow-y: auto;
+  outline: none;
+}
+
+.section + .section {
+  padding-top: var(--cui-spacings-mega);
+  margin-top: var(--cui-spacings-mega);
+  border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+}
+
+.section > fieldset > legend {
+  font-size: var(--cui-body-m-font-size);
+  font-weight: var(--cui-font-weight-bold);
+  line-height: var(--cui-body-m-line-height);
+  color: var(--cui-fg-normal);
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: none;
+  gap: var(--cui-spacings-mega);
+  padding-top: var(--cui-spacings-mega);
+}
+
+.apply {
+  flex: 1;
+}
