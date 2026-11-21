@@ -1,0 +1,11 @@
+.base {
+  /* This is render inline and as such needs very tiny spacing */
+  padding: 2px var(--cui-spacings-byte);
+  font-family: var(--cui-font-stack-mono);
+  font-size: var(--cui-compact-s-font-size);
+  line-height: var(--cui-compact-s-line-height);
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-subtle);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-bit);
+}
