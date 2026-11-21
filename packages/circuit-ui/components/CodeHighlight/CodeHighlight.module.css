@@ -1,0 +1,31 @@
+.base {
+  /* stylelint-disable-next-line property-no-vendor-prefix -- Safari needs this prefix to avoid enlarging the code text. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-byte);
+}
+
+.fallback {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: var(--cui-spacings-mega);
+  margin: 0;
+  overflow: auto;
+  font-family: var(--cui-font-stack-mono);
+  font-size: 0.8125rem;
+  line-height: var(--cui-body-s-line-height);
+  tab-size: 2;
+}
+
+.wrap {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}

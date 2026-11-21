@@ -2,7 +2,10 @@
   "$schema": "node_modules/knip/schema.json",
   "workspaces": {
     "packages/circuit-ui": {
-      "entry": "{index,internal,experimental,legacy}.ts"
+      "entry": [
+        "{index,internal,experimental,legacy,code,code-ssr}.ts",
+        "components/CodeHighlight/{CodeHighlight.astro,server.ts,styles.ts}"
+      ]
     }
   },
   "ignore": [
