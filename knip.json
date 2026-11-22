@@ -1,17 +1,14 @@
 {
   "$schema": "node_modules/knip/schema.json",
   "workspaces": {
+    ".": {
+      "entry": ["api/mcp.ts"]
+    },
     "packages/circuit-ui": {
       "entry": "{index,internal,experimental,legacy}.ts"
     }
   },
-  "ignore": [
-    ".storybook/**/*",
-    "scripts/**/*",
-    "skills/circuit-ui/references/**",
-    "*.config.*",
-    "**/vendor/**/*"
-  ],
+  "ignore": [".storybook/**/*", "scripts/**/*", "*.config.*", "**/vendor/**/*"],
   "ignoreWorkspaces": ["templates/**/*"],
   "ignoreBinaries": ["biome", "eslint", "start-server-and-test"],
   "ignoreDependencies": [

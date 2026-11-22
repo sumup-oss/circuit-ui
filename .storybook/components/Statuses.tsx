@@ -54,12 +54,9 @@ export function Status({
   children,
   ...props
 }: StatusProps) {
-  const kind = 'Introduction/Component-Lifecycle';
-  const name = 'Docs';
-
   return (
     <Unstyled {...props}>
-      <LinkTo {...props} kind={kind} name={name}>
+      <LinkTo title="Introduction/Component Lifecycle" name="Docs">
         <StatusPill {...variantMap[status]} />
       </LinkTo>
       {children && (

@@ -1,10 +1,10 @@
 // @ts-expect-error React isn't injected globally in this file
 // biome-ignore lint/correctness/noUnusedImports: React isn't injected globally in this file
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  IconButton,
-  WithTooltip,
-  TooltipLinkList,
+  ActionList,
+  Button,
+  PopoverProvider,
 } from 'storybook/internal/components';
 import { ChevronSmallDownIcon } from '@storybook/icons';
 import { useParameter } from 'storybook/manager-api';
@@ -25,39 +25,39 @@ const DEFAULT_CONFIG: VersionsParameter = { previous: [] };
 export function Versions() {
   const config = useParameter<VersionsParameter>(PARAM_KEY, DEFAULT_CONFIG);
 
-  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-
   if (!config.current) {
     return null;
   }
 
   return (
-    <WithTooltip
-      placement="top"
-      closeOnOutsideClick
-      tooltip={() => (
-        <TooltipLinkList
-          links={config.previous.map((version) => ({
-            id: version.name,
-            title: version.name,
-            onClick: () => {
-              window.open(version.url, '_blank');
-              setIsTooltipVisible(false);
-            },
-            value: version.name,
-          }))}
-        />
+    <PopoverProvider
+      ariaLabel="Previous documentation versions"
+      padding={0}
+      popover={({ onHide }) => (
+        <ActionList>
+          {config.previous.map((version) => (
+            <ActionList.Item key={version.name}>
+              <ActionList.Link
+                ariaLabel={false}
+                href={version.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onHide}
+              >
+                <ActionList.Text>{version.name}</ActionList.Text>
+              </ActionList.Link>
+            </ActionList.Item>
+          ))}
+        </ActionList>
       )}
-      onVisibleChange={setIsTooltipVisible}
     >
-      {/* eslint-disable-next-line circuit-ui/no-renamed-props */}
-      <IconButton
-        key="versions"
-        title="Switch to previous versions of the documentation"
-        active={isTooltipVisible}
+      <Button
+        ariaLabel={`Switch documentation version, currently ${config.current}`}
+        variant="ghost"
+        padding="small"
       >
         {config.current} <ChevronSmallDownIcon aria-hidden="true" />
-      </IconButton>
-    </WithTooltip>
+      </Button>
+    </PopoverProvider>
   );
 }

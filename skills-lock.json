@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "skills": {
+    "component-docs": {
+      "source": "storybookjs/skills",
+      "ref": "v11.0.0-beta.3",
+      "commit": "50935c08d265ebbcfda54f0b87c5cb4df3541abe",
+      "sourceType": "github",
+      "skillPath": "skills/component-docs/SKILL.md",
+      "computedHash": "9a48761943ed65d101ca015475ae2e5471f903f7c74d426e541e676581f78707",
+      "installMode": "copy"
+    },
+    "storybook-init": {
+      "source": "storybookjs/skills",
+      "ref": "v11.0.0-beta.3",
+      "commit": "50935c08d265ebbcfda54f0b87c5cb4df3541abe",
+      "sourceType": "github",
+      "skillPath": "skills/storybook-init/SKILL.md",
+      "computedHash": "5f69de886d5f079f02d3f111b8fe91f2497110d127d190c47f19ad235feaa42a",
+      "installMode": "copy"
+    },
+    "storybook-setup": {
+      "source": "storybookjs/skills",
+      "ref": "v11.0.0-beta.3",
+      "commit": "50935c08d265ebbcfda54f0b87c5cb4df3541abe",
+      "sourceType": "github",
+      "skillPath": "skills/storybook-setup/SKILL.md",
+      "computedHash": "a99378f2ef116d55987b5a477fccbbd75ef477ae63976be00d7c84667b66e705",
+      "installMode": "copy"
+    },
+    "storybook-upgrade": {
+      "source": "storybookjs/skills",
+      "ref": "v11.0.0-beta.3",
+      "commit": "50935c08d265ebbcfda54f0b87c5cb4df3541abe",
+      "sourceType": "github",
+      "skillPath": "skills/storybook-upgrade/SKILL.md",
+      "computedHash": "3c298ea76deed14e010d2ba4b03d2ad7c8a1fad567629ef565c997ff37737a91",
+      "installMode": "copy"
+    },
+    "test-stories": {
+      "source": "storybookjs/skills",
+      "ref": "v11.0.0-beta.3",
+      "commit": "50935c08d265ebbcfda54f0b87c5cb4df3541abe",
+      "sourceType": "github",
+      "skillPath": "skills/test-stories/SKILL.md",
+      "computedHash": "1e2251c7236f521269231246faf5db37404f2599a7d0b7ee28e3432bec74da7e",
+      "installMode": "copy"
+    },
+    "ui-review": {
+      "source": "storybookjs/skills",
+      "ref": "v11.0.0-beta.3",
+      "commit": "50935c08d265ebbcfda54f0b87c5cb4df3541abe",
+      "sourceType": "github",
+      "skillPath": "skills/ui-review/SKILL.md",
+      "computedHash": "7c9d614841a239ae3c04eb1eb4cd98c145e6a86cd0719588836388103a826709",
+      "installMode": "copy"
+    },
+    "write-stories": {
+      "source": "storybookjs/skills",
+      "ref": "v11.0.0-beta.3",
+      "commit": "50935c08d265ebbcfda54f0b87c5cb4df3541abe",
+      "sourceType": "github",
+      "skillPath": "skills/write-stories/SKILL.md",
+      "computedHash": "5fef3c6e4d91d77526561607c2a8aae755e1b1eadb1b03e58f3c7bd89c9af4ab",
+      "installMode": "copy"
+    }
+  }
+}

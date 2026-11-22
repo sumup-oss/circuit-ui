@@ -17,6 +17,8 @@ import { defineConfig } from 'vite';
 import GithubActionsReporter from 'vitest-github-actions-reporter';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import { playwright } from '@vitest/browser-playwright';
 
 import { coverageConfigDefaults, type ViteUserConfig } from 'vitest/config';
 
@@ -69,9 +71,32 @@ const css: ViteUserConfig['css'] = {
 };
 
 export default defineConfig({
+  // Storybook writes its build to public/ and serves assets from staticDirs.
+  publicDir: false,
   css,
   test: {
-    projects: ['packages/**/vitest.config.ts', 'packages/**/vite.config.ts'],
+    projects: [
+      'packages/**/vitest.config.ts',
+      'packages/**/vite.config.ts',
+      // Storybook sets this when it starts Vitest for story tests.
+      ...(process.env.VITEST_STORYBOOK === 'true'
+        ? [
+            {
+              extends: true as const,
+              plugins: [storybookTest()],
+              test: {
+                name: 'storybook',
+                browser: {
+                  enabled: true,
+                  headless: true,
+                  provider: playwright(),
+                  instances: [{ browser: 'chromium' as const }],
+                },
+              },
+            },
+          ]
+        : []),
+    ],
     reporters: process.env.GITHUB_ACTIONS
       ? ['default', new GithubActionsReporter()]
       : 'default',

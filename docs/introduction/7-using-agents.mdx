@@ -1,0 +1,31 @@
+import { Intro, Meta } from '../../.storybook/components';
+
+<Meta title="Introduction/Using Agents" />
+
+# Using Circuit UI with agents
+
+<Intro>
+  Connect your coding agent to Circuit UI's Storybook so it can find existing
+  components and use their documented props and examples in your app.
+</Intro>
+
+## Connect your agent
+
+1. If your app is new to Circuit UI, follow the [getting started guide](Introduction/Getting-Started/Docs).
+2. Add the following URL to your agent's MCP settings as a **Streamable HTTP** server.
+
+   ```text
+   https://circuit.sumup.com/mcp
+   ```
+
+3. Start a new agent session and ask it to look up the Circuit UI Button and show an example.
+
+The endpoint is public and requires no sign-in.
+
+## Give your agent a concrete task
+
+> Add an email field and a submit button. Look up Circuit UI's Input and Button
+> in Storybook before writing code. Use the documented props and follow the
+> app’s existing conventions for validation and accessible labels.
+
+The published MCP server provides documentation lookup. Run your app's own Storybook to test stories or review UI changes. If you're working on Circuit UI itself, see the [contributor workflow](Contributing/Overview/Docs).

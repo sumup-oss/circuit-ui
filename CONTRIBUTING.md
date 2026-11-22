@@ -51,6 +51,19 @@ All packages related to the design system are organized in this monorepo. Thanks
 
 Refer to the `package.json` files in each package for other helpful scripts.
 
+### Storybook with AI agents
+
+The repository includes Storybook's skills for finding component documentation,
+writing and testing stories, and reviewing UI changes. Use the skills directly
+or start Storybook with `npm run docs` and connect your agent to
+`http://localhost:6006/mcp` using Streamable HTTP. Install Chromium with
+`npx playwright install chromium` to run story tests in the browser.
+
+To look up Circuit UI components from another project, connect your agent to
+`https://circuit.sumup.com/mcp`.
+
+See [Storybook's agent setup guide](https://storybook.js.org/docs/11/ai/connect).
+
 ### Changesets
 
 Circuit UI uses [changesets](https://github.com/atlassian/changesets) for versioning. As a contributor you can add a changeset for your changes by running `npx changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/contributing-release-process--docs).

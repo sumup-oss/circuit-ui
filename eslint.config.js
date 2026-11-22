@@ -10,9 +10,6 @@ import vitest from '@vitest/eslint-plugin';
 export default defineConfig([
   configs.ignores,
   {
-    ignores: ['scripts/generate-skills.js'],
-  },
-  {
     extends: [configs.typescript],
     languageOptions: {
       parserOptions: {

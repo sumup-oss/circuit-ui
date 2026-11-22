@@ -62,10 +62,11 @@ const badges: Record<string, BadgeConfig> = {
 };
 
 addons.setConfig({
-  isFullscreen: false,
-  showPanel: true,
-  showToolbar: true,
-  panelPosition: 'bottom',
+  layout: {
+    showPanel: true,
+    showToolbar: true,
+    panelPosition: 'bottom',
+  },
   sidebar: {
     filters: {
       patterns: (item) => !item.tags?.includes('hidden'),
