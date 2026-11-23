@@ -466,6 +466,25 @@ describe('DateInput', () => {
       expect(openCalendarButton).not.toHaveFocus();
     });
 
+    it('should close the calendar when pressing escape while the focus is on the calendar button', async () => {
+      render(<DateInput {...props} defaultValue="2000-01-12" />);
+
+      const openCalendarButton = screen.getByRole('button', {
+        name: /change date/i,
+      });
+      await userEvent.click(openCalendarButton);
+
+      const calendarDialog = screen.getByRole('dialog');
+      expect(calendarDialog).toBeVisible();
+
+      // Non-modal popovers don't take focus in all browsers
+      openCalendarButton.focus();
+      await userEvent.keyboard('{Escape}');
+
+      await waitFor(() => expect(calendarDialog).not.toBeVisible());
+    });
+
+
     describe('on narrow viewports', () => {
       beforeEach(() => {
         (useMedia as Mock).mockReturnValue(true);

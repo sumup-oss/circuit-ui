@@ -340,25 +340,36 @@ export function Dialog(props: DialogProps) {
 
   const handleEscapeKey = useCallback(
     (e: Event) => {
+      const target = e.target as Node;
+      const isInsideDialog = !!dialogRef.current?.contains(target);
+      // Non-modal dialogs don't take focus, so the escape key can be pressed
+      // while focus is still on the element that opened the dialog or on the body.
+      const isOutsideTarget =
+        !isInsideDialog &&
+        (target === document.body ||
+          // eslint-disable-next-line compat/compat
+          [preventOutsideClickRefs]
+            .flat()
+            .some((triggerRef) => triggerRef?.current?.contains(target)));
+      // if the event happened on another dialog element that is not a child of the current dialog, we don't want to close it
+      if (!isInsideDialog && !isOutsideTarget) {
+        return;
+      }
       // get all potential dialog elements in this dialog's composed path
-      // and check if it is topmost dialog .
+      // and check if it is topmost dialog.
       const isTopMostDialog =
         e
           .composedPath()
           .filter((el) => el instanceof Node && el.nodeName === 'DIALOG')[0] ===
         dialogRef.current;
-      if (
-        // if the event happened on another dialog element that is not a child of the current dialog, we don't want to close it
-        !dialogRef.current?.contains(e.target as Node) ||
-        // if the dialog is not the topmost dialog, we don't want to close it
-        !isTopMostDialog
-      ) {
+      // if the dialog is not the topmost dialog, we don't want to close it
+      if (isInsideDialog && !isTopMostDialog) {
         return;
       }
       e.preventDefault();
       handleDialogClose();
     },
-    [handleDialogClose],
+    [handleDialogClose, preventOutsideClickRefs],
   );
 
   useEscapeKey(handleEscapeKey, open && !preventEscapeKeyClose);
