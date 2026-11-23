@@ -484,7 +484,6 @@ describe('DateInput', () => {
       await waitFor(() => expect(calendarDialog).not.toBeVisible());
     });
 
-
     describe('on narrow viewports', () => {
       beforeEach(() => {
         (useMedia as Mock).mockReturnValue(true);
