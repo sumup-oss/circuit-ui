@@ -338,30 +338,15 @@ export function Dialog(props: DialogProps) {
     return () => dialogElement?.removeEventListener('cancel', handleCancel);
   }, [preventEscapeKeyClose]);
 
-  const handleEscapeKey = useCallback(
-    (e: Event) => {
-      // get all potential dialog elements in this dialog's composed path
-      // and check if it is topmost dialog .
-      const isTopMostDialog =
-        e
-          .composedPath()
-          .filter((el) => el instanceof Node && el.nodeName === 'DIALOG')[0] ===
-        dialogRef.current;
-      if (
-        // if the event happened on another dialog element that is not a child of the current dialog, we don't want to close it
-        !dialogRef.current?.contains(e.target as Node) ||
-        // if the dialog is not the topmost dialog, we don't want to close it
-        !isTopMostDialog
-      ) {
-        return;
-      }
-      e.preventDefault();
+  const handleEscapeKey = useCallback(() => {
+    if (!preventEscapeKeyClose) {
       handleDialogClose();
-    },
-    [handleDialogClose],
-  );
+    }
+  }, [handleDialogClose, preventEscapeKeyClose]);
 
-  useEscapeKey(handleEscapeKey, open && !preventEscapeKeyClose);
+  // Dialogs that can't be closed with the escape key still register, so that
+  // they block the escape key from closing the components beneath them.
+  useEscapeKey(handleEscapeKey, open);
 
   useEffect(
     () => () => {

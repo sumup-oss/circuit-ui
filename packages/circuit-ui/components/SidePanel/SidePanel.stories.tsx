@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { within, userEvent } from 'storybook/test';
 import type { Decorator } from '@storybook/react-vite';
 
@@ -21,6 +21,7 @@ import { modes } from '../../../../.storybook/modes.js';
 import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
+import { Modal } from '../Modal/index.js';
 import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
 import { FullViewport } from '../../../../.storybook/components/index.js';
@@ -300,4 +301,82 @@ UpdateAndRemove.args = baseArgs;
 UpdateAndRemove.play = basePlay;
 UpdateAndRemove.parameters = {
   chromatic: { delay: SIDEPANEL_UPDATE_DURATION },
+};
+
+type WithModalProps = { preventClose: boolean };
+
+const PanelWithModal = ({ preventClose }: WithModalProps) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  return (
+    <>
+      <Body style={{ marginBottom: '1rem' }}>
+        Open the modal and press the escape key or click outside of it. The
+        modal closes first and the side panel closes on the next escape key
+        press. With `preventClose`, the modal stays open and so does the side
+        panel.
+      </Body>
+      <Button
+        type="button"
+        variant="primary"
+        onClick={() => setModalOpen(true)}
+      >
+        Open modal
+      </Button>
+      <Modal
+        open={modalOpen}
+        variant="immersive"
+        preventClose={preventClose}
+        onClose={() => setModalOpen(false)}
+        closeButtonLabel="Close"
+        aria-label="Modal in a side panel"
+      >
+        <Button type="button" onClick={() => setModalOpen(false)}>
+          Done
+        </Button>
+      </Modal>
+    </>
+  );
+};
+
+const ComponentWithModalInSidePanel = ({ preventClose }: WithModalProps) => {
+  const { setSidePanel, updateSidePanel } = useSidePanel();
+  const isPanelOpen = useRef(false);
+
+  // Keep the side panel content in sync with the story control.
+  useEffect(() => {
+    if (isPanelOpen.current) {
+      updateSidePanel({
+        children: <PanelWithModal preventClose={preventClose} />,
+      });
+    }
+  }, [preventClose, updateSidePanel]);
+
+  return (
+    <Button
+      type="button"
+      variant="primary"
+      onClick={() => {
+        isPanelOpen.current = true;
+        setSidePanel({
+          ...baseArgs,
+          children: <PanelWithModal preventClose={preventClose} />,
+        });
+      }}
+      style={{ margin: '1rem' }}
+    >
+      Open side panel
+    </Button>
+  );
+};
+
+export const WithModal = ({ preventClose }: WithModalProps) => (
+  <SidePanelProvider>
+    <ComponentWithModalInSidePanel preventClose={preventClose} />
+  </SidePanelProvider>
+);
+WithModal.args = { preventClose: false };
+WithModal.argTypes = { preventClose: { control: 'boolean' } };
+WithModal.parameters = {
+  chromatic: { disableSnapshot: true },
 };
