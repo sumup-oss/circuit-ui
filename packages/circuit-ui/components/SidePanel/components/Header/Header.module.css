@@ -28,7 +28,7 @@
 .headline {
   flex: 1 1 auto;
   margin-left: var(--cui-spacings-zetta);
-  overflow-x: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
   white-space: nowrap;
