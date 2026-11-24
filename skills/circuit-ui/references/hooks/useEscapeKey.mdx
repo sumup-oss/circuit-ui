@@ -1,5 +1,6 @@
 import { Meta, Status, Story } from '../../../../.storybook/components';
 import * as Stories from './useEscapeKey.stories';
+import * as SidePanelStories from '../../components/SidePanel/SidePanel.stories';
 
 <Meta of={Stories} />
 
@@ -23,3 +24,11 @@ function useEscapeKey(
 Application menus, modals, and other components with an "open" state should be dismissable by pressing the escape key. Whenever possible, use standard Circuit UI components since they have keyboard support and other accessibility features built-in by default.
 
 In the rare case when you need to build a custom component, you can use this hook to enable users to dismiss it by pressing the escape key. The hook's event listener can be deactivated when the component isn't active (i.e. closed) to improve performance.
+
+## Stacked components
+
+When multiple components use the hook at the same time, only the most recently activated one is called. This way, stacked components are dismissed one at a time, starting with the topmost one.
+
+In the following example, a modal is opened from a side panel. Pressing the escape key closes the modal first and the side panel on the next key press. A modal with the `preventClose` prop blocks the escape key, so the side panel stays open as well.
+
+<Story of={SidePanelStories.WithModal} />
