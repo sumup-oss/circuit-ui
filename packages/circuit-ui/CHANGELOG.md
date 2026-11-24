@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.7.1
+
+### Patch Changes
+
+- [#4048](https://github.com/sumup-oss/circuit-ui/pull/4048) [`2efcabd`](https://github.com/sumup-oss/circuit-ui/commit/2efcabd355fa99d938ce9358a4c58152239013fb) Thanks [@missating](https://github.com/missating)! - Fixed a vertical scrollbar that could appear next to truncated text in the SidePanel header, ListItem labels and ListItemGroup labels.
+
 ## 12.7.0
 
 ### Minor Changes
