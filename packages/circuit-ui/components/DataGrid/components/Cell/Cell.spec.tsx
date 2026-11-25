@@ -67,6 +67,27 @@ describe('Cell', () => {
     expect(screen.getByRole('link')).toHaveAttribute('tabindex', '-1');
   });
 
+  it('should set tabindex of interactive children added after mounting to -1', () => {
+    const { rerender } = renderCell(<Cell>Cell content</Cell>);
+
+    rerender(
+      <table>
+        <tbody>
+          <tr>
+            <Cell>
+              <button type="button">Added</button>
+            </Cell>
+          </tr>
+        </tbody>
+      </table>,
+    );
+
+    expect(screen.getByRole('button', { name: 'Added' })).toHaveAttribute(
+      'tabindex',
+      '-1',
+    );
+  });
+
   it('should set tabindex of interactive children to 0 when focus and -1 when blurred', async () => {
     renderCell(
       <Cell {...defaultProps}>

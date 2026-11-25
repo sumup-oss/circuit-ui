@@ -1,5 +1,5 @@
 import { DataGrid, type DataGridProps } from './DataGrid.js';
-import type { Column } from './types.js';
+import type { Column, SortValue } from './types.js';
 import {
   Close,
   Crustaceans,
@@ -640,6 +640,81 @@ export const WithFilters = (args: DataGridProps<Member>) => {
 WithFilters.args = {
   ...baseArgs,
   columns: buildColumnsWithFilters(),
+};
+
+const sortableColumnIds = [
+  'full_name',
+  'dateOfBirth',
+  'age',
+  'subscriptionPrice',
+];
+
+const buildColumnsWithSorting = (): Column<Member>[] =>
+  columns.map((column) =>
+    sortableColumnIds.includes(column.id)
+      ? { ...column, sortable: true }
+      : column,
+  );
+
+const compareMembers = (a: Member, b: Member, columnId: string) => {
+  switch (columnId) {
+    case 'full_name':
+      return `${a.firstName} ${a.lastName}`.localeCompare(
+        `${b.firstName} ${b.lastName}`,
+      );
+    case 'dateOfBirth':
+      return a.dateOfBirth.localeCompare(b.dateOfBirth);
+    case 'age':
+      return a.age - b.age;
+    case 'subscriptionPrice':
+      return a.subscription.price - b.subscription.price;
+    default:
+      return 0;
+  }
+};
+
+export const WithSorting = (args: DataGridProps<Member>) => {
+  const [records, setRecords] = useState(args.data);
+
+  function sortRecords(sort?: SortValue) {
+    if (!sort) {
+      setRecords(args.data);
+      return;
+    }
+    const direction = sort.direction === 'ascending' ? 1 : -1;
+    setRecords(
+      [...args.data].sort(
+        (a, b) => direction * compareMembers(a, b, sort.columnId),
+      ),
+    );
+  }
+
+  return (
+    <DataGrid
+      {...args}
+      data={records}
+      sortConfig={{
+        onSort: sortRecords,
+        title: 'Sort by',
+        sortLabels: { ascending: 'Ascending', descending: 'Descending' },
+      }}
+    />
+  );
+};
+
+WithSorting.args = {
+  ...baseArgs,
+  columns: buildColumnsWithSorting(),
+  mobileConfig: {
+    ...mobileConfig,
+    sort: {
+      description: 'Choose how you want to see your members',
+      parametersLabel: 'Parameters',
+      orderLabel: 'Order',
+      applyLabel: 'Apply',
+      clearLabel: 'Clear',
+    },
+  },
 };
 
 export const VisibleColumns = (args: DataGridProps<Member>) => (

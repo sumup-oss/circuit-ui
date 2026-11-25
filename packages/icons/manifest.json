@@ -382,6 +382,26 @@
       "size": "16"
     },
     {
+      "name": "sort_ascending",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "sort_ascending",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "sort_descending",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "sort_descending",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "sparkles",
       "category": "Action",
       "size": "24"
