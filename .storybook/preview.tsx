@@ -58,25 +58,6 @@ export const parameters = {
   },
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
   controls: { expanded: true },
-  options: {
-    storySort: {
-      order: [
-        'Introduction',
-        'Features',
-        [
-          'Theme',
-          'Base Components',
-          'Illustrations',
-          'Utility Classes',
-          'Style Mixins',
-        ],
-        'Icons',
-        ['Overview', 'CardScheme', 'Flag', 'PaymentMethod'],
-        'Typography',
-      ],
-      includeName: true,
-    },
-  },
   docs: {
     theme: light,
     components,
@@ -91,11 +72,15 @@ const languageName = new Intl.DisplayNames(FALLBACK_LOCALE, {
   type: 'language',
 });
 
+export const initialGlobals = {
+  theme: 'system',
+  locale: FALLBACK_LOCALE,
+};
+
 export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Theme',
-    defaultValue: 'system',
     toolbar: {
       title: 'Theme',
       icon: 'paintbrush',
@@ -126,7 +111,6 @@ export const globalTypes = {
   locale: {
     name: 'Locale',
     description: 'Locale',
-    defaultValue: FALLBACK_LOCALE,
     toolbar: {
       title: 'Locale',
       icon: 'globe',

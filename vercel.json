@@ -1,4 +1,15 @@
 {
+  "functions": {
+    "api/mcp.ts": {
+      "includeFiles": "public/{manifests,services}/**/*.json"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    }
+  ],
   "headers": [
     {
       "source": "/icons/(.*)",
