@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.7.2
+
+### Patch Changes
+
+- [#4043](https://github.com/sumup-oss/circuit-ui/pull/4043) [`84ac40c`](https://github.com/sumup-oss/circuit-ui/commit/84ac40cf539dd46db4802372e5b847110ed7b607) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the close button from the modal ActionMenu on narrow viewports.
+
 ## 12.7.1
 
 ### Patch Changes
