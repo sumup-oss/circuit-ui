@@ -18,6 +18,9 @@ import type React from 'react';
 export const isEnter = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
   event.key === 'Enter';
 
+export const isTab = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
+  event.key === 'Tab';
+
 export const isEscape = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
   event.key === 'Escape';
 

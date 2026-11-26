@@ -385,6 +385,13 @@ Embedded.play = openModal;
 export const WithIcons = (args: AutocompleteInputProps) => (
   <AutocompleteInput {...args} />
 );
+
+export const WithFlagMedia = (args: AutocompleteInputProps) => (
+  <AutocompleteInput {...args} optionMedia="flag" searchDebounceMs={0} />
+);
+WithFlagMedia.args = {
+  ...baseArgs,
+};
 WithIcons.args = {
   ...baseArgs,
   options: addresses,
