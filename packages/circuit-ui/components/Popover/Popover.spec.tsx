@@ -192,6 +192,8 @@ describe('Popover', () => {
     it('should close the popover when clicking the escape key', async () => {
       renderPopover(baseProps);
 
+      // The first escape key press dismisses the open tooltip
+      await userEvent.keyboard('{Escape}');
       await userEvent.keyboard('{Escape}');
 
       await waitFor(() => expect(baseProps.onToggle).toHaveBeenCalledTimes(1));

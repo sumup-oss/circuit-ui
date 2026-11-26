@@ -24,6 +24,8 @@ import {
 } from '../../util/test-utils.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 
+import { Modal } from '../Modal/Modal.js';
+
 import { SidePanel, type SidePanelProps } from './SidePanel.js';
 
 vi.mock('../../hooks/useMedia/useMedia.js');
@@ -101,9 +103,27 @@ describe('SidePanel', () => {
 
     await waitFor(() => expect(sidePanel).toBeVisible());
 
+    // The first escape key press dismisses the open tooltip
+    await userEvent.keyboard('{Escape}');
     await userEvent.keyboard('{Escape}');
 
     await waitFor(() => expect(onClose).toHaveBeenCalled());
+  });
+
+  it('should not call the onClose callback when Esc is pressed while a modal that cannot be closed is open', async () => {
+    const onClose = vi.fn();
+    render(
+      <>
+        <SidePanel {...baseProps} onClose={onClose} />
+        <Modal open preventClose>
+          Modal content
+        </Modal>
+      </>,
+    );
+
+    await userEvent.keyboard('{Escape}');
+
+    expect(onClose).not.toHaveBeenCalled();
   });
 
   describe('when the panel is not stacked', () => {
@@ -163,6 +183,8 @@ describe('SidePanel', () => {
       const onBack = vi.fn();
       renderComponent({ onBack });
 
+      // The first escape key press dismisses the open tooltip
+      await userEvent.keyboard('{Escape}');
       await userEvent.keyboard('{Escape}');
 
       expect(onBack).toHaveBeenCalled();

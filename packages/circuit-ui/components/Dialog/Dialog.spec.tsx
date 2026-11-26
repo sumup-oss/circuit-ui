@@ -317,6 +317,8 @@ describe('Dialog', () => {
           hidden: true,
         });
         vi.spyOn(dialog, 'close');
+        // The first escape key press dismisses the open tooltip
+        await userEvent.keyboard('{Escape}');
         await userEvent.keyboard('{Escape}');
         expect(dialog.close).toHaveBeenCalled();
         expect(props.onCloseEnd).toHaveBeenCalled();

@@ -37,4 +37,54 @@ describe('useEscapeKey', () => {
 
     expect(callback).not.toHaveBeenCalled();
   });
+
+  it('should only call the most recently activated callback', async () => {
+    const first = vi.fn();
+    const second = vi.fn();
+    renderHook(() => useEscapeKey(first));
+    renderHook(() => useEscapeKey(second));
+
+    await userEvent.keyboard('{Escape}');
+
+    expect(second).toHaveBeenCalledTimes(1);
+    expect(first).not.toHaveBeenCalled();
+  });
+
+  it('should call the callbacks one at a time as they are deactivated', async () => {
+    const first = vi.fn();
+    const second = vi.fn();
+    renderHook(() => useEscapeKey(first));
+    const { unmount } = renderHook(() => useEscapeKey(second));
+
+    await userEvent.keyboard('{Escape}');
+    unmount();
+    await userEvent.keyboard('{Escape}');
+
+    expect(second).toHaveBeenCalledTimes(1);
+    expect(first).toHaveBeenCalledTimes(1);
+  });
+
+  it('should keep its position in the stack when the callback changes', async () => {
+    const first = vi.fn();
+    const second = vi.fn();
+    const { rerender } = renderHook(({ cb }) => useEscapeKey(cb), {
+      initialProps: { cb: first },
+    });
+    renderHook(() => useEscapeKey(second));
+
+    rerender({ cb: vi.fn() });
+    await userEvent.keyboard('{Escape}');
+
+    expect(second).toHaveBeenCalledTimes(1);
+  });
+
+  it('should block the components beneath when the callback is a no-op', async () => {
+    const callback = vi.fn();
+    renderHook(() => useEscapeKey(callback));
+    renderHook(() => useEscapeKey(() => {}));
+
+    await userEvent.keyboard('{Escape}');
+
+    expect(callback).not.toHaveBeenCalled();
+  });
 });
