@@ -1,0 +1,34 @@
+:host {
+  --diffs-bg: var(--cui-bg-normal);
+  --diffs-fg: var(--cui-fg-normal);
+  --diffs-fg-number: var(--cui-fg-subtle);
+  --diffs-font-size: 0.8125rem;
+  --diffs-line-height: var(--cui-body-s-line-height);
+  --diffs-gap-block: var(--cui-spacings-mega);
+  --diffs-gap-inline: var(--cui-spacings-mega);
+  --diffs-tab-size: 2;
+
+  min-width: 0;
+  max-width: 100%;
+  color-scheme: inherit;
+  /* stylelint-disable-next-line property-no-vendor-prefix -- Safari needs this prefix to avoid enlarging the code text. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+[data-file],
+[data-code] {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Only show a horizontal scrollbar when the code overflows. */
+[data-code] {
+  padding-block: var(--diffs-gap-block, var(--diffs-gap-fallback));
+  overflow-x: auto;
+  scrollbar-gutter: auto;
+}
+
+[data-file][data-disable-line-numbers] [data-line] {
+  padding-inline: var(--diffs-gap-inline, var(--diffs-gap-fallback));
+}
