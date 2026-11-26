@@ -1,0 +1,28 @@
+.cell {
+  padding: var(--cui-spacings-mega);
+  text-align: left;
+  background-color: var(--cui-bg-normal);
+  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+}
+
+.cell:focus {
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
+}
+
+.align-right {
+  text-align: right;
+}
+
+.title {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.base th:first-of-type {
+  border-top-left-radius: var(--cui-border-radius-mega);
+}
+
+.base th:last-of-type {
+  border-top-right-radius: var(--cui-border-radius-mega);
+}

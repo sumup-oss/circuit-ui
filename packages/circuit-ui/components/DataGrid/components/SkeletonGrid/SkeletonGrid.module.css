@@ -1,0 +1,73 @@
+.cell {
+  padding: var(--cui-spacings-mega) var(--cui-spacings-kilo);
+  background-color: var(--cui-bg-normal);
+}
+
+.mobile-cell {
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-byte);
+  background-color: var(--cui-bg-normal);
+}
+
+.container {
+  display: flex;
+  padding: var(--cui-spacings-bit) 0;
+}
+
+.labels {
+  width: 100%;
+}
+
+.title,
+.subtitle,
+.trailing {
+  display: block;
+  height: var(--cui-body-m-line-height);
+}
+
+.title {
+  width: 70%;
+}
+
+.subtitle {
+  width: 50%;
+  margin-top: var(--cui-spacings-bit);
+}
+
+.trailing {
+  width: 48px;
+}
+
+.bar {
+  width: 80%;
+  height: var(--cui-body-s-line-height);
+}
+
+.row:last-of-type .cell:first-of-type {
+  border-bottom-left-radius: var(--cui-border-radius-mega);
+}
+
+.row:last-of-type .cell:last-of-type {
+  border-bottom-right-radius: var(--cui-border-radius-mega);
+}
+
+.row-actions {
+  float: right;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--cui-border-radius-circle);
+}
+
+.quick-actions {
+  display: flex;
+}
+
+.circle {
+  width: var(--cui-body-s-line-height);
+  height: var(--cui-body-s-line-height);
+  margin-left: var(--cui-spacings-byte);
+  border-radius: var(--cui-border-radius-circle);
+}
+
+.align-right {
+  float: right;
+}
