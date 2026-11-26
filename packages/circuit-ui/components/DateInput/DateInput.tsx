@@ -414,6 +414,7 @@ export function DateInput({ ref, ...props }: DateInputProps) {
             </header>
 
             <Calendar
+              autoFocus
               className={classes.calendar}
               onSelect={handleSelect}
               selection={selection}

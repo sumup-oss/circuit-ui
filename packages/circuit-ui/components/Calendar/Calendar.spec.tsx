@@ -344,6 +344,27 @@ describe('Calendar', () => {
     expect(march21).toHaveAccessibleDescription('Booked');
   });
 
+  it('should focus the selected date when autoFocus is enabled', async () => {
+    const selection = new Temporal.PlainDate(2020, 3, 21);
+    render(<Calendar {...baseProps} selection={selection} autoFocus />);
+
+    await waitFor(() => expect(getDayElement(21)).toHaveFocus());
+  });
+
+  it("should focus today's date when autoFocus is enabled without a selection", async () => {
+    render(<Calendar {...baseProps} selection={undefined} autoFocus />);
+
+    await waitFor(() => expect(getDayElement(12)).toHaveFocus());
+  });
+
+  it('should not move the focus by default', async () => {
+    render(<Calendar {...baseProps} />);
+
+    await act(() => wait(10));
+
+    expect(document.body).toHaveFocus();
+  });
+
   it('should meet accessibility guidelines', async () => {
     const { container } = render(<Calendar {...baseProps} />);
     const actual = await axe(container);

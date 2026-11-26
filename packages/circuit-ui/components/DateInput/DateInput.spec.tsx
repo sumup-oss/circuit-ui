@@ -466,6 +466,23 @@ describe('DateInput', () => {
       expect(openCalendarButton).not.toHaveFocus();
     });
 
+    it('should move the focus into the calendar and close it when pressing escape', async () => {
+      render(<DateInput {...props} defaultValue="2000-01-12" />);
+
+      await userEvent.click(
+        screen.getByRole('button', { name: /change date/i }),
+      );
+      const calendarDialog = screen.getByRole('dialog');
+
+      await waitFor(() =>
+        // eslint-disable-next-line testing-library/no-node-access
+        expect(document.activeElement).toHaveAttribute('tabindex', '0'),
+      );
+      await userEvent.keyboard('{Escape}');
+
+      await waitFor(() => expect(calendarDialog).not.toBeVisible());
+    });
+
     describe('on narrow viewports', () => {
       beforeEach(() => {
         (useMedia as Mock).mockReturnValue(true);
