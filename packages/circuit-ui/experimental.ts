@@ -18,3 +18,12 @@ export type { TimeInputProps } from './components/TimeInput/TimeInput.js';
 
 export { FileInput } from './components/FileInput/FileInput.js';
 export type { FileInputProps } from './components/FileInput/FileInput.js';
+
+// Data Grid
+export { DataGrid } from './components/DataGrid/DataGrid.js';
+export type { DataGridProps } from './components/DataGrid/DataGrid.js';
+export type {
+  Column,
+  ColumnType,
+  MobileConfig,
+} from './components/DataGrid/types.js';

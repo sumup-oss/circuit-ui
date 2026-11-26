@@ -1,0 +1,16 @@
+.list {
+  /* The rows carry their own 8px, so the list starts 12px from the edge */
+  margin-top: calc(var(--cui-border-width-kilo) - var(--cui-spacings-bit));
+}
+
+.list ul {
+  gap: 0;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+
+  /* 24px content height plus the byte spacing above and below */
+  min-height: calc(var(--cui-spacings-giga) + 2 * var(--cui-spacings-byte));
+}

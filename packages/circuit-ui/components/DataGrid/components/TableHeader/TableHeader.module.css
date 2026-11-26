@@ -1,0 +1,61 @@
+.cell {
+  padding: var(--cui-spacings-mega);
+  text-align: left;
+  background-color: var(--cui-bg-normal);
+  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+}
+
+.cell:focus {
+  outline: var(--cui-border-width-mega) solid var(--cui-border-focus);
+}
+
+.align-right {
+  text-align: right;
+}
+
+.title {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.base th:first-of-type {
+  border-top-left-radius: var(--cui-border-radius-mega);
+}
+
+.base th:last-of-type {
+  border-top-right-radius: var(--cui-border-radius-mega);
+}
+
+.base .sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.base .sortable:hover,
+.base .sorted {
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.sort-content {
+  display: flex;
+  gap: var(--cui-spacings-bit);
+  align-items: center;
+}
+
+.sort-content .title {
+  min-width: 0;
+}
+
+/* The icon is revealed on hover and focus, and stays visible while sorted. */
+.sort-icon {
+  flex-shrink: 0;
+  color: var(--cui-fg-subtle);
+  opacity: 0;
+}
+
+.base .sortable:hover .sort-icon,
+.base .sortable:focus-within .sort-icon,
+.base .sorted .sort-icon {
+  opacity: 1;
+}
