@@ -108,6 +108,13 @@ export interface CalendarProps
     Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   ref?: Ref<HTMLDivElement>;
   /**
+   * Whether to focus the selected date, or today's date, when the calendar is
+   * first rendered. Only use it in response to a user action, for example when
+   * the calendar is displayed in a popover.
+   * @default false
+   */
+  autoFocus?: boolean;
+  /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
    * When passing an array, the first supported locale is used.
@@ -159,6 +166,7 @@ export function Calendar(props: CalendarProps) {
     nextMonthButtonLabel,
     modifiers,
     numberOfMonths = 1,
+    autoFocus,
     ...rest
   } = useTranslations(props, translations);
   const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
@@ -176,6 +184,23 @@ export function Calendar(props: CalendarProps) {
   }, [numberOfMonths]);
 
   const calendarRef = useRef<HTMLDivElement>(null);
+
+  const focusActiveDate = useCallback(() => {
+    calendarRef.current
+      ?.querySelector<HTMLButtonElement>('button[tabindex="0"]')
+      ?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (!autoFocus) {
+      return undefined;
+    }
+    // Wait for a surrounding dialog to be shown
+    const timeout = setTimeout(focusActiveDate);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [autoFocus, focusActiveDate]);
 
   const { daysInWeek } = focusedDate;
 
@@ -195,15 +220,14 @@ export function Calendar(props: CalendarProps) {
     }
   });
 
-  const handleFocusDate = useCallback((date: Temporal.PlainDate) => {
-    dispatch({ type: CalendarActionType.FOCUS_DATE, date });
-    // Focus the button on the next tick after React has rerendered the UI
-    window.requestAnimationFrame(() => {
-      calendarRef.current
-        ?.querySelector<HTMLButtonElement>('button[tabindex="0"]')
-        ?.focus();
-    });
-  }, []);
+  const handleFocusDate = useCallback(
+    (date: Temporal.PlainDate) => {
+      dispatch({ type: CalendarActionType.FOCUS_DATE, date });
+      // Focus the button on the next tick after React has rerendered the UI
+      window.requestAnimationFrame(focusActiveDate);
+    },
+    [focusActiveDate],
+  );
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
